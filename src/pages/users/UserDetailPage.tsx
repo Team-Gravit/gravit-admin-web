@@ -65,9 +65,8 @@ export function UserDetailPage() {
           <h3 className="text-h3 text-foreground">{data.nickname}</h3>
           <p className="text-body text-fg-muted">@{data.handle}</p>
           <p className="text-body text-fg-muted">{data.email}</p>
-          <p className="text-caption text-fg-muted">
-            가입일: {formatDate(data.createdAt)} · 레벨: Lv.{data.level}
-          </p>
+          <p className="text-body text-fg-muted">가입일: {formatDate(data.createdAt)}</p>
+          <p className="text-body text-fg-muted">레벨: Lv.{data.level}</p>
         </div>
       </div>
 

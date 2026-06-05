@@ -1,0 +1,1 @@
+{ "id": "step-4:USER_DETAIL", "spec": "PASS", "ds": "PASS", "diffs": ["[deferred] profileImgNumber 프리셋 매핑=사용자앱 위임(§10-5) → 아바타 placeholder", "[deferred] D3 본인 식별 경고=/admin/me(D4) 이연, 모달 위험경고 대체", "[반영] 가입일/레벨 별도 행(DS-02 §7)"], "commit": "bf701a9", "ts": "2026-06-05" }
