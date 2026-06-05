@@ -1,0 +1,1 @@
+{ "id": "step-4:USER_LIST", "spec": "PASS", "ds": "PASS", "diffs": ["[보완] 컬럼 폭 Tailwind 스케일 근사(120px↔w-32 등) — 새 토큰 미추가 정책", "[question] MSW search 대소문자 정책=백엔드 확인(dev목, 화면무관)"], "commit": "8657ff4", "ts": "2026-06-05" }
