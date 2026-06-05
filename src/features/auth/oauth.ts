@@ -21,5 +21,9 @@ export class OAuthNotWiredError extends Error {
  * 연동 시 이 함수만 각 provider SDK 호출로 교체하면 LoginPage/OAuthButtons 변경 불필요.
  */
 export function acquireOAuthIdToken(provider: ProviderId): Promise<string> {
+  // dev: MSW 목으로 로컬 로그인 흐름 동작(가짜 idToken). 프로덕션은 미배선 경계 유지.
+  if (import.meta.env.DEV) {
+    return Promise.resolve(`mock-id-token-${provider}`);
+  }
   return Promise.reject(new OAuthNotWiredError(provider));
 }
