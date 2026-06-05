@@ -24,6 +24,12 @@
 - 공지: DRAFT→{DRAFT,PUBLISHED} / PUBLISHED→{PUBLISHED,ARCHIVED} / ARCHIVED→ARCHIVED. (03 §9-4)
 - 스테이징 promote: `PATCH /staging/labels/{label}/status` → PENDING→COMPLETED. **가장 위험·비가역 → 코드구조만, 실행은 사람.** → [[hooks]]
 
+## 04 stale 조항 — 03 우선 (Step 2 해소, 재발 방지)
+> 04 의사코드 중 03 v1.1과 어긋나는 항목. 코드는 항상 03을 따른다.
+- 04 §6-4 (access-only 저장)        → 03 §3-2: refresh Rotation, access+refresh **둘 다** 저장
+- 04 §7-4 (logout 미제공)           → 03 §3-3: POST /auth/logout 구현(body refreshToken, 204)
+- 04 §6 (/auth/reissue), §6-7 {error,message} → 03 §3-2 POST /api/v1/admin/auth/refresh, §2-5 {code,message}
+
 ## 토큰 (03 §3)
 - access 2h / refresh 14d, refresh Rotation, Redis 화이트리스트. 401 → reissue 단일비행 큐로 갱신 후 retry. → [[good-patterns]]
 
