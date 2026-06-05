@@ -196,4 +196,21 @@ export const handlers = [
   // 유저 상태/역할 변경 (03 §5-3/§5-4, 200)
   http.patch('*/api/v1/admin/users/:userId/status', () => new HttpResponse(null, { status: 200 })),
   http.patch('*/api/v1/admin/users/:userId/role', () => new HttpResponse(null, { status: 200 })),
+
+  // 신고 목록 (03 §6-1, reportType/isResolved 필터)
+  http.get('*/api/v1/admin/reports', ({ request }) => {
+    const url = new URL(request.url);
+    const reportType = url.searchParams.get('reportType');
+    const isResolved = url.searchParams.get('isResolved');
+    const all = [
+      { reportId: 1024, reportType: 'TYPO_ERROR', problemId: 512, isResolved: false, submittedAt: '2026-04-23T14:32:00Z' },
+      { reportId: 1023, reportType: 'ANSWER_ERROR', problemId: 488, isResolved: false, submittedAt: '2026-04-22T09:10:00Z' },
+      { reportId: 1020, reportType: 'CONTENT_ERROR', problemId: 471, isResolved: true, submittedAt: '2026-04-20T18:45:00Z' },
+      { reportId: 1015, reportType: 'OTHER_ERROR', problemId: 450, isResolved: true, submittedAt: '2026-04-18T11:05:00Z' },
+    ];
+    let content = all;
+    if (reportType) content = content.filter((r) => r.reportType === reportType);
+    if (isResolved !== null) content = content.filter((r) => r.isResolved === (isResolved === 'true'));
+    return HttpResponse.json({ page: 1, totalPages: 1, hasNextPage: false, content });
+  }),
 ];
