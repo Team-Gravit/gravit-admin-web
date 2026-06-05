@@ -82,10 +82,9 @@ export function NoticeDetailPage() {
           <h3 className="text-h3 text-foreground">요약</h3>
           <p className="text-body text-fg-secondary">{data.summary}</p>
         </section>
-        <section className="flex flex-col gap-2">
-          <h3 className="text-h3 text-foreground">본문</h3>
-          <NoticeMarkdownViewer content={data.content} />
-        </section>
+        {/* 본문 라벨 대신 구분선 (DS border 토큰, 미니멀) */}
+        <hr className="border-border" />
+        <NoticeMarkdownViewer content={data.content} />
       </div>
 
       <ConfirmModal
