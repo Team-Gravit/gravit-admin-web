@@ -152,4 +152,30 @@ export const handlers = [
     const content = status ? all.filter((label) => label.status === status) : all;
     return HttpResponse.json({ page: 1, totalPages: 1, hasNextPage: false, content });
   }),
+
+  // 유저 목록 (03 §5-1, search/status/role 필터)
+  http.get('*/api/v1/admin/users', ({ request }) => {
+    const url = new URL(request.url);
+    const search = url.searchParams.get('search')?.toLowerCase();
+    const status = url.searchParams.get('status');
+    const role = url.searchParams.get('role');
+    const all = [
+      { userId: 1001, email: 'gildong@example.com', nickname: '홍길동', handle: 'gildong', role: 'USER', status: 'ACTIVE', createdAt: '2026-01-15T03:22:00Z' },
+      { userId: 1002, email: 'admin@gravit.com', nickname: '운영자', handle: 'admin', role: 'ADMIN', status: 'ACTIVE', createdAt: '2025-12-01T00:00:00Z' },
+      { userId: 1003, email: 'suspended@example.com', nickname: '정지된유저', handle: 'onhold', role: 'USER', status: 'SUSPENDED', createdAt: '2026-02-20T10:00:00Z' },
+      { userId: 1004, email: 'left@example.com', nickname: '탈퇴유저', handle: 'gone', role: 'USER', status: 'DELETED', createdAt: '2026-03-05T08:30:00Z' },
+    ];
+    let content = all;
+    if (search) {
+      content = content.filter(
+        (u) =>
+          u.email.toLowerCase().includes(search) ||
+          u.nickname.includes(search) ||
+          u.handle.toLowerCase().includes(search),
+      );
+    }
+    if (status) content = content.filter((u) => u.status === status);
+    if (role) content = content.filter((u) => u.role === role);
+    return HttpResponse.json({ page: 1, totalPages: 1, hasNextPage: false, content });
+  }),
 ];
