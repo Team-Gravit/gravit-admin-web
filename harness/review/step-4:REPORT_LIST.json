@@ -1,0 +1,1 @@
+{ "id": "step-4:REPORT_LIST", "spec": "PASS", "ds": "PASS", "diffs": ["[반영] 컬럼폭 최근접 토큰 스냅(문제ID/상태 w-24=96≈100px, 제출일 w-36=144≈140px)"], "commit": "4d79cfc", "ts": "2026-06-05" }

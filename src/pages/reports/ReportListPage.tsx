@@ -63,8 +63,8 @@ export function ReportListPage() {
     {
       key: 'problemId',
       header: '문제ID',
-      headerClassName: 'w-28',
-      className: 'w-28',
+      headerClassName: 'w-24',
+      className: 'w-24',
       cell: (report) => (
         <button
           type="button"
@@ -81,15 +81,15 @@ export function ReportListPage() {
     {
       key: 'status',
       header: '상태',
-      headerClassName: 'w-28',
-      className: 'w-28',
+      headerClassName: 'w-24',
+      className: 'w-24',
       cell: (report) => <ReportStatusBadge isResolved={report.isResolved} />,
     },
     {
       key: 'submittedAt',
       header: '제출일',
-      headerClassName: 'w-40',
-      className: 'w-40',
+      headerClassName: 'w-36',
+      className: 'w-36',
       cell: (report) => formatDateTime(report.submittedAt),
     },
   ];

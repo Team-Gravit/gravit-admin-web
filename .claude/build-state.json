@@ -17,7 +17,7 @@
     { "id": "step-4:NOTICE_DETAIL",    "status": "COMPLETED" },
     { "id": "step-4:USER_LIST",        "status": "COMPLETED" },
     { "id": "step-4:USER_DETAIL",      "status": "COMPLETED" },
-    { "id": "step-4:REPORT_LIST",      "status": "TODO" },
+    { "id": "step-4:REPORT_LIST",      "status": "COMPLETED" },
     { "id": "step-4:REPORT_DETAIL",    "status": "TODO" },
     { "id": "step-4:UNIT_DETAIL",      "status": "TODO" },
     { "id": "step-4:LESSON_DETAIL",    "status": "TODO" },
@@ -44,7 +44,8 @@
     "step-3:CHAPTER_LIST": "figma node 8717:1514 (hu4c6qCEMB62qHXk2v8Gsl)",
     "step-3:STAGING_LIST": "figma node 8717:1078 (hu4c6qCEMB62qHXk2v8Gsl)",
     "step-4:USER_LIST": "figma node 8718:3276 (hu4c6qCEMB62qHXk2v8Gsl)",
-    "step-4:USER_DETAIL": "figma node 8717:2006 (hu4c6qCEMB62qHXk2v8Gsl)"
+    "step-4:USER_DETAIL": "figma node 8717:2006 (hu4c6qCEMB62qHXk2v8Gsl)",
+    "step-4:REPORT_LIST": "figma node 8635:2720 (hu4c6qCEMB62qHXk2v8Gsl)"
   },
   "retry": {},
   "manual_review": [
@@ -71,6 +72,7 @@
     { "id": "step-3:STAGING_LIST", "status": "COMPLETED", "ts": "2026-06-05", "gate": "full(OK)", "figma": "8717:1078 (metadata 확인, 01 §6-6-1 일치)", "note": "STAGING_LIST: Page Header(스테이징) + 상태 필터(전체/검수대기/반영완료, 기본 PENDING, 변경 시 즉시 refetch+1p리셋) + DataTable(라벨 mono/유닛 U-{id}/설명/상태 badge/생성일) + Pagination. 행클릭→/staging/labels/:label, 목록 promote 불가. features/staging(schemas·api·queries·StagingStatusBadge, stagingKeys). 4상태(Empty 필터별). MSW GET /staging/labels(status 필터). ▶ Step 3 전체 완료." },
     { "id": "step-3:review", "ts": "2026-06-05", "note": "7화면(LOGIN~NOTICE_DETAIL) spec-conformance + ds-conformance 리뷰: 하드위반 0건(둘 다 PASS). DIFF-CANDIDATE 3건 수정 — ① NoticeEditForm ARCHIVED Select disabled(04 §10-1) ② 삭제 confirm 에 공지 제목 포함(01 §6-2-3) ③ OAuth naver text-white→text-brand-naver-fg 토큰(토큰만 원칙, D5 brand). 재게이트 full OK." },
     { "id": "step-4:USER_LIST", "status": "COMPLETED", "ts": "2026-06-05", "gate": "full(OK)", "figma": "8718:3276", "review": "spec PASS, ds PASS (8657ff4)", "note": "USER_LIST: Filter Bar(검색 input+[검색]+상태·역할 Select) + DataTable(이메일/닉네임/handle@/역할badge/상태badge/가입일) + Pagination. 검색 제출 적용·필터 즉시·1p리셋. features/users(schemas·api·queries·UserStatusBadge·UserRoleBadge, userKeys). 4상태(Empty 필터별). MSW GET /users(search/status/role). 리뷰 PASS×2, 컬럼폭 Tailwind 근사는 보완(새 토큰 미추가)." },
-    { "id": "step-4:USER_DETAIL", "status": "COMPLETED", "ts": "2026-06-05", "gate": "full(OK)", "figma": "8717:2006", "review": "spec PASS, ds PASS (bf701a9)", "note": "USER_DETAIL: 프로필 카드(아바타 placeholder+닉네임+@handle+email+가입일+Lv) + 권한·상태(역할/상태 Select+Badge). 드롭다운 변경→UserStatusChangeModal(5케이스, DELETED·ADMIN destructive)→PATCH→토스트 '변경되었습니다'+invalidate(detail+lists), 취소→controlled 원복. features/users(getUser/updateStatus/updateRole, useUser, useUpdateUserStatus/Role). MSW GET /users/:id·PATCH status/role. 리뷰 반영: 가입일/레벨 별도 행(DS-02 §7). D3 자기경고·profileImg 매핑 이연." }
+    { "id": "step-4:USER_DETAIL", "status": "COMPLETED", "ts": "2026-06-05", "gate": "full(OK)", "figma": "8717:2006", "review": "spec PASS, ds PASS (bf701a9)", "note": "USER_DETAIL: 프로필 카드(아바타 placeholder+닉네임+@handle+email+가입일+Lv) + 권한·상태(역할/상태 Select+Badge). 드롭다운 변경→UserStatusChangeModal(5케이스, DELETED·ADMIN destructive)→PATCH→토스트 '변경되었습니다'+invalidate(detail+lists), 취소→controlled 원복. features/users(getUser/updateStatus/updateRole, useUser, useUpdateUserStatus/Role). MSW GET /users/:id·PATCH status/role. 리뷰 반영: 가입일/레벨 별도 행(DS-02 §7). D3 자기경고·profileImg 매핑 이연." },
+    { "id": "step-4:REPORT_LIST", "status": "COMPLETED", "ts": "2026-06-05", "gate": "full(OK)", "figma": "8635:2720", "review": "spec PASS, ds PASS (4d79cfc)", "note": "REPORT_LIST: Page Header + 필터(유형/처리상태, 기본 미해결) + DataTable(ID #/유형 텍스트/문제ID P-(별도링크 stopPropagation→/problems/:id)/상태 Badge(미해결 danger·해결 success)/제출일 datetime) + Pagination. 행클릭→/reports/:id. features/reports(schemas·api·queries·ReportStatusBadge, reportKeys). 4상태(Empty 필터별). MSW GET /reports. 리뷰 반영: 컬럼폭 최근접 토큰 스냅(문제ID/상태 w-24, 제출일 w-36)." }
   ]
 }
