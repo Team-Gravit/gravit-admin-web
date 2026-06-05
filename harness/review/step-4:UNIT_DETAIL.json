@@ -1,0 +1,1 @@
+{ "id": "step-4:UNIT_DETAIL", "spec": "PASS", "ds": "PASS", "diffs": ["[deferred] Breadcrumb(학습 컨텐츠 > 챕터 > 유닛, DS-02 §12)은 전역 Header handle 일괄 배선까지 이연 — 페이지 h1 제목으로 대체(NOTICE/USER/REPORT 상세와 동일 공통 처리)"], "commit": "876a3c0", "ts": "2026-06-05" }
