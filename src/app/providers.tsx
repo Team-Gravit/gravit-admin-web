@@ -1,17 +1,30 @@
 import type { ReactNode } from 'react';
-import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import {
+  QueryClient,
+  QueryClientProvider,
+  QueryCache,
+  MutationCache,
+} from '@tanstack/react-query';
+import { isAxiosError } from 'axios';
 import { GoogleOAuthProvider } from '@react-oauth/google';
 import { Toaster } from '@/shared/components/ui/sonner';
+import { showErrorToast } from '@/shared/api/errorHandler';
 import { env } from '@/env';
 
 /**
  * 앱 전역 프로바이더 (04 §6-6, §11-2).
- * - QueryClient: 백오피스 특성상 window focus refetch 비활성, retry 1, staleTime 30s.
- *   (QueryCache/MutationCache 글로벌 onError → showErrorToast 연결은 Step 2 에서 추가)
- * - Toaster(sonner): 우상단, 3초 dismiss.
- * - GoogleOAuthProvider: Google OAuth.
+ * - QueryClient: window focus refetch 비활성, retry 1, staleTime 30s.
+ * - 글로벌 onError → showErrorToast (401 은 client.ts 인터셉터가 처리하므로 토스트 생략).
+ * - Toaster(sonner): 우상단, 3초 dismiss. GoogleOAuthProvider: Google OAuth.
  */
+function handleGlobalError(error: unknown): void {
+  if (isAxiosError(error) && error.response?.status === 401) return;
+  showErrorToast(error);
+}
+
 const queryClient = new QueryClient({
+  queryCache: new QueryCache({ onError: handleGlobalError }),
+  mutationCache: new MutationCache({ onError: handleGlobalError }),
   defaultOptions: {
     queries: {
       retry: 1,

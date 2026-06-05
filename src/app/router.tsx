@@ -1,5 +1,8 @@
-import { createBrowserRouter } from 'react-router';
+import { createBrowserRouter, redirect, type LoaderFunction } from 'react-router';
 import { ROUTES } from '@/shared/constants/routes';
+import { tokenManager } from '@/shared/api/tokenManager';
+import { LoginLayout } from '@/shared/components/layout/LoginLayout';
+import { AppShell } from '@/pages/AppShell';
 import { LoginPage } from '@/pages/login/LoginPage';
 import { DashboardPage } from '@/pages/dashboard/DashboardPage';
 import { UserListPage } from '@/pages/users/UserListPage';
@@ -18,17 +21,26 @@ import { NoticeNewPage } from '@/pages/notices/NoticeNewPage';
 import { NoticeDetailPage } from '@/pages/notices/NoticeDetailPage';
 
 /**
- * 라우터 빈 셸 (Step 1). 16개 라우트가 404 없이 매칭된다.
- * Step 2 에서 MainLayout/LoginLayout 레이아웃 element 와 protectedLoader 를 부착한다.
+ * ProtectedRoute (04 §7-3, loader 방식). refreshToken 부재 → /login 리다이렉트.
+ * D4: GET /admin/me 미구현 → 운영자 프로필 fetch 생략(가용 정보로 처리). tokenManager(shared)만 사용.
  */
+const protectedLoader: LoaderFunction = () => {
+  const refreshToken = tokenManager.getRefreshToken();
+  if (!refreshToken) {
+    throw redirect(ROUTES.LOGIN);
+  }
+  return null;
+};
+
 export const router = createBrowserRouter([
   {
-    path: ROUTES.LOGIN,
-    element: <LoginPage />,
+    element: <LoginLayout />,
+    children: [{ path: ROUTES.LOGIN, element: <LoginPage /> }],
   },
   {
     path: '/',
-    // element/Component 없는 부모 라우트는 기본 <Outlet /> 을 렌더 → 매칭된 자식 표시
+    element: <AppShell />,
+    loader: protectedLoader,
     children: [
       { index: true, element: <DashboardPage /> },
       { path: 'users', element: <UserListPage /> },

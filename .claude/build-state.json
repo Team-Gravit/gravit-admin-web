@@ -7,7 +7,7 @@
   },
   "checklist": [
     { "id": "step-1-setup",            "status": "COMPLETED" },
-    { "id": "step-2-infra",            "status": "TODO" },
+    { "id": "step-2-infra",            "status": "COMPLETED" },
     { "id": "step-3:LOGIN",            "status": "TODO" },
     { "id": "step-3:DASHBOARD",        "status": "TODO" },
     { "id": "step-3:NOTICE_LIST",      "status": "TODO" },
@@ -36,9 +36,12 @@
   ],
   "retry": {},
   "manual_review": [
-    { "id": "step-1-setup", "tag": "human-step", "note": ".env.development/.env.local 생성 필요(VITE_* 값). env.ts 구조만 생성, 비밀값은 사람 입력(PreToolUse 차단). dev 런타임 검증은 env 입력 후 가능." }
+    { "id": "step-1-setup", "tag": "human-step", "note": ".env.development/.env.local 생성 필요(VITE_* 값). env.ts 구조만 생성, 비밀값은 사람 입력(PreToolUse 차단). dev 런타임 검증은 env 입력 후 가능." },
+    { "id": "step-2-infra", "tag": "D4", "note": "GET /admin/me 미존재 → 사이드바 운영자 닉네임/이메일은 가용정보 대체('운영자' fallback). §11-3 완료기준 '닉네임/이메일 표시'는 D4 로 의도적 이연. 엔드포인트 추가 시 profileImgNumber(1~19) 매핑 + 표시 완성." },
+    { "id": "step-2-infra", "tag": "integration", "note": "401→reissue→retry, refresh 만료→/login 런타임 검증은 .env + 실제 백엔드 필요(코드 구조·타입·빌드는 green). 통합 환경에서 검증." }
   ],
   "log": [
-    { "id": "step-1-setup", "status": "COMPLETED", "ts": "2026-06-05", "gate": "full(OK): validate-state+typecheck+token-lint+build", "note": "Vite+React+TS 스캐폴드, DS-01 토큰 매핑(tailwind.config+globals.css), shadcn 12종(shared/components/ui), 라이브러리, @/ alias, env.ts(Zod), 16라우트 빈 셸, providers(QueryClient+Toaster+Google)." }
+    { "id": "step-1-setup", "status": "COMPLETED", "ts": "2026-06-05", "gate": "full(OK): validate-state+typecheck+token-lint+build", "note": "Vite+React+TS 스캐폴드, DS-01 토큰 매핑(tailwind.config+globals.css), shadcn 12종(shared/components/ui), 라이브러리, @/ alias, env.ts(Zod), 16라우트 빈 셸, providers(QueryClient+Toaster+Google)." },
+    { "id": "step-2-infra", "status": "COMPLETED", "ts": "2026-06-05", "gate": "full(OK): validate-state+typecheck+token-lint+build", "reviewers": "spec/architecture/ds-conformance 3종 PASS", "note": "api 레이어(tokenManager·reissueQueue·client[/auth/refresh+Rotation]·errorHandler·types), auth feature(store·api·hooks·schemas·types), lib(formatDate·formatNumber·markdown), constants(enums·labels·badgeVariants·fieldLimits), useUnsavedChangesGuard, 레이아웃5(순수 presentational)+AppShell(pages 와이어링), 공용UI(DataTable·PaginationControl·StatusBadge·모달3·states3·form2), router(protectedLoader)·providers(글로벌 에러토스트). 명세재조정: 03 권위로 /auth/refresh+rotation+logout 채택(04 의사코드 override)." }
   ]
 }
