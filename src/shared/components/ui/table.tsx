@@ -1,5 +1,5 @@
-import * as React from 'react';
 import { cn } from '@/shared/lib/cn';
+import * as React from 'react';
 
 const Table = React.forwardRef<HTMLTableElement, React.HTMLAttributes<HTMLTableElement>>(
   ({ className, ...props }, ref) => (
@@ -14,7 +14,8 @@ const TableHeader = React.forwardRef<
   HTMLTableSectionElement,
   React.HTMLAttributes<HTMLTableSectionElement>
 >(({ className, ...props }, ref) => (
-  <thead ref={ref} className={cn('[&_tr]:border-b', className)} {...props} />
+  // 헤더 row 는 hover 비활성(컬럼명 행은 인터랙션 대상 아님). 본문 row 의 hover:bg-hover 를 thead 한정 무력화.
+  <thead ref={ref} className={cn('[&_tr]:border-b [&_tr]:hover:bg-transparent', className)} {...props} />
 ));
 TableHeader.displayName = 'TableHeader';
 
@@ -88,12 +89,6 @@ const TableCaption = React.forwardRef<
 TableCaption.displayName = 'TableCaption';
 
 export {
-  Table,
-  TableHeader,
-  TableBody,
-  TableFooter,
-  TableHead,
-  TableRow,
-  TableCell,
-  TableCaption,
+  Table, TableBody, TableCaption, TableCell, TableFooter,
+  TableHead, TableHeader, TableRow
 };
