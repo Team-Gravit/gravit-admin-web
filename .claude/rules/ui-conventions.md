@@ -8,6 +8,69 @@
 - raw hex·하드코딩 arbitrary 값(`#fff`, `[13px]`) 금지. 색/간격/타이포는 **토큰만** 사용.
 - 토큰 정의는 `globals.css`(CSS 변수) + `tailwind.config.ts` 에만(=token-lint allow 대상). 그 외 파일에서 토큰 정의 금지.
 
+## DS-01 ↔ Tailwind 클래스 명명 매핑 (명명 SoT)
+
+> **값의 SoT** = `DS-01 §1~4`(디자인 값) + `src/shared/styles/globals.css`(CSS 변수 = 기술 베이스). **이 표는 명명 매핑만** 담는다(값 복붙 금지 — hex/HSL 은 위 두 곳에서만 본다). 표 ↔ 명세 충돌 시 **DS-01/globals.css 가 override**.
+>
+> ⚠️ **shadcn 충돌 주의 (가장 흔한 실수)**: Tailwind 클래스 `text-primary` 는 shadcn 브랜드 컬러 `primary`(#7738EE 보라)를 가리킨다 — DS-01 토큰 `text-primary`(본문 #171717)가 **아니다**. 본문 텍스트는 반드시 **`text-foreground`** 를 쓴다.
+
+**브랜드 (DS-01 §1-1)** — Primary 는 포인트(액션·강조)만, 큰 면적 금지.
+
+| DS-01 토큰명 | Tailwind 클래스 | CSS 변수 | 용도 |
+|---|---|---|---|
+| `primary` | `bg-primary` · `text-primary-foreground` · `ring-ring` | `--primary` | 액션·활성·강조 |
+| `primary-hover` | `hover:bg-primary-hover` | `--primary-hover` | Primary hover |
+| `primary-bg-subtle` | `bg-primary-subtle` | `--primary` /0.08 | 활성 메뉴 배경·포커스 영역 |
+| `primary-bg-badge` | `bg-primary-badge` | `--primary` /0.12 | ADMIN 뱃지 배경 |
+
+**중립 텍스트 (DS-01 §1-2)** — DS 토큰명과 Tailwind 클래스가 어긋나는 영역(충돌 회피 `fg` 네임스페이스).
+
+| DS-01 토큰명 | Tailwind 클래스 | CSS 변수 | 용도 |
+|---|---|---|---|
+| `text-primary` | `text-foreground` (≡ `text-fg`) | `--foreground` | 본문·강조 텍스트 |
+| `text-secondary` | `text-fg-secondary` | `--fg-secondary` | 보조 텍스트·라벨 |
+| `text-muted` | `text-muted-foreground` (≡ `text-fg-muted`) | `--muted-foreground` | 메타 정보·breadcrumb |
+| `text-disabled` | `text-fg-disabled` | `--fg-disabled` | 비활성 텍스트 |
+
+**중립 표면 (DS-01 §1-2)**
+
+| DS-01 토큰명 | Tailwind 클래스 | CSS 변수 | 용도 |
+|---|---|---|---|
+| `border` | `border-border` | `--border` | 카드·구분선 보더 |
+| `bg-surface` | `bg-surface` (≡ `bg-background`/`bg-card`) | `--surface` | 카드·사이드바·헤더 배경 |
+| `bg-page` | `bg-page` | `--page` | 페이지 전체·로그인 배경 |
+| `bg-hover` | `bg-hover` (≡ `bg-muted`) | `--hover` | 메뉴·행 hover, disabled input 배경 |
+
+**시맨틱 의미별 (DS-01 §1-3)** — text/bg 쌍. DS `accent`(주관식)·`muted`(DRAFT 등)는 shadcn `accent`/`muted` 와 구분 위해 **`-ds`** 접미.
+
+| DS-01 토큰명 | Tailwind 클래스 | CSS 변수 | 용도 |
+|---|---|---|---|
+| `success-text` / `success-bg` | `text-success-text` / `bg-success-bg` | `--success-text` / `--success-bg` | 활성·해결됨·게시중·반영완료 |
+| `warning-text` / `warning-bg` | `text-warning-text` / `bg-warning-bg` | `--warning-text` / `--warning-bg` | 정지·검수 대기 |
+| `danger-text` / `danger-bg` | `text-danger-text` / `bg-danger-bg` (≡ `bg-destructive`) | `--danger-text` / `--danger-bg` | 미해결·destructive·검증 에러 |
+| `info-text` / `info-bg` | `text-info-text` / `bg-info-bg` | `--info-text` / `--info-bg` | 객관식 |
+| `accent-text` / `accent-bg` (주관식) | `text-accent-ds-text` / `bg-accent-ds-bg` | `--accent-ds-text` / `--accent-ds-bg` | 주관식 |
+| `muted-text` / `muted-bg` (DRAFT 등) | `text-muted-ds-text` / `bg-muted-ds-bg` | `--muted-ds-text` / `--muted-ds-bg` | DRAFT·DELETED·ARCHIVED |
+
+**레이아웃·타이포·보더 (DS-01 §2~4)** — `tailwind.config.ts` 에 직접 정의(CSS 변수 미경유, `—`).
+
+| DS-01 토큰명 | Tailwind 클래스 | CSS 변수 | 용도 |
+|---|---|---|---|
+| `sidebar-width` | `w-sidebar` · `p-sidebar` | — | 사이드바 폭(240) |
+| `header-height` | `h-header` | — | 헤더 높이(56) |
+| `content-max-width` | `max-w-content` | — | 컨텐츠 최대폭(1200) |
+| `viewport-min-width` | `min-w-viewport` | — | 전체 최소폭(1280) |
+| `login-card-width` | `max-w-login-card` | — | 로그인 카드(400) |
+| `modal-width-default` / `-wide` | `max-w-modal` / `max-w-modal-wide` | — | confirm(400) / promote(480) |
+| `border-active-menu` | `border-l-3` | — | 활성 메뉴 좌측(3px) |
+| `border-changed-input` | `border-l-4` | — | 변경 입력 좌측(4px, Tailwind 기본) |
+| `radius-card` | `rounded-lg` | `--radius`(8px) | 카드 모서리 |
+| `radius-button` / `radius-input` | `rounded-md` | `--radius` − 2px(6px) | 버튼·입력 모서리 |
+| `display`·`h1`·`h2`·`h3`·`body`·`caption` | `text-display`·`text-h1`·`text-h2`·`text-h3`·`text-body`·`text-caption` | — | 타이포 스케일(DS-01 §2) |
+| 폰트 | `font-sans`(Pretendard) / `font-mono` | — | 한글 본문 / 라벨명(YYYY-MM-DD-update) |
+
+> 위 클래스의 **권위는 이 표**다. `tailwind.config.ts`/`globals.css` 는 값(기술 베이스)을, 이 표는 명명을 소유한다(플레이북 #4 — 파생 사실은 집 하나). Step 2 공용 컴포넌트는 이 표를 참조.
+
 ## 컴포넌트 원칙
 - **shadcn/ui 우선**. 커스텀은 shadcn/ui 확장 + 디자인 토큰 경유로만. shadcn 기본값(예 radius 6px) 따른다.
 - 아이콘 `lucide-react`. 한글 폰트 Pretendard.

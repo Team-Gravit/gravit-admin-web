@@ -2,16 +2,11 @@ import type { Config } from 'tailwindcss';
 import animate from 'tailwindcss-animate';
 
 /**
- * DS-01 디자인 토큰 매핑 (권위: spec/DS-01 §1~4).
+ * DS-01 디자인 토큰 정의 (값 권위: spec/DS-01 §1~4).
  * - 색 값(HSL 트리플)은 globals.css 의 CSS 변수에 정의되고, 여기서 hsl(var(--x)) 로 참조한다.
  * - 이 파일은 token-lint allow 대상이므로 토큰 정의가 허용된다.
- * - DS-01 토큰명 → Tailwind 클래스 매핑(중요):
- *     text-primary(#171717) = text-foreground / text-fg
- *     text-secondary(#525252) = text-fg-secondary
- *     text-muted(#737373) = text-muted-foreground / text-fg-muted
- *     text-disabled(#A3A3A3) = text-fg-disabled
- *     bg-surface(#FFF)=bg-surface / bg-page(#FAFAFA)=bg-page / bg-hover(#F5F5F5)=bg-hover(=bg-muted)
- *   ('text-primary' 토큰명은 shadcn 의 primary(브랜드 보라)와 클래스 충돌하므로 위와 같이 매핑)
+ * - DS-01 토큰명 ↔ Tailwind 클래스 **명명 매핑의 권위 = .claude/rules/ui-conventions.md**
+ *   ('text-primary' 가 shadcn primary(브랜드 보라)와 충돌하는 등 매핑·주의는 거기서 확인. 여기 중복 금지.)
  */
 const config: Config = {
   content: ['./index.html', './src/**/*.{ts,tsx}'],
