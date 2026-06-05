@@ -1,8 +1,8 @@
-import { useState } from 'react';
-import { LogOut } from 'lucide-react';
-import { Button } from '@/shared/components/ui/button';
 import { Breadcrumb } from '@/shared/components/layout/Breadcrumb';
 import { ConfirmModal } from '@/shared/components/modals/ConfirmModal';
+import { Button } from '@/shared/components/ui/button';
+import { LogOut } from 'lucide-react';
+import { useState } from 'react';
 
 /**
  * Header (DS-00 §7). 56px, 하단 1px border. 좌측 breadcrumb, 우측 [로그아웃](confirm 후 onLogout).
@@ -18,7 +18,7 @@ export function Header({ onLogout }: HeaderProps) {
   return (
     <header className="sticky top-0 z-10 flex h-header items-center justify-between border-b border-border bg-surface px-8">
       <Breadcrumb />
-      <Button variant="ghost" onClick={() => setConfirmOpen(true)}>
+      <Button variant="ghost" className="ml-auto" onClick={() => setConfirmOpen(true)}>
         <LogOut />
         로그아웃
       </Button>
