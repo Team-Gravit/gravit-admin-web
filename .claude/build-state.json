@@ -1,0 +1,40 @@
+{
+  "meta": {
+    "harness_version": "1.0",
+    "project": "gravit-admin",
+    "subjective_model": "B-single-comma",
+    "note": "진행의 유일한 권위 신호 = checklist 의 가장 이른 비완료(TODO/IN_PROGRESS) 항목. IN_PROGRESS 는 동시에 1개."
+  },
+  "checklist": [
+    { "id": "step-1-setup",            "status": "TODO" },
+    { "id": "step-2-infra",            "status": "TODO" },
+    { "id": "step-3:LOGIN",            "status": "TODO" },
+    { "id": "step-3:DASHBOARD",        "status": "TODO" },
+    { "id": "step-3:NOTICE_LIST",      "status": "TODO" },
+    { "id": "step-3:CHAPTER_LIST",     "status": "TODO" },
+    { "id": "step-3:STAGING_LIST",     "status": "TODO" },
+    { "id": "step-4:NOTICE_NEW",       "status": "TODO" },
+    { "id": "step-4:NOTICE_DETAIL",    "status": "TODO" },
+    { "id": "step-4:USER_LIST",        "status": "TODO" },
+    { "id": "step-4:USER_DETAIL",      "status": "TODO" },
+    { "id": "step-4:REPORT_LIST",      "status": "TODO" },
+    { "id": "step-4:REPORT_DETAIL",    "status": "TODO" },
+    { "id": "step-4:UNIT_DETAIL",      "status": "TODO" },
+    { "id": "step-4:LESSON_DETAIL",    "status": "TODO" },
+    { "id": "step-5:CHAPTER_DETAIL",   "status": "TODO" },
+    { "id": "step-5:PROBLEM_DETAIL",   "status": "TODO" },
+    { "id": "step-6:6-1-fetch-list",   "status": "TODO" },
+    { "id": "step-6:6-2-lesson-form",  "status": "TODO" },
+    { "id": "step-6:6-3-objective",    "status": "TODO" },
+    { "id": "step-6:6-4-subjective",   "status": "TODO" },
+    { "id": "step-6:6-5-dirty",        "status": "TODO" },
+    { "id": "step-6:6-6-multi-patch",  "status": "TODO" },
+    { "id": "step-6:6-7-promote",      "status": "TODO" },
+    { "id": "step-6:6-8-completed-ro", "status": "TODO" },
+    { "id": "step-6:6-9-leave-guard",  "status": "TODO" },
+    { "id": "step-7-qa",               "status": "TODO" }
+  ],
+  "retry": {},
+  "manual_review": [],
+  "log": []
+}
