@@ -122,4 +122,34 @@ export const handlers = [
       ],
     }),
   ),
+
+  // 스테이징 라벨 목록 (03 §8-1, status 필터)
+  http.get('*/api/v1/admin/staging/labels', ({ request }) => {
+    const status = new URL(request.url).searchParams.get('status');
+    const all = [
+      {
+        label: '2026-04-25-update',
+        unitId: 12,
+        description: '배열 챕터 5번째 사이클',
+        status: 'PENDING',
+        createdAt: '2026-04-25T00:00:00Z',
+      },
+      {
+        label: '2026-04-24-update',
+        unitId: 13,
+        description: '연결리스트 사이클',
+        status: 'PENDING',
+        createdAt: '2026-04-24T00:00:00Z',
+      },
+      {
+        label: '2026-04-23-update',
+        unitId: 14,
+        description: '스택과 큐 사이클',
+        status: 'COMPLETED',
+        createdAt: '2026-04-23T00:00:00Z',
+      },
+    ];
+    const content = status ? all.filter((label) => label.status === status) : all;
+    return HttpResponse.json({ page: 1, totalPages: 1, hasNextPage: false, content });
+  }),
 ];
