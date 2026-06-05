@@ -6,7 +6,7 @@
     "note": "진행의 유일한 권위 신호 = checklist 의 가장 이른 비완료(TODO/IN_PROGRESS) 항목. IN_PROGRESS 는 동시에 1개."
   },
   "checklist": [
-    { "id": "step-1-setup",            "status": "TODO" },
+    { "id": "step-1-setup",            "status": "COMPLETED" },
     { "id": "step-2-infra",            "status": "TODO" },
     { "id": "step-3:LOGIN",            "status": "TODO" },
     { "id": "step-3:DASHBOARD",        "status": "TODO" },
@@ -35,6 +35,10 @@
     { "id": "step-7-qa",               "status": "TODO" }
   ],
   "retry": {},
-  "manual_review": [],
-  "log": []
+  "manual_review": [
+    { "id": "step-1-setup", "tag": "human-step", "note": ".env.development/.env.local 생성 필요(VITE_* 값). env.ts 구조만 생성, 비밀값은 사람 입력(PreToolUse 차단). dev 런타임 검증은 env 입력 후 가능." }
+  ],
+  "log": [
+    { "id": "step-1-setup", "status": "COMPLETED", "ts": "2026-06-05", "gate": "full(OK): validate-state+typecheck+token-lint+build", "note": "Vite+React+TS 스캐폴드, DS-01 토큰 매핑(tailwind.config+globals.css), shadcn 12종(shared/components/ui), 라이브러리, @/ alias, env.ts(Zod), 16라우트 빈 셸, providers(QueryClient+Toaster+Google)." }
+  ]
 }
