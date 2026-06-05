@@ -4,7 +4,12 @@
 
 ## 설치
 1. 이 `.claude/` 트리를 빌드용 빈 repo 루트에 복사(하네스 전체가 `.claude/` 아래에 통합).
-2. `.claude/spec/` 에 SoT 8문서 투입(읽기전용): `01_...wireframe`, `03_..._api_spec`, `04_...frontend`, `DS-00`~`DS-04`. 인덱스·약어 매핑은 `spec/00_INDEX.md`. (02 번호는 백엔드 몫이라 부재 — 누락 아님.)
+2. `.claude/spec/` 에 SoT 문서를 **아래 정확한 파일명 그대로** 투입(읽기전용). 에이전트가 이 이름으로 Read 하므로 **이름이 다르면 경로가 깨진다.**
+   - `01_gravit_admin_wireframe_spec.md` · `03_gravit_admin_api_spec.md` · `04_gravit_admin_frontend_spec.md`
+   - `DS-00_overview.md` · `DS-01_design_system.md` · `DS-02_screens.md` · `DS-03_interactions.md` · `DS-04_prompt_templates.md`
+   - `00_INDEX.md` 는 하네스 트리에 동봉(인덱스·약어 매핑). 02 번호는 백엔드 몫이라 부재(누락 아님).
+   - ⚠️ **원본이 버전 접미사를 달고 있으면(예: `03_gravit_admin_api_spec_v1_1_1.md`) 반드시 `03_gravit_admin_api_spec.md` 로 리네임**해서 넣는다. (SoT 원본 `04` 도 이 접미사 없는 이름을 참조한다.)
+   - 이름 불일치는 **SessionStart 훅(`hooks/checks/spec-presence.mjs`)이 세션 시작 시 경고**로 잡아준다 — 수동 점검: `node .claude/hooks/checks/spec-presence.mjs`.
 3. Node 18+ 설치 확인(게이트/훅이 node 사용).
 4. Claude Code 에서 repo 를 열면 `.claude/CLAUDE.md`·`.claude/rules/` 자동 로드, `.claude/settings.json` 훅 활성, `.claude/skills`·`.claude/agents` 인식. **SessionStart 훅이 재개 항목을 띄운다.**
 5. Figma Dev Mode MCP 연결은 직접 수행(프레임/링크 준비 — Step 3 전까지).

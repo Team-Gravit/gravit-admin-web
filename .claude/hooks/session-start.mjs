@@ -4,10 +4,18 @@
 import { existsSync, readFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { checkSpecPresence } from './checks/spec-presence.mjs';
 
 const here = dirname(fileURLToPath(import.meta.url));      // .claude/hooks
 const statePath = join(here, '..', 'build-state.json');   // .claude/build-state.json
 const out = (msg) => process.stdout.write(msg + '\n');
+
+// 설치 정합성: spec/ 파일명이 참조와 어긋나면(예: 버전 접미사 미리네임) 즉시 경고. 비차단.
+const specWarns = checkSpecPresence(join(here, '..', 'spec'));
+if (specWarns.length) {
+  out('[하네스 설치 경고] spec/ 파일명이 참조와 불일치 — Read 깨짐 위험:');
+  for (const w of specWarns) out('  - ' + w);
+}
 
 if (!existsSync(statePath)) process.exit(0);
 

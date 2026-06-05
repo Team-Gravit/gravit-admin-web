@@ -5,12 +5,12 @@
 
 ## hooks/ 구조
 - `hooks/` — settings.json 이 직접 부르는 **진입점**: `session-start.mjs` · `pretool-guard.mjs` · `posttool-lint.mjs` · `stop-gate.mjs`.
-- `hooks/checks/` — 진입점이 호출하는 **결정적 검증**: `gate-runner.sh`(묶음) · `validate-state.mjs` · `typecheck.sh` · `token-lint.mjs`(+`token-lint.allow.txt`) · `build.sh` · `smoke.sh` · `lint.sh`.
+- `hooks/checks/` — 진입점이 호출하는 **결정적 검증**: `gate-runner.sh`(묶음) · `validate-state.mjs` · `spec-presence.mjs` · `typecheck.sh` · `token-lint.mjs`(+`token-lint.allow.txt`) · `build.sh` · `smoke.sh` · `lint.sh`.
 
 ## 배선된 훅 (settings.json)
 | 이벤트 | 매처 | 스크립트 | 동작 |
 |---|---|---|---|
-| **SessionStart** | (전체) | `hooks/session-start.mjs` | build-state 의 재개 항목·무결성 경고를 컨텍스트에 주입. **비차단**(exit 0). |
+| **SessionStart** | (전체) | `hooks/session-start.mjs` | build-state 재개 항목·무결성 + **spec/ 파일명 정합(spec-presence)** 경고를 컨텍스트에 주입. **비차단**(exit 0). |
 | **PreToolUse** | `Bash`·`Write`·`Edit`·`MultiEdit` | `hooks/pretool-guard.mjs` | 위험/비가역 차단(exit 2). |
 | **PostToolUse** | `Write`·`Edit`·`MultiEdit` | `hooks/posttool-lint.mjs` | 수정한 `src/**.{ts,tsx}` 만 `eslint --fix`. **비차단**(exit 0). |
 | **Stop** | (전체) | `hooks/stop-gate.mjs` | 완료 선언 전 **fast 게이트** 강제. red 면 정지 차단(exit 2)→자가수정 유도. |
@@ -31,9 +31,9 @@
 - red → 정지 차단(자가수정). **자가수정 한도 3회**(`build-state.json.retry`). 초과하거나 `manual_review` 태그 시 → 데드락 방지로 정지 허용 + 사람 검수.
 - token-lint(`checks/token-lint.mjs`): `src/` 의 raw hex·arbitrary 값 탐지. 토큰 정의 파일은 `checks/token-lint.allow.txt` 로, shadcn 생성물은 `src/components/ui` 경로로 제외. → [[ui-conventions]]
 
-## 상태 무결성 (validate-state.mjs)
-- 검사: `IN_PROGRESS` ≤ 1 · checklist `id` 유일 · `status` ∈ {TODO,IN_PROGRESS,COMPLETED,SKIPPED,manual-review}.
-- fast 게이트에 포함(매 턴) + SessionStart 에서도 경고. 손상 시 진행 금지 신호.
+## 상태·설치 무결성
+- **validate-state.mjs**: `IN_PROGRESS` ≤ 1 · checklist `id` 유일 · `status` ∈ {TODO,IN_PROGRESS,COMPLETED,SKIPPED,manual-review}. fast 게이트(매 턴) + SessionStart. 손상 시 진행 금지 신호.
+- **spec-presence.mjs**: `spec/` 의 SoT 문서가 **참조와 정확히 같은 파일명**으로 있는지 검사. 버전 접미사 미리네임(`03_..._v1_1_1.md`) 등으로 어긋나면 "리네임 필요" 경고. **SessionStart 비차단 경고**(게이트엔 미포함 — 설치 실수는 막기보다 알린다). → resource/HARNESS.md 설치 §2
 
 ## 경로 계약 (변경 시 동기화 필수)
 - 권위 상태 파일: **`.claude/build-state.json`**(단일·top-level). 스크립트는 자기 위치 기준 상대경로로 접근(`stop-gate.mjs`·`session-start.mjs` → `../build-state.json`, `validate-state.mjs` → `../../build-state.json`).
