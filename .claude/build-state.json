@@ -13,7 +13,7 @@
     { "id": "step-3:NOTICE_LIST",      "status": "COMPLETED" },
     { "id": "step-3:CHAPTER_LIST",     "status": "TODO" },
     { "id": "step-3:STAGING_LIST",     "status": "TODO" },
-    { "id": "step-4:NOTICE_NEW",       "status": "TODO" },
+    { "id": "step-4:NOTICE_NEW",       "status": "COMPLETED" },
     { "id": "step-4:NOTICE_DETAIL",    "status": "TODO" },
     { "id": "step-4:USER_LIST",        "status": "TODO" },
     { "id": "step-4:USER_DETAIL",      "status": "TODO" },
@@ -58,6 +58,7 @@
     { "id": "step-3:LOGIN", "status": "COMPLETED", "ts": "2026-06-05", "gate": "full(OK)", "note": "LOGIN v1: DS-02 §1 단순 카드(outline 버튼). useLogin 와이어링 + oauth.ts 경계." },
     { "id": "step-3:LOGIN", "status": "COMPLETED", "ts": "2026-06-05", "gate": "full(OK)", "rework": "Figma node 8788:1984", "note": "LOGIN v2(Figma 충실, D5): 2-패널(일러스트 PNG + 패널), Gravit 로고 SVG, brand-* 토큰(LOGIN 전용), 브랜드 버튼 3(Google/Kakao/Naver, '…로 시작하기'), 브랜드 아이콘 SVG 재현. 정책개선: D5(레이아웃 Figma 우선·LOGIN 브랜드 예외) + ui-conventions/source-of-truth/skills 반영." },
     { "id": "step-3:DASHBOARD", "status": "COMPLETED", "ts": "2026-06-05", "gate": "full(OK)", "figma": "8720:4002 (stat 카드 행 레이아웃만 차용)", "note": "DASHBOARD: Page Header + StatCard×3(총유저→/users·PENDING라벨→/staging/labels·미해결신고→/reports). features/dashboard(schemas·api·queries·StatCard, dashboardKeys.summary). 4상태: Loading(skeleton)/Error(retry)/Data, Empty N/A(counts). Figma 카드 mockup 거칠어 DS-02 §2/01 §6-1 충실(링크·아이콘·hover·클릭)." },
-    { "id": "step-3:NOTICE_LIST", "status": "COMPLETED", "ts": "2026-06-05", "gate": "full(OK)", "figma": "8788:7557", "note": "NOTICE_LIST: Page Header(공지관리 + 공지작성→/notices/new) + DataTable(pinned/제목/상태/게시일/수정) + Pagination. features/notices(schemas·api·queries·NoticeStatusBadge, noticeKeys). 4상태(Empty='공지가 없습니다'). 행클릭→상세, [수정] stopPropagation→상세. MSW GET /notices 핸들러 추가." }
+    { "id": "step-3:NOTICE_LIST", "status": "COMPLETED", "ts": "2026-06-05", "gate": "full(OK)", "figma": "8788:7557", "note": "NOTICE_LIST: Page Header(공지관리 + 공지작성→/notices/new) + DataTable(pinned/제목/상태/게시일/수정) + Pagination. features/notices(schemas·api·queries·NoticeStatusBadge, noticeKeys). 4상태(Empty='공지가 없습니다'). 행클릭→상세, [수정] stopPropagation→상세. MSW GET /notices 핸들러 추가." },
+    { "id": "step-4:NOTICE_NEW", "status": "COMPLETED", "ts": "2026-06-05", "gate": "full(OK)", "figma": "8789:8202 (metadata 확인, DS-02 §4 일치)", "order": "사용자 지정 순서로 Step3 CHAPTER/STAGING 보다 먼저", "note": "NOTICE_NEW: Form Page(제목/요약/본문/상단고정 + 취소·임시저장·게시). RHF+zodResolver(noticeFormSchema, onBlur, 제출 전체검증→실패 토스트). 임시저장=DRAFT·게시=PUBLISHED, 성공 토스트+/notices 이동. 이탈보호(isDirty && !isSubmitSuccessful). features/notices/mutations(useCreateNotice). MSW POST /notices." }
   ]
 }

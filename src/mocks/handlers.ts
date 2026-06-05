@@ -58,4 +58,21 @@ export const handlers = [
       ],
     }),
   ),
+
+  // 공지 작성 (03 §9-3, 201)
+  http.post('*/api/v1/admin/notices', () =>
+    HttpResponse.json(
+      {
+        noticeId: 999,
+        title: '새 공지',
+        summary: '',
+        content: '',
+        status: 'DRAFT',
+        pinned: false,
+        publishedAt: null,
+        createdAt: '2026-06-05T00:00:00Z',
+      },
+      { status: 201 },
+    ),
+  ),
 ];
