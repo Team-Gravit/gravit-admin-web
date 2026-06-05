@@ -1,0 +1,1 @@
+{ "id": "step-4:NOTICE_DETAIL", "spec": "PASS", "ds": "PASS", "diffs": ["ARCHIVED Select disabled 반영(spec)", "삭제 confirm 제목 포함 반영(spec)"], "commit": "7a2aa98", "ts": "2026-06-05" }
