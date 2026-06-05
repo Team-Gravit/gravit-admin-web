@@ -150,6 +150,45 @@ export const handlers = [
   // 유닛 수정 (03 §7-7, 200)
   http.patch('*/api/v1/admin/units/:unitId', () => new HttpResponse(null, { status: 200 })),
 
+  // 레슨의 문제 목록 (03 §7-11) — :lessonId 보다 먼저(더 구체적 경로)
+  http.get('*/api/v1/admin/lessons/:lessonId/problems', () =>
+    HttpResponse.json({
+      page: 1,
+      totalPages: 1,
+      hasNextPage: false,
+      content: [
+        {
+          problemId: 1001,
+          problemType: 'OBJECTIVE',
+          instruction: '다음 중 배열의 임의 접근(random access) 시간 복잡도는?',
+        },
+        {
+          problemId: 1002,
+          problemType: 'OBJECTIVE',
+          instruction: '정렬된 배열에서 특정 값을 탐색할 때 가장 효율적인 알고리즘의 시간 복잡도는?',
+        },
+        {
+          problemId: 1003,
+          problemType: 'SUBJECTIVE',
+          instruction: '배열에서 임의 위치에 요소를 삽입할 때의 시간 복잡도를 빅오 표기법으로 쓰시오.',
+        },
+      ],
+    }),
+  ),
+
+  // 레슨 상세 (03 §7-9)
+  http.get('*/api/v1/admin/lessons/:lessonId', ({ params }) =>
+    HttpResponse.json({
+      lessonId: Number(params.lessonId),
+      unitId: 12,
+      title: '배열의 시간 복잡도',
+      problemCount: 3,
+    }),
+  ),
+
+  // 레슨 수정 (03 §7-10, 200)
+  http.patch('*/api/v1/admin/lessons/:lessonId', () => new HttpResponse(null, { status: 200 })),
+
   // 스테이징 라벨 목록 (03 §8-1, status 필터)
   http.get('*/api/v1/admin/staging/labels', ({ request }) => {
     const status = new URL(request.url).searchParams.get('status');
