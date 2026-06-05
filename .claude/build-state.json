@@ -11,7 +11,7 @@
     { "id": "step-3:LOGIN",            "status": "COMPLETED" },
     { "id": "step-3:DASHBOARD",        "status": "COMPLETED" },
     { "id": "step-3:NOTICE_LIST",      "status": "COMPLETED" },
-    { "id": "step-3:CHAPTER_LIST",     "status": "TODO" },
+    { "id": "step-3:CHAPTER_LIST",     "status": "COMPLETED" },
     { "id": "step-3:STAGING_LIST",     "status": "TODO" },
     { "id": "step-4:NOTICE_NEW",       "status": "COMPLETED" },
     { "id": "step-4:NOTICE_DETAIL",    "status": "COMPLETED" },
@@ -40,7 +40,8 @@
     "step-3:DASHBOARD": "figma node 8720:4002 (hu4c6qCEMB62qHXk2v8Gsl)",
     "step-3:NOTICE_LIST": "figma node 8788:7557 (hu4c6qCEMB62qHXk2v8Gsl)",
     "step-4:NOTICE_NEW": "figma node 8789:8202 (hu4c6qCEMB62qHXk2v8Gsl)",
-    "step-4:NOTICE_DETAIL": "figma node 8789:7970 (hu4c6qCEMB62qHXk2v8Gsl)"
+    "step-4:NOTICE_DETAIL": "figma node 8789:7970 (hu4c6qCEMB62qHXk2v8Gsl)",
+    "step-3:CHAPTER_LIST": "figma node 8717:1514 (hu4c6qCEMB62qHXk2v8Gsl)"
   },
   "retry": {},
   "manual_review": [
@@ -61,6 +62,7 @@
     { "id": "step-3:DASHBOARD", "status": "COMPLETED", "ts": "2026-06-05", "gate": "full(OK)", "figma": "8720:4002 (stat 카드 행 레이아웃만 차용)", "note": "DASHBOARD: Page Header + StatCard×3(총유저→/users·PENDING라벨→/staging/labels·미해결신고→/reports). features/dashboard(schemas·api·queries·StatCard, dashboardKeys.summary). 4상태: Loading(skeleton)/Error(retry)/Data, Empty N/A(counts). Figma 카드 mockup 거칠어 DS-02 §2/01 §6-1 충실(링크·아이콘·hover·클릭)." },
     { "id": "step-3:NOTICE_LIST", "status": "COMPLETED", "ts": "2026-06-05", "gate": "full(OK)", "figma": "8788:7557", "note": "NOTICE_LIST: Page Header(공지관리 + 공지작성→/notices/new) + DataTable(pinned/제목/상태/게시일/수정) + Pagination. features/notices(schemas·api·queries·NoticeStatusBadge, noticeKeys). 4상태(Empty='공지가 없습니다'). 행클릭→상세, [수정] stopPropagation→상세. MSW GET /notices 핸들러 추가." },
     { "id": "step-4:NOTICE_NEW", "status": "COMPLETED", "ts": "2026-06-05", "gate": "full(OK)", "figma": "8789:8202 (metadata 확인, DS-02 §4 일치)", "order": "사용자 지정 순서로 Step3 CHAPTER/STAGING 보다 먼저", "note": "NOTICE_NEW: Form Page(제목/요약/본문/상단고정 + 취소·임시저장·게시). RHF+zodResolver(noticeFormSchema, onBlur, 제출 전체검증→실패 토스트). 임시저장=DRAFT·게시=PUBLISHED, 성공 토스트+/notices 이동. 이탈보호(isDirty && !isSubmitSuccessful). features/notices/mutations(useCreateNotice). MSW POST /notices." },
-    { "id": "step-4:NOTICE_DETAIL", "status": "COMPLETED", "ts": "2026-06-05", "gate": "full(OK)", "figma": "8789:7970", "note": "NOTICE_DETAIL 표시/편집 2모드: 표시(Pin+상태+제목/게시일·작성일/편집·삭제/요약·본문 마크다운) · 편집(NoticeEditForm: 작성폼+상태Select 전이제한(DRAFT→{D,P}/PUBLISHED→{P,A}/ARCHIVED→{A})+저장, 이탈보호) · 삭제(confirm destructive→204 soft). getNotice/update/delete, useNotice, NoticeMarkdownViewer(@tailwindcss/typography). MSW GET/PATCH/DELETE /notices/:id." }
+    { "id": "step-4:NOTICE_DETAIL", "status": "COMPLETED", "ts": "2026-06-05", "gate": "full(OK)", "figma": "8789:7970", "note": "NOTICE_DETAIL 표시/편집 2모드: 표시(Pin+상태+제목/게시일·작성일/편집·삭제/요약·본문 마크다운) · 편집(NoticeEditForm: 작성폼+상태Select 전이제한(DRAFT→{D,P}/PUBLISHED→{P,A}/ARCHIVED→{A})+저장, 이탈보호) · 삭제(confirm destructive→204 soft). getNotice/update/delete, useNotice, NoticeMarkdownViewer(@tailwindcss/typography). MSW GET/PATCH/DELETE /notices/:id. 후속 fix: 표시모드 '본문' 라벨→구분선." },
+    { "id": "step-3:CHAPTER_LIST", "status": "COMPLETED", "ts": "2026-06-05", "gate": "full(OK)", "figma": "8717:1514 (metadata 확인, DS-02 §10 일치)", "note": "CHAPTER_LIST: Page Header(학습 컨텐츠) + DataTable(제목 320/설명 flex ellipsis) + Pagination. 검색·필터·생성버튼 없음(DS-02 §10). 행클릭→/chapters/:id. features/chapters(schemas·api·queries, chapterKeys). 4상태(Empty='챕터가 없습니다'). MSW GET /chapters." }
   ]
 }

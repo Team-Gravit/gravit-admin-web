@@ -96,4 +96,30 @@ export const handlers = [
 
   // 공지 삭제 (03 §9-5, 204 soft delete)
   http.delete('*/api/v1/admin/notices/:noticeId', () => new HttpResponse(null, { status: 204 })),
+
+  // 챕터 목록 (03 §7-1)
+  http.get('*/api/v1/admin/chapters', () =>
+    HttpResponse.json({
+      page: 1,
+      totalPages: 1,
+      hasNextPage: false,
+      content: [
+        {
+          chapterId: 1,
+          title: '자료구조 기초',
+          description: '배열, 리스트, 스택, 큐, 트리, 그래프 등 기본 자료구조',
+        },
+        {
+          chapterId: 2,
+          title: '알고리즘 입문',
+          description: '정렬, 탐색, 재귀, 분할정복 등 기본 알고리즘',
+        },
+        {
+          chapterId: 3,
+          title: '운영체제',
+          description: '프로세스, 스레드, 스케줄링, 메모리 관리',
+        },
+      ],
+    }),
+  ),
 ];
