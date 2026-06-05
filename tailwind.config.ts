@@ -80,6 +80,7 @@ const config: Config = {
           google: 'hsl(var(--brand-google))',
           kakao: 'hsl(var(--brand-kakao))',
           naver: 'hsl(var(--brand-naver))',
+          'naver-fg': 'hsl(var(--brand-naver-fg))',
           fg: 'hsl(var(--brand-fg))',
         },
       },

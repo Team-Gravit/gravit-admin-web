@@ -20,7 +20,7 @@ interface Provider {
 const PROVIDERS: Provider[] = [
   { id: 'GOOGLE', label: 'Google로 시작하기', icon: googleIcon, className: 'bg-brand-google text-brand-fg' },
   { id: 'KAKAO', label: '카카오로 시작하기', icon: kakaoIcon, className: 'bg-brand-kakao text-brand-fg' },
-  { id: 'NAVER', label: '네이버로 시작하기', icon: naverIcon, className: 'bg-brand-naver text-white' },
+  { id: 'NAVER', label: '네이버로 시작하기', icon: naverIcon, className: 'bg-brand-naver text-brand-naver-fg' },
 ];
 
 interface OAuthButtonsProps {

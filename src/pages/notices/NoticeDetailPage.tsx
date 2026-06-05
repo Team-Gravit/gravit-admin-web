@@ -91,7 +91,7 @@ export function NoticeDetailPage() {
         open={confirmDelete}
         onOpenChange={setConfirmDelete}
         title="공지를 삭제하시겠습니까?"
-        description="삭제된 공지는 목록에서 사라집니다."
+        description={`"${data.title}" 공지를 삭제합니다. 삭제된 공지는 목록에서 사라집니다.`}
         variant="destructive"
         confirmLabel="삭제"
         loading={deleteNotice.isPending}

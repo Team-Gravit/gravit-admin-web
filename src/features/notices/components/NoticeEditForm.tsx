@@ -97,7 +97,7 @@ export function NoticeEditForm({ notice, onCancel, onSaved }: NoticeEditFormProp
             value={watch('status')}
             onValueChange={(value) => setValue('status', value as NoticeStatus, { shouldDirty: true })}
           >
-            <SelectTrigger className="w-48">
+            <SelectTrigger className="w-48" disabled={allowedStatuses.length === 1}>
               <SelectValue />
             </SelectTrigger>
             <SelectContent>
