@@ -123,6 +123,33 @@ export const handlers = [
     }),
   ),
 
+  // 유닛의 레슨 목록 (03 §7-8) — :unitId 보다 먼저(더 구체적 경로)
+  http.get('*/api/v1/admin/units/:unitId/lessons', () =>
+    HttpResponse.json({
+      page: 1,
+      totalPages: 1,
+      hasNextPage: false,
+      content: [
+        { lessonId: 901, title: '배열이란 무엇인가' },
+        { lessonId: 902, title: '배열의 시간 복잡도' },
+      ],
+    }),
+  ),
+
+  // 유닛 상세 (03 §7-6)
+  http.get('*/api/v1/admin/units/:unitId', ({ params }) =>
+    HttpResponse.json({
+      unitId: Number(params.unitId),
+      chapterId: 1,
+      title: '배열 (Array)',
+      description: '배열의 기본 개념과 시간 복잡도',
+      lessonCount: 2,
+    }),
+  ),
+
+  // 유닛 수정 (03 §7-7, 200)
+  http.patch('*/api/v1/admin/units/:unitId', () => new HttpResponse(null, { status: 200 })),
+
   // 스테이징 라벨 목록 (03 §8-1, status 필터)
   http.get('*/api/v1/admin/staging/labels', ({ request }) => {
     const status = new URL(request.url).searchParams.get('status');
