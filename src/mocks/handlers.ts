@@ -75,4 +75,25 @@ export const handlers = [
       { status: 201 },
     ),
   ),
+
+  // 공지 상세 (03 §9-2)
+  http.get('*/api/v1/admin/notices/:noticeId', ({ params }) =>
+    HttpResponse.json({
+      noticeId: Number(params.noticeId),
+      title: '서비스 점검 안내 (5월 11일)',
+      summary: '정기 점검으로 인한 서비스 이용 제한 안내',
+      content:
+        '## 점검 안내\n\n안녕하세요. Gravit 운영팀입니다.\n\n- 일시: 2026-05-11 02:00 ~ 04:00 (KST)\n- 대상: 전체 서비스\n\n이용에 참고 부탁드립니다.',
+      status: 'PUBLISHED',
+      pinned: true,
+      publishedAt: '2026-04-25T00:00:00Z',
+      createdAt: '2026-04-24T05:30:00Z',
+    }),
+  ),
+
+  // 공지 수정 (03 §9-4, 200)
+  http.patch('*/api/v1/admin/notices/:noticeId', () => new HttpResponse(null, { status: 200 })),
+
+  // 공지 삭제 (03 §9-5, 204 soft delete)
+  http.delete('*/api/v1/admin/notices/:noticeId', () => new HttpResponse(null, { status: 204 })),
 ];

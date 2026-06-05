@@ -42,3 +42,21 @@ export const noticeFormSchema = z.object({
 });
 
 export type NoticeFormValues = z.infer<typeof noticeFormSchema>;
+
+/** 공지 상세 (03 §9-2). */
+export const noticeDetailSchema = z.object({
+  noticeId: z.number(),
+  title: z.string(),
+  summary: z.string(),
+  content: z.string(),
+  status: noticeStatusSchema,
+  pinned: z.boolean(),
+  publishedAt: z.string().nullable(),
+  createdAt: z.string(),
+});
+
+export type NoticeDetail = z.infer<typeof noticeDetailSchema>;
+
+/** 공지 편집 폼 = 작성 폼 + 상태(전이 제약은 UI 옵션 제한 + 백엔드 409, 03 §9-4). */
+export const noticeEditFormSchema = noticeFormSchema.extend({ status: noticeStatusSchema });
+export type NoticeEditFormValues = z.infer<typeof noticeEditFormSchema>;

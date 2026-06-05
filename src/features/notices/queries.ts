@@ -1,5 +1,5 @@
 import { keepPreviousData, useQuery } from '@tanstack/react-query';
-import { getNotices } from '@/features/notices/api';
+import { getNotice, getNotices } from '@/features/notices/api';
 
 /** 공지 queryKey 팩토리 (04 §9-1). 생성/수정/삭제 시 noticeKeys.all invalidate. */
 export const noticeKeys = {
@@ -15,5 +15,13 @@ export function useNotices(page: number) {
     queryKey: noticeKeys.list(page),
     queryFn: () => getNotices(page),
     placeholderData: keepPreviousData,
+  });
+}
+
+export function useNotice(noticeId: number) {
+  return useQuery({
+    queryKey: noticeKeys.detail(noticeId),
+    queryFn: () => getNotice(noticeId),
+    enabled: Number.isFinite(noticeId),
   });
 }

@@ -1,5 +1,6 @@
 import type { Config } from 'tailwindcss';
 import animate from 'tailwindcss-animate';
+import typography from '@tailwindcss/typography';
 
 /**
  * DS-01 디자인 토큰 정의 (값 권위: spec/DS-01 §1~4).
@@ -141,7 +142,7 @@ const config: Config = {
       },
     },
   },
-  plugins: [animate],
+  plugins: [animate, typography],
 };
 
 export default config;
