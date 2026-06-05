@@ -73,6 +73,14 @@ const config: Config = {
         // DS accent(주관식)/muted(DRAFT 등) — shadcn accent/muted 와 구분 위해 -ds 접미
         'accent-ds': { text: 'hsl(var(--accent-ds-text))', bg: 'hsl(var(--accent-ds-bg))' },
         'muted-ds': { text: 'hsl(var(--muted-ds-text))', bg: 'hsl(var(--muted-ds-bg))' },
+
+        // LOGIN 전용 브랜드 (decisions D5). 일반 화면 사용 금지 — 권위: rules/decisions.md, ui-conventions.
+        brand: {
+          google: 'hsl(var(--brand-google))',
+          kakao: 'hsl(var(--brand-kakao))',
+          naver: 'hsl(var(--brand-naver))',
+          fg: 'hsl(var(--brand-fg))',
+        },
       },
       borderRadius: {
         // shadcn 표준: --radius(8px)=card, -2px(6px)=button/input

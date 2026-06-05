@@ -57,6 +57,12 @@
     --accent-ds-bg: 269 100% 95%; /* #F3E8FF */
     --muted-ds-text: 0 0% 45%; /* #737373 DRAFT/DELETED/ARCHIVED */
     --muted-ds-bg: 0 0% 96%; /* #F5F5F5 */
+
+    /* LOGIN 전용 브랜드 토큰 (decisions D5 — 이 화면 한정 예외). 일반 화면 사용 금지. */
+    --brand-google: 240 8% 97%; /* #F8F8F9 */
+    --brand-kakao: 51 100% 63%; /* #FFE240 */
+    --brand-naver: 127 100% 35%; /* #00B116 */
+    --brand-fg: 0 0% 30%; /* #4C4C4C — google/kakao 버튼 텍스트 */
   }
 
   * {

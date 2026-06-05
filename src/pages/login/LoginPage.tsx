@@ -1,12 +1,13 @@
-import { AxiosError } from 'axios';
-import { useLogin } from '@/features/auth/hooks';
+import gravitLogo from '@/features/auth/assets/gravit-logo.svg';
+import loginIllustration from '@/features/auth/assets/login-illustration.png';
 import { OAuthButtons } from '@/features/auth/components/OAuthButtons';
+import { useLogin } from '@/features/auth/hooks';
 import type { ProviderId } from '@/features/auth/types';
 import type { ErrorResponse } from '@/shared/api/types';
+import { AxiosError } from 'axios';
 
 /**
- * 로그인 실패 메시지 (DS-02 §1-4, 03 §3-1).
- * 백엔드 message 우선(에러 envelope), 없으면 명세 기본 문구.
+ * 로그인 실패 메시지 (DS-02 §1-4, 03 §3-1). 백엔드 message 우선, 없으면 명세 기본 문구.
  */
 function loginErrorMessage(error: unknown): string {
   if (error instanceof AxiosError) {
@@ -17,8 +18,10 @@ function loginErrorMessage(error: unknown): string {
 }
 
 /**
- * LOGIN (DS-02 §1, 01 §4-1). 400px 카드: 로고 + h2 + OAuth 3버튼 + (실패 시) 카드 하단 에러.
- * 401(idToken 실패/role=USER, 03 §3-1) → mutation.error → 카드 하단 표시(토스트 아님).
+ * LOGIN (Figma node 8788:1984, decisions D5). 2-패널 카드:
+ *  - 좌: 일러스트(LOGIN 전용 에셋)
+ *  - 우: Gravit 로고 + "Admin Page" / "백오피스 로그인" / 설명 / OAuth 3버튼 / (실패 시) 에러
+ * 데스크탑 단일폭(반응형 없음). 401 → mutation.error → 카드 하단 표시(토스트 아님).
  */
 export function LoginPage() {
   const login = useLogin();
@@ -28,19 +31,27 @@ export function LoginPage() {
   };
 
   return (
-    <div className="w-full max-w-login-card rounded-lg border border-border bg-surface p-8">
-      <div className="flex flex-col gap-6">
-        <div className="flex flex-col items-center gap-1 text-center">
-          <span className="text-h3 font-semibold text-foreground">Gravit Admin</span>
-          <h2 className="text-h2 text-foreground">백오피스 로그인</h2>
+    <div className="flex w-full max-w-5xl overflow-hidden rounded-lg border border-border bg-surface shadow-sm">
+      {/* 좌: 일러스트 (Figma 8788:7437 — LOGIN 전용 에셋) */}
+      <div className="w-1/2 shrink-0">
+        <img src={loginIllustration} alt="" className="h-full w-full object-cover" />
+      </div>
+
+      {/* 우: 로그인 패널 */}
+      <div className="flex w-1/2 flex-col justify-center gap-16 px-12 py-16">
+        <div className="flex flex-col gap-2">
+          <div className="flex items-center gap-4">
+            <img src={gravitLogo} alt="Gravit" className="h-6 w-24" />
+            <span className="text-h1 font-medium text-fg-secondary">Admin Page</span>
+          </div>
+          <h2 className="text-display text-foreground">백오피스 로그인</h2>
+          <p className="text-h2 font-medium text-muted-foreground">내부 운영자 전용 관리 시스템</p>
         </div>
 
         <OAuthButtons onLogin={handleLogin} disabled={login.isPending} />
 
         {login.isError && (
-          <p className="text-center text-caption text-destructive">
-            {loginErrorMessage(login.error)}
-          </p>
+          <p className="text-caption text-destructive">{loginErrorMessage(login.error)}</p>
         )}
       </div>
     </div>
