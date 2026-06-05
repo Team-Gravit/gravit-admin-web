@@ -213,4 +213,18 @@ export const handlers = [
     if (isResolved !== null) content = content.filter((r) => r.isResolved === (isResolved === 'true'));
     return HttpResponse.json({ page: 1, totalPages: 1, hasNextPage: false, content });
   }),
+
+  // 신고 상세 (03 §6-2)
+  http.get('*/api/v1/admin/reports/:reportId', ({ params }) =>
+    HttpResponse.json({
+      reportId: Number(params.reportId),
+      reportType: 'TYPO_ERROR',
+      problemId: 512,
+      content: "두 번째 줄에서 '알고리듬'이 '알고리즘'으로 표기되어 있습니다. 오타로 보입니다.",
+      isResolved: false,
+      submittedAt: '2026-04-23T14:32:00Z',
+    }),
+  ),
+  // 신고 처리상태 변경 (03 §6-3, 200)
+  http.patch('*/api/v1/admin/reports/:reportId/status', () => new HttpResponse(null, { status: 200 })),
 ];

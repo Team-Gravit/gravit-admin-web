@@ -26,3 +26,15 @@ export const reportListResponseSchema = z.object({
 
 export type ReportListItem = z.infer<typeof reportListItemSchema>;
 export type ReportListResponse = z.infer<typeof reportListResponseSchema>;
+
+/** 신고 상세 (03 §6-2). content 추가, reporter 미포함. */
+export const reportDetailSchema = z.object({
+  reportId: z.number(),
+  reportType: reportTypeSchema,
+  problemId: z.number(),
+  content: z.string(),
+  isResolved: z.boolean(),
+  submittedAt: z.string(),
+});
+
+export type ReportDetail = z.infer<typeof reportDetailSchema>;

@@ -1,5 +1,5 @@
 import { keepPreviousData, useQuery } from '@tanstack/react-query';
-import { getReports, type ReportListFilters } from '@/features/reports/api';
+import { getReport, getReports, type ReportListFilters } from '@/features/reports/api';
 
 /** 신고 queryKey 팩토리 (04 §9-1). isResolved 변경 시 detail+lists invalidate. */
 export const reportKeys = {
@@ -15,5 +15,13 @@ export function useReports(filters: ReportListFilters) {
     queryKey: reportKeys.list(filters),
     queryFn: () => getReports(filters),
     placeholderData: keepPreviousData,
+  });
+}
+
+export function useReport(reportId: number) {
+  return useQuery({
+    queryKey: reportKeys.detail(reportId),
+    queryFn: () => getReport(reportId),
+    enabled: Number.isFinite(reportId),
   });
 }
