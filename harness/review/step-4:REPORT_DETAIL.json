@@ -1,0 +1,1 @@
+{ "id": "step-4:REPORT_DETAIL", "spec": "PASS", "ds": "PASS", "diffs": ["[반영] 처리상태 변경 Confirm Modal 추가(DS-03 §5-9·01 §6-4-2, 양쪽 전이 default variant) — 직전 리뷰 누락 지적 수정", "[deferred] §10-4 임의 유형필터 보존: REPORT_LIST URL-param 리팩터 필요(미해결 default 복원은 충족)"], "commit": "05012d2", "ts": "2026-06-05" }
