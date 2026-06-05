@@ -1,5 +1,5 @@
 import { keepPreviousData, useQuery } from '@tanstack/react-query';
-import { getUsers, type UserListFilters } from '@/features/users/api';
+import { getUser, getUsers, type UserListFilters } from '@/features/users/api';
 
 /** 유저 queryKey 팩토리 (04 §9-1). status/role 변경 시 detail+lists invalidate. */
 export const userKeys = {
@@ -15,5 +15,13 @@ export function useUsers(filters: UserListFilters) {
     queryKey: userKeys.list(filters),
     queryFn: () => getUsers(filters),
     placeholderData: keepPreviousData,
+  });
+}
+
+export function useUser(userId: number) {
+  return useQuery({
+    queryKey: userKeys.detail(userId),
+    queryFn: () => getUser(userId),
+    enabled: Number.isFinite(userId),
   });
 }

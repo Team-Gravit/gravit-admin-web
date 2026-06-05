@@ -24,3 +24,18 @@ export const userListResponseSchema = z.object({
 
 export type UserListItem = z.infer<typeof userListItemSchema>;
 export type UserListResponse = z.infer<typeof userListResponseSchema>;
+
+/** 유저 상세 (03 §5-2). profileImgNumber(1~19, 사용자앱 매핑) + level 추가. */
+export const userDetailSchema = z.object({
+  userId: z.number(),
+  email: z.string(),
+  nickname: z.string(),
+  handle: z.string(),
+  profileImgNumber: z.number(),
+  role: userRoleSchema,
+  status: userStatusSchema,
+  level: z.number(),
+  createdAt: z.string(),
+});
+
+export type UserDetail = z.infer<typeof userDetailSchema>;

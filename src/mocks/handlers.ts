@@ -178,4 +178,22 @@ export const handlers = [
     if (role) content = content.filter((u) => u.role === role);
     return HttpResponse.json({ page: 1, totalPages: 1, hasNextPage: false, content });
   }),
+
+  // 유저 상세 (03 §5-2)
+  http.get('*/api/v1/admin/users/:userId', ({ params }) =>
+    HttpResponse.json({
+      userId: Number(params.userId),
+      email: 'gildong@example.com',
+      nickname: '홍길동',
+      handle: 'gildong',
+      profileImgNumber: 3,
+      role: 'USER',
+      status: 'ACTIVE',
+      level: 12,
+      createdAt: '2026-01-15T03:22:00Z',
+    }),
+  ),
+  // 유저 상태/역할 변경 (03 §5-3/§5-4, 200)
+  http.patch('*/api/v1/admin/users/:userId/status', () => new HttpResponse(null, { status: 200 })),
+  http.patch('*/api/v1/admin/users/:userId/role', () => new HttpResponse(null, { status: 200 })),
 ];
