@@ -292,7 +292,7 @@ export const handlers = [
     return HttpResponse.json({ page: 1, totalPages: 1, hasNextPage: false, content });
   }),
 
-  // 라벨 상세 그루핑 (03 §8-2, 04 §10-2-1): 레슨 1 + 문제 6(객관식 4 + 주관식 2). 주관식=단일 answer 객체.
+  // 라벨 상세 그루핑 (03 §8-2): 레슨 1 + 문제 6(객관식 4 + 주관식 2). 주관식=answers 배열(D1 1요소 콤마).
   http.get('*/api/v1/admin/staging/labels/:label', ({ params }) => {
     const objective = (problemId: number, instruction: string) => ({
       problemId,
