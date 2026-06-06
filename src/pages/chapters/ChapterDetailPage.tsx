@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useNavigate, useParams } from 'react-router';
 import { Pencil } from 'lucide-react';
 import { ROUTES } from '@/shared/constants/routes';
+import { useSetBreadcrumb } from '@/shared/hooks/useBreadcrumb';
 import { Button } from '@/shared/components/ui/button';
 import { ErrorState } from '@/shared/components/states/ErrorState';
 import { LoadingSkeleton } from '@/shared/components/states/LoadingSkeleton';
@@ -15,7 +16,7 @@ import type { ChapterUnitItem } from '@/features/chapters/schemas';
 /**
  * CHAPTER_DETAIL (DS-02 §11, 01 §6-5-2, 03 §7-2/§7-3/§7-5). 정보 + 풀이 현황 위젯 + 유닛 목록.
  * B 패턴 편집: [편집] → 정보 카드만 편집 폼으로 전환(풀이현황·유닛 목록은 유지) → 저장/취소.
- * Breadcrumb(학습 컨텐츠 > 챕터)은 전역 Header handle 일괄 배선까지 이연 — 페이지 h1 제목으로 대체.
+ * Breadcrumb(학습 컨텐츠 > {chapterTitle}): 전역 Header 로 발행(04 §8-3).
  */
 export function ChapterDetailPage() {
   const { chapterId } = useParams();
@@ -26,6 +27,12 @@ export function ChapterDetailPage() {
   const [page, setPage] = useState(1);
   const units = useChapterUnits(id, page);
   const [mode, setMode] = useState<'view' | 'edit'>('view');
+
+  // breadcrumb (04 §8-3-1): 학습 컨텐츠 > {chapterTitle}.
+  useSetBreadcrumb([
+    { label: '학습 컨텐츠', href: ROUTES.CHAPTERS },
+    ...(chapter ? [{ label: chapter.title }] : []),
+  ]);
 
   if (isLoading) return <LoadingSkeleton />;
   if (isError || !chapter) return <ErrorState onRetry={() => refetch()} />;

@@ -13,6 +13,7 @@ import { ProblemTypeBadge } from '@/shared/components/status-badge/ProblemTypeBa
 import { StrictMatchModal } from '@/shared/components/modals/StrictMatchModal';
 import { UnsavedChangesModal } from '@/shared/components/modals/UnsavedChangesModal';
 import { useUnsavedChangesGuard } from '@/shared/hooks/useUnsavedChangesGuard';
+import { useSetBreadcrumb } from '@/shared/hooks/useBreadcrumb';
 import { dashboardKeys } from '@/features/dashboard/queries';
 import { StagingStatusBadge } from '@/features/staging/components/StagingStatusBadge';
 import { StagingLessonForm } from '@/features/staging/components/StagingLessonForm';
@@ -45,7 +46,7 @@ function CompletedBanner() {
  * STAGING_DETAIL (DS-02 §16, 04 §10-2, 03 §8-2). 헤더 + 좌측 280px 항목 리스트(레슨 1 + 문제 6) + 우측 항목별 편집 폼.
  * 항목별 독립 form(항상 mount + hidden, 미저장 보존) · 변경표시(●/4px) · 변경 필드만 다중 PATCH(allSettled, 부분실패) ·
  * promote(StrictMatch, 비가역=사람) · COMPLETED read-only · 미저장 이탈 보호(beforeunload+useBlocker).
- * Breadcrumb(스테이징 > {label})은 전역 Header handle 배선까지 이연 — 헤더 라벨명으로 대체.
+ * Breadcrumb(스테이징 > {label}): 전역 Header 로 발행(04 §8-3).
  */
 export function StagingDetailPage() {
   const { label = '' } = useParams();
@@ -60,6 +61,9 @@ export function StagingDetailPage() {
   }, []);
   const [promoteOpen, setPromoteOpen] = useState(false);
   const promote = usePromoteStagingLabel(label);
+
+  // breadcrumb (04 §8-3-1): 스테이징 > {label}.
+  useSetBreadcrumb([{ label: '스테이징', href: ROUTES.STAGING_LABELS }, { label }]);
 
   const readOnly = data?.status === 'COMPLETED'; // 04 §10-2-9
   const unsavedCount = Object.values(dirtyMap).filter(Boolean).length;

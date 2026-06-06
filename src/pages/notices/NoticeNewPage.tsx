@@ -10,6 +10,7 @@ import { Checkbox } from '@/shared/components/ui/checkbox';
 import { FormField } from '@/shared/components/form/FormField';
 import { UnsavedChangesModal } from '@/shared/components/modals/UnsavedChangesModal';
 import { useUnsavedChangesGuard } from '@/shared/hooks/useUnsavedChangesGuard';
+import { useSetBreadcrumb } from '@/shared/hooks/useBreadcrumb';
 import { noticeFormSchema, type NoticeFormValues } from '@/features/notices/schemas';
 import { useCreateNotice } from '@/features/notices/mutations';
 
@@ -33,6 +34,9 @@ export function NoticeNewPage() {
   } = form;
 
   const blocker = useUnsavedChangesGuard(isDirty && !isSubmitSuccessful);
+
+  // breadcrumb (04 §8-3-1): 공지 관리 > 공지 작성.
+  useSetBreadcrumb([{ label: '공지 관리', href: ROUTES.NOTICES }, { label: '공지 작성' }]);
 
   const submit = (status: 'DRAFT' | 'PUBLISHED') =>
     form.handleSubmit(

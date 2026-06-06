@@ -4,6 +4,7 @@ import { Pencil, Pin, Trash2 } from 'lucide-react';
 import { toast } from 'sonner';
 import { ROUTES } from '@/shared/constants/routes';
 import { formatDate } from '@/shared/lib/formatDate';
+import { useSetBreadcrumb } from '@/shared/hooks/useBreadcrumb';
 import { Button } from '@/shared/components/ui/button';
 import { ErrorState } from '@/shared/components/states/ErrorState';
 import { LoadingSkeleton } from '@/shared/components/states/LoadingSkeleton';
@@ -26,6 +27,12 @@ export function NoticeDetailPage() {
   const deleteNotice = useDeleteNotice();
   const [mode, setMode] = useState<'view' | 'edit'>('view');
   const [confirmDelete, setConfirmDelete] = useState(false);
+
+  // breadcrumb (04 §8-3-1): 공지 관리 > {title}.
+  useSetBreadcrumb([
+    { label: '공지 관리', href: ROUTES.NOTICES },
+    ...(data ? [{ label: data.title }] : []),
+  ]);
 
   if (isLoading) return <LoadingSkeleton />;
   if (isError || !data) return <ErrorState onRetry={() => refetch()} />;

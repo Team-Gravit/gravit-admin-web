@@ -3,6 +3,7 @@ import { useNavigate, useParams } from 'react-router';
 import { toast } from 'sonner';
 import { ROUTES } from '@/shared/constants/routes';
 import { formatDateTime } from '@/shared/lib/formatDate';
+import { useSetBreadcrumb } from '@/shared/hooks/useBreadcrumb';
 import { reportTypeLabels } from '@/shared/constants/labels';
 import { Button } from '@/shared/components/ui/button';
 import {
@@ -32,6 +33,9 @@ export function ReportDetailPage() {
   const { data, isLoading, isError, refetch } = useReport(id);
   const updateStatus = useUpdateReportStatus(id);
   const [pending, setPending] = useState<boolean | null>(null);
+
+  // breadcrumb (04 §8-3-1): 신고 관리 > #{reportId}.
+  useSetBreadcrumb([{ label: '신고 관리', href: ROUTES.REPORTS }, { label: `#${id}` }]);
 
   if (isLoading) return <LoadingSkeleton />;
   if (isError || !data) return <ErrorState onRetry={() => refetch()} />;

@@ -2,11 +2,13 @@ import { useState } from 'react';
 import { useNavigate, useParams } from 'react-router';
 import { Pencil } from 'lucide-react';
 import { ROUTES } from '@/shared/constants/routes';
+import { useSetBreadcrumb } from '@/shared/hooks/useBreadcrumb';
 import { Button } from '@/shared/components/ui/button';
 import { ErrorState } from '@/shared/components/states/ErrorState';
 import { LoadingSkeleton } from '@/shared/components/states/LoadingSkeleton';
 import { DataTable, type Column } from '@/shared/components/data-table/DataTable';
 import { PaginationControl } from '@/shared/components/data-table/PaginationControl';
+import { useChapter } from '@/features/chapters/queries';
 import { useUnit, useUnitLessons } from '@/features/units/queries';
 import { UnitEditForm } from '@/features/units/components/UnitEditForm';
 import type { UnitLessonItem } from '@/features/units/schemas';
@@ -14,7 +16,7 @@ import type { UnitLessonItem } from '@/features/units/schemas';
 /**
  * UNIT_DETAIL (DS-02 §12, 01 §6-5-3, 03 §7-6/§7-8). 정보(제목·설명) + 레슨 목록.
  * B 패턴 편집: [편집] → 정보 카드만 편집 폼으로 전환(레슨 목록은 유지) → 저장/취소.
- * Breadcrumb(학습 컨텐츠 > 챕터 > 유닛)은 전역 Header handle 일괄 배선까지 이연 — 페이지 h1 제목으로 대체.
+ * Breadcrumb(학습 컨텐츠 > {chapter} > {unit}): chapter 는 추가 GET(04 §8-3-3) — 전역 Header 발행.
  */
 export function UnitDetailPage() {
   const { unitId } = useParams();
@@ -24,6 +26,14 @@ export function UnitDetailPage() {
   const [page, setPage] = useState(1);
   const lessons = useUnitLessons(id, page);
   const [mode, setMode] = useState<'view' | 'edit'>('view');
+
+  // breadcrumb (04 §8-3): 학습 컨텐츠 > {chapterTitle} > {unitTitle}. 부모 챕터는 추가 GET(§8-3-3).
+  const chapter = useChapter(unit?.chapterId ?? NaN).data;
+  useSetBreadcrumb([
+    { label: '학습 컨텐츠', href: ROUTES.CHAPTERS },
+    ...(chapter ? [{ label: chapter.title, href: ROUTES.CHAPTER_DETAIL(chapter.chapterId) }] : []),
+    ...(unit ? [{ label: unit.title }] : []),
+  ]);
 
   if (isLoading) return <LoadingSkeleton />;
   if (isError || !unit) return <ErrorState onRetry={() => refetch()} />;

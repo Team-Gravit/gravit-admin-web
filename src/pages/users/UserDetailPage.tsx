@@ -2,7 +2,9 @@ import { useState } from 'react';
 import { useParams } from 'react-router';
 import { User } from 'lucide-react';
 import { toast } from 'sonner';
+import { ROUTES } from '@/shared/constants/routes';
 import { formatDate } from '@/shared/lib/formatDate';
+import { useSetBreadcrumb } from '@/shared/hooks/useBreadcrumb';
 import {
   Select,
   SelectContent,
@@ -35,6 +37,12 @@ export function UserDetailPage() {
   const updateStatus = useUpdateUserStatus(id);
   const updateRole = useUpdateUserRole(id);
   const [pending, setPending] = useState<UserChange | null>(null);
+
+  // breadcrumb (04 §8-3-1): 유저 관리 > {nickname}.
+  useSetBreadcrumb([
+    { label: '유저 관리', href: ROUTES.USERS },
+    ...(data ? [{ label: data.nickname }] : []),
+  ]);
 
   if (isLoading) return <LoadingSkeleton />;
   if (isError || !data) return <ErrorState onRetry={() => refetch()} />;
