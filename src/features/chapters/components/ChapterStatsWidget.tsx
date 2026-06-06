@@ -48,7 +48,7 @@ export function ChapterStatsWidget({ stats, isLoading, isError, onRetry }: Chapt
         <TableHeader>
           <TableRow>
             <TableHead>유닛명</TableHead>
-            <TableHead className="w-28 text-right">참여 인원</TableHead>
+            <TableHead className="w-24 text-right">참여 인원</TableHead>
             <TableHead className="w-60">진행률</TableHead>
           </TableRow>
         </TableHeader>
@@ -58,7 +58,7 @@ export function ChapterStatsWidget({ stats, isLoading, isError, onRetry }: Chapt
               <TableCell>
                 <span className="line-clamp-1 text-foreground">{unit.unitTitle}</span>
               </TableCell>
-              <TableCell className="w-28 text-right text-fg-secondary tabular-nums">
+              <TableCell className="w-24 text-right text-fg-secondary tabular-nums">
                 {formatNumber(unit.participantCount)}
               </TableCell>
               <TableCell className="w-60">
