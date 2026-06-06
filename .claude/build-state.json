@@ -22,7 +22,7 @@
     { "id": "step-4:UNIT_DETAIL",      "status": "COMPLETED" },
     { "id": "step-4:LESSON_DETAIL",    "status": "COMPLETED" },
     { "id": "step-5:CHAPTER_DETAIL",   "status": "COMPLETED" },
-    { "id": "step-5:PROBLEM_DETAIL",   "status": "TODO" },
+    { "id": "step-5:PROBLEM_DETAIL",   "status": "IN_PROGRESS" },
     { "id": "step-6:6-1-fetch-list",   "status": "TODO" },
     { "id": "step-6:6-2-lesson-form",  "status": "TODO" },
     { "id": "step-6:6-3-objective",    "status": "TODO" },

@@ -228,6 +228,40 @@ export const handlers = [
   // 레슨 수정 (03 §7-10, 200)
   http.patch('*/api/v1/admin/lessons/:lessonId', () => new HttpResponse(null, { status: 200 })),
 
+  // 문제 상세 (03 §7-12, problemType 분기). 1003·513 = 주관식(D1 단일 콤마), 그 외 객관식.
+  http.get('*/api/v1/admin/problems/:problemId', ({ params }) => {
+    const problemId = Number(params.problemId);
+    if (problemId === 1003 || problemId === 513) {
+      return HttpResponse.json({
+        problemId,
+        lessonId: 901,
+        problemType: 'SUBJECTIVE',
+        instruction: '배열에서 임의 위치에 요소를 삽입할 때의 시간 복잡도를 빅오 표기법으로 쓰시오.',
+        content: '배열은 연속된 메모리에 저장되므로 중간 삽입 시 원소 이동이 발생한다.',
+        answers: [
+          { answerId: 1, content: 'O(n), O(N), 빅오 n', explanation: '평균적으로 n개 원소를 이동해야 합니다.' },
+        ],
+      });
+    }
+    return HttpResponse.json({
+      problemId,
+      lessonId: 901,
+      problemType: 'OBJECTIVE',
+      instruction: '다음 중 배열의 임의 접근(random access) 시간 복잡도는?',
+      content: '배열은 인덱스를 통해 임의의 원소에 직접 접근할 수 있다.',
+      options: [
+        { optionId: 1, content: 'O(1)', explanation: '인덱스 계산으로 바로 접근 가능', isAnswer: true },
+        { optionId: 2, content: 'O(log n)', explanation: '이진 탐색의 복잡도', isAnswer: false },
+        { optionId: 3, content: 'O(n)', explanation: '선형 탐색의 복잡도', isAnswer: false },
+        { optionId: 4, content: 'O(n²)', explanation: '이중 반복의 복잡도', isAnswer: false },
+      ],
+    });
+  }),
+
+  // 객관식/주관식 문제 수정 (03 §7-13/§7-14, 200)
+  http.patch('*/api/v1/admin/problems/:problemId/objective', () => new HttpResponse(null, { status: 200 })),
+  http.patch('*/api/v1/admin/problems/:problemId/subjective', () => new HttpResponse(null, { status: 200 })),
+
   // 스테이징 라벨 목록 (03 §8-1, status 필터)
   http.get('*/api/v1/admin/staging/labels', ({ request }) => {
     const status = new URL(request.url).searchParams.get('status');
