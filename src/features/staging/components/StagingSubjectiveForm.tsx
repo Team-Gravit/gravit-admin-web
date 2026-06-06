@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useQueryClient } from '@tanstack/react-query';
@@ -23,6 +23,8 @@ interface StagingSubjectiveFormProps {
   label: string;
   /** 비활성 항목은 unmount 대신 hidden — 미저장 입력 보존(04 §10-2-3). */
   hidden?: boolean;
+  /** dirty 변화를 좌측 리스트(●)로 lift-up (04 §10-2-4). */
+  onDirtyChange?: (dirty: boolean) => void;
 }
 
 /**
@@ -36,6 +38,7 @@ export function StagingSubjectiveForm({
   problemNumber,
   label,
   hidden,
+  onDirtyChange,
 }: StagingSubjectiveFormProps) {
   const queryClient = useQueryClient();
   const [isSaving, setIsSaving] = useState(false);
@@ -55,6 +58,14 @@ export function StagingSubjectiveForm({
     register,
     formState: { errors, isDirty, dirtyFields },
   } = form;
+
+  useEffect(() => {
+    onDirtyChange?.(isDirty);
+  }, [isDirty, onDirtyChange]);
+
+  // 변경된 input 좌측 4px Primary 보더 (DS-02 §16-5, 04 §10-2-4).
+  const dirtyBorder = (dirty: boolean | undefined) =>
+    dirty ? 'border-l-4 border-l-primary' : undefined;
 
   const onSubmit = form.handleSubmit(
     async (values) => {
@@ -110,10 +121,18 @@ export function StagingSubjectiveForm({
       </div>
 
       <FormField label="지시문" htmlFor={ids.instruction} required error={errors.instruction?.message}>
-        <Input id={ids.instruction} {...register('instruction')} />
+        <Input
+          id={ids.instruction}
+          className={dirtyBorder(dirtyFields.instruction)}
+          {...register('instruction')}
+        />
       </FormField>
       <FormField label="본문" htmlFor={ids.content} required error={errors.content?.message}>
-        <Textarea id={ids.content} className="min-h-24" {...register('content')} />
+        <Textarea
+          id={ids.content}
+          className={cn('min-h-24', dirtyBorder(dirtyFields.content))}
+          {...register('content')}
+        />
       </FormField>
 
       {/* D1: 정답 단일(인정 표기는 콤마로 구분) + 해설 1개. 추가/삭제 없음. */}
@@ -126,11 +145,16 @@ export function StagingSubjectiveForm({
         <Input
           id={ids.answer}
           placeholder="예: 데이터베이스,데이터 베이스,database"
+          className={dirtyBorder(dirtyFields.answerContent)}
           {...register('answerContent')}
         />
       </FormField>
       <FormField label="해설" htmlFor={ids.explanation} required error={errors.answerExplanation?.message}>
-        <Textarea id={ids.explanation} className="min-h-24" {...register('answerExplanation')} />
+        <Textarea
+          id={ids.explanation}
+          className={cn('min-h-24', dirtyBorder(dirtyFields.answerExplanation))}
+          {...register('answerExplanation')}
+        />
       </FormField>
 
       <div className="flex justify-end">

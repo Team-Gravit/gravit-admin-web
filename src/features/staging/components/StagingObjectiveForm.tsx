@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useForm, useFieldArray } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useQueryClient } from '@tanstack/react-query';
@@ -27,6 +27,8 @@ interface StagingObjectiveFormProps {
   label: string;
   /** 비활성 항목은 unmount 대신 hidden — 미저장 입력 보존(04 §10-2-3). */
   hidden?: boolean;
+  /** dirty 변화를 좌측 리스트(●)로 lift-up (04 §10-2-4). */
+  onDirtyChange?: (dirty: boolean) => void;
 }
 
 /**
@@ -40,6 +42,7 @@ export function StagingObjectiveForm({
   problemNumber,
   label,
   hidden,
+  onDirtyChange,
 }: StagingObjectiveFormProps) {
   const queryClient = useQueryClient();
   const [isSaving, setIsSaving] = useState(false);
@@ -67,6 +70,14 @@ export function StagingObjectiveForm({
   } = form;
   const { fields } = useFieldArray({ control: form.control, name: 'options' });
   const answerOptionId = watch('answerOptionId');
+
+  useEffect(() => {
+    onDirtyChange?.(isDirty);
+  }, [isDirty, onDirtyChange]);
+
+  // 변경된 input 좌측 4px Primary 보더 (DS-02 §16-5, 04 §10-2-4).
+  const dirtyBorder = (dirty: boolean | undefined) =>
+    dirty ? 'border-l-4 border-l-primary' : undefined;
 
   const onSubmit = form.handleSubmit(
     async (values) => {
@@ -122,10 +133,18 @@ export function StagingObjectiveForm({
       </div>
 
       <FormField label="지시문" htmlFor={`obj-instruction-${problem.problemId}`} required error={errors.instruction?.message}>
-        <Input id={`obj-instruction-${problem.problemId}`} {...register('instruction')} />
+        <Input
+          id={`obj-instruction-${problem.problemId}`}
+          className={dirtyBorder(dirtyFields.instruction)}
+          {...register('instruction')}
+        />
       </FormField>
       <FormField label="본문" htmlFor={`obj-content-${problem.problemId}`} required error={errors.content?.message}>
-        <Textarea id={`obj-content-${problem.problemId}`} className="min-h-24" {...register('content')} />
+        <Textarea
+          id={`obj-content-${problem.problemId}`}
+          className={cn('min-h-24', dirtyBorder(dirtyFields.content))}
+          {...register('content')}
+        />
       </FormField>
 
       <div className="flex flex-col gap-3">
@@ -143,12 +162,18 @@ export function StagingObjectiveForm({
                   <RadioGroupItem value={String(field.optionId)} />
                   정답
                 </label>
-                <Input className="flex-1" {...register(`options.${index}.content`)} />
+                <Input
+                  className={cn('flex-1', dirtyBorder(dirtyFields.options?.[index]?.content))}
+                  {...register(`options.${index}.content`)}
+                />
               </div>
               <FieldError message={errors.options?.[index]?.content?.message} />
               <div className="flex items-center gap-2 pl-8">
                 <span className="shrink-0 text-caption text-fg-muted">해설</span>
-                <Input className="flex-1" {...register(`options.${index}.explanation`)} />
+                <Input
+                  className={cn('flex-1', dirtyBorder(dirtyFields.options?.[index]?.explanation))}
+                  {...register(`options.${index}.explanation`)}
+                />
               </div>
               <FieldError message={errors.options?.[index]?.explanation?.message} />
             </div>

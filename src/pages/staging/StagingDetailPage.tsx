@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useCallback, useState } from 'react';
 import { useParams } from 'react-router';
 import { cn } from '@/shared/lib/cn';
 import { formatDate } from '@/shared/lib/formatDate';
@@ -14,6 +14,11 @@ import { useStagingLabel } from '@/features/staging/queries';
 /** 활성 항목: 레슨 1 또는 문제(problems 배열 index). */
 type ActiveItem = { type: 'lesson' } | { type: 'problem'; index: number };
 
+/** 미저장 변경 표시 점 (DS-02 §16-3, Primary). */
+function DirtyDot() {
+  return <span className="size-2 shrink-0 rounded-full bg-primary" aria-label="미저장 변경" />;
+}
+
 /**
  * STAGING_DETAIL (DS-02 §16, 04 §10-2, 03 §8-2). 6-1: 데이터 페칭 + 좌측 리스트 골격.
  * 헤더(라벨명 mono + Status Badge + 메타) + 좌측 280px 리스트(레슨 1 + 문제 6) + 활성 항목 전환.
@@ -24,6 +29,11 @@ export function StagingDetailPage() {
   const { label = '' } = useParams();
   const { data, isLoading, isError, refetch } = useStagingLabel(label);
   const [active, setActive] = useState<ActiveItem>({ type: 'lesson' });
+  // 항목별 dirty 상태 lift-up — 좌측 리스트 ● 표시(04 §10-2-4).
+  const [dirtyMap, setDirtyMap] = useState<Record<string, boolean>>({});
+  const setItemDirty = useCallback((key: string, dirty: boolean) => {
+    setDirtyMap((prev) => (prev[key] === dirty ? prev : { ...prev, [key]: dirty }));
+  }, []);
 
   if (isLoading) return <LoadingSkeleton />;
   if (isError || !data) return <ErrorState onRetry={() => refetch()} />;
@@ -57,7 +67,8 @@ export function StagingDetailPage() {
             className={itemClass(active.type === 'lesson')}
             onClick={() => setActive({ type: 'lesson' })}
           >
-            레슨
+            <span>레슨</span>
+            {dirtyMap.lesson && <DirtyDot />}
           </button>
           {data.problems.map((problem, index) => (
             <button
@@ -67,7 +78,10 @@ export function StagingDetailPage() {
               onClick={() => setActive({ type: 'problem', index })}
             >
               <span>문제 {index + 1}</span>
-              <ProblemTypeBadge problemType={problem.problemType} />
+              <span className="flex items-center gap-2">
+                <ProblemTypeBadge problemType={problem.problemType} />
+                {dirtyMap[`problem-${problem.problemId}`] && <DirtyDot />}
+              </span>
             </button>
           ))}
         </nav>
@@ -78,10 +92,13 @@ export function StagingDetailPage() {
             lesson={data.lesson}
             label={data.label}
             hidden={active.type !== 'lesson'}
+            onDirtyChange={(dirty) => setItemDirty('lesson', dirty)}
           />
           {/* 문제 폼: 객관식=StagingObjectiveForm(6-3), 주관식=StagingSubjectiveForm(6-4). 항상 mount+hidden. */}
           {data.problems.map((problem, index) => {
             const isActiveItem = active.type === 'problem' && active.index === index;
+            const onDirtyChange = (dirty: boolean) =>
+              setItemDirty(`problem-${problem.problemId}`, dirty);
             return problem.problemType === 'OBJECTIVE' ? (
               <StagingObjectiveForm
                 key={problem.problemId}
@@ -89,6 +106,7 @@ export function StagingDetailPage() {
                 problemNumber={index + 1}
                 label={data.label}
                 hidden={!isActiveItem}
+                onDirtyChange={onDirtyChange}
               />
             ) : (
               <StagingSubjectiveForm
@@ -97,6 +115,7 @@ export function StagingDetailPage() {
                 problemNumber={index + 1}
                 label={data.label}
                 hidden={!isActiveItem}
+                onDirtyChange={onDirtyChange}
               />
             );
           })}
