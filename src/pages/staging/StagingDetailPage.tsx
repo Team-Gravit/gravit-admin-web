@@ -11,6 +11,8 @@ import { ErrorState } from '@/shared/components/states/ErrorState';
 import { LoadingSkeleton } from '@/shared/components/states/LoadingSkeleton';
 import { ProblemTypeBadge } from '@/shared/components/status-badge/ProblemTypeBadge';
 import { StrictMatchModal } from '@/shared/components/modals/StrictMatchModal';
+import { UnsavedChangesModal } from '@/shared/components/modals/UnsavedChangesModal';
+import { useUnsavedChangesGuard } from '@/shared/hooks/useUnsavedChangesGuard';
 import { dashboardKeys } from '@/features/dashboard/queries';
 import { StagingStatusBadge } from '@/features/staging/components/StagingStatusBadge';
 import { StagingLessonForm } from '@/features/staging/components/StagingLessonForm';
@@ -40,9 +42,9 @@ function CompletedBanner() {
 }
 
 /**
- * STAGING_DETAIL (DS-02 §16, 04 §10-2, 03 §8-2). 6-1: 데이터 페칭 + 좌측 리스트 골격.
- * 헤더(라벨명 mono + Status Badge + 메타) + 좌측 280px 리스트(레슨 1 + 문제 6) + 활성 항목 전환.
- * 우측 편집 폼은 6-2~6-4, 변경 표시 6-5, 다중 PATCH 6-6, promote 6-7, COMPLETED read-only 6-8, 이탈 보호 6-9.
+ * STAGING_DETAIL (DS-02 §16, 04 §10-2, 03 §8-2). 헤더 + 좌측 280px 항목 리스트(레슨 1 + 문제 6) + 우측 항목별 편집 폼.
+ * 항목별 독립 form(항상 mount + hidden, 미저장 보존) · 변경표시(●/4px) · 변경 필드만 다중 PATCH(allSettled, 부분실패) ·
+ * promote(StrictMatch, 비가역=사람) · COMPLETED read-only · 미저장 이탈 보호(beforeunload+useBlocker).
  * Breadcrumb(스테이징 > {label})은 전역 Header handle 배선까지 이연 — 헤더 라벨명으로 대체.
  */
 export function StagingDetailPage() {
@@ -59,12 +61,14 @@ export function StagingDetailPage() {
   const [promoteOpen, setPromoteOpen] = useState(false);
   const promote = usePromoteStagingLabel(label);
 
-  if (isLoading) return <LoadingSkeleton />;
-  if (isError || !data) return <ErrorState onRetry={() => refetch()} />;
-
-  const readOnly = data.status === 'COMPLETED'; // 04 §10-2-9
+  const readOnly = data?.status === 'COMPLETED'; // 04 §10-2-9
   const unsavedCount = Object.values(dirtyMap).filter(Boolean).length;
   const hasUnsaved = unsavedCount > 0;
+  // 미저장 항목 1개 이상 시 이탈 보호(04 §11-7 6-9). COMPLETED 는 변경 불가라 미작동.
+  const blocker = useUnsavedChangesGuard(hasUnsaved && !readOnly);
+
+  if (isLoading) return <LoadingSkeleton />;
+  if (isError || !data) return <ErrorState onRetry={() => refetch()} />;
 
   // ⚠️ promote 비가역(03 §8-7, prod INSERT). StrictMatch 게이트 통과 후에만 실행. 04 §10-2-8 흐름.
   const handlePromote = () => {
@@ -193,6 +197,16 @@ export function StagingDetailPage() {
         loading={promote.isPending}
         onConfirm={handlePromote}
       />
+
+      {/* 미저장 항목 이탈 보호 (04 §11-7 6-9): beforeunload + useBlocker. */}
+      {blocker.state === 'blocked' && (
+        <UnsavedChangesModal
+          open
+          message={`저장하지 않은 항목이 ${unsavedCount}건 있습니다. 페이지를 나가시겠습니까?`}
+          onConfirm={() => blocker.proceed()}
+          onCancel={() => blocker.reset()}
+        />
+      )}
     </div>
   );
 }
