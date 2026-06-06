@@ -1,10 +1,21 @@
-// Playwright 스모크 템플릿 — QA(Step 7)에서 실제 셀렉터로 채운다. 최고위험 흐름 전용(결정 ①).
 import { test, expect } from '@playwright/test';
 
-test.describe('role-change (최고위험 흐름)', () => {
-  test.fixme('TODO: 빌드된 앱 셀렉터로 구현', async ({ page }) => {
-    // role-change: 명세 시나리오는 spec/04 §11-8 참조
-    await page.goto('/');
-    expect(true).toBe(true);
+/**
+ * 최고위험 흐름 S10 (04 §11-8, §10-3): USER_DETAIL 역할 USER→ADMIN 변경 시
+ * destructive 확인 모달("관리자 권한을 부여하시겠습니까?") 노출.
+ * MSW GET /users/:id 는 role=USER 반환. 모달까지만 검증(실제 PATCH 확인은 별도).
+ */
+test.beforeEach(async ({ page }) => {
+  // auth-stub: protectedLoader 는 refreshToken 존재만 확인(MSW 가 토큰을 검증하지 않음).
+  await page.addInitScript(() => {
+    localStorage.setItem('gravit_admin_refresh_token', 'e2e-stub-refresh-token');
   });
+});
+
+test('역할 USER→ADMIN 변경 시 destructive 확인 모달이 뜬다', async ({ page }) => {
+  await page.goto('/users/1001');
+  // 첫 번째 combobox = 역할 Select(두 번째는 상태).
+  await page.getByRole('combobox').first().click();
+  await page.getByRole('option', { name: '관리자' }).click();
+  await expect(page.getByText('관리자 권한을 부여하시겠습니까?')).toBeVisible();
 });

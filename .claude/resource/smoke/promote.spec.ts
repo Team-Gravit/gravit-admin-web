@@ -1,10 +1,33 @@
-// Playwright 스모크 템플릿 — QA(Step 7)에서 실제 셀렉터로 채운다. 최고위험 흐름 전용(결정 ①).
 import { expect, test } from '@playwright/test';
 
-test.describe('promote (최고위험 흐름)', () => {
-  test.fixme('TODO: 빌드된 앱 셀렉터로 구현', async ({ page }) => {
-    // promote: 명세 시나리오는 spec/04 §11-8 참조
-    await page.goto('/');
-    expect(true).toBe(true);
+/**
+ * 최고위험 흐름 S12 + promote (04 §11-8, §10-2-7/§10-2-8): StrictMatch 모달 —
+ * 라벨명 오타 시 [반영] 비활성, 정확 입력 시 활성 → promote → 토스트 + 목록 이동.
+ * MSW: 2026-04-25-update = PENDING(편집 가능), PATCH status mock 200.
+ */
+test.beforeEach(async ({ page }) => {
+  await page.addInitScript(() => {
+    localStorage.setItem('gravit_admin_refresh_token', 'e2e-stub-refresh-token');
   });
+});
+
+test('promote StrictMatch: 오타 시 [반영] 비활성, 정확 입력 시 반영된다', async ({ page }) => {
+  const label = '2026-04-25-update';
+  await page.goto(`/staging/labels/${label}`);
+
+  await page.getByRole('button', { name: '반영 완료 처리' }).click();
+
+  const dialog = page.getByRole('dialog');
+  const input = dialog.getByRole('textbox');
+  const confirm = dialog.getByRole('button', { name: '반영', exact: true });
+
+  await input.fill('2026-04-25-updatX'); // 오타 → 비활성
+  await expect(confirm).toBeDisabled();
+
+  await input.fill(label); // 정확 일치 → 활성
+  await expect(confirm).toBeEnabled();
+
+  await confirm.click();
+  await expect(page.getByText('라벨이 반영되었습니다.')).toBeVisible();
+  await expect(page).toHaveURL(/\/staging\/labels$/);
 });

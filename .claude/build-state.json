@@ -32,7 +32,7 @@
     { "id": "step-6:6-7-promote",      "status": "COMPLETED" },
     { "id": "step-6:6-8-completed-ro", "status": "COMPLETED" },
     { "id": "step-6:6-9-leave-guard",  "status": "COMPLETED" },
-    { "id": "step-7-qa",               "status": "TODO" }
+    { "id": "step-7-qa",               "status": "IN_PROGRESS" }
   ],
   "figma": {
     "_note": "화면 디자인 인테이크 — 화면별 Figma URL 기록(implement-one-screen §0). 미기재/none = DS-02 기반.",
