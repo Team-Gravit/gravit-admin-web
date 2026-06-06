@@ -47,3 +47,11 @@ export async function updateStagingOption(
 ): Promise<void> {
   await apiClient.patch(`/staging/options/${optionId}`, body);
 }
+
+/** PATCH /staging/answers/{answerId} — 스테이징 주관식 정답 개별 수정 (03 §8-6, D1 단일). content/explanation. */
+export async function updateStagingAnswer(
+  answerId: number,
+  body: { content?: string; explanation?: string },
+): Promise<void> {
+  await apiClient.patch(`/staging/answers/${answerId}`, body);
+}

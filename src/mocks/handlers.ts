@@ -342,6 +342,9 @@ export const handlers = [
   // 스테이징 객관식 옵션 개별 수정 (03 §8-5, 200)
   http.patch('*/api/v1/admin/staging/options/:optionId', () => new HttpResponse(null, { status: 200 })),
 
+  // 스테이징 주관식 정답 개별 수정 (03 §8-6, 200)
+  http.patch('*/api/v1/admin/staging/answers/:answerId', () => new HttpResponse(null, { status: 200 })),
+
   // 유저 목록 (03 §5-1, search/status/role 필터)
   http.get('*/api/v1/admin/users', ({ request }) => {
     const url = new URL(request.url);

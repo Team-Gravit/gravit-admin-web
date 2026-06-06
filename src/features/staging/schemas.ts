@@ -121,6 +121,30 @@ export const stagingObjectiveFormSchema = z.object({
 });
 export type StagingObjectiveFormValues = z.infer<typeof stagingObjectiveFormSchema>;
 
+/**
+ * 스테이징 주관식 편집 폼 (DS-02 §16-4-3 + D1 단일 객체, 04 §11 검증표, 03 §8-4/§8-6).
+ * 정답 단일(콤마 구분 content) + 해설 1개. 추가/삭제 없음.
+ */
+export const stagingSubjectiveFormSchema = z.object({
+  instruction: z
+    .string()
+    .min(1, '지시문은 필수 항목입니다.')
+    .max(FIELD_LIMITS.problem.instruction, `${FIELD_LIMITS.problem.instruction}자 이내로 입력해주세요.`),
+  content: z
+    .string()
+    .min(1, '본문은 필수 항목입니다.')
+    .max(FIELD_LIMITS.problem.content, `${FIELD_LIMITS.problem.content}자 이내로 입력해주세요.`),
+  answerContent: z
+    .string()
+    .min(1, '정답을 입력해주세요.')
+    .max(FIELD_LIMITS.answer.content, `${FIELD_LIMITS.answer.content}자 이내로 입력해주세요.`),
+  answerExplanation: z
+    .string()
+    .min(1, '해설을 입력해주세요.')
+    .max(FIELD_LIMITS.answer.explanation, `${FIELD_LIMITS.answer.explanation}자 이내로 입력해주세요.`),
+});
+export type StagingSubjectiveFormValues = z.infer<typeof stagingSubjectiveFormSchema>;
+
 export type StagingLesson = z.infer<typeof stagingLessonSchema>;
 export type StagingOption = z.infer<typeof stagingOptionSchema>;
 export type StagingAnswer = z.infer<typeof stagingAnswerSchema>;
