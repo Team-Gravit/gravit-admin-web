@@ -12,6 +12,11 @@ dist
 dist-ssr
 *.local
 
+# Playwright (Step 7 smoke) 산출물
+test-results
+playwright-report
+.playwright
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
