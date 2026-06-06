@@ -70,24 +70,20 @@ export function StagingObjectiveForm({
 
   const onSubmit = form.handleSubmit(
     async (values) => {
-      // 변경된 필드만 골라 PATCH 작업 구성 (04 §10-2-5, good-patterns).
+      // 변경된 필드만 골라 PATCH 작업 구성 (04 §10-2-5 부분 업데이트, good-patterns).
       const tasks: Array<() => Promise<void>> = [];
-      if (dirtyFields.instruction || dirtyFields.content) {
-        tasks.push(() =>
-          updateStagingProblem(problem.problemId, {
-            instruction: values.instruction,
-            content: values.content,
-          }),
-        );
+      const problemBody: { instruction?: string; content?: string } = {};
+      if (dirtyFields.instruction) problemBody.instruction = values.instruction;
+      if (dirtyFields.content) problemBody.content = values.content;
+      if (Object.keys(problemBody).length > 0) {
+        tasks.push(() => updateStagingProblem(problem.problemId, problemBody));
       }
       values.options.forEach((option, index) => {
-        if (dirtyFields.options?.[index]?.content || dirtyFields.options?.[index]?.explanation) {
-          tasks.push(() =>
-            updateStagingOption(option.optionId, {
-              content: option.content,
-              explanation: option.explanation,
-            }),
-          );
+        const optionBody: { content?: string; explanation?: string } = {};
+        if (dirtyFields.options?.[index]?.content) optionBody.content = option.content;
+        if (dirtyFields.options?.[index]?.explanation) optionBody.explanation = option.explanation;
+        if (Object.keys(optionBody).length > 0) {
+          tasks.push(() => updateStagingOption(option.optionId, optionBody));
         }
       });
       // 정답 변경 시 이전 정답 옵션 + 새 정답 옵션 모두 PATCH (D4, 03 §8-5).

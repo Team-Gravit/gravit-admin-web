@@ -32,10 +32,10 @@ export async function updateStagingLesson(lessonId: number, body: { title: strin
   await apiClient.patch(`/staging/lessons/${lessonId}`, body);
 }
 
-/** PATCH /staging/problems/{problemId} — 스테이징 문제 수정 (03 §8-4). instruction/content. */
+/** PATCH /staging/problems/{problemId} — 스테이징 문제 수정 (03 §8-4). 부분 업데이트(변경 필드만). */
 export async function updateStagingProblem(
   problemId: number,
-  body: { instruction: string; content: string },
+  body: { instruction?: string; content?: string },
 ): Promise<void> {
   await apiClient.patch(`/staging/problems/${problemId}`, body);
 }
