@@ -311,11 +311,13 @@ export const handlers = [
       problemType: 'SUBJECTIVE' as const,
       instruction,
       content: '빈칸에 들어갈 값을 쓰시오.',
-      answer: {
-        answerId: problemId * 10 + 1,
-        content: '0, 영, zero',
-        explanation: '배열 인덱스는 0부터 시작합니다.',
-      },
+      answers: [
+        {
+          answerId: problemId * 10 + 1,
+          content: '0, 영, zero',
+          explanation: '배열 인덱스는 0부터 시작합니다.',
+        },
+      ],
     });
     return HttpResponse.json({
       label: String(params.label),

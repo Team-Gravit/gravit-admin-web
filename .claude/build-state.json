@@ -53,7 +53,7 @@
     "step-5:PROBLEM_DETAIL": "figma node 8558:6242 (hu4c6qCEMB62qHXk2v8Gsl, 객관식 표시 모드)",
     "step-6:STAGING_DETAIL": "figma node 8717:1273 (PENDING 편집 뷰) + 8788:1858 (COMPLETED read-only 뷰) (hu4c6qCEMB62qHXk2v8Gsl)"
   },
-  "retry": { "step-5:PROBLEM_DETAIL": 1 },
+  "retry": { "step-5:PROBLEM_DETAIL": 1, "step-6:6-1-fetch-list": 2 },
   "manual_review": [
     { "id": "step-1-setup", "tag": "human-step", "note": ".env.development/.env.local 생성 필요(VITE_* 값). env.ts 구조만 생성, 비밀값은 사람 입력(PreToolUse 차단). dev 런타임 검증은 env 입력 후 가능." },
     { "id": "step-2-infra", "tag": "D4", "note": "GET /admin/me 미존재 → 사이드바 운영자 닉네임/이메일은 가용정보 대체('운영자' fallback). §11-3 완료기준 '닉네임/이메일 표시'는 D4 로 의도적 이연. 엔드포인트 추가 시 profileImgNumber(1~19) 매핑 + 표시 완성." },

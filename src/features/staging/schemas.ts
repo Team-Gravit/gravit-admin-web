@@ -38,7 +38,7 @@ export const stagingOptionSchema = z.object({
   isAnswer: z.boolean(),
 });
 
-/** 스테이징 주관식 정답 (04 §10-2-1, D1 B-single-comma): 단일 객체 + 콤마 구분 content. */
+/** 스테이징 주관식 정답 (03 §8-2). D1(B-single-comma): content 콤마 구분, answers 는 1요소 배열. */
 export const stagingAnswerSchema = z.object({
   answerId: z.number(),
   content: z.string(),
@@ -58,10 +58,10 @@ export const stagingSubjectiveProblemSchema = z.object({
   problemType: z.literal('SUBJECTIVE'),
   instruction: z.string(),
   content: z.string(),
-  answer: stagingAnswerSchema,
+  answers: z.array(stagingAnswerSchema),
 });
 
-/** 스테이징 문제 = problemType 분기 (04 §10-2-1: 주관식은 단일 answer 객체). */
+/** 스테이징 문제 = problemType 분기 (03 §8-2: 주관식은 answers 배열, D1 = 1요소). */
 export const stagingProblemSchema = z.discriminatedUnion('problemType', [
   stagingObjectiveProblemSchema,
   stagingSubjectiveProblemSchema,
