@@ -7,10 +7,11 @@ import { z } from 'zod';
  */
 const envSchema = z.object({
   VITE_API_HOST: z.string().url(),
-  VITE_GOOGLE_CLIENT_ID: z.string().min(1),
-  VITE_KAKAO_JAVASCRIPT_KEY: z.string().min(1),
-  VITE_NAVER_CLIENT_ID: z.string().min(1),
-  VITE_NAVER_CALLBACK_URL: z.string().url(),
+  /**
+   * OAuth dest 값(BACKEND_ADMIN_API_SPEC §8). 백엔드가 이 값으로 admin 도메인 redirect_uri 를 매핑.
+   * provider 콘솔의 admin 콜백 등록 + 백엔드 dest 매핑은 인프라 담당.
+   */
+  VITE_OAUTH_DEST: z.string().min(1),
 });
 
 const parsed = envSchema.safeParse(import.meta.env);

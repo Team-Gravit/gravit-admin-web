@@ -1,29 +1,35 @@
 import { authApiClient } from '@/shared/api/client';
-import { tokenManager } from '@/shared/api/tokenManager';
-import { tokenPairSchema, type TokenPairResponse } from '@/features/auth/schemas';
-import type { LoginRequest } from '@/features/auth/types';
+import { env } from '@/env';
+import {
+  loginUrlResponseSchema,
+  oauthLoginResponseSchema,
+  type OAuthLoginResponse,
+} from '@/features/auth/schemas';
+import type { ProviderId } from '@/features/auth/types';
 
 /**
- * 인증 API (03 §3). login/refresh/logout 은 인터셉터 없는 authApiClient 사용
- * (401 reissue 사이클 회피). refresh 는 client.ts 인터셉터 내부에서 직접 호출.
+ * 인증 API (BACKEND_ADMIN_API_SPEC §8 — 기존 OAuth auth-code 흐름 재사용).
+ * authApiClient(base `/api/v1`, 인터셉터 없음)로 호출. login/logout 전용 admin 엔드포인트 없음.
+ * - provider 경로는 소문자(백엔드 case-insensitive, 라이브 web 관례).
  */
+const providerPath = (provider: ProviderId): string => provider.toLowerCase();
+
 export const authApi = {
-  /** POST /auth/login — OAuth idToken 으로 토큰 쌍 발급 (03 §3-1). */
-  login: async (body: LoginRequest): Promise<TokenPairResponse> => {
-    const { data } = await authApiClient.post('/auth/login', body);
-    return tokenPairSchema.parse(data);
+  /** GET /oauth/login-url/{provider} — provider 인가 URL 획득(이후 리다이렉트). */
+  getLoginUrl: async (provider: ProviderId): Promise<string> => {
+    const { data } = await authApiClient.get(`/oauth/login-url/${providerPath(provider)}`, {
+      params: { dest: env.VITE_OAUTH_DEST },
+    });
+    return loginUrlResponseSchema.parse(data).loginUrl;
   },
 
-  /**
-   * POST /auth/logout — refreshToken 무효화 (03 §3-3, 204).
-   * Bearer 필요하나 best-effort 이므로 manual 헤더로 호출(인터셉터 미경유).
-   */
-  logout: async (refreshToken: string): Promise<void> => {
-    const accessToken = tokenManager.getAccessToken();
-    await authApiClient.post(
-      '/auth/logout',
-      { refreshToken },
-      accessToken ? { headers: { Authorization: `Bearer ${accessToken}` } } : undefined,
+  /** POST /oauth/{provider} — authCode → 토큰 + role. */
+  oauthLogin: async (provider: string, code: string): Promise<OAuthLoginResponse> => {
+    const { data } = await authApiClient.post(
+      `/oauth/${provider}`,
+      { code },
+      { params: { dest: env.VITE_OAUTH_DEST } },
     );
+    return oauthLoginResponseSchema.parse(data);
   },
 };

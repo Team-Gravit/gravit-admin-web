@@ -4,16 +4,23 @@ import { http, HttpResponse } from 'msw';
  * MSW 목 핸들러 (dev 전용 — 백엔드/OAuth 없이 로컬 동작).
  * 경로는 호스트 무관 와일드카드(`*​/api/v1/admin/...`)로 매칭. 화면 추가 시 핸들러도 추가.
  */
-const MOCK_TOKENS = {
-  accessToken: 'mock-access-token',
-  refreshToken: 'mock-refresh-token',
-};
-
 export const handlers = [
-  // 인증 (03 §3)
-  http.post('*/api/v1/admin/auth/login', () => HttpResponse.json(MOCK_TOKENS)),
-  http.post('*/api/v1/admin/auth/refresh', () => HttpResponse.json(MOCK_TOKENS)),
-  http.post('*/api/v1/admin/auth/logout', () => new HttpResponse(null, { status: 204 })),
+  // 인증 (기존 OAuth auth-code 재사용 — BACKEND_ADMIN_API_SPEC §8).
+  // dev: provider 라운드트립을 자체 콜백으로 시뮬레이션(code 동봉), 콜백 POST 는 ADMIN 토큰 반환.
+  http.get('*/api/v1/oauth/login-url/:provider', ({ params }) =>
+    HttpResponse.json({
+      loginUrl: `${window.location.origin}/login/oauth2/code/${params.provider}?code=mock-code`,
+    }),
+  ),
+  http.post('*/api/v1/oauth/:provider', () =>
+    HttpResponse.json({
+      accessToken: 'mock-access-token',
+      refreshToken: 'mock-refresh-token',
+      isOnboarded: true,
+      role: 'ADMIN',
+    }),
+  ),
+  http.post('*/api/v1/auth/reissue', () => HttpResponse.json({ accessToken: 'mock-access-token' })),
 
   // 대시보드 (03 §4-1)
   http.get('*/api/v1/admin/dashboard/summary', () =>

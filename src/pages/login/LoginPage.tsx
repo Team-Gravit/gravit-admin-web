@@ -1,33 +1,33 @@
+import { useSearchParams } from 'react-router';
 import gravitLogo from '@/features/auth/assets/gravit-logo.svg';
 import loginIllustration from '@/features/auth/assets/login-illustration.png';
 import { OAuthButtons } from '@/features/auth/components/OAuthButtons';
-import { useLogin } from '@/features/auth/hooks';
+import { useStartOAuth } from '@/features/auth/hooks';
 import type { ProviderId } from '@/features/auth/types';
-import type { ErrorResponse } from '@/shared/api/types';
-import { AxiosError } from 'axios';
 
 /**
- * 로그인 실패 메시지 (DS-02 §1-4, 03 §3-1). 백엔드 message 우선, 없으면 명세 기본 문구.
+ * 로그인 실패 메시지 (DS-02 §1-4, BACKEND_ADMIN_API_SPEC §8).
+ * 콜백이 role 차단/실패 시 `?error=` 로 복귀 → 카드 하단에 표시.
  */
-function loginErrorMessage(error: unknown): string {
-  if (error instanceof AxiosError) {
-    const message = (error.response?.data as Partial<ErrorResponse> | undefined)?.message;
-    if (typeof message === 'string' && message.length > 0) return message;
-  }
-  return '백오피스 접근 권한이 없습니다.';
-}
+const ERROR_MESSAGES: Record<string, string> = {
+  forbidden: '백오피스 접근 권한이 없습니다.',
+  failed: '로그인에 실패했습니다. 다시 시도해주세요.',
+};
 
 /**
  * LOGIN (Figma node 8788:1984, decisions D5). 2-패널 카드:
  *  - 좌: 일러스트(LOGIN 전용 에셋)
  *  - 우: Gravit 로고 + "Admin Page" / "백오피스 로그인" / 설명 / OAuth 3버튼 / (실패 시) 에러
- * 데스크탑 단일폭(반응형 없음). 401 → mutation.error → 카드 하단 표시(토스트 아님).
+ * 데스크탑 단일폭(반응형 없음). 흐름: 버튼 → login-url 리다이렉트 → provider → 콜백(/login/oauth2/code/:provider).
  */
 export function LoginPage() {
-  const login = useLogin();
+  const startOAuth = useStartOAuth();
+  const [params] = useSearchParams();
+  const errorKey = params.get('error');
+  const errorMessage = errorKey ? (ERROR_MESSAGES[errorKey] ?? ERROR_MESSAGES.failed) : null;
 
-  const handleLogin = (providerId: ProviderId, idToken: string) => {
-    login.mutate({ providerId, idToken });
+  const handleLogin = (providerId: ProviderId) => {
+    startOAuth.mutate(providerId);
   };
 
   return (
@@ -48,11 +48,9 @@ export function LoginPage() {
           <p className="text-h2 font-medium text-muted-foreground">내부 운영자 전용 관리 시스템</p>
         </div>
 
-        <OAuthButtons onLogin={handleLogin} disabled={login.isPending} />
+        <OAuthButtons onLogin={handleLogin} disabled={startOAuth.isPending} />
 
-        {login.isError && (
-          <p className="text-caption text-destructive">{loginErrorMessage(login.error)}</p>
-        )}
+        {errorMessage && <p className="text-caption text-destructive">{errorMessage}</p>}
       </div>
     </div>
   );

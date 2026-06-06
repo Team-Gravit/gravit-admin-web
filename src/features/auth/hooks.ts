@@ -5,41 +5,55 @@ import { ROUTES } from '@/shared/constants/routes';
 import { tokenManager } from '@/shared/api/tokenManager';
 import { authApi } from '@/features/auth/api';
 import { useAuthStore } from '@/features/auth/store';
-import type { LoginRequest } from '@/features/auth/types';
+import type { ProviderId } from '@/features/auth/types';
 
 /**
- * 로그인 (04 §7-1). 성공 → 토큰 저장 후 대시보드 이동.
- * 401(idToken 실패/role=USER)은 LOGIN 페이지가 mutation.error 로 카드 하단에 표시
- * (authApiClient 는 인터셉터 미경유, 글로벌 onError 는 401 토스트 생략).
+ * OAuth 시작 (BACKEND_ADMIN_API_SPEC §8, 라이브 web 미러).
+ * 버튼 클릭 → login-url 획득 → provider 로그인 페이지로 리다이렉트.
  */
-export function useLogin() {
-  const navigate = useNavigate();
+export function useStartOAuth() {
   return useMutation({
-    mutationFn: (body: LoginRequest) => authApi.login(body),
-    onSuccess: (tokens) => {
-      tokenManager.setTokens(tokens.accessToken, tokens.refreshToken);
-      navigate(ROUTES.DASHBOARD, { replace: true });
+    mutationFn: (provider: ProviderId) => authApi.getLoginUrl(provider),
+    onSuccess: (loginUrl) => {
+      window.location.href = loginUrl;
     },
   });
 }
 
 /**
- * 로그아웃 (04 §7-4). 서버 무효화(best-effort) → 로컬 정리 → 캐시 비움 → /login.
+ * OAuth 콜백 처리. authCode → 토큰 + role.
+ * role 게이트: ADMIN 만 토큰 저장 후 진입, 그 외(USER)는 토큰 폐기 + 권한없음으로 복귀.
+ * (보안은 매 요청 /admin/** 403 이 보장 — 여기 차단은 UX.)
+ */
+export function useOAuthCallback() {
+  const navigate = useNavigate();
+  return useMutation({
+    mutationFn: ({ provider, code }: { provider: string; code: string }) =>
+      authApi.oauthLogin(provider, code),
+    onSuccess: (res) => {
+      if (res.role !== 'ADMIN') {
+        tokenManager.clear();
+        navigate(`${ROUTES.LOGIN}?error=forbidden`, { replace: true });
+        return;
+      }
+      tokenManager.setTokens(res.accessToken, res.refreshToken);
+      navigate(ROUTES.DASHBOARD, { replace: true });
+    },
+    onError: () => {
+      navigate(`${ROUTES.LOGIN}?error=failed`, { replace: true });
+    },
+  });
+}
+
+/**
+ * 로그아웃 (BACKEND_ADMIN_API_SPEC §8). 서버 엔드포인트 없음 → 로컬 정리 → 캐시 비움 → /login.
  */
 export function useLogout() {
   const navigate = useNavigate();
   const queryClient = useQueryClient();
   const reset = useAuthStore((s) => s.reset);
 
-  return useCallback(async () => {
-    const refreshToken = tokenManager.getRefreshToken();
-    if (refreshToken) {
-      try {
-        await authApi.logout(refreshToken);
-      } catch {
-        // best-effort: 서버 실패해도 로컬 로그아웃은 진행
-      }
-    }
+  return useCallback(() => {
     tokenManager.clear();
     reset();
     queryClient.clear();

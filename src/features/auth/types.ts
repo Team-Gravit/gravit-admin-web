@@ -1,17 +1,10 @@
 /** 인증 도메인 타입 (03 §3, 04 §7-2). */
 
-/** OAuth provider 식별자 (03 §3-1, 04 §7-1). */
+/** OAuth provider 식별자 (UI/식별용 대문자, URL 경로는 소문자화). */
 export type ProviderId = 'GOOGLE' | 'KAKAO' | 'NAVER';
 
-export interface LoginRequest {
-  providerId: ProviderId;
-  idToken: string;
-}
-
-export interface TokenPair {
-  accessToken: string;
-  refreshToken: string;
-}
+/** 운영자 권한 (로그인 응답 role). */
+export type Role = 'ADMIN' | 'USER';
 
 /**
  * 운영자 프로필 (04 §7-2, §10-6).

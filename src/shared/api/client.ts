@@ -7,21 +7,19 @@ import { tokenManager } from '@/shared/api/tokenManager';
 import { reissueQueue } from '@/shared/api/reissueQueue';
 
 /**
- * axios 인스턴스 2개 (04 §6-2, 03 §2-1·§3).
- * - 모든 엔드포인트(인증 포함)는 base `/api/v1/admin` (03 §2-1, §3 요청 예시).
- * - authApiClient: 인터셉터 없음 — login/refresh/logout 처럼 401 reissue 사이클을 타면 안 되는 호출용.
- * - apiClient: 요청 인터셉터(Bearer) + 응답 인터셉터(401 → refresh 단일비행 → retry).
+ * axios 인스턴스 2개 (BACKEND_ADMIN_API_SPEC §1, §8).
+ * - authApiClient: 인증용 — base `/api/v1` (OAuth `/oauth/*`, 재발급 `/auth/reissue`). 인터셉터 없음(401 reissue 사이클 회피).
+ * - apiClient: admin 데이터용 — base `/api/v1/admin`. 요청 인터셉터(Bearer) + 응답 인터셉터(401 → reissue 단일비행 → retry).
  */
-const BASE_URL = `${env.VITE_API_HOST}/api/v1/admin`;
+const API_V1 = `${env.VITE_API_HOST}/api/v1`;
 const TIMEOUT = 30_000;
 
-export const authApiClient = axios.create({ baseURL: BASE_URL, timeout: TIMEOUT });
-export const apiClient = axios.create({ baseURL: BASE_URL, timeout: TIMEOUT });
+export const authApiClient = axios.create({ baseURL: API_V1, timeout: TIMEOUT });
+export const apiClient = axios.create({ baseURL: `${API_V1}/admin`, timeout: TIMEOUT });
 
-// 재발급 응답(03 §3-2): Rotation 으로 access+refresh 둘 다 신규 발급 → 둘 다 저장.
-const tokenPairSchema = z.object({
+// 재발급 응답: access 만(로테이션 없음 — 기존 /api/v1/auth/reissue, BACKEND_ADMIN_API_SPEC §8).
+const reissueResponseSchema = z.object({
   accessToken: z.string().min(1),
-  refreshToken: z.string().min(1),
 });
 
 interface RetryableRequest extends InternalAxiosRequestConfig {
@@ -71,9 +69,9 @@ apiClient.interceptors.response.use(
       const refreshToken = tokenManager.getRefreshToken();
       if (!refreshToken) throw new Error('NO_REFRESH_TOKEN');
 
-      const { data } = await authApiClient.post('/auth/refresh', { refreshToken });
-      const { accessToken, refreshToken: rotatedRefresh } = tokenPairSchema.parse(data);
-      tokenManager.setTokens(accessToken, rotatedRefresh);
+      const { data } = await authApiClient.post('/auth/reissue', { refreshToken });
+      const { accessToken } = reissueResponseSchema.parse(data);
+      tokenManager.setAccessToken(accessToken);
       reissueQueue.publish(accessToken);
 
       original.headers.Authorization = `Bearer ${accessToken}`;

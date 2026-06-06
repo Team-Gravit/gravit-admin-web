@@ -4,6 +4,7 @@ import { tokenManager } from '@/shared/api/tokenManager';
 import { LoginLayout } from '@/shared/components/layout/LoginLayout';
 import { AppShell } from '@/pages/AppShell';
 import { LoginPage } from '@/pages/login/LoginPage';
+import { OAuthCallbackPage } from '@/pages/login/OAuthCallbackPage';
 import { DashboardPage } from '@/pages/dashboard/DashboardPage';
 import { UserListPage } from '@/pages/users/UserListPage';
 import { UserDetailPage } from '@/pages/users/UserDetailPage';
@@ -35,7 +36,10 @@ const protectedLoader: LoaderFunction = () => {
 export const router = createBrowserRouter([
   {
     element: <LoginLayout />,
-    children: [{ path: ROUTES.LOGIN, element: <LoginPage /> }],
+    children: [
+      { path: ROUTES.LOGIN, element: <LoginPage /> },
+      { path: ROUTES.OAUTH_CALLBACK_PATTERN, element: <OAuthCallbackPage /> },
+    ],
   },
   {
     path: '/',
