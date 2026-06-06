@@ -29,7 +29,7 @@
     { "id": "step-6:6-4-subjective",   "status": "COMPLETED" },
     { "id": "step-6:6-5-dirty",        "status": "COMPLETED" },
     { "id": "step-6:6-6-multi-patch",  "status": "COMPLETED" },
-    { "id": "step-6:6-7-promote",      "status": "TODO" },
+    { "id": "step-6:6-7-promote",      "status": "IN_PROGRESS" },
     { "id": "step-6:6-8-completed-ro", "status": "TODO" },
     { "id": "step-6:6-9-leave-guard",  "status": "TODO" },
     { "id": "step-7-qa",               "status": "TODO" }

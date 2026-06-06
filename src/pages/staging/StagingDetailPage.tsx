@@ -1,15 +1,22 @@
 import { useCallback, useState } from 'react';
-import { useParams } from 'react-router';
+import { useNavigate, useParams } from 'react-router';
+import { useQueryClient } from '@tanstack/react-query';
+import { toast } from 'sonner';
+import { ROUTES } from '@/shared/constants/routes';
 import { cn } from '@/shared/lib/cn';
 import { formatDate } from '@/shared/lib/formatDate';
+import { Button } from '@/shared/components/ui/button';
 import { ErrorState } from '@/shared/components/states/ErrorState';
 import { LoadingSkeleton } from '@/shared/components/states/LoadingSkeleton';
 import { ProblemTypeBadge } from '@/shared/components/status-badge/ProblemTypeBadge';
+import { StrictMatchModal } from '@/shared/components/modals/StrictMatchModal';
+import { dashboardKeys } from '@/features/dashboard/queries';
 import { StagingStatusBadge } from '@/features/staging/components/StagingStatusBadge';
 import { StagingLessonForm } from '@/features/staging/components/StagingLessonForm';
 import { StagingObjectiveForm } from '@/features/staging/components/StagingObjectiveForm';
 import { StagingSubjectiveForm } from '@/features/staging/components/StagingSubjectiveForm';
 import { useStagingLabel } from '@/features/staging/queries';
+import { usePromoteStagingLabel } from '@/features/staging/mutations';
 
 /** 활성 항목: 레슨 1 또는 문제(problems 배열 index). */
 type ActiveItem = { type: 'lesson' } | { type: 'problem'; index: number };
@@ -27,6 +34,8 @@ function DirtyDot() {
  */
 export function StagingDetailPage() {
   const { label = '' } = useParams();
+  const navigate = useNavigate();
+  const queryClient = useQueryClient();
   const { data, isLoading, isError, refetch } = useStagingLabel(label);
   const [active, setActive] = useState<ActiveItem>({ type: 'lesson' });
   // 항목별 dirty 상태 lift-up — 좌측 리스트 ● 표시(04 §10-2-4).
@@ -34,9 +43,29 @@ export function StagingDetailPage() {
   const setItemDirty = useCallback((key: string, dirty: boolean) => {
     setDirtyMap((prev) => (prev[key] === dirty ? prev : { ...prev, [key]: dirty }));
   }, []);
+  const [promoteOpen, setPromoteOpen] = useState(false);
+  const promote = usePromoteStagingLabel(label);
 
   if (isLoading) return <LoadingSkeleton />;
   if (isError || !data) return <ErrorState onRetry={() => refetch()} />;
+
+  const unsavedCount = Object.values(dirtyMap).filter(Boolean).length;
+  const hasUnsaved = unsavedCount > 0;
+
+  // ⚠️ promote 비가역(03 §8-7, prod INSERT). StrictMatch 게이트 통과 후에만 실행. 04 §10-2-8 흐름.
+  const handlePromote = () => {
+    promote.mutate(undefined, {
+      onSuccess: () => {
+        void queryClient.invalidateQueries({ queryKey: dashboardKeys.summary() });
+        toast.success('라벨이 반영되었습니다.');
+        navigate(ROUTES.STAGING_LABELS);
+      },
+      onError: () => {
+        setPromoteOpen(false);
+        toast.error('반영에 실패했습니다. 잠시 후 다시 시도해주세요.');
+      },
+    });
+  };
 
   const itemClass = (isActive: boolean) =>
     cn(
@@ -48,11 +77,24 @@ export function StagingDetailPage() {
 
   return (
     <div className="flex flex-col gap-6">
-      {/* 헤더 (DS-02 §16-1). [반영 완료 처리] 버튼은 6-7. */}
+      {/* 헤더 (DS-02 §16-1). [반영 완료 처리]: PENDING 한정, 미저장 ● 있으면 비활성+툴팁(04 §10-2-6). COMPLETED 숨김은 6-8. */}
       <div className="flex flex-col gap-2">
-        <div className="flex items-center gap-3">
-          <StagingStatusBadge status={data.status} />
-          <h1 className="font-mono text-h1 text-foreground">{data.label}</h1>
+        <div className="flex items-start justify-between gap-3">
+          <div className="flex items-center gap-3">
+            <StagingStatusBadge status={data.status} />
+            <h1 className="font-mono text-h1 text-foreground">{data.label}</h1>
+          </div>
+          {data.status === 'PENDING' && (
+            <span title={hasUnsaved ? `저장하지 않은 항목이 있습니다 (${unsavedCount}건)` : undefined}>
+              <Button
+                variant="destructive"
+                disabled={hasUnsaved}
+                onClick={() => setPromoteOpen(true)}
+              >
+                반영 완료 처리
+              </Button>
+            </span>
+          )}
         </div>
         <p className="text-caption text-fg-muted">
           U-{data.unitId} · {data.description} · 생성일 {formatDate(data.createdAt)}
@@ -121,6 +163,16 @@ export function StagingDetailPage() {
           })}
         </div>
       </div>
+
+      {/* promote Strict Match Modal (DS-01 §5-6 480px, 03 §8-7). 비가역 — 라벨명 정확 입력 시에만 [반영]. */}
+      <StrictMatchModal
+        open={promoteOpen}
+        onOpenChange={setPromoteOpen}
+        label={data.label}
+        description="이 작업은 되돌릴 수 없습니다. 라벨의 레슨·문제가 운영(prod)에 반영됩니다."
+        loading={promote.isPending}
+        onConfirm={handlePromote}
+      />
     </div>
   );
 }
