@@ -1,7 +1,9 @@
 import { apiClient } from '@/shared/api/client';
 import type { StagingStatus } from '@/shared/constants/enums';
 import {
+  stagingLabelDetailSchema,
   stagingLabelListResponseSchema,
+  type StagingLabelDetail,
   type StagingLabelListResponse,
 } from '@/features/staging/schemas';
 
@@ -17,4 +19,10 @@ export async function getStagingLabels(
   if (status) params.status = status;
   const { data } = await apiClient.get('/staging/labels', { params });
   return stagingLabelListResponseSchema.parse(data);
+}
+
+/** GET /staging/labels/{label} — 라벨 상세 그루핑 (03 §8-2, 04 §10-2-1). 레슨 1 + 문제 6. */
+export async function getStagingLabel(label: string): Promise<StagingLabelDetail> {
+  const { data } = await apiClient.get(`/staging/labels/${label}`);
+  return stagingLabelDetailSchema.parse(data);
 }

@@ -23,7 +23,7 @@
     { "id": "step-4:LESSON_DETAIL",    "status": "COMPLETED" },
     { "id": "step-5:CHAPTER_DETAIL",   "status": "COMPLETED" },
     { "id": "step-5:PROBLEM_DETAIL",   "status": "COMPLETED" },
-    { "id": "step-6:6-1-fetch-list",   "status": "TODO" },
+    { "id": "step-6:6-1-fetch-list",   "status": "IN_PROGRESS" },
     { "id": "step-6:6-2-lesson-form",  "status": "TODO" },
     { "id": "step-6:6-3-objective",    "status": "TODO" },
     { "id": "step-6:6-4-subjective",   "status": "TODO" },
@@ -50,7 +50,8 @@
     "step-4:UNIT_DETAIL": "figma node 6035:8159 (hu4c6qCEMB62qHXk2v8Gsl)",
     "step-4:LESSON_DETAIL": "figma node 8558:6812 (hu4c6qCEMB62qHXk2v8Gsl)",
     "step-5:CHAPTER_DETAIL": "figma node 8718:2304 (hu4c6qCEMB62qHXk2v8Gsl)",
-    "step-5:PROBLEM_DETAIL": "figma node 8558:6242 (hu4c6qCEMB62qHXk2v8Gsl, 객관식 표시 모드)"
+    "step-5:PROBLEM_DETAIL": "figma node 8558:6242 (hu4c6qCEMB62qHXk2v8Gsl, 객관식 표시 모드)",
+    "step-6:STAGING_DETAIL": "figma node 8717:1273 (PENDING 편집 뷰) + 8788:1858 (COMPLETED read-only 뷰) (hu4c6qCEMB62qHXk2v8Gsl)"
   },
   "retry": { "step-5:PROBLEM_DETAIL": 1 },
   "manual_review": [

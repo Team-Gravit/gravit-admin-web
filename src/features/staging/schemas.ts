@@ -21,3 +21,67 @@ export const stagingLabelListResponseSchema = z.object({
 
 export type StagingLabelListItem = z.infer<typeof stagingLabelListItemSchema>;
 export type StagingLabelListResponse = z.infer<typeof stagingLabelListResponseSchema>;
+
+// ── 라벨 상세 그루핑 (03 §8-2, 04 §10-2-1) — 레슨 1 + 문제 6 ──
+
+/** 스테이징 레슨 (04 §10-2-1). */
+export const stagingLessonSchema = z.object({
+  lessonId: z.number(),
+  title: z.string(),
+});
+
+/** 스테이징 객관식 옵션 (04 §10-2-1). optionId ASC, 4개, isAnswer 1개. */
+export const stagingOptionSchema = z.object({
+  optionId: z.number(),
+  content: z.string(),
+  explanation: z.string(),
+  isAnswer: z.boolean(),
+});
+
+/** 스테이징 주관식 정답 (04 §10-2-1, D1 B-single-comma): 단일 객체 + 콤마 구분 content. */
+export const stagingAnswerSchema = z.object({
+  answerId: z.number(),
+  content: z.string(),
+  explanation: z.string(),
+});
+
+export const stagingObjectiveProblemSchema = z.object({
+  problemId: z.number(),
+  problemType: z.literal('OBJECTIVE'),
+  instruction: z.string(),
+  content: z.string(),
+  options: z.array(stagingOptionSchema),
+});
+
+export const stagingSubjectiveProblemSchema = z.object({
+  problemId: z.number(),
+  problemType: z.literal('SUBJECTIVE'),
+  instruction: z.string(),
+  content: z.string(),
+  answer: stagingAnswerSchema,
+});
+
+/** 스테이징 문제 = problemType 분기 (04 §10-2-1: 주관식은 단일 answer 객체). */
+export const stagingProblemSchema = z.discriminatedUnion('problemType', [
+  stagingObjectiveProblemSchema,
+  stagingSubjectiveProblemSchema,
+]);
+
+/** 라벨 상세 그루핑 응답 (03 §8-2, 04 §10-2-1). */
+export const stagingLabelDetailSchema = z.object({
+  label: z.string(),
+  unitId: z.number(),
+  description: z.string(),
+  status: stagingStatusSchema,
+  createdAt: z.string(),
+  lesson: stagingLessonSchema,
+  problems: z.array(stagingProblemSchema),
+});
+
+export type StagingLesson = z.infer<typeof stagingLessonSchema>;
+export type StagingOption = z.infer<typeof stagingOptionSchema>;
+export type StagingAnswer = z.infer<typeof stagingAnswerSchema>;
+export type StagingObjectiveProblem = z.infer<typeof stagingObjectiveProblemSchema>;
+export type StagingSubjectiveProblem = z.infer<typeof stagingSubjectiveProblemSchema>;
+export type StagingProblem = z.infer<typeof stagingProblemSchema>;
+export type StagingLabelDetail = z.infer<typeof stagingLabelDetailSchema>;

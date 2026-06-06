@@ -292,6 +292,49 @@ export const handlers = [
     return HttpResponse.json({ page: 1, totalPages: 1, hasNextPage: false, content });
   }),
 
+  // 라벨 상세 그루핑 (03 §8-2, 04 §10-2-1): 레슨 1 + 문제 6(객관식 4 + 주관식 2). 주관식=단일 answer 객체.
+  http.get('*/api/v1/admin/staging/labels/:label', ({ params }) => {
+    const objective = (problemId: number, instruction: string) => ({
+      problemId,
+      problemType: 'OBJECTIVE' as const,
+      instruction,
+      content: '아래 보기 중 옳은 것을 고르시오.',
+      options: [
+        { optionId: problemId * 10 + 1, content: 'O(1)', explanation: '인덱스로 바로 접근', isAnswer: true },
+        { optionId: problemId * 10 + 2, content: 'O(log n)', explanation: '이진 탐색', isAnswer: false },
+        { optionId: problemId * 10 + 3, content: 'O(n)', explanation: '선형 탐색', isAnswer: false },
+        { optionId: problemId * 10 + 4, content: 'O(n²)', explanation: '이중 반복', isAnswer: false },
+      ],
+    });
+    const subjective = (problemId: number, instruction: string) => ({
+      problemId,
+      problemType: 'SUBJECTIVE' as const,
+      instruction,
+      content: '빈칸에 들어갈 값을 쓰시오.',
+      answer: {
+        answerId: problemId * 10 + 1,
+        content: '0, 영, zero',
+        explanation: '배열 인덱스는 0부터 시작합니다.',
+      },
+    });
+    return HttpResponse.json({
+      label: String(params.label),
+      unitId: 12,
+      description: '배열 챕터 5번째 사이클',
+      status: 'PENDING',
+      createdAt: '2026-04-25T00:00:00Z',
+      lesson: { lessonId: 901, title: '배열의 시간 복잡도 심화' },
+      problems: [
+        objective(1001, '배열의 임의 접근 시간 복잡도는?'),
+        objective(1002, '정렬된 배열의 이진 탐색 시간 복잡도는?'),
+        subjective(1003, '배열 인덱스가 시작하는 숫자를 쓰시오.'),
+        objective(1004, '배열 끝 삽입의 평균 시간 복잡도는?'),
+        subjective(1005, '연속된 메모리 구조의 이름을 쓰시오.'),
+        objective(1006, '배열 중간 삽입의 시간 복잡도는?'),
+      ],
+    });
+  }),
+
   // 유저 목록 (03 §5-1, search/status/role 필터)
   http.get('*/api/v1/admin/users', ({ request }) => {
     const url = new URL(request.url);

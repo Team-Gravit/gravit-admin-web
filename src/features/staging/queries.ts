@@ -1,6 +1,6 @@
 import { keepPreviousData, useQuery } from '@tanstack/react-query';
 import type { StagingStatus } from '@/shared/constants/enums';
-import { getStagingLabels } from '@/features/staging/api';
+import { getStagingLabel, getStagingLabels } from '@/features/staging/api';
 
 /** 스테이징 queryKey 팩토리 (04 §9-1). promote 시 stagingKeys.all + dashboard invalidate. */
 export const stagingKeys = {
@@ -17,5 +17,13 @@ export function useStagingLabels(page: number, status?: StagingStatus) {
     queryKey: stagingKeys.list(page, status),
     queryFn: () => getStagingLabels(page, status),
     placeholderData: keepPreviousData,
+  });
+}
+
+export function useStagingLabel(label: string) {
+  return useQuery({
+    queryKey: stagingKeys.detail(label),
+    queryFn: () => getStagingLabel(label),
+    enabled: Boolean(label),
   });
 }
