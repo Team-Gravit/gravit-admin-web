@@ -6,6 +6,7 @@
 - ❌ `any` / 무검증 캐스팅 / 응답을 Zod 없이 그대로 사용.
 - ❌ 명세에 없는 엔드포인트·필드·쿼리 파라미터 생성(환각).
 - ❌ enum 값 임의 추가·변경. 상태전이 제약 무시.
+- ❌ **주관식 정답을 `answers` 배열·다중 정답·"1요소 배열로 보존"으로 구현 / `content` 를 `List<String>` 등으로 분해 / 정답 추가·삭제 UI / GET↔PATCH 모델 불일치.** 주관식 정답은 **단일 객체 `{ answerId, content(콤마 String 1개), explanation }` 1개 고정**(prod·staging·GET·PATCH 전부 동일). → [[decisions]] D1·D2. (`03` 의 `answers` 배열 표기는 stale — D1 이 권위)
 
 ## 아키텍처
 - ❌ `features/{a}` 가 `features/{b}` 직접 import. (→ shared 로 승격)

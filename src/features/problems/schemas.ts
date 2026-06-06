@@ -10,7 +10,7 @@ export const problemOptionSchema = z.object({
 });
 export type ProblemOption = z.infer<typeof problemOptionSchema>;
 
-/** 주관식 정답 (03 §7-12). D1(B-single-comma): 단일 객체 + content 콤마 구분. */
+/** 주관식 정답 (D1): 단일 객체, content = 콤마 구분 단일 텍스트(예: "데이터베이스,database"). */
 export const problemAnswerSchema = z.object({
   answerId: z.number(),
   content: z.string(),
@@ -28,14 +28,14 @@ export const objectiveProblemSchema = z.object({
   options: z.array(problemOptionSchema),
 });
 
-/** 주관식 문제 상세 (03 §7-12). */
+/** 주관식 문제 상세 (D1: 단일 answer 객체. 03 §7-12 answers 배열 표기는 stale). */
 export const subjectiveProblemSchema = z.object({
   problemId: z.number(),
   lessonId: z.number(),
   problemType: z.literal('SUBJECTIVE'),
   instruction: z.string(),
   content: z.string(),
-  answers: z.array(problemAnswerSchema),
+  answer: problemAnswerSchema,
 });
 
 /** 문제 상세 = problemType 분기 (03 §7-12). */

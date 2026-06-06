@@ -31,15 +31,15 @@ export function SubjectiveProblemEditForm({
   onSaved,
 }: SubjectiveProblemEditFormProps) {
   const updateSubjective = useUpdateSubjectiveProblem(problem.problemId);
-  const answer = problem.answers[0];
+  const { answer } = problem;
   const form = useForm<SubjectiveEditFormValues>({
     resolver: zodResolver(subjectiveEditFormSchema),
     mode: 'onBlur',
     defaultValues: {
       instruction: problem.instruction,
       content: problem.content,
-      answerContent: answer?.content ?? '',
-      answerExplanation: answer?.explanation ?? '',
+      answerContent: answer.content,
+      answerExplanation: answer.explanation,
     },
   });
   const {
@@ -56,6 +56,7 @@ export function SubjectiveProblemEditForm({
           instruction: values.instruction,
           content: values.content,
           answer: {
+            answerId: answer.answerId,
             content: values.answerContent,
             explanation: values.answerExplanation,
           },
@@ -87,12 +88,16 @@ export function SubjectiveProblemEditForm({
         {/* D1: 단일 정답(콤마로 여러 정답 구분) + 단일 해설. 추가/삭제 없음(D2 개수 고정). */}
         <h3 className="text-h3 text-foreground">정답</h3>
         <FormField
-          label="정답 (여러 개는 콤마로 구분)"
+          label="정답 (인정 표기는 콤마로 구분)"
           htmlFor="answerContent"
           required
           error={errors.answerContent?.message}
         >
-          <Input id="answerContent" {...register('answerContent')} />
+          <Input
+            id="answerContent"
+            placeholder="예: 데이터베이스,데이터 베이스,database"
+            {...register('answerContent')}
+          />
         </FormField>
         <FormField
           label="해설"

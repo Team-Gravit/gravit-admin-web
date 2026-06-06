@@ -26,14 +26,13 @@ export async function updateObjectiveProblem(
 }
 
 /**
- * PATCH /problems/{id}/subjective 본문 (04 §2-1 명시적 결정 > 03 §7-14).
- * D1(B-single-comma): 단일 `answer` 객체(content=콤마 구분, explanation) 부분 업데이트.
- * (04 §2-1 line 90 이 03 의 answers 배열 표현을 override — source-of-truth §2 우선순위.)
+ * PATCH /problems/{id}/subjective 본문 (D1 단일 객체 모델, decisions.md 단일 권위).
+ * 단일 `answer` 객체 { answerId, content(콤마 구분 단일 텍스트), explanation }. (03 §7-14 answers 배열 표기는 stale.)
  */
 export interface UpdateSubjectiveBody {
   instruction: string;
   content: string;
-  answer: { content: string; explanation: string };
+  answer: { answerId: number; content: string; explanation: string };
 }
 
 export async function updateSubjectiveProblem(

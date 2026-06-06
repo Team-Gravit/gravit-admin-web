@@ -52,14 +52,14 @@ export function ProblemView({ problem }: { problem: ProblemDetail }) {
         </section>
       ) : (
         <section className="flex flex-col gap-4 rounded-lg border border-border bg-surface p-6">
-          {/* D1: 주관식 정답 = 단일 객체 + 콤마 구분 content. (N개) 표기 제거. */}
+          {/* D1: 주관식 정답 = 단일 객체, content 콤마 구분 단일 텍스트. (N개) 표기 없음. */}
           <h3 className="text-h3 text-foreground">정답</h3>
           <div className="flex flex-col gap-1">
             <p className="whitespace-pre-wrap text-body text-foreground">
-              {problem.answers[0]?.content ?? '-'}
+              {problem.answer.content || '-'}
             </p>
-            {problem.answers[0]?.explanation && (
-              <p className="text-caption text-fg-secondary">해설: {problem.answers[0].explanation}</p>
+            {problem.answer.explanation && (
+              <p className="text-caption text-fg-secondary">해설: {problem.answer.explanation}</p>
             )}
           </div>
         </section>

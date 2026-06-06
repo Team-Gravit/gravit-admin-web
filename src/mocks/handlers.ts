@@ -238,9 +238,7 @@ export const handlers = [
         problemType: 'SUBJECTIVE',
         instruction: '배열에서 임의 위치에 요소를 삽입할 때의 시간 복잡도를 빅오 표기법으로 쓰시오.',
         content: '배열은 연속된 메모리에 저장되므로 중간 삽입 시 원소 이동이 발생한다.',
-        answers: [
-          { answerId: 1, content: 'O(n), O(N), 빅오 n', explanation: '평균적으로 n개 원소를 이동해야 합니다.' },
-        ],
+        answer: { answerId: 1, content: 'O(n),O(N),빅오 n', explanation: '평균적으로 n개 원소를 이동해야 합니다.' },
       });
     }
     return HttpResponse.json({
@@ -292,7 +290,7 @@ export const handlers = [
     return HttpResponse.json({ page: 1, totalPages: 1, hasNextPage: false, content });
   }),
 
-  // 라벨 상세 그루핑 (03 §8-2): 레슨 1 + 문제 6(객관식 4 + 주관식 2). 주관식=answers 배열(D1 1요소 콤마).
+  // 라벨 상세 그루핑 (03 §8-2): 레슨 1 + 문제 6(객관식 4 + 주관식 2). 주관식=단일 answer 객체(D1 콤마 String).
   http.get('*/api/v1/admin/staging/labels/:label', ({ params }) => {
     const objective = (problemId: number, instruction: string) => ({
       problemId,
@@ -311,13 +309,11 @@ export const handlers = [
       problemType: 'SUBJECTIVE' as const,
       instruction,
       content: '빈칸에 들어갈 값을 쓰시오.',
-      answers: [
-        {
-          answerId: problemId * 10 + 1,
-          content: '0, 영, zero',
-          explanation: '배열 인덱스는 0부터 시작합니다.',
-        },
-      ],
+      answer: {
+        answerId: problemId * 10 + 1,
+        content: '0,영,zero',
+        explanation: '배열 인덱스는 0부터 시작합니다.',
+      },
     });
     return HttpResponse.json({
       label: String(params.label),

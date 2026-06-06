@@ -16,7 +16,7 @@
 ## Enum (03 §5 / 01 §8) — 값 추가/변경 금지
 - user `status`: ACTIVE·SUSPENDED·DELETED(soft) / `role`: ADMIN·USER
 - report `reportType`: TYPO_ERROR·CONTENT_ERROR·ANSWER_ERROR·OTHER_ERROR / `isResolved`: boolean
-- problem `problemType`: OBJECTIVE(옵션 4·정답 1)·SUBJECTIVE(정답 N **고정** → [[decisions]] D1·D2)
+- problem `problemType`: OBJECTIVE(옵션 4·정답 1)·SUBJECTIVE(**정답 단일 객체 1개** `{answerId, content(콤마 String), explanation}`, prod·staging·GET·PATCH 동일 → [[decisions]] D1·D2. `03` answers 배열 표기는 stale)
 - staging label `status`: PENDING(편집가능)·COMPLETED(read-only, 편집 시 409)
 - notice `status`: DRAFT·PUBLISHED·ARCHIVED (단방향, ARCHIVED 종착)
 

@@ -2,17 +2,20 @@
 
 > spec 간 충돌·미확정 사항에 대해 **이미 내려진 결정**. 재논의 금지(바꾸려면 사용자 승인). 근거 spec 섹션을 함께 적는다. phase 파일들이 `D1~D4` 로 참조한다.
 
-## D1 — 주관식 정답 = 단일 Answer + 콤마 구분 content
-- 모델: **단일 Answer 객체 1개**, 정답들은 `content` 에 콤마로 구분된 한 문자열. (`build-state.json.meta.subjective_model = "B-single-comma"`)
-- 표시 모드: 정답을 콤마 그대로 한 줄 표시, `(N개)` 표기 제거.
-- 편집 모드: **Text Input 1개 + 해설 Textarea 1개**. `[+ 정답 추가]`/`X 삭제` 버튼 **없음**.
-- 적용: `PROBLEM_DETAIL` 주관식, `STAGING_DETAIL` 6-4 주관식 폼.
-- 근거: `04 §2(문서 정합성 노트)`. **DS-02/DS-03 의 "다중 정답 N개" 묘사는 무시**(이 결정이 우선).
+## D1 — 주관식 정답 = 단일 객체 (배열 아님, prod·staging·GET·PATCH 전부 동일)
+- **백엔드 실체(이 결정이 단일 권위)**: 주관식 정답은 **항상 1개**. **단일 객체** `{ answerId: number, content: string, explanation: string }`.
+  - `content` 는 콤마로 묶인 인정표기 1개의 **단일 텍스트**(예: `"데이터베이스,데이터 베이스,database"`). `List<String>` 분해 금지.
+  - GET·PATCH, prod(`/problems`)·staging(`/staging`) **전부 동일한 단일 객체**. (`build-state.json.meta.subjective_model = "B-single-comma"`)
+- 표시 모드: `content` 한 줄 그대로 표시 + 해설 1개. `(N개)` 표기 **없음**.
+- 편집 모드: **Text Input 1개(content) + Textarea 1개(해설)**. `[+ 정답 추가]`/`X 삭제` 버튼 **없음**.
+- PATCH body: prod `PATCH /problems/{id}/subjective` = `{ instruction?, content?, answer:{ answerId, content, explanation } }` · staging `PATCH /staging/answers/{answerId}` = 해당 정답의 `content`/`explanation` 만(단일).
+- 적용: `PROBLEM_DETAIL` 주관식, `STAGING_DETAIL` 6-4 주관식 폼 + 그루핑 응답.
+- 근거: **백엔드 DB/Admin 계약(단일 String content + explanation + answerId)** + `04 §2`. ⚠️ **`03 §7-12/§7-14/§8-2/§8-6` 의 `answers` 배열 표기는 실체와 어긋난 stale 기재** → spec/03 정정 대상(사람 처리). **`answers` 배열 / "1요소 배열로 보존" / GET↔PATCH 모델 불일치 = 전부 금지(우회 금지).** `DS-02/DS-03 의 "다중 정답 N개" 묘사도 무시**. (사용자 결정 2026-06-06)
 
-## D2 — 주관식 정답 개수 고정
-- 운영자는 자동 생성된 N개 정답을 **수정만** 가능. 추가·삭제 불가. 추가/삭제 API 없음.
-- 백엔드: 개수 불일치 시 `400 SUBJECTIVE_ANSWER_COUNT_FIXED`.
-- 근거: `01 §6-7-7`(Q19), `03 §7-14`.
+## D2 — 주관식 정답 1개 고정 (추가/삭제 없음)
+- 정답은 **1개 고정**. 운영자는 **내용만 수정**(추가·삭제 UI·API 없음).
+- `content` 는 **콤마 표기 단일 텍스트**로 표시·편집, **해설 1개**.
+- 근거: D1 단일 객체 모델(사용자 결정 2026-06-06). (구 "개수 고정 / `SUBJECTIVE_ANSWER_COUNT_FIXED`" 서술은 배열 모델 전제라 폐기 — 정답은 1개이며 개수 개념 자체가 없음.)
 
 ## D3 — 운영자 자기 자신 권한/상태 변경 허용
 - 본인 계정의 role/status 변경 **허용**(차단하지 않음). 단 위험 경고를 시각적으로 노출.
