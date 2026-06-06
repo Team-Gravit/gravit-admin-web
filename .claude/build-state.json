@@ -21,7 +21,7 @@
     { "id": "step-4:REPORT_DETAIL",    "status": "COMPLETED" },
     { "id": "step-4:UNIT_DETAIL",      "status": "COMPLETED" },
     { "id": "step-4:LESSON_DETAIL",    "status": "COMPLETED" },
-    { "id": "step-5:CHAPTER_DETAIL",   "status": "IN_PROGRESS" },
+    { "id": "step-5:CHAPTER_DETAIL",   "status": "COMPLETED" },
     { "id": "step-5:PROBLEM_DETAIL",   "status": "TODO" },
     { "id": "step-6:6-1-fetch-list",   "status": "TODO" },
     { "id": "step-6:6-2-lesson-form",  "status": "TODO" },
@@ -48,7 +48,8 @@
     "step-4:REPORT_LIST": "figma node 8635:2720 (hu4c6qCEMB62qHXk2v8Gsl)",
     "step-4:REPORT_DETAIL": "figma node 8717:1748 (hu4c6qCEMB62qHXk2v8Gsl)",
     "step-4:UNIT_DETAIL": "figma node 6035:8159 (hu4c6qCEMB62qHXk2v8Gsl)",
-    "step-4:LESSON_DETAIL": "figma node 8558:6812 (hu4c6qCEMB62qHXk2v8Gsl)"
+    "step-4:LESSON_DETAIL": "figma node 8558:6812 (hu4c6qCEMB62qHXk2v8Gsl)",
+    "step-5:CHAPTER_DETAIL": "figma node 8718:2304 (hu4c6qCEMB62qHXk2v8Gsl)"
   },
   "retry": {},
   "manual_review": [
@@ -64,7 +65,9 @@
     { "id": "step-4:REPORT_DETAIL", "tag": "deferred", "note": "§10-4 '필터 유지': 미해결 default 복원(목록 복귀 시 미해결+1p)은 충족(주 사례). 단 운영자가 임의 유형필터를 건 채 처리 시 그 유형필터는 미보존 → REPORT_LIST 필터를 URL searchParams 로 승격하는 리팩터 필요(별도 화면 범위, COMPLETED). 리뷰어 2종은 deferred DIFF(비차단)로 판정." },
     { "id": "step-4:UNIT_DETAIL", "tag": "deferred", "note": "Breadcrumb(학습 컨텐츠 > 챕터 > 유닛, DS-02 §12)은 NOTICE/USER/REPORT 상세와 동일하게 전역 Header handle 일괄 배선까지 이연 — 페이지 h1 제목으로 대체. 챕터명 표시는 chapterId→챕터 title 추가 fetch 필요(전역 배선 시 일괄 해소). 리뷰어 2종 PASS(deferred DIFF 비차단)." },
     { "id": "step-4:LESSON_DETAIL", "tag": "deferred", "note": "Breadcrumb(학습 컨텐츠 > 챕터 > 유닛 > 레슨, DS-02 §13)은 전역 Header handle 일괄 배선까지 이연 — 페이지 h1 제목으로 대체. 챕터/유닛명 표시는 추가 fetch 필요(전역 배선 시 일괄 해소)." },
-    { "id": "step-4:LESSON_DETAIL", "tag": "figma-deviation", "note": "Figma node 8558:6812 유형 배지 3개가 모두 '객관식'(2 보라/1 파랑)으로 색 불일치 = mockup 오류 → DS-02 §13 권위(OBJECTIVE=info 파랑 객관식, SUBJECTIVE=accent 보라 주관식)로 매핑. raw hex 복사·새 토큰 없이 DS-01 시맨틱 토큰. 리뷰어 2종 PASS." }
+    { "id": "step-4:LESSON_DETAIL", "tag": "figma-deviation", "note": "Figma node 8558:6812 유형 배지 3개가 모두 '객관식'(2 보라/1 파랑)으로 색 불일치 = mockup 오류 → DS-02 §13 권위(OBJECTIVE=info 파랑 객관식, SUBJECTIVE=accent 보라 주관식)로 매핑. raw hex 복사·새 토큰 없이 DS-01 시맨틱 토큰. 리뷰어 2종 PASS." },
+    { "id": "step-5:CHAPTER_DETAIL", "tag": "deferred", "note": "Breadcrumb(학습 컨텐츠 > 챕터, DS-02 §11)은 타 상세화면과 동일하게 전역 Header handle 일괄 배선까지 이연 — 페이지 h1 제목으로 대체." },
+    { "id": "step-5:CHAPTER_DETAIL", "tag": "figma-deviation", "note": "편집 버튼 Figma 채움 보라 CTA(#9b00cf)→Ghost(DS-02 §11 'Ghost Button 편집' 명시 + UNIT/LESSON/NOTICE 상세 일관성). 진행률 바 Figma 보라 그라데이션(#8100b3→#dd00ff)+track #fbf1ff→DS-02 §11 'Primary 컬러'로 bg-primary 단색+track bg-primary-subtle(raw/그라데이션 복사 없음). averageProgress 0~100 정수 퍼센트는 03 §7-3 v1.1 확정(01 §6-5-2 '백엔드 확인 필요' 경고 해소). 리뷰어 2종 PASS." }
   ],
   "log": [
     { "id": "step-1-setup", "status": "COMPLETED", "ts": "2026-06-05", "gate": "full(OK): validate-state+typecheck+token-lint+build", "note": "Vite+React+TS 스캐폴드, DS-01 토큰 매핑(tailwind.config+globals.css), shadcn 12종(shared/components/ui), 라이브러리, @/ alias, env.ts(Zod), 16라우트 빈 셸, providers(QueryClient+Toaster+Google)." },
@@ -83,6 +86,8 @@
     { "id": "step-4:REPORT_LIST", "status": "COMPLETED", "ts": "2026-06-05", "gate": "full(OK)", "figma": "8635:2720", "review": "spec PASS, ds PASS (4d79cfc)", "note": "REPORT_LIST: Page Header + 필터(유형/처리상태, 기본 미해결) + DataTable(ID #/유형 텍스트/문제ID P-(별도링크 stopPropagation→/problems/:id)/상태 Badge(미해결 danger·해결 success)/제출일 datetime) + Pagination. 행클릭→/reports/:id. features/reports(schemas·api·queries·ReportStatusBadge, reportKeys). 4상태(Empty 필터별). MSW GET /reports. 리뷰 반영: 컬럼폭 최근접 토큰 스냅(문제ID/상태 w-24, 제출일 w-36)." },
     { "id": "step-4:REPORT_DETAIL", "status": "COMPLETED", "ts": "2026-06-05", "gate": "full(OK)", "figma": "8717:1748", "review": "spec PASS, ds PASS (05012d2)", "note": "REPORT_DETAIL: 헤더(신고#ID+Badge) + 신고정보 카드(유형 '{한글}(CODE)'/문제ID+Ghost'문제 보기 →'→/problems/:id/제출일) + 신고내용(인용 blockquote) + 처리상태(Select). 처리상태 변경 → ConfirmModal '처리하시겠습니까?'(default, 양쪽 전이) → PATCH → 토스트 '신고가 처리되었습니다'. 분기(04 §10-4): 미해결→해결됨 navigate(/reports), 해결됨→미해결 머무름. features/reports(getReport/updateReportStatus, useReport, useUpdateReportStatus). MSW GET /reports/:id·PATCH status. 리뷰 반영: Confirm Modal 추가(누락→수정). deferred: 임의 유형필터 보존." },
     { "id": "step-4:UNIT_DETAIL", "status": "COMPLETED", "ts": "2026-06-05", "gate": "full(OK)", "figma": "6035:8159", "review": "spec PASS, ds PASS (876a3c0)", "note": "UNIT_DETAIL: 정보(제목 h1 + 설명 muted) + Ghost '편집' + 레슨 목록 카드(h3 '레슨 (총 N개)' + DataTable[제목] + Pagination, 행클릭→/lessons/:id). 편집 B패턴: 정보 카드만 UnitEditForm(제목 필수·설명 선택)으로 전환·레슨 목록 유지, onBlur+제출 전체검증, 이탈 보호(isDirty), 저장→토스트 '저장되었습니다'→view 복귀. features/units(schemas[상세/레슨목록/편집폼]·api[GET 상세·레슨목록, PATCH]·queries[unitKeys, 레슨목록 하위키]·mutations[useUpdateUnit→detail invalidate]). 아키텍처: 부모 feature가 자식 목록 소유(유닛→레슨목록), 레슨상세 네비는 라우트 경유(features/lessons import 없음). MSW GET /units/:id·GET /units/:id/lessons·PATCH /units/:id. 4상태 충족. deferred: breadcrumb 전역 배선." },
-    { "id": "step-4:LESSON_DETAIL", "status": "COMPLETED", "ts": "2026-06-06", "gate": "full(OK)", "figma": "8558:6812", "review": "spec PASS, ds PASS (08a6c2f)", "note": "LESSON_DETAIL: 정보(제목 h1) + Ghost '편집' + 문제 목록 카드(h3 '문제 (총 N개)' + DataTable[ID P-{id} w-24·유형 ProblemTypeBadge w-24·지시문 line-clamp-1] + Pagination, 행클릭→/problems/:id). 편집 B패턴: 정보 카드만 LessonEditForm(제목만, 레슨 description 없음)으로 전환·문제 목록 유지, 이탈 보호. features/lessons(schemas[상세/문제목록/편집폼, problemType z.enum]·api[GET 상세·문제목록, PATCH title]·queries[lessonKeys, 문제목록 하위키]·mutations). shared/components/status-badge/ProblemTypeBadge(cross-feature: lessons+problems 공용, problemTypeBadgeVariant+labels 경유). MSW GET /lessons/:id·GET /lessons/:id/problems(OBJECTIVE 2+SUBJECTIVE 1로 두 배지 노출)·PATCH /lessons/:id. ▶ Step 4 전체(8화면) 완료. deferred: breadcrumb 전역 배선. figma-deviation: 유형 배지 색 불일치 mockup→DS-02 §13 권위 매핑." }
+    { "id": "step-4:LESSON_DETAIL", "status": "COMPLETED", "ts": "2026-06-06", "gate": "full(OK)", "figma": "8558:6812", "review": "spec PASS, ds PASS (08a6c2f)", "note": "LESSON_DETAIL: 정보(제목 h1) + Ghost '편집' + 문제 목록 카드(h3 '문제 (총 N개)' + DataTable[ID P-{id} w-24·유형 ProblemTypeBadge w-24·지시문 line-clamp-1] + Pagination, 행클릭→/problems/:id). 편집 B패턴: 정보 카드만 LessonEditForm(제목만, 레슨 description 없음)으로 전환·문제 목록 유지, 이탈 보호. features/lessons(schemas[상세/문제목록/편집폼, problemType z.enum]·api[GET 상세·문제목록, PATCH title]·queries[lessonKeys, 문제목록 하위키]·mutations). shared/components/status-badge/ProblemTypeBadge(cross-feature: lessons+problems 공용, problemTypeBadgeVariant+labels 경유). MSW GET /lessons/:id·GET /lessons/:id/problems(OBJECTIVE 2+SUBJECTIVE 1로 두 배지 노출)·PATCH /lessons/:id. ▶ Step 4 전체(8화면) 완료. deferred: breadcrumb 전역 배선. figma-deviation: 유형 배지 색 불일치 mockup→DS-02 §13 권위 매핑." },
+    { "id": "fix-table-header-hover", "ts": "2026-06-06", "gate": "full(OK)", "commit": "b6d9ff8", "note": "공용 수정(사용자 커밋): 테이블 헤더 row hover 비활성. TableHeader 에 [&_tr]:hover:bg-transparent 추가로 thead 한정 TableRow hover:bg-hover 무력화 → 모든 DataTable/Table 일괄(본문 row hover 유지)." },
+    { "id": "step-5:CHAPTER_DETAIL", "status": "COMPLETED", "ts": "2026-06-06", "gate": "full(OK)", "figma": "8718:2304", "review": "spec PASS, ds PASS (540f90a)", "note": "CHAPTER_DETAIL: 정보(제목 h1 + 설명 muted) + Ghost '편집' + 풀이현황 위젯(ChapterStatsWidget: 유닛명 flex/참여인원 w-24 우측 천단위콤마/진행률 바 bg-primary+track bg-primary-subtle+{pct}%, 4상태 Empty '아직 풀이 데이터가 없습니다') + 유닛 목록(h3 '유닛 (총 N개)' + DataTable[제목 w-80/설명 ellipsis] 행클릭→/units/:id + Pagination). 편집 B패턴: 정보 카드만 ChapterEditForm(제목 필수·설명 선택)으로 전환·통계/유닛 목록 유지, 이탈 보호. features/chapters 확장(schemas[상세/stats/유닛목록/편집폼]·api[getChapter/Stats/Units/update]·queries[stats·unitList 하위키]·mutations[useUpdateChapter→detail invalidate]). averageProgress 0~100 정수(03 §7-3 v1.1 확정). MSW GET /chapters/:id·/stats·/units·PATCH. 4상태 충족. 리뷰 반영: 참여인원 w-28→w-24. deferred: breadcrumb. figma-deviation: 편집버튼 Ghost·진행바 Primary 단색." }
   ]
 }
