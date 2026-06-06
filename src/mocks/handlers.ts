@@ -123,6 +123,45 @@ export const handlers = [
     }),
   ),
 
+  // 챕터 풀이 현황 (03 §7-3) — :chapterId 보다 먼저(더 구체적 경로)
+  http.get('*/api/v1/admin/chapters/:chapterId/stats', () =>
+    HttpResponse.json({
+      units: [
+        { unitId: 12, unitTitle: '배열 (Array)', averageProgress: 79, participantCount: 2300 },
+        { unitId: 13, unitTitle: '연결 리스트', averageProgress: 64, participantCount: 1820 },
+        { unitId: 14, unitTitle: '스택과 큐', averageProgress: 58, participantCount: 1540 },
+      ],
+    }),
+  ),
+
+  // 챕터의 유닛 목록 (03 §7-5) — :chapterId 보다 먼저
+  http.get('*/api/v1/admin/chapters/:chapterId/units', () =>
+    HttpResponse.json({
+      page: 1,
+      totalPages: 1,
+      hasNextPage: false,
+      content: [
+        { unitId: 12, title: '배열', description: '배열의 개념과 활용' },
+        { unitId: 13, title: '연결 리스트', description: '노드 기반 선형 자료구조' },
+        { unitId: 14, title: '스택과 큐', description: 'LIFO/FIFO 자료구조' },
+        { unitId: 15, title: '트리', description: '계층적 자료구조' },
+      ],
+    }),
+  ),
+
+  // 챕터 상세 (03 §7-2)
+  http.get('*/api/v1/admin/chapters/:chapterId', ({ params }) =>
+    HttpResponse.json({
+      chapterId: Number(params.chapterId),
+      title: '자료구조 기초',
+      description: '배열, 리스트, 스택, 큐, 트리, 그래프 등 기본 자료구조',
+      unitCount: 4,
+    }),
+  ),
+
+  // 챕터 수정 (03 §7-4, 200)
+  http.patch('*/api/v1/admin/chapters/:chapterId', () => new HttpResponse(null, { status: 200 })),
+
   // 유닛의 레슨 목록 (03 §7-8) — :unitId 보다 먼저(더 구체적 경로)
   http.get('*/api/v1/admin/units/:unitId/lessons', () =>
     HttpResponse.json({
