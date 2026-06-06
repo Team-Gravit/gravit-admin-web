@@ -89,7 +89,7 @@ export function ObjectiveProblemEditForm({
         <FormField label="지시문" htmlFor="instruction" required error={errors.instruction?.message}>
           <Input id="instruction" {...register('instruction')} />
         </FormField>
-        <FormField label="본문" htmlFor="content" error={errors.content?.message}>
+        <FormField label="본문" htmlFor="content" required error={errors.content?.message}>
           <Textarea id="content" className="min-h-24" {...register('content')} />
         </FormField>
       </section>

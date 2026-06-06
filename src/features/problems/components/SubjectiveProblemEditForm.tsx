@@ -21,9 +21,9 @@ interface SubjectiveProblemEditFormProps {
 }
 
 /**
- * 주관식 편집 모드 (D1 B-single-comma, D2 개수 고정, 01 §6-5-5, 03 §7-14).
+ * 주관식 편집 모드 (D1 B-single-comma, D2 개수 고정, 01 §6-5-5, 04 §2-1 > 03 §7-14).
  * 지시문/본문 + 단일 정답(콤마 구분 content) + 단일 해설. 정답 추가/삭제 버튼 없음.
- * 제출 시 answers 단일 객체로 전체 교체(개수 1 유지 → SUBJECTIVE_ANSWER_COUNT_FIXED 회피). 이탈 보호.
+ * 제출 시 단일 `answer` 객체로 부분 업데이트(04 §2-1 line 90 명시 결정). 이탈 보호.
  */
 export function SubjectiveProblemEditForm({
   problem,
@@ -55,13 +55,10 @@ export function SubjectiveProblemEditForm({
         {
           instruction: values.instruction,
           content: values.content,
-          answers: [
-            {
-              answerId: answer?.answerId ?? 0,
-              content: values.answerContent,
-              explanation: values.answerExplanation,
-            },
-          ],
+          answer: {
+            content: values.answerContent,
+            explanation: values.answerExplanation,
+          },
         },
         {
           onSuccess: () => {
@@ -81,7 +78,7 @@ export function SubjectiveProblemEditForm({
         <FormField label="지시문" htmlFor="instruction" required error={errors.instruction?.message}>
           <Input id="instruction" {...register('instruction')} />
         </FormField>
-        <FormField label="본문" htmlFor="content" error={errors.content?.message}>
+        <FormField label="본문" htmlFor="content" required error={errors.content?.message}>
           <Textarea id="content" className="min-h-24" {...register('content')} />
         </FormField>
       </section>
@@ -97,7 +94,12 @@ export function SubjectiveProblemEditForm({
         >
           <Input id="answerContent" {...register('answerContent')} />
         </FormField>
-        <FormField label="해설" htmlFor="answerExplanation" error={errors.answerExplanation?.message}>
+        <FormField
+          label="해설"
+          htmlFor="answerExplanation"
+          required
+          error={errors.answerExplanation?.message}
+        >
           <Textarea id="answerExplanation" className="min-h-24" {...register('answerExplanation')} />
         </FormField>
       </section>

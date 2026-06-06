@@ -26,13 +26,14 @@ export async function updateObjectiveProblem(
 }
 
 /**
- * PATCH /problems/{id}/subjective 본문 (03 §7-14, D1 B-single-comma).
- * answers 전체 교체하되 개수 고정(D2) — 단일 정답 객체 1개 유지. 개수 불일치 시 백엔드 400 SUBJECTIVE_ANSWER_COUNT_FIXED.
+ * PATCH /problems/{id}/subjective 본문 (04 §2-1 명시적 결정 > 03 §7-14).
+ * D1(B-single-comma): 단일 `answer` 객체(content=콤마 구분, explanation) 부분 업데이트.
+ * (04 §2-1 line 90 이 03 의 answers 배열 표현을 override — source-of-truth §2 우선순위.)
  */
 export interface UpdateSubjectiveBody {
   instruction: string;
   content: string;
-  answers: Array<{ answerId: number; content: string; explanation: string }>;
+  answer: { content: string; explanation: string };
 }
 
 export async function updateSubjectiveProblem(

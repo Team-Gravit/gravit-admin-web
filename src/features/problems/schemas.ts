@@ -54,6 +54,7 @@ const instructionField = z
   .max(FIELD_LIMITS.problem.instruction, `${FIELD_LIMITS.problem.instruction}자 이내로 입력해주세요.`);
 const contentField = z
   .string()
+  .min(1, '본문은 필수 항목입니다.')
   .max(FIELD_LIMITS.problem.content, `${FIELD_LIMITS.problem.content}자 이내로 입력해주세요.`);
 
 /**
@@ -73,6 +74,7 @@ export const objectiveEditFormSchema = z.object({
         .max(FIELD_LIMITS.option.content, `${FIELD_LIMITS.option.content}자 이내로 입력해주세요.`),
       explanation: z
         .string()
+        .min(1, '해설을 입력해주세요.')
         .max(
           FIELD_LIMITS.option.explanation,
           `${FIELD_LIMITS.option.explanation}자 이내로 입력해주세요.`,
@@ -95,6 +97,7 @@ export const subjectiveEditFormSchema = z.object({
     .max(FIELD_LIMITS.answer.content, `${FIELD_LIMITS.answer.content}자 이내로 입력해주세요.`),
   answerExplanation: z
     .string()
+    .min(1, '해설을 입력해주세요.')
     .max(FIELD_LIMITS.answer.explanation, `${FIELD_LIMITS.answer.explanation}자 이내로 입력해주세요.`),
 });
 export type SubjectiveEditFormValues = z.infer<typeof subjectiveEditFormSchema>;
