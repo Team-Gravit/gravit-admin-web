@@ -21,13 +21,21 @@ interface StagingLessonFormProps {
   hidden?: boolean;
   /** dirty 변화를 좌측 리스트(●)로 lift-up (04 §10-2-4). */
   onDirtyChange?: (dirty: boolean) => void;
+  /** COMPLETED read-only(04 §10-2-9): 입력 disabled + 저장 숨김. */
+  readOnly?: boolean;
 }
 
 /**
  * 스테이징 레슨 폼 (DS-02 §16-4-1, 03 §8-3). 제목 단일 input + [저장](변경 없을 때 비활성).
  * 저장 = PATCH /staging/lessons/{id} 단일 호출. 변경 표시(●/4px)는 6-5, COMPLETED disable 은 6-8.
  */
-export function StagingLessonForm({ lesson, label, hidden, onDirtyChange }: StagingLessonFormProps) {
+export function StagingLessonForm({
+  lesson,
+  label,
+  hidden,
+  onDirtyChange,
+  readOnly,
+}: StagingLessonFormProps) {
   const updateLesson = useUpdateStagingLesson(lesson.lessonId, label);
   const form = useForm<StagingLessonFormValues>({
     resolver: zodResolver(stagingLessonFormSchema),
@@ -66,18 +74,23 @@ export function StagingLessonForm({ lesson, label, hidden, onDirtyChange }: Stag
       <FormField label="제목" htmlFor="lesson-title" required error={errors.title?.message}>
         <Input
           id="lesson-title"
-          className={cn(dirtyFields.title && 'border-l-4 border-l-primary')}
-          disabled={updateLesson.isPending}
+          className={cn(
+            dirtyFields.title && 'border-l-4 border-l-primary',
+            readOnly && 'bg-hover text-fg-secondary',
+          )}
+          disabled={readOnly || updateLesson.isPending}
           {...register('title')}
         />
       </FormField>
 
-      <div className="flex justify-end">
-        <Button onClick={onSubmit} disabled={!isDirty || updateLesson.isPending}>
-          {updateLesson.isPending && <Loader2 className="animate-spin" />}
-          저장
-        </Button>
-      </div>
+      {!readOnly && (
+        <div className="flex justify-end">
+          <Button onClick={onSubmit} disabled={!isDirty || updateLesson.isPending}>
+            {updateLesson.isPending && <Loader2 className="animate-spin" />}
+            저장
+          </Button>
+        </div>
+      )}
     </div>
   );
 }

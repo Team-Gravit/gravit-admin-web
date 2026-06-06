@@ -26,6 +26,8 @@ interface StagingSubjectiveFormProps {
   hidden?: boolean;
   /** dirty 변화를 좌측 리스트(●)로 lift-up (04 §10-2-4). */
   onDirtyChange?: (dirty: boolean) => void;
+  /** COMPLETED read-only(04 §10-2-9): 입력 disabled + 저장 숨김. */
+  readOnly?: boolean;
 }
 
 /**
@@ -40,6 +42,7 @@ export function StagingSubjectiveForm({
   label,
   hidden,
   onDirtyChange,
+  readOnly,
 }: StagingSubjectiveFormProps) {
   const queryClient = useQueryClient();
   const [isSaving, setIsSaving] = useState(false);
@@ -67,6 +70,8 @@ export function StagingSubjectiveForm({
   // 변경된 input 좌측 4px Primary 보더 (DS-02 §16-5, 04 §10-2-4).
   const dirtyBorder = (dirty: boolean | undefined) =>
     dirty ? 'border-l-4 border-l-primary' : undefined;
+  // COMPLETED read-only 입력 스타일 (DS-02 §16-6: bg-hover + text-secondary).
+  const roClass = readOnly ? 'bg-hover text-fg-secondary' : undefined;
 
   const onSubmit = form.handleSubmit(
     async (values) => {
@@ -146,16 +151,16 @@ export function StagingSubjectiveForm({
       <FormField label="지시문" htmlFor={ids.instruction} required error={errors.instruction?.message}>
         <Input
           id={ids.instruction}
-          className={dirtyBorder(dirtyFields.instruction)}
-          disabled={isSaving}
+          className={cn(dirtyBorder(dirtyFields.instruction), roClass)}
+          disabled={readOnly || isSaving}
           {...register('instruction')}
         />
       </FormField>
       <FormField label="본문" htmlFor={ids.content} required error={errors.content?.message}>
         <Textarea
           id={ids.content}
-          className={cn('min-h-24', dirtyBorder(dirtyFields.content))}
-          disabled={isSaving}
+          className={cn('min-h-24', dirtyBorder(dirtyFields.content), roClass)}
+          disabled={readOnly || isSaving}
           {...register('content')}
         />
       </FormField>
@@ -170,26 +175,28 @@ export function StagingSubjectiveForm({
         <Input
           id={ids.answer}
           placeholder="예: 데이터베이스,데이터 베이스,database"
-          className={dirtyBorder(dirtyFields.answerContent)}
-          disabled={isSaving}
+          className={cn(dirtyBorder(dirtyFields.answerContent), roClass)}
+          disabled={readOnly || isSaving}
           {...register('answerContent')}
         />
       </FormField>
       <FormField label="해설" htmlFor={ids.explanation} required error={errors.answerExplanation?.message}>
         <Textarea
           id={ids.explanation}
-          className={cn('min-h-24', dirtyBorder(dirtyFields.answerExplanation))}
-          disabled={isSaving}
+          className={cn('min-h-24', dirtyBorder(dirtyFields.answerExplanation), roClass)}
+          disabled={readOnly || isSaving}
           {...register('answerExplanation')}
         />
       </FormField>
 
-      <div className="flex justify-end">
-        <Button onClick={onSubmit} disabled={!isDirty || isSaving}>
-          {isSaving && <Loader2 className="animate-spin" />}
-          저장
-        </Button>
-      </div>
+      {!readOnly && (
+        <div className="flex justify-end">
+          <Button onClick={onSubmit} disabled={!isDirty || isSaving}>
+            {isSaving && <Loader2 className="animate-spin" />}
+            저장
+          </Button>
+        </div>
+      )}
     </div>
   );
 }

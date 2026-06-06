@@ -30,6 +30,8 @@ interface StagingObjectiveFormProps {
   hidden?: boolean;
   /** dirty 변화를 좌측 리스트(●)로 lift-up (04 §10-2-4). */
   onDirtyChange?: (dirty: boolean) => void;
+  /** COMPLETED read-only(04 §10-2-9): 입력/radio disabled + 저장 숨김(정답 표시 유지). */
+  readOnly?: boolean;
 }
 
 /**
@@ -44,6 +46,7 @@ export function StagingObjectiveForm({
   label,
   hidden,
   onDirtyChange,
+  readOnly,
 }: StagingObjectiveFormProps) {
   const queryClient = useQueryClient();
   const [isSaving, setIsSaving] = useState(false);
@@ -79,6 +82,8 @@ export function StagingObjectiveForm({
   // 변경된 input 좌측 4px Primary 보더 (DS-02 §16-5, 04 §10-2-4).
   const dirtyBorder = (dirty: boolean | undefined) =>
     dirty ? 'border-l-4 border-l-primary' : undefined;
+  // COMPLETED read-only 입력 스타일 (DS-02 §16-6: bg-hover + text-secondary).
+  const roClass = readOnly ? 'bg-hover text-fg-secondary' : undefined;
 
   const onSubmit = form.handleSubmit(
     async (values) => {
@@ -166,16 +171,16 @@ export function StagingObjectiveForm({
       <FormField label="지시문" htmlFor={`obj-instruction-${problem.problemId}`} required error={errors.instruction?.message}>
         <Input
           id={`obj-instruction-${problem.problemId}`}
-          className={dirtyBorder(dirtyFields.instruction)}
-          disabled={isSaving}
+          className={cn(dirtyBorder(dirtyFields.instruction), roClass)}
+          disabled={readOnly || isSaving}
           {...register('instruction')}
         />
       </FormField>
       <FormField label="본문" htmlFor={`obj-content-${problem.problemId}`} required error={errors.content?.message}>
         <Textarea
           id={`obj-content-${problem.problemId}`}
-          className={cn('min-h-24', dirtyBorder(dirtyFields.content))}
-          disabled={isSaving}
+          className={cn('min-h-24', dirtyBorder(dirtyFields.content), roClass)}
+          disabled={readOnly || isSaving}
           {...register('content')}
         />
       </FormField>
@@ -185,7 +190,7 @@ export function StagingObjectiveForm({
         <RadioGroup
           value={String(answerOptionId)}
           onValueChange={(value) => setValue('answerOptionId', Number(value), { shouldDirty: true })}
-          disabled={isSaving}
+          disabled={readOnly || isSaving}
           className="gap-4"
         >
           {fields.map((field, index) => (
@@ -197,8 +202,8 @@ export function StagingObjectiveForm({
                   정답
                 </label>
                 <Input
-                  className={cn('flex-1', dirtyBorder(dirtyFields.options?.[index]?.content))}
-                  disabled={isSaving}
+                  className={cn('flex-1', dirtyBorder(dirtyFields.options?.[index]?.content), roClass)}
+                  disabled={readOnly || isSaving}
                   {...register(`options.${index}.content`)}
                 />
               </div>
@@ -206,8 +211,8 @@ export function StagingObjectiveForm({
               <div className="flex items-center gap-2 pl-8">
                 <span className="shrink-0 text-caption text-fg-muted">해설</span>
                 <Input
-                  className={cn('flex-1', dirtyBorder(dirtyFields.options?.[index]?.explanation))}
-                  disabled={isSaving}
+                  className={cn('flex-1', dirtyBorder(dirtyFields.options?.[index]?.explanation), roClass)}
+                  disabled={readOnly || isSaving}
                   {...register(`options.${index}.explanation`)}
                 />
               </div>
@@ -217,12 +222,14 @@ export function StagingObjectiveForm({
         </RadioGroup>
       </div>
 
-      <div className="flex justify-end">
-        <Button onClick={onSubmit} disabled={!isDirty || isSaving}>
-          {isSaving && <Loader2 className="animate-spin" />}
-          저장
-        </Button>
-      </div>
+      {!readOnly && (
+        <div className="flex justify-end">
+          <Button onClick={onSubmit} disabled={!isDirty || isSaving}>
+            {isSaving && <Loader2 className="animate-spin" />}
+            저장
+          </Button>
+        </div>
+      )}
     </div>
   );
 }

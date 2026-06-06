@@ -315,11 +315,13 @@ export const handlers = [
         explanation: '배열 인덱스는 0부터 시작합니다.',
       },
     });
+    // read-only 검증용: 2026-04-23-update 라벨은 COMPLETED 반환(나머지는 PENDING).
+    const status = String(params.label) === '2026-04-23-update' ? 'COMPLETED' : 'PENDING';
     return HttpResponse.json({
       label: String(params.label),
       unitId: 12,
       description: '배열 챕터 5번째 사이클',
-      status: 'PENDING',
+      status,
       createdAt: '2026-04-25T00:00:00Z',
       lesson: { lessonId: 901, title: '배열의 시간 복잡도 심화' },
       problems: [

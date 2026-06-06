@@ -1,6 +1,7 @@
 import { useCallback, useState } from 'react';
 import { useNavigate, useParams } from 'react-router';
 import { useQueryClient } from '@tanstack/react-query';
+import { CheckCircle2 } from 'lucide-react';
 import { toast } from 'sonner';
 import { ROUTES } from '@/shared/constants/routes';
 import { cn } from '@/shared/lib/cn';
@@ -26,6 +27,18 @@ function DirtyDot() {
   return <span className="size-2 shrink-0 rounded-full bg-primary" aria-label="미저장 변경" />;
 }
 
+/** COMPLETED 안내 배너 (DS-02 §16-2, Banner Success). */
+function CompletedBanner() {
+  return (
+    <div className="flex items-center gap-2 rounded-lg bg-success-bg px-4 py-3 text-success-text">
+      <CheckCircle2 className="size-4 shrink-0" />
+      <span className="text-body">
+        이 라벨은 prod에 반영 완료되었습니다. 더 이상 수정할 수 없습니다.
+      </span>
+    </div>
+  );
+}
+
 /**
  * STAGING_DETAIL (DS-02 §16, 04 §10-2, 03 §8-2). 6-1: 데이터 페칭 + 좌측 리스트 골격.
  * 헤더(라벨명 mono + Status Badge + 메타) + 좌측 280px 리스트(레슨 1 + 문제 6) + 활성 항목 전환.
@@ -49,6 +62,7 @@ export function StagingDetailPage() {
   if (isLoading) return <LoadingSkeleton />;
   if (isError || !data) return <ErrorState onRetry={() => refetch()} />;
 
+  const readOnly = data.status === 'COMPLETED'; // 04 §10-2-9
   const unsavedCount = Object.values(dirtyMap).filter(Boolean).length;
   const hasUnsaved = unsavedCount > 0;
 
@@ -101,6 +115,9 @@ export function StagingDetailPage() {
         </p>
       </div>
 
+      {/* COMPLETED 안내 배너 (DS-02 §16-2, 04 §10-2-9). */}
+      {readOnly && <CompletedBanner />}
+
       {/* 좌측 리스트 + 우측 편집 영역 (DS-02 §16-3/§16-4) */}
       <div className="flex overflow-hidden rounded-lg border border-border bg-surface">
         <nav className="w-72 shrink-0 border-r border-border" aria-label="스테이징 항목">
@@ -110,7 +127,7 @@ export function StagingDetailPage() {
             onClick={() => setActive({ type: 'lesson' })}
           >
             <span>레슨</span>
-            {dirtyMap.lesson && <DirtyDot />}
+            {!readOnly && dirtyMap.lesson && <DirtyDot />}
           </button>
           {data.problems.map((problem, index) => (
             <button
@@ -122,7 +139,7 @@ export function StagingDetailPage() {
               <span>문제 {index + 1}</span>
               <span className="flex items-center gap-2">
                 <ProblemTypeBadge problemType={problem.problemType} />
-                {dirtyMap[`problem-${problem.problemId}`] && <DirtyDot />}
+                {!readOnly && dirtyMap[`problem-${problem.problemId}`] && <DirtyDot />}
               </span>
             </button>
           ))}
@@ -135,6 +152,7 @@ export function StagingDetailPage() {
             label={data.label}
             hidden={active.type !== 'lesson'}
             onDirtyChange={(dirty) => setItemDirty('lesson', dirty)}
+            readOnly={readOnly}
           />
           {/* 문제 폼: 객관식=StagingObjectiveForm(6-3), 주관식=StagingSubjectiveForm(6-4). 항상 mount+hidden. */}
           {data.problems.map((problem, index) => {
@@ -149,6 +167,7 @@ export function StagingDetailPage() {
                 label={data.label}
                 hidden={!isActiveItem}
                 onDirtyChange={onDirtyChange}
+                readOnly={readOnly}
               />
             ) : (
               <StagingSubjectiveForm
@@ -158,6 +177,7 @@ export function StagingDetailPage() {
                 label={data.label}
                 hidden={!isActiveItem}
                 onDirtyChange={onDirtyChange}
+                readOnly={readOnly}
               />
             );
           })}
