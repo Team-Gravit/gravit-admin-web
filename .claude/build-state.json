@@ -25,7 +25,7 @@
     { "id": "step-5:PROBLEM_DETAIL",   "status": "COMPLETED" },
     { "id": "step-6:6-1-fetch-list",   "status": "COMPLETED" },
     { "id": "step-6:6-2-lesson-form",  "status": "COMPLETED" },
-    { "id": "step-6:6-3-objective",    "status": "TODO" },
+    { "id": "step-6:6-3-objective",    "status": "IN_PROGRESS" },
     { "id": "step-6:6-4-subjective",   "status": "TODO" },
     { "id": "step-6:6-5-dirty",        "status": "TODO" },
     { "id": "step-6:6-6-multi-patch",  "status": "TODO" },

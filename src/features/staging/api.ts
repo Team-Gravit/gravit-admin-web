@@ -31,3 +31,19 @@ export async function getStagingLabel(label: string): Promise<StagingLabelDetail
 export async function updateStagingLesson(lessonId: number, body: { title: string }): Promise<void> {
   await apiClient.patch(`/staging/lessons/${lessonId}`, body);
 }
+
+/** PATCH /staging/problems/{problemId} — 스테이징 문제 수정 (03 §8-4). instruction/content. */
+export async function updateStagingProblem(
+  problemId: number,
+  body: { instruction: string; content: string },
+): Promise<void> {
+  await apiClient.patch(`/staging/problems/${problemId}`, body);
+}
+
+/** PATCH /staging/options/{optionId} — 스테이징 객관식 옵션 개별 수정 (03 §8-5). 부분 업데이트. */
+export async function updateStagingOption(
+  optionId: number,
+  body: { content?: string; explanation?: string; isAnswer?: boolean },
+): Promise<void> {
+  await apiClient.patch(`/staging/options/${optionId}`, body);
+}

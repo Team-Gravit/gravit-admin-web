@@ -7,6 +7,7 @@ import { LoadingSkeleton } from '@/shared/components/states/LoadingSkeleton';
 import { ProblemTypeBadge } from '@/shared/components/status-badge/ProblemTypeBadge';
 import { StagingStatusBadge } from '@/features/staging/components/StagingStatusBadge';
 import { StagingLessonForm } from '@/features/staging/components/StagingLessonForm';
+import { StagingObjectiveForm } from '@/features/staging/components/StagingObjectiveForm';
 import { useStagingLabel } from '@/features/staging/queries';
 
 /** 활성 항목: 레슨 1 또는 문제(problems 배열 index). */
@@ -25,8 +26,6 @@ export function StagingDetailPage() {
 
   if (isLoading) return <LoadingSkeleton />;
   if (isError || !data) return <ErrorState onRetry={() => refetch()} />;
-
-  const activeProblem = active.type === 'problem' ? data.problems[active.index] : undefined;
 
   const itemClass = (isActive: boolean) =>
     cn(
@@ -79,16 +78,30 @@ export function StagingDetailPage() {
             label={data.label}
             hidden={active.type !== 'lesson'}
           />
-          {/* 문제 폼은 6-3(객관식)/6-4(주관식). 현재는 활성 문제 헤더 placeholder. */}
-          {active.type === 'problem' && activeProblem && (
-            <div className="flex flex-col gap-2">
-              <div className="flex items-center gap-2">
-                <h3 className="text-h3 text-foreground">문제 {active.index + 1}</h3>
-                <ProblemTypeBadge problemType={activeProblem.problemType} />
+          {/* 문제 폼: 객관식=StagingObjectiveForm(6-3). 주관식 폼은 6-4(현재 헤더 placeholder). */}
+          {data.problems.map((problem, index) => {
+            const isActiveItem = active.type === 'problem' && active.index === index;
+            if (problem.problemType === 'OBJECTIVE') {
+              return (
+                <StagingObjectiveForm
+                  key={problem.problemId}
+                  problem={problem}
+                  problemNumber={index + 1}
+                  label={data.label}
+                  hidden={!isActiveItem}
+                />
+              );
+            }
+            return isActiveItem ? (
+              <div key={problem.problemId} className="flex flex-col gap-2">
+                <div className="flex items-center gap-2">
+                  <h3 className="text-h3 text-foreground">문제 {index + 1}</h3>
+                  <ProblemTypeBadge problemType={problem.problemType} />
+                </div>
+                <p className="text-caption text-fg-muted">ID: {problem.problemId}</p>
               </div>
-              <p className="text-caption text-fg-muted">ID: {activeProblem.problemId}</p>
-            </div>
-          )}
+            ) : null;
+          })}
         </div>
       </div>
     </div>
