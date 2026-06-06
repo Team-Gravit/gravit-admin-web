@@ -26,3 +26,8 @@ export async function getStagingLabel(label: string): Promise<StagingLabelDetail
   const { data } = await apiClient.get(`/staging/labels/${label}`);
   return stagingLabelDetailSchema.parse(data);
 }
+
+/** PATCH /staging/lessons/{lessonId} — 스테이징 레슨 수정 (03 §8-3). title 만. 라벨 COMPLETED 시 409. */
+export async function updateStagingLesson(lessonId: number, body: { title: string }): Promise<void> {
+  await apiClient.patch(`/staging/lessons/${lessonId}`, body);
+}

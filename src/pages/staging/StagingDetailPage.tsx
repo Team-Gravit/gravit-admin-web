@@ -6,6 +6,7 @@ import { ErrorState } from '@/shared/components/states/ErrorState';
 import { LoadingSkeleton } from '@/shared/components/states/LoadingSkeleton';
 import { ProblemTypeBadge } from '@/shared/components/status-badge/ProblemTypeBadge';
 import { StagingStatusBadge } from '@/features/staging/components/StagingStatusBadge';
+import { StagingLessonForm } from '@/features/staging/components/StagingLessonForm';
 import { useStagingLabel } from '@/features/staging/queries';
 
 /** 활성 항목: 레슨 1 또는 문제(problems 배열 index). */
@@ -72,12 +73,14 @@ export function StagingDetailPage() {
         </nav>
 
         <div className="flex-1 p-6">
-          {active.type === 'lesson' ? (
-            <div className="flex flex-col gap-2">
-              <h3 className="text-h3 text-foreground">레슨</h3>
-              <p className="text-caption text-fg-muted">ID: {data.lesson.lessonId}</p>
-            </div>
-          ) : activeProblem ? (
+          {/* 레슨 폼 — 항상 mount, 비활성 시 hidden(미저장 입력 보존, 04 §10-2-3). */}
+          <StagingLessonForm
+            lesson={data.lesson}
+            label={data.label}
+            hidden={active.type !== 'lesson'}
+          />
+          {/* 문제 폼은 6-3(객관식)/6-4(주관식). 현재는 활성 문제 헤더 placeholder. */}
+          {active.type === 'problem' && activeProblem && (
             <div className="flex flex-col gap-2">
               <div className="flex items-center gap-2">
                 <h3 className="text-h3 text-foreground">문제 {active.index + 1}</h3>
@@ -85,7 +88,7 @@ export function StagingDetailPage() {
               </div>
               <p className="text-caption text-fg-muted">ID: {activeProblem.problemId}</p>
             </div>
-          ) : null}
+          )}
         </div>
       </div>
     </div>

@@ -834,13 +834,11 @@ GET /api/v1/admin/chapters/{chapterId}/units?page={n}
   "problemType": "SUBJECTIVE",
   "instruction": "배열의 인덱스가 시작하는 숫자를 입력하시오.",
   "content": "...",
-  "answers": [
-    {
-      "answerId": 1,
-      "content": "0",
-      "explanation": "배열의 인덱스는 0부터 시작합니다."
-    }
-  ]
+  "answer": {
+    "answerId": 1,
+    "content": "0,영,zero",
+    "explanation": "배열의 인덱스는 0부터 시작합니다."
+  }
 }
 ```
  
@@ -848,7 +846,7 @@ GET /api/v1/admin/chapters/{chapterId}/units?page={n}
 |---|---|---|
 | `options` | array | 객관식만. 정확히 4개 |
 | `options[].isAnswer` | boolean | 정답 여부. 4개 중 정확히 1개만 `true` |
-| `answers` | array | 주관식만. 1개 이상 |
+| `answer` | object | 주관식만. 단일 정답. content는 콤마로 묶인 인정표기 |
  
 ### 7-13. PATCH `/problems/{problemId}/objective` — 객관식 문제 수정
  
@@ -887,10 +885,7 @@ GET /api/v1/admin/chapters/{chapterId}/units?page={n}
 {
   "instruction": "...",
   "content": "...",
-  "answers": [
-    { "answerId": 1, "content": "0", "explanation": "..." },
-    { "answerId": 2, "content": "zero", "explanation": "..." }
-  ]
+  "answer": { "answerId": 1, "content": "0,영,zero", "explanation": "..." }
 }
 ```
  
@@ -898,11 +893,9 @@ GET /api/v1/admin/chapters/{chapterId}/units?page={n}
 |---|---|---|---|
 | `instruction` | string | N | 지시문 |
 | `content` | string | N | 본문 |
-| `answers` | array | N | **개수 고정**. 제공 시 전체 교체하되 기존 개수와 동일해야 함 |
+| `answer` | object | N | 단일 정답. content는 콤마 표기 |
  
-> ✅ **v1.1 확정 (전체 교체 + 개수 고정)**: `answers` 배열은 **전체 교체(replace)**로 동작합니다. 단, **정답 개수는 변경 불가**합니다. 제공된 배열의 개수가 기존 개수와 다르면 `400 Bad Request` + `code: SUBJECTIVE_ANSWER_COUNT_FIXED`를 반환합니다.
-> **정책 통일**: 주관식 정답 개수는 prod·staging **모두 변동 불가**입니다 (개수는 LLM 파이프라인에서 확정). 운영자는 내용만 수정 가능하며, 추가·삭제는 불가합니다.
-> ⚠️ **와이어프레임 동반 수정 필요**: 와이어프레임 6-7-7(및 prod 주관식 편집 폼)의 "정답 추가/삭제 UI" 기재는 **"개수 고정·내용 수정만"**으로 정정되어야 합니다.
+> 주관식 정답은 항상 1개. 운영자는 content(콤마 표기)와 explanation만 수정한다.
  
 #### 응답
  
@@ -1008,10 +1001,7 @@ Authorization: Bearer {accessToken}
       "problemType": "SUBJECTIVE",
       "instruction": "...",
       "content": "...",
-      "answers": [
-        { "answerId": 1, "content": "...", "explanation": "..." },
-        { "answerId": 2, "content": "...", "explanation": "..." }
-      ]
+      "answer": { "answerId": 1, "content": "...", "explanation": "..." }
     }
   ]
 }

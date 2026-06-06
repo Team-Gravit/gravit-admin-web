@@ -333,6 +333,9 @@ export const handlers = [
     });
   }),
 
+  // 스테이징 레슨 수정 (03 §8-3, 200)
+  http.patch('*/api/v1/admin/staging/lessons/:lessonId', () => new HttpResponse(null, { status: 200 })),
+
   // 유저 목록 (03 §5-1, search/status/role 필터)
   http.get('*/api/v1/admin/users', ({ request }) => {
     const url = new URL(request.url);

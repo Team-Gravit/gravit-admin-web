@@ -1,4 +1,5 @@
 import { z } from 'zod';
+import { FIELD_LIMITS } from '@/shared/constants/fieldLimits';
 
 /** 스테이징 라벨 상태 (03 §5, enums StagingStatus). */
 export const stagingStatusSchema = z.enum(['PENDING', 'COMPLETED']);
@@ -77,6 +78,15 @@ export const stagingLabelDetailSchema = z.object({
   lesson: stagingLessonSchema,
   problems: z.array(stagingProblemSchema),
 });
+
+/** 스테이징 레슨 편집 폼 (DS-02 §16-4-1, 03 §8-3): 제목만. */
+export const stagingLessonFormSchema = z.object({
+  title: z
+    .string()
+    .min(1, '제목은 필수 항목입니다.')
+    .max(FIELD_LIMITS.lesson.title, `${FIELD_LIMITS.lesson.title}자 이내로 입력해주세요.`),
+});
+export type StagingLessonFormValues = z.infer<typeof stagingLessonFormSchema>;
 
 export type StagingLesson = z.infer<typeof stagingLessonSchema>;
 export type StagingOption = z.infer<typeof stagingOptionSchema>;
