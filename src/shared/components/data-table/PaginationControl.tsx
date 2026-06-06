@@ -3,7 +3,7 @@ import { cn } from '@/shared/lib/cn';
 import { Button } from '@/shared/components/ui/button';
 
 /**
- * Pagination (04 §10-8, DS-01 §5-3). 응답이 { page, totalPages, hasNextPage } 구조.
+ * Pagination (04 §10-8, DS-01 §5-3). 응답이 { page, totalPages, hasNext } 구조.
  * 숫자 페이지 + 이전/다음. 1페이지면 미표시.
  */
 interface PaginationControlProps {

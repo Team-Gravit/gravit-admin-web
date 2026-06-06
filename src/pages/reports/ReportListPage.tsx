@@ -131,7 +131,7 @@ export function ReportListPage() {
 
       <DataTable
         columns={columns}
-        data={data?.content ?? []}
+        data={data?.contents ?? []}
         rowKey={(report) => report.reportId}
         isLoading={isLoading}
         isError={isError}

@@ -24,8 +24,8 @@ export const lessonProblemItemSchema = z.object({
 export const lessonProblemListResponseSchema = z.object({
   page: z.number(),
   totalPages: z.number(),
-  hasNextPage: z.boolean(),
-  content: z.array(lessonProblemItemSchema),
+  hasNext: z.boolean(),
+  contents: z.array(lessonProblemItemSchema),
 });
 
 export type LessonProblemItem = z.infer<typeof lessonProblemItemSchema>;

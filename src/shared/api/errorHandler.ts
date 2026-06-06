@@ -22,7 +22,7 @@ const NETWORK = '네트워크 연결을 확인해주세요.';
 
 export function getErrorMessage(error: unknown): string {
   if (error instanceof AxiosError) {
-    // 1순위: 백엔드 message
+    // 1순위: 백엔드 message(문자열). @Valid 실패 시 message=string[] → 아래 상태별 기본 문구로 폴백.
     const data = error.response?.data as Partial<ErrorResponse> | undefined;
     if (typeof data?.message === 'string' && data.message.length > 0) {
       return data.message;

@@ -88,7 +88,7 @@ export function LessonDetailPage() {
         <h3 className="text-h3 text-foreground">문제 (총 {lesson.problemCount}개)</h3>
         <DataTable
           columns={columns}
-          data={problems.data?.content ?? []}
+          data={problems.data?.contents ?? []}
           rowKey={(problem) => problem.problemId}
           isLoading={problems.isLoading}
           isError={problems.isError}

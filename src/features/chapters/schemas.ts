@@ -11,8 +11,8 @@ export const chapterListItemSchema = z.object({
 export const chapterListResponseSchema = z.object({
   page: z.number(),
   totalPages: z.number(),
-  hasNextPage: z.boolean(),
-  content: z.array(chapterListItemSchema),
+  hasNext: z.boolean(),
+  contents: z.array(chapterListItemSchema),
 });
 
 export type ChapterListItem = z.infer<typeof chapterListItemSchema>;
@@ -56,8 +56,8 @@ export const chapterUnitItemSchema = z.object({
 export const chapterUnitListResponseSchema = z.object({
   page: z.number(),
   totalPages: z.number(),
-  hasNextPage: z.boolean(),
-  content: z.array(chapterUnitItemSchema),
+  hasNext: z.boolean(),
+  contents: z.array(chapterUnitItemSchema),
 });
 
 export type ChapterUnitItem = z.infer<typeof chapterUnitItemSchema>;

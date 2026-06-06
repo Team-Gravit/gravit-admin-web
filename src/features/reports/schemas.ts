@@ -20,8 +20,8 @@ export const reportListItemSchema = z.object({
 export const reportListResponseSchema = z.object({
   page: z.number(),
   totalPages: z.number(),
-  hasNextPage: z.boolean(),
-  content: z.array(reportListItemSchema),
+  hasNext: z.boolean(),
+  contents: z.array(reportListItemSchema),
 });
 
 export type ReportListItem = z.infer<typeof reportListItemSchema>;

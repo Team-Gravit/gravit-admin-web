@@ -17,8 +17,8 @@ export const noticeListItemSchema = z.object({
 export const noticeListResponseSchema = z.object({
   page: z.number(),
   totalPages: z.number(),
-  hasNextPage: z.boolean(),
-  content: z.array(noticeListItemSchema),
+  hasNext: z.boolean(),
+  contents: z.array(noticeListItemSchema),
 });
 
 export type NoticeListItem = z.infer<typeof noticeListItemSchema>;

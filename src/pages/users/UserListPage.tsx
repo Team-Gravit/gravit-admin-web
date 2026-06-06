@@ -151,7 +151,7 @@ export function UserListPage() {
 
       <DataTable
         columns={columns}
-        data={data?.content ?? []}
+        data={data?.contents ?? []}
         rowKey={(user) => user.userId}
         isLoading={isLoading}
         isError={isError}

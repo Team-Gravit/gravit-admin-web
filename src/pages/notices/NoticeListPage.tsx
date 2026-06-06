@@ -83,7 +83,7 @@ export function NoticeListPage() {
 
       <DataTable
         columns={columns}
-        data={data?.content ?? []}
+        data={data?.contents ?? []}
         rowKey={(notice) => notice.noticeId}
         isLoading={isLoading}
         isError={isError}

@@ -21,8 +21,8 @@ export const unitLessonItemSchema = z.object({
 export const unitLessonListResponseSchema = z.object({
   page: z.number(),
   totalPages: z.number(),
-  hasNextPage: z.boolean(),
-  content: z.array(unitLessonItemSchema),
+  hasNext: z.boolean(),
+  contents: z.array(unitLessonItemSchema),
 });
 
 export type UnitLessonItem = z.infer<typeof unitLessonItemSchema>;

@@ -18,8 +18,8 @@ export const userListItemSchema = z.object({
 export const userListResponseSchema = z.object({
   page: z.number(),
   totalPages: z.number(),
-  hasNextPage: z.boolean(),
-  content: z.array(userListItemSchema),
+  hasNext: z.boolean(),
+  contents: z.array(userListItemSchema),
 });
 
 export type UserListItem = z.infer<typeof userListItemSchema>;

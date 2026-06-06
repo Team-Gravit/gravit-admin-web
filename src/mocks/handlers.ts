@@ -29,8 +29,8 @@ export const handlers = [
     HttpResponse.json({
       page: 1,
       totalPages: 1,
-      hasNextPage: false,
-      content: [
+      hasNext: false,
+      contents: [
         {
           noticeId: 1,
           title: '서비스 점검 안내 (5월 11일)',
@@ -102,8 +102,8 @@ export const handlers = [
     HttpResponse.json({
       page: 1,
       totalPages: 1,
-      hasNextPage: false,
-      content: [
+      hasNext: false,
+      contents: [
         {
           chapterId: 1,
           title: '자료구조 기초',
@@ -139,8 +139,8 @@ export const handlers = [
     HttpResponse.json({
       page: 1,
       totalPages: 1,
-      hasNextPage: false,
-      content: [
+      hasNext: false,
+      contents: [
         { unitId: 12, title: '배열', description: '배열의 개념과 활용' },
         { unitId: 13, title: '연결 리스트', description: '노드 기반 선형 자료구조' },
         { unitId: 14, title: '스택과 큐', description: 'LIFO/FIFO 자료구조' },
@@ -167,8 +167,8 @@ export const handlers = [
     HttpResponse.json({
       page: 1,
       totalPages: 1,
-      hasNextPage: false,
-      content: [
+      hasNext: false,
+      contents: [
         { lessonId: 901, title: '배열이란 무엇인가' },
         { lessonId: 902, title: '배열의 시간 복잡도' },
       ],
@@ -194,8 +194,8 @@ export const handlers = [
     HttpResponse.json({
       page: 1,
       totalPages: 1,
-      hasNextPage: false,
-      content: [
+      hasNext: false,
+      contents: [
         {
           problemId: 1001,
           problemType: 'OBJECTIVE',
@@ -265,21 +265,21 @@ export const handlers = [
     const status = new URL(request.url).searchParams.get('status');
     const all = [
       {
-        label: '2026-04-25-update',
+        label: '2026-04-25-a3f9',
         unitId: 12,
         description: '배열 챕터 5번째 사이클',
         status: 'PENDING',
         createdAt: '2026-04-25T00:00:00Z',
       },
       {
-        label: '2026-04-24-update',
+        label: '2026-04-24-b7c2',
         unitId: 13,
         description: '연결리스트 사이클',
         status: 'PENDING',
         createdAt: '2026-04-24T00:00:00Z',
       },
       {
-        label: '2026-04-23-update',
+        label: '2026-04-23-d4e1',
         unitId: 14,
         description: '스택과 큐 사이클',
         status: 'COMPLETED',
@@ -287,7 +287,7 @@ export const handlers = [
       },
     ];
     const content = status ? all.filter((label) => label.status === status) : all;
-    return HttpResponse.json({ page: 1, totalPages: 1, hasNextPage: false, content });
+    return HttpResponse.json({ page: 1, totalPages: 1, hasNext: false, contents: content });
   }),
 
   // 라벨 상세 그루핑 (03 §8-2): 레슨 1 + 문제 6(객관식 4 + 주관식 2). 주관식=단일 answer 객체(D1 콤마 String).
@@ -315,8 +315,8 @@ export const handlers = [
         explanation: '배열 인덱스는 0부터 시작합니다.',
       },
     });
-    // read-only 검증용: 2026-04-23-update 라벨은 COMPLETED 반환(나머지는 PENDING).
-    const status = String(params.label) === '2026-04-23-update' ? 'COMPLETED' : 'PENDING';
+    // read-only 검증용: 2026-04-23-d4e1 라벨은 COMPLETED 반환(나머지는 PENDING).
+    const status = String(params.label) === '2026-04-23-d4e1' ? 'COMPLETED' : 'PENDING';
     return HttpResponse.json({
       label: String(params.label),
       unitId: 12,
@@ -373,7 +373,7 @@ export const handlers = [
     }
     if (status) content = content.filter((u) => u.status === status);
     if (role) content = content.filter((u) => u.role === role);
-    return HttpResponse.json({ page: 1, totalPages: 1, hasNextPage: false, content });
+    return HttpResponse.json({ page: 1, totalPages: 1, hasNext: false, contents: content });
   }),
 
   // 유저 상세 (03 §5-2)
@@ -408,7 +408,7 @@ export const handlers = [
     let content = all;
     if (reportType) content = content.filter((r) => r.reportType === reportType);
     if (isResolved !== null) content = content.filter((r) => r.isResolved === (isResolved === 'true'));
-    return HttpResponse.json({ page: 1, totalPages: 1, hasNextPage: false, content });
+    return HttpResponse.json({ page: 1, totalPages: 1, hasNext: false, contents: content });
   }),
 
   // 신고 상세 (03 §6-2)

@@ -67,7 +67,7 @@ export function UnitDetailPage() {
         <h3 className="text-h3 text-foreground">레슨 (총 {unit.lessonCount}개)</h3>
         <DataTable
           columns={columns}
-          data={lessons.data?.content ?? []}
+          data={lessons.data?.contents ?? []}
           rowKey={(lesson) => lesson.lessonId}
           isLoading={lessons.isLoading}
           isError={lessons.isError}

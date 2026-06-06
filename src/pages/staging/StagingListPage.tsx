@@ -93,7 +93,7 @@ export function StagingListPage() {
 
       <DataTable
         columns={columns}
-        data={data?.content ?? []}
+        data={data?.contents ?? []}
         rowKey={(item) => item.label}
         isLoading={isLoading}
         isError={isError}

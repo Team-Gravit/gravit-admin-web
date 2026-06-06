@@ -16,8 +16,8 @@ export const stagingLabelListItemSchema = z.object({
 export const stagingLabelListResponseSchema = z.object({
   page: z.number(),
   totalPages: z.number(),
-  hasNextPage: z.boolean(),
-  content: z.array(stagingLabelListItemSchema),
+  hasNext: z.boolean(),
+  contents: z.array(stagingLabelListItemSchema),
 });
 
 export type StagingLabelListItem = z.infer<typeof stagingLabelListItemSchema>;

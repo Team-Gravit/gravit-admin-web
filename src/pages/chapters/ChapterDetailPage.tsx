@@ -84,7 +84,7 @@ export function ChapterDetailPage() {
         <h3 className="text-h3 text-foreground">유닛 (총 {chapter.unitCount}개)</h3>
         <DataTable
           columns={columns}
-          data={units.data?.content ?? []}
+          data={units.data?.contents ?? []}
           rowKey={(unit) => unit.unitId}
           isLoading={units.isLoading}
           isError={units.isError}

@@ -39,7 +39,7 @@ export function ChapterListPage() {
 
       <DataTable
         columns={columns}
-        data={data?.content ?? []}
+        data={data?.contents ?? []}
         rowKey={(chapter) => chapter.chapterId}
         isLoading={isLoading}
         isError={isError}
