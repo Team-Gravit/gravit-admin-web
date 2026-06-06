@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useQueryClient } from '@tanstack/react-query';
+import { Loader2 } from 'lucide-react';
 import { toast } from 'sonner';
 import { cn } from '@/shared/lib/cn';
 import { Button } from '@/shared/components/ui/button';
@@ -69,31 +70,53 @@ export function StagingSubjectiveForm({
 
   const onSubmit = form.handleSubmit(
     async (values) => {
-      // 변경된 필드만 골라 PATCH 작업 구성 (04 §10-2-5 부분 업데이트).
-      const tasks: Array<() => Promise<void>> = [];
+      // 변경된 필드만 PATCH. 작업별 commit 으로 부분실패 시 성공 필드만 baseline 갱신(04 §10-2-5).
+      const tasks: Array<{ run: () => Promise<unknown>; commit: () => void }> = [];
+
       const problemBody: { instruction?: string; content?: string } = {};
       if (dirtyFields.instruction) problemBody.instruction = values.instruction;
       if (dirtyFields.content) problemBody.content = values.content;
       if (Object.keys(problemBody).length > 0) {
-        tasks.push(() => updateStagingProblem(problem.problemId, problemBody));
+        tasks.push({
+          run: () => updateStagingProblem(problem.problemId, problemBody),
+          commit: () => {
+            if (problemBody.instruction !== undefined)
+              form.resetField('instruction', { defaultValue: values.instruction });
+            if (problemBody.content !== undefined)
+              form.resetField('content', { defaultValue: values.content });
+          },
+        });
       }
       const answerBody: { content?: string; explanation?: string } = {};
       if (dirtyFields.answerContent) answerBody.content = values.answerContent;
       if (dirtyFields.answerExplanation) answerBody.explanation = values.answerExplanation;
       if (Object.keys(answerBody).length > 0) {
-        tasks.push(() => updateStagingAnswer(answer.answerId, answerBody));
+        tasks.push({
+          run: () => updateStagingAnswer(answer.answerId, answerBody),
+          commit: () => {
+            if (answerBody.content !== undefined)
+              form.resetField('answerContent', { defaultValue: values.answerContent });
+            if (answerBody.explanation !== undefined)
+              form.resetField('answerExplanation', { defaultValue: values.answerExplanation });
+          },
+        });
       }
       if (tasks.length === 0) return;
 
       setIsSaving(true);
-      const results = await Promise.allSettled(tasks.map((task) => task()));
+      const results = await Promise.allSettled(tasks.map((task) => task.run()));
       setIsSaving(false);
+
+      results.forEach((result, index) => {
+        if (result.status === 'fulfilled') tasks[index]?.commit();
+      });
       const failed = results.filter((result) => result.status === 'rejected').length;
-      void queryClient.invalidateQueries({ queryKey: stagingKeys.detail(label) });
+      if (failed < results.length) {
+        void queryClient.invalidateQueries({ queryKey: stagingKeys.detail(label) });
+      }
 
       if (failed === 0) {
         toast.success('저장되었습니다.');
-        form.reset(values);
       } else if (failed < results.length) {
         toast.error(`일부 항목만 저장되었습니다. (${results.length - failed}/${results.length} 성공)`);
       } else {
@@ -124,6 +147,7 @@ export function StagingSubjectiveForm({
         <Input
           id={ids.instruction}
           className={dirtyBorder(dirtyFields.instruction)}
+          disabled={isSaving}
           {...register('instruction')}
         />
       </FormField>
@@ -131,6 +155,7 @@ export function StagingSubjectiveForm({
         <Textarea
           id={ids.content}
           className={cn('min-h-24', dirtyBorder(dirtyFields.content))}
+          disabled={isSaving}
           {...register('content')}
         />
       </FormField>
@@ -146,6 +171,7 @@ export function StagingSubjectiveForm({
           id={ids.answer}
           placeholder="예: 데이터베이스,데이터 베이스,database"
           className={dirtyBorder(dirtyFields.answerContent)}
+          disabled={isSaving}
           {...register('answerContent')}
         />
       </FormField>
@@ -153,12 +179,14 @@ export function StagingSubjectiveForm({
         <Textarea
           id={ids.explanation}
           className={cn('min-h-24', dirtyBorder(dirtyFields.answerExplanation))}
+          disabled={isSaving}
           {...register('answerExplanation')}
         />
       </FormField>
 
       <div className="flex justify-end">
         <Button onClick={onSubmit} disabled={!isDirty || isSaving}>
+          {isSaving && <Loader2 className="animate-spin" />}
           저장
         </Button>
       </div>

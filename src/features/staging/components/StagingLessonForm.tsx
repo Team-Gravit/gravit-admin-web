@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
+import { Loader2 } from 'lucide-react';
 import { toast } from 'sonner';
 import { cn } from '@/shared/lib/cn';
 import { Button } from '@/shared/components/ui/button';
@@ -66,12 +67,14 @@ export function StagingLessonForm({ lesson, label, hidden, onDirtyChange }: Stag
         <Input
           id="lesson-title"
           className={cn(dirtyFields.title && 'border-l-4 border-l-primary')}
+          disabled={updateLesson.isPending}
           {...register('title')}
         />
       </FormField>
 
       <div className="flex justify-end">
         <Button onClick={onSubmit} disabled={!isDirty || updateLesson.isPending}>
+          {updateLesson.isPending && <Loader2 className="animate-spin" />}
           저장
         </Button>
       </div>
