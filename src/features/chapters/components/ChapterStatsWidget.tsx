@@ -54,7 +54,8 @@ export function ChapterStatsWidget({ stats, isLoading, isError, onRetry }: Chapt
         </TableHeader>
         <TableBody>
           {stats.units.map((unit) => (
-            <TableRow key={unit.unitId}>
+            // 풀이 현황 행은 클릭 대상이 아님 → hover 강조 비활성(버튼처럼 보이는 오해 방지).
+            <TableRow key={unit.unitId} className="hover:bg-transparent">
               <TableCell>
                 <span className="line-clamp-1 text-foreground">{unit.unitTitle}</span>
               </TableCell>

@@ -1,6 +1,7 @@
 import { createBrowserRouter, redirect, type LoaderFunction } from 'react-router';
 import { ROUTES } from '@/shared/constants/routes';
 import { tokenManager } from '@/shared/api/tokenManager';
+import { authApi } from '@/features/auth/api';
 import { LoginLayout } from '@/shared/components/layout/LoginLayout';
 import { AppShell } from '@/pages/AppShell';
 import { LoginPage } from '@/pages/login/LoginPage';
@@ -24,11 +25,24 @@ import { NoticeDetailPage } from '@/pages/notices/NoticeDetailPage';
 /**
  * ProtectedRoute (04 §7-3, loader 방식). refreshToken 부재 → /login 리다이렉트.
  * D4: GET /admin/me 미구현 → 운영자 프로필 fetch 생략(가용 정보로 처리). tokenManager(shared)만 사용.
+ *
+ * 새로고침 복구: access 토큰은 메모리라 새로고침 시 휘발된다. refresh 는 남아있으므로
+ * access 가 없으면 첫 admin 호출(무토큰 → 403) 전에 refresh 로 1회 재발급한다.
+ * 재발급 실패(= refresh 만료/무효) → 토큰 정리 후 /login.
  */
-const protectedLoader: LoaderFunction = () => {
+const protectedLoader: LoaderFunction = async () => {
   const refreshToken = tokenManager.getRefreshToken();
   if (!refreshToken) {
     throw redirect(ROUTES.LOGIN);
+  }
+  if (!tokenManager.getAccessToken()) {
+    try {
+      const accessToken = await authApi.reissue(refreshToken);
+      tokenManager.setAccessToken(accessToken);
+    } catch {
+      tokenManager.clear();
+      throw redirect(ROUTES.LOGIN);
+    }
   }
   return null;
 };

@@ -3,6 +3,7 @@ import { env } from '@/env';
 import {
   loginUrlResponseSchema,
   oauthLoginResponseSchema,
+  reissueResponseSchema,
   type OAuthLoginResponse,
 } from '@/features/auth/schemas';
 import type { ProviderId } from '@/features/auth/types';
@@ -31,5 +32,15 @@ export const authApi = {
       { params: { dest: env.VITE_OAUTH_DEST } },
     );
     return oauthLoginResponseSchema.parse(data);
+  },
+
+  /**
+   * POST /auth/reissue — refresh 로 access 재발급(로테이션 없음).
+   * 새로고침 시 access(메모리)가 휘발되므로 부트스트랩(protectedLoader)에서 1회 호출해 access 를 복구한다.
+   * authApiClient(인터셉터 없음) 사용 — 401 reissue 사이클 회피.
+   */
+  reissue: async (refreshToken: string): Promise<string> => {
+    const { data } = await authApiClient.post('/auth/reissue', { refreshToken });
+    return reissueResponseSchema.parse(data).accessToken;
   },
 };
