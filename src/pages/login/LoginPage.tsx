@@ -24,7 +24,12 @@ export function LoginPage() {
   const startOAuth = useStartOAuth();
   const [params] = useSearchParams();
   const errorKey = params.get('error');
-  const errorMessage = errorKey ? (ERROR_MESSAGES[errorKey] ?? ERROR_MESSAGES.failed) : null;
+  // 콜백 복귀(?error=) 메시지 우선, 없으면 버튼 클릭(login-url) 실패 시 인라인 메시지.
+  const errorMessage = errorKey
+    ? (ERROR_MESSAGES[errorKey] ?? ERROR_MESSAGES.failed)
+    : startOAuth.isError
+      ? '로그인에 실패하였습니다.'
+      : null;
 
   const handleLogin = (providerId: ProviderId) => {
     startOAuth.mutate(providerId);

@@ -14,6 +14,8 @@ import type { ProviderId } from '@/features/auth/types';
 export function useStartOAuth() {
   return useMutation({
     mutationFn: (provider: ProviderId) => authApi.getLoginUrl(provider),
+    // 실패는 우상단 토스트 대신 로그인 카드 하단 인라인 메시지로 표시(LoginPage).
+    meta: { skipGlobalErrorToast: true },
     onSuccess: (loginUrl) => {
       window.location.href = loginUrl;
     },
