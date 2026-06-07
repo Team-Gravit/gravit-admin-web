@@ -32,7 +32,7 @@ export function ProblemDetailPage() {
   const unit = useUnit(lesson?.unitId ?? NaN).data;
   const chapter = useChapter(unit?.chapterId ?? NaN).data;
   useSetBreadcrumb([
-    { label: '학습 컨텐츠', href: ROUTES.CHAPTERS },
+    { label: '컨텐츠 관리', href: ROUTES.CHAPTERS },
     ...(chapter ? [{ label: chapter.title, href: ROUTES.CHAPTER_DETAIL(chapter.chapterId) }] : []),
     ...(unit ? [{ label: unit.title, href: ROUTES.UNIT_DETAIL(unit.unitId) }] : []),
     ...(lesson ? [{ label: lesson.title, href: ROUTES.LESSON_DETAIL(lesson.lessonId) }] : []),

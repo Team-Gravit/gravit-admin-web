@@ -16,7 +16,7 @@ import type { ChapterUnitItem } from '@/features/chapters/schemas';
 /**
  * CHAPTER_DETAIL (DS-02 §11, 01 §6-5-2, 03 §7-2/§7-3/§7-5). 정보 + 풀이 현황 위젯 + 유닛 목록.
  * B 패턴 편집: [편집] → 정보 카드만 편집 폼으로 전환(풀이현황·유닛 목록은 유지) → 저장/취소.
- * Breadcrumb(학습 컨텐츠 > {chapterTitle}): 전역 Header 로 발행(04 §8-3).
+ * Breadcrumb(컨텐츠 관리 > {chapterTitle}): 전역 Header 로 발행(04 §8-3).
  */
 export function ChapterDetailPage() {
   const { chapterId } = useParams();
@@ -28,9 +28,9 @@ export function ChapterDetailPage() {
   const units = useChapterUnits(id, page);
   const [mode, setMode] = useState<'view' | 'edit'>('view');
 
-  // breadcrumb (04 §8-3-1): 학습 컨텐츠 > {chapterTitle}.
+  // breadcrumb (04 §8-3-1): 컨텐츠 관리 > {chapterTitle}.
   useSetBreadcrumb([
-    { label: '학습 컨텐츠', href: ROUTES.CHAPTERS },
+    { label: '컨텐츠 관리', href: ROUTES.CHAPTERS },
     ...(chapter ? [{ label: chapter.title }] : []),
   ]);
 
