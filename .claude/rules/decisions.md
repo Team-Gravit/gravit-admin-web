@@ -22,9 +22,11 @@
 - 주의: 본인 role 을 USER 로 바꾸면 즉시 백오피스 접근 권한 상실.
 - 근거: `01 §6-3-2`(Q3).
 
-## D4 — `GET /admin/me` 미구현
-- 현재 명세에 없음. 사이드바 운영자명 등은 **가용 정보로 처리**하고, 해당 Step 패킷에 `manual-review` 로 명시.
-- 근거: `.claude/resource/phases/step-2-infra.md`.
+## D4 — `GET /admin/me` (운영자 프로필) — 구현·배선됨
+- `BACKEND_ADMIN_API_SPEC §4-0` 에 신설: `GET /api/v1/admin/me` → `{ adminId, nickname, email, profileImgNumber }`. User 엔티티 재사용(신규 테이블·마이그레이션 없음). 백엔드 핸드오프 = `PROMPT_admin_me.md`.
+- 프론트: `protectedLoader`(부트스트랩)에서 store 비었을 때 1회 fetch → `store.setAdmin` → 사이드바 표시. fetch 실패는 **비차단**(/me 미배포·일시 실패 시 '운영자' 폴백, 진입 허용).
+- 프로필 이미지: **닉네임 이니셜 아바타**. `profileImgNumber` 는 수신·저장만(실이미지 전환은 추후 — 백엔드 URL 서빙 또는 프리셋 번들 결정 시).
+- 근거: `.claude/resource/phases/step-2-infra.md`; 사용자 결정 2026-06-07(이니셜 아바타).
 
 ## D5 — LOGIN 브랜드 예외 + 레이아웃은 Figma 우선
 - **레이아웃·구성은 Figma 우선**(DS 명세가 추상적이므로). 단 DS-00 전역 invariant(라이트 모드·1280px 단일폭·반응형 금지)와 동작/데이터/계약(01/03/04)은 **고정**(Figma 무권한).
