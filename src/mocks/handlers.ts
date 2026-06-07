@@ -22,6 +22,16 @@ export const handlers = [
   ),
   http.post('*/api/v1/auth/reissue', () => HttpResponse.json({ accessToken: 'mock-access-token' })),
 
+  // 현재 운영자 (BACKEND_ADMIN_API_SPEC §4-0). 목 admin 유저와 일치.
+  http.get('*/api/v1/admin/me', () =>
+    HttpResponse.json({
+      adminId: 1002,
+      nickname: '운영자',
+      email: 'admin@gravit.com',
+      profileImgNumber: 3,
+    }),
+  ),
+
   // 대시보드 (03 §4-1)
   http.get('*/api/v1/admin/dashboard/summary', () =>
     HttpResponse.json({

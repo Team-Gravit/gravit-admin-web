@@ -7,8 +7,8 @@ export type ProviderId = 'GOOGLE' | 'KAKAO' | 'NAVER';
 export type Role = 'ADMIN' | 'USER';
 
 /**
- * 운영자 프로필 (04 §7-2, §10-6).
- * ⚠️ GET /admin/me 미구현(D4) → 현재 admin 은 항상 null. 엔드포인트 추가 시 채운다.
+ * 운영자 프로필 (04 §7-2, §10-6, BACKEND_ADMIN_API_SPEC §4-0).
+ * GET /admin/me 응답 매핑. protectedLoader(부트스트랩)에서 fetch → store.setAdmin.
  */
 export interface AdminProfile {
   adminId: number;

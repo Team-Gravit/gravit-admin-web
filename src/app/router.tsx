@@ -2,6 +2,7 @@ import { createBrowserRouter, redirect, type LoaderFunction } from 'react-router
 import { ROUTES } from '@/shared/constants/routes';
 import { tokenManager } from '@/shared/api/tokenManager';
 import { authApi } from '@/features/auth/api';
+import { useAuthStore } from '@/features/auth/store';
 import { LoginLayout } from '@/shared/components/layout/LoginLayout';
 import { AppShell } from '@/pages/AppShell';
 import { LoginPage } from '@/pages/login/LoginPage';
@@ -24,7 +25,7 @@ import { NoticeDetailPage } from '@/pages/notices/NoticeDetailPage';
 
 /**
  * ProtectedRoute (04 §7-3, loader 방식). refreshToken 부재 → /login 리다이렉트.
- * D4: GET /admin/me 미구현 → 운영자 프로필 fetch 생략(가용 정보로 처리). tokenManager(shared)만 사용.
+ * 운영자 프로필: access 확보 후 GET /admin/me 1회 fetch → store.setAdmin(BACKEND_ADMIN_API_SPEC §4-0). 비차단.
  *
  * 새로고침 복구: access 토큰은 메모리라 새로고침 시 휘발된다. refresh 는 남아있으므로
  * access 가 없으면 첫 admin 호출(무토큰 → 403) 전에 refresh 로 1회 재발급한다.
@@ -42,6 +43,17 @@ const protectedLoader: LoaderFunction = async () => {
     } catch {
       tokenManager.clear();
       throw redirect(ROUTES.LOGIN);
+    }
+  }
+
+  // 운영자 프로필 복구(BACKEND_ADMIN_API_SPEC §4-0). store 가 비었을 때만(세션당 1회) fetch.
+  // 비차단 — /me 미배포/일시 실패 시 사이드바는 '운영자' 폴백, 진입은 허용.
+  if (!useAuthStore.getState().admin) {
+    try {
+      const me = await authApi.me();
+      useAuthStore.getState().setAdmin(me);
+    } catch {
+      // ignore — 프로필은 비필수, 게이트는 토큰만으로 통과.
     }
   }
   return null;

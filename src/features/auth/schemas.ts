@@ -26,3 +26,14 @@ export type OAuthLoginResponse = z.infer<typeof oauthLoginResponseSchema>;
 export const reissueResponseSchema = z.object({
   accessToken: z.string().min(1),
 });
+
+/**
+ * GET /admin/me → 현재 운영자 프로필 (BACKEND_ADMIN_API_SPEC §4-0).
+ * AdminProfile 와 필드 정확 일치. profileImgNumber 는 수신·저장만(현재 이미지 미렌더).
+ */
+export const adminMeResponseSchema = z.object({
+  adminId: z.number(),
+  nickname: z.string(),
+  email: z.string(),
+  profileImgNumber: z.number(),
+});

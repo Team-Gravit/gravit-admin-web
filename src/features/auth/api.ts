@@ -1,12 +1,13 @@
-import { authApiClient } from '@/shared/api/client';
+import { apiClient, authApiClient } from '@/shared/api/client';
 import { env } from '@/env';
 import {
+  adminMeResponseSchema,
   loginUrlResponseSchema,
   oauthLoginResponseSchema,
   reissueResponseSchema,
   type OAuthLoginResponse,
 } from '@/features/auth/schemas';
-import type { ProviderId } from '@/features/auth/types';
+import type { AdminProfile, ProviderId } from '@/features/auth/types';
 
 /**
  * 인증 API (BACKEND_ADMIN_API_SPEC §8 — 기존 OAuth auth-code 흐름 재사용).
@@ -42,5 +43,14 @@ export const authApi = {
   reissue: async (refreshToken: string): Promise<string> => {
     const { data } = await authApiClient.post('/auth/reissue', { refreshToken });
     return reissueResponseSchema.parse(data).accessToken;
+  },
+
+  /**
+   * GET /admin/me — 현재 운영자 프로필(사이드바 표시용, BACKEND_ADMIN_API_SPEC §4-0).
+   * apiClient(admin base + Bearer + 401 reissue) 사용. 실패는 호출측에서 비차단 처리.
+   */
+  me: async (): Promise<AdminProfile> => {
+    const { data } = await apiClient.get('/me');
+    return adminMeResponseSchema.parse(data);
   },
 };

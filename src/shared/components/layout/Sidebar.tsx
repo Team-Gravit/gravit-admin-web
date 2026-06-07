@@ -120,8 +120,12 @@ export function Sidebar({ admin }: SidebarProps) {
 
       {/* 운영자 영역 (04 §10-6). GET /admin/me 미구현(D4) → 가용 정보/대체 표시. */}
       <div className="flex items-center gap-3 border-t border-border p-4">
-        <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-hover">
-          <User className="h-5 w-5 text-fg-muted" />
+        <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-hover text-body font-medium text-fg-secondary">
+          {admin?.nickname ? (
+            admin.nickname.trim().charAt(0)
+          ) : (
+            <User className="h-5 w-5 text-fg-muted" />
+          )}
         </div>
         <div className="min-w-0">
           <p className="truncate text-body text-foreground">{admin?.nickname ?? '운영자'}</p>

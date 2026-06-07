@@ -62,7 +62,7 @@ export function useLogout() {
 }
 
 /**
- * 현재 운영자 (04 §7-2). GET /admin/me 미구현(D4) → store 의 admin(현재 null) 반환.
+ * 현재 운영자 (04 §7-2). store 의 admin 반환(부트스트랩에서 GET /admin/me 로 채움, BACKEND_ADMIN_API_SPEC §4-0).
  */
 export function useCurrentAdmin() {
   return useAuthStore((s) => s.admin);
