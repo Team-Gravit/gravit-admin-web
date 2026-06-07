@@ -53,9 +53,11 @@ export function LoginPage() {
           <p className="text-h2 font-medium text-muted-foreground">내부 운영자 전용 관리 시스템</p>
         </div>
 
-        <OAuthButtons onLogin={handleLogin} disabled={startOAuth.isPending} />
-
-        {errorMessage && <p className="text-caption text-destructive">{errorMessage}</p>}
+        <div className="flex flex-col gap-2">
+          <OAuthButtons onLogin={handleLogin} disabled={startOAuth.isPending} />
+          {/* 실패 메시지 자리 고정: 메시지 유무와 무관하게 높이 예약 → 표시 시 레이아웃 시프트 방지. */}
+          <p className="min-h-5 text-caption text-destructive">{errorMessage}</p>
+        </div>
       </div>
     </div>
   );
