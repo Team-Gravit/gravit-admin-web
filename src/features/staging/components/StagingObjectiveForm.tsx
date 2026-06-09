@@ -194,29 +194,33 @@ export function StagingObjectiveForm({
           className="gap-4"
         >
           {fields.map((field, index) => (
-            <div key={field.id} className="flex flex-col gap-2 rounded-md border border-border p-4">
-              <div className="flex items-center gap-3">
-                <span className="w-5 shrink-0 text-body text-foreground">{OPTION_MARKERS[index]}</span>
-                <label className="flex shrink-0 items-center gap-2 text-caption text-fg-secondary">
-                  <RadioGroupItem value={String(field.optionId)} />
-                  정답
-                </label>
-                <Input
-                  className={cn('flex-1', dirtyBorder(dirtyFields.options?.[index]?.content), roClass)}
-                  disabled={readOnly || isSaving}
-                  {...register(`options.${index}.content`)}
-                />
+            <div key={field.id} className="flex items-start gap-3 rounded-md border border-border p-4">
+              {/* 좌측 고정: 마커 + 정답 radio (입력칸 상단에 맞춰 정렬) */}
+              <span className="w-5 shrink-0 pt-2 text-body text-foreground">{OPTION_MARKERS[index]}</span>
+              <label className="flex shrink-0 items-center gap-2 pt-2 text-caption text-fg-secondary">
+                <RadioGroupItem value={String(field.optionId)} />
+                정답
+              </label>
+              {/* 우측 공유 컬럼: content·해설 동일 x좌표·너비 */}
+              <div className="flex flex-1 flex-col gap-2">
+                <div className="flex flex-col gap-1">
+                  <Input
+                    className={cn(dirtyBorder(dirtyFields.options?.[index]?.content), roClass)}
+                    disabled={readOnly || isSaving}
+                    {...register(`options.${index}.content`)}
+                  />
+                  <FieldError message={errors.options?.[index]?.content?.message} />
+                </div>
+                <div className="flex flex-col gap-1">
+                  <span className="text-caption text-fg-muted">해설</span>
+                  <Textarea
+                    className={cn('min-h-16', dirtyBorder(dirtyFields.options?.[index]?.explanation), roClass)}
+                    disabled={readOnly || isSaving}
+                    {...register(`options.${index}.explanation`)}
+                  />
+                  <FieldError message={errors.options?.[index]?.explanation?.message} />
+                </div>
               </div>
-              <FieldError message={errors.options?.[index]?.content?.message} />
-              <div className="flex items-center gap-2 pl-8">
-                <span className="shrink-0 text-caption text-fg-muted">해설</span>
-                <Input
-                  className={cn('flex-1', dirtyBorder(dirtyFields.options?.[index]?.explanation), roClass)}
-                  disabled={readOnly || isSaving}
-                  {...register(`options.${index}.explanation`)}
-                />
-              </div>
-              <FieldError message={errors.options?.[index]?.explanation?.message} />
             </div>
           ))}
         </RadioGroup>
