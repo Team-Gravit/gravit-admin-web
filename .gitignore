@@ -30,6 +30,12 @@ playwright-report
 *.sw?
 
 .tanstack
+
+# 루트 핸드오프 문서 (백엔드/통합 프롬프트·스펙 — 의도적 git 제외)
+/BACKEND_ADMIN_API_SPEC.md
+/INTEGRATION_REPORT.md
+/PROMPT_*.md
+
 .env.local
 .env.production
 .env
