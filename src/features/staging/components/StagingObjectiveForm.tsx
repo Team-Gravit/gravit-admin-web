@@ -12,6 +12,7 @@ import { RadioGroup, RadioGroupItem } from '@/shared/components/ui/radio-group';
 import { FormField } from '@/shared/components/form/FormField';
 import { FieldError } from '@/shared/components/form/FieldError';
 import { ProblemTypeBadge } from '@/shared/components/status-badge/ProblemTypeBadge';
+import { MarkdownEditor } from '@/shared/components/markdown/MarkdownEditor';
 import { updateStagingOption, updateStagingProblem } from '@/features/staging/api';
 import { stagingKeys } from '@/features/staging/queries';
 import {
@@ -177,11 +178,12 @@ export function StagingObjectiveForm({
         />
       </FormField>
       <FormField label="본문" htmlFor={`obj-content-${problem.problemId}`} required error={errors.content?.message}>
-        <Textarea
+        <MarkdownEditor
           id={`obj-content-${problem.problemId}`}
           className={cn('min-h-24', dirtyBorder(dirtyFields.content), roClass)}
           disabled={readOnly || isSaving}
-          {...register('content')}
+          registration={register('content')}
+          value={watch('content')}
         />
       </FormField>
 

@@ -12,7 +12,7 @@ import { ConfirmModal } from '@/shared/components/modals/ConfirmModal';
 import { useNotice } from '@/features/notices/queries';
 import { useDeleteNotice } from '@/features/notices/mutations';
 import { NoticeStatusBadge } from '@/features/notices/components/NoticeStatusBadge';
-import { NoticeMarkdownViewer } from '@/features/notices/components/NoticeMarkdownViewer';
+import { MarkdownViewer } from '@/shared/components/markdown/MarkdownViewer';
 import { NoticeEditForm } from '@/features/notices/components/NoticeEditForm';
 
 /**
@@ -91,7 +91,7 @@ export function NoticeDetailPage() {
         </section>
         {/* 본문 라벨 대신 구분선 (DS border 토큰, 미니멀) */}
         <hr className="border-border" />
-        <NoticeMarkdownViewer content={data.content} />
+        <MarkdownViewer content={data.content} />
       </div>
 
       <ConfirmModal

@@ -5,8 +5,8 @@ import { toast } from 'sonner';
 import { ROUTES } from '@/shared/constants/routes';
 import { Button } from '@/shared/components/ui/button';
 import { Input } from '@/shared/components/ui/input';
-import { Textarea } from '@/shared/components/ui/textarea';
 import { Checkbox } from '@/shared/components/ui/checkbox';
+import { MarkdownEditor } from '@/shared/components/markdown/MarkdownEditor';
 import { FormField } from '@/shared/components/form/FormField';
 import { UnsavedChangesModal } from '@/shared/components/modals/UnsavedChangesModal';
 import { useUnsavedChangesGuard } from '@/shared/hooks/useUnsavedChangesGuard';
@@ -73,7 +73,12 @@ export function NoticeNewPage() {
           required
           error={errors.content?.message}
         >
-          <Textarea id="content" className="min-h-60" {...register('content')} />
+          <MarkdownEditor
+            id="content"
+            className="min-h-60"
+            registration={register('content')}
+            value={watch('content')}
+          />
         </FormField>
         <label className="flex w-fit items-center gap-2 text-body text-foreground">
           <Checkbox

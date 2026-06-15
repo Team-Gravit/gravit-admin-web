@@ -10,6 +10,7 @@ import { Input } from '@/shared/components/ui/input';
 import { Textarea } from '@/shared/components/ui/textarea';
 import { FormField } from '@/shared/components/form/FormField';
 import { ProblemTypeBadge } from '@/shared/components/status-badge/ProblemTypeBadge';
+import { MarkdownEditor } from '@/shared/components/markdown/MarkdownEditor';
 import { updateStagingAnswer, updateStagingProblem } from '@/features/staging/api';
 import { stagingKeys } from '@/features/staging/queries';
 import {
@@ -60,6 +61,7 @@ export function StagingSubjectiveForm({
   });
   const {
     register,
+    watch,
     formState: { errors, isDirty, dirtyFields },
   } = form;
 
@@ -157,11 +159,12 @@ export function StagingSubjectiveForm({
         />
       </FormField>
       <FormField label="본문" htmlFor={ids.content} required error={errors.content?.message}>
-        <Textarea
+        <MarkdownEditor
           id={ids.content}
           className={cn('min-h-24', dirtyBorder(dirtyFields.content), roClass)}
           disabled={readOnly || isSaving}
-          {...register('content')}
+          registration={register('content')}
+          value={watch('content')}
         />
       </FormField>
 

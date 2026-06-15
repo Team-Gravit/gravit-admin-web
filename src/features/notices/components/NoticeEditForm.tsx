@@ -3,8 +3,8 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { toast } from 'sonner';
 import { Button } from '@/shared/components/ui/button';
 import { Input } from '@/shared/components/ui/input';
-import { Textarea } from '@/shared/components/ui/textarea';
 import { Checkbox } from '@/shared/components/ui/checkbox';
+import { MarkdownEditor } from '@/shared/components/markdown/MarkdownEditor';
 import {
   Select,
   SelectContent,
@@ -90,7 +90,12 @@ export function NoticeEditForm({ notice, onCancel, onSaved }: NoticeEditFormProp
           required
           error={errors.content?.message}
         >
-          <Textarea id="content" className="min-h-60" {...register('content')} />
+          <MarkdownEditor
+            id="content"
+            className="min-h-60"
+            registration={register('content')}
+            value={watch('content')}
+          />
         </FormField>
         <FormField label="상태" required error={errors.status?.message}>
           <Select

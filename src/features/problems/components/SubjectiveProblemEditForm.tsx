@@ -4,6 +4,7 @@ import { toast } from 'sonner';
 import { Button } from '@/shared/components/ui/button';
 import { Input } from '@/shared/components/ui/input';
 import { Textarea } from '@/shared/components/ui/textarea';
+import { MarkdownEditor } from '@/shared/components/markdown/MarkdownEditor';
 import { FormField } from '@/shared/components/form/FormField';
 import { UnsavedChangesModal } from '@/shared/components/modals/UnsavedChangesModal';
 import { useUnsavedChangesGuard } from '@/shared/hooks/useUnsavedChangesGuard';
@@ -44,6 +45,7 @@ export function SubjectiveProblemEditForm({
   });
   const {
     register,
+    watch,
     formState: { errors, isDirty, isSubmitSuccessful },
   } = form;
 
@@ -80,7 +82,12 @@ export function SubjectiveProblemEditForm({
           <Input id="instruction" {...register('instruction')} />
         </FormField>
         <FormField label="본문" htmlFor="content" required error={errors.content?.message}>
-          <Textarea id="content" className="min-h-24" {...register('content')} />
+          <MarkdownEditor
+            id="content"
+            className="min-h-24"
+            registration={register('content')}
+            value={watch('content')}
+          />
         </FormField>
       </section>
 

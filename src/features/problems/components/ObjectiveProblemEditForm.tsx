@@ -3,8 +3,8 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { toast } from 'sonner';
 import { Button } from '@/shared/components/ui/button';
 import { Input } from '@/shared/components/ui/input';
-import { Textarea } from '@/shared/components/ui/textarea';
 import { RadioGroup, RadioGroupItem } from '@/shared/components/ui/radio-group';
+import { MarkdownEditor } from '@/shared/components/markdown/MarkdownEditor';
 import { FormField } from '@/shared/components/form/FormField';
 import { FieldError } from '@/shared/components/form/FieldError';
 import { UnsavedChangesModal } from '@/shared/components/modals/UnsavedChangesModal';
@@ -90,7 +90,12 @@ export function ObjectiveProblemEditForm({
           <Input id="instruction" {...register('instruction')} />
         </FormField>
         <FormField label="본문" htmlFor="content" required error={errors.content?.message}>
-          <Textarea id="content" className="min-h-24" {...register('content')} />
+          <MarkdownEditor
+            id="content"
+            className="min-h-24"
+            registration={register('content')}
+            value={watch('content')}
+          />
         </FormField>
       </section>
 
