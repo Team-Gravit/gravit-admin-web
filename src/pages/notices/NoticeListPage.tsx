@@ -10,11 +10,6 @@ import { useNotices } from '@/features/notices/queries';
 import { NoticeStatusBadge } from '@/features/notices/components/NoticeStatusBadge';
 import type { NoticeListItem } from '@/features/notices/schemas';
 
-/**
- * NOTICE_LIST (DS-02 §3, 01 §6-2-1, 03 §9-1). List Page: Page Header + DataTable + Pagination.
- * 검색·필터 없음(04 §2-2). 행 클릭→상세, [수정] stopPropagation(04 §10-7).
- * (Figma 8788:7557: 컬럼 '게시일'=publishedAt·실제 status 사용 — Figma 의 '생성일/예정'은 mockup.)
- */
 export function NoticeListPage() {
   const navigate = useNavigate();
   const [page, setPage] = useState(1);

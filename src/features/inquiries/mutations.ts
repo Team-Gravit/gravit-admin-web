@@ -7,10 +7,6 @@ import {
 import { inquiryKeys } from '@/features/inquiries/queries';
 import type { InquiryDetail } from '@/features/inquiries/schemas';
 
-/**
- * 답변 등록 (inquiry-handoff A-2-4). 성공 시 201 상세객체로 detail 캐시 갱신(status→RESOLVED 즉시 반영)
- * + lists invalidate(목록 상태배지 갱신).
- */
 export function useCreateInquiryAnswer(inquiryId: number) {
   const queryClient = useQueryClient();
   return useMutation({
@@ -22,7 +18,6 @@ export function useCreateInquiryAnswer(inquiryId: number) {
   });
 }
 
-/** 답변 수정 (inquiry-handoff A-2-4). 성공 시 200 상세객체로 detail 캐시 갱신(status 유지). */
 export function useUpdateInquiryAnswer(inquiryId: number) {
   const queryClient = useQueryClient();
   return useMutation({
@@ -34,7 +29,6 @@ export function useUpdateInquiryAnswer(inquiryId: number) {
   });
 }
 
-/** 답변 삭제 (inquiry-handoff A-2-4). 204 무본문 → status→PENDING. detail+lists invalidate. */
 export function useDeleteInquiryAnswer(inquiryId: number) {
   const queryClient = useQueryClient();
   return useMutation({

@@ -1,7 +1,6 @@
 import { keepPreviousData, useQuery } from '@tanstack/react-query';
 import { getNotice, getNotices } from '@/features/notices/api';
 
-/** 공지 queryKey 팩토리 (04 §9-1). 생성/수정/삭제 시 noticeKeys.all invalidate. */
 export const noticeKeys = {
   all: ['notices'] as const,
   lists: () => [...noticeKeys.all, 'list'] as const,

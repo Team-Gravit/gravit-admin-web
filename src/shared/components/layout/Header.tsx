@@ -5,7 +5,6 @@ import { LogOut } from 'lucide-react';
 import { useState } from 'react';
 
 /**
- * Header (DS-00 §7). 56px, 하단 1px border. 좌측 breadcrumb, 우측 [로그아웃](confirm 후 onLogout).
  * presentational — 로그아웃 동작은 prop 으로 주입(shared→features 금지).
  */
 interface HeaderProps {

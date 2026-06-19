@@ -1,7 +1,6 @@
 import { keepPreviousData, useQuery } from '@tanstack/react-query';
 import { getInquiries, getInquiry, type InquiryListFilters } from '@/features/inquiries/api';
 
-/** 문의 queryKey 팩토리. 답변 등록/수정/삭제 시 detail+lists invalidate(상태 전환 반영). */
 export const inquiryKeys = {
   all: ['inquiries'] as const,
   lists: () => [...inquiryKeys.all, 'list'] as const,

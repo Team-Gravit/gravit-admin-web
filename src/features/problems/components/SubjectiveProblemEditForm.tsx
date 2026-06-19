@@ -21,11 +21,6 @@ interface SubjectiveProblemEditFormProps {
   onSaved: () => void;
 }
 
-/**
- * 주관식 편집 모드 (D1 B-single-comma, D2 개수 고정, 01 §6-5-5, 04 §2-1 > 03 §7-14).
- * 지시문/본문 + 단일 정답(콤마 구분 content) + 단일 해설. 정답 추가/삭제 버튼 없음.
- * 제출 시 단일 `answer` 객체로 부분 업데이트(04 §2-1 line 90 명시 결정). 이탈 보호.
- */
 export function SubjectiveProblemEditForm({
   problem,
   onCancel,
@@ -92,7 +87,6 @@ export function SubjectiveProblemEditForm({
       </section>
 
       <section className="flex flex-col gap-5 rounded-lg border border-border bg-surface p-6">
-        {/* D1: 단일 정답(콤마로 여러 정답 구분) + 단일 해설. 추가/삭제 없음(D2 개수 고정). */}
         <h3 className="text-h3 text-foreground">정답</h3>
         <FormField
           label="정답 (인정 표기는 콤마로 구분)"

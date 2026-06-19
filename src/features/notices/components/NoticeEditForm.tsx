@@ -24,7 +24,6 @@ import {
 } from '@/features/notices/schemas';
 import { useUpdateNotice } from '@/features/notices/mutations';
 
-/** 상태 전이 허용 옵션 (03 §9-4): UI 차단(옵션 제한) + 백엔드 409 검증. */
 const STATUS_TRANSITIONS: Record<NoticeStatus, NoticeStatus[]> = {
   DRAFT: ['DRAFT', 'PUBLISHED'],
   PUBLISHED: ['PUBLISHED', 'ARCHIVED'],
@@ -37,7 +36,6 @@ interface NoticeEditFormProps {
   onSaved: () => void;
 }
 
-/** NOTICE_DETAIL 편집 모드 (DS-02 §5-2). 작성 폼 + 상태 Select(전이 제한) + 저장. 이탈 보호. */
 export function NoticeEditForm({ notice, onCancel, onSaved }: NoticeEditFormProps) {
   const updateNotice = useUpdateNotice(notice.noticeId);
   const form = useForm<NoticeEditFormValues>({

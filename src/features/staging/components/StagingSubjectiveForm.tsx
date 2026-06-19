@@ -23,20 +23,11 @@ interface StagingSubjectiveFormProps {
   problem: StagingSubjectiveProblem;
   problemNumber: number;
   label: string;
-  /** 비활성 항목은 unmount 대신 hidden — 미저장 입력 보존(04 §10-2-3). */
   hidden?: boolean;
-  /** dirty 변화를 좌측 리스트(●)로 lift-up (04 §10-2-4). */
   onDirtyChange?: (dirty: boolean) => void;
-  /** COMPLETED read-only(04 §10-2-9): 입력 disabled + 저장 숨김. */
   readOnly?: boolean;
 }
 
-/**
- * 스테이징 주관식 폼 (DS-02 §16-4-3 + D1 단일 객체, 03 §8-4/§8-6, 04 §10-2-5).
- * 지시문/본문 + 정답 단일(콤마 구분 content) + 해설 1개. 정답 추가/삭제 없음.
- * 저장 = 변경 필드만 다중 PATCH(Promise.allSettled): 문제(§8-4) + 정답(§8-6).
- * 부분실패 세분 baseline·spinner·입력 비활성 정교화는 6-6, 변경 표시(●/4px)는 6-5.
- */
 export function StagingSubjectiveForm({
   problem,
   problemNumber,
@@ -69,15 +60,12 @@ export function StagingSubjectiveForm({
     onDirtyChange?.(isDirty);
   }, [isDirty, onDirtyChange]);
 
-  // 변경된 input 좌측 4px Primary 보더 (DS-02 §16-5, 04 §10-2-4).
   const dirtyBorder = (dirty: boolean | undefined) =>
     dirty ? 'border-l-4 border-l-primary' : undefined;
-  // COMPLETED read-only 입력 스타일 (DS-02 §16-6: bg-hover + text-secondary).
   const roClass = readOnly ? 'bg-hover text-fg-secondary' : undefined;
 
   const onSubmit = form.handleSubmit(
     async (values) => {
-      // 변경된 필드만 PATCH. 작업별 commit 으로 부분실패 시 성공 필드만 baseline 갱신(04 §10-2-5).
       const tasks: Array<{ run: () => Promise<unknown>; commit: () => void }> = [];
 
       const problemBody: { instruction?: string; content?: string } = {};
@@ -168,7 +156,6 @@ export function StagingSubjectiveForm({
         />
       </FormField>
 
-      {/* D1: 정답 단일(인정 표기는 콤마로 구분) + 해설 1개. 추가/삭제 없음. */}
       <FormField
         label="정답 (인정 표기는 콤마로 구분)"
         htmlFor={ids.answer}

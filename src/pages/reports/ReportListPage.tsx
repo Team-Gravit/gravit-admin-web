@@ -21,10 +21,6 @@ import type { ReportListItem } from '@/features/reports/schemas';
 type TypeFilter = ReportType | 'ALL';
 type ResolvedFilter = 'ALL' | 'false' | 'true';
 
-/**
- * REPORT_LIST (DS-02 §8, 03 §6-1, 04 §2-2). 필터 2종(유형 + 처리상태, 기본 미해결).
- * 행클릭→/reports/:id. 문제ID=별도 링크(stopPropagation→문제상세, 04 §10-7). 유형=텍스트, 상태=Badge.
- */
 export function ReportListPage() {
   const navigate = useNavigate();
   const [page, setPage] = useState(1);

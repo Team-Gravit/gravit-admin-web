@@ -7,10 +7,6 @@ import {
 } from '@/shared/components/ui/dialog';
 import { Button } from '@/shared/components/ui/button';
 
-/**
- * Unsaved Changes Modal (04 §8-4-3). useUnsavedChangesGuard 의 blocker 와 연동.
- * [나가기] → blocker.proceed(), [취소] → blocker.reset().
- */
 interface UnsavedChangesModalProps {
   open: boolean;
   message?: string;

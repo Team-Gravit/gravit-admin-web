@@ -9,7 +9,6 @@ import type {
   UserStatus,
 } from '@/shared/constants/enums';
 
-/** enum → 한글 매핑 (04 §9-7). 모든 UI 문구는 한국어 하드코딩(04 §9-6). */
 export const userStatusLabels: Record<UserStatus, string> = {
   ACTIVE: '활성',
   SUSPENDED: '정지',

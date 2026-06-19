@@ -14,10 +14,6 @@ import { useSetBreadcrumb } from '@/shared/hooks/useBreadcrumb';
 import { noticeFormSchema, type NoticeFormValues } from '@/features/notices/schemas';
 import { useCreateNotice } from '@/features/notices/mutations';
 
-/**
- * NOTICE_NEW (DS-02 §4, 03 §9-3, 04 §9-2). Form Page: 제목/요약/본문/상단고정 + 취소·임시저장·게시.
- * RHF + zodResolver(onBlur, 제출 시 전체검증). 임시저장=DRAFT·게시=PUBLISHED. 입력 시 이탈 보호.
- */
 export function NoticeNewPage() {
   const navigate = useNavigate();
   const createNotice = useCreateNotice();
@@ -35,7 +31,6 @@ export function NoticeNewPage() {
 
   const blocker = useUnsavedChangesGuard(isDirty && !isSubmitSuccessful);
 
-  // breadcrumb (04 §8-3-1): 공지 관리 > 공지 작성.
   useSetBreadcrumb([{ label: '공지 관리', href: ROUTES.NOTICES }, { label: '공지 작성' }]);
 
   const submit = (status: 'DRAFT' | 'PUBLISHED') =>

@@ -19,10 +19,6 @@ interface LessonEditFormProps {
   onSaved: () => void;
 }
 
-/**
- * LESSON_DETAIL 편집 모드 (01 §6-5-4, DS-02 §13, 03 §7-10).
- * B 패턴: 정보 카드만 편집 폼으로 전환(문제 목록은 유지). 제목만 수정(레슨은 description 없음) + 이탈 보호.
- */
 export function LessonEditForm({ lesson, onCancel, onSaved }: LessonEditFormProps) {
   const updateLesson = useUpdateLesson(lesson.lessonId);
   const form = useForm<LessonEditFormValues>({

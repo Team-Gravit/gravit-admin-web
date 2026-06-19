@@ -1,7 +1,6 @@
 import { cn } from '@/shared/lib/cn';
 import { Skeleton } from '@/shared/components/ui/skeleton';
 
-/** Loading Skeleton (04 §9-4): 테이블 행 모양 회색 placeholder. 데이터 영역만. */
 interface LoadingSkeletonProps {
   rows?: number;
   className?: string;

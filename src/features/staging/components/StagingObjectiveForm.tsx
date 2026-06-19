@@ -27,20 +27,11 @@ interface StagingObjectiveFormProps {
   problem: StagingObjectiveProblem;
   problemNumber: number;
   label: string;
-  /** 비활성 항목은 unmount 대신 hidden — 미저장 입력 보존(04 §10-2-3). */
   hidden?: boolean;
-  /** dirty 변화를 좌측 리스트(●)로 lift-up (04 §10-2-4). */
   onDirtyChange?: (dirty: boolean) => void;
-  /** COMPLETED read-only(04 §10-2-9): 입력/radio disabled + 저장 숨김(정답 표시 유지). */
   readOnly?: boolean;
 }
 
-/**
- * 스테이징 객관식 폼 (DS-02 §16-4-2, 03 §8-4/§8-5, 04 §10-2-5).
- * 지시문/본문 + 보기 4 고정(radio 정답 단일 + content/해설). [저장] 변경 없을 때 비활성.
- * 저장 = 변경 필드만 다중 PATCH(Promise.allSettled): 문제(§8-4) + 변경 옵션(§8-5) + 정답 변경 시 이전·새 옵션 isAnswer.
- * 부분실패 세분 baseline·spinner·입력 비활성 정교화는 6-6, 변경 표시(●/4px)는 6-5.
- */
 export function StagingObjectiveForm({
   problem,
   problemNumber,
@@ -80,15 +71,12 @@ export function StagingObjectiveForm({
     onDirtyChange?.(isDirty);
   }, [isDirty, onDirtyChange]);
 
-  // 변경된 input 좌측 4px Primary 보더 (DS-02 §16-5, 04 §10-2-4).
   const dirtyBorder = (dirty: boolean | undefined) =>
     dirty ? 'border-l-4 border-l-primary' : undefined;
-  // COMPLETED read-only 입력 스타일 (DS-02 §16-6: bg-hover + text-secondary).
   const roClass = readOnly ? 'bg-hover text-fg-secondary' : undefined;
 
   const onSubmit = form.handleSubmit(
     async (values) => {
-      // 변경된 필드만 PATCH. 각 작업은 성공 시 baseline 갱신(commit)을 함께 보유(부분실패 시 성공 필드만 반영, 04 §10-2-5).
       const tasks: Array<{ run: () => Promise<unknown>; commit: () => void }> = [];
 
       const problemBody: { instruction?: string; content?: string } = {};
@@ -121,7 +109,6 @@ export function StagingObjectiveForm({
           });
         }
       });
-      // 정답 변경 시 이전 정답 옵션 + 새 정답 옵션 모두 PATCH (D4, 03 §8-5). 둘 다 성공해야 commit.
       if (dirtyFields.answerOptionId && values.answerOptionId !== originalAnswerOptionId) {
         const newAnswerOptionId = values.answerOptionId;
         tasks.push({
@@ -139,7 +126,6 @@ export function StagingObjectiveForm({
       const results = await Promise.allSettled(tasks.map((task) => task.run()));
       setIsSaving(false);
 
-      // 성공한 작업만 baseline 갱신(실패 필드는 입력값 dirty 유지). good-patterns.
       results.forEach((result, index) => {
         if (result.status === 'fulfilled') tasks[index]?.commit();
       });
@@ -197,13 +183,11 @@ export function StagingObjectiveForm({
         >
           {fields.map((field, index) => (
             <div key={field.id} className="flex items-start gap-3 rounded-md border border-border p-4">
-              {/* 좌측 고정: 마커 + 정답 radio (입력칸 상단에 맞춰 정렬) */}
               <span className="w-5 shrink-0 pt-2 text-body text-foreground">{OPTION_MARKERS[index]}</span>
               <label className="flex shrink-0 items-center gap-2 pt-2 text-caption text-fg-secondary">
                 <RadioGroupItem value={String(field.optionId)} />
                 정답
               </label>
-              {/* 우측 공유 컬럼: content·해설 동일 x좌표·너비 */}
               <div className="flex flex-1 flex-col gap-2">
                 <div className="flex flex-col gap-1">
                   <Input

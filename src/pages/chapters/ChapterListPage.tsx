@@ -6,10 +6,6 @@ import { PaginationControl } from '@/shared/components/data-table/PaginationCont
 import { useChapters } from '@/features/chapters/queries';
 import type { ChapterListItem } from '@/features/chapters/schemas';
 
-/**
- * CHAPTER_LIST (DS-02 §10, 03 §7-1). List Page: Page Header + DataTable(제목/설명) + Pagination.
- * 검색·필터·생성 버튼 없음(DS-02 §10). 행 클릭 → 챕터 상세.
- */
 export function ChapterListPage() {
   const navigate = useNavigate();
   const [page, setPage] = useState(1);

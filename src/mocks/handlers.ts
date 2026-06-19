@@ -1,12 +1,6 @@
 import { http, HttpResponse } from 'msw';
 
-/**
- * MSW 목 핸들러 (dev 전용 — 백엔드/OAuth 없이 로컬 동작).
- * 경로는 호스트 무관 와일드카드(`*​/api/v1/admin/...`)로 매칭. 화면 추가 시 핸들러도 추가.
- */
 export const handlers = [
-  // 인증 (기존 OAuth auth-code 재사용 — BACKEND_ADMIN_API_SPEC §8).
-  // dev: provider 라운드트립을 자체 콜백으로 시뮬레이션(code 동봉), 콜백 POST 는 ADMIN 토큰 반환.
   http.get('*/api/v1/oauth/login-url/:provider', ({ params }) =>
     HttpResponse.json({
       loginUrl: `${window.location.origin}/login/oauth2/code/${params.provider}?code=mock-code`,
@@ -22,7 +16,6 @@ export const handlers = [
   ),
   http.post('*/api/v1/auth/reissue', () => HttpResponse.json({ accessToken: 'mock-access-token' })),
 
-  // 현재 운영자 (BACKEND_ADMIN_API_SPEC §4-0). 목 admin 유저와 일치.
   http.get('*/api/v1/admin/me', () =>
     HttpResponse.json({
       adminId: 1002,
@@ -32,7 +25,6 @@ export const handlers = [
     }),
   ),
 
-  // 대시보드 (03 §4-1)
   http.get('*/api/v1/admin/dashboard/summary', () =>
     HttpResponse.json({
       totalUsers: 12345,
@@ -41,7 +33,6 @@ export const handlers = [
     }),
   ),
 
-  // 공지 목록 (03 §9-1)
   http.get('*/api/v1/admin/notices', () =>
     HttpResponse.json({
       page: 1,
@@ -76,7 +67,6 @@ export const handlers = [
     }),
   ),
 
-  // 공지 작성 (03 §9-3, 201)
   http.post('*/api/v1/admin/notices', () =>
     HttpResponse.json(
       {
@@ -93,7 +83,6 @@ export const handlers = [
     ),
   ),
 
-  // 공지 상세 (03 §9-2)
   http.get('*/api/v1/admin/notices/:noticeId', ({ params }) =>
     HttpResponse.json({
       noticeId: Number(params.noticeId),
@@ -108,13 +97,10 @@ export const handlers = [
     }),
   ),
 
-  // 공지 수정 (03 §9-4, 200)
   http.patch('*/api/v1/admin/notices/:noticeId', () => new HttpResponse(null, { status: 200 })),
 
-  // 공지 삭제 (03 §9-5, 204 soft delete)
   http.delete('*/api/v1/admin/notices/:noticeId', () => new HttpResponse(null, { status: 204 })),
 
-  // 챕터 목록 (03 §7-1)
   http.get('*/api/v1/admin/chapters', () =>
     HttpResponse.json({
       page: 1,
@@ -140,7 +126,6 @@ export const handlers = [
     }),
   ),
 
-  // 챕터 풀이 현황 (03 §7-3) — :chapterId 보다 먼저(더 구체적 경로)
   http.get('*/api/v1/admin/chapters/:chapterId/stats', () =>
     HttpResponse.json({
       units: [
@@ -151,7 +136,6 @@ export const handlers = [
     }),
   ),
 
-  // 챕터의 유닛 목록 (03 §7-5) — :chapterId 보다 먼저
   http.get('*/api/v1/admin/chapters/:chapterId/units', () =>
     HttpResponse.json({
       page: 1,
@@ -166,7 +150,6 @@ export const handlers = [
     }),
   ),
 
-  // 챕터 상세 (03 §7-2)
   http.get('*/api/v1/admin/chapters/:chapterId', ({ params }) =>
     HttpResponse.json({
       chapterId: Number(params.chapterId),
@@ -176,10 +159,8 @@ export const handlers = [
     }),
   ),
 
-  // 챕터 수정 (03 §7-4, 200)
   http.patch('*/api/v1/admin/chapters/:chapterId', () => new HttpResponse(null, { status: 200 })),
 
-  // 유닛의 레슨 목록 (03 §7-8) — :unitId 보다 먼저(더 구체적 경로)
   http.get('*/api/v1/admin/units/:unitId/lessons', () =>
     HttpResponse.json({
       page: 1,
@@ -192,7 +173,6 @@ export const handlers = [
     }),
   ),
 
-  // 유닛 상세 (03 §7-6)
   http.get('*/api/v1/admin/units/:unitId', ({ params }) =>
     HttpResponse.json({
       unitId: Number(params.unitId),
@@ -203,10 +183,8 @@ export const handlers = [
     }),
   ),
 
-  // 유닛 수정 (03 §7-7, 200)
   http.patch('*/api/v1/admin/units/:unitId', () => new HttpResponse(null, { status: 200 })),
 
-  // 레슨의 문제 목록 (03 §7-11) — :lessonId 보다 먼저(더 구체적 경로)
   http.get('*/api/v1/admin/lessons/:lessonId/problems', () =>
     HttpResponse.json({
       page: 1,
@@ -232,7 +210,6 @@ export const handlers = [
     }),
   ),
 
-  // 레슨 상세 (03 §7-9)
   http.get('*/api/v1/admin/lessons/:lessonId', ({ params }) =>
     HttpResponse.json({
       lessonId: Number(params.lessonId),
@@ -242,10 +219,8 @@ export const handlers = [
     }),
   ),
 
-  // 레슨 수정 (03 §7-10, 200)
   http.patch('*/api/v1/admin/lessons/:lessonId', () => new HttpResponse(null, { status: 200 })),
 
-  // 문제 상세 (03 §7-12, problemType 분기). 1003·513 = 주관식(D1 단일 콤마), 그 외 객관식.
   http.get('*/api/v1/admin/problems/:problemId', ({ params }) => {
     const problemId = Number(params.problemId);
     if (problemId === 1003 || problemId === 513) {
@@ -273,11 +248,9 @@ export const handlers = [
     });
   }),
 
-  // 객관식/주관식 문제 수정 (03 §7-13/§7-14, 200)
   http.patch('*/api/v1/admin/problems/:problemId/objective', () => new HttpResponse(null, { status: 200 })),
   http.patch('*/api/v1/admin/problems/:problemId/subjective', () => new HttpResponse(null, { status: 200 })),
 
-  // 스테이징 라벨 목록 (03 §8-1, status 필터)
   http.get('*/api/v1/admin/staging/labels', ({ request }) => {
     const status = new URL(request.url).searchParams.get('status');
     const all = [
@@ -307,7 +280,6 @@ export const handlers = [
     return HttpResponse.json({ page: 1, totalPages: 1, hasNext: false, contents: content });
   }),
 
-  // 라벨 상세 그루핑 (03 §8-2): 레슨 1 + 문제 6(객관식 4 + 주관식 2). 주관식=단일 answer 객체(D1 콤마 String).
   http.get('*/api/v1/admin/staging/labels/:label', ({ params }) => {
     const objective = (problemId: number, instruction: string) => ({
       problemId,
@@ -332,7 +304,6 @@ export const handlers = [
         explanation: '배열 인덱스는 0부터 시작합니다.',
       },
     });
-    // read-only 검증용: 2026-04-23-d4e1 라벨은 COMPLETED 반환(나머지는 PENDING).
     const status = String(params.label) === '2026-04-23-d4e1' ? 'COMPLETED' : 'PENDING';
     return HttpResponse.json({
       label: String(params.label),
@@ -352,22 +323,17 @@ export const handlers = [
     });
   }),
 
-  // 스테이징 레슨 수정 (03 §8-3, 200)
   http.patch('*/api/v1/admin/staging/lessons/:lessonId', () => new HttpResponse(null, { status: 200 })),
 
-  // 스테이징 문제 수정 (03 §8-4, 200)
   http.patch('*/api/v1/admin/staging/problems/:problemId', () => new HttpResponse(null, { status: 200 })),
 
-  // 스테이징 객관식 옵션 개별 수정 (03 §8-5, 200)
   http.patch('*/api/v1/admin/staging/options/:optionId', () => new HttpResponse(null, { status: 200 })),
 
-  // 스테이징 주관식 정답 개별 수정 (03 §8-6, 200)
   http.patch('*/api/v1/admin/staging/answers/:answerId', () => new HttpResponse(null, { status: 200 })),
 
   // 스테이징 promote PENDING→COMPLETED (03 §8-7, 200). ⚠️ 실제 prod INSERT는 백엔드/사람 — 여기선 mock.
   http.patch('*/api/v1/admin/staging/labels/:label/status', () => new HttpResponse(null, { status: 200 })),
 
-  // 유저 목록 (03 §5-1, search/status/role 필터)
   http.get('*/api/v1/admin/users', ({ request }) => {
     const url = new URL(request.url);
     const search = url.searchParams.get('search')?.toLowerCase();
@@ -393,7 +359,6 @@ export const handlers = [
     return HttpResponse.json({ page: 1, totalPages: 1, hasNext: false, contents: content });
   }),
 
-  // 유저 상세 (03 §5-2)
   http.get('*/api/v1/admin/users/:userId', ({ params }) =>
     HttpResponse.json({
       userId: Number(params.userId),
@@ -407,11 +372,9 @@ export const handlers = [
       createdAt: '2026-01-15T03:22:00Z',
     }),
   ),
-  // 유저 상태/역할 변경 (03 §5-3/§5-4, 200)
   http.patch('*/api/v1/admin/users/:userId/status', () => new HttpResponse(null, { status: 200 })),
   http.patch('*/api/v1/admin/users/:userId/role', () => new HttpResponse(null, { status: 200 })),
 
-  // 신고 목록 (03 §6-1, reportType/isResolved 필터)
   http.get('*/api/v1/admin/reports', ({ request }) => {
     const url = new URL(request.url);
     const reportType = url.searchParams.get('reportType');
@@ -428,7 +391,6 @@ export const handlers = [
     return HttpResponse.json({ page: 1, totalPages: 1, hasNext: false, contents: content });
   }),
 
-  // 신고 상세 (03 §6-2)
   http.get('*/api/v1/admin/reports/:reportId', ({ params }) =>
     HttpResponse.json({
       reportId: Number(params.reportId),
@@ -439,7 +401,6 @@ export const handlers = [
       submittedAt: '2026-04-23T14:32:00Z',
     }),
   ),
-  // 신고 처리상태 변경 (03 §6-3, 200)
   http.patch('*/api/v1/admin/reports/:reportId/status', () => new HttpResponse(null, { status: 200 })),
 
   // 문의 목록 (inquiry-handoff A-2-1, status 필터). ⚠️ hasNext/contents/1-base, datetime Z 없음.
@@ -455,7 +416,6 @@ export const handlers = [
     return HttpResponse.json({ page: 1, totalPages: 1, hasNext: false, contents });
   }),
 
-  // 문의 상세 (inquiry-handoff A-2-2). 5002=답변완료(answer 존재), 5003=탈퇴 작성자(null), 그 외=대기.
   http.get('*/api/v1/admin/inquiries/:inquiryId', ({ params }) => {
     const inquiryId = Number(params.inquiryId);
     const resolved = inquiryId === 5002;
@@ -484,7 +444,6 @@ export const handlers = [
     });
   }),
 
-  // 문의 답변 등록 (inquiry-handoff A-2-4, 201 + 상세). status→RESOLVED, body content 반영.
   http.post('*/api/v1/admin/inquiries/:inquiryId/answer', async ({ params, request }) => {
     const inquiryId = Number(params.inquiryId);
     const body = (await request.json()) as { content: string };
@@ -512,7 +471,6 @@ export const handlers = [
     );
   }),
 
-  // 문의 답변 수정 (inquiry-handoff A-2-4, 200 + 상세). status 유지(RESOLVED).
   http.put('*/api/v1/admin/inquiries/:inquiryId/answer', async ({ params, request }) => {
     const inquiryId = Number(params.inquiryId);
     const body = (await request.json()) as { content: string };
@@ -537,6 +495,5 @@ export const handlers = [
     });
   }),
 
-  // 문의 답변 삭제 (inquiry-handoff A-2-4, 204 무본문). status→PENDING 복구.
   http.delete('*/api/v1/admin/inquiries/:inquiryId/answer', () => new HttpResponse(null, { status: 204 })),
 ];

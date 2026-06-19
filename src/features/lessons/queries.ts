@@ -1,7 +1,6 @@
 import { keepPreviousData, useQuery } from '@tanstack/react-query';
 import { getLesson, getLessonProblems } from '@/features/lessons/api';
 
-/** 레슨 queryKey 팩토리 (04 §9-1). 문제 목록은 레슨 상세 하위 키. */
 export const lessonKeys = {
   all: ['lessons'] as const,
   details: () => [...lessonKeys.all, 'detail'] as const,

@@ -15,10 +15,6 @@ import { NoticeStatusBadge } from '@/features/notices/components/NoticeStatusBad
 import { MarkdownViewer } from '@/shared/components/markdown/MarkdownViewer';
 import { NoticeEditForm } from '@/features/notices/components/NoticeEditForm';
 
-/**
- * NOTICE_DETAIL (DS-02 §5, 03 §9-2/§9-4/§9-5). 표시/편집 2모드 + 삭제(soft, confirm destructive).
- * 표시: Pin+상태+제목 / 게시일·작성일 / [편집][삭제] · 요약 · 본문(마크다운).
- */
 export function NoticeDetailPage() {
   const { noticeId } = useParams();
   const id = Number(noticeId);
@@ -28,7 +24,6 @@ export function NoticeDetailPage() {
   const [mode, setMode] = useState<'view' | 'edit'>('view');
   const [confirmDelete, setConfirmDelete] = useState(false);
 
-  // breadcrumb (04 §8-3-1): 공지 관리 > {title}.
   useSetBreadcrumb([
     { label: '공지 관리', href: ROUTES.NOTICES },
     ...(data ? [{ label: data.title }] : []),
@@ -89,7 +84,6 @@ export function NoticeDetailPage() {
           <h3 className="text-h3 text-foreground">요약</h3>
           <p className="text-body text-fg-secondary">{data.summary}</p>
         </section>
-        {/* 본문 라벨 대신 구분선 (DS border 토큰, 미니멀) */}
         <hr className="border-border" />
         <MarkdownViewer content={data.content} />
       </div>

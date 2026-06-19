@@ -1,7 +1,6 @@
 import { keepPreviousData, useQuery } from '@tanstack/react-query';
 import { getUnit, getUnitLessons } from '@/features/units/api';
 
-/** 유닛 queryKey 팩토리 (04 §9-1). 레슨 목록은 유닛 상세 하위 키. */
 export const unitKeys = {
   all: ['units'] as const,
   details: () => [...unitKeys.all, 'detail'] as const,

@@ -17,18 +17,11 @@ import { useUpdateStagingLesson } from '@/features/staging/mutations';
 interface StagingLessonFormProps {
   lesson: StagingLesson;
   label: string;
-  /** 비활성 항목은 unmount 대신 hidden — 미저장 입력 보존(04 §10-2-3). */
   hidden?: boolean;
-  /** dirty 변화를 좌측 리스트(●)로 lift-up (04 §10-2-4). */
   onDirtyChange?: (dirty: boolean) => void;
-  /** COMPLETED read-only(04 §10-2-9): 입력 disabled + 저장 숨김. */
   readOnly?: boolean;
 }
 
-/**
- * 스테이징 레슨 폼 (DS-02 §16-4-1, 03 §8-3). 제목 단일 input + [저장](변경 없을 때 비활성).
- * 저장 = PATCH /staging/lessons/{id} 단일 호출. 변경 표시(●/4px)는 6-5, COMPLETED disable 은 6-8.
- */
 export function StagingLessonForm({
   lesson,
   label,
@@ -57,7 +50,7 @@ export function StagingLessonForm({
       updateLesson.mutate(values, {
         onSuccess: () => {
           toast.success('저장되었습니다.');
-          reset(values); // baseline 갱신 → isDirty 리셋 → [저장] 비활성
+          reset(values);
         },
       });
     },

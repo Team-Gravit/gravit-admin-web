@@ -13,10 +13,6 @@ import { EmptyState } from '@/shared/components/states/EmptyState';
 import { ErrorState } from '@/shared/components/states/ErrorState';
 import { LoadingSkeleton } from '@/shared/components/states/LoadingSkeleton';
 
-/**
- * Data Table (DS-01 §5-3, 04 §10-7). 컬럼 정의 + 4상태(Empty/Loading/Error/Data) 통합.
- * 페이지당 20행은 서버 고정. 행 hover/클릭은 onRowClick 시 cursor-pointer + 이동.
- */
 export interface Column<T> {
   key: string;
   header: ReactNode;

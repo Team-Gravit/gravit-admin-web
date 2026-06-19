@@ -2,7 +2,6 @@ import type { ReactNode } from 'react';
 import { Inbox, type LucideIcon } from 'lucide-react';
 import { cn } from '@/shared/lib/cn';
 
-/** Empty State (04 §9-4): 회색 아이콘 48px + 메시지(16px) + 보조 액션(선택). */
 interface EmptyStateProps {
   message: string;
   icon?: LucideIcon;

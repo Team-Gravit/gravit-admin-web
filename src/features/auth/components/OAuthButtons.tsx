@@ -4,10 +4,6 @@ import googleIcon from '@/features/auth/assets/google.svg';
 import kakaoIcon from '@/features/auth/assets/kakao.svg';
 import naverIcon from '@/features/auth/assets/naver.svg';
 
-/**
- * OAuth 버튼 3종 (Figma node 8788:7503 — LOGIN 전용 브랜드 스타일, decisions D5).
- * 브랜드 색은 brand-* 토큰(globals.css). 클릭 → onLogin(provider) → login-url 리다이렉트(auth-code 흐름).
- */
 interface Provider {
   id: ProviderId;
   label: string;

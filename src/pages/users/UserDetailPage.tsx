@@ -24,12 +24,6 @@ import {
   type UserChange,
 } from '@/features/users/components/UserStatusChangeModal';
 
-/**
- * USER_DETAIL (DS-02 §7, 01 §6-3-2, 03 §5-2~5-4). 프로필 카드 + 권한·상태(역할/상태 Select).
- * 드롭다운 변경 → confirm 모달(미적용) → 확인 PATCH → 토스트·UI 갱신 / 취소 → 원복(controlled value).
- * 자기 자신 변경 허용(D3, 백엔드 차단 없음). 본인 식별 경고는 /admin/me 미구현(D4)으로 이연.
- * profileImgNumber 프리셋 매핑은 사용자앱 위임(§10-5) → 아바타 placeholder.
- */
 export function UserDetailPage() {
   const { userId } = useParams();
   const id = Number(userId);
@@ -38,7 +32,6 @@ export function UserDetailPage() {
   const updateRole = useUpdateUserRole(id);
   const [pending, setPending] = useState<UserChange | null>(null);
 
-  // breadcrumb (04 §8-3-1): 유저 관리 > {nickname}.
   useSetBreadcrumb([
     { label: '유저 관리', href: ROUTES.USERS },
     ...(data ? [{ label: data.nickname }] : []),

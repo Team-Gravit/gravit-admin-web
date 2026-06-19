@@ -24,10 +24,6 @@ interface ObjectiveProblemEditFormProps {
   onSaved: () => void;
 }
 
-/**
- * 객관식 편집 모드 (01 §6-5-5, DS-02 §14-2, 03 §7-13).
- * 지시문/본문 + 보기 4개 고정(radio 정답 단일 선택 + content/해설). 제출 시 options 전체 교체(isAnswer 1개). 이탈 보호.
- */
 export function ObjectiveProblemEditForm({
   problem,
   onCancel,
@@ -64,7 +60,6 @@ export function ObjectiveProblemEditForm({
 
   const onSubmit = form.handleSubmit(
     (values) => {
-      // 정답 변경 시 이전+새 정답 옵션 모두 반영 — options 전체 교체로 자연 처리(03 §7-13).
       const options = values.options.map((option) => ({
         ...option,
         isAnswer: option.optionId === values.answerOptionId,

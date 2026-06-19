@@ -7,14 +7,9 @@ import { authApi } from '@/features/auth/api';
 import { useAuthStore } from '@/features/auth/store';
 import type { ProviderId } from '@/features/auth/types';
 
-/**
- * OAuth 시작 (BACKEND_ADMIN_API_SPEC §8, 라이브 web 미러).
- * 버튼 클릭 → login-url 획득 → provider 로그인 페이지로 리다이렉트.
- */
 export function useStartOAuth() {
   return useMutation({
     mutationFn: (provider: ProviderId) => authApi.getLoginUrl(provider),
-    // 실패는 우상단 토스트 대신 로그인 카드 하단 인라인 메시지로 표시(LoginPage).
     meta: { skipGlobalErrorToast: true },
     onSuccess: (loginUrl) => {
       window.location.href = loginUrl;
@@ -47,9 +42,6 @@ export function useOAuthCallback() {
   });
 }
 
-/**
- * 로그아웃 (BACKEND_ADMIN_API_SPEC §8). 서버 엔드포인트 없음 → 로컬 정리 → 캐시 비움 → /login.
- */
 export function useLogout() {
   const navigate = useNavigate();
   const queryClient = useQueryClient();
@@ -63,9 +55,6 @@ export function useLogout() {
   }, [navigate, queryClient, reset]);
 }
 
-/**
- * 현재 운영자 (04 §7-2). store 의 admin 반환(부트스트랩에서 GET /admin/me 로 채움, BACKEND_ADMIN_API_SPEC §4-0).
- */
 export function useCurrentAdmin() {
   return useAuthStore((s) => s.admin);
 }

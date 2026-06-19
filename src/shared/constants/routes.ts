@@ -4,7 +4,6 @@
  */
 export const ROUTES = {
   LOGIN: '/login',
-  /** OAuth 콜백 (provider 가 ?code= 로 복귀). 라이브 web 미러 — BACKEND_ADMIN_API_SPEC §8. */
   OAUTH_CALLBACK_PATTERN: '/login/oauth2/code/:provider',
   OAUTH_CALLBACK: (provider: string) => `/login/oauth2/code/${provider}`,
   DASHBOARD: '/',

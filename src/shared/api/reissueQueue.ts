@@ -19,13 +19,11 @@ export const reissueQueue = {
   end(): void {
     isReissuing = false;
   },
-  /** 재발급 완료까지 대기. 성공 시 새 accessToken, 실패 시 null 수신. */
   subscribe(): Promise<string | null> {
     return new Promise<string | null>((resolve) => {
       waiters.push(resolve);
     });
   },
-  /** 대기 중인 요청들에 결과를 일괄 전달. */
   publish(token: string | null): void {
     const current = waiters;
     waiters = [];

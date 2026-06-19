@@ -13,11 +13,6 @@ import { useUnit, useUnitLessons } from '@/features/units/queries';
 import { UnitEditForm } from '@/features/units/components/UnitEditForm';
 import type { UnitLessonItem } from '@/features/units/schemas';
 
-/**
- * UNIT_DETAIL (DS-02 §12, 01 §6-5-3, 03 §7-6/§7-8). 정보(제목·설명) + 레슨 목록.
- * B 패턴 편집: [편집] → 정보 카드만 편집 폼으로 전환(레슨 목록은 유지) → 저장/취소.
- * Breadcrumb(컨텐츠 관리 > {chapter} > {unit}): chapter 는 추가 GET(04 §8-3-3) — 전역 Header 발행.
- */
 export function UnitDetailPage() {
   const { unitId } = useParams();
   const id = Number(unitId);
@@ -27,7 +22,6 @@ export function UnitDetailPage() {
   const lessons = useUnitLessons(id, page);
   const [mode, setMode] = useState<'view' | 'edit'>('view');
 
-  // breadcrumb (04 §8-3): 컨텐츠 관리 > {chapterTitle} > {unitTitle}. 부모 챕터는 추가 GET(§8-3-3).
   const chapter = useChapter(unit?.chapterId ?? NaN).data;
   useSetBreadcrumb([
     { label: '컨텐츠 관리', href: ROUTES.CHAPTERS },

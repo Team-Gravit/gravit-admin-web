@@ -1,10 +1,8 @@
 import { z } from 'zod';
 
-/** 유저 enum (03 §5). */
 export const userStatusSchema = z.enum(['ACTIVE', 'SUSPENDED', 'DELETED']);
 export const userRoleSchema = z.enum(['ADMIN', 'USER']);
 
-/** 유저 목록 아이템 (03 §5-1). handle 은 @ prefix 없는 순수 값. */
 export const userListItemSchema = z.object({
   userId: z.number(),
   email: z.string(),
@@ -25,7 +23,6 @@ export const userListResponseSchema = z.object({
 export type UserListItem = z.infer<typeof userListItemSchema>;
 export type UserListResponse = z.infer<typeof userListResponseSchema>;
 
-/** 유저 상세 (03 §5-2). profileImgNumber(1~19, 사용자앱 매핑) + level 추가. */
 export const userDetailSchema = z.object({
   userId: z.number(),
   email: z.string(),

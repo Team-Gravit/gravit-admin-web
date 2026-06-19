@@ -1,13 +1,8 @@
 import { ConfirmModal } from '@/shared/components/modals/ConfirmModal';
 import type { UserRole, UserStatus } from '@/shared/constants/enums';
 
-/** 변경 의도 (status 또는 role). */
 export type UserChange = { kind: 'status'; value: UserStatus } | { kind: 'role'; value: UserRole };
 
-/**
- * 유저 status/role 변경 Confirm 모달 (04 §10-3, 01 §6-3-2). 5케이스 → variant/문구 매핑.
- * DELETED·ADMIN = destructive. 취소 시 onCancel(드롭다운 원복은 호출부 controlled value 가 처리).
- */
 interface UserStatusChangeModalProps {
   open: boolean;
   change: UserChange | null;

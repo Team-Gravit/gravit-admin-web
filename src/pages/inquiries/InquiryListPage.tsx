@@ -19,10 +19,6 @@ import type { InquiryListItem } from '@/features/inquiries/schemas';
 
 type StatusFilter = InquiryStatus | 'ALL';
 
-/**
- * INQUIRY_LIST (inquiry-handoff A-2-1, B). status 필터만(키워드 검색 없음), 진입 기본 = PENDING(대기).
- * 컬럼: ID / 유형(badge) / 제목 / 작성자(닉네임, 탈퇴=null) / 상태(badge) / 작성일. 행클릭→상세.
- */
 export function InquiryListPage() {
   const navigate = useNavigate();
   const [page, setPage] = useState(1); // ⚠️ 1-base (백오피스 공통)

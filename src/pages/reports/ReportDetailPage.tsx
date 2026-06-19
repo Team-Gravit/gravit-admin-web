@@ -20,12 +20,6 @@ import { useReport } from '@/features/reports/queries';
 import { useUpdateReportStatus } from '@/features/reports/mutations';
 import { ReportStatusBadge } from '@/features/reports/components/ReportStatusBadge';
 
-/**
- * REPORT_DETAIL (DS-02 §9, 03 §6-2/§6-3, 01 §6-4-2, DS-03 §5-9). 신고정보 + 내용 + 처리상태.
- * 처리상태 드롭다운 변경 → Confirm Modal "처리하시겠습니까?"(default) → 확인 시 PATCH.
- * 처리 후 분기(04 §10-4): 미해결→해결됨 = 목록 이동(미해결 default·1p), 해결됨→미해결 = 머무름.
- * (필터 유지: REPORT_LIST 가 기본 미해결이라 복귀 시 미해결 default 로 복원 — 주 사례 충족.)
- */
 export function ReportDetailPage() {
   const { reportId } = useParams();
   const id = Number(reportId);
@@ -34,7 +28,6 @@ export function ReportDetailPage() {
   const updateStatus = useUpdateReportStatus(id);
   const [pending, setPending] = useState<boolean | null>(null);
 
-  // breadcrumb (04 §8-3-1): 신고 관리 > #{reportId}.
   useSetBreadcrumb([{ label: '신고 관리', href: ROUTES.REPORTS }, { label: `#${id}` }]);
 
   if (isLoading) return <LoadingSkeleton />;
@@ -52,7 +45,6 @@ export function ReportDetailPage() {
       onSuccess: () => {
         toast.success('신고가 처리되었습니다.');
         setPending(null);
-        // 미해결→해결됨: 목록 이동(미해결 default + 1페이지). 해결됨→미해결: 머무름(invalidate 갱신).
         if (!data.isResolved && next) navigate(ROUTES.REPORTS);
       },
     });

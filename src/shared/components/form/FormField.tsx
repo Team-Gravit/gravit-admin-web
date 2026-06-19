@@ -2,7 +2,6 @@ import type { ReactNode } from 'react';
 import { cn } from '@/shared/lib/cn';
 import { FieldError } from '@/shared/components/form/FieldError';
 
-/** 폼 필드 래퍼 (04 §4-1): 라벨 + 입력 + 에러. */
 interface FormFieldProps {
   label?: string;
   htmlFor?: string;

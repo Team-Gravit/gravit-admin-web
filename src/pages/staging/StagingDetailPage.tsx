@@ -22,15 +22,12 @@ import { StagingSubjectiveForm } from '@/features/staging/components/StagingSubj
 import { useStagingLabel } from '@/features/staging/queries';
 import { usePromoteStagingLabel } from '@/features/staging/mutations';
 
-/** 활성 항목: 레슨 1 또는 문제(problems 배열 index). */
 type ActiveItem = { type: 'lesson' } | { type: 'problem'; index: number };
 
-/** 미저장 변경 표시 점 (DS-02 §16-3, Primary). */
 function DirtyDot() {
   return <span className="size-2 shrink-0 rounded-full bg-primary" aria-label="미저장 변경" />;
 }
 
-/** COMPLETED 안내 배너 (DS-02 §16-2, Banner Success). */
 function CompletedBanner() {
   return (
     <div className="flex items-center gap-2 rounded-lg bg-success-bg px-4 py-3 text-success-text">
@@ -54,7 +51,6 @@ export function StagingDetailPage() {
   const queryClient = useQueryClient();
   const { data, isLoading, isError, refetch } = useStagingLabel(label);
   const [active, setActive] = useState<ActiveItem>({ type: 'lesson' });
-  // 항목별 dirty 상태 lift-up — 좌측 리스트 ● 표시(04 §10-2-4).
   const [dirtyMap, setDirtyMap] = useState<Record<string, boolean>>({});
   const setItemDirty = useCallback((key: string, dirty: boolean) => {
     setDirtyMap((prev) => (prev[key] === dirty ? prev : { ...prev, [key]: dirty }));
@@ -62,13 +58,11 @@ export function StagingDetailPage() {
   const [promoteOpen, setPromoteOpen] = useState(false);
   const promote = usePromoteStagingLabel(label);
 
-  // breadcrumb (04 §8-3-1): 스테이징 > {label}.
   useSetBreadcrumb([{ label: '스테이징', href: ROUTES.STAGING_LABELS }, { label }]);
 
-  const readOnly = data?.status === 'COMPLETED'; // 04 §10-2-9
+  const readOnly = data?.status === 'COMPLETED';
   const unsavedCount = Object.values(dirtyMap).filter(Boolean).length;
   const hasUnsaved = unsavedCount > 0;
-  // 미저장 항목 1개 이상 시 이탈 보호(04 §11-7 6-9). COMPLETED 는 변경 불가라 미작동.
   const blocker = useUnsavedChangesGuard(hasUnsaved && !readOnly);
 
   if (isLoading) return <LoadingSkeleton />;
@@ -99,7 +93,6 @@ export function StagingDetailPage() {
 
   return (
     <div className="flex flex-col gap-6">
-      {/* 헤더 (DS-02 §16-1). [반영 완료 처리]: PENDING 한정, 미저장 ● 있으면 비활성+툴팁(04 §10-2-6). COMPLETED 숨김은 6-8. */}
       <div className="flex flex-col gap-2">
         <div className="flex items-start justify-between gap-3">
           <div className="flex items-center gap-3">
@@ -123,10 +116,8 @@ export function StagingDetailPage() {
         </p>
       </div>
 
-      {/* COMPLETED 안내 배너 (DS-02 §16-2, 04 §10-2-9). */}
       {readOnly && <CompletedBanner />}
 
-      {/* 좌측 리스트 + 우측 편집 영역 (DS-02 §16-3/§16-4) */}
       <div className="flex overflow-hidden rounded-lg border border-border bg-surface">
         <nav className="w-72 shrink-0 border-r border-border" aria-label="스테이징 항목">
           <button
@@ -154,7 +145,6 @@ export function StagingDetailPage() {
         </nav>
 
         <div className="flex-1 p-6">
-          {/* 레슨 폼 — 항상 mount, 비활성 시 hidden(미저장 입력 보존, 04 §10-2-3). */}
           <StagingLessonForm
             lesson={data.lesson}
             label={data.label}
@@ -162,7 +152,6 @@ export function StagingDetailPage() {
             onDirtyChange={(dirty) => setItemDirty('lesson', dirty)}
             readOnly={readOnly}
           />
-          {/* 문제 폼: 객관식=StagingObjectiveForm(6-3), 주관식=StagingSubjectiveForm(6-4). 항상 mount+hidden. */}
           {data.problems.map((problem, index) => {
             const isActiveItem = active.type === 'problem' && active.index === index;
             const onDirtyChange = (dirty: boolean) =>
@@ -202,7 +191,6 @@ export function StagingDetailPage() {
         onConfirm={handlePromote}
       />
 
-      {/* 미저장 항목 이탈 보호 (04 §11-7 6-9): beforeunload + useBlocker. */}
       {blocker.state === 'blocked' && (
         <UnsavedChangesModal
           open

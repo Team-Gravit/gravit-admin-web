@@ -21,7 +21,6 @@ export const tokenManager = {
     localStorage.setItem(REFRESH_TOKEN_KEY, token);
   },
 
-  /** 로그인/재발급(Rotation) 시 access+refresh 동시 저장. */
   setTokens: (access: string, refresh: string): void => {
     accessTokenInMemory = access;
     localStorage.setItem(REFRESH_TOKEN_KEY, refresh);

@@ -1,7 +1,6 @@
 import { keepPreviousData, useQuery } from '@tanstack/react-query';
 import { getReport, getReports, type ReportListFilters } from '@/features/reports/api';
 
-/** 신고 queryKey 팩토리 (04 §9-1). isResolved 변경 시 detail+lists invalidate. */
 export const reportKeys = {
   all: ['reports'] as const,
   lists: () => [...reportKeys.all, 'list'] as const,

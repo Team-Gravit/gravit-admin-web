@@ -12,7 +12,6 @@ import { LoadingSkeleton } from '@/shared/components/states/LoadingSkeleton';
 import { formatNumber } from '@/shared/lib/formatNumber';
 import type { ChapterStats } from '@/features/chapters/schemas';
 
-/** 진행률 바 (DS-02 §11): Primary 컬러, 0~100% 비례. 동적 폭은 inline style(토큰화 불가). */
 function ProgressBar({ value }: { value: number }) {
   const pct = Math.max(0, Math.min(100, value));
   return (
@@ -32,10 +31,6 @@ interface ChapterStatsWidgetProps {
   onRetry: () => void;
 }
 
-/**
- * 풀이 현황 위젯 (DS-02 §11, 01 §6-5-2, 03 §7-3). 유닛별 참여인원 + 진행률 바.
- * 4상태(Empty/Loading/Error/Data). 정렬은 응답 배열 순서 그대로.
- */
 export function ChapterStatsWidget({ stats, isLoading, isError, onRetry }: ChapterStatsWidgetProps) {
   const body = () => {
     if (isLoading) return <LoadingSkeleton />;
@@ -54,7 +49,6 @@ export function ChapterStatsWidget({ stats, isLoading, isError, onRetry }: Chapt
         </TableHeader>
         <TableBody>
           {stats.units.map((unit) => (
-            // 풀이 현황 행은 클릭 대상이 아님 → hover 강조 비활성(버튼처럼 보이는 오해 방지).
             <TableRow key={unit.unitId} className="hover:bg-transparent">
               <TableCell>
                 <span className="line-clamp-1 text-foreground">{unit.unitTitle}</span>

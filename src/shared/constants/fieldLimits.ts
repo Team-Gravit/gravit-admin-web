@@ -27,7 +27,7 @@ export const FIELD_LIMITS = {
     explanation: 1000,
   },
   answer: {
-    content: 500, // 콤마 구분 다중 정답 표현 고려 (D1)
+    content: 500,
     explanation: 1000,
   },
 } as const;

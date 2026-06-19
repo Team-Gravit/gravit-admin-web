@@ -9,16 +9,11 @@ import { InquiryStatusBadge } from '@/features/inquiries/components/InquiryStatu
 import { InquiryTypeBadge } from '@/features/inquiries/components/InquiryTypeBadge';
 import { InquiryAnswerSection } from '@/features/inquiries/components/InquiryAnswerSection';
 
-/**
- * INQUIRY_DETAIL (inquiry-handoff A-2-2, B). 헤더(유형 배지 + 제목 + 상태 배지) + 문의 정보(작성자/이메일/작성일)
- * + 문의 내용 + 답변 영역(등록/수정/삭제). 작성자 닉네임/이메일은 탈퇴 시 null → 폴백 표시.
- */
 export function InquiryDetailPage() {
   const { inquiryId } = useParams();
   const id = Number(inquiryId);
   const { data, isLoading, isError, refetch } = useInquiry(id);
 
-  // breadcrumb: 문의 관리 > #{id}.
   useSetBreadcrumb([{ label: '문의 관리', href: ROUTES.INQUIRIES }, { label: `#${id}` }]);
 
   if (isLoading) return <LoadingSkeleton />;

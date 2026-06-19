@@ -6,7 +6,6 @@ import {
   getChapterUnits,
 } from '@/features/chapters/api';
 
-/** 챕터 queryKey 팩토리 (04 §9-1). 풀이현황·유닛 목록은 챕터 상세 하위 키. */
 export const chapterKeys = {
   all: ['chapters'] as const,
   lists: () => [...chapterKeys.all, 'list'] as const,

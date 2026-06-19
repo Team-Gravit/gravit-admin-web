@@ -1,10 +1,8 @@
 import { z } from 'zod';
 import { FIELD_LIMITS } from '@/shared/constants/fieldLimits';
 
-/** 공지 상태 (03 §5, enums NoticeStatus 와 동일 값). */
 export const noticeStatusSchema = z.enum(['DRAFT', 'PUBLISHED', 'ARCHIVED']);
 
-/** 공지 목록 아이템 (03 §9-1). publishedAt 은 DRAFT 시 null. */
 export const noticeListItemSchema = z.object({
   noticeId: z.number(),
   title: z.string(),
@@ -24,7 +22,6 @@ export const noticeListResponseSchema = z.object({
 export type NoticeListItem = z.infer<typeof noticeListItemSchema>;
 export type NoticeListResponse = z.infer<typeof noticeListResponseSchema>;
 
-/** 공지 작성/수정 폼 (04 §9-2, §9-5 FIELD_LIMITS). title/summary/content 필수. */
 export const noticeFormSchema = z.object({
   title: z
     .string()
@@ -43,7 +40,6 @@ export const noticeFormSchema = z.object({
 
 export type NoticeFormValues = z.infer<typeof noticeFormSchema>;
 
-/** 공지 상세 (03 §9-2). */
 export const noticeDetailSchema = z.object({
   noticeId: z.number(),
   title: z.string(),
@@ -57,6 +53,5 @@ export const noticeDetailSchema = z.object({
 
 export type NoticeDetail = z.infer<typeof noticeDetailSchema>;
 
-/** 공지 편집 폼 = 작성 폼 + 상태(전이 제약은 UI 옵션 제한 + 백엔드 409, 03 §9-4). */
 export const noticeEditFormSchema = noticeFormSchema.extend({ status: noticeStatusSchema });
 export type NoticeEditFormValues = z.infer<typeof noticeEditFormSchema>;

@@ -1,7 +1,6 @@
 import { keepPreviousData, useQuery } from '@tanstack/react-query';
 import { getUser, getUsers, type UserListFilters } from '@/features/users/api';
 
-/** 유저 queryKey 팩토리 (04 §9-1). status/role 변경 시 detail+lists invalidate. */
 export const userKeys = {
   all: ['users'] as const,
   lists: () => [...userKeys.all, 'list'] as const,

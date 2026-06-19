@@ -14,7 +14,6 @@ const TableHeader = React.forwardRef<
   HTMLTableSectionElement,
   React.HTMLAttributes<HTMLTableSectionElement>
 >(({ className, ...props }, ref) => (
-  // 헤더 row 는 hover 비활성(컬럼명 행은 인터랙션 대상 아님). 본문 row 의 hover:bg-hover 를 thead 한정 무력화.
   <thead ref={ref} className={cn('[&_tr]:border-b [&_tr]:hover:bg-transparent', className)} {...props} />
 ));
 TableHeader.displayName = 'TableHeader';

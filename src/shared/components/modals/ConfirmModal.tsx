@@ -1,4 +1,4 @@
-import type { ReactNode } from 'react';
+import { Button } from '@/shared/components/ui/button';
 import {
   Dialog,
   DialogContent,
@@ -7,12 +7,8 @@ import {
   DialogHeader,
   DialogTitle,
 } from '@/shared/components/ui/dialog';
-import { Button } from '@/shared/components/ui/button';
+import type { ReactNode } from 'react';
 
-/**
- * Confirm Modal (DS-01 §5-6, 폭 400px). 위험 액션은 destructive variant (04 §10-3).
- * DialogContent 기본 폭이 max-w-modal(400px)이라 별도 폭 지정 불필요.
- */
 interface ConfirmModalProps {
   open: boolean;
   onOpenChange: (open: boolean) => void;

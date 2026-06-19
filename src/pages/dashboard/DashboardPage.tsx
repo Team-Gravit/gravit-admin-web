@@ -5,11 +5,6 @@ import { StatCard } from '@/features/dashboard/components/StatCard';
 import { ErrorState } from '@/shared/components/states/ErrorState';
 import { Skeleton } from '@/shared/components/ui/skeleton';
 
-/**
- * DASHBOARD (DS-02 §2, 01 §6-1). Page Header + Stat Card × 3 (가로 3등분, 16px gap).
- * summary 는 counts 라 Empty 상태 없음 — Loading/Error/Data 처리.
- * (Figma node 8720:4002 의 챕터 테이블은 명세에 없어 미구현 — D5 동작/데이터=명세 권위.)
- */
 export function DashboardPage() {
   const { data, isLoading, isError, refetch } = useDashboardSummary();
 

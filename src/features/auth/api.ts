@@ -9,15 +9,9 @@ import {
 } from '@/features/auth/schemas';
 import type { AdminProfile, ProviderId } from '@/features/auth/types';
 
-/**
- * 인증 API (BACKEND_ADMIN_API_SPEC §8 — 기존 OAuth auth-code 흐름 재사용).
- * authApiClient(base `/api/v1`, 인터셉터 없음)로 호출. login/logout 전용 admin 엔드포인트 없음.
- * - provider 경로는 소문자(백엔드 case-insensitive, 라이브 web 관례).
- */
 const providerPath = (provider: ProviderId): string => provider.toLowerCase();
 
 export const authApi = {
-  /** GET /oauth/login-url/{provider} — provider 인가 URL 획득(이후 리다이렉트). */
   getLoginUrl: async (provider: ProviderId): Promise<string> => {
     const { data } = await authApiClient.get(`/oauth/login-url/${providerPath(provider)}`, {
       params: { dest: env.VITE_OAUTH_DEST },
@@ -25,7 +19,6 @@ export const authApi = {
     return loginUrlResponseSchema.parse(data).loginUrl;
   },
 
-  /** POST /oauth/{provider} — authCode → 토큰 + role. */
   oauthLogin: async (provider: string, code: string): Promise<OAuthLoginResponse> => {
     const { data } = await authApiClient.post(
       `/oauth/${provider}`,
@@ -35,20 +28,11 @@ export const authApi = {
     return oauthLoginResponseSchema.parse(data);
   },
 
-  /**
-   * POST /auth/reissue — refresh 로 access 재발급(로테이션 없음).
-   * 새로고침 시 access(메모리)가 휘발되므로 부트스트랩(protectedLoader)에서 1회 호출해 access 를 복구한다.
-   * authApiClient(인터셉터 없음) 사용 — 401 reissue 사이클 회피.
-   */
   reissue: async (refreshToken: string): Promise<string> => {
     const { data } = await authApiClient.post('/auth/reissue', { refreshToken });
     return reissueResponseSchema.parse(data).accessToken;
   },
 
-  /**
-   * GET /admin/me — 현재 운영자 프로필(사이드바 표시용, BACKEND_ADMIN_API_SPEC §4-0).
-   * apiClient(admin base + Bearer + 401 reissue) 사용. 실패는 호출측에서 비차단 처리.
-   */
   me: async (): Promise<AdminProfile> => {
     const { data } = await apiClient.get('/me');
     return adminMeResponseSchema.parse(data);

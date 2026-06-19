@@ -2,7 +2,6 @@ import { AlertTriangle } from 'lucide-react';
 import { cn } from '@/shared/lib/cn';
 import { Button } from '@/shared/components/ui/button';
 
-/** Error State (04 §9-4): 회색 경고 아이콘 48px + 메시지 + [다시 시도] Outline. */
 interface ErrorStateProps {
   message?: string;
   onRetry?: () => void;

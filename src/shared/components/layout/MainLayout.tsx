@@ -3,10 +3,6 @@ import { Sidebar } from '@/shared/components/layout/Sidebar';
 import { Header } from '@/shared/components/layout/Header';
 import { BreadcrumbProvider } from '@/shared/hooks/useBreadcrumb';
 
-/**
- * Main Layout (DS-00 §7). Sidebar(240) + Header(56) + Content(max 1200, px 32 / pt 24).
- * presentational — auth 는 prop 으로 주입(wiring 은 pages/AppShell).
- */
 interface OperatorInfo {
   nickname: string;
   email: string;

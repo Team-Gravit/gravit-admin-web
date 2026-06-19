@@ -7,15 +7,7 @@ import { z } from 'zod';
  */
 const envSchema = z.object({
   VITE_API_HOST: z.string().url(),
-  /**
-   * OAuth dest 값(BACKEND_ADMIN_API_SPEC §8). 백엔드가 이 값으로 admin 도메인 redirect_uri 를 매핑.
-   * provider 콘솔의 admin 콜백 등록 + 백엔드 dest 매핑은 인프라 담당.
-   */
   VITE_OAUTH_DEST: z.string().min(1),
-  /**
-   * 목(MSW) 활성 여부. 미설정/'false' → **실서버 연동(기본)**. 'true' → MSW 목 백엔드.
-   * 수동 `npm run dev` 는 기본 실서버. Playwright 스모크만 webServer.env 로 'true' 를 주입해 목 유지.
-   */
   VITE_USE_MOCK: z
     .string()
     .optional()

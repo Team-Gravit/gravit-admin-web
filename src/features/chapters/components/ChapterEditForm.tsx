@@ -20,10 +20,6 @@ interface ChapterEditFormProps {
   onSaved: () => void;
 }
 
-/**
- * CHAPTER_DETAIL 편집 모드 (01 §6-5-2, DS-02 §11, 03 §7-4).
- * B 패턴: 정보 카드만 편집 폼으로 전환(풀이현황·유닛 목록은 유지). 제목 필수·설명 선택 + 이탈 보호.
- */
 export function ChapterEditForm({ chapter, onCancel, onSaved }: ChapterEditFormProps) {
   const updateChapter = useUpdateChapter(chapter.chapterId);
   const form = useForm<ChapterEditFormValues>({

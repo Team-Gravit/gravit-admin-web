@@ -1,11 +1,5 @@
 import { z } from 'zod';
 
-/**
- * 인증 응답 스키마 (백엔드 기존 OAuth 재사용, BACKEND_ADMIN_API_SPEC §8).
- * 응답은 항상 Zod 파싱 후 사용.
- */
-
-/** GET /oauth/login-url/{provider} → provider 인가 URL. */
 export const loginUrlResponseSchema = z.object({
   loginUrl: z.string().min(1),
 });
@@ -22,15 +16,10 @@ export const oauthLoginResponseSchema = z.object({
 });
 export type OAuthLoginResponse = z.infer<typeof oauthLoginResponseSchema>;
 
-/** POST /auth/reissue → access 만(로테이션 없음, 기존 사용자앱과 동일). */
 export const reissueResponseSchema = z.object({
   accessToken: z.string().min(1),
 });
 
-/**
- * GET /admin/me → 현재 운영자 프로필 (BACKEND_ADMIN_API_SPEC §4-0).
- * AdminProfile 와 필드 정확 일치. profileImgNumber 는 수신·저장만(현재 이미지 미렌더).
- */
 export const adminMeResponseSchema = z.object({
   adminId: z.number(),
   nickname: z.string(),

@@ -18,7 +18,6 @@ import { Input } from '@/shared/components/ui/input';
 interface StrictMatchModalProps {
   open: boolean;
   onOpenChange: (open: boolean) => void;
-  /** 정확히 일치해야 하는 라벨명 */
   label: string;
   title?: string;
   description?: ReactNode;
@@ -40,7 +39,6 @@ export function StrictMatchModal({
   const [value, setValue] = useState('');
   const matched = value === label;
 
-  // 모달이 닫힐 때 입력 초기화
   useEffect(() => {
     if (!open) setValue('');
   }, [open]);

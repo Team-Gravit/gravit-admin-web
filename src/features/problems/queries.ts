@@ -1,7 +1,6 @@
 import { useQuery } from '@tanstack/react-query';
 import { getProblem } from '@/features/problems/api';
 
-/** 문제 queryKey 팩토리 (04 §9-1). */
 export const problemKeys = {
   all: ['problems'] as const,
   details: () => [...problemKeys.all, 'detail'] as const,

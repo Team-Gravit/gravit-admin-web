@@ -18,10 +18,6 @@ import type { StagingLabelListItem } from '@/features/staging/schemas';
 
 type StatusFilter = StagingStatus | 'ALL';
 
-/**
- * STAGING_LIST (DS-02, 01 §6-6-1, 03 §8-1). List Page + 상태 필터(기본 PENDING).
- * 필터 변경 → 즉시 refetch(새 queryKey) + 1페이지 리셋. 목록에서 promote 불가(상세만).
- */
 export function StagingListPage() {
   const navigate = useNavigate();
   const [page, setPage] = useState(1);

@@ -3,11 +3,6 @@ import type { LucideIcon } from 'lucide-react';
 import { cn } from '@/shared/lib/cn';
 import { formatNumber } from '@/shared/lib/formatNumber';
 
-/**
- * Stat Card (DS-02 §2, 01 §6-1, DS-01 §5-3). 카드 전체 클릭 → 이동.
- * 라벨 14px/text-secondary · 값 32px display/text-primary(#171717) · 링크 12px Primary.
- * hover: border Primary 50%, cursor pointer.
- */
 interface StatCardProps {
   label: string;
   value: number;

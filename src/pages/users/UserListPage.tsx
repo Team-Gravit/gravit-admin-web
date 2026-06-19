@@ -23,10 +23,6 @@ import type { UserListItem } from '@/features/users/schemas';
 type StatusFilter = UserStatus | 'ALL';
 type RoleFilter = UserRole | 'ALL';
 
-/**
- * USER_LIST (DS-02 §6, 01 §6-3-1, 03 §5-1). List Page + 검색(email/nickname/handle) + 상태·역할 필터.
- * 검색은 [검색] 제출 시 적용(DS-01 §5-4), 필터는 즉시 적용(04 §9-1). 변경 시 1페이지 리셋. 행클릭→상세.
- */
 export function UserListPage() {
   const navigate = useNavigate();
   const [page, setPage] = useState(1);

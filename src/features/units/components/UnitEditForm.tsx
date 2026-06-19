@@ -20,10 +20,6 @@ interface UnitEditFormProps {
   onSaved: () => void;
 }
 
-/**
- * UNIT_DETAIL 편집 모드 (01 §6-5-3, DS-02 §12, 03 §7-7).
- * B 패턴: 정보 카드만 편집 폼으로 전환(레슨 목록은 유지). 제목 필수·설명 선택 + 이탈 보호.
- */
 export function UnitEditForm({ unit, onCancel, onSaved }: UnitEditFormProps) {
   const updateUnit = useUpdateUnit(unit.unitId);
   const form = useForm<UnitEditFormValues>({

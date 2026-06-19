@@ -3,7 +3,6 @@ import type { UserRole, UserStatus } from '@/shared/constants/enums';
 import { updateUserRole, updateUserStatus } from '@/features/users/api';
 import { userKeys } from '@/features/users/queries';
 
-/** 유저 상태 변경 (03 §5-3). 성공 시 detail+lists invalidate (04 §9-1). */
 export function useUpdateUserStatus(userId: number) {
   const queryClient = useQueryClient();
   return useMutation({
@@ -15,7 +14,6 @@ export function useUpdateUserStatus(userId: number) {
   });
 }
 
-/** 유저 역할 변경 (03 §5-4). 성공 시 detail+lists invalidate. */
 export function useUpdateUserRole(userId: number) {
   const queryClient = useQueryClient();
   return useMutation({

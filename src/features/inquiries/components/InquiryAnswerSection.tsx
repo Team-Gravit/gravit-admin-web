@@ -25,12 +25,6 @@ interface InquiryAnswerSectionProps {
   answer: InquiryAnswer | null;
 }
 
-/**
- * 답변 영역 (inquiry-handoff A-2-4, B). 항상 편집 가능한 textarea.
- *  - 답변 없음 → 빈 textarea + [등록](POST). 성공 시 status 자동 RESOLVED.
- *  - 답변 있음 → 기존 내용 채운 textarea + [수정](PUT) + [삭제](DELETE, 확인 모달, status→PENDING).
- * 상태(PENDING/RESOLVED)는 답변 액션의 부수효과로만 전환 — 직접 토글 없음.
- */
 export function InquiryAnswerSection({ inquiryId, answer }: InquiryAnswerSectionProps) {
   const hasAnswer = answer !== null;
   const [deleteOpen, setDeleteOpen] = useState(false);
@@ -52,13 +46,11 @@ export function InquiryAnswerSection({ inquiryId, answer }: InquiryAnswerSection
   const isSaving = createAnswer.isPending || updateAnswer.isPending;
   const isBusy = isSaving || deleteAnswer.isPending;
 
-  // 외부 갱신(답변 삭제 invalidate 등)과 baseline 동기화 — 사용자가 편집 중이 아닐 때만.
   const answerContent = answer?.content ?? '';
   useEffect(() => {
     if (!isDirty) reset({ content: answerContent });
   }, [answerContent, isDirty, reset]);
 
-  // 이탈 보호 (04 §8-4): 답변 textarea 가 dirty 이고 저장/삭제 중이 아닐 때.
   const blocker = useUnsavedChangesGuard(isDirty && !isBusy);
 
   const onSubmit = handleSubmit((values) => {
