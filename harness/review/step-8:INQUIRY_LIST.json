@@ -1,0 +1,1 @@
+{ "id": "step-8:INQUIRY_LIST", "spec": "PASS", "ds": "PASS", "diffs": ["[note] SoT = inquiry-handoff.md(신규 토픽, spec/ 미수록). hasNext/contents/1-base 래퍼·status 필터(기본 PENDING)·키워드검색 미구현(계약에 없음) 확인", "[note] 유형 배지(InquiryTypeBadge) 색 배정은 Figma/DS-02 부재로 ProblemTypeBadge 선례+상태색 비충돌 원칙으로 자체 보완(danger/info/accent/muted)"], "commit": "pending", "ts": "2026-06-19" }

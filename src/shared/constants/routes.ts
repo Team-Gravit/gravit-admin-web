@@ -12,6 +12,8 @@ export const ROUTES = {
   USER_DETAIL: (userId: number | string) => `/users/${userId}`,
   REPORTS: '/reports',
   REPORT_DETAIL: (reportId: number | string) => `/reports/${reportId}`,
+  INQUIRIES: '/inquiries',
+  INQUIRY_DETAIL: (inquiryId: number | string) => `/inquiries/${inquiryId}`,
   CHAPTERS: '/chapters',
   CHAPTER_DETAIL: (chapterId: number | string) => `/chapters/${chapterId}`,
   UNIT_DETAIL: (unitId: number | string) => `/units/${unitId}`,

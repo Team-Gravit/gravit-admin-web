@@ -10,3 +10,7 @@ export type ReportType = 'TYPO_ERROR' | 'CONTENT_ERROR' | 'ANSWER_ERROR' | 'OTHE
 export type ProblemType = 'OBJECTIVE' | 'SUBJECTIVE';
 export type NoticeStatus = 'DRAFT' | 'PUBLISHED' | 'ARCHIVED';
 export type StagingStatus = 'PENDING' | 'COMPLETED';
+/** 문의 처리상태 (inquiry-handoff A-1). 운영자 직접변경 API 없음 — 답변 등록/삭제의 부수효과로만 전환. */
+export type InquiryStatus = 'PENDING' | 'RESOLVED';
+/** 문의 유형 (inquiry-handoff A-1). 필드명은 type. */
+export type InquiryType = 'BUG_REPORT' | 'CONTENT_ERROR' | 'FEATURE_SUGGESTION' | 'OTHER';

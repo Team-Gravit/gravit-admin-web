@@ -5,6 +5,7 @@ import {
   Calendar,
   FileText,
   Globe,
+  MessageSquare,
   User,
   type LucideIcon,
 } from 'lucide-react';
@@ -67,6 +68,12 @@ const NAV_SECTIONS: NavSection[] = [
         to: ROUTES.REPORTS,
         icon: AlarmClock,
         isActive: (p) => p.startsWith('/reports'),
+      },
+      {
+        label: '문의 관리',
+        to: ROUTES.INQUIRIES,
+        icon: MessageSquare,
+        isActive: (p) => p.startsWith('/inquiries'),
       },
       {
         label: '공지 관리',

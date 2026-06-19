@@ -12,6 +12,8 @@ import { UserListPage } from '@/pages/users/UserListPage';
 import { UserDetailPage } from '@/pages/users/UserDetailPage';
 import { ReportListPage } from '@/pages/reports/ReportListPage';
 import { ReportDetailPage } from '@/pages/reports/ReportDetailPage';
+import { InquiryListPage } from '@/pages/inquiries/InquiryListPage';
+import { InquiryDetailPage } from '@/pages/inquiries/InquiryDetailPage';
 import { ChapterListPage } from '@/pages/chapters/ChapterListPage';
 import { ChapterDetailPage } from '@/pages/chapters/ChapterDetailPage';
 import { UnitDetailPage } from '@/pages/units/UnitDetailPage';
@@ -77,6 +79,8 @@ export const router = createBrowserRouter([
       { path: 'users/:userId', element: <UserDetailPage /> },
       { path: 'reports', element: <ReportListPage /> },
       { path: 'reports/:reportId', element: <ReportDetailPage /> },
+      { path: 'inquiries', element: <InquiryListPage /> },
+      { path: 'inquiries/:inquiryId', element: <InquiryDetailPage /> },
       { path: 'chapters', element: <ChapterListPage /> },
       { path: 'chapters/:chapterId', element: <ChapterDetailPage /> },
       { path: 'units/:unitId', element: <UnitDetailPage /> },

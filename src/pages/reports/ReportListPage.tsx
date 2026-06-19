@@ -15,6 +15,7 @@ import { PaginationControl } from '@/shared/components/data-table/PaginationCont
 import type { ReportType } from '@/shared/constants/enums';
 import { useReports } from '@/features/reports/queries';
 import { ReportStatusBadge } from '@/features/reports/components/ReportStatusBadge';
+import { ReportTypeBadge } from '@/features/reports/components/ReportTypeBadge';
 import type { ReportListItem } from '@/features/reports/schemas';
 
 type TypeFilter = ReportType | 'ALL';
@@ -56,9 +57,9 @@ export function ReportListPage() {
     {
       key: 'reportType',
       header: '유형',
-      headerClassName: 'w-40',
-      className: 'w-40',
-      cell: (report) => reportTypeLabels[report.reportType],
+      headerClassName: 'w-32',
+      className: 'w-32 whitespace-nowrap',
+      cell: (report) => <ReportTypeBadge type={report.reportType} />,
     },
     {
       key: 'problemId',

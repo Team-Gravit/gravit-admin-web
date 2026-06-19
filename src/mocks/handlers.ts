@@ -441,4 +441,102 @@ export const handlers = [
   ),
   // 신고 처리상태 변경 (03 §6-3, 200)
   http.patch('*/api/v1/admin/reports/:reportId/status', () => new HttpResponse(null, { status: 200 })),
+
+  // 문의 목록 (inquiry-handoff A-2-1, status 필터). ⚠️ hasNext/contents/1-base, datetime Z 없음.
+  http.get('*/api/v1/admin/inquiries', ({ request }) => {
+    const status = new URL(request.url).searchParams.get('status');
+    const all = [
+      { inquiryId: 5004, title: '앱이 자꾸 튕겨요', type: 'BUG_REPORT', status: 'PENDING', submitterId: 1010, submitterNickname: '이버그', createdAt: '2026-06-18T20:30:00' },
+      { inquiryId: 5003, title: '다크 모드도 만들어주세요', type: 'FEATURE_SUGGESTION', status: 'PENDING', submitterId: 1007, submitterNickname: null, createdAt: '2026-06-17T11:05:00' },
+      { inquiryId: 5002, title: '3번 문제 정답이 이상합니다', type: 'CONTENT_ERROR', status: 'RESOLVED', submitterId: 1003, submitterNickname: '김코딩', createdAt: '2026-06-16T15:40:00' },
+      { inquiryId: 5001, title: '결제했는데 코인이 안 들어와요', type: 'OTHER', status: 'PENDING', submitterId: 1001, submitterNickname: '홍길동', createdAt: '2026-06-15T09:12:00' },
+    ];
+    const contents = status ? all.filter((i) => i.status === status) : all;
+    return HttpResponse.json({ page: 1, totalPages: 1, hasNext: false, contents });
+  }),
+
+  // 문의 상세 (inquiry-handoff A-2-2). 5002=답변완료(answer 존재), 5003=탈퇴 작성자(null), 그 외=대기.
+  http.get('*/api/v1/admin/inquiries/:inquiryId', ({ params }) => {
+    const inquiryId = Number(params.inquiryId);
+    const resolved = inquiryId === 5002;
+    const withdrawn = inquiryId === 5003;
+    return HttpResponse.json({
+      inquiryId,
+      title: resolved ? '3번 문제 정답이 이상합니다' : '결제했는데 코인이 안 들어와요',
+      type: resolved ? 'CONTENT_ERROR' : 'OTHER',
+      content:
+        '안녕하세요. 어제 10,000원 결제를 완료했는데 코인이 충전되지 않았습니다.\n주문번호는 ORD-20260615-0012 입니다. 확인 부탁드립니다.',
+      status: resolved ? 'RESOLVED' : 'PENDING',
+      submitterId: 1001,
+      submitterNickname: withdrawn ? null : '홍길동',
+      submitterEmail: withdrawn ? null : 'gildong@example.com',
+      createdAt: '2026-06-15T09:12:00',
+      updatedAt: '2026-06-15T09:12:00',
+      answer: resolved
+        ? {
+            answerId: 8001,
+            content: '확인 결과 정답 데이터에 오류가 있어 수정했습니다. 불편을 드려 죄송합니다.',
+            adminId: 1002,
+            answeredAt: '2026-06-16T16:00:00',
+            updatedAt: '2026-06-16T16:00:00',
+          }
+        : null,
+    });
+  }),
+
+  // 문의 답변 등록 (inquiry-handoff A-2-4, 201 + 상세). status→RESOLVED, body content 반영.
+  http.post('*/api/v1/admin/inquiries/:inquiryId/answer', async ({ params, request }) => {
+    const inquiryId = Number(params.inquiryId);
+    const body = (await request.json()) as { content: string };
+    return HttpResponse.json(
+      {
+        inquiryId,
+        title: '결제했는데 코인이 안 들어와요',
+        type: 'OTHER',
+        content: '안녕하세요. 어제 10,000원 결제를 완료했는데 코인이 충전되지 않았습니다.',
+        status: 'RESOLVED',
+        submitterId: 1001,
+        submitterNickname: '홍길동',
+        submitterEmail: 'gildong@example.com',
+        createdAt: '2026-06-15T09:12:00',
+        updatedAt: '2026-06-19T10:00:00',
+        answer: {
+          answerId: 8001,
+          content: body.content,
+          adminId: 1002,
+          answeredAt: '2026-06-19T10:00:00',
+          updatedAt: '2026-06-19T10:00:00',
+        },
+      },
+      { status: 201 },
+    );
+  }),
+
+  // 문의 답변 수정 (inquiry-handoff A-2-4, 200 + 상세). status 유지(RESOLVED).
+  http.put('*/api/v1/admin/inquiries/:inquiryId/answer', async ({ params, request }) => {
+    const inquiryId = Number(params.inquiryId);
+    const body = (await request.json()) as { content: string };
+    return HttpResponse.json({
+      inquiryId,
+      title: '결제했는데 코인이 안 들어와요',
+      type: 'OTHER',
+      content: '안녕하세요. 어제 10,000원 결제를 완료했는데 코인이 충전되지 않았습니다.',
+      status: 'RESOLVED',
+      submitterId: 1001,
+      submitterNickname: '홍길동',
+      submitterEmail: 'gildong@example.com',
+      createdAt: '2026-06-15T09:12:00',
+      updatedAt: '2026-06-19T11:00:00',
+      answer: {
+        answerId: 8001,
+        content: body.content,
+        adminId: 1002,
+        answeredAt: '2026-06-19T10:00:00',
+        updatedAt: '2026-06-19T11:00:00',
+      },
+    });
+  }),
+
+  // 문의 답변 삭제 (inquiry-handoff A-2-4, 204 무본문). status→PENDING 복구.
+  http.delete('*/api/v1/admin/inquiries/:inquiryId/answer', () => new HttpResponse(null, { status: 204 })),
 ];

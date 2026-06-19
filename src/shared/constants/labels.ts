@@ -1,4 +1,6 @@
 import type {
+  InquiryStatus,
+  InquiryType,
   NoticeStatus,
   ProblemType,
   ReportType,
@@ -40,4 +42,16 @@ export const noticeStatusLabels: Record<NoticeStatus, string> = {
 export const stagingStatusLabels: Record<StagingStatus, string> = {
   PENDING: '검수 대기',
   COMPLETED: '반영 완료',
+};
+
+export const inquiryStatusLabels: Record<InquiryStatus, string> = {
+  PENDING: '대기',
+  RESOLVED: '답변완료',
+};
+
+export const inquiryTypeLabels: Record<InquiryType, string> = {
+  BUG_REPORT: '버그 신고',
+  CONTENT_ERROR: '콘텐츠 오류',
+  FEATURE_SUGGESTION: '기능 제안',
+  OTHER: '기타',
 };
