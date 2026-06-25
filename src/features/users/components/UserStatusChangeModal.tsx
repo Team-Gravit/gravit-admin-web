@@ -7,7 +7,7 @@ interface UserStatusChangeModalProps {
   open: boolean;
   change: UserChange | null;
   nickname: string;
-  handle: string;
+  handle: string | null;
   loading?: boolean;
   onConfirm: () => void;
   onCancel: () => void;
@@ -24,7 +24,7 @@ export function UserStatusChangeModal({
 }: UserStatusChangeModalProps) {
   if (!change) return null;
 
-  const who = `${nickname} (@${handle})`;
+  const who = handle ? `${nickname} (@${handle})` : nickname;
   const props =
     change.kind === 'status'
       ? change.value === 'DELETED'

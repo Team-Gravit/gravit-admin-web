@@ -64,7 +64,7 @@ export function UserDetailPage() {
         </div>
         <div className="flex flex-col gap-1">
           <h3 className="text-h3 text-foreground">{data.nickname}</h3>
-          <p className="text-body text-fg-muted">@{data.handle}</p>
+          <p className="text-body text-fg-muted">{data.handle ? `@${data.handle}` : '—'}</p>
           <p className="text-body text-fg-muted">{data.email}</p>
           <p className="text-body text-fg-muted">가입일: {formatDate(data.createdAt)}</p>
           <p className="text-body text-fg-muted">레벨: Lv.{data.level}</p>

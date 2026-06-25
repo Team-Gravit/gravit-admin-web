@@ -71,7 +71,12 @@ export function UserListPage() {
       header: 'handle',
       headerClassName: 'w-36',
       className: 'w-36',
-      cell: (user) => <span className="text-fg-secondary">@{user.handle}</span>,
+      cell: (user) =>
+        user.handle ? (
+          <span className="text-fg-secondary">@{user.handle}</span>
+        ) : (
+          <span className="text-fg-muted">—</span>
+        ),
     },
     {
       key: 'role',
