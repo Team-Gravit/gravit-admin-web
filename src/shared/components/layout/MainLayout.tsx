@@ -1,4 +1,4 @@
-import { Outlet } from 'react-router';
+import { Outlet, useLocation } from 'react-router';
 import { Sidebar } from '@/shared/components/layout/Sidebar';
 import { Header } from '@/shared/components/layout/Header';
 import { BreadcrumbProvider } from '@/shared/hooks/useBreadcrumb';
@@ -13,6 +13,8 @@ interface MainLayoutProps {
 }
 
 export function MainLayout({ admin, onLogout }: MainLayoutProps) {
+  const { pathname } = useLocation();
+
   return (
     <BreadcrumbProvider>
       <div className="flex min-h-screen min-w-viewport bg-page">
@@ -20,7 +22,11 @@ export function MainLayout({ admin, onLogout }: MainLayoutProps) {
         <div className="flex flex-1 flex-col">
           <Header onLogout={onLogout} />
           <main className="flex-1">
-            <div className="mx-auto w-full max-w-content px-8 pb-12 pt-6">
+            {/* key=pathname: 라우트 전환마다 본문을 짧게 페이드인해 즉시 교체의 끊김 완화 */}
+            <div
+              key={pathname}
+              className="mx-auto w-full max-w-content animate-in fade-in px-8 pb-12 pt-6 duration-200"
+            >
               <Outlet />
             </div>
           </main>
