@@ -58,6 +58,10 @@
     --muted-ds-text: 0 0% 45%; /* #737373 DRAFT/DELETED/ARCHIVED */
     --muted-ds-bg: 0 0% 96%; /* #F5F5F5 */
 
+    /* 대시보드 차트 시리즈 토큰 (decisions D7 — CVD 검증 통과 조합, 사용자 승인 2026-09-06) */
+    --chart-dau: 261 84% 58%; /* = primary #7738EE */
+    --chart-mau: 142 72% 29%; /* = success-text #15803D */
+
     /* LOGIN 전용 브랜드 토큰 (decisions D5 — 이 화면 한정 예외). 일반 화면 사용 금지. */
     --brand-google: 240 8% 97%; /* #F8F8F9 */
     --brand-kakao: 51 100% 63%; /* #FFE240 */

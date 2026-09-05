@@ -75,6 +75,12 @@ const config: Config = {
         'accent-ds': { text: 'hsl(var(--accent-ds-text))', bg: 'hsl(var(--accent-ds-bg))' },
         'muted-ds': { text: 'hsl(var(--muted-ds-text))', bg: 'hsl(var(--muted-ds-bg))' },
 
+        // 대시보드 차트 시리즈 (decisions D7). recharts 에는 hsl(var(--chart-*)) 문자열로 전달.
+        chart: {
+          dau: 'hsl(var(--chart-dau))',
+          mau: 'hsl(var(--chart-mau))',
+        },
+
         // LOGIN 전용 브랜드 (decisions D5). 일반 화면 사용 금지 — 권위: rules/decisions.md, ui-conventions.
         brand: {
           google: 'hsl(var(--brand-google))',

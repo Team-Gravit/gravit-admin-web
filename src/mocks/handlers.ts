@@ -1,4 +1,5 @@
 import { http, HttpResponse } from 'msw';
+import { format, subDays, subMonths } from 'date-fns';
 
 export const handlers = [
   http.get('*/api/v1/oauth/login-url/:provider', ({ params }) =>
@@ -32,6 +33,35 @@ export const handlers = [
       unresolvedReportsCount: 24,
     }),
   ),
+
+  // 활성 유저 추이 (D7) — 결정적 유사 파형, 오래된→최신 순 연속 배열
+  http.get('*/api/v1/admin/dashboard/active-users/daily', ({ request }) => {
+    const days = Number(new URL(request.url).searchParams.get('days') ?? '30');
+    const today = new Date();
+    const points = Array.from({ length: days }, (_, i) => {
+      const date = subDays(today, days - 1 - i);
+      const dayOfWeek = date.getDay();
+      const weekendDip = dayOfWeek === 0 || dayOfWeek === 6 ? -12 : 0;
+      const dau = Math.max(0, 34 + i + Math.round(10 * Math.sin(i / 3)) + weekendDip);
+      return { date: format(date, 'yyyy-MM-dd'), dau };
+    });
+    return HttpResponse.json({ points });
+  }),
+
+  http.get('*/api/v1/admin/dashboard/active-users/monthly', ({ request }) => {
+    const months = Number(new URL(request.url).searchParams.get('months') ?? '12');
+    const now = new Date();
+    const points = Array.from({ length: months }, (_, i) => {
+      const isCurrentMonth = i === months - 1;
+      const mau = isCurrentMonth ? 121 : Math.max(0, 180 + i * 14 + Math.round(30 * Math.sin(i / 2)));
+      return {
+        month: format(subMonths(now, months - 1 - i), 'yyyy-MM'),
+        mau,
+        inProgress: isCurrentMonth,
+      };
+    });
+    return HttpResponse.json({ points });
+  }),
 
   http.get('*/api/v1/admin/notices', () =>
     HttpResponse.json({

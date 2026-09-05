@@ -2,6 +2,8 @@ import { AlertTriangle, FlaskConical, Users } from 'lucide-react';
 import { ROUTES } from '@/shared/constants/routes';
 import { useDashboardSummary } from '@/features/dashboard/queries';
 import { StatCard } from '@/features/dashboard/components/StatCard';
+import { DauChartCard } from '@/features/dashboard/components/DauChartCard';
+import { MauChartCard } from '@/features/dashboard/components/MauChartCard';
 import { ErrorState } from '@/shared/components/states/ErrorState';
 import { Skeleton } from '@/shared/components/ui/skeleton';
 
@@ -50,6 +52,12 @@ export function DashboardPage() {
           />
         </div>
       )}
+
+      {/* 활성 유저 추이 (D7) — summary 와 독립 쿼리, 카드별 자체 4상태 */}
+      <div className="grid grid-cols-2 gap-4">
+        <DauChartCard />
+        <MauChartCard />
+      </div>
     </div>
   );
 }
