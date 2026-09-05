@@ -73,7 +73,9 @@ export function MauChartCard() {
                 allowDecimals={false}
                 tickFormatter={(value: number) => formatNumber(value)}
               />
+              {/* cursor=false: 바 호버 시 카테고리 밴드 배경 사각형 미표시 (사용자 결정 2026-09-06) */}
               <ChartTooltip
+                cursor={false}
                 content={
                   <ChartTooltipContent
                     valueFormatter={formatNumber}
