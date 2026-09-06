@@ -113,7 +113,7 @@ export function Sidebar({ admin }: SidebarProps) {
                     'flex w-full items-center gap-2.5 border-r-2 px-4 py-2.5 text-body transition-colors duration-200',
                     active
                       ? 'border-primary bg-primary-subtle font-medium text-primary'
-                      : 'border-transparent text-fg-secondary hover:bg-hover',
+                      : 'border-transparent text-fg-secondary hover:bg-primary-faint',
                   )}
                 >
                   <Icon className="h-5 w-5 shrink-0" />

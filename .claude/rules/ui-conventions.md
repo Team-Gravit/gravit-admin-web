@@ -22,6 +22,7 @@
 | `primary-hover` | `hover:bg-primary-hover` | `--primary-hover` | Primary hover |
 | `primary-bg-subtle` | `bg-primary-subtle` | `--primary` /0.08 | 활성 메뉴 배경·포커스 영역 |
 | `primary-bg-badge` | `bg-primary-badge` | `--primary` /0.12 | ADMIN 뱃지 배경 |
+| `primary-bg-faint` | `bg-primary-faint` | `--primary` /0.04 | 행·메뉴 호버 — 테이블/사이드바/스테이징 리스트 (DS-01 외 — 사용자 결정 2026-09-06) |
 
 **중립 텍스트 (DS-01 §1-2)** — DS 토큰명과 Tailwind 클래스가 어긋나는 영역(충돌 회피 `fg` 네임스페이스).
 

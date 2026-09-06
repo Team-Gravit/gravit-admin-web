@@ -27,6 +27,8 @@ const config: Config = {
           // 포인트 배경 (DS-01 1-1: 8% / 12% opacity)
           subtle: 'hsl(var(--primary) / 0.08)',
           badge: 'hsl(var(--primary) / 0.12)',
+          // 행·메뉴 호버 (subtle 보다 옅게, 사용자 결정 2026-09-06)
+          faint: 'hsl(var(--primary) / 0.04)',
         },
         secondary: {
           DEFAULT: 'hsl(var(--secondary))',

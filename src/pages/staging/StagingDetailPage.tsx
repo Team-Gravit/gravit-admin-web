@@ -88,7 +88,7 @@ export function StagingDetailPage() {
       'flex w-full items-center justify-between gap-2 border-b border-l-3 border-border px-5 py-4 text-left text-body transition-colors',
       isActive
         ? 'border-l-primary bg-primary-subtle font-medium text-primary'
-        : 'border-l-transparent text-foreground hover:bg-hover',
+        : 'border-l-transparent text-foreground hover:bg-primary-faint',
     );
 
   return (
