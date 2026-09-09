@@ -79,25 +79,23 @@ export function BotMessageItem({
             <div className="mt-2 flex items-center gap-1">
               <Button
                 variant="ghost"
-                size="icon"
-                aria-label="복사"
-                title="복사"
+                size="sm"
                 onClick={handleCopy}
-                className="h-8 w-8 text-muted-foreground"
+                className="text-muted-foreground"
               >
                 <Copy className="h-4 w-4" />
+                복사
               </Button>
               {isLast && (
                 <Button
                   variant="ghost"
-                  size="icon"
-                  aria-label="다시 생성"
-                  title="다시 생성"
+                  size="sm"
                   disabled={streaming}
                   onClick={onRegenerate}
-                  className="h-8 w-8 text-muted-foreground"
+                  className="text-muted-foreground"
                 >
                   <RefreshCw className="h-4 w-4" />
+                  다시 생성
                 </Button>
               )}
             </div>

@@ -1,10 +1,10 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 
 /** 점진 렌더 전체 소요 상한. **속도 조절은 이 값으로 한다**(키우면 느려진다). */
-const TOTAL_DURATION_MS = 1800;
+const TOTAL_DURATION_MS = 5000;
 /** 한 덩어리가 머무는 시간의 하한·상한. 블록 수가 많거나 적어도 리듬이 무너지지 않게. */
-const MIN_STEP_MS = 90;
-const MAX_STEP_MS = 320;
+const MIN_STEP_MS = 500;
+const MAX_STEP_MS = 1000;
 /** 이보다 긴 문단은 문장 단위로 더 쪼갠다 — 긴 문단이 통째로 튀어나오지 않도록. */
 const MAX_CHUNK = 220;
 /** 너무 잘게 쪼개지 않기 위한 하한. */

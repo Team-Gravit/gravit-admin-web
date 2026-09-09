@@ -71,7 +71,8 @@ export function RavvitConversation({ nickname }: { nickname: string | null }) {
 
   return (
     <div className="flex h-full w-full flex-col">
-      <div className={cn(COLUMN, 'flex justify-end pb-2')}>
+      {/* 상단 액션 줄 — 컨텐츠 폭 전체 기준 우측 정렬이라 Header 의 로그아웃 버튼과 세로로 맞는다 */}
+      <div className="mb-2 flex h-9 items-center justify-end">
         <Button
           variant="ghost"
           size="sm"
@@ -130,15 +131,16 @@ export function RavvitConversation({ nickname }: { nickname: string | null }) {
         {!stickToBottom && !isEmpty && (
           <Button
             variant="outline"
-            size="sm"
+            size="icon"
+            aria-label="맨 아래로"
+            title="맨 아래로"
             onClick={() => {
               setStickToBottom(true);
               scrollToBottom();
             }}
-            className="absolute bottom-2 left-1/2 -translate-x-1/2 border-border bg-surface text-fg-secondary"
+            className="absolute bottom-2 left-1/2 h-9 w-9 -translate-x-1/2 rounded-full border-border bg-surface text-fg-secondary shadow-md hover:bg-hover"
           >
             <ArrowDown className="h-4 w-4" />
-            맨 아래로
           </Button>
         )}
       </div>
