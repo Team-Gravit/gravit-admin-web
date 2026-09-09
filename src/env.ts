@@ -8,6 +8,8 @@ import { z } from 'zod';
 const envSchema = z.object({
   VITE_API_HOST: z.string().url(),
   VITE_OAUTH_DEST: z.string().min(1),
+  // Ravvit(챗봇) API base (D8-4). 프록시 경로(`/ravvit-api`) 또는 절대 URL 둘 다 허용하므로 .url() 아님.
+  VITE_RAVVIT_API_BASE: z.string().min(1),
   VITE_USE_MOCK: z
     .string()
     .optional()

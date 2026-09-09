@@ -52,6 +52,39 @@
 - **프론트 구현**: DAU·MAU 는 독립 시리즈(시간 단위 상이) → 별도 차트 카드 2개, 한 차트 합침 금지. 기본 요청은 파라미터 생략(days=30·months=12). 진입 시 1회 호출·자동 갱신 없음(03 §4-1 대시보드 관례 준수).
 - **시각**: 차트 시리즈 토큰 `--chart-dau`·`--chart-mau` 신설, **둘 다 브랜드 보라(`var(--primary)`)** — 서비스 아이덴티티 반영(사용자 결정 2026-09-06, 초기 초록안 대체). 카드 2개 분리·단일 시리즈라 구분색 불필요. 단 **두 시리즈를 한 차트에 합치게 되면 재검토 필수**: 보라+파랑은 CVD 탈락(protan ΔE 3.5), 보라+초록(#15803D)이 검증 통과(ΔE 28.1) 조합. MAU 바 호버 시 카테고리 밴드 배경 사각형 미표시(`cursor=false`). recharts(shadcn/ui Chart) 의존성 추가. 모두 사용자 승인(2026-09-06).
 
+## D8 — RAVVIT(사내 조회 챗봇) 화면 — 계약·인증·경로 확정 (spec/ 미기재, 이 항목이 권위)
+- 별도 배포된 **gravit-chatbot**(Python FastAPI, Notion·Jira MCP + Gemini)을 백오피스 17번째 화면으로 들인다. **디자인은 이식하지 않고 전면 리모델링** — 화면 명세는 루트 **`RAVVIT_SPEC.md`**(인테이크 산출물, 2026-09-09). 충돌 시 **이 D8 > RAVVIT_SPEC.md**.
+- **코드 이식 없음.** 챗봇은 독립 HTTP 서비스로 남고 프론트는 API만 호출한다. Python 코드를 이 레포로 옮기지 않는다.
+
+### D8-1 사이드바 (인테이크 오류 정정)
+- `RAVVIT_SPEC.md §A-1` 의 "7개 메뉴 전체 표"는 **Claude Desktop 이 레포를 못 보고 쓴 기술이라 실물과 다르다**(문의 관리 누락, 아이콘·라벨·섹션 구조 상이). **기존 사이드바는 Figma(node 8720:4149) 기준으로 그대로 두고 Ravvit 만 삽입한다.**
+- 삽입 위치 = **첫 섹션(heading 없음)의 `대시보드` 바로 아래.** 라벨 `Ravvit`, 아이콘 `Bot`. (결정 #1·#2 의 의도를 실제 구조에 매핑한 것)
+
+### D8-2 API 계약 (Base = `VITE_RAVVIT_API_BASE`)
+- `GET /health` → `{status, model, tools[], auth}`. **공개(무인증)**. 진입 시 1회 호출, 성공 판정에만 사용하고 값은 화면에 노출하지 않는다.
+- `POST /chat` `{question, history}` → **SSE**(`text/event-stream`). 이벤트: `tool_log{message}` 0회 이상 → `answer{answer, history, usage}` 또는 `error{message}` 1회로 종료.
+- **`history` 는 불투명(opaque) 값** — 읽기·가공·표시·영속 금지. 저장했다가 그대로 회신만 한다. 초기화 = `[]`.
+- **답변 단위 스트리밍 아님** — `answer` 에 완성된 마크다운이 한 번에 온다. 프론트 타자기 연출 금지.
+- `03 §2` 표준 envelope(`{code,message}`)·`/api/v1/admin` Base·페이지네이션 규약은 **이 서비스에 적용되지 않는다**(별도 서비스). Zod 파싱 의무는 유지 — SSE 이벤트 3종 전부 스키마로 파싱.
+
+### D8-3 인증 = Gravit 관리자 토큰 introspection
+- 챗봇 자체 공유계정(`GRAVITCHAT_AUTH_*`)·`gc_session` 쿠키 **폐기**. 프론트는 기존 관리자 `accessToken` 을 `Authorization: Bearer` 로 보낸다.
+- 챗봇은 JWT 서명 검증을 하지 않는다. 받은 토큰을 `GET {GRAVIT_API_HOST}/api/v1/admin/me` 에 되던져 판정한다(서명 키 공유 0). 핸드오프 = `PROMPT_ravvit_auth.md`.
+- **상태코드 매핑**: 200 통과 / **401** 토큰 만료·무효(→ 프론트가 reissue 후 1회 재시도) / **403** ADMIN 아님(종착, 재시도 금지) / **503** 인증 서버 장애(401 로 뭉개면 무의미한 재발급·강제 로그아웃 루프).
+- 프론트 401 재시도는 **`shared/api/client.ts` 가 export 하는 단일 재발급 절차를 공유**한다. axios 인터셉터와 fetch 클라이언트가 각자 재발급하면 refresh Rotation 때문에 서로의 토큰을 무효화한다. **복제 금지.**
+
+### D8-4 네트워크 경로
+- `VITE_RAVVIT_API_BASE` 로 주입. 운영은 **Vercel rewrite 프록시**(`/ravvit-api/:path*` → 챗봇 `/api/:path*`), 로컬은 vite `server.proxy` 로 동일 경로. **rewrite 는 기존 SPA catch-all 보다 앞에 둔다**(먼저 매칭되는 규칙이 이긴다).
+- Bearer 헤더 방식이라 쿠키가 없다 → CORS `allow_credentials` 불필요, 서드파티 쿠키 차단과 무관. 프록시는 preflight 제거·origin 관리 회피 목적이며 정합성 필수 조건은 아니다.
+
+### D8-5 구현 제약
+- **SSE 는 axios 로 불가**(브라우저 스트리밍 미지원) → `features/ravvit/api.ts` 의 fetch + `ReadableStream` 리더. `apiClient` 재사용하지 않는다.
+- 대화 상태(메시지·`history`)는 **라우트 컴포넌트 밖 전역 스토어**(zustand). 메뉴 이동 후 복귀 시 유지되어야 하고, 진행 중 SSE 가 언마운트로 끊기면 안 된다.
+- 브라우저 저장소 **미사용**(새로고침 시 초기화). 사내 문서 내용을 `localStorage` 에 남기지 않는다.
+- 뷰포트 채움 레이아웃은 **`MainLayout` 의 라우트 조건부 분기**로 처리한다(`h-screen overflow-hidden` + `main` 내부 스크롤). 나머지 16화면의 마크업은 건드리지 않는다. `h-[calc(...)]` 류 arbitrary 값 금지(token-lint 차단).
+- 신규 의존성 **0개**. 마크다운은 기존 `MarkdownViewer`(D6) 계열 재사용, 링크는 새 탭.
+- 근거: 사용자 결정 2026-09-09.
+
 ## 기타 확정값 (계약에서 고정 — 임의 변경 금지)
 - 토큰: access **2h** / refresh **14d**, Rotation, refresh 는 Redis 화이트리스트 + body 전달. (`03 §3, §11`)
 - 목록 페이지 크기 **20행 고정**(서버 고정, 클라 변경 불가). (`03 §2-4`, `04 §6-3`)

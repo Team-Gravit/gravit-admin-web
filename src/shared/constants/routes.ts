@@ -7,6 +7,7 @@ export const ROUTES = {
   OAUTH_CALLBACK_PATTERN: '/login/oauth2/code/:provider',
   OAUTH_CALLBACK: (provider: string) => `/login/oauth2/code/${provider}`,
   DASHBOARD: '/',
+  RAVVIT: '/ravvit',
   USERS: '/users',
   USER_DETAIL: (userId: number | string) => `/users/${userId}`,
   REPORTS: '/reports',

@@ -144,10 +144,19 @@ const config: Config = {
           from: { height: 'var(--radix-accordion-content-height)' },
           to: { height: '0' },
         },
+        // Ravvit 응답 대기 표시 (RAVVIT_SPEC §A-2 Loading)
+        'typing-dot': {
+          '0%, 60%, 100%': { opacity: '0.25' },
+          '30%': { opacity: '1' },
+        },
       },
       animation: {
         'accordion-down': 'accordion-down 0.2s ease-out',
         'accordion-up': 'accordion-up 0.2s ease-out',
+        // 지연을 애니메이션 정의에 넣어 화면에서 arbitrary 값을 쓰지 않게 한다
+        'typing-dot-1': 'typing-dot 1.2s ease-in-out infinite',
+        'typing-dot-2': 'typing-dot 1.2s ease-in-out 0.2s infinite',
+        'typing-dot-3': 'typing-dot 1.2s ease-in-out 0.4s infinite',
       },
     },
   },

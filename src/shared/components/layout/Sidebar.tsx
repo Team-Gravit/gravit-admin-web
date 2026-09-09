@@ -2,6 +2,7 @@ import { Link, useLocation } from 'react-router';
 import {
   AlarmClock,
   BarChart3,
+  Bot,
   Calendar,
   FileText,
   Globe,
@@ -40,7 +41,10 @@ interface NavSection {
 
 const NAV_SECTIONS: NavSection[] = [
   {
-    items: [{ label: '대시보드', to: ROUTES.DASHBOARD, icon: BarChart3, isActive: (p) => p === '/' }],
+    items: [
+      { label: '대시보드', to: ROUTES.DASHBOARD, icon: BarChart3, isActive: (p) => p === '/' },
+      { label: 'Ravvit', to: ROUTES.RAVVIT, icon: Bot, isActive: (p) => p.startsWith('/ravvit') },
+    ],
   },
   {
     heading: '서비스 관리',

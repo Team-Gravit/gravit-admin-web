@@ -8,6 +8,7 @@ import { AppShell } from '@/pages/AppShell';
 import { LoginPage } from '@/pages/login/LoginPage';
 import { OAuthCallbackPage } from '@/pages/login/OAuthCallbackPage';
 import { DashboardPage } from '@/pages/dashboard/DashboardPage';
+import { RavvitPage } from '@/pages/ravvit/RavvitPage';
 import { UserListPage } from '@/pages/users/UserListPage';
 import { UserDetailPage } from '@/pages/users/UserDetailPage';
 import { ReportListPage } from '@/pages/reports/ReportListPage';
@@ -65,6 +66,7 @@ export const router = createBrowserRouter([
     loader: protectedLoader,
     children: [
       { index: true, element: <DashboardPage /> },
+      { path: 'ravvit', element: <RavvitPage /> },
       { path: 'users', element: <UserListPage /> },
       { path: 'users/:userId', element: <UserDetailPage /> },
       { path: 'reports', element: <ReportListPage /> },
