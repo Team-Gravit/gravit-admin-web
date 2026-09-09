@@ -4,7 +4,7 @@ import { toast } from 'sonner';
 import { Button } from '@/shared/components/ui/button';
 import { MarkdownViewer } from '@/shared/components/markdown/MarkdownViewer';
 import { ToolLogBlock } from '@/features/ravvit/components/ToolLogBlock';
-import { useProgressiveReveal } from '@/features/ravvit/hooks';
+import { useTypewriter } from '@/features/ravvit/hooks';
 import { DEFAULT_ERROR_MESSAGE } from '@/features/ravvit/store';
 import type { BotMessage } from '@/features/ravvit/types';
 
@@ -33,9 +33,8 @@ export function BotMessageItem({
 }: BotMessageItemProps) {
   const { id, status, toolLogs, answer, errorMessage, revealed } = message;
 
-  // 점진 렌더 중인지 (decisions D8-8)
   const typing = status === 'done' && !revealed;
-  const { shown, done } = useProgressiveReveal(answer ?? '', typing, onReveal);
+  const { shown, done } = useTypewriter(answer ?? '', typing, onReveal);
 
   useEffect(() => {
     if (typing && done) onRevealed();
@@ -67,35 +66,32 @@ export function BotMessageItem({
 
       {status === 'done' && answer !== null && (
         <div key={id}>
-          <MarkdownViewer
-            content={revealed ? answer : shown}
-            variant="chat"
-            // 새로 붙는 마지막 블록에만 페이드가 걸린다(globals.css)
-            className={typing ? 'ravvit-stream' : undefined}
-          />
+          <MarkdownViewer content={revealed ? answer : shown} variant="chat" />
 
           {/* 타이핑이 끝난 뒤에 노출한다 — 흐르는 중에 버튼이 아래로 밀려다니지 않도록 */}
           {(revealed || done) && (
             <div className="mt-2 flex items-center gap-1">
               <Button
                 variant="ghost"
-                size="sm"
+                size="icon"
+                aria-label="복사"
+                title="복사"
                 onClick={handleCopy}
-                className="text-muted-foreground"
+                className="h-8 w-8 text-muted-foreground"
               >
                 <Copy className="h-4 w-4" />
-                복사
               </Button>
               {isLast && (
                 <Button
                   variant="ghost"
-                  size="sm"
+                  size="icon"
+                  aria-label="다시 생성"
+                  title="다시 생성"
                   disabled={streaming}
                   onClick={onRegenerate}
-                  className="text-muted-foreground"
+                  className="h-8 w-8 text-muted-foreground"
                 >
                   <RefreshCw className="h-4 w-4" />
-                  다시 생성
                 </Button>
               )}
             </div>

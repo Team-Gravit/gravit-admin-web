@@ -73,16 +73,19 @@ export function RavvitConversation({ nickname }: { nickname: string | null }) {
     <div className="flex h-full w-full flex-col">
       {/* 상단 액션 줄 — 컨텐츠 폭 전체 기준 우측 정렬이라 Header 의 로그아웃 버튼과 세로로 맞는다 */}
       <div className="mb-2 flex h-9 items-center justify-end">
-        <Button
-          variant="ghost"
-          size="sm"
-          disabled={isEmpty || isStreaming}
-          onClick={() => setConfirmOpen(true)}
-          className="text-fg-secondary"
-        >
-          <RotateCcw className="h-4 w-4" />
-          새 채팅
-        </Button>
+        {/* 대화가 없으면 지울 것도 없다 — 숨긴다(줄 높이는 유지해 레이아웃이 흔들리지 않게) */}
+        {!isEmpty && (
+          <Button
+            variant="ghost"
+            size="sm"
+            disabled={isStreaming}
+            onClick={() => setConfirmOpen(true)}
+            className="text-fg-secondary"
+          >
+            <RotateCcw className="h-4 w-4" />
+            새 채팅
+          </Button>
+        )}
       </div>
 
       <div className={COLUMN}>

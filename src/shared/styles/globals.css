@@ -80,23 +80,3 @@
     min-width: theme('minWidth.viewport');
   }
 }
-
-/*
- * Ravvit 답변 점진 렌더 (decisions D8-8).
- * 새로 붙은 **마지막 블록에만** 페이드가 걸린다 — :last-child 가 새 노드로 옮겨갈 때만
- * 애니메이션이 다시 시작되므로, 이미 나온 문단은 다시 깜빡이지 않는다.
- */
-@keyframes ravvit-block-in {
-  from {
-    opacity: 0;
-    transform: translateY(4px);
-  }
-  to {
-    opacity: 1;
-    transform: none;
-  }
-}
-
-.ravvit-stream > :last-child {
-  animation: ravvit-block-in 320ms ease-out;
-}

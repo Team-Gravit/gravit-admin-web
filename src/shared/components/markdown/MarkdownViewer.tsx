@@ -1,5 +1,4 @@
 import { remarkPlugins } from '@/shared/lib/markdown';
-import { cn } from '@/shared/lib/cn';
 import ReactMarkdown, { type Components } from 'react-markdown';
 
 /**
@@ -25,13 +24,11 @@ const chatComponents: Components = {
 interface MarkdownViewerProps {
   content: string;
   variant?: 'default' | 'chat';
-  /** prose 컨테이너에 덧붙일 클래스(점진 렌더 페이드 등). */
-  className?: string;
 }
 
-export function MarkdownViewer({ content, variant = 'default', className }: MarkdownViewerProps) {
+export function MarkdownViewer({ content, variant = 'default' }: MarkdownViewerProps) {
   return (
-    <div className={cn('prose prose-sm max-w-none', className)}>
+    <div className="prose prose-sm max-w-none">
       <ReactMarkdown
         remarkPlugins={remarkPlugins}
         components={variant === 'chat' ? chatComponents : undefined}
