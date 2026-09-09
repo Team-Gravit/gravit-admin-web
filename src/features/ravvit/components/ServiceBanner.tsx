@@ -1,7 +1,7 @@
-import { AlertTriangle, RefreshCw } from 'lucide-react';
+import type { ServiceStatus } from '@/features/ravvit/types';
 import { Button } from '@/shared/components/ui/button';
 import { cn } from '@/shared/lib/cn';
-import type { ServiceStatus } from '@/features/ravvit/types';
+import { AlertTriangle, RefreshCw } from 'lucide-react';
 
 /**
  * 화면 전체를 막는 장애 표시 (RAVVIT_SPEC §A-4).

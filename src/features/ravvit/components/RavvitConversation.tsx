@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState, type UIEvent } from 'react';
+import { useCallback, useEffect, useRef, useState, type UIEvent } from 'react';
 import { ArrowDown, RotateCcw } from 'lucide-react';
 import { Button } from '@/shared/components/ui/button';
 import { ConfirmModal } from '@/shared/components/modals/ConfirmModal';
@@ -13,6 +13,9 @@ import { UserMessageItem } from '@/features/ravvit/components/UserMessageItem';
 /** 최하단 판정 여유(px). 스크롤 위치가 소수점으로 어긋나도 "맨 아래"로 보기 위한 값. */
 const BOTTOM_THRESHOLD = 24;
 
+/** 읽기 컬럼 폭. 스크롤 컨테이너는 이보다 넓어 **스크롤바가 본문을 침범하지 않는다**. */
+const COLUMN = 'mx-auto w-full max-w-3xl';
+
 /**
  * Ravvit 대화 화면 (RAVVIT_SPEC §B-1).
  * 뷰포트를 채우고 **메시지 영역만** 스크롤한다. 입력창은 항상 하단 고정.
@@ -24,23 +27,38 @@ export function RavvitConversation({ nickname }: { nickname: string | null }) {
   const isStreaming = useRavvitStore((s) => s.isStreaming);
   const draft = useRavvitStore((s) => s.draft);
   const greetingSeed = useRavvitStore((s) => s.greetingSeed);
-  const { setDraft, checkService, send, retry, abort, reset } = useRavvitStore.getState();
+  const { setDraft, checkService, send, regenerate, abort, reset, markRevealed } =
+    useRavvitStore.getState();
 
   const [confirmOpen, setConfirmOpen] = useState(false);
   const [focusTick, setFocusTick] = useState(0);
   const [stickToBottom, setStickToBottom] = useState(true);
   const scrollRef = useRef<HTMLDivElement>(null);
+  // 타이핑 연출은 매 프레임 호출되므로 최신 stick 값을 ref 로 읽는다(콜백 재생성 회피)
+  const stickRef = useRef(true);
+
+  useEffect(() => {
+    stickRef.current = stickToBottom;
+  }, [stickToBottom]);
 
   // 진입 시 1회 (§A-4). 실패는 배너의 [다시 확인] 으로 수동 재호출한다.
   useEffect(() => {
     void checkService();
   }, [checkService]);
 
-  useEffect(() => {
-    if (!stickToBottom) return;
+  const scrollToBottom = useCallback(() => {
     const el = scrollRef.current;
     if (el) el.scrollTop = el.scrollHeight;
-  }, [messages, stickToBottom]);
+  }, []);
+
+  useEffect(() => {
+    if (stickToBottom) scrollToBottom();
+  }, [messages, stickToBottom, scrollToBottom]);
+
+  /** 답변이 타이핑되며 길어질 때도 하단을 따라간다(메시지 배열은 그대로라 위 effect 가 안 돈다). */
+  const handleReveal = useCallback(() => {
+    if (stickRef.current) scrollToBottom();
+  }, [scrollToBottom]);
 
   // 사용자가 위로 올리면 자동 고정을 해제한다 — 이전 답변을 읽는 중 끌려 내려가지 않도록.
   const handleScroll = (event: UIEvent<HTMLDivElement>): void => {
@@ -52,8 +70,8 @@ export function RavvitConversation({ nickname }: { nickname: string | null }) {
   const isEmpty = messages.length === 0;
 
   return (
-    <div className="mx-auto flex h-full w-full max-w-3xl flex-col">
-      <div className="flex justify-end pb-2">
+    <div className="flex h-full w-full flex-col">
+      <div className={cn(COLUMN, 'flex justify-end pb-2')}>
         <Button
           variant="ghost"
           size="icon"
@@ -66,23 +84,26 @@ export function RavvitConversation({ nickname }: { nickname: string | null }) {
         </Button>
       </div>
 
-      <ServiceBanner status={service} onRecheck={() => void checkService()} />
+      <div className={COLUMN}>
+        <ServiceBanner status={service} onRecheck={() => void checkService()} />
+      </div>
 
       <div className="relative flex min-h-0 flex-1 flex-col">
+        {/* 스크롤은 컨텐츠 폭 전체에서 일어나고, 본문은 그 안에서 max-w-3xl 로 중앙 정렬된다 */}
         <div ref={scrollRef} onScroll={handleScroll} className="min-h-0 flex-1 overflow-y-auto">
-          {isEmpty ? (
-            <EmptyPrompt
-              nickname={nickname}
-              seed={greetingSeed}
-              disabled={blocked}
-              onPick={(question) => {
-                setDraft(question);
-                setFocusTick((tick) => tick + 1);
-              }}
-            />
-          ) : (
-            <div className="pb-2">
-              {messages.map((message, index) => (
+          <div className={cn(COLUMN, 'flex min-h-full flex-col pb-4')}>
+            {isEmpty ? (
+              <EmptyPrompt
+                nickname={nickname}
+                seed={greetingSeed}
+                disabled={blocked}
+                onPick={(question) => {
+                  setDraft(question);
+                  setFocusTick((tick) => tick + 1);
+                }}
+              />
+            ) : (
+              messages.map((message, index) => (
                 <div
                   key={message.id}
                   // 턴과 턴 사이(봇 → 다음 유저)를 한 턴 안(유저 → 봇)보다 넓게 둔다 (§B-2)
@@ -91,19 +112,29 @@ export function RavvitConversation({ nickname }: { nickname: string | null }) {
                   {message.role === 'user' ? (
                     <UserMessageItem content={message.content} />
                   ) : (
-                    <BotMessageItem message={message} onRetry={() => void retry()} />
+                    <BotMessageItem
+                      message={message}
+                      isLast={index === messages.length - 1}
+                      streaming={isStreaming}
+                      onRegenerate={() => void regenerate()}
+                      onReveal={handleReveal}
+                      onRevealed={() => markRevealed(message.id)}
+                    />
                   )}
                 </div>
-              ))}
-            </div>
-          )}
+              ))
+            )}
+          </div>
         </div>
 
         {!stickToBottom && !isEmpty && (
           <Button
             variant="outline"
             size="sm"
-            onClick={() => setStickToBottom(true)}
+            onClick={() => {
+              setStickToBottom(true);
+              scrollToBottom();
+            }}
             className="absolute bottom-2 left-1/2 -translate-x-1/2 border-border bg-surface text-fg-secondary"
           >
             <ArrowDown className="h-4 w-4" />
@@ -112,15 +143,17 @@ export function RavvitConversation({ nickname }: { nickname: string | null }) {
         )}
       </div>
 
-      <ChatComposer
-        value={draft}
-        blocked={blocked}
-        streaming={isStreaming}
-        focusTick={focusTick}
-        onChange={setDraft}
-        onSubmit={() => void send(draft)}
-        onAbort={abort}
-      />
+      <div className={COLUMN}>
+        <ChatComposer
+          value={draft}
+          blocked={blocked}
+          streaming={isStreaming}
+          focusTick={focusTick}
+          onChange={setDraft}
+          onSubmit={() => void send(draft)}
+          onAbort={abort}
+        />
+      </div>
 
       <ConfirmModal
         open={confirmOpen}

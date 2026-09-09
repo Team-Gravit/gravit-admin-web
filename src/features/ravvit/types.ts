@@ -30,6 +30,8 @@ export interface BotMessage {
   usage: ChatUsage | null;
   /** SSE error 의 message 원문. 얻지 못한 실패는 null → 화면이 기본 문구를 쓴다. */
   errorMessage: string | null;
+  /** 타이핑 연출을 이미 끝냈는지. 재렌더·재진입 시 지난 답변이 다시 타이핑되지 않게 한다. */
+  revealed: boolean;
 }
 
 export type ChatMessage = UserMessage | BotMessage;

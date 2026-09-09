@@ -30,6 +30,8 @@ interface RavvitState {
   messages: ChatMessage[];
   /** 서버가 준 불투명 값. 읽거나 가공하지 않고 다음 요청에 그대로 회신만 한다 (D8-2). */
   history: ChatHistory;
+  /** 직전 턴을 보낼 때 사용한 history 스냅샷. 재생성이 이 값으로 되돌린다. */
+  pendingHistory: ChatHistory;
   service: ServiceStatus;
   isStreaming: boolean;
   lastQuestion: string | null;
@@ -40,7 +42,9 @@ interface RavvitState {
   setDraft: (value: string) => void;
   checkService: () => Promise<void>;
   send: (question: string) => Promise<void>;
-  retry: () => Promise<void>;
+  /** 직전 답변을 걷어내고 같은 질문을 다시 보낸다. 실패 재시도·정상 답변 재생성 공용. */
+  regenerate: () => Promise<void>;
+  markRevealed: (id: string) => void;
   abort: () => void;
   reset: () => void;
 }
@@ -63,10 +67,12 @@ export const useRavvitStore = create<RavvitState>((set, get) => {
           answer: null,
           usage: null,
           errorMessage: null,
+          revealed: false,
         },
       ],
       isStreaming: true,
       lastQuestion: question,
+      pendingHistory: historyAtSend,
     }));
 
     controller = new AbortController();
@@ -131,6 +137,7 @@ export const useRavvitStore = create<RavvitState>((set, get) => {
   return {
     messages: [],
     history: [],
+    pendingHistory: [],
     service: 'checking',
     isStreaming: false,
     lastQuestion: null,
@@ -159,16 +166,22 @@ export const useRavvitStore = create<RavvitState>((set, get) => {
       await runTurn(trimmed);
     },
 
-    // 직전 질문을 같은 history 로 재전송. 실패한 봇 메시지만 걷어내고 유저 메시지는 남긴다.
-    retry: async () => {
-      const { lastQuestion, isStreaming, messages } = get();
+    // 마지막 봇 메시지만 걷어내고 같은 질문을 다시 보낸다(유저 메시지는 남긴다).
+    // history 를 턴 이전 스냅샷으로 되돌리는 것이 핵심 — 현재 history 로 보내면
+    // 방금 받은 답변이 맥락에 섞여 '재생성'이 아니라 '이어서 답하기'가 된다.
+    regenerate: async () => {
+      const { lastQuestion, isStreaming, messages, pendingHistory } = get();
       if (!lastQuestion || isStreaming) return;
       const last = messages[messages.length - 1];
-      const pruned =
-        last && last.role === 'assistant' && last.status !== 'done' ? messages.slice(0, -1) : messages;
-      set({ messages: pruned });
+      if (!last || last.role !== 'assistant') return;
+      set({ messages: messages.slice(0, -1), history: pendingHistory });
       await runTurn(lastQuestion);
     },
+
+    markRevealed: (id) =>
+      set((s) => ({
+        messages: patchBot(s.messages, id, (b) => ({ ...b, revealed: true })),
+      })),
 
     abort: () => controller?.abort(),
 
@@ -177,6 +190,7 @@ export const useRavvitStore = create<RavvitState>((set, get) => {
       set({
         messages: [],
         history: [],
+        pendingHistory: [],
         lastQuestion: null,
         draft: '',
         greetingSeed: Math.floor(Math.random() * 1000),
