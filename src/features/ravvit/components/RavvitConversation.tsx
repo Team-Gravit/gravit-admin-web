@@ -74,13 +74,13 @@ export function RavvitConversation({ nickname }: { nickname: string | null }) {
       <div className={cn(COLUMN, 'flex justify-end pb-2')}>
         <Button
           variant="ghost"
-          size="icon"
-          aria-label="대화 초기화"
+          size="sm"
           disabled={isEmpty || isStreaming}
           onClick={() => setConfirmOpen(true)}
           className="text-fg-secondary"
         >
           <RotateCcw className="h-4 w-4" />
+          새 채팅
         </Button>
       </div>
 
@@ -158,9 +158,9 @@ export function RavvitConversation({ nickname }: { nickname: string | null }) {
       <ConfirmModal
         open={confirmOpen}
         onOpenChange={setConfirmOpen}
-        title="대화를 초기화하시겠습니까?"
+        title="새 채팅을 시작하시겠습니까?"
         description="현재 대화 내용이 모두 삭제됩니다."
-        confirmLabel="초기화"
+        confirmLabel="새 채팅"
         onConfirm={() => {
           setConfirmOpen(false);
           reset();

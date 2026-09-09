@@ -55,7 +55,8 @@ export function ChatComposer({
   return (
     <div
       className={cn(
-        'mt-4 flex items-end gap-2 rounded-md border border-border p-2',
+        // rounded-xl = 입력 박스 라운드. 조절하려면 이 클래스를 바꾼다(md → lg → xl → 2xl → full).
+        'mt-4 flex items-end gap-2 rounded-xl border border-border p-1.5',
         disabled ? 'bg-hover' : 'bg-surface',
       )}
     >
@@ -77,7 +78,7 @@ export function ChatComposer({
           size="icon"
           aria-label="응답 중단"
           onClick={onAbort}
-          className="shrink-0 border-border text-fg-secondary"
+          className="h-8 w-8 shrink-0 border-border text-fg-secondary"
         >
           <Square className="h-4 w-4" />
         </Button>
@@ -88,7 +89,7 @@ export function ChatComposer({
           aria-label="전송"
           disabled={blocked || value.trim().length === 0}
           onClick={onSubmit}
-          className="shrink-0 bg-primary hover:bg-primary-hover disabled:text-fg-disabled"
+          className="h-8 w-8 shrink-0 bg-primary hover:bg-primary-hover disabled:text-fg-disabled"
         >
           <Send className="h-4 w-4" />
         </Button>
