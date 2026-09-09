@@ -18,7 +18,8 @@ export default defineConfig(({ mode }) => {
       // 동일 출처가 되어 CORS 가 사라지고, `VITE_RAVVIT_API_BASE=/ravvit-api` 하나로 로컬·운영이 통일된다.
       proxy: {
         '/ravvit-api': {
-          target: env.VITE_RAVVIT_ORIGIN ?? 'http://localhost:8000',
+          // 로컬에 챗봇을 띄운 경우 VITE_RAVVIT_ORIGIN=http://localhost:8000 으로 덮어쓴다
+          target: env.VITE_RAVVIT_ORIGIN ?? 'https://gravit-chatbot-sepia.vercel.app',
           changeOrigin: true,
           rewrite: (path) => path.replace(/^\/ravvit-api/, '/api'),
         },
