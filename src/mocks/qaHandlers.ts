@@ -4,10 +4,13 @@ import {
   TEST_CATALOG,
   buildChecklist,
   cellsFor,
+  isCellEditable,
   progressOf,
+  seedHistory,
   toChecklistResponse,
   toItemResponse,
   type MockBlock,
+  type MockHistory,
   type MockItem,
 } from '@/mocks/qaChecklist';
 
@@ -20,6 +23,7 @@ import {
  *   401once → 첫 QA 요청만 401(토큰 만료) — 공유 재발급 후 1회 재시도 경로 확인용
  *   retrywait → 실행 중인 준비 작업을 '재시도 대기(QUEUED + nextRunAt)' 로 보여 준다
  *   stale → 항목·셀 변경과 체크리스트 확정을 409(다른 운영자가 먼저 변경)로 실패시킨다
+ * 스프린트 종료는 미검수 셀이 남아 있으면 409.
  * 체크리스트(qaChecklist.ts): 분류 검토 #3 · 체크 진행 #2 · 종료 #1 픽스처, 준비가 끝난 스프린트는 새 초안.
  *   진행률·다음 할 일은 셀에서 다시 계산한다. 자동 분류 테스트 ID 는 TEST_CATALOG 에 있어야 한다(아니면 422).
  * 준비 작업은 GET /jobs/:id 를 받을 때마다 한 단계씩 진행한다(INTERPRET 은 13개씩). 끝나면 스프린트가 REVIEW 로 바뀐다.
@@ -517,6 +521,11 @@ const checklists = new Map<number, MockBlock[]>([
   [1, buildChecklist(1, 'closed')],
 ]);
 let nextItemId = 50_001;
+/** 셀 변경 이력 — key `${itemId}:${part}`, 최신순 */
+const histories = new Map<string, MockHistory[]>([
+  ...seedHistory(checklists.get(2) ?? []),
+  ...seedHistory(checklists.get(1) ?? []),
+]);
 
 /** 체크리스트가 있는 스프린트의 진행률·다음 할 일을 셀에서 다시 계산한다. */
 function syncSprint(sprint: MockSprint) {
@@ -911,5 +920,82 @@ export const qaHandlers = [
     const autoRun =
       autoItems.length > 0 && body.startAutoRun !== false ? { id: 77, status: 'QUEUED' } : null;
     return HttpResponse.json({ sprint, autoRun });
+  }),
+
+  // #12 updateCheckCell — 체크 진행 중·수동 셀·version 일치일 때만. 자동 판정·해당 없음 셀은 422
+  http.put(`${QA}/checklist-items/:itemId/cells/:part`, async ({ params, request }) => {
+    await delay();
+    const failure = forcedFailure() ?? staleFailure();
+    if (failure) return failure;
+    const found = findItem(Number(params.itemId));
+    const sprint = found && sprints.find((s) => s.id === found.sprintId);
+    const cell = found?.item.cells.find((c) => c.part === params.part);
+    if (!found || !sprint || !cell)
+      return errorResponse(404, 'CELL_NOT_FOUND', '셀을 찾을 수 없습니다.');
+    const body = (await request.json()) as {
+      state: 'UNCHECKED' | 'PASS' | 'FAIL';
+      version: number;
+    };
+    if (sprint.status !== 'IN_PROGRESS' || body.version !== cell.version) {
+      return errorResponse(409, 'VERSION_CONFLICT', '다른 사용자가 먼저 변경했습니다.');
+    }
+    if (!isCellEditable(sprint.status, found.item, cell)) {
+      return errorResponse(422, 'CELL_NOT_EDITABLE', '자동 판정 셀이거나 해당 없음 셀입니다.');
+    }
+    const key = `${cell.itemId}:${cell.part}`;
+    const changedAt = nowKst();
+    histories.set(key, [
+      {
+        fromState: cell.state,
+        toState: body.state,
+        source: 'MANUAL',
+        changedBy: 1002,
+        autoRunId: null,
+        changedAt,
+      },
+      ...(histories.get(key) ?? []),
+    ]);
+    Object.assign(cell, {
+      state: body.state,
+      updatedBy: 1002,
+      updatedAt: changedAt,
+      version: cell.version + 1,
+    });
+    syncSprint(sprint);
+    return HttpResponse.json({
+      ...cell,
+      editable: isCellEditable(sprint.status, found.item, cell),
+    });
+  }),
+
+  // #13 listCheckCellHistory — 최신순
+  http.get(`${QA}/checklist-items/:itemId/cells/:part/history`, async ({ params }) => {
+    await delay();
+    const failure = forcedFailure();
+    if (failure) return failure;
+    if (!findItem(Number(params.itemId))) {
+      return errorResponse(404, 'ITEM_NOT_FOUND', '항목을 찾을 수 없습니다.');
+    }
+    return HttpResponse.json(
+      histories.get(`${String(params.itemId)}:${String(params.part)}`) ?? [],
+    );
+  }),
+
+  // #4 closeSprint — 미검수가 남았거나 version 불일치면 409
+  http.post(`${QA}/sprints/:sprintId/close`, async ({ params, request }) => {
+    await delay();
+    const failure = forcedFailure() ?? staleFailure();
+    if (failure) return failure;
+    const sprint = sprints.find((s) => s.id === Number(params.sprintId));
+    if (!sprint) return errorResponse(404, 'SPRINT_NOT_FOUND', '스프린트를 찾을 수 없습니다.');
+    const body = (await request.json()) as { version: number };
+    syncSprint(sprint);
+    const unchecked = sprint.progress.some((p) => p.unchecked > 0);
+    if (sprint.status !== 'IN_PROGRESS' || body.version !== sprint.version || unchecked) {
+      return errorResponse(409, 'CLOSE_NOT_ALLOWED', '종료할 수 없는 상태입니다.');
+    }
+    sprint.closedAt = nowKst();
+    setSprintStatus(sprint, 'CLOSED');
+    return HttpResponse.json(sprint);
   }),
 ];

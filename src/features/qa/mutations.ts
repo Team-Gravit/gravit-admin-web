@@ -9,17 +9,27 @@ import { showErrorToast } from '@/shared/api/errorHandler';
 import { QaApiError } from '@/shared/api/qaClient';
 import {
   cancelJob,
+  closeSprint,
   confirmChecklist,
   createChecklistItem,
   createSprint,
   startSetupJob,
+  updateCheckCell,
   updateChecklistItem,
   type ChecklistItemCreateBody,
   type ChecklistItemUpdateBody,
 } from '@/features/qa/api';
 import { qaKeys } from '@/features/qa/queries';
 import { ERROR_COPY, TOAST_COPY } from '@/features/qa/copy';
-import type { Checklist, ChecklistItem, Job, Sprint } from '@/features/qa/schemas';
+import type {
+  CellState,
+  CheckCell,
+  Checklist,
+  ChecklistItem,
+  Job,
+  Part,
+  Sprint,
+} from '@/features/qa/schemas';
 
 /**
  * 스프린트 등록. 404·409·400 은 모달 입력 아래에 표시하므로(QA_SPEC A-3) 전역 토스트를 끈다 —
@@ -217,6 +227,85 @@ export function useConfirmChecklist(sprintId: number) {
       if (error instanceof QaApiError && error.status === 409) {
         void queryClient.invalidateQueries({ queryKey: qaKeys.sprint(sprintId) });
         void queryClient.invalidateQueries({ queryKey: qaKeys.checklist(sprintId) });
+      }
+    },
+  });
+}
+
+// ---------- 체크 셀·스프린트 종료 (A-2 #12·#4) ----------
+
+/** 응답 셀로 그 셀만 바꾼다 (결정 #10 — 낙관적 갱신 없음). */
+function withCell(checklist: Checklist | undefined, cell: CheckCell): Checklist | undefined {
+  if (!checklist) return checklist;
+  return {
+    ...checklist,
+    features: checklist.features.map((f) => ({
+      ...f,
+      items: f.items.map((i) =>
+        i.id !== cell.itemId
+          ? i
+          : { ...i, cells: i.cells.map((c) => (c.part === cell.part ? cell : c)) },
+      ),
+    })),
+  };
+}
+
+/**
+ * 셀 상태 변경 (A-2 #12, QA_SPEC B-4·결정 #10). 셀마다 이 훅을 써서 요청 중 스피너가 그 셀에만 돈다.
+ * 성공 → 응답 셀로 그 셀만 갱신 + 스프린트 무효화(진행률·안내) + 그 셀 이력 무효화.
+ * 409 → STALE + 체크리스트 다시 조회. 422(자동 판정·해당 없음 셀 — 정상 흐름에서는 없음) → 다시 조회 + 오류 토스트.
+ */
+export function useUpdateCheckCell(sprintId: number) {
+  const queryClient = useQueryClient();
+  return useMutation({
+    mutationFn: ({
+      itemId,
+      part,
+      state,
+      version,
+    }: {
+      itemId: number;
+      part: Part;
+      state: Exclude<CellState, 'NOT_APPLICABLE'>;
+      version: number;
+    }) => updateCheckCell(itemId, part, { state, version }),
+    meta: { skipGlobalErrorToast: true },
+    onSuccess: (cell) => {
+      queryClient.setQueryData<Checklist>(qaKeys.checklist(sprintId), (prev) =>
+        withCell(prev, cell),
+      );
+      void queryClient.invalidateQueries({ queryKey: qaKeys.sprint(sprintId) });
+      void queryClient.invalidateQueries({ queryKey: qaKeys.sprintLists() });
+      void queryClient.invalidateQueries({ queryKey: qaKeys.cellHistory(cell.itemId, cell.part) });
+    },
+    onError: (error) => {
+      if (error instanceof QaApiError && error.status === 422) {
+        void queryClient.invalidateQueries({ queryKey: qaKeys.checklist(sprintId) });
+        showErrorToast(error);
+        return;
+      }
+      handleItemMutationError(queryClient, sprintId, error);
+    },
+  });
+}
+
+/**
+ * 스프린트 종료 (A-2 #4). 성공 → 응답 sprint 로 캐시 갱신, 체크리스트 다시 조회(셀 읽기 전용), F-6 토스트.
+ * 409 → 스프린트를 다시 조회해 guide.blockers 가 막힌 이유를 보여 주게 한다(A-3). 오류 문구는 전역 토스트.
+ */
+export function useCloseSprint(sprintId: number) {
+  const queryClient = useQueryClient();
+  return useMutation({
+    mutationFn: (version: number) => closeSprint(sprintId, version),
+    onSuccess: (sprint) => {
+      queryClient.setQueryData(qaKeys.sprint(sprintId), sprint);
+      void queryClient.invalidateQueries({ queryKey: qaKeys.checklist(sprintId) });
+      void queryClient.invalidateQueries({ queryKey: qaKeys.sprintLists() });
+      toast.success(TOAST_COPY.SPRINT_CLOSED);
+    },
+    onError: (error) => {
+      if (error instanceof QaApiError && error.status === 409) {
+        void queryClient.invalidateQueries({ queryKey: qaKeys.sprint(sprintId) });
       }
     },
   });

@@ -1,11 +1,16 @@
 import { parseQaResponse, qaApiClient } from '@/shared/api/qaClient';
 import {
+  checkCellHistoryListSchema,
+  checkCellSchema,
   checklistConfirmResponseSchema,
   checklistItemSchema,
   checklistSchema,
   jobSchema,
   sprintListResponseSchema,
   sprintSchema,
+  type CellState,
+  type CheckCell,
+  type CheckCellHistory,
   type Checklist,
   type ChecklistConfirmResponse,
   type ChecklistItem,
@@ -112,4 +117,29 @@ export async function confirmChecklist(
 ): Promise<ChecklistConfirmResponse> {
   const res = await qaApiClient.post(`/sprints/${sprintId}/checklist/confirm`, body);
   return parseQaResponse(checklistConfirmResponseSchema, res);
+}
+
+/** #4 closeSprint — version = 스프린트 version. 미검수가 남는 등 종료할 수 없으면 409. */
+export async function closeSprint(sprintId: number, version: number): Promise<Sprint> {
+  const res = await qaApiClient.post(`/sprints/${sprintId}/close`, { version });
+  return parseQaResponse(sprintSchema, res);
+}
+
+/** #12 updateCheckCell — version = 셀 version. 사람이 고를 수 있는 상태는 미검수·PASS·FAIL. */
+export async function updateCheckCell(
+  itemId: number,
+  part: Part,
+  body: { state: Exclude<CellState, 'NOT_APPLICABLE'>; version: number },
+): Promise<CheckCell> {
+  const res = await qaApiClient.put(`/checklist-items/${itemId}/cells/${part}`, body);
+  return parseQaResponse(checkCellSchema, res);
+}
+
+/** #13 listCheckCellHistory — 최신순. */
+export async function listCheckCellHistory(
+  itemId: number,
+  part: Part,
+): Promise<CheckCellHistory[]> {
+  const res = await qaApiClient.get(`/checklist-items/${itemId}/cells/${part}/history`);
+  return parseQaResponse(checkCellHistoryListSchema, res);
 }

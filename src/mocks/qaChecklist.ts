@@ -520,3 +520,32 @@ export function cellsFor(
     };
   });
 }
+
+// ---------- 셀 변경 이력 ----------
+export interface MockHistory {
+  fromState: CellState;
+  toState: CellState;
+  source: 'MANUAL' | 'AUTO';
+  changedBy: number | null;
+  autoRunId: number | null;
+  changedAt: string;
+}
+
+/** 이미 체크된 셀마다 '미검수 → 지금 상태' 이력 1건을 만든다(최신순으로 쌓는다). */
+export function seedHistory(blocks: MockBlock[]): Map<string, MockHistory[]> {
+  const map = new Map<string, MockHistory[]>();
+  for (const cell of blocks.flatMap((b) => b.items).flatMap((i) => i.cells)) {
+    if (cell.state === 'UNCHECKED' || cell.state === 'NOT_APPLICABLE' || !cell.updatedAt) continue;
+    map.set(`${cell.itemId}:${cell.part}`, [
+      {
+        fromState: 'UNCHECKED',
+        toState: cell.state,
+        source: cell.source,
+        changedBy: cell.source === 'AUTO' ? null : cell.updatedBy,
+        autoRunId: cell.autoRunId,
+        changedAt: cell.updatedAt,
+      },
+    ]);
+  }
+  return map;
+}

@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { Outlet, useLocation, useNavigate, useParams } from 'react-router';
 import { ROUTES } from '@/shared/constants/routes';
 import { useSetBreadcrumb, type Crumb } from '@/shared/hooks/useBreadcrumb';
@@ -6,6 +7,7 @@ import { LoadingSkeleton } from '@/shared/components/states/LoadingSkeleton';
 import { useSprint } from '@/features/qa/queries';
 import { useIsStartingSetupJob, useStartSetupJob } from '@/features/qa/mutations';
 import { SprintHeader } from '@/features/qa/components/SprintHeader';
+import { CloseSprintModal } from '@/features/qa/components/CloseSprintModal';
 import { qaErrorView } from '@/features/qa/errorView';
 import {
   OPEN_CONFIRM_STATE,
@@ -18,7 +20,7 @@ import type { NextActionCode } from '@/features/qa/copy';
 /**
  * 배너 버튼이 향하는 하위 화면 (QA_SPEC F-1). 없으면 버튼 없음.
  * CONFIRM_CHECKLIST 는 분류 검토 화면으로 가서 확정 모달을 연다(라우터 state).
- * CLOSE_SPRINT(종료 모달)는 QA_CHECKLIST 항목에서 연결한다.
+ * CLOSE_SPRINT 는 화면 이동이 아니라 종료 모달을 연다 — 종료로 가는 유일한 입구라 어느 하위 화면에서도 숨기지 않는다(B-4).
  */
 const ACTION_TARGET: Partial<Record<NextActionCode, SprintScreen>> = {
   START_SETUP: 'setup',
@@ -38,6 +40,7 @@ export function QaSprintLayout() {
   const { data: sprint, isLoading, isError, error, refetch } = useSprint(id);
   const startSetup = useStartSetupJob(id);
   const starting = useIsStartingSetupJob(id);
+  const [closeOpen, setCloseOpen] = useState(false);
 
   const current = SPRINT_SCREENS.find((s) => s.to(id) === pathname) ?? null;
   const crumbs: Crumb[] = [{ label: 'QA', href: ROUTES.QA_SPRINTS }];
@@ -56,11 +59,13 @@ export function QaSprintLayout() {
 
   // 이미 그 화면이면 이동 버튼은 의미가 없으므로 숨긴다(QA 준비하기는 준비 화면의 자체 버튼이 맡는다).
   const canAct = (code: NextActionCode) => {
+    if (code === 'CLOSE_SPRINT') return true;
     const target = ACTION_TARGET[code];
     return target !== undefined && target !== current?.key;
   };
 
   const onAction = (code: NextActionCode) => {
+    if (code === 'CLOSE_SPRINT') return setCloseOpen(true);
     const target = ACTION_TARGET[code];
     if (!target) return;
     if (code === 'START_SETUP') startSetup.mutate();
@@ -74,6 +79,7 @@ export function QaSprintLayout() {
     <div className="flex flex-col gap-6">
       <SprintHeader sprint={sprint} canAct={canAct} onAction={onAction} actionPending={starting} />
       <Outlet />
+      {closeOpen && <CloseSprintModal sprint={sprint} onClose={() => setCloseOpen(false)} />}
     </div>
   );
 }

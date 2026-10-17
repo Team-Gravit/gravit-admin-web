@@ -1,8 +1,14 @@
 import { useEffect, useRef } from 'react';
 import { keepPreviousData, useQuery, useQueryClient } from '@tanstack/react-query';
 import { qaQueryRetry } from '@/shared/api/qaClient';
-import { getChecklist, getJob, getSprint, listSprints } from '@/features/qa/api';
-import type { JobStatus, SprintStatus } from '@/features/qa/schemas';
+import {
+  getChecklist,
+  getJob,
+  getSprint,
+  listCheckCellHistory,
+  listSprints,
+} from '@/features/qa/api';
+import type { JobStatus, Part, SprintStatus } from '@/features/qa/schemas';
 
 export const qaKeys = {
   all: ['qa'] as const,
@@ -13,6 +19,8 @@ export const qaKeys = {
   sprint: (sprintId: number) => [...qaKeys.sprints(), sprintId] as const,
   job: (jobId: number) => [...qaKeys.all, 'jobs', jobId] as const,
   checklist: (sprintId: number) => [...qaKeys.all, 'checklists', sprintId] as const,
+  cellHistory: (itemId: number, part: Part) =>
+    [...qaKeys.all, 'cellHistory', itemId, part] as const,
 };
 
 /** 작업 polling 간격 (QA_SPEC 결정 #7). */
@@ -81,6 +89,16 @@ export function useChecklist(sprintId: number, enabled: boolean) {
     queryKey: qaKeys.checklist(sprintId),
     queryFn: () => getChecklist(sprintId),
     enabled: enabled && Number.isFinite(sprintId),
+    retry: qaQueryRetry,
+  });
+}
+
+/** 셀 변경 이력 (A-2 #13) — 이력 모달이 열릴 때만 부른다. */
+export function useCellHistory(itemId: number, part: Part, enabled: boolean) {
+  return useQuery({
+    queryKey: qaKeys.cellHistory(itemId, part),
+    queryFn: () => listCheckCellHistory(itemId, part),
+    enabled,
     retry: qaQueryRetry,
   });
 }

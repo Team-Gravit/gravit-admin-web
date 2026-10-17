@@ -1,5 +1,6 @@
 import type { BadgeVariant } from '@/shared/constants/badgeVariants';
 import type {
+  CellState,
   Classification,
   ClassificationCriteria,
   ItemOrigin,
@@ -183,4 +184,22 @@ export const SPEC_STATUS_BADGE_VARIANT: Record<SpecStatus, BadgeVariant> = {
 export const CLASSIFICATION_BADGE_VARIANT: Record<Classification, BadgeVariant> = {
   AUTO: 'info',
   MANUAL: 'muted',
+};
+
+// ---------- 체크리스트 (A-1) ----------
+export const CELL_STATE_LABELS: Record<CellState, string> = {
+  UNCHECKED: '미검수',
+  PASS: 'PASS',
+  FAIL: 'FAIL',
+  NOT_APPLICABLE: '해당 없음',
+};
+
+/** 셀 톤 (QA_SPEC C절): PASS = success, FAIL = danger, 미검수 = neutral, 해당 없음 = 표시만(-). */
+export const CELL_STATE_BADGE_VARIANT: Record<
+  Exclude<CellState, 'NOT_APPLICABLE'>,
+  BadgeVariant
+> = {
+  UNCHECKED: 'muted',
+  PASS: 'success',
+  FAIL: 'danger',
 };

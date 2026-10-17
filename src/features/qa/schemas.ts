@@ -147,6 +147,18 @@ export const checkCellSchema = z.object({
   version: z.number(),
 });
 
+/** 셀 변경 이력 (A-2 #13) — 최신순. changedBy 가 null 이면 자동 실행. */
+export const checkCellHistorySchema = z.object({
+  fromState: cellStateSchema,
+  toState: cellStateSchema,
+  source: cellSourceSchema,
+  changedBy: z.number().nullable(),
+  autoRunId: z.number().nullable(),
+  changedAt: z.string(),
+});
+
+export const checkCellHistoryListSchema = z.array(checkCellHistorySchema);
+
 const criterionSchema = z.object({ met: z.boolean(), reason: z.string() });
 
 /** 분류 기준 5개 (A-1). */
@@ -290,6 +302,7 @@ export type ReviewState = z.infer<typeof reviewStateSchema>;
 export type ItemOrigin = z.infer<typeof itemOriginSchema>;
 export type SpecStatus = z.infer<typeof specStatusSchema>;
 export type CheckCell = z.infer<typeof checkCellSchema>;
+export type CheckCellHistory = z.infer<typeof checkCellHistorySchema>;
 export type ClassificationCriteria = z.infer<typeof classificationCriteriaSchema>;
 export type ChecklistItem = z.infer<typeof checklistItemSchema>;
 export type Feature = z.infer<typeof featureSchema>;
