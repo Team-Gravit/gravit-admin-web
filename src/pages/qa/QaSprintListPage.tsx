@@ -132,7 +132,7 @@ export function QaSprintListPage() {
         isError={isError}
         errorMessage={errorView.message}
         onRetry={errorView.retryable ? () => refetch() : undefined}
-        emptyMessage={isFiltered ? '조건에 맞는 스프린트가 없습니다.' : NOTICE_COPY.EMPTY_SPRINTS}
+        emptyMessage={isFiltered ? NOTICE_COPY.EMPTY_FILTERED : NOTICE_COPY.EMPTY_SPRINTS}
         emptyAction={
           isFiltered ? undefined : (
             <Button onClick={() => setCreateOpen(true)}>

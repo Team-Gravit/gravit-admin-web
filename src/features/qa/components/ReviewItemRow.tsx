@@ -15,6 +15,9 @@ import {
 } from '@/features/qa/labels';
 import type { ChecklistItem } from '@/features/qa/schemas';
 
+/** expected 가 이 표기로 시작하면 근거 없는 항목이다(QA_SPEC B-3). */
+const NO_BASIS_PREFIX = '근거 없음(';
+
 interface ReviewItemRowProps {
   item: ChecklistItem;
   /** REVIEW 상태에서만 true — 아니면 읽기 전용(B-3) */
@@ -50,6 +53,10 @@ export function ReviewItemRow({
             {REVIEW_STATE_LABELS[item.reviewState]}
           </StatusBadge>
           <span className="text-body font-medium text-foreground">{item.title}</span>
+          {/* 서버가 붙인 표기(명세 확인 필요·Figma 프레임 없음) — 경고 톤 태그 (B-3) */}
+          {item.expected.startsWith(NO_BASIS_PREFIX) && (
+            <StatusBadge variant="warning">근거 없음</StatusBadge>
+          )}
         </div>
 
         <button

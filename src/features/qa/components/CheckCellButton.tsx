@@ -32,7 +32,8 @@ interface CheckCellButtonProps {
 /**
  * 체크 셀 (QA_SPEC B-4).
  * - 해당 없음: `-`, 비활성
- * - editable = false(자동 판정·종료): 상태만, 비활성, 툴팁 CELL_LOCKED_AUTO / CELL_LOCKED_CLOSED
+ * - editable = false(자동 판정·종료): 상태 변경 불가, 툴팁 CELL_LOCKED_AUTO / CELL_LOCKED_CLOSED.
+ *   클릭하면 `변경 이력` 만 있는 메뉴(이력 조회는 셀 잠금과 무관)
  * - editable = true: 버튼 → 메뉴(미검수·PASS·FAIL, 구분선, 변경 이력), 현재 상태에 체크.
  *   선택하면 PUT { state, version } — 낙관적 갱신 없이 응답으로 그 셀만 바꾼다(결정 #10). 요청 중 스피너.
  * Tab 으로 이동, Enter 로 메뉴 열기는 dropdown-menu 기본 동작.
@@ -61,24 +62,15 @@ export function CheckCellButton({
   const label = CELL_STATE_LABELS[cell.state];
   const badge = <StatusBadge variant={CELL_STATE_BADGE_VARIANT[cell.state]}>{label}</StatusBadge>;
 
-  if (closed || !cell.editable) {
-    const tip = closed
+  // 잠긴 셀(자동 판정·종료·편집 불가)도 이력은 볼 수 있다 — 메뉴에 `변경 이력` 만 둔다(B-4)
+  const locked = closed || !cell.editable;
+  const tip = !locked
+    ? undefined
+    : closed
       ? NOTICE_COPY.CELL_LOCKED_CLOSED
       : cell.source === 'AUTO'
         ? NOTICE_COPY.CELL_LOCKED_AUTO
         : undefined;
-    // 편집 셀과 같은 틀(패딩 + 화살표 자리)로 열 안 정렬을 맞춘다
-    return (
-      <span
-        title={tip}
-        aria-label={`${PART_LABELS[cell.part]} ${label}`}
-        className="inline-flex cursor-not-allowed items-center gap-1 px-1.5 py-1"
-      >
-        {badge}
-        <span className="size-3.5" aria-hidden />
-      </span>
-    );
-  }
 
   return (
     <>
@@ -87,9 +79,10 @@ export function CheckCellButton({
           <button
             ref={registerRef}
             type="button"
+            title={tip}
             onFocus={onFocusCell}
             aria-busy={update.isPending}
-            aria-label={`${PART_LABELS[cell.part]} ${label} — 변경`}
+            aria-label={`${PART_LABELS[cell.part]} ${label} — ${locked ? '변경 이력' : '변경'}`}
             className="inline-flex items-center gap-1 rounded-md px-1.5 py-1 transition-colors hover:bg-hover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring aria-busy:opacity-50"
           >
             {update.isPending && <Loader2 className="size-3.5 animate-spin text-fg-muted" />}
@@ -98,19 +91,28 @@ export function CheckCellButton({
           </button>
         </DropdownMenuTrigger>
         <DropdownMenuContent align="center">
-          {CHOICES.map((state) => (
-            <DropdownMenuCheckboxItem
-              key={state}
-              checked={cell.state === state}
-              onCheckedChange={() => {
-                if (state === cell.state) return;
-                update.mutate({ itemId: item.id, part: cell.part, state, version: cell.version });
-              }}
-            >
-              {CELL_STATE_LABELS[state]}
-            </DropdownMenuCheckboxItem>
-          ))}
-          <DropdownMenuSeparator />
+          {!locked && (
+            <>
+              {CHOICES.map((state) => (
+                <DropdownMenuCheckboxItem
+                  key={state}
+                  checked={cell.state === state}
+                  onCheckedChange={() => {
+                    if (state === cell.state) return;
+                    update.mutate({
+                      itemId: item.id,
+                      part: cell.part,
+                      state,
+                      version: cell.version,
+                    });
+                  }}
+                >
+                  {CELL_STATE_LABELS[state]}
+                </DropdownMenuCheckboxItem>
+              ))}
+              <DropdownMenuSeparator />
+            </>
+          )}
           <DropdownMenuItem onSelect={() => setHistoryOpen(true)}>변경 이력</DropdownMenuItem>
         </DropdownMenuContent>
       </DropdownMenu>

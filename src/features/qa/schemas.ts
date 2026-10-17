@@ -1,4 +1,5 @@
 import { z } from 'zod';
+import { NOTICE_COPY } from '@/features/qa/copy';
 
 /**
  * QA(gravit-qa) 응답·폼 스키마 (decisions D9, QA_SPEC A-1·A-2).
@@ -200,34 +201,10 @@ export const featureSchema = z.object({
   figmaNodeIds: z.array(z.string()),
 });
 
-/**
- * 경고 (decisions D9-5, QA_SPEC G2 — 사용자 결정 2026-10-17: 두 형태 모두 받는다).
- * 서버 C4 브랜치는 경고 코드 문자열, QA_SPEC A-2 는 `ReportWarning{code, message, screenId}`.
- * 어느 쪽이 와도 `{ code, message, screenId }` 로 맞춘다. 서버가 확정되면 다른 쪽 분기를 걷어낸다.
- */
-export interface ChecklistWarning {
-  code: string;
-  /** 서버 문구. 코드 문자열로 왔으면 null. */
-  message: string | null;
-  screenId: string | null;
-}
-
-const reportWarningSchema = z.object({
-  code: z.string(),
-  message: z.string(),
-  screenId: z.string().nullable(),
-});
-
-export const checklistWarningSchema = z.union([
-  z.string().transform((code): ChecklistWarning => ({ code, message: null, screenId: null })),
-  reportWarningSchema.transform(
-    ({ code, message, screenId }): ChecklistWarning => ({ code, message, screenId }),
-  ),
-]);
-
 export const checklistFeatureSchema = z.object({
   feature: featureSchema,
-  warnings: z.array(checklistWarningSchema),
+  /** 경고 코드 문자열 배열(기능 안 중복 제거). 메시지는 오지 않는다 — 문구는 F-3, 표에 없으면 코드 원문(A-2). */
+  warnings: z.array(z.string()),
   items: z.array(checklistItemSchema),
 });
 
@@ -249,8 +226,8 @@ export const sprintCreateFormSchema = z.object({
   notionPageUrl: z
     .string()
     .trim()
-    .min(1, 'Notion 스프린트 페이지 URL을 입력하세요.')
-    .url('URL 형식이 올바르지 않습니다.'),
+    .min(1, NOTICE_COPY.VALIDATION_URL_REQUIRED)
+    .url(NOTICE_COPY.VALIDATION_URL_FORMAT),
 });
 
 /** 페르소나 Select 의 '없음' 값(Radix Select 는 빈 문자열 값을 쓸 수 없다). 전송 시 null. */
@@ -262,9 +239,9 @@ export const PERSONA_NONE = 'NONE';
  */
 export const checklistItemFormSchema = z
   .object({
-    title: z.string().trim().min(1, '제목을 입력하세요.'),
-    expected: z.string().trim().min(1, '기대 결과를 입력하세요.'),
-    parts: z.array(partSchema).min(1, '파트를 1개 이상 선택하세요.'),
+    title: z.string().trim().min(1, NOTICE_COPY.VALIDATION_TITLE),
+    expected: z.string().trim().min(1, NOTICE_COPY.VALIDATION_EXPECTED),
+    parts: z.array(partSchema).min(1, NOTICE_COPY.VALIDATION_PARTS),
     classification: classificationSchema,
     testRef: z.string().trim(),
     personaKey: z.string(),
@@ -274,7 +251,7 @@ export const checklistItemFormSchema = z
       ctx.addIssue({
         code: z.ZodIssueCode.custom,
         path: ['testRef'],
-        message: '자동 분류는 테스트 ID를 입력해야 합니다.',
+        message: NOTICE_COPY.VALIDATION_TEST_REF,
       });
     }
   });

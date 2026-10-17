@@ -162,7 +162,7 @@ export function ChecklistPanel({ sprint }: { sprint: Sprint }) {
           message={NOTICE_COPY.CHECKLIST_NOT_READY}
           action={
             <Button variant="outline" asChild>
-              <Link to={ROUTES.QA_SPRINT_REVIEW(sprint.id)}>분류 검토로 이동</Link>
+              <Link to={ROUTES.QA_SPRINT_REVIEW(sprint.id)}>{NOTICE_COPY.GO_REVIEW}</Link>
             </Button>
           }
         />
@@ -253,7 +253,7 @@ export function ChecklistPanel({ sprint }: { sprint: Sprint }) {
 
       {blocks.length === 0 ? (
         <div className="rounded-lg border border-border bg-surface">
-          <EmptyState message="체크 항목이 없습니다." />
+          <EmptyState message={NOTICE_COPY.EMPTY_ITEMS} />
         </div>
       ) : (
         <div className="rounded-lg border border-border bg-surface">
@@ -295,7 +295,9 @@ export function ChecklistPanel({ sprint }: { sprint: Sprint }) {
                           </code>
                           <span className="font-medium text-foreground">{feature.name}</span>
                           {rate !== null && (
-                            <span className="text-caption text-fg-muted">{rate}% 완료</span>
+                            <span className="text-caption text-fg-muted">
+                              {NOTICE_COPY.FEATURE_PROGRESS(rate)}
+                            </span>
                           )}
                           {warnings.length > 0 && (
                             <span title={warnings.map(warningText).join('\n')}>

@@ -1,5 +1,6 @@
 import type { BadgeVariant } from '@/shared/constants/badgeVariants';
 import type {
+  CellSource,
   CellState,
   Classification,
   ClassificationCriteria,
@@ -202,4 +203,10 @@ export const CELL_STATE_BADGE_VARIANT: Record<
   UNCHECKED: 'muted',
   PASS: 'success',
   FAIL: 'danger',
+};
+
+/** 셀 출처 (A-1 CellSource) — 변경 이력의 출처 표시 */
+export const CELL_SOURCE_LABELS: Record<CellSource, string> = {
+  MANUAL: '수동 체크',
+  AUTO: '자동 실행',
 };

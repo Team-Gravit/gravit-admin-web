@@ -11,8 +11,9 @@ import { EmptyState } from '@/shared/components/states/EmptyState';
 import { ErrorState } from '@/shared/components/states/ErrorState';
 import { LoadingSkeleton } from '@/shared/components/states/LoadingSkeleton';
 import { useCellHistory } from '@/features/qa/queries';
+import { NOTICE_COPY } from '@/features/qa/copy';
 import { qaErrorView } from '@/features/qa/errorView';
-import { CELL_STATE_LABELS, CLASSIFICATION_LABELS, PART_LABELS } from '@/features/qa/labels';
+import { CELL_SOURCE_LABELS, CELL_STATE_LABELS, PART_LABELS } from '@/features/qa/labels';
 import type { Part } from '@/features/qa/schemas';
 
 interface CellHistoryModalProps {
@@ -42,7 +43,7 @@ export function CellHistoryModal({ onClose, itemId, itemTitle, part }: CellHisto
       );
     }
     if (history.data.length === 0) {
-      return <EmptyState className="py-8" message="변경 이력이 없습니다." />;
+      return <EmptyState className="py-8" message={NOTICE_COPY.EMPTY_HISTORY} />;
     }
     return (
       <ol className="flex flex-col divide-y divide-border">
@@ -56,7 +57,7 @@ export function CellHistoryModal({ onClose, itemId, itemTitle, part }: CellHisto
             <div className="flex flex-wrap items-center gap-x-3 text-caption text-fg-muted">
               <span>{formatDateTime(h.changedAt)}</span>
               <span>{h.changedBy === null ? '자동 실행' : `운영자 #${h.changedBy}`}</span>
-              <span>{CLASSIFICATION_LABELS[h.source]}</span>
+              <span>{CELL_SOURCE_LABELS[h.source]}</span>
             </div>
           </li>
         ))}

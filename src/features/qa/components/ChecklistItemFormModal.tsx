@@ -26,7 +26,8 @@ import { FormField } from '@/shared/components/form/FormField';
 import { QaNotice } from '@/features/qa/components/QaNotice';
 import { useCreateChecklistItem, useUpdateChecklistItem } from '@/features/qa/mutations';
 import type { ChecklistItemUpdateBody } from '@/features/qa/api';
-import { ERROR_COPY, NOTICE_COPY, TOAST_COPY } from '@/features/qa/copy';
+import { NOTICE_COPY, TOAST_COPY } from '@/features/qa/copy';
+import { itemRuleError } from '@/features/qa/errorView';
 import {
   CLASSIFICATION_LABELS,
   PART_LABELS,
@@ -85,6 +86,9 @@ function changedFields(item: ChecklistItem, v: ChecklistItemFormValues) {
   if (!sameParts(v.parts, item.parts)) body.parts = ordered(v.parts);
   if (v.classification !== item.classification) body.classification = v.classification;
   if (v.classification === 'AUTO' && v.testRef !== (item.testRef ?? '')) body.testRef = v.testRef;
+  // 자동 → 수동이면 testRef 를 null 로 지운다 — 서버는 분류와 무관하게 null 이 아닌 testRef 를
+  // 카탈로그와 대조해, 남겨 두면 이후 수정이 422 로 실패할 수 있다(B-3). 키를 빼면 유지, null 이면 지움.
+  if (v.classification === 'MANUAL' && item.classification === 'AUTO') body.testRef = null;
   if (personaOrNull(v.personaKey) !== item.personaKey)
     body.personaKey = personaOrNull(v.personaKey);
   return body;
@@ -93,7 +97,7 @@ function changedFields(item: ChecklistItem, v: ChecklistItemFormValues) {
 /**
  * 체크 항목 추가·수정 모달 (QA_SPEC B-3).
  * 파트는 기능의 parts 에 있는 것만 고를 수 있다(G4 — 서버 거부 여부 미확정이라 화면이 막는다).
- * 422 = 테스트 카탈로그에 없는 테스트 ID → 테스트 ID 아래에 F-5 AUTO_NOT_ALLOWED.
+ * 422 = CHECKLIST_4221 → 테스트 ID 아래 F-5 AUTO_NOT_ALLOWED, CHECKLIST_4222 → 페르소나 아래 서버 message(A-3).
  * 409 = 다른 운영자가 먼저 변경 → 모달을 닫는다(체크리스트 다시 조회·STALE 토스트는 훅이 한다).
  * 열 때마다 새로 마운트한다(부모가 열린 동안만 렌더) — 캐시가 바뀌어도 입력 중인 값을 덮지 않는다.
  */
@@ -118,12 +122,11 @@ export function ChecklistItemFormModal({
   const classification = watch('classification');
 
   const onError = (error: unknown) => {
-    if (error instanceof QaApiError && error.status === 422) {
-      setError(
-        'testRef',
-        { type: 'server', message: ERROR_COPY.AUTO_NOT_ALLOWED },
-        { shouldFocus: true },
-      );
+    const rule = itemRuleError(error);
+    if (rule) {
+      if (rule.field)
+        setError(rule.field, { type: 'server', message: rule.message }, { shouldFocus: true });
+      else toast.error(rule.message);
       return;
     }
     if (error instanceof QaApiError && error.status === 409) onOpenChange(false);
@@ -281,7 +284,7 @@ export function ChecklistItemFormModal({
             </FormField>
           )}
 
-          <FormField label="페르소나">
+          <FormField label="페르소나" error={errors.personaKey?.message}>
             <Controller
               control={control}
               name="personaKey"

@@ -8,14 +8,14 @@ import {
   Loader2,
   Plus,
 } from 'lucide-react';
-import { QaApiError } from '@/shared/api/qaClient';
 import { Button } from '@/shared/components/ui/button';
 import { StatusBadge } from '@/shared/components/status-badge/StatusBadge';
 import { ChecklistItemFormModal } from '@/features/qa/components/ChecklistItemFormModal';
 import { PartChips } from '@/features/qa/components/PartChips';
 import { ReviewItemRow } from '@/features/qa/components/ReviewItemRow';
 import { useConfirmFeatureItems, useUpdateChecklistItem } from '@/features/qa/mutations';
-import { ERROR_COPY, warningText } from '@/features/qa/copy';
+import { NOTICE_COPY, warningText } from '@/features/qa/copy';
+import { itemRuleError } from '@/features/qa/errorView';
 import { SPEC_STATUS_BADGE_VARIANT, SPEC_STATUS_LABELS } from '@/features/qa/labels';
 import { figmaNodeUrl } from '@/features/qa/links';
 import type { ChecklistFeature, ChecklistItem } from '@/features/qa/schemas';
@@ -61,9 +61,9 @@ export function ReviewFeatureGroup({
       { itemId: item.id, body: { reviewState, version: item.version } },
       {
         onError: (error) => {
-          // 행 동작에는 입력란이 없으므로 422 도 토스트로 알린다
-          if (error instanceof QaApiError && error.status === 422)
-            toast.error(ERROR_COPY.AUTO_NOT_ALLOWED);
+          // 행 동작에는 입력란이 없으므로 422(A-3 코드별 문구)도 토스트로 알린다
+          const rule = itemRuleError(error);
+          if (rule) toast.error(rule.message);
         },
       },
     );
@@ -78,8 +78,8 @@ export function ReviewFeatureGroup({
       {
         // 409·그 밖은 훅이 처리한다. 입력란이 없으므로 422 만 여기서 토스트.
         onError: (error) => {
-          if (error instanceof QaApiError && error.status === 422)
-            toast.error(ERROR_COPY.AUTO_NOT_ALLOWED);
+          const rule = itemRuleError(error);
+          if (rule) toast.error(rule.message);
         },
         onSettled: () => setProgress(null),
       },
@@ -176,11 +176,8 @@ export function ReviewFeatureGroup({
 
       {warningsOpen && warnings.length > 0 && (
         <ul className="mx-6 mb-4 flex flex-col gap-1 rounded-md bg-warning-bg px-3 py-2.5">
-          {warnings.map((w, i) => (
-            <li
-              key={`${i}-${w.code}`}
-              className="flex items-start gap-1.5 text-caption text-warning-text"
-            >
+          {warnings.map((w) => (
+            <li key={w} className="flex items-start gap-1.5 text-caption text-warning-text">
               <AlertTriangle className="mt-0.5 size-3.5 shrink-0" />
               {warningText(w)}
             </li>
@@ -191,7 +188,7 @@ export function ReviewFeatureGroup({
       {/* 경고가 있어 남겨 둔 그룹 — 필터에 맞는 항목이 없음을 알린다 */}
       {!collapsed && items.length === 0 && (
         <p className="border-t border-border px-6 py-4 text-caption text-fg-muted">
-          조건에 맞는 항목이 없습니다.
+          {NOTICE_COPY.EMPTY_FILTERED}
         </p>
       )}
 

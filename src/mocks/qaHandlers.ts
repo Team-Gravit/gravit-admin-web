@@ -21,15 +21,16 @@ import {
  * 시나리오 전환 — 페이지 URL 에 `?qaMock=` 를 붙인다(그 페이지의 QA 요청 전체에 적용):
  *   empty → 스프린트 0개 / 403 → ADMIN 아님 / 503 → 인증 서버 판정 불가
  *   401once → 첫 QA 요청만 401(토큰 만료) — 공유 재발급 후 1회 재시도 경로 확인용
- *   retrywait → 실행 중인 준비 작업을 '재시도 대기(QUEUED + nextRunAt)' 로 보여 준다
+ *   retrywait → 실행 중인 준비 작업을 '재시도 대기(QUEUED + attempt >= 1 + nextRunAt)' 로 보여 준다
  *   stale → 항목·셀 변경과 체크리스트 확정을 409(다른 운영자가 먼저 변경)로 실패시킨다
  * 스프린트 종료는 미검수 셀이 남아 있으면 409.
  * 체크리스트(qaChecklist.ts): 분류 검토 #3 · 체크 진행 #2 · 종료 #1 픽스처, 준비가 끝난 스프린트는 새 초안.
- *   진행률·다음 할 일은 셀에서 다시 계산한다. 자동 분류 테스트 ID 는 TEST_CATALOG 에 있어야 한다(아니면 422).
- * 준비 작업은 GET /jobs/:id 를 받을 때마다 한 단계씩 진행한다(INTERPRET 은 13개씩). 끝나면 스프린트가 REVIEW 로 바뀐다.
+ *   진행률·다음 할 일은 셀에서 다시 계산한다. null 이 아닌 testRef 는 분류와 무관하게 TEST_CATALOG 와 대조(422).
+ * 준비 작업: 새 작업은 QUEUED·attempt 0·nextRunAt 채움. GET /jobs/:id 를 받을 때마다 한 단계씩 진행하고,
+ *   워커가 집을 때 attempt + 1. INTERPRET 은 진행 수를 주지 않는다(message null). 끝나면 스프린트가 REVIEW 로 바뀐다.
  * 스프린트 등록: URL 에 32자리 hex 페이지 ID 가 없으면 400, ID 가 `0000` 으로 시작하면 404(Notion 미발견),
- *   이미 등록된 페이지 ID 면 409.
- * 오류 본문의 `error` 값은 목업이다(실제 코드 목록 미확정, QA_SPEC G3). 프론트는 HTTP 상태로만 분기한다.
+ *   `5021` 로 시작하면 502(Notion 조회 실패), 이미 등록된 페이지 ID 면 409.
+ * 오류 본문은 서버 형태를 흉내 낸다 — 코드는 QA_SPEC A-4, message 는 한국어 안내문.
  */
 const QA = env.VITE_QA_API_BASE;
 
@@ -315,15 +316,20 @@ function errorResponse(status: number, error: string, message: string | Record<s
 
 let unauthorizedServed = false;
 
-/** `?qaMock=403|503` 이면 모든 QA 요청을 그 상태로 실패시킨다. `401once` 는 첫 요청 한 번만 401. */
+/**
+ * `?qaMock=403|503` 이면 모든 QA 요청을 그 상태로 실패시킨다. `401once` 는 첫 요청 한 번만 401.
+ * 오류 코드·message 는 서버 형태(QA_SPEC A-4, 한국어 안내문)를 흉내 낸다.
+ */
 function forcedFailure() {
   const s = scenario();
   if (s === '401once' && !unauthorizedServed) {
     unauthorizedServed = true;
-    return errorResponse(401, 'UNAUTHORIZED', '토큰이 만료되었습니다.');
+    return errorResponse(401, 'AUTH_4012', '토큰이 만료되었습니다.');
   }
-  if (s === '503') return errorResponse(503, 'AUTH_SERVER_UNAVAILABLE', '인증 서버 판정 불가');
-  if (s === '403') return errorResponse(403, 'FORBIDDEN', 'ADMIN 권한이 필요합니다.');
+  if (s === '503') {
+    return errorResponse(503, 'AUTH_5031', '인증 서버에 연결하지 못해 권한을 확인할 수 없습니다.');
+  }
+  if (s === '403') return errorResponse(403, 'AUTH_4031', 'QA 서버는 관리자만 사용할 수 있습니다.');
   return null;
 }
 
@@ -375,33 +381,41 @@ const STEP_NAMES = [
   'VALIDATE',
   'APPLY',
 ];
-const FEATURE_COUNT = 53;
-const INTERPRET_CHUNK = 13;
-
-/** 단계가 끝났을 때의 message (목업 값). */
-const DONE_MESSAGE: Record<string, string> = {
-  BASELINE: 'release 저장소 3개',
-  NOTION: '기능 53개',
-  FIGMA: '프레임 49개',
-  DIFF: '커밋 61개',
-  OPENAPI: '엔드포인트 87개',
-  INTERPRET: `${FEATURE_COUNT}/${FEATURE_COUNT}`,
-  VALIDATE: '항목 214개',
-  APPLY: '검토 전 항목 214개',
-};
+/** 최초 1회 + 재시도 3회 (QA_SPEC A-2 Job) */
+const MAX_ATTEMPTS = 4;
+/** INTERPRET 은 진행 수를 주지 않는다(message null) — 목업은 polling 몇 번 뒤에 끝낸다. */
+const INTERPRET_TICKS = 3;
+const SKIPPED_NO_BASELINE = '직전 기준점 없음 - 전체 범위';
 
 const pad = (n: number) => String(n).padStart(2, '0');
 
-/** 전부 끝난 단계 목록 — 단계마다 1분 30초. */
-function finishedSteps(date: string): MockStep[] {
-  return STEP_NAMES.map((name, i) => ({
-    seq: i + 1,
-    name,
-    status: 'DONE',
-    message: DONE_MESSAGE[name] ?? null,
-    startedAt: `${date}T10:${pad(i * 2)}:00+09:00`,
-    finishedAt: `${date}T10:${pad(i * 2 + 1)}:30+09:00`,
-  }));
+/** 지금으로부터 ms 전의 시각(`+09:00`) */
+function kstAgo(ms: number): string {
+  return `${new Date(Date.now() + 9 * 3_600_000 - ms).toISOString().slice(0, 19)}+09:00`;
+}
+
+/** 전부 끝난 단계 목록 — 단계마다 1분 30초. 직전 기준점이 없으면 DIFF 는 사유와 함께 건너뜀. */
+function finishedSteps(date: string, noPreviousBaseline: boolean): MockStep[] {
+  return STEP_NAMES.map((name, i) => {
+    if (name === 'DIFF' && noPreviousBaseline) {
+      return {
+        seq: i + 1,
+        name,
+        status: 'SKIPPED',
+        message: SKIPPED_NO_BASELINE,
+        startedAt: null,
+        finishedAt: null,
+      };
+    }
+    return {
+      seq: i + 1,
+      name,
+      status: 'DONE',
+      message: null,
+      startedAt: `${date}T10:${pad(i * 2)}:00+09:00`,
+      finishedAt: `${date}T10:${pad(i * 2 + 1)}:30+09:00`,
+    };
+  });
 }
 
 function succeededJob(id: number, sprintId: number, date: string): MockJob {
@@ -411,11 +425,11 @@ function succeededJob(id: number, sprintId: number, date: string): MockJob {
     sprintId,
     status: 'SUCCEEDED',
     attempt: 1,
-    maxAttempts: 3,
+    maxAttempts: MAX_ATTEMPTS,
     nextRunAt: null,
     cancelRequested: false,
     lastError: null,
-    steps: finishedSteps(date),
+    steps: finishedSteps(date, true),
     createdAt: `${date}T09:59:40+09:00`,
     finishedAt: `${date}T10:15:30+09:00`,
   };
@@ -436,17 +450,17 @@ const jobs: MockJob[] = [
   succeededJob(201, 2, '2026-04-01'),
   succeededJob(301, 3, '2026-06-24'),
   {
-    // 셋업 FAILED — BASELINE 에서 release 브랜치 없음(RELEASE_BRANCH_MISSING), 3회 모두 실패
+    // 셋업 FAILED — BASELINE 에서 release 브랜치 없음(RELEASE_BRANCH_MISSING), 4회 모두 실패
     id: 401,
     type: 'SETUP',
     sprintId: 4,
     status: 'FAILED',
-    attempt: 3,
-    maxAttempts: 3,
+    attempt: MAX_ATTEMPTS,
+    maxAttempts: MAX_ATTEMPTS,
     nextRunAt: null,
     cancelRequested: false,
     lastError:
-      'RELEASE_BRANCH_MISSING: gravit-aos 저장소에 release 브랜치가 없습니다. (3회 시도 후 중단)',
+      'RELEASE_BRANCH_MISSING: gravit-aos 저장소에 release 브랜치가 없습니다. (4회 시도 후 중단)',
     steps: [
       {
         seq: 1,
@@ -462,13 +476,13 @@ const jobs: MockJob[] = [
     finishedAt: '2026-10-08T11:15:04+09:00',
   },
   {
-    // 셋업 RUNNING — INTERPRET 12/53
+    // 셋업 RUNNING — INTERPRET 진행 중(message null, 경과 시간만), 시각은 지금 기준
     id: 501,
     type: 'SETUP',
     sprintId: 5,
     status: 'RUNNING',
     attempt: 1,
-    maxAttempts: 3,
+    maxAttempts: MAX_ATTEMPTS,
     nextRunAt: null,
     cancelRequested: false,
     lastError: null,
@@ -477,24 +491,27 @@ const jobs: MockJob[] = [
         seq: i + 1,
         name,
         status: 'DONE' as const,
-        message: DONE_MESSAGE[name] ?? null,
-        startedAt: `2026-10-17T09:52:${pad(i * 10)}+09:00`,
-        finishedAt: `2026-10-17T09:52:${pad(i * 10 + 8)}+09:00`,
+        message: null,
+        startedAt: kstAgo(230_000 - i * 25_000),
+        finishedAt: kstAgo(212_000 - i * 25_000),
       })),
       {
         seq: 6,
         name: 'INTERPRET',
         status: 'RUNNING',
-        message: `12/${FEATURE_COUNT}`,
-        startedAt: '2026-10-17T09:53:00+09:00',
+        message: null,
+        startedAt: kstAgo(95_000),
         finishedAt: null,
       },
       ...pendingSteps(7),
     ],
-    createdAt: '2026-10-17T09:52:00+09:00',
+    createdAt: kstAgo(240_000),
     finishedAt: null,
   },
 ];
+
+/** 작업별 INTERPRET 진행 tick 수 */
+const interpretTicks = new Map<number, number>();
 
 let nextJobId = 601;
 /** 준비 시작 전 스프린트 상태 — 취소되면 되돌린다. 픽스처 501 은 DRAFT 에서 시작했다고 본다. */
@@ -563,9 +580,51 @@ function findItem(itemId: number): { sprintId: number; item: MockItem } | null {
   return null;
 }
 
+/** 페르소나 키 13개(QA_SPEC A-1) */
+const PERSONA_KEYS = [
+  'pre-onboarding',
+  'fresh',
+  'learner',
+  'streak',
+  'chapter-almost',
+  'social',
+  'league-edge',
+  'mission',
+  'interviewer',
+  'inquirer',
+  'withdrawing',
+  'suspended',
+  'admin',
+];
+
+/**
+ * 항목 규칙 422 (QA_SPEC A-4·B-3). 서버는 **분류와 무관하게** null 이 아닌 testRef 를 카탈로그와 대조한다
+ * (CHECKLIST_4221) — 그래서 자동 → 수동이면 프론트가 testRef: null 을 보낸다. 알 수 없는 페르소나는 CHECKLIST_4222.
+ */
+function itemRuleFailure(
+  classification: MockItem['classification'],
+  testRef: string | null,
+  personaKey: string | null,
+) {
+  if (
+    (classification === 'AUTO' && !testRef) ||
+    (testRef !== null && !TEST_CATALOG.includes(testRef))
+  ) {
+    return errorResponse(422, 'CHECKLIST_4221', '테스트 카탈로그에 없는 testRef 입니다.');
+  }
+  if (personaKey !== null && !PERSONA_KEYS.includes(personaKey)) {
+    return errorResponse(422, 'CHECKLIST_4222', '알 수 없는 페르소나 키입니다.');
+  }
+  return null;
+}
+
 const staleFailure = () =>
   scenario() === 'stale'
-    ? errorResponse(409, 'VERSION_CONFLICT', '다른 사용자가 먼저 변경했습니다.')
+    ? errorResponse(
+        409,
+        'GLOBAL_4091',
+        '다른 사용자가 먼저 변경했습니다. 새로고침 후 다시 시도하세요.',
+      )
     : null;
 
 /** BASELINE 단계가 끝나면 기준점을 기록한다(직전 기준점 = 가장 최근 다른 스프린트의 기준점). */
@@ -595,9 +654,12 @@ function tick(job: MockJob) {
     if (target) job.steps[index] = { ...target, ...patch };
   };
 
+  // 워커가 집을 때 attempt 가 1 오르고, 대기 시각(nextRunAt)은 비운다(QA_SPEC A-2 Job)
   if (job.status === 'QUEUED') {
     if (job.cancelRequested) return finish(job, 'CANCELLED', sprint);
     job.status = 'RUNNING';
+    job.attempt += 1;
+    job.nextRunAt = null;
     update(0, { status: 'RUNNING', startedAt: now });
     return;
   }
@@ -606,22 +668,20 @@ function tick(job: MockJob) {
   const current = job.steps[i];
   if (!current) return;
 
+  // INTERPRET 은 진행 수를 주지 않는다 — message 는 그대로 null, 몇 번 받은 뒤에 끝난다
   if (current.name === 'INTERPRET' && !job.cancelRequested) {
-    const done = Number(current.message?.split('/')[0] ?? 0) + INTERPRET_CHUNK;
-    if (done < FEATURE_COUNT) return update(i, { message: `${done}/${FEATURE_COUNT}` });
+    const ticks = (interpretTicks.get(job.id) ?? 0) + 1;
+    interpretTicks.set(job.id, ticks);
+    if (ticks < INTERPRET_TICKS) return;
   }
 
-  update(i, { status: 'DONE', message: DONE_MESSAGE[current.name] ?? null, finishedAt: now });
+  update(i, { status: 'DONE', message: null, finishedAt: now });
   if (current.name === 'BASELINE' && sprint) recordBaseline(sprint);
 
   if (job.cancelRequested) return finish(job, 'CANCELLED', sprint);
   const next = job.steps[i + 1];
   if (!next) return finish(job, 'SUCCEEDED', sprint);
-  update(i + 1, {
-    status: 'RUNNING',
-    startedAt: now,
-    message: next.name === 'INTERPRET' ? `0/${FEATURE_COUNT}` : null,
-  });
+  update(i + 1, { status: 'RUNNING', startedAt: now, message: null });
 }
 
 function finish(job: MockJob, status: 'SUCCEEDED' | 'CANCELLED', sprint: MockSprint | undefined) {
@@ -635,12 +695,15 @@ function finish(job: MockJob, status: 'SUCCEEDED' | 'CANCELLED', sprint: MockSpr
   } else setSprintStatus(sprint, statusBeforeSetup.get(job.id) ?? 'DRAFT');
 }
 
-/** `?qaMock=retrywait` — 실행 중 작업을 1차 시도 실패 후 재시도 대기 상태로 보여 준다(진행하지 않음). */
+/**
+ * `?qaMock=retrywait` — 실행 중 작업을 1차 시도(attempt 1)가 NOTION 에서 실패한 뒤의 재시도 대기로 보여 준다
+ * (QUEUED + attempt >= 1 + nextRunAt). 진행하지 않는다.
+ */
 function retryWaitView(job: MockJob): MockJob {
   return {
     ...job,
     status: 'QUEUED',
-    attempt: 2,
+    attempt: 1,
     nextRunAt: `${new Date(Date.now() + 9 * 3_600_000 + 5 * 60_000).toISOString().slice(0, 19)}+09:00`,
     lastError: 'Notion API 응답 429 (요청 한도 초과)',
     steps: job.steps.map((st) =>
@@ -678,12 +741,26 @@ export const qaHandlers = [
 
     const body = (await request.json()) as { notionPageUrl?: string };
     const pageId = body.notionPageUrl?.match(/[0-9a-f]{32}/i)?.[0]?.toLowerCase();
-    if (!pageId) return errorResponse(400, 'INVALID_NOTION_URL', 'Notion 페이지 URL이 아닙니다.');
+    if (!pageId) {
+      return errorResponse(
+        400,
+        'SPRINT_4001',
+        'Notion 스프린트 DB의 페이지가 아닙니다. URL을 확인하세요.',
+      );
+    }
+    // ID 가 5021 로 시작하면 Notion 조회 실패(502)
+    if (pageId.startsWith('5021')) {
+      return errorResponse(
+        502,
+        'SPRINT_5021',
+        'Notion에서 스프린트를 가져오지 못했습니다. 잠시 후 다시 시도하세요.',
+      );
+    }
     if (pageId.startsWith('0000')) {
-      return errorResponse(404, 'NOTION_PAGE_NOT_FOUND', 'Notion page not found');
+      return errorResponse(404, 'SPRINT_4042', 'Notion 스프린트 페이지를 찾을 수 없습니다.');
     }
     if (sprints.some((s) => s.notionPageId.replace(/-/g, '') === pageId)) {
-      return errorResponse(409, 'SPRINT_DUPLICATED', 'Sprint already exists');
+      return errorResponse(409, 'SPRINT_4091', '이미 등록된 Notion 스프린트입니다.');
     }
 
     const id = Math.max(...sprints.map((s) => s.id)) + 1;
@@ -723,7 +800,7 @@ export const qaHandlers = [
     const failure = forcedFailure();
     if (failure) return failure;
     const sprint = sprints.find((s) => s.id === Number(params.sprintId));
-    if (!sprint) return errorResponse(404, 'SPRINT_NOT_FOUND', '스프린트를 찾을 수 없습니다.');
+    if (!sprint) return errorResponse(404, 'SPRINT_4041', '스프린트를 찾을 수 없습니다.');
     syncSprint(sprint);
     return HttpResponse.json(sprint);
   }),
@@ -734,24 +811,22 @@ export const qaHandlers = [
     const failure = forcedFailure();
     if (failure) return failure;
     const sprint = sprints.find((s) => s.id === Number(params.sprintId));
-    if (!sprint) return errorResponse(404, 'SPRINT_NOT_FOUND', '스프린트를 찾을 수 없습니다.');
+    if (!sprint) return errorResponse(404, 'SPRINT_4041', '스프린트를 찾을 수 없습니다.');
     const running = jobs.some((j) => j.sprintId === sprint.id && isActive(j));
-    if (running || !['DRAFT', 'PREPARE_FAILED', 'REVIEW'].includes(sprint.status)) {
-      return errorResponse(
-        409,
-        'SETUP_NOT_ALLOWED',
-        '지금 상태에서는 준비 작업을 시작할 수 없습니다.',
-      );
+    if (running) return errorResponse(409, 'JOB_4091', '이미 실행 중인 작업이 있습니다.');
+    if (!['DRAFT', 'PREPARE_FAILED', 'REVIEW'].includes(sprint.status)) {
+      return errorResponse(409, 'SPRINT_4092', '현재 스프린트 상태에서는 할 수 없습니다.');
     }
 
     const job: MockJob = {
       id: nextJobId++,
       type: 'SETUP',
       sprintId: sprint.id,
+      // 생성 직후: attempt 0, nextRunAt 은 첫 실행 대기여도 채워진다(QA_SPEC A-2 Job)
       status: 'QUEUED',
-      attempt: 1,
-      maxAttempts: 3,
-      nextRunAt: null,
+      attempt: 0,
+      maxAttempts: MAX_ATTEMPTS,
+      nextRunAt: nowKst(),
       cancelRequested: false,
       lastError: null,
       steps: pendingSteps(1),
@@ -771,7 +846,7 @@ export const qaHandlers = [
     const failure = forcedFailure();
     if (failure) return failure;
     const job = jobs.find((j) => j.id === Number(params.jobId));
-    if (!job) return errorResponse(404, 'JOB_NOT_FOUND', '작업을 찾을 수 없습니다.');
+    if (!job) return errorResponse(404, 'JOB_4041', '작업을 찾을 수 없습니다.');
     if (scenario() === 'retrywait' && isActive(job)) return HttpResponse.json(retryWaitView(job));
     tick(job);
     return HttpResponse.json(job);
@@ -783,8 +858,9 @@ export const qaHandlers = [
     const failure = forcedFailure();
     if (failure) return failure;
     const job = jobs.find((j) => j.id === Number(params.jobId));
-    if (!job) return errorResponse(404, 'JOB_NOT_FOUND', '작업을 찾을 수 없습니다.');
-    if (!isActive(job)) return errorResponse(409, 'JOB_ALREADY_FINISHED', '이미 끝난 작업입니다.');
+    if (!job) return errorResponse(404, 'JOB_4041', '작업을 찾을 수 없습니다.');
+    if (!isActive(job))
+      return errorResponse(409, 'JOB_4092', '이미 끝난 작업은 취소할 수 없습니다.');
     job.cancelRequested = true;
     return HttpResponse.json(job, { status: 202 });
   }),
@@ -795,7 +871,7 @@ export const qaHandlers = [
     const failure = forcedFailure();
     if (failure) return failure;
     const sprint = sprints.find((s) => s.id === Number(params.sprintId));
-    if (!sprint) return errorResponse(404, 'SPRINT_NOT_FOUND', '스프린트를 찾을 수 없습니다.');
+    if (!sprint) return errorResponse(404, 'SPRINT_4041', '스프린트를 찾을 수 없습니다.');
     return HttpResponse.json(
       toChecklistResponse(sprint.id, sprint.status, checklists.get(sprint.id) ?? []),
     );
@@ -809,23 +885,27 @@ export const qaHandlers = [
     const sprint = sprints.find((s) => s.id === Number(params.sprintId));
     const blocks = sprint ? checklists.get(sprint.id) : undefined;
     if (!sprint || !blocks)
-      return errorResponse(404, 'SPRINT_NOT_FOUND', '스프린트를 찾을 수 없습니다.');
+      return errorResponse(404, 'SPRINT_4041', '스프린트를 찾을 수 없습니다.');
     if (sprint.status !== 'REVIEW')
-      return errorResponse(409, 'INVALID_STATE', '분류 검토 중이 아닙니다.');
+      return errorResponse(409, 'SPRINT_4092', '현재 스프린트 상태에서는 할 수 없습니다.');
 
     const body = (await request.json()) as Pick<
       MockItem,
       'featureId' | 'title' | 'expected' | 'parts' | 'classification'
     > & { testRef?: string | null; personaKey?: string | null };
     const block = blocks.find((b) => b.feature.id === body.featureId);
-    if (!block || !body.title || !body.expected || body.parts.length === 0) {
-      return errorResponse(400, 'INVALID_REQUEST', {
-        featureId: '필수 값이 비었거나 잘못되었습니다.',
-      });
+    if (!block) {
+      return errorResponse(404, 'CHECKLIST_4042', '이 스프린트 대상 기능이 아닙니다.');
     }
-    if (body.classification === 'AUTO' && !TEST_CATALOG.includes(body.testRef ?? '')) {
-      return errorResponse(422, 'TEST_REF_NOT_IN_CATALOG', 'testRef not in catalog');
+    if (!body.title || !body.expected || body.parts.length === 0) {
+      return errorResponse(400, 'GLOBAL_4001', { title: '필수 값이 비었습니다.' });
     }
+    const rule = itemRuleFailure(
+      body.classification,
+      body.testRef ?? null,
+      body.personaKey ?? null,
+    );
+    if (rule) return rule;
     const id = nextItemId++;
     const item: MockItem = {
       id,
@@ -856,21 +936,22 @@ export const qaHandlers = [
     if (failure) return failure;
     const found = findItem(Number(params.itemId));
     const sprint = found && sprints.find((s) => s.id === found.sprintId);
-    if (!found || !sprint) return errorResponse(404, 'ITEM_NOT_FOUND', '항목을 찾을 수 없습니다.');
+    if (!found || !sprint)
+      return errorResponse(404, 'CHECKLIST_4041', '체크 항목을 찾을 수 없습니다.');
     const { item } = found;
     const body = (await request.json()) as Partial<MockItem> & { version: number };
     if (sprint.status !== 'REVIEW' || body.version !== item.version) {
-      return errorResponse(409, 'VERSION_CONFLICT', '다른 사용자가 먼저 변경했습니다.');
+      return errorResponse(
+        409,
+        'GLOBAL_4091',
+        '다른 사용자가 먼저 변경했습니다. 새로고침 후 다시 시도하세요.',
+      );
     }
     const classification = body.classification ?? item.classification;
     const testRef = body.testRef === undefined ? item.testRef : body.testRef;
-    if (
-      (body.classification !== undefined || body.testRef !== undefined) &&
-      classification === 'AUTO' &&
-      !TEST_CATALOG.includes(testRef ?? '')
-    ) {
-      return errorResponse(422, 'TEST_REF_NOT_IN_CATALOG', 'testRef not in catalog');
-    }
+    const personaKey = body.personaKey === undefined ? item.personaKey : body.personaKey;
+    const rule = itemRuleFailure(classification, testRef, personaKey);
+    if (rule) return rule;
     if (body.title !== undefined) item.title = body.title;
     if (body.expected !== undefined) item.expected = body.expected;
     if (body.personaKey !== undefined) item.personaKey = body.personaKey;
@@ -894,15 +975,20 @@ export const qaHandlers = [
     const sprint = sprints.find((s) => s.id === Number(params.sprintId));
     const blocks = sprint ? checklists.get(sprint.id) : undefined;
     if (!sprint || !blocks)
-      return errorResponse(404, 'SPRINT_NOT_FOUND', '스프린트를 찾을 수 없습니다.');
+      return errorResponse(404, 'SPRINT_4041', '스프린트를 찾을 수 없습니다.');
     const body = (await request.json()) as { startAutoRun?: boolean; version: number };
     const items = blocks.flatMap((b) => b.items);
-    if (
-      sprint.status !== 'REVIEW' ||
-      body.version !== sprint.version ||
-      items.some((i) => i.reviewState === 'PROPOSED')
-    ) {
-      return errorResponse(409, 'CONFIRM_NOT_ALLOWED', '확정할 수 없는 상태입니다.');
+    if (sprint.status !== 'REVIEW') {
+      return errorResponse(409, 'SPRINT_4092', '현재 스프린트 상태에서는 할 수 없습니다.');
+    }
+    if (body.version !== sprint.version)
+      return errorResponse(
+        409,
+        'GLOBAL_4091',
+        '다른 사용자가 먼저 변경했습니다. 새로고침 후 다시 시도하세요.',
+      );
+    if (items.some((i) => i.reviewState === 'PROPOSED')) {
+      return errorResponse(409, 'CHECKLIST_4091', '검토 전 항목이 남아 확정할 수 없습니다.');
     }
     // 목업: 자동 분류 항목은 자동 실행이 곧바로 끝난 것으로 본다(PASS)
     const autoItems = items.filter(
@@ -931,16 +1017,20 @@ export const qaHandlers = [
     const sprint = found && sprints.find((s) => s.id === found.sprintId);
     const cell = found?.item.cells.find((c) => c.part === params.part);
     if (!found || !sprint || !cell)
-      return errorResponse(404, 'CELL_NOT_FOUND', '셀을 찾을 수 없습니다.');
+      return errorResponse(404, 'CHECKLIST_4043', '셀을 찾을 수 없습니다.');
     const body = (await request.json()) as {
       state: 'UNCHECKED' | 'PASS' | 'FAIL';
       version: number;
     };
     if (sprint.status !== 'IN_PROGRESS' || body.version !== cell.version) {
-      return errorResponse(409, 'VERSION_CONFLICT', '다른 사용자가 먼저 변경했습니다.');
+      return errorResponse(
+        409,
+        'GLOBAL_4091',
+        '다른 사용자가 먼저 변경했습니다. 새로고침 후 다시 시도하세요.',
+      );
     }
     if (!isCellEditable(sprint.status, found.item, cell)) {
-      return errorResponse(422, 'CELL_NOT_EDITABLE', '자동 판정 셀이거나 해당 없음 셀입니다.');
+      return errorResponse(422, 'CHECKLIST_4223', '수동으로 바꿀 수 없는 셀입니다.');
     }
     const key = `${cell.itemId}:${cell.part}`;
     const changedAt = nowKst();
@@ -974,7 +1064,7 @@ export const qaHandlers = [
     const failure = forcedFailure();
     if (failure) return failure;
     if (!findItem(Number(params.itemId))) {
-      return errorResponse(404, 'ITEM_NOT_FOUND', '항목을 찾을 수 없습니다.');
+      return errorResponse(404, 'CHECKLIST_4041', '체크 항목을 찾을 수 없습니다.');
     }
     return HttpResponse.json(
       histories.get(`${String(params.itemId)}:${String(params.part)}`) ?? [],
@@ -987,13 +1077,20 @@ export const qaHandlers = [
     const failure = forcedFailure() ?? staleFailure();
     if (failure) return failure;
     const sprint = sprints.find((s) => s.id === Number(params.sprintId));
-    if (!sprint) return errorResponse(404, 'SPRINT_NOT_FOUND', '스프린트를 찾을 수 없습니다.');
+    if (!sprint) return errorResponse(404, 'SPRINT_4041', '스프린트를 찾을 수 없습니다.');
     const body = (await request.json()) as { version: number };
     syncSprint(sprint);
     const unchecked = sprint.progress.some((p) => p.unchecked > 0);
-    if (sprint.status !== 'IN_PROGRESS' || body.version !== sprint.version || unchecked) {
-      return errorResponse(409, 'CLOSE_NOT_ALLOWED', '종료할 수 없는 상태입니다.');
+    if (sprint.status !== 'IN_PROGRESS') {
+      return errorResponse(409, 'SPRINT_4092', '현재 스프린트 상태에서는 할 수 없습니다.');
     }
+    if (body.version !== sprint.version)
+      return errorResponse(
+        409,
+        'GLOBAL_4091',
+        '다른 사용자가 먼저 변경했습니다. 새로고침 후 다시 시도하세요.',
+      );
+    if (unchecked) return errorResponse(409, 'SPRINT_4093', '미검수 셀이 남아 종료할 수 없습니다.');
     sprint.closedAt = nowKst();
     setSprintStatus(sprint, 'CLOSED');
     return HttpResponse.json(sprint);

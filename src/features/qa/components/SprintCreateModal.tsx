@@ -30,9 +30,6 @@ interface SprintCreateModalProps {
   onCreated: (sprint: Sprint) => void;
 }
 
-/** 서버 400 에 문자열 message 가 없을 때 — 클라이언트 URL 검증과 같은 문구. */
-const INVALID_URL = 'URL 형식이 올바르지 않습니다.';
-
 /**
  * 스프린트 등록 모달 (QA_SPEC B-0, A-3 #2).
  * 404·409·400 은 모달을 유지한 채 입력 아래에 표시하고, 그 밖의 실패는 토스트로 알린다.
@@ -66,7 +63,8 @@ export function SprintCreateModal({ open, onOpenChange, onCreated }: SprintCreat
             if (error.sessionEnded) return;
             if (error.status === 404) return showFieldError(ERROR_COPY.NOTION_NOT_FOUND);
             if (error.status === 409) return showFieldError(ERROR_COPY.SPRINT_DUPLICATED);
-            if (error.status === 400) return showFieldError(error.serverMessage ?? INVALID_URL);
+            if (error.status === 400)
+              return showFieldError(error.serverMessage ?? NOTICE_COPY.VALIDATION_URL_FORMAT);
           }
           showErrorToast(error);
         },

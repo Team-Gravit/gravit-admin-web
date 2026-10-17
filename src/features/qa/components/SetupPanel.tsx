@@ -47,7 +47,7 @@ export function SetupPanel({ sprint }: { sprint: Sprint }) {
         ) : jobQuery.isError || !job ? (
           <JobError error={jobQuery.error} onRetry={() => jobQuery.refetch()} />
         ) : (
-          <JobBody job={job} active={active} />
+          <JobBody job={job} active={active} updatedAt={jobQuery.dataUpdatedAt} />
         )}
       </section>
 
@@ -66,26 +66,45 @@ function JobError({ error, onRetry }: { error: unknown; onRetry: () => void }) {
   return <ErrorState message={view.message} onRetry={view.retryable ? onRetry : undefined} />;
 }
 
-function JobBody({ job, active }: { job: Job; active: boolean }) {
+/** 실제 시작 시각 = steps 의 가장 이른 startedAt (Job 에는 작업 단위 startedAt 이 없다, A-2). */
+function firstStartedAt(job: Job): string | null {
+  const starts = job.steps.map((s) => s.startedAt).filter((t): t is string => t !== null);
+  return starts.length === 0 ? null : starts.reduce((a, b) => (a < b ? a : b));
+}
+
+/**
+ * 작업 카드 본문 (QA_SPEC B-2). `attempt` 는 생성 시 0 이고 워커가 집을 때 1씩 오른다.
+ * `nextRunAt` 은 QUEUED 동안 항상 채워지므로, 재시도 대기는 QUEUED 이면서 attempt >= 1 일 때만이다.
+ */
+function JobBody({ job, active, updatedAt }: { job: Job; active: boolean; updatedAt: number }) {
+  const started = firstStartedAt(job);
+  const retrying = job.status === 'QUEUED' && job.attempt >= 1;
+
   return (
     <div className="flex flex-col gap-3">
       <div className="flex flex-wrap items-center gap-x-4 gap-y-1 text-caption text-fg-secondary">
         <StatusBadge variant={JOB_STATUS_BADGE_VARIANT[job.status]}>
           {JOB_STATUS_LABELS[job.status]}
         </StatusBadge>
-        <span>
-          시도 {job.attempt}/{job.maxAttempts}
-        </span>
-        <span>시작 {formatDateTime(job.createdAt)}</span>
+        <span>요청 {formatDateTime(job.createdAt)}</span>
+        <span>시작 {started ? formatDateTime(started) : '-'}</span>
         {job.finishedAt && <span>종료 {formatDateTime(job.finishedAt)}</span>}
+        {job.attempt >= 1 && (
+          <span>
+            시도 {job.attempt}/{job.maxAttempts}
+          </span>
+        )}
       </div>
 
-      {job.status === 'QUEUED' && job.nextRunAt && (
+      {retrying && job.nextRunAt && (
         <QaNotice>{NOTICE_COPY.RETRY_WAIT(formatDateTime(job.nextRunAt))}</QaNotice>
+      )}
+      {job.status === 'QUEUED' && job.attempt === 0 && (
+        <QaNotice>{NOTICE_COPY.QUEUED_FIRST}</QaNotice>
       )}
       {active && <QaNotice>{NOTICE_COPY.SETUP_DURATION}</QaNotice>}
 
-      <SetupJobSteps steps={job.steps} />
+      <SetupJobSteps steps={job.steps} now={updatedAt} />
     </div>
   );
 }

@@ -114,7 +114,7 @@ export function ReviewPanel({ sprint }: { sprint: Sprint }) {
           message={NOTICE_COPY.REVIEW_NOT_READY}
           action={
             <Button variant="outline" asChild>
-              <Link to={ROUTES.QA_SPRINT_SETUP(sprint.id)}>준비 화면으로 이동</Link>
+              <Link to={ROUTES.QA_SPRINT_SETUP(sprint.id)}>{NOTICE_COPY.GO_SETUP}</Link>
             </Button>
           }
         />
@@ -222,9 +222,7 @@ export function ReviewPanel({ sprint }: { sprint: Sprint }) {
 
       {groups.length === 0 ? (
         <div className="rounded-lg border border-border bg-surface">
-          <EmptyState
-            message={isFiltered ? '조건에 맞는 항목이 없습니다.' : '체크 항목이 없습니다.'}
-          />
+          <EmptyState message={isFiltered ? NOTICE_COPY.EMPTY_FILTERED : NOTICE_COPY.EMPTY_ITEMS} />
         </div>
       ) : (
         groups.map(({ block, items }) => (

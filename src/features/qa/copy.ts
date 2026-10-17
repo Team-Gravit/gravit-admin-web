@@ -1,5 +1,5 @@
 import { PART_LABELS } from '@/features/qa/labels';
-import type { ChecklistWarning, GuideBlocker, SprintGuide } from '@/features/qa/schemas';
+import type { GuideBlocker, SprintGuide } from '@/features/qa/schemas';
 
 /**
  * QA 화면 문구 — **QA_SPEC F절이 권위**(decisions D9-5). 톤은 합니다체.
@@ -117,24 +117,28 @@ export function blockerCopy(blocker: GuideBlocker): string | null {
 const WARNING_COPY: Partial<Record<string, string>> = {
   SPEC_NEEDS_CHECK:
     '명세가 확인 필요 상태입니다. 근거가 없는 항목은 기대 결과에 그렇게 적혀 있습니다.',
-  FIGMA_FRAME_MISSING: 'Figma QA 페이지에서 이 화면을 찾지 못했습니다.',
+  FIGMA_FRAME_MISSING: 'Figma QA 페이지에서 이 화면의 웹 또는 앱 프레임을 찾지 못했습니다.',
   ITEM_GENERATION_FAILED:
     '체크 항목 초안을 만들지 못했습니다. 실패 항목을 거절하고 직접 추가하세요.',
   VERSION_CODE_NOT_INCREASED:
     '앱 versionCode가 직전 기준점보다 크지 않습니다. release마다 versionCode를 올려야 합니다.',
+  // 이번 범위 응답에 실어 오는 필드가 없어 표시하지 않는다 — 리포트(후속 범위)에서 쓴다(F-3)
   NOTION_WRITE_FAILED: 'Notion에 QA 기준점을 기록하지 못했습니다. 종료는 정상 처리됐습니다.',
+  OPENAPI_OPERATION_MISSING:
+    'Notion `관련 API`의 operationId 중 dev API 문서에 없는 것이 있습니다. 명세의 API 이름을 확인하세요.',
+  LLM_INPUT_TRUNCATED: '입력이 길어 일부를 빼고 초안을 만들었습니다. 빠진 내용은 직접 확인하세요.',
 };
 
-/** 경고 코드 → F-3 문구. **매핑이 없으면 null** — 호출 쪽이 서버 `message` 원문을 쓴다. */
+/** 경고 코드 → F-3 문구. 매핑이 없으면 null. */
 export function warningCopy(code: string): string | null {
   return Object.prototype.hasOwnProperty.call(WARNING_COPY, code)
     ? (WARNING_COPY[code] ?? null)
     : null;
 }
 
-/** 경고 한 줄: F-3 문구 → 서버 message → 코드 원문 (B-3 "매핑 없으면 message"). */
-export function warningText(warning: ChecklistWarning): string {
-  return warningCopy(warning.code) ?? warning.message ?? warning.code;
+/** 경고 한 줄: F-3 문구, 표에 없는 코드는 코드 원문 (A-2 — 서버는 코드만 보낸다). */
+export function warningText(code: string): string {
+  return warningCopy(code) ?? code;
 }
 
 // ---------- F-4. 안내, 빈 상태 ----------
@@ -157,6 +161,19 @@ export const NOTICE_COPY = {
   CHECKLIST_CLOSED: '종료된 스프린트입니다. 체크 결과는 읽기만 할 수 있습니다.',
   CELL_LOCKED_AUTO: '자동 실행 결과로 정해진 셀입니다. 자동 실행을 다시 해야 바뀝니다.',
   CELL_LOCKED_CLOSED: '종료된 스프린트의 셀입니다.',
+  QUEUED_FIRST: '작업이 대기 중입니다. 곧 시작합니다.',
+  GO_SETUP: '준비 화면으로 이동',
+  GO_REVIEW: '분류 검토로 이동',
+  EMPTY_FILTERED: '조건에 맞는 항목이 없습니다.',
+  EMPTY_ITEMS: '체크 항목이 없습니다.',
+  EMPTY_HISTORY: '변경 이력이 없습니다.',
+  FEATURE_PROGRESS: (n: number) => `${n}% 완료`,
+  VALIDATION_URL_REQUIRED: 'Notion 스프린트 페이지 URL을 입력하세요.',
+  VALIDATION_URL_FORMAT: 'URL 형식이 올바르지 않습니다.',
+  VALIDATION_TITLE: '제목을 입력하세요.',
+  VALIDATION_EXPECTED: '기대 결과를 입력하세요.',
+  VALIDATION_PARTS: '파트를 1개 이상 선택하세요.',
+  VALIDATION_TEST_REF: '자동 분류에는 테스트 ID가 필요합니다.',
 } as const;
 
 // ---------- F-5. 오류 (도메인) ----------
@@ -182,7 +199,8 @@ export const TOAST_COPY = {
 export const CONFIRM_COPY = {
   RE_SETUP: {
     title: '다시 준비할까요?',
-    description: '검토 전 항목만 새로 만듭니다. 확정한 항목과 직접 추가한 항목은 그대로 둡니다.',
+    description:
+      '검토 전 항목만 새로 만듭니다. 확정한 항목과 직접 추가한 항목은 그대로 둡니다. 다시 준비하다 실패하면 준비 실패 상태가 되고, 준비를 다시 성공시켜야 분류 검토로 돌아옵니다.',
     confirmLabel: '다시 준비하기',
   },
   CANCEL_JOB: {

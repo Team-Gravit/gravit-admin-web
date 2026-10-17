@@ -11,7 +11,8 @@ import { tokenManager } from '@/shared/api/tokenManager';
  *   따로 구현하면 refresh Rotation 때문에 apiClient 인터셉터와 서로의 토큰을 무효화한다(D8-3).
  * - 403: ADMIN 아님 — 종착. 재시도하지 않는다.
  * - 503: 인증 서버 판정 불가 — **401 로 다루지 않는다**(재발급·로그아웃 금지).
- * 실패는 모두 `QaApiError` 로 바꿔 던진다. 화면은 HTTP 상태로만 분기한다(오류 코드 목록 미확정, QA_SPEC G3).
+ * 실패는 모두 `QaApiError` 로 바꿔 던진다. 화면은 HTTP 상태로 분기하고, 오류 코드(QA_SPEC A-4)는
+ * A-3 이 코드로 나눈 422 에서만 본다(D9-2).
  */
 const TIMEOUT = 30_000;
 
@@ -38,6 +39,8 @@ export class QaApiError extends Error {
     message: string,
     /** 서버가 준 문자열 message. 객체(필드별 오류)거나 없으면 null. */
     readonly serverMessage: string | null,
+    /** 서버 오류 코드(QA_SPEC A-4, 예 `CHECKLIST_4221`). 본문이 없으면 null. */
+    readonly code: string | null = null,
     /** 재발급 실패로 강제 로그아웃이 이미 안내한 실패 — 화면은 다시 알리지 않는다(D9-3). */
     readonly sessionEnded = false,
   ) {
@@ -56,11 +59,15 @@ function toQaApiError(error: unknown): QaApiError {
     body.success && typeof body.data.message === 'string' && body.data.message.length > 0
       ? body.data.message
       : null;
+  const code = body.success ? body.data.error : null;
 
-  if (status === 503)
-    return new QaApiError(status, QA_ERROR_MESSAGES.AUTH_UNAVAILABLE, serverMessage);
-  if (status === 403) return new QaApiError(status, QA_ERROR_MESSAGES.FORBIDDEN, serverMessage);
-  return new QaApiError(status, serverMessage ?? QA_ERROR_MESSAGES.DEFAULT, serverMessage);
+  // 서버 message 는 한국어 안내문 — 문자열이면 그대로, F-5 는 없거나 객체일 때의 대체 문구(A-0).
+  // 503 만 F-5 AUTH_UNAVAILABLE 고정(A-3·B-5).
+  if (status === 503) {
+    return new QaApiError(status, QA_ERROR_MESSAGES.AUTH_UNAVAILABLE, serverMessage, code);
+  }
+  const fallback = status === 403 ? QA_ERROR_MESSAGES.FORBIDDEN : QA_ERROR_MESSAGES.DEFAULT;
+  return new QaApiError(status, serverMessage ?? fallback, serverMessage, code);
 }
 
 interface RetryableRequest extends InternalAxiosRequestConfig {
@@ -93,7 +100,7 @@ qaApiClient.interceptors.response.use(
       if (!accessToken) {
         const ended = toQaApiError(error);
         return Promise.reject(
-          new QaApiError(ended.status, ended.message, ended.serverMessage, true),
+          new QaApiError(ended.status, ended.message, ended.serverMessage, ended.code, true),
         );
       }
 

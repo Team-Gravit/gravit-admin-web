@@ -2,7 +2,8 @@
  * QA 체크리스트 목업 데이터와 계산 (qaHandlers 가 쓴다). 실제 서버 규칙을 흉내만 낸다.
  * - 스프린트별 체크리스트를 픽스처에서 만든다: 분류 검토(일부 검토 전) / 새 초안(전부 검토 전) / 체크 진행 / 종료.
  * - 진행률·다음 할 일은 셀에서 다시 계산한다(거절 항목 셀은 진행률에 넣지 않는다 — QA_SPEC 결정 #9).
- * - 경고는 두 형태를 모두 쓴다: 분류 검토 픽스처는 ReportWarning 객체, 새 초안은 코드 문자열(서버 C4 형태).
+ * - 경고는 서버 C4 형태 그대로 코드 문자열 배열이다(매핑에 없는 코드 1개 포함 — 화면은 코드 원문).
+ * - 근거 없는 항목은 서버처럼 expected 앞에 `근거 없음(…)` 표기를 붙인다.
  */
 
 export type Part = 'SERVER' | 'WEB' | 'APP';
@@ -57,11 +58,10 @@ export interface MockFeature {
   figmaNodeIds: string[];
 }
 
-type MockWarning = string | { code: string; message: string; screenId: string | null };
-
 export interface MockBlock {
   feature: MockFeature;
-  warnings: MockWarning[];
+  /** 경고 코드 문자열 배열(기능 안 중복 제거) */
+  warnings: string[];
   items: MockItem[];
 }
 
@@ -107,7 +107,7 @@ interface ItemTemplate {
 }
 
 interface FeatureTemplate extends Omit<MockFeature, 'id'> {
-  warnings: Array<{ code: string; message: string }>;
+  warnings: string[];
   items: ItemTemplate[];
 }
 
@@ -122,7 +122,7 @@ const CATALOG: FeatureTemplate[] = [
     specStatus: 'CONFIRMED',
     notionUrl: NOTION('LRN-01-learning-home'),
     figmaNodeIds: ['8720:4002'],
-    warnings: [],
+    warnings: ['LLM_INPUT_TRUNCATED'],
     items: [
       {
         title: '오늘의 학습 카드 노출',
@@ -178,18 +178,19 @@ const CATALOG: FeatureTemplate[] = [
     specStatus: 'NEEDS_CHECK',
     notionUrl: NOTION('UP-learning-progress'),
     figmaNodeIds: [],
-    warnings: [{ code: 'SPEC_NEEDS_CHECK', message: 'Spec status is NEEDS_CHECK' }],
+    warnings: ['SPEC_NEEDS_CHECK'],
     items: [
       {
         title: '레슨 중단 후 이어하기',
         expected:
-          '레슨을 중간에 나가도 마지막으로 푼 문제 다음부터 이어서 풀 수 있다. (명세 근거 없음: 저장 시점 확인 필요)',
+          '근거 없음(명세 확인 필요) 레슨을 중간에 나가도 마지막으로 푼 문제 다음부터 이어서 풀 수 있다.',
         parts: ['SERVER', 'APP'],
         criteria: criteria(['specDecidable']),
       },
       {
         title: '오프라인 풀이 기록 반영',
-        expected: '네트워크가 끊긴 동안 푼 기록이 재연결 후 서버에 반영된다. (명세 근거 없음)',
+        expected:
+          '근거 없음(명세 확인 필요) 네트워크가 끊긴 동안 푼 기록이 재연결 후 서버에 반영된다.',
         parts: ['SERVER', 'APP'],
         criteria: criteria(['specDecidable', 'preconditionReproducible']),
       },
@@ -203,7 +204,8 @@ const CATALOG: FeatureTemplate[] = [
     specStatus: 'DRAFT',
     notionUrl: NOTION('LGE-01-league'),
     figmaNodeIds: [],
-    warnings: [{ code: 'FIGMA_FRAME_MISSING', message: 'Figma frame not found for LGE-01' }],
+    // 매핑에 없는 코드(PLATFORM_FRAME_PARTIAL) — 화면은 코드 원문을 보여 준다
+    warnings: ['FIGMA_FRAME_MISSING', 'PLATFORM_FRAME_PARTIAL'],
     items: [
       {
         title: '주간 순위 정렬',
@@ -213,7 +215,7 @@ const CATALOG: FeatureTemplate[] = [
       },
       {
         title: '승급 경계 표시',
-        expected: '승급권 마지막 순위 아래에 구분선이 표시된다.',
+        expected: '근거 없음(Figma 프레임 없음) 승급권 마지막 순위 아래에 구분선이 표시된다.',
         parts: ['WEB', 'APP'],
         persona: 'league-edge',
         criteria: criteria(['notSubjective']),
@@ -253,7 +255,7 @@ const CATALOG: FeatureTemplate[] = [
     specStatus: 'CONFIRMED',
     notionUrl: NOTION('MYP-03-profile'),
     figmaNodeIds: ['8717:2006'],
-    warnings: [{ code: 'ITEM_GENERATION_FAILED', message: 'LLM interpret failed for MYP-03' }],
+    warnings: ['ITEM_GENERATION_FAILED'],
     items: [
       {
         title: '초안 생성 실패',
@@ -294,14 +296,7 @@ const CATALOG: FeatureTemplate[] = [
     specStatus: 'NEEDS_CHECK',
     notionUrl: null,
     figmaNodeIds: [],
-    warnings: [
-      { code: 'SPEC_NEEDS_CHECK', message: 'Spec status is NEEDS_CHECK' },
-      // 매핑에 없는 코드 — 화면은 message 원문(객체) 또는 코드 원문(문자열)으로 보여 준다
-      {
-        code: 'OPENAPI_PATH_MISSING',
-        message: 'OpenAPI 명세에서 이 화면의 API 경로를 찾지 못했습니다.',
-      },
-    ],
+    warnings: ['SPEC_NEEDS_CHECK', 'OPENAPI_OPERATION_MISSING'],
     items: [
       {
         title: '문의 제출',
@@ -373,10 +368,7 @@ export function buildChecklist(sprintId: number, mode: ChecklistMode): MockBlock
       notionUrl: tpl.notionUrl,
       figmaNodeIds: tpl.figmaNodeIds,
     };
-    const warnings: MockWarning[] =
-      mode === 'fresh'
-        ? tpl.warnings.map((w) => w.code)
-        : tpl.warnings.map((w) => ({ ...w, screenId: tpl.screenId }));
+    const warnings = [...new Set(tpl.warnings)];
 
     const items: MockItem[] = tpl.items.map((it, ii) => {
       const key = `${fi}-${ii}`;
