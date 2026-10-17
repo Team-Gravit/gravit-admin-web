@@ -144,7 +144,7 @@
     },
     {
       "id": "step-11:QA_CHECKLIST",
-      "status": "IN_PROGRESS"
+      "status": "COMPLETED"
     }
   ],
   "figma": {
@@ -170,9 +170,7 @@
     "step-11:QA_REVIEW": "none — QA_SPEC.md C절(시안 없음, 기존 패턴 자체 완성)",
     "step-11:QA_CHECKLIST": "none — QA_SPEC.md C절(시안 없음, 기존 패턴 자체 완성)"
   },
-  "retry": {
-    "step-11:QA_CHECKLIST": 1
-  },
+  "retry": {},
   "manual_review": [
     {
       "id": "step-1-setup",
@@ -293,9 +291,30 @@
       "id": "step-11:QA_SETUP",
       "tag": "integration",
       "note": "nextRunAt 의미 차이: QA_SPEC A-2/B-2 는 \"재시도 대기 시각\"(QUEUED+nextRunAt → RETRY_WAIT)인데, 서버 C4(JobResponse.java:72)는 QUEUED 작업마다 nextRunAt=runAfter 를 채우고 새 작업은 attempt=0·run_after=now 로 넣는다 → 실서버에서는 [QA 준비하기] 직후 \"{지금}에 자동으로 다시 시도합니다\"·\"시도 0/3\" 이 잠깐 보일 수 있다. 프론트는 명세대로 두었고(추측 금지), 서버가 첫 시도에 nextRunAt=null 을 주거나 D9 에 표시 조건(예: lastError 있음)을 추가할지 사람 결정 필요. 그 밖에 Job/JobStep nullable 필드가 키 생략 없이 null 로 오는지(OpenAPI 는 required 에서 뺐음, 서버 record 는 null 포함) 실서버로 확인."
+    },
+    {
+      "id": "step-11:QA_CHECKLIST",
+      "tag": "integration",
+      "note": "실서버로 확인할 것: (1) ChecklistFeature.warnings 최종 형태(지금은 코드 문자열·ReportWarning 둘 다 받음 — 확정되면 한쪽 제거, G2) (2) 거절 항목 셀의 editable·진행률 제외가 서버 규칙과 같은지 (3) 셀 PUT 409/422 와 closeSprint 409 응답 (4) 종료 시 NOTION_WRITE_FAILED 경고를 실어 올 필드 — A-2 Sprint 에 없어 화면은 표시하지 않음 (5) 자동 판정 셀의 source=AUTO·editable=false."
     }
   ],
   "log": [
+    {
+      "id": "step-11",
+      "ts": "2026-10-17",
+      "gate": "full(OK)",
+      "note": "Step 11(QA 메뉴) 4항목 COMPLETED. 리뷰 패킷 제출 후 사람 게이트 대기. 회귀 브라우저 검증: 목록 24·준비 39·분류 검토 36·체크리스트 27."
+    },
+    {
+      "id": "step-11:QA_CHECKLIST",
+      "status": "COMPLETED",
+      "ts": "2026-10-17",
+      "gate": "full(OK): validate-state+typecheck+token-lint+build",
+      "review": "spec PASS, ds PASS (1차 spec FAIL 1건 → 8154945 수정 → 재리뷰 PASS), architecture PASS(step-11 전체)",
+      "retry": 1,
+      "figma": "none → QA_SPEC C절 + 기존 표·드롭다운 선례 자체완성",
+      "note": "B-4 체크리스트. ChecklistPanel(확정 전 CHECKLIST_NOT_READY·종료 CHECKLIST_CLOSED 게이트, 상단 고정 줄: 범례·파트 필터·다음 미검수(접힌 그룹 펼쳐 포커스)·거절 항목 보기·파트별 진행률, 기능 그룹 완료율·경고 수, 기대 결과 펼침) · CheckCellButton(해당 없음 -, 잠긴 셀 툴팁, 메뉴 미검수/PASS/FAIL/변경 이력, 응답 셀만 갱신) · CellHistoryModal · CloseSprintModal(배너 [스프린트 종료], FAIL n건, 모든 하위 화면에서 노출) · ClassificationBadges(자동화 후보 공용). API #4·#12·#13, useUpdateCheckCell·useCloseSprint·useCellHistory. MSW: 셀 PUT·이력·종료, 이력 시드. 브라우저 검증 27/27(전 셀 체크 → 종료까지)."
+    },
     {
       "id": "step-11:QA_REVIEW",
       "status": "COMPLETED",
