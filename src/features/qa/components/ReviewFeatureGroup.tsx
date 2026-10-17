@@ -111,8 +111,16 @@ export function ReviewFeatureGroup({
                 type="button"
                 onClick={() => setWarningsOpen((v) => !v)}
                 aria-expanded={warningsOpen}
+                className="group inline-flex items-center gap-0.5 text-fg-muted hover:text-foreground"
               >
-                <StatusBadge variant="warning">경고 {warnings.length}</StatusBadge>
+                {warningsOpen ? (
+                  <ChevronDown className="size-3.5" />
+                ) : (
+                  <ChevronRight className="size-3.5" />
+                )}
+                <StatusBadge variant="warning" className="group-hover:underline">
+                  경고 {warnings.length}
+                </StatusBadge>
               </button>
             )}
           </div>
@@ -125,7 +133,7 @@ export function ReviewFeatureGroup({
                 className={linkClass}
               >
                 Notion
-                <ExternalLink className="size-3" />
+                <ExternalLink className="size-3.5" />
               </a>
             )}
             {figmaFileKey &&
@@ -138,7 +146,7 @@ export function ReviewFeatureGroup({
                   className={linkClass}
                 >
                   Figma{feature.figmaNodeIds.length > 1 ? ` ${i + 1}` : ''}
-                  <ExternalLink className="size-3" />
+                  <ExternalLink className="size-3.5" />
                 </a>
               ))}
           </div>
@@ -186,7 +194,8 @@ export function ReviewFeatureGroup({
               key={item.id}
               item={item}
               editable={editable}
-              busy={busyItemId === item.id || confirmAll.isPending}
+              busy={update.isPending || confirmAll.isPending}
+              spinning={busyItemId === item.id}
               onReview={(state) => review(item, state)}
               onEdit={() => setEditingId(item.id)}
             />

@@ -75,37 +75,50 @@ export function ReviewPanel({ sprint }: { sprint: Sprint }) {
   // 배너에서 넘어온 확정 요청: 체크리스트를 받은 뒤(자동 항목 여부를 알아야 한다) 한 번만 연다.
   useEffect(() => {
     if (!openConfirmStateSchema.safeParse(location.state).success || !checklist) return;
-    navigate(location.pathname, { replace: true, state: null });
+    navigate(
+      { pathname: location.pathname, search: location.search },
+      { replace: true, state: null },
+    );
     if (canConfirm) setConfirmOpen(true);
-  }, [location.state, location.pathname, checklist, canConfirm, navigate]);
+  }, [location.state, location.pathname, location.search, checklist, canConfirm, navigate]);
 
   const groups = useMemo(() => {
     if (!checklist) return [];
     const q = search.trim().toLowerCase();
-    return checklist.features
-      .filter(({ feature, warnings }) => {
-        if (needsCheckOnly && feature.specStatus !== 'NEEDS_CHECK') return false;
-        if (warningsOnly && warnings.length === 0) return false;
-        if (!q) return true;
-        return feature.screenId.toLowerCase().includes(q) || feature.name.toLowerCase().includes(q);
-      })
-      .map((block) => ({
-        block,
-        items: block.items.filter((i) => reviewFilter === 'ALL' || i.reviewState === reviewFilter),
-      }))
-      .filter((g) => reviewFilter === 'ALL' || g.items.length > 0);
+    return (
+      checklist.features
+        .filter(({ feature, warnings }) => {
+          if (needsCheckOnly && feature.specStatus !== 'NEEDS_CHECK') return false;
+          if (warningsOnly && warnings.length === 0) return false;
+          if (!q) return true;
+          return (
+            feature.screenId.toLowerCase().includes(q) || feature.name.toLowerCase().includes(q)
+          );
+        })
+        .map((block) => ({
+          block,
+          items: block.items.filter(
+            (i) => reviewFilter === 'ALL' || i.reviewState === reviewFilter,
+          ),
+        }))
+        // 필터에 맞는 항목이 없는 그룹은 숨기되, 경고가 있는 그룹은 남긴다 — ITEM_GENERATION_FAILED 처럼
+        // '실패 항목을 거절하고 직접 추가' 안내와 [항목 추가]가 거절 직후 사라지면 안 된다(B-3).
+        .filter((g) => reviewFilter === 'ALL' || g.items.length > 0 || g.block.warnings.length > 0)
+    );
   }, [checklist, search, needsCheckOnly, warningsOnly, reviewFilter]);
 
   if (notReady) {
     return (
-      <EmptyState
-        message={NOTICE_COPY.REVIEW_NOT_READY}
-        action={
-          <Button variant="outline" asChild>
-            <Link to={ROUTES.QA_SPRINT_SETUP(sprint.id)}>준비 화면으로 이동</Link>
-          </Button>
-        }
-      />
+      <div className="rounded-lg border border-border bg-surface">
+        <EmptyState
+          message={NOTICE_COPY.REVIEW_NOT_READY}
+          action={
+            <Button variant="outline" asChild>
+              <Link to={ROUTES.QA_SPRINT_SETUP(sprint.id)}>준비 화면으로 이동</Link>
+            </Button>
+          }
+        />
+      </div>
     );
   }
   if (checklistQuery.isLoading) return <LoadingSkeleton />;

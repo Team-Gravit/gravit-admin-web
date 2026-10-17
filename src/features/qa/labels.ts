@@ -163,14 +163,15 @@ export function personaLabel(key: string): string {
 }
 
 /**
- * 톤 (QA_SPEC C절): 검토 전 = 확인 필요(warning), 확정 = 완료(success), 거절 = 대상 밖(muted).
+ * 톤 (QA_SPEC C절): 검토 전 = 대기(neutral·muted), 확정 = 완료(success), 거절 = danger(대상에서 빠짐 —
+ * 검토 전과 구분하고, 경고 배지(확인 필요·경고 N)가 기본 필터의 검토 전 배지에 묻히지 않게 한다).
  * 명세 상태: 확인 필요 = warning(B-3 명시), 확정 = success, 역문서화 초안 = muted.
  * 분류: C절에 매핑이 없어 자동 = info, 수동 = muted, 자동화 후보 = accent 로 보완.
  */
 export const REVIEW_STATE_BADGE_VARIANT: Record<ReviewState, BadgeVariant> = {
-  PROPOSED: 'warning',
+  PROPOSED: 'muted',
   CONFIRMED: 'success',
-  REJECTED: 'muted',
+  REJECTED: 'danger',
 };
 
 export const SPEC_STATUS_BADGE_VARIANT: Record<SpecStatus, BadgeVariant> = {

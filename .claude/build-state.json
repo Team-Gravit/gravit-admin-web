@@ -140,7 +140,7 @@
     },
     {
       "id": "step-11:QA_REVIEW",
-      "status": "TODO"
+      "status": "IN_PROGRESS"
     },
     {
       "id": "step-11:QA_CHECKLIST",
@@ -170,7 +170,9 @@
     "step-11:QA_REVIEW": "none — QA_SPEC.md C절(시안 없음, 기존 패턴 자체 완성)",
     "step-11:QA_CHECKLIST": "none — QA_SPEC.md C절(시안 없음, 기존 패턴 자체 완성)"
   },
-  "retry": {},
+  "retry": {
+    "step-11:QA_REVIEW": 1
+  },
   "manual_review": [
     {
       "id": "step-1-setup",

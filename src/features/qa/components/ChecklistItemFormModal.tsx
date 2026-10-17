@@ -79,8 +79,9 @@ function defaultsOf(feature: Feature, item?: ChecklistItem): ChecklistItemFormVa
 /** 바꾼 필드만 (A-2 #10). 자동이 아니면 테스트 ID 는 숨겨진 값이라 보내지 않는다. */
 function changedFields(item: ChecklistItem, v: ChecklistItemFormValues) {
   const body: Omit<ChecklistItemUpdateBody, 'version'> = {};
-  if (v.title !== item.title) body.title = v.title;
-  if (v.expected !== item.expected) body.expected = v.expected;
+  // 폼 값은 trim 된다 — 원본도 trim 해 비교해야 앞뒤 공백만 다른 필드가 딸려 가지 않는다
+  if (v.title !== item.title.trim()) body.title = v.title;
+  if (v.expected !== item.expected.trim()) body.expected = v.expected;
   if (!sameParts(v.parts, item.parts)) body.parts = ordered(v.parts);
   if (v.classification !== item.classification) body.classification = v.classification;
   if (v.classification === 'AUTO' && v.testRef !== (item.testRef ?? '')) body.testRef = v.testRef;
@@ -171,7 +172,7 @@ export function ChecklistItemFormModal({
 
   return (
     <Dialog open={open} onOpenChange={(next) => !pending && onOpenChange(next)}>
-      <DialogContent>
+      <DialogContent className="max-h-screen overflow-y-auto">
         <DialogHeader>
           <DialogTitle>{item ? '항목 수정' : '항목 추가'}</DialogTitle>
         </DialogHeader>
@@ -207,7 +208,8 @@ export function ChecklistItemFormModal({
               render={({ field }) => (
                 <div className="flex items-center gap-4">
                   {PART_ORDER.map((part) => {
-                    const allowed = feature.parts.includes(part);
+                    // 기능 parts 밖 파트는 새로 고를 수 없다. 이미 들어 있으면 해제는 할 수 있다(G4).
+                    const allowed = feature.parts.includes(part) || field.value.includes(part);
                     const id = `${formId}-part-${part}`;
                     return (
                       <label
