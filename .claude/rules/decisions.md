@@ -110,6 +110,46 @@
 - 여전히 **표시 연출이지 네트워크 스트리밍이 아니다** — 서버는 완성 답변을 `answer` 이벤트로 한 번에 준다. 백엔드가 훗날 부분 응답을 흘리게 되면 이 훅은 걷어내고 실제 도착분을 그대로 렌더한다.
 - 근거: 사용자 결정 2026-09-09(3차 도입 · 4차 방식 확정).
 
+## D9 — QA 메뉴(gravit-qa 연동) — 계약·인증·경로 확정 (spec/ 미기재, 이 항목이 권위)
+- 별도 서비스 **gravit-qa**(저장소 `Team-Gravit/gravit-qa-server`, Spring Boot)를 백오피스 새 토픽 `QA` 로 들인다. gravit-server 가 아니다. 화면 명세는 루트 **`QA_SPEC.md`**(인테이크 산출물, 2026-10-17). 충돌 시 **D9 > QA_SPEC.md > 기존 spec/**.
+- **코드 이식 없음.** QA 서버는 독립 HTTP 서비스로 남고 프론트는 API만 호출한다(D8 과 같은 구도).
+- 이번 범위 **4화면**: 스프린트 목록 · 준비 · 분류 검토 · 체크리스트(QA_SPEC Q1). 기존 전역 규칙(1280px 단일 폭·라이트 모드·DS-01 토큰·Zod 파싱·`features` 간 import 금지)은 그대로 적용한다.
+- 서버 단계 C4 구현 중이다. QA_SPEC 의 **`[구현 중]` 표기와 G절은 추측으로 채우지 않는다**(D9-5).
+
+### D9-1 사이드바·라우트 (QA_SPEC 결정 #1·#2·#3)
+- 사이드바: **`운영` 섹션 맨 아래**에 `QA`. 아이콘 `ClipboardCheck`(lucide), 활성 = `pathname.startsWith('/qa')`.
+- 라우트: `/qa/sprints`(목록) · `/qa/sprints/:sprintId`(진입 시 `guide.stage` 로 **replace** 이동: `PREPARE`→setup, `REVIEW`→review, `CHECK`·`CLOSE`·`DONE`→checklist) · `/qa/sprints/:sprintId/setup` · `/review` · `/checklist`.
+- 하위 3화면은 **공통 상단**(QA_SPEC B-1: 스프린트 정보·단계 표시·지금 할 일 배너 1개·하위 화면 링크)을 공유한다. 탭 컴포넌트를 새로 들이지 않고 링크 3개로 이동한다. Breadcrumb `QA > {sprintKey} > {하위 화면}`(기존 `useBreadcrumb`).
+
+### D9-2 API 계약 요약 (Base = `VITE_QA_API_BASE`, QA_SPEC A-0·A-2, 결정 #5·#7·#10)
+- Base 기본값 **`/qa-api`** — 필수 env 가 아니다(기존 개발자의 `.env` 가 이 변수 때문에 깨지지 않게). 경로는 서버의 `/api/v1` 다음부터 붙는다(예 `GET /qa-api/sprints`).
+- 엔드포인트는 **QA_SPEC A-2 표의 13개만**. 명세에 없는 엔드포인트·필드·쿼리를 만들지 않는다.
+- **페이지네이션 없음.** 목록·체크리스트 모두 배열 전체를 한 번에 받는다. 백오피스 `PaginatedResponse` 를 쓰지 않는다.
+- **오류 본문 `{ error, message }`**, `message` = string | string[] | object. 문자열이면 토스트에 그대로, 아니면 QA_SPEC F-5 기본 문구. **`error` 코드 값으로 분기하지 않고 HTTP 상태로만 분기**한다(G3). `03 §2` 의 `{code,message}` envelope·`/api/v1/admin` Base 는 이 서비스에 적용되지 않는다. Zod 파싱 의무는 유지.
+- **`version` 낙관적 잠금**: 항목·셀·스프린트 변경 요청 body 에 마지막으로 받은 `version` 을 넣는다. 409 → 다시 조회. 변경 응답의 `version` 으로 캐시를 갱신한다(안 하면 다음 변경이 전부 409). 셀 변경은 낙관적 갱신 없이 응답 `CheckCell` 로 그 셀만 갱신한다.
+- **202 + Job polling**: QA 준비하기는 202 + `Job`. Job 이 `QUEUED`·`RUNNING` 인 동안 **3초 간격** polling, 끝나면(`SUCCEEDED`·`FAILED`·`CANCELLED`) 멈추고 스프린트·체크리스트 쿼리를 무효화한다. 화면을 떠나면 멈추고 돌아오면 재개.
+- datetime 은 `+09:00` 오프셋 ISO 8601, 날짜만 있는 값(`periodStart`·`periodEnd`)은 `yyyy-MM-dd`. 표시는 기존 `shared/lib/formatDate.ts`.
+
+### D9-3 인증 = 관리자 Bearer (QA_SPEC A-0, 결정 #4)
+- 기존 관리자 `accessToken` 을 `Authorization: Bearer` 로 보낸다. 서버가 `GET /api/v1/admin/me` 로 판정한다(D8-3 과 같은 방식). HTTP 클라이언트는 `shared/api` 의 **QA 전용 axios 인스턴스**.
+- **401** 토큰 만료·무효 → `reissueAccessToken()`(`shared/api/client.ts`) 후 **1회** 재시도, 실패하면 기존 강제 로그아웃 흐름. **재발급 절차는 공유하고 복제하지 않는다** — 인스턴스마다 재발급하면 refresh Rotation 때문에 서로의 토큰을 무효화한다(D8-3).
+- **403** ADMIN 아님 → **종착**, 재시도하지 않는다(F-5 `FORBIDDEN`).
+- **503** 인증 서버(`/admin/me`) 판정 불가 → **401 로 다루지 않는다**(재발급·로그아웃 금지). F-5 `AUTH_UNAVAILABLE` 토스트 후 사용자가 다시 시도한다. 뭉개면 인증 서버 장애 때 재발급·강제 로그아웃 루프가 생긴다.
+
+### D9-4 네트워크 경로 (QA_SPEC A-0, G1)
+- 운영: `vercel.json` rewrite `/qa-api/:path*` → `https://{QA 도메인}/api/v1/:path*`, **SPA catch-all 보다 앞**에 둔다(D8-4 와 같은 규칙). 로컬: vite `server.proxy` 의 `/qa-api` → `VITE_QA_ORIGIN` + `/api/v1`.
+- **QA 도메인 미확정 → 지금은 rewrite 와 proxy 를 추가하지 않는다.** 개발·화면 검증은 MSW 핸들러(`VITE_USE_MOCK=true`, 결정 #6). 도메인 입력은 사람 작업.
+
+### D9-5 구현 제약 (QA_SPEC C·E·F·G절)
+- 신규 의존성 **0개**. 진행 막대·단계 표시는 기존 토큰으로 div 구성. Figma 시안 없음 → 기존 패턴(신고·문의 목록, `ConfirmModal`·dialog, `StatusBadge` 계열, shared table)으로 자체 완성.
+- **문구는 QA_SPEC F절이 권위.** 서버는 다음 할 일·막힌 이유·경고를 코드로만 내려 주고, 코드→문구 매핑은 프론트가 관리한다. 모르는 `nextAction` 은 배너를 숨기고, 모르는 단계 이름·경고 코드는 원문(`name`·`message`)으로 표시한다.
+- **후속 범위(리포트·자동 실행·증적·페르소나 토큰 발급)는 화면·메뉴·자리 화면 모두 만들지 않는다**(E절). `ChecklistConfirmResponse.autoRun` 은 존재만 허용(`z.unknown().nullable()`).
+- **`ChecklistFeature.warnings`(G2)는 C4 보고로 형태가 확정되기 전까지 그 부분의 구현을 멈추고 질문한다(🙋🏻).** 오류 코드 목록(G3)·기능 `parts` 밖 파트 거부 여부(G4)도 추측하지 않는다.
+- 실서버 연동 확인(401 재발급·403·503·실제 응답 형태)은 `manual_review` 에 `integration` 태그로 남긴다.
+- `step-11` 화면도 `spec-conformance-reviewer`·`ds-conformance-reviewer` 를 실행하고 `harness/review/<id>.json` 을 남긴다(step-8 선례). spec 리뷰 기준은 `spec/` 대신 **이 D9 와 `QA_SPEC.md`**.
+- `spec/` 반영은 사람 몫(PreToolUse 차단) — D7·D8 과 같다.
+- 근거: `QA_SPEC.md`(2026-10-17), 사용자 결정 2026-10-17.
+
 ## 기타 확정값 (계약에서 고정 — 임의 변경 금지)
 - 토큰: access **2h** / refresh **14d**, Rotation, refresh 는 Redis 화이트리스트 + body 전달. (`03 §3, §11`)
 - 목록 페이지 크기 **20행 고정**(서버 고정, 클라 변경 불가). (`03 §2-4`, `04 §6-3`)

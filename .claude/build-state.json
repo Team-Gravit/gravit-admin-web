@@ -128,7 +128,23 @@
     },
     {
       "id": "step-10:RAVVIT",
-      "status": "IN_PROGRESS"
+      "status": "COMPLETED"
+    },
+    {
+      "id": "step-11:QA_SPRINT_LIST",
+      "status": "TODO"
+    },
+    {
+      "id": "step-11:QA_SETUP",
+      "status": "TODO"
+    },
+    {
+      "id": "step-11:QA_REVIEW",
+      "status": "TODO"
+    },
+    {
+      "id": "step-11:QA_CHECKLIST",
+      "status": "TODO"
     }
   ],
   "figma": {
@@ -148,7 +164,11 @@
     "step-4:LESSON_DETAIL": "figma node 8558:6812 (hu4c6qCEMB62qHXk2v8Gsl)",
     "step-5:CHAPTER_DETAIL": "figma node 8718:2304 (hu4c6qCEMB62qHXk2v8Gsl)",
     "step-5:PROBLEM_DETAIL": "figma node 8558:6242 (hu4c6qCEMB62qHXk2v8Gsl, 객관식 표시 모드)",
-    "step-6:STAGING_DETAIL": "figma node 8717:1273 (PENDING 편집 뷰) + 8788:1858 (COMPLETED read-only 뷰) (hu4c6qCEMB62qHXk2v8Gsl)"
+    "step-6:STAGING_DETAIL": "figma node 8717:1273 (PENDING 편집 뷰) + 8788:1858 (COMPLETED read-only 뷰) (hu4c6qCEMB62qHXk2v8Gsl)",
+    "step-11:QA_SPRINT_LIST": "none — QA_SPEC.md C절(시안 없음, 기존 패턴 자체 완성)",
+    "step-11:QA_SETUP": "none — QA_SPEC.md C절(시안 없음, 기존 패턴 자체 완성)",
+    "step-11:QA_REVIEW": "none — QA_SPEC.md C절(시안 없음, 기존 패턴 자체 완성)",
+    "step-11:QA_CHECKLIST": "none — QA_SPEC.md C절(시안 없음, 기존 패턴 자체 완성)"
   },
   "retry": 0,
   "manual_review": [
@@ -259,6 +279,19 @@
     }
   ],
   "log": [
+    {
+      "id": "step-11-intake",
+      "ts": "2026-10-17",
+      "gate": "validate-state(OK)",
+      "note": "새 토픽 QA(gravit-qa 별도 서비스) 인테이크. QA_SPEC.md 를 루트에 배치(~/Downloads 원본과 바이트 동일, 핸드오프 문서라 git 미추적). decisions.md D9(D9-1 사이드바·라우트 / D9-2 API 계약 / D9-3 인증 / D9-4 네트워크 경로 / D9-5 구현 제약) 추가. step-11 체크리스트 4항목 TODO 등록 + figma 맵 none 기록. spec/ 반영은 사람 몫."
+    },
+    {
+      "id": "step-10:RAVVIT",
+      "status": "COMPLETED",
+      "ts": "2026-10-17",
+      "gate": "이 세션 미실행(마지막 커밋 30343e5 시점 기준)",
+      "note": "사용자 승인으로 완료 확정(2026-10-17). 상태 줄은 세션 시작 직후 사용자 측에서 IN_PROGRESS→COMPLETED 로 바뀌어 있었고, 이 세션은 승인 확인과 기록만 했다. 리뷰 JSON 없음(step-10 은 validate-state 강제 대상 밖)."
+    },
     {
       "id": "route-transition-smoothing",
       "ts": "2026-09-06",
