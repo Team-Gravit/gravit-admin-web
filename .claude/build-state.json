@@ -308,6 +308,13 @@
   ],
   "log": [
     {
+      "id": "step-11:packet-reply",
+      "ts": "2026-10-17",
+      "gate": "full(OK): validate-state+typecheck+token-lint+build",
+      "note": "리뷰 패킷 회신 반영. QA_SPEC.md 최신본(결정 #17~#19, F-4 SPRINT_LIST_SUBTITLE) 기준. D9-6 에 #17·#18·#19, D9-5 에 수동 항목 testRef 사실(화면 처리 현행 유지). 코드: copy.ts NOTICE_COPY.SPRINT_LIST_SUBTITLE 추가·#19 헤더 주석, QaSprintListPage 부제 상수 사용. F절 하드코딩 스캔 0건(B절 버튼 라벨은 #17 예외).",
+      "review": "QA_SPRINT_LIST spec 재리뷰 PASS(문서 지적 2건 즉시 정정). 질문 2건 패킷으로."
+    },
+    {
       "id": "step-11:C5-rework",
       "ts": "2026-10-17",
       "gate": "full(OK): validate-state+typecheck+token-lint+build",

@@ -153,25 +153,27 @@
 - **후속 범위(리포트·자동 실행·증적·페르소나 토큰 발급)는 화면·메뉴·자리 화면 모두 만들지 않는다**(E절). `ChecklistConfirmResponse.autoRun` 은 존재만 허용(`z.unknown().nullable()`).
 - **`ChecklistFeature.warnings` = 경고 코드 문자열 배열**(`z.array(z.string())`, 기능 안 중복 제거 — 서버 C4 머지로 확정, G2 해소). 메시지·플랫폼 정보는 오지 않는다. 표시는 F-3 문구, 표에 없는 코드는 코드 원문. (이전의 "두 형태 모두 받기"는 C5 회신 2026-10-17 로 폐기)
 - **자동 → 수동으로 바꿀 때 `testRef: null` 을 함께 보낸다**(QA_SPEC B-3). 서버는 분류와 무관하게 null 이 아닌 testRef 를 카탈로그와 대조한다. `testRef`·`personaKey` 는 키를 빼면 유지, `null` 이면 지움(`JsonNullable`).
+- **수동 항목에도 testRef 가 남을 수 있다** — LLM 초안이 자동 기준 5개를 못 채웠지만 testRef 가 카탈로그에 있으면 `MANUAL` + testRef 로 저장되고, 사람이 카탈로그에 있는 testRef 로 수동 항목을 추가해도 허용된다. 확정·거절만 보내는 PATCH 는 서버가 testRef 를 다시 검사하지 않아 `AUTO_NOT_ALLOWED` 가 나지 않는다. 422 는 카탈로그에 없는 testRef 를 단 채 항목을 수정할 때 난다 — 예: 자동 항목의 testRef 가 이후 카탈로그에서 빠진 경우(사용자 회신), 수동 항목에 남은 testRef 도 같다(QA_SPEC B-3). 화면 처리는 현행 유지(리뷰 패킷 회신, 사용자 결정 2026-10-17).
 - 서버는 기능 `parts` 밖 파트로 항목을 추가·수정해도 거부하지 않는다(G4 해소) — 화면이 기능 파트만 고르게 하는 것이 유일한 제한.
 - `expected` 가 `근거 없음(` 으로 시작하면 경고 톤 태그 `근거 없음` 을 붙인다(QA_SPEC B-3).
 - 실서버 연동 확인(401 재발급·403·503·실제 응답 형태)은 `manual_review` 에 `integration` 태그로 남긴다.
 - `step-11` 화면도 `spec-conformance-reviewer`·`ds-conformance-reviewer` 를 실행하고 `harness/review/<id>.json` 을 남긴다(step-8 선례). spec 리뷰 기준은 `spec/` 대신 **이 D9 와 `QA_SPEC.md`**.
 - `spec/` 반영은 사람 몫(PreToolUse 차단) — D7·D8 과 같다.
 
-### D9-6 화면 결정 (QA_SPEC 결정 #13~#16, B-4)
+### D9-6 화면 결정 (QA_SPEC 결정 #13~#19, B-4)
 - **#13 배지 색**: 분류 검토 `검토 전` neutral(muted)·`거절` danger. 체크리스트의 거절 항목은 회색 칩 + 취소선(FAIL 빨강과 구분).
 - **#14** 경고가 있는 기능 그룹은 분류 검토 필터에 맞는 항목이 없어도 남긴다(초안 생성 실패 → 거절 → 직접 추가 흐름).
 - **#15** 배너의 이동 버튼은 이미 그 화면이면 숨긴다. `[스프린트 종료]` 는 종료의 유일한 입구라 어느 하위 화면에서나 보인다.
 - **#16** 잠긴 셀 툴팁은 브라우저 기본 `title`(툴팁 컴포넌트 없음·새 의존성 금지).
 - **잠긴 셀도 클릭하면 `변경 이력` 만 있는 메뉴**를 연다(이력 조회는 셀 잠금과 무관). `해당 없음` 셀은 비활성. 셀 출처 라벨 = A-1 `CellSource`(`MANUAL` 수동 체크 / `AUTO` 자동 실행).
-- 직접 쓴 안내·빈 상태·검증 문구는 F-4 키로 등록됐다(`GO_SETUP`·`GO_REVIEW`·`EMPTY_FILTERED`·`EMPTY_ITEMS`·`EMPTY_HISTORY`·`FEATURE_PROGRESS`·`VALIDATION_*`) — 이런 문구는 화면에 직접 쓰지 않고 `copy.ts` 를 쓴다. 제목·라벨처럼 QA_SPEC B절 문면에서 온 표기는 예외.
-- 조회 실패 화면(ErrorState)도 qaClient 가 정한 문구를 보여 준다: 서버 문자열 message → 없거나 객체면 F-5(403 FORBIDDEN·그 밖 DEFAULT), 503 은 AUTH_UNAVAILABLE.
+- **#17** 화면 문구는 F절 키를 쓴다. 안내·빈 상태·검증 문구도 F-4 키로 등록됐다(`SPRINT_LIST_SUBTITLE`·`GO_SETUP`·`GO_REVIEW`·`EMPTY_FILTERED`·`EMPTY_ITEMS`·`EMPTY_HISTORY`·`FEATURE_PROGRESS`·`VALIDATION_*`) — 화면에 직접 쓰지 않고 `copy.ts` 를 쓴다. 예외는 B절 본문에 적힌 제목·라벨(예 `기준점`·`판정 근거`·표 열 이름)로, F절 키 없이 B절 문면을 그대로 쓴다.
+- **#18** 조회 실패 화면(ErrorState)도 토스트와 같은 오류 문구 규칙을 따른다: 서버 문자열 message → 없거나 객체면 F-5(403 FORBIDDEN·그 밖 DEFAULT), 503 은 AUTH_UNAVAILABLE. 문구는 qaClient 가 정한다.
+- **#19** F절 문구의 백틱(`` ` ``)은 문서 표기다. 화면에는 백틱 없이 표시한다(예 F-1 버튼 열 `` `[QA 준비하기]` `` → 버튼 라벨 `QA 준비하기`).
 
 ### D9-7 이 토픽 밖으로 분리한 기존 결함 (QA_SPEC H절 — QA 항목에서 고치지 않는다)
 - **H1** `cn.ts`(twMerge)가 `text-caption`·`text-body` 를 지워 배지·사이드바 글자 크기가 커지는 문제 → 체크리스트 `fix:H1-CN_FONT_SIZE`. 고치면 기존 16화면과 QA 화면이 함께 바뀐다. 그때 QA 컴포넌트의 '크기 토큰을 cn 밖에 두는' 우회도 일반 `cn` 으로 되돌린다.
 - **H2** 새 탭 첫 로드에서 MSW 가 켜지기 전에 로그인 로더의 토큰 재발급이 실서버로 나가는 문제(개발 모드 한정) → 체크리스트 `fix:H2-MSW_BOOT_REISSUE`.
-- 근거: `QA_SPEC.md`(2026-10-17, C5 회신 반영본), 서버 dev `99b9a1c`(C4 머지), 사용자 결정 2026-10-17.
+- 근거: `QA_SPEC.md`(2026-10-17, C5 회신·리뷰 패킷 회신 반영본 — 결정 #17~#19), 서버 dev `99b9a1c`(C4 머지), 사용자 결정 2026-10-17.
 
 ## 기타 확정값 (계약에서 고정 — 임의 변경 금지)
 - 토큰: access **2h** / refresh **14d**, Rotation, refresh 는 Redis 화이트리스트 + body 전달. (`03 §3, §11`)

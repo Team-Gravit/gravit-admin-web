@@ -98,9 +98,7 @@ export function QaSprintListPage() {
       <div className="flex items-start justify-between">
         <div className="flex flex-col gap-1">
           <h1 className="text-h1 text-foreground">QA</h1>
-          <p className="text-body text-fg-muted">
-            스프린트마다 체크리스트를 준비하고 파트별로 체크합니다.
-          </p>
+          <p className="text-body text-fg-muted">{NOTICE_COPY.SPRINT_LIST_SUBTITLE}</p>
         </div>
         <Button onClick={() => setCreateOpen(true)}>
           <Plus />

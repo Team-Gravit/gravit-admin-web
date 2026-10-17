@@ -5,6 +5,7 @@ import type { GuideBlocker, SprintGuide } from '@/features/qa/schemas';
  * QA 화면 문구 — **QA_SPEC F절이 권위**(decisions D9-5). 톤은 합니다체.
  * 서버는 다음 할 일·막힌 이유·경고를 코드로만 내려 준다. 코드 → 문구 매핑은 여기서만 한다.
  * HTTP 계층 공통 오류 문구(AUTH_UNAVAILABLE·FORBIDDEN·DEFAULT)는 `shared/api/qaClient` 의 QA_ERROR_MESSAGES.
+ * F절 문구의 백틱은 문서 표기라 여기 옮길 때 뺀다(QA_SPEC 결정 #19).
  */
 
 // ---------- F-1. 다음 할 일 (guide.nextAction) ----------
@@ -124,7 +125,6 @@ const WARNING_COPY: Partial<Record<string, string>> = {
     '앱 versionCode가 직전 기준점보다 크지 않습니다. release마다 versionCode를 올려야 합니다.',
   // 이번 범위 응답에 실어 오는 필드가 없어 표시하지 않는다 — 리포트(후속 범위)에서 쓴다(F-3)
   NOTION_WRITE_FAILED: 'Notion에 QA 기준점을 기록하지 못했습니다. 종료는 정상 처리됐습니다.',
-  // QA_SPEC 표의 `관련 API` 백틱은 마크다운 표기라 화면 문구에는 넣지 않는다
   OPENAPI_OPERATION_MISSING:
     'Notion 관련 API의 operationId 중 dev API 문서에 없는 것이 있습니다. 명세의 API 이름을 확인하세요.',
   LLM_INPUT_TRUNCATED: '입력이 길어 일부를 빼고 초안을 만들었습니다. 빠진 내용은 직접 확인하세요.',
@@ -144,6 +144,7 @@ export function warningText(code: string): string {
 
 // ---------- F-4. 안내, 빈 상태 ----------
 export const NOTICE_COPY = {
+  SPRINT_LIST_SUBTITLE: '스프린트마다 체크리스트를 준비하고 파트별로 체크합니다.',
   EMPTY_SPRINTS: '등록된 스프린트가 없습니다. Notion 스프린트 페이지를 연결해 시작하세요.',
   REGISTER_HINT:
     'Notion 스프린트 DB의 행 페이지 URL을 붙여 넣으세요. 페이지에 QA Integration이 연결돼 있어야 합니다.',
