@@ -47,6 +47,8 @@ export function CheckCellButton({
 }: CheckCellButtonProps) {
   const update = useUpdateCheckCell(sprintId);
   const [historyOpen, setHistoryOpen] = useState(false);
+  // 요청 중에는 메뉴를 열지 않는다 — trigger 를 disabled 로 두면 선택 직후 포커스가 body 로 빠진다
+  const [menuOpen, setMenuOpen] = useState(false);
 
   if (cell.state === 'NOT_APPLICABLE') {
     return (
@@ -65,27 +67,30 @@ export function CheckCellButton({
       : cell.source === 'AUTO'
         ? NOTICE_COPY.CELL_LOCKED_AUTO
         : undefined;
+    // 편집 셀과 같은 틀(패딩 + 화살표 자리)로 열 안 정렬을 맞춘다
     return (
       <span
         title={tip}
         aria-label={`${PART_LABELS[cell.part]} ${label}`}
-        className="cursor-not-allowed"
+        className="inline-flex cursor-not-allowed items-center gap-1 px-1.5 py-1"
       >
         {badge}
+        <span className="size-3.5" aria-hidden />
       </span>
     );
   }
 
   return (
     <>
-      <DropdownMenu>
-        <DropdownMenuTrigger asChild disabled={update.isPending}>
+      <DropdownMenu open={menuOpen} onOpenChange={(open) => setMenuOpen(open && !update.isPending)}>
+        <DropdownMenuTrigger asChild>
           <button
             ref={registerRef}
             type="button"
             onFocus={onFocusCell}
+            aria-busy={update.isPending}
             aria-label={`${PART_LABELS[cell.part]} ${label} — 변경`}
-            className="inline-flex items-center gap-1 rounded-md px-1.5 py-1 transition-colors hover:bg-hover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring disabled:opacity-50"
+            className="inline-flex items-center gap-1 rounded-md px-1.5 py-1 transition-colors hover:bg-hover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring aria-busy:opacity-50"
           >
             {update.isPending && <Loader2 className="size-3.5 animate-spin text-fg-muted" />}
             {badge}

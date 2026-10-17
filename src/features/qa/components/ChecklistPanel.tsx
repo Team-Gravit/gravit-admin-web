@@ -24,6 +24,7 @@ import { EmptyState } from '@/shared/components/states/EmptyState';
 import { ErrorState } from '@/shared/components/states/ErrorState';
 import { LoadingSkeleton } from '@/shared/components/states/LoadingSkeleton';
 import { CheckCellButton } from '@/features/qa/components/CheckCellButton';
+import { ClassificationBadges } from '@/features/qa/components/ClassificationBadges';
 import { QaChip } from '@/features/qa/components/QaChip';
 import { QaNotice } from '@/features/qa/components/QaNotice';
 import { useChecklist } from '@/features/qa/queries';
@@ -32,8 +33,6 @@ import { qaErrorView } from '@/features/qa/errorView';
 import {
   CELL_STATE_BADGE_VARIANT,
   CELL_STATE_LABELS,
-  CLASSIFICATION_BADGE_VARIANT,
-  CLASSIFICATION_LABELS,
   PART_LABELS,
   PART_ORDER,
   REVIEW_STATE_LABELS,
@@ -88,10 +87,13 @@ export function ChecklistPanel({ sprint }: { sprint: Sprint }) {
 
   const blocks = useMemo(
     () =>
-      checklist?.features.map((b) => ({
-        ...b,
-        items: b.items.filter((i) => showRejected || i.reviewState !== 'REJECTED'),
-      })) ?? [],
+      checklist?.features
+        .map((b) => ({
+          ...b,
+          items: b.items.filter((i) => showRejected || i.reviewState !== 'REJECTED'),
+        }))
+        // 보이는 항목이 없는 기능(전부 거절 + 거절 보기 끔)은 빈 머리만 남지 않게 숨긴다
+        .filter((b) => b.items.length > 0) ?? [],
     [checklist, showRejected],
   );
 
@@ -310,7 +312,9 @@ export function ChecklistPanel({ sprint }: { sprint: Sprint }) {
                         const rejected = item.reviewState === 'REJECTED';
                         return (
                           <Fragment key={item.id}>
-                            <TableRow className="hover:bg-transparent">
+                            <TableRow
+                              className={`hover:bg-transparent ${open ? 'border-b-0' : ''}`}
+                            >
                               <TableCell>
                                 <div className="flex flex-wrap items-center gap-2">
                                   <button
@@ -325,11 +329,7 @@ export function ChecklistPanel({ sprint }: { sprint: Sprint }) {
                                   {item.personaKey && (
                                     <QaChip>{personaLabel(item.personaKey)}</QaChip>
                                   )}
-                                  <StatusBadge
-                                    variant={CLASSIFICATION_BADGE_VARIANT[item.classification]}
-                                  >
-                                    {CLASSIFICATION_LABELS[item.classification]}
-                                  </StatusBadge>
+                                  <ClassificationBadges item={item} />
                                 </div>
                               </TableCell>
                               {parts.map((part) => {

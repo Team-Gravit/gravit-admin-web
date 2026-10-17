@@ -2,12 +2,11 @@ import { useState } from 'react';
 import { Check, ChevronDown, ChevronRight, Loader2, X } from 'lucide-react';
 import { Button } from '@/shared/components/ui/button';
 import { StatusBadge } from '@/shared/components/status-badge/StatusBadge';
+import { ClassificationBadges } from '@/features/qa/components/ClassificationBadges';
 import { PartChips } from '@/features/qa/components/PartChips';
 import { QaChip } from '@/features/qa/components/QaChip';
 import { NOTICE_COPY } from '@/features/qa/copy';
 import {
-  CLASSIFICATION_BADGE_VARIANT,
-  CLASSIFICATION_LABELS,
   CRITERIA_LABELS,
   ORIGIN_LABELS,
   REVIEW_STATE_BADGE_VARIANT,
@@ -64,12 +63,7 @@ export function ReviewItemRow({
 
         <div className="flex flex-wrap items-center gap-2 text-caption text-fg-muted">
           <PartChips parts={item.parts} />
-          <StatusBadge variant={CLASSIFICATION_BADGE_VARIANT[item.classification]}>
-            {CLASSIFICATION_LABELS[item.classification]}
-          </StatusBadge>
-          {item.classification === 'MANUAL' && item.automationGap && (
-            <StatusBadge variant="accent">자동화 후보</StatusBadge>
-          )}
+          <ClassificationBadges item={item} />
           {item.personaKey && <QaChip>{personaLabel(item.personaKey)}</QaChip>}
           <span>{ORIGIN_LABELS[item.origin]}</span>
           <button
