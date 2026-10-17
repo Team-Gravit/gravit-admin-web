@@ -308,6 +308,12 @@
   ],
   "log": [
     {
+      "id": "step-11",
+      "ts": "2026-10-17",
+      "gate": "full(OK)",
+      "note": "Step 11(QA 메뉴) 사람 게이트 승인 — 종료. 최종 패킷 질문 2건 결정: 목록 필터 '상태 전체' 유지(목록 관례), 백오피스 공통 폼 문구(제출 실패 토스트·취소·placeholder)는 #17 예외 → D9-6 '#17 예외 보충'. 원격 반영·PR 은 사용자 확인 대기(PreToolUse 차단 → 사람 실행). 다음 재개 지점 fix:H1-CN_FONT_SIZE 는 사용자 지시 후 시작."
+    },
+    {
       "id": "step-11:packet-reply",
       "ts": "2026-10-17",
       "gate": "full(OK): validate-state+typecheck+token-lint+build",
