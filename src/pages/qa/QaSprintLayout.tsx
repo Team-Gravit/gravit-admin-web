@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Outlet, useLocation, useNavigate, useParams } from 'react-router';
 import { ROUTES } from '@/shared/constants/routes';
+import { QA_ERROR_MESSAGES } from '@/shared/api/qaClient';
 import { useSetBreadcrumb, type Crumb } from '@/shared/hooks/useBreadcrumb';
 import { ErrorState } from '@/shared/components/states/ErrorState';
 import { LoadingSkeleton } from '@/shared/components/states/LoadingSkeleton';
@@ -48,7 +49,8 @@ export function QaSprintLayout() {
   if (sprint && current) crumbs.push({ label: current.label });
   useSetBreadcrumb(crumbs);
 
-  if (!Number.isFinite(id)) return <ErrorState />;
+  // 주소의 스프린트 ID 가 숫자가 아니면 요청 없이 F-5 DEFAULT
+  if (!Number.isFinite(id)) return <ErrorState message={QA_ERROR_MESSAGES.DEFAULT} />;
   if (isLoading) return <LoadingSkeleton />;
   if (isError || !sprint) {
     const view = qaErrorView(error);

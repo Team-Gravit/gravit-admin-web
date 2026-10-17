@@ -178,12 +178,7 @@
     "step-11:QA_REVIEW": "none — QA_SPEC.md C절(시안 없음, 기존 패턴 자체 완성)",
     "step-11:QA_CHECKLIST": "none — QA_SPEC.md C절(시안 없음, 기존 패턴 자체 완성)"
   },
-  "retry": {
-    "step-11:QA_SPRINT_LIST": 1,
-    "step-11:QA_SETUP": 1,
-    "step-11:QA_REVIEW": 1,
-    "step-11:QA_CHECKLIST": 1
-  },
+  "retry": {},
   "manual_review": [
     {
       "id": "step-1-setup",
@@ -303,20 +298,27 @@
     {
       "id": "step-11:QA_SETUP",
       "tag": "integration",
-      "note": "nextRunAt 의미 차이: QA_SPEC A-2/B-2 는 \"재시도 대기 시각\"(QUEUED+nextRunAt → RETRY_WAIT)인데, 서버 C4(JobResponse.java:72)는 QUEUED 작업마다 nextRunAt=runAfter 를 채우고 새 작업은 attempt=0·run_after=now 로 넣는다 → 실서버에서는 [QA 준비하기] 직후 \"{지금}에 자동으로 다시 시도합니다\"·\"시도 0/3\" 이 잠깐 보일 수 있다. 프론트는 명세대로 두었고(추측 금지), 서버가 첫 시도에 nextRunAt=null 을 주거나 D9 에 표시 조건(예: lastError 있음)을 추가할지 사람 결정 필요. 그 밖에 Job/JobStep nullable 필드가 키 생략 없이 null 로 오는지(OpenAPI 는 required 에서 뺐음, 서버 record 는 null 포함) 실서버로 확인."
+      "note": "[C5 해소] nextRunAt 은 QUEUED 동안 항상 채워짐 → 화면이 attempt >= 1 일 때만 재시도 대기로 판단(QA_SPEC B-2). null 은 생략 없이 null(서버 Jackson 기본). 남은 확인: 실서버 배포 후 Job attempt·nextRunAt·steps 실제 값."
     },
     {
       "id": "step-11:QA_CHECKLIST",
       "tag": "integration",
-      "note": "실서버로 확인할 것: (1) ChecklistFeature.warnings 최종 형태(지금은 코드 문자열·ReportWarning 둘 다 받음 — 확정되면 한쪽 제거, G2) (2) 거절 항목 셀의 editable·진행률 제외가 서버 규칙과 같은지 (3) 셀 PUT 409/422 와 closeSprint 409 응답 (4) 종료 시 NOTION_WRITE_FAILED 경고를 실어 올 필드 — A-2 Sprint 에 없어 화면은 표시하지 않음 (5) 자동 판정 셀의 source=AUTO·editable=false."
+      "note": "[C5 일부 해소] warnings = 코드 문자열 배열 확정, NOTION_WRITE_FAILED 는 이번 범위 미표시 확정. 남은 확인(실서버): 거절 항목 셀의 editable·진행률 제외, 셀 PUT 409/422 와 closeSprint 409(SPRINT_4093/4094) 응답, 자동 판정 셀 source=AUTO·editable=false."
     }
   ],
   "log": [
     {
       "id": "step-11:C5-rework",
       "ts": "2026-10-17",
-      "gate": "(진행 중)",
-      "note": "C5 회신(조건부 승인) 반영 시작. QA_SPEC.md 는 사용자가 직접 갱신(서버 dev 99b9a1c C4 머지 기준). D9 갱신: warnings=코드 문자열 배열, 502, A-4 코드·422 구분, Job 표시 규칙(attempt/QUEUED_FIRST/시작 시각), null 처리, testRef null, 근거 없음 태그, 결정 #11~#16(D9-6), H1/H2 분리(D9-7). 기존 결함 H1·H2 를 별도 TODO 로 등록(fix:H1-CN_FONT_SIZE, fix:H2-MSW_BOOT_REISSUE) — 이번 Step 에서 고치지 않음."
+      "gate": "full(OK): validate-state+typecheck+token-lint+build",
+      "note": "C5 회신(조건부 승인) 반영 시작. QA_SPEC.md 는 사용자가 직접 갱신(서버 dev 99b9a1c C4 머지 기준). D9 갱신: warnings=코드 문자열 배열, 502, A-4 코드·422 구분, Job 표시 규칙(attempt/QUEUED_FIRST/시작 시각), null 처리, testRef null, 근거 없음 태그, 결정 #11~#16(D9-6), H1/H2 분리(D9-7). 기존 결함 H1·H2 를 별도 TODO 로 등록(fix:H1-CN_FONT_SIZE, fix:H2-MSW_BOOT_REISSUE) — 이번 Step 에서 고치지 않음. / 코드 반영(df4a74b·3f1bc3f): warnings 문자열 배열, 403 서버 message 우선, 422 코드 구분, 502, Job 표시 규칙(QUEUED_FIRST·시도·시작 시각·경과 시간), testRef null, 근거 없음 태그, 잠긴 셀 이력 메뉴, CellSource 라벨, F-3·F-4·F-7 문구, 조회 실패 화면 서버 message. MSW: A-4 코드, attempt 0 첫 대기, INTERPRET message null. 브라우저 검증 목록 26·준비 43·분류 검토 38·체크리스트 29.",
+      "review": "spec·ds 재리뷰: 1차 spec FAIL(조회 실패 화면 서버 message 누락, 4항목 공통) → 3f1bc3f → 4항목 spec PASS·ds PASS",
+      "retry": {
+        "step-11:QA_SPRINT_LIST": 1,
+        "step-11:QA_SETUP": 1,
+        "step-11:QA_REVIEW": 1,
+        "step-11:QA_CHECKLIST": 1
+      }
     },
     {
       "id": "step-11",
