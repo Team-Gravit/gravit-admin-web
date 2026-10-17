@@ -4,7 +4,7 @@ import { useSetBreadcrumb, type Crumb } from '@/shared/hooks/useBreadcrumb';
 import { ErrorState } from '@/shared/components/states/ErrorState';
 import { LoadingSkeleton } from '@/shared/components/states/LoadingSkeleton';
 import { useSprint } from '@/features/qa/queries';
-import { useStartSetupJob } from '@/features/qa/mutations';
+import { useIsStartingSetupJob, useStartSetupJob } from '@/features/qa/mutations';
 import { SprintHeader } from '@/features/qa/components/SprintHeader';
 import { qaErrorView } from '@/features/qa/errorView';
 import { SPRINT_SCREENS, screenPath, type SprintScreen } from '@/features/qa/screens';
@@ -31,6 +31,7 @@ export function QaSprintLayout() {
   const navigate = useNavigate();
   const { data: sprint, isLoading, isError, error, refetch } = useSprint(id);
   const startSetup = useStartSetupJob(id);
+  const starting = useIsStartingSetupJob(id);
 
   const current = SPRINT_SCREENS.find((s) => s.to(id) === pathname) ?? null;
   const crumbs: Crumb[] = [{ label: 'QA', href: ROUTES.QA_SPRINTS }];
@@ -62,12 +63,7 @@ export function QaSprintLayout() {
 
   return (
     <div className="flex flex-col gap-6">
-      <SprintHeader
-        sprint={sprint}
-        canAct={canAct}
-        onAction={onAction}
-        actionPending={startSetup.isPending}
-      />
+      <SprintHeader sprint={sprint} canAct={canAct} onAction={onAction} actionPending={starting} />
       <Outlet />
     </div>
   );

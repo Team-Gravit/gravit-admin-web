@@ -127,7 +127,7 @@
 - **페이지네이션 없음.** 목록·체크리스트 모두 배열 전체를 한 번에 받는다. 백오피스 `PaginatedResponse` 를 쓰지 않는다.
 - **오류 본문 `{ error, message }`**, `message` = string | string[] | object. 문자열이면 토스트에 그대로, 아니면 QA_SPEC F-5 기본 문구. **`error` 코드 값으로 분기하지 않고 HTTP 상태로만 분기**한다(G3). `03 §2` 의 `{code,message}` envelope·`/api/v1/admin` Base 는 이 서비스에 적용되지 않는다. Zod 파싱 의무는 유지.
 - **`version` 낙관적 잠금**: 항목·셀·스프린트 변경 요청 body 에 마지막으로 받은 `version` 을 넣는다. 409 → 다시 조회. 변경 응답의 `version` 으로 캐시를 갱신한다(안 하면 다음 변경이 전부 409). 셀 변경은 낙관적 갱신 없이 응답 `CheckCell` 로 그 셀만 갱신한다.
-- **202 + Job polling**: QA 준비하기는 202 + `Job`. Job 이 `QUEUED`·`RUNNING` 인 동안 **3초 간격** polling, 끝나면(`SUCCEEDED`·`FAILED`·`CANCELLED`) 멈추고 스프린트·체크리스트 쿼리를 무효화한다. 화면을 떠나면 멈추고 돌아오면 재개.
+- **202 + Job polling**: QA 준비하기는 202 + `Job`. Job 이 `QUEUED`·`RUNNING` 인 동안 **3초 간격** polling, 끝나면(`SUCCEEDED`·`FAILED`·`CANCELLED`) 멈추고 스프린트·체크리스트 쿼리를 무효화한다. 화면을 떠나면 멈추고 돌아오면 재개. **조회가 실패한 동안에도 멈춘다**(403·503 을 3초마다 반복하지 않게 — [다시 시도] 성공 시 재개).
 - datetime 은 `+09:00` 오프셋 ISO 8601, 날짜만 있는 값(`periodStart`·`periodEnd`)은 `yyyy-MM-dd`. 표시는 기존 `shared/lib/formatDate.ts`.
 
 ### D9-3 인증 = 관리자 Bearer (QA_SPEC A-0, 결정 #4)
@@ -135,17 +135,19 @@
 - **401** 토큰 만료·무효 → `reissueAccessToken()`(`shared/api/client.ts`) 후 **1회** 재시도, 실패하면 기존 강제 로그아웃 흐름. **재발급 절차는 공유하고 복제하지 않는다** — 인스턴스마다 재발급하면 refresh Rotation 때문에 서로의 토큰을 무효화한다(D8-3).
 - **403** ADMIN 아님 → **종착**, 재시도하지 않는다(F-5 `FORBIDDEN`).
 - **503** 인증 서버(`/admin/me`) 판정 불가 → **401 로 다루지 않는다**(재발급·로그아웃 금지). F-5 `AUTH_UNAVAILABLE` 토스트 후 사용자가 다시 시도한다. 뭉개면 인증 서버 장애 때 재발급·강제 로그아웃 루프가 생긴다.
+- **강제 로그아웃은 재발급 자체가 실패할 때만.** 재발급은 성공했는데 재시도도 401 이면 로그아웃 없이 오류로 표시한다(기존 apiClient 와 같은 동작). 사용자 결정 2026-10-17.
 
 ### D9-4 네트워크 경로 (QA_SPEC A-0, G1)
 - 운영: `vercel.json` rewrite `/qa-api/:path*` → `https://{QA 도메인}/api/v1/:path*`, **SPA catch-all 보다 앞**에 둔다(D8-4 와 같은 규칙). 로컬: vite `server.proxy` 의 `/qa-api` → `VITE_QA_ORIGIN` + `/api/v1`.
 - **QA 도메인 미확정 → 지금은 rewrite 와 proxy 를 추가하지 않는다.** 개발·화면 검증은 MSW 핸들러(`VITE_USE_MOCK=true`, 결정 #6). 도메인 입력은 사람 작업.
+- **도메인 확정 전에도 QA 메뉴는 그대로 노출한다**(플래그로 숨기지 않음). 그 사이 운영에서 열면 `/qa-api` 가 SPA catch-all(index.html)로 떨어져 F-5 `DEFAULT` 오류 화면이 된다 — 배포 시점은 사람이 조절한다. 사용자 결정 2026-10-17.
 
 ### D9-5 구현 제약 (QA_SPEC C·E·F·G절)
 - 신규 의존성 **0개**. 진행 막대·단계 표시는 기존 토큰으로 div 구성. Figma 시안 없음 → 기존 패턴(신고·문의 목록, `ConfirmModal`·dialog, `StatusBadge` 계열, shared table)으로 자체 완성.
 - **문구는 QA_SPEC F절이 권위.** 서버는 다음 할 일·막힌 이유·경고를 코드로만 내려 주고, 코드→문구 매핑은 프론트가 관리한다. 모르는 `nextAction` 은 배너를 숨기고, 모르는 단계 이름·경고 코드는 원문(`name`·`message`)으로 표시한다.
 - **QA enum 라벨·문구는 `features/qa/`(labels.ts·copy.ts)에 둔다.** QA 만 쓰는 값이라 `shared/constants` 로 올리지 않는다(문의 관리는 shared 에 둔 선례가 있으나, 공유 필요가 생길 때만 승격). HTTP 계층 공통 오류 문구(F-5 `AUTH_UNAVAILABLE`·`FORBIDDEN`·`DEFAULT`)만 `shared/api/qaClient.ts` 에 둔다.
 - **후속 범위(리포트·자동 실행·증적·페르소나 토큰 발급)는 화면·메뉴·자리 화면 모두 만들지 않는다**(E절). `ChecklistConfirmResponse.autoRun` 은 존재만 허용(`z.unknown().nullable()`).
-- **`ChecklistFeature.warnings`(G2)는 C4 보고로 형태가 확정되기 전까지 그 부분의 구현을 멈추고 질문한다(🙋🏻).** 오류 코드 목록(G3)·기능 `parts` 밖 파트 거부 여부(G4)도 추측하지 않는다.
+- **`ChecklistFeature.warnings`(G2) = 두 형태 모두 받는다**(사용자 결정 2026-10-17). 서버 C4 브랜치(`2c4e4ee`, 미머지)는 경고 **코드 문자열 배열**, QA_SPEC A-2 는 `ReportWarning[]`(`{code, message, screenId}`). Zod 로 둘 다 받아 `{ code, message|null, screenId|null }` 로 맞추고, 표시는 F-3 문구 → `message` → 코드 원문 순. 서버가 한쪽으로 확정되면 다른 쪽 분기를 걷어낸다. 오류 코드 목록(G3)·기능 `parts` 밖 파트 거부 여부(G4)는 여전히 추측하지 않는다.
 - 실서버 연동 확인(401 재발급·403·503·실제 응답 형태)은 `manual_review` 에 `integration` 태그로 남긴다.
 - `step-11` 화면도 `spec-conformance-reviewer`·`ds-conformance-reviewer` 를 실행하고 `harness/review/<id>.json` 을 남긴다(step-8 선례). spec 리뷰 기준은 `spec/` 대신 **이 D9 와 `QA_SPEC.md`**.
 - `spec/` 반영은 사람 몫(PreToolUse 차단) — D7·D8 과 같다.

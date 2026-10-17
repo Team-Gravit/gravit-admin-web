@@ -18,12 +18,7 @@ export function StageStepper({ guide }: { guide: SprintGuide }) {
         const current = index === guide.stageIndex;
         return (
           <Fragment key={stage}>
-            {i > 0 && (
-              <li
-                aria-hidden
-                className={cn('h-px w-8', done || current ? 'bg-primary' : 'bg-border')}
-              />
-            )}
+            {i > 0 && <li aria-hidden className="h-px w-8 bg-border" />}
             <li className="flex items-center gap-2" aria-current={current ? 'step' : undefined}>
               {/* text-caption·text-body 는 cn(twMerge) 안에서 색 클래스와 충돌해 지워지므로 cn 밖에 붙인다. */}
               <span

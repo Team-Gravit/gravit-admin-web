@@ -1,7 +1,25 @@
-import { AlertTriangle, Loader2 } from 'lucide-react';
+import { AlertTriangle, Info, Loader2, type LucideIcon } from 'lucide-react';
 import { Button } from '@/shared/components/ui/button';
 import { blockerCopy, nextActionCopy, type NextActionCode } from '@/features/qa/copy';
 import type { SprintGuide } from '@/features/qa/schemas';
+
+/**
+ * 막힌 이유 톤 (QA_SPEC C절): 조치가 필요한 경고 = warning, 진행 중 = primary 아이콘, 남은 일(미검수·검토 전) = neutral.
+ * Primary 는 본문 텍스트에 쓰지 않고 아이콘에만 둔다(DS-01 1-1).
+ */
+function blockerTone(code: string): { icon: LucideIcon; iconClass: string; textClass: string } {
+  if (code === 'RELEASE_BRANCH_MISSING') {
+    return { icon: AlertTriangle, iconClass: 'text-warning-text', textClass: 'text-warning-text' };
+  }
+  if (code.endsWith('_IN_PROGRESS')) {
+    return {
+      icon: Loader2,
+      iconClass: 'animate-spin text-primary',
+      textClass: 'text-fg-secondary',
+    };
+  }
+  return { icon: Info, iconClass: 'text-fg-muted', textClass: 'text-fg-secondary' };
+}
 
 interface NextActionBannerProps {
   guide: SprintGuide;
@@ -19,9 +37,10 @@ export function NextActionBanner({ guide, canAct, onAction, pending }: NextActio
   const copy = nextActionCopy(guide);
   if (!copy) return null;
 
-  const blockers = guide.blockers
-    .map((b) => blockerCopy(b))
-    .filter((text): text is string => text !== null);
+  const blockers = guide.blockers.flatMap((b) => {
+    const text = blockerCopy(b);
+    return text === null ? [] : [{ code: b.code, text }];
+  });
   const showButton = copy.button !== null && canAct(copy.code);
 
   return (
@@ -43,15 +62,19 @@ export function NextActionBanner({ guide, canAct, onAction, pending }: NextActio
       </div>
       {blockers.length > 0 && (
         <ul className="flex flex-col gap-1">
-          {blockers.map((text, i) => (
-            <li
-              key={`${i}-${text}`}
-              className="flex items-center gap-1.5 text-caption text-warning-text"
-            >
-              <AlertTriangle className="size-3.5 shrink-0" />
-              {text}
-            </li>
-          ))}
+          {blockers.map(({ code, text }, i) => {
+            const tone = blockerTone(code);
+            const Icon = tone.icon;
+            return (
+              <li
+                key={`${i}-${code}`}
+                className={`flex items-center gap-1.5 text-caption ${tone.textClass}`}
+              >
+                <Icon className={`size-3.5 shrink-0 ${tone.iconClass}`} />
+                {text}
+              </li>
+            );
+          })}
         </ul>
       )}
     </section>

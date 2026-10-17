@@ -52,7 +52,12 @@ export function useSetupJob(sprintId: number, jobId: number | null) {
     queryFn: () => getJob(jobId ?? -1),
     enabled: jobId !== null,
     retry: qaQueryRetry,
-    refetchInterval: (q) => (isJobActive(q.state.data?.status) ? JOB_POLL_INTERVAL_MS : false),
+    // 조회가 실패한 동안은 멈춘다 — 실패해도 이전 data(RUNNING)가 남아 있어 그대로 두면 403·503 을 3초마다
+    // 다시 묻고 토스트를 반복한다(D9-3: 403 종착, 503 은 사용자가 다시 시도). [다시 시도]가 성공하면 재개된다.
+    refetchInterval: (q) =>
+      q.state.status !== 'error' && isJobActive(q.state.data?.status)
+        ? JOB_POLL_INTERVAL_MS
+        : false,
   });
 
   const status = query.data?.status;

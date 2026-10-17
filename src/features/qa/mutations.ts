@@ -1,4 +1,4 @@
-import { useMutation, useQueryClient } from '@tanstack/react-query';
+import { useIsMutating, useMutation, useQueryClient } from '@tanstack/react-query';
 import { toast } from 'sonner';
 import { QaApiError } from '@/shared/api/qaClient';
 import { cancelJob, createSprint, startSetupJob } from '@/features/qa/api';
@@ -22,6 +22,8 @@ export function useCreateSprint() {
   });
 }
 
+const startSetupKey = (sprintId: number) => ['qa', 'startSetupJob', sprintId] as const;
+
 /**
  * QA 준비하기 (A-2 #5). 공통 상단 배너에서도 호출되고 그 직후 화면이 바뀌어 호출한 컴포넌트가
  * 언마운트될 수 있으므로, 캐시 갱신·토스트는 훅 수준 콜백에 둔다.
@@ -31,6 +33,7 @@ export function useCreateSprint() {
 export function useStartSetupJob(sprintId: number) {
   const queryClient = useQueryClient();
   return useMutation({
+    mutationKey: startSetupKey(sprintId),
     mutationFn: () => startSetupJob(sprintId),
     onSuccess: (job: Job) => {
       queryClient.setQueryData(qaKeys.job(job.id), job);
@@ -47,6 +50,11 @@ export function useStartSetupJob(sprintId: number) {
       }
     },
   });
+}
+
+/** 배너와 준비 화면의 시작 버튼이 서로의 진행 중 상태를 보도록 — 두 번 눌러 409 가 나지 않게 한다. */
+export function useIsStartingSetupJob(sprintId: number): boolean {
+  return useIsMutating({ mutationKey: startSetupKey(sprintId) }) > 0;
 }
 
 /** 작업 취소 (A-2 #7). 409 = 이미 끝난 작업 → 작업을 다시 조회한다(A-3). */

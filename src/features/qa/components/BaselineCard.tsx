@@ -8,6 +8,7 @@ import {
   TableRow,
 } from '@/shared/components/ui/table';
 import { StatusBadge } from '@/shared/components/status-badge/StatusBadge';
+import { EmptyState } from '@/shared/components/states/EmptyState';
 import { QaNotice } from '@/features/qa/components/QaNotice';
 import { NOTICE_COPY, warningCopy } from '@/features/qa/copy';
 import { REPO_LABELS, REPO_ORDER } from '@/features/qa/labels';
@@ -27,7 +28,7 @@ export function BaselineCard({ baseline }: { baseline: Baseline | null }) {
       <h3 className="text-h3 text-foreground">기준점</h3>
 
       {!baseline ? (
-        <QaNotice>{NOTICE_COPY.NO_BASELINE}</QaNotice>
+        <EmptyState className="py-8" message={NOTICE_COPY.NO_BASELINE} />
       ) : (
         <>
           <Table>
@@ -42,7 +43,8 @@ export function BaselineCard({ baseline }: { baseline: Baseline | null }) {
             </TableHeader>
             <TableBody>
               {repos.map((r) => (
-                <TableRow key={r.repo}>
+                // 클릭할 수 없는 행 — 공용 TableRow 의 호버 강조를 끈다
+                <TableRow key={r.repo} className="hover:bg-transparent">
                   <TableCell>
                     <div className="flex flex-col gap-0.5">
                       <div className="flex items-center gap-2">

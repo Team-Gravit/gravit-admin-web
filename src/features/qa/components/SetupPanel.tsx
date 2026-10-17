@@ -4,12 +4,13 @@ import { formatDateTime } from '@/shared/lib/formatDate';
 import { Button } from '@/shared/components/ui/button';
 import { StatusBadge } from '@/shared/components/status-badge/StatusBadge';
 import { ConfirmModal } from '@/shared/components/modals/ConfirmModal';
+import { EmptyState } from '@/shared/components/states/EmptyState';
 import { ErrorState } from '@/shared/components/states/ErrorState';
 import { LoadingSkeleton } from '@/shared/components/states/LoadingSkeleton';
 import { BaselineCard } from '@/features/qa/components/BaselineCard';
 import { QaNotice } from '@/features/qa/components/QaNotice';
 import { SetupJobSteps } from '@/features/qa/components/SetupJobSteps';
-import { useCancelJob, useStartSetupJob } from '@/features/qa/mutations';
+import { useCancelJob, useIsStartingSetupJob, useStartSetupJob } from '@/features/qa/mutations';
 import { isJobActive, useSetupJob } from '@/features/qa/queries';
 import { CONFIRM_COPY, NOTICE_COPY } from '@/features/qa/copy';
 import { qaErrorView } from '@/features/qa/errorView';
@@ -40,7 +41,7 @@ export function SetupPanel({ sprint }: { sprint: Sprint }) {
         </div>
 
         {sprint.latestSetupJobId === null ? (
-          <QaNotice>{NOTICE_COPY.NO_JOB}</QaNotice>
+          <EmptyState className="py-8" message={NOTICE_COPY.NO_JOB} />
         ) : jobQuery.isLoading ? (
           <LoadingSkeleton rows={4} />
         ) : jobQuery.isError || !job ? (
@@ -49,6 +50,13 @@ export function SetupPanel({ sprint }: { sprint: Sprint }) {
           <JobBody job={job} active={active} />
         )}
       </section>
+
+      {/* lastError 는 카드 아래 실패 톤 박스로 원문 표시 (B-2) */}
+      {job?.lastError && !jobQuery.isError && (
+        <pre className="whitespace-pre-wrap break-all rounded-md bg-danger-bg px-4 py-3 font-mono text-caption text-danger-text">
+          {job.lastError}
+        </pre>
+      )}
     </div>
   );
 }
@@ -78,12 +86,6 @@ function JobBody({ job, active }: { job: Job; active: boolean }) {
       {active && <QaNotice>{NOTICE_COPY.SETUP_DURATION}</QaNotice>}
 
       <SetupJobSteps steps={job.steps} />
-
-      {job.lastError && (
-        <pre className="whitespace-pre-wrap break-all rounded-md bg-danger-bg px-4 py-3 font-mono text-caption text-danger-text">
-          {job.lastError}
-        </pre>
-      )}
     </div>
   );
 }
@@ -99,6 +101,7 @@ function SetupActions({
 }) {
   const [confirm, setConfirm] = useState<'RE_SETUP' | 'CANCEL_JOB' | null>(null);
   const startSetup = useStartSetupJob(sprint.id);
+  const starting = useIsStartingSetupJob(sprint.id);
   const cancel = useCancelJob(job?.id ?? -1);
 
   const start = () =>
@@ -129,7 +132,8 @@ function SetupActions({
     );
   }
 
-  const pending = startSetup.isPending;
+  // 배너의 [QA 준비하기]가 진행 중이어도 막는다(같은 mutationKey).
+  const pending = starting;
   if (sprint.status === 'DRAFT' || sprint.status === 'PREPARE_FAILED') {
     return (
       <Button size="sm" disabled={pending} onClick={start}>

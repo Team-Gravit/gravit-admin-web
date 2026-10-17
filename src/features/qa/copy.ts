@@ -89,14 +89,17 @@ export function nextActionCopy(guide: SprintGuide): NextActionCopy | null {
 }
 
 // ---------- F-2. 막힌 이유 (guide.blockers[].code) ----------
-/** 모르는 코드면 null(숨김). UNCHECKED_CELLS_REMAINING 은 파트별로 한 줄씩 온다. */
+/**
+ * 모르는 코드면 null(숨김). UNCHECKED_CELLS_REMAINING 은 파트별로 한 줄씩 온다.
+ * 문구에 들어갈 값(count·part)이 비어 있으면 F-2 문구를 완성할 수 없으므로 그 줄도 숨긴다.
+ */
 export function blockerCopy(blocker: GuideBlocker): string | null {
-  const count = blocker.count ?? '-';
-  switch (blocker.code) {
+  const { code, count, part } = blocker;
+  switch (code) {
     case 'PROPOSED_ITEMS_REMAINING':
-      return `검토 전 항목이 ${count}개 남았습니다.`;
+      return count === null ? null : `검토 전 항목이 ${count}개 남았습니다.`;
     case 'UNCHECKED_CELLS_REMAINING':
-      return blocker.part ? `${PART_LABELS[blocker.part]} 미검수 ${count}개` : `미검수 ${count}개`;
+      return count === null || part === null ? null : `${PART_LABELS[part]} 미검수 ${count}개`;
     case 'AUTO_RUN_IN_PROGRESS':
       return '자동 실행이 진행 중입니다.';
     case 'SETUP_IN_PROGRESS':

@@ -136,7 +136,7 @@
     },
     {
       "id": "step-11:QA_SETUP",
-      "status": "TODO"
+      "status": "IN_PROGRESS"
     },
     {
       "id": "step-11:QA_REVIEW",
@@ -170,7 +170,9 @@
     "step-11:QA_REVIEW": "none — QA_SPEC.md C절(시안 없음, 기존 패턴 자체 완성)",
     "step-11:QA_CHECKLIST": "none — QA_SPEC.md C절(시안 없음, 기존 패턴 자체 완성)"
   },
-  "retry": 0,
+  "retry": {
+    "step-11:QA_SETUP": 1
+  },
   "manual_review": [
     {
       "id": "step-1-setup",
@@ -286,6 +288,11 @@
       "id": "step-11:QA_SPRINT_LIST",
       "tag": "human-step",
       "note": "QA 도메인 확정 후 사람 작업(D9-4, QA_SPEC G1): vercel.json rewrite /qa-api/:path* → https://{QA 도메인}/api/v1/:path* 를 SPA catch-all 앞에, vite server.proxy /qa-api → VITE_QA_ORIGIN + /api/v1. 그 전에는 운영에서 /qa-api 가 index.html(200)로 떨어져 파싱 실패 → F-5 DEFAULT 오류 화면."
+    },
+    {
+      "id": "step-11:QA_SETUP",
+      "tag": "integration",
+      "note": "nextRunAt 의미 차이: QA_SPEC A-2/B-2 는 \"재시도 대기 시각\"(QUEUED+nextRunAt → RETRY_WAIT)인데, 서버 C4(JobResponse.java:72)는 QUEUED 작업마다 nextRunAt=runAfter 를 채우고 새 작업은 attempt=0·run_after=now 로 넣는다 → 실서버에서는 [QA 준비하기] 직후 \"{지금}에 자동으로 다시 시도합니다\"·\"시도 0/3\" 이 잠깐 보일 수 있다. 프론트는 명세대로 두었고(추측 금지), 서버가 첫 시도에 nextRunAt=null 을 주거나 D9 에 표시 조건(예: lastError 있음)을 추가할지 사람 결정 필요. 그 밖에 Job/JobStep nullable 필드가 키 생략 없이 null 로 오는지(OpenAPI 는 required 에서 뺐음, 서버 record 는 null 포함) 실서버로 확인."
     }
   ],
   "log": [
