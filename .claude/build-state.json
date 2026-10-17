@@ -136,7 +136,7 @@
     },
     {
       "id": "step-11:QA_SETUP",
-      "status": "IN_PROGRESS"
+      "status": "COMPLETED"
     },
     {
       "id": "step-11:QA_REVIEW",
@@ -170,9 +170,7 @@
     "step-11:QA_REVIEW": "none — QA_SPEC.md C절(시안 없음, 기존 패턴 자체 완성)",
     "step-11:QA_CHECKLIST": "none — QA_SPEC.md C절(시안 없음, 기존 패턴 자체 완성)"
   },
-  "retry": {
-    "step-11:QA_SETUP": 1
-  },
+  "retry": {},
   "manual_review": [
     {
       "id": "step-1-setup",
@@ -296,6 +294,16 @@
     }
   ],
   "log": [
+    {
+      "id": "step-11:QA_SETUP",
+      "status": "COMPLETED",
+      "ts": "2026-10-17",
+      "gate": "full(OK): validate-state+typecheck+token-lint+build",
+      "review": "spec PASS, ds PASS (1차 FAIL → 7b1ed9d 수정 → 재리뷰 PASS)",
+      "retry": 1,
+      "figma": "none → QA_SPEC C절 + 상세 화면 카드 선례 자체완성",
+      "note": "B-1 공통 상단(QaSprintLayout 중첩 라우트: 스프린트 정보·Notion 링크·StageStepper·NextActionBanner·하위 링크 NavLink·breadcrumb) + index 단계별 replace 이동 + B-2 준비 화면(BaselineCard·SetupPanel·SetupJobSteps: INTERPRET 진행 막대, 실패 단계, lastError, RETRY_WAIT, SETUP_DURATION, 상태별 버튼·RE_SETUP/CANCEL_JOB 모달). useSetupJob 3초 polling(오류 중 정지, 종료 시 sprint·checklist·list 무효화). useStartSetupJob(훅 수준 캐시·토스트, latestSetupJobId 를 202 Job 으로) + useIsStartingSetupJob, useCancelJob. MSW: getSprint·setup-jobs·jobs(GET 마다 한 칸 진행)·cancel, ?qaMock=retrywait. 브라우저 검증 39/39. 사용자 결정 3건 D9 기록(G2 두 형태 수용, 도메인 전 메뉴 노출, 재발급 후 401 은 로그아웃 없음)."
+    },
     {
       "id": "step-11:QA_SPRINT_LIST",
       "status": "COMPLETED",

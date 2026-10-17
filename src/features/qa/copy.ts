@@ -77,14 +77,16 @@ export interface NextActionCopy extends NextActionTemplate {
 
 /**
  * guide → F-1 문구. `{count}` 는 blockers 의 PROPOSED_ITEMS_REMAINING.count.
- * **모르는 코드면 null** — 화면은 배너·문구를 숨긴다(F-1).
+ * **모르는 코드면 null** — 화면은 배너·문구를 숨긴다(F-1). `{count}` 가 필요한데 값이 없어도
+ * F-1 문구를 완성할 수 없으므로 null(막힌 이유 F-2 와 같은 규칙).
  */
 export function nextActionCopy(guide: SprintGuide): NextActionCopy | null {
   const { nextAction } = guide;
   if (!isNextActionCode(nextAction)) return null;
   const count = guide.blockers.find((b) => b.code === 'PROPOSED_ITEMS_REMAINING')?.count ?? null;
-  const fill = (text: string) => text.replace('{count}', count === null ? '-' : String(count));
   const t = NEXT_ACTION_TEMPLATES[nextAction];
+  if (count === null && t.banner.includes('{count}')) return null;
+  const fill = (text: string) => text.replace('{count}', String(count));
   return { code: nextAction, banner: fill(t.banner), short: fill(t.short), button: t.button };
 }
 

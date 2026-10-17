@@ -62,8 +62,8 @@ export function SprintCreateModal({ open, onOpenChange, onCreated }: SprintCreat
         },
         onError: (error) => {
           if (error instanceof QaApiError) {
-            // 401 = 공유 재발급까지 실패 — 강제 로그아웃이 이미 안내했다(D9-3).
-            if (error.status === 401) return;
+            // 재발급 실패 = 강제 로그아웃이 이미 안내했다(D9-3).
+            if (error.sessionEnded) return;
             if (error.status === 404) return showFieldError(ERROR_COPY.NOTION_NOT_FOUND);
             if (error.status === 409) return showFieldError(ERROR_COPY.SPRINT_DUPLICATED);
             if (error.status === 400) return showFieldError(error.serverMessage ?? INVALID_URL);

@@ -1,10 +1,5 @@
 import type { ReactNode } from 'react';
-import {
-  QueryClient,
-  QueryClientProvider,
-  QueryCache,
-  MutationCache,
-} from '@tanstack/react-query';
+import { QueryClient, QueryClientProvider, QueryCache, MutationCache } from '@tanstack/react-query';
 import { isAxiosError } from 'axios';
 import { Toaster } from '@/shared/components/ui/sonner';
 import { showErrorToast } from '@/shared/api/errorHandler';
@@ -12,8 +7,8 @@ import { QaApiError } from '@/shared/api/qaClient';
 
 function handleGlobalError(error: unknown): void {
   if (isAxiosError(error) && error.response?.status === 401) return;
-  // QA 401 = 공유 재발급까지 실패한 경우 — 강제 로그아웃이 이미 안내했다(D9-3).
-  if (error instanceof QaApiError && error.status === 401) return;
+  // QA: 재발급 실패 → 강제 로그아웃이 이미 안내했다. 재발급 후에도 401 이면 로그아웃 없이 오류로 알린다(D9-3).
+  if (error instanceof QaApiError && error.sessionEnded) return;
   showErrorToast(error);
 }
 

@@ -38,6 +38,8 @@ export class QaApiError extends Error {
     message: string,
     /** 서버가 준 문자열 message. 객체(필드별 오류)거나 없으면 null. */
     readonly serverMessage: string | null,
+    /** 재발급 실패로 강제 로그아웃이 이미 안내한 실패 — 화면은 다시 알리지 않는다(D9-3). */
+    readonly sessionEnded = false,
   ) {
     super(message);
     this.name = 'QaApiError';
@@ -88,7 +90,12 @@ qaApiClient.interceptors.response.use(
       original._retry = true;
       // 재발급 실패면 reissueAccessToken 이 강제 로그아웃까지 마친 상태다.
       const accessToken = await reissueAccessToken();
-      if (!accessToken) return Promise.reject(toQaApiError(error));
+      if (!accessToken) {
+        const ended = toQaApiError(error);
+        return Promise.reject(
+          new QaApiError(ended.status, ended.message, ended.serverMessage, true),
+        );
+      }
 
       original.headers.Authorization = `Bearer ${accessToken}`;
       return qaApiClient.request(original);
