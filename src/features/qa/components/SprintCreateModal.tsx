@@ -15,7 +15,7 @@ import {
 } from '@/shared/components/ui/dialog';
 import { FormField } from '@/shared/components/form/FormField';
 import { showErrorToast } from '@/shared/api/errorHandler';
-import { QaApiError } from '@/shared/api/qaClient';
+import { QA_ERROR_MESSAGES, QaApiError } from '@/shared/api/qaClient';
 import { useCreateSprint } from '@/features/qa/mutations';
 import { ERROR_COPY, NOTICE_COPY } from '@/features/qa/copy';
 import {
@@ -64,7 +64,7 @@ export function SprintCreateModal({ open, onOpenChange, onCreated }: SprintCreat
             if (error.status === 404) return showFieldError(ERROR_COPY.NOTION_NOT_FOUND);
             if (error.status === 409) return showFieldError(ERROR_COPY.SPRINT_DUPLICATED);
             if (error.status === 400)
-              return showFieldError(error.serverMessage ?? NOTICE_COPY.VALIDATION_URL_FORMAT);
+              return showFieldError(error.serverMessage ?? QA_ERROR_MESSAGES.DEFAULT);
           }
           showErrorToast(error);
         },

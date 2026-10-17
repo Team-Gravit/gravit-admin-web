@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { ChevronDown, Loader2 } from 'lucide-react';
+import { ChevronDown, Loader2, Lock } from 'lucide-react';
 import { StatusBadge } from '@/shared/components/status-badge/StatusBadge';
 import {
   DropdownMenu,
@@ -87,7 +87,12 @@ export function CheckCellButton({
           >
             {update.isPending && <Loader2 className="size-3.5 animate-spin text-fg-muted" />}
             {badge}
-            <ChevronDown className="size-3.5 text-fg-muted" />
+            {/* 잠긴 셀은 자물쇠 — 상태는 못 바꾸고 이력만 연다 */}
+            {locked ? (
+              <Lock className="size-3.5 text-fg-muted" aria-hidden />
+            ) : (
+              <ChevronDown className="size-3.5 text-fg-muted" />
+            )}
           </button>
         </DropdownMenuTrigger>
         <DropdownMenuContent align="center">

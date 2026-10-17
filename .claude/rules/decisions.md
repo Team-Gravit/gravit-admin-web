@@ -165,7 +165,8 @@
 - **#15** 배너의 이동 버튼은 이미 그 화면이면 숨긴다. `[스프린트 종료]` 는 종료의 유일한 입구라 어느 하위 화면에서나 보인다.
 - **#16** 잠긴 셀 툴팁은 브라우저 기본 `title`(툴팁 컴포넌트 없음·새 의존성 금지).
 - **잠긴 셀도 클릭하면 `변경 이력` 만 있는 메뉴**를 연다(이력 조회는 셀 잠금과 무관). `해당 없음` 셀은 비활성. 셀 출처 라벨 = A-1 `CellSource`(`MANUAL` 수동 체크 / `AUTO` 자동 실행).
-- 직접 쓴 문구는 F-4 키로 등록됐다(`GO_SETUP`·`GO_REVIEW`·`EMPTY_FILTERED`·`EMPTY_ITEMS`·`EMPTY_HISTORY`·`FEATURE_PROGRESS`·`VALIDATION_*`) — 화면에 문자열을 직접 쓰지 않는다.
+- 직접 쓴 안내·빈 상태·검증 문구는 F-4 키로 등록됐다(`GO_SETUP`·`GO_REVIEW`·`EMPTY_FILTERED`·`EMPTY_ITEMS`·`EMPTY_HISTORY`·`FEATURE_PROGRESS`·`VALIDATION_*`) — 이런 문구는 화면에 직접 쓰지 않고 `copy.ts` 를 쓴다. 제목·라벨처럼 QA_SPEC B절 문면에서 온 표기는 예외.
+- 조회 실패 화면(ErrorState)도 qaClient 가 정한 문구를 보여 준다: 서버 문자열 message → 없거나 객체면 F-5(403 FORBIDDEN·그 밖 DEFAULT), 503 은 AUTH_UNAVAILABLE.
 
 ### D9-7 이 토픽 밖으로 분리한 기존 결함 (QA_SPEC H절 — QA 항목에서 고치지 않는다)
 - **H1** `cn.ts`(twMerge)가 `text-caption`·`text-body` 를 지워 배지·사이드바 글자 크기가 커지는 문제 → 체크리스트 `fix:H1-CN_FONT_SIZE`. 고치면 기존 16화면과 QA 화면이 함께 바뀐다. 그때 QA 컴포넌트의 '크기 토큰을 cn 밖에 두는' 우회도 일반 `cn` 으로 되돌린다.

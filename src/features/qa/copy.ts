@@ -124,8 +124,9 @@ const WARNING_COPY: Partial<Record<string, string>> = {
     '앱 versionCode가 직전 기준점보다 크지 않습니다. release마다 versionCode를 올려야 합니다.',
   // 이번 범위 응답에 실어 오는 필드가 없어 표시하지 않는다 — 리포트(후속 범위)에서 쓴다(F-3)
   NOTION_WRITE_FAILED: 'Notion에 QA 기준점을 기록하지 못했습니다. 종료는 정상 처리됐습니다.',
+  // QA_SPEC 표의 `관련 API` 백틱은 마크다운 표기라 화면 문구에는 넣지 않는다
   OPENAPI_OPERATION_MISSING:
-    'Notion `관련 API`의 operationId 중 dev API 문서에 없는 것이 있습니다. 명세의 API 이름을 확인하세요.',
+    'Notion 관련 API의 operationId 중 dev API 문서에 없는 것이 있습니다. 명세의 API 이름을 확인하세요.',
   LLM_INPUT_TRUNCATED: '입력이 길어 일부를 빼고 초안을 만들었습니다. 빠진 내용은 직접 확인하세요.',
 };
 

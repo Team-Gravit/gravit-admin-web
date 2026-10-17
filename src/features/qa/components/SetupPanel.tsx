@@ -69,7 +69,9 @@ function JobError({ error, onRetry }: { error: unknown; onRetry: () => void }) {
 /** 실제 시작 시각 = steps 의 가장 이른 startedAt (Job 에는 작업 단위 startedAt 이 없다, A-2). */
 function firstStartedAt(job: Job): string | null {
   const starts = job.steps.map((s) => s.startedAt).filter((t): t is string => t !== null);
-  return starts.length === 0 ? null : starts.reduce((a, b) => (a < b ? a : b));
+  return starts.length === 0
+    ? null
+    : starts.reduce((a, b) => (new Date(a).getTime() <= new Date(b).getTime() ? a : b));
 }
 
 /**

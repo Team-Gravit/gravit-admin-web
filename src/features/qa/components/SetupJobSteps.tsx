@@ -40,7 +40,13 @@ function StepMessage({ step }: { step: JobStep }) {
       </p>
     );
   }
-  return <p className="whitespace-pre-wrap text-caption text-fg-secondary">{step.message}</p>;
+  return (
+    <p
+      className={`whitespace-pre-wrap text-caption ${step.status === 'SKIPPED' ? 'text-fg-muted' : 'text-fg-secondary'}`}
+    >
+      {step.message}
+    </p>
+  );
 }
 
 /**

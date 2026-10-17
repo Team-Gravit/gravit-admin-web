@@ -86,9 +86,11 @@ function changedFields(item: ChecklistItem, v: ChecklistItemFormValues) {
   if (!sameParts(v.parts, item.parts)) body.parts = ordered(v.parts);
   if (v.classification !== item.classification) body.classification = v.classification;
   if (v.classification === 'AUTO' && v.testRef !== (item.testRef ?? '')) body.testRef = v.testRef;
-  // 자동 → 수동이면 testRef 를 null 로 지운다 — 서버는 분류와 무관하게 null 이 아닌 testRef 를
-  // 카탈로그와 대조해, 남겨 두면 이후 수정이 422 로 실패할 수 있다(B-3). 키를 빼면 유지, null 이면 지움.
-  if (v.classification === 'MANUAL' && item.classification === 'AUTO') body.testRef = null;
+  // 수동이 되는데 testRef 가 남아 있으면(자동 → 수동 포함) null 로 지운다 — 서버는 분류와 무관하게 null 이 아닌
+  // testRef 를 카탈로그와 대조해, 남겨 두면 이후 수정이 422 로 실패할 수 있다(B-3). 키를 빼면 유지, null 이면 지움.
+  if (v.classification === 'MANUAL' && (item.classification === 'AUTO' || item.testRef !== null)) {
+    body.testRef = null;
+  }
   if (personaOrNull(v.personaKey) !== item.personaKey)
     body.personaKey = personaOrNull(v.personaKey);
   return body;
@@ -124,9 +126,14 @@ export function ChecklistItemFormModal({
   const onError = (error: unknown) => {
     const rule = itemRuleError(error);
     if (rule) {
-      if (rule.field)
+      // 테스트 ID 칸은 자동일 때만 있다 — 칸이 없으면 토스트로 알린다
+      const fieldShown =
+        rule.field === 'personaKey' || (rule.field === 'testRef' && classification === 'AUTO');
+      if (rule.field && fieldShown) {
         setError(rule.field, { type: 'server', message: rule.message }, { shouldFocus: true });
-      else toast.error(rule.message);
+      } else {
+        toast.error(rule.message);
+      }
       return;
     }
     if (error instanceof QaApiError && error.status === 409) onOpenChange(false);
@@ -290,7 +297,7 @@ export function ChecklistItemFormModal({
               name="personaKey"
               render={({ field }) => (
                 <Select value={field.value} onValueChange={field.onChange} disabled={pending}>
-                  <SelectTrigger>
+                  <SelectTrigger ref={field.ref}>
                     <SelectValue />
                   </SelectTrigger>
                   <SelectContent>
