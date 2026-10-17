@@ -1,6 +1,7 @@
 import { AxiosError } from 'axios';
 import { toast } from 'sonner';
 import type { ErrorResponse } from '@/shared/api/types';
+import { QaApiError } from '@/shared/api/qaClient';
 
 const DEFAULT_MESSAGES: Record<number, string> = {
   400: '요청을 처리할 수 없습니다. 입력값을 확인해주세요.',
@@ -16,6 +17,8 @@ const FALLBACK = '처리에 실패했습니다. 다시 시도해주세요.';
 const NETWORK = '네트워크 연결을 확인해주세요.';
 
 export function getErrorMessage(error: unknown): string {
+  // QA 서비스는 문구 규칙이 다르다(D9-3) — qaClient 가 이미 정한 문구를 그대로 쓴다.
+  if (error instanceof QaApiError) return error.message;
   if (error instanceof AxiosError) {
     const data = error.response?.data as Partial<ErrorResponse> | undefined;
     if (typeof data?.message === 'string' && data.message.length > 0) {

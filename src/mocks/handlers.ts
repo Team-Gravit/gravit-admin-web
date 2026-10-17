@@ -1,5 +1,6 @@
 import { http, HttpResponse } from 'msw';
 import { format, subDays, subMonths } from 'date-fns';
+import { qaHandlers } from '@/mocks/qaHandlers';
 
 export const handlers = [
   http.get('*/api/v1/oauth/login-url/:provider', ({ params }) =>
@@ -526,4 +527,7 @@ export const handlers = [
   }),
 
   http.delete('*/api/v1/admin/inquiries/:inquiryId/answer', () => new HttpResponse(null, { status: 204 })),
+
+  // QA(gravit-qa) — 별도 서비스 목업 (decisions D9-4)
+  ...qaHandlers,
 ];

@@ -24,4 +24,10 @@ export const ROUTES = {
   NOTICES: '/notices',
   NOTICE_NEW: '/notices/new',
   NOTICE_DETAIL: (noticeId: number | string) => `/notices/${noticeId}`,
+  // QA (decisions D9-1)
+  QA_SPRINTS: '/qa/sprints',
+  QA_SPRINT: (sprintId: number | string) => `/qa/sprints/${sprintId}`,
+  QA_SPRINT_SETUP: (sprintId: number | string) => `/qa/sprints/${sprintId}/setup`,
+  QA_SPRINT_REVIEW: (sprintId: number | string) => `/qa/sprints/${sprintId}/review`,
+  QA_SPRINT_CHECKLIST: (sprintId: number | string) => `/qa/sprints/${sprintId}/checklist`,
 } as const;

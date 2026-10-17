@@ -8,9 +8,12 @@ import {
 import { isAxiosError } from 'axios';
 import { Toaster } from '@/shared/components/ui/sonner';
 import { showErrorToast } from '@/shared/api/errorHandler';
+import { QaApiError } from '@/shared/api/qaClient';
 
 function handleGlobalError(error: unknown): void {
   if (isAxiosError(error) && error.response?.status === 401) return;
+  // QA 401 = 공유 재발급까지 실패한 경우 — 강제 로그아웃이 이미 안내했다(D9-3).
+  if (error instanceof QaApiError && error.status === 401) return;
   showErrorToast(error);
 }
 

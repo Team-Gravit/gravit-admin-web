@@ -28,6 +28,8 @@ interface DataTableProps<T> {
   isLoading?: boolean;
   isError?: boolean;
   onRetry?: () => void;
+  /** 오류 상태 문구. 생략하면 ErrorState 기본 문구. */
+  errorMessage?: string;
   emptyMessage?: string;
   emptyIcon?: LucideIcon;
   emptyAction?: ReactNode;
@@ -41,6 +43,7 @@ export function DataTable<T>({
   isLoading = false,
   isError = false,
   onRetry,
+  errorMessage,
   emptyMessage = '데이터가 없습니다.',
   emptyIcon,
   emptyAction,
@@ -48,7 +51,7 @@ export function DataTable<T>({
 }: DataTableProps<T>) {
   const body = () => {
     if (isLoading) return <LoadingSkeleton />;
-    if (isError) return <ErrorState onRetry={onRetry} />;
+    if (isError) return <ErrorState message={errorMessage} onRetry={onRetry} />;
     if (data.length === 0) {
       return <EmptyState message={emptyMessage} icon={emptyIcon} action={emptyAction} />;
     }
