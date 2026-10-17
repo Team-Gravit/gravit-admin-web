@@ -26,6 +26,9 @@ import { NoticeListPage } from '@/pages/notices/NoticeListPage';
 import { NoticeNewPage } from '@/pages/notices/NoticeNewPage';
 import { NoticeDetailPage } from '@/pages/notices/NoticeDetailPage';
 import { QaSprintListPage } from '@/pages/qa/QaSprintListPage';
+import { QaSprintLayout } from '@/pages/qa/QaSprintLayout';
+import { QaSprintIndexPage } from '@/pages/qa/QaSprintIndexPage';
+import { QaSetupPage } from '@/pages/qa/QaSetupPage';
 
 const protectedLoader: LoaderFunction = async () => {
   const refreshToken = tokenManager.getRefreshToken();
@@ -85,6 +88,14 @@ export const router = createBrowserRouter([
       { path: 'notices/new', element: <NoticeNewPage /> },
       { path: 'notices/:noticeId', element: <NoticeDetailPage /> },
       { path: 'qa/sprints', element: <QaSprintListPage /> },
+      {
+        path: 'qa/sprints/:sprintId',
+        element: <QaSprintLayout />,
+        children: [
+          { index: true, element: <QaSprintIndexPage /> },
+          { path: 'setup', element: <QaSetupPage /> },
+        ],
+      },
     ],
   },
 ]);

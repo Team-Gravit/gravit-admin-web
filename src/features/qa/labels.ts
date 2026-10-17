@@ -1,5 +1,12 @@
 import type { BadgeVariant } from '@/shared/constants/badgeVariants';
-import type { Part, Repo, SprintStage, SprintStatus } from '@/features/qa/schemas';
+import type {
+  JobStatus,
+  Part,
+  Repo,
+  SprintStage,
+  SprintStatus,
+  StepStatus,
+} from '@/features/qa/schemas';
 
 /**
  * QA enum → 화면 라벨 (QA_SPEC A-1).
@@ -32,6 +39,9 @@ export const STAGE_LABELS: Record<SprintStage, string> = {
   DONE: '완료',
 };
 
+/** 기준점 표 행 순서: 서버, 웹, 앱 */
+export const REPO_ORDER: readonly Repo[] = ['gravit-server', 'gravit-web', 'gravit-aos'];
+
 export const REPO_LABELS: Record<Repo, string> = {
   'gravit-server': '서버',
   'gravit-web': '웹',
@@ -47,4 +57,47 @@ export function stageBadgeVariant(stage: SprintStage, status: SprintStatus): Bad
   if (status === 'DRAFT') return 'muted';
   if (stage === 'DONE') return 'success';
   return 'primary';
+}
+
+export const JOB_STATUS_LABELS: Record<JobStatus, string> = {
+  QUEUED: '대기',
+  RUNNING: '실행 중',
+  SUCCEEDED: '완료',
+  FAILED: '실패',
+  CANCELLED: '취소됨',
+};
+
+/** 작업 상태 톤 (C절): 완료 = success, 실패 = danger, 대기·취소 = muted, 실행 중 = primary. */
+export const JOB_STATUS_BADGE_VARIANT: Record<JobStatus, BadgeVariant> = {
+  QUEUED: 'muted',
+  RUNNING: 'primary',
+  SUCCEEDED: 'success',
+  FAILED: 'danger',
+  CANCELLED: 'muted',
+};
+
+export const STEP_STATUS_LABELS: Record<StepStatus, string> = {
+  PENDING: '대기',
+  RUNNING: '진행 중',
+  DONE: '완료',
+  FAILED: '실패',
+  SKIPPED: '건너뜀',
+};
+
+/** 셋업 단계 이름 (A-1). 모르는 이름은 원문을 그대로 표시한다. */
+const STEP_NAME_LABELS: Partial<Record<string, string>> = {
+  BASELINE: '기준점 확정',
+  NOTION: '명세 수집',
+  FIGMA: '화면 수집',
+  DIFF: '코드 변경 수집',
+  OPENAPI: 'API 명세 수집',
+  INTERPRET: '체크 항목 초안 생성',
+  VALIDATE: '검증',
+  APPLY: '반영',
+};
+
+export function stepNameLabel(name: string): string {
+  return Object.prototype.hasOwnProperty.call(STEP_NAME_LABELS, name)
+    ? (STEP_NAME_LABELS[name] ?? name)
+    : name;
 }

@@ -1,7 +1,9 @@
 import { parseQaResponse, qaApiClient } from '@/shared/api/qaClient';
 import {
+  jobSchema,
   sprintListResponseSchema,
   sprintSchema,
+  type Job,
   type Sprint,
   type SprintStatus,
   type SprintSummary,
@@ -22,4 +24,28 @@ export async function listSprints(status?: SprintStatus): Promise<SprintSummary[
 export async function createSprint(notionPageUrl: string): Promise<Sprint> {
   const res = await qaApiClient.post('/sprints', { notionPageUrl });
   return parseQaResponse(sprintSchema, res);
+}
+
+/** #3 getSprint — 스프린트 상세(기준점 포함). */
+export async function getSprint(sprintId: number): Promise<Sprint> {
+  const res = await qaApiClient.get(`/sprints/${sprintId}`);
+  return parseQaResponse(sprintSchema, res);
+}
+
+/** #5 startSetupJob — QA 준비하기. 202 + Job(비동기, polling 으로 추적). */
+export async function startSetupJob(sprintId: number): Promise<Job> {
+  const res = await qaApiClient.post(`/sprints/${sprintId}/setup-jobs`);
+  return parseQaResponse(jobSchema, res);
+}
+
+/** #6 getJob — 작업 상태(polling). */
+export async function getJob(jobId: number): Promise<Job> {
+  const res = await qaApiClient.get(`/jobs/${jobId}`);
+  return parseQaResponse(jobSchema, res);
+}
+
+/** #7 cancelJob — 202. RUNNING 이면 진행 중인 단계 경계에서 멈춘다. */
+export async function cancelJob(jobId: number): Promise<Job> {
+  const res = await qaApiClient.post(`/jobs/${jobId}/cancel`);
+  return parseQaResponse(jobSchema, res);
 }

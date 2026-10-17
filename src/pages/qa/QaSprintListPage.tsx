@@ -4,7 +4,6 @@ import { Plus } from 'lucide-react';
 import { toast } from 'sonner';
 import { ROUTES } from '@/shared/constants/routes';
 import { formatDate } from '@/shared/lib/formatDate';
-import { QaApiError } from '@/shared/api/qaClient';
 import { Button } from '@/shared/components/ui/button';
 import {
   Select,
@@ -20,6 +19,7 @@ import { PartProgressBars } from '@/features/qa/components/PartProgressBars';
 import { SprintCreateModal } from '@/features/qa/components/SprintCreateModal';
 import { NOTICE_COPY, TOAST_COPY, nextActionCopy } from '@/features/qa/copy';
 import { SPRINT_STATUS_LABELS } from '@/features/qa/labels';
+import { qaErrorView } from '@/features/qa/errorView';
 import {
   sprintStatusSchema,
   type Sprint,
@@ -91,11 +91,7 @@ export function QaSprintListPage() {
   ];
 
   const isFiltered = statusFilter !== 'ALL';
-  // 403 은 종착 — 다시 시도 버튼을 두지 않는다. 403·503 은 qaClient 가 정한 문구(F-5)를 그대로 보여 준다.
-  const qaError = error instanceof QaApiError ? error : null;
-  const isForbidden = qaError?.status === 403;
-  const errorMessage =
-    qaError && (qaError.status === 403 || qaError.status === 503) ? qaError.message : undefined;
+  const errorView = qaErrorView(error);
 
   return (
     <div className="flex flex-col gap-6">
@@ -134,8 +130,8 @@ export function QaSprintListPage() {
         rowKey={(sprint) => sprint.id}
         isLoading={isLoading}
         isError={isError}
-        errorMessage={errorMessage}
-        onRetry={isForbidden ? undefined : () => refetch()}
+        errorMessage={errorView.message}
+        onRetry={errorView.retryable ? () => refetch() : undefined}
         emptyMessage={isFiltered ? '조건에 맞는 스프린트가 없습니다.' : NOTICE_COPY.EMPTY_SPRINTS}
         emptyAction={
           isFiltered ? undefined : (

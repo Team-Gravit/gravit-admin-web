@@ -95,6 +95,37 @@ export const sprintSchema = sprintSummarySchema.extend({
   version: z.number(),
 });
 
+// ---------- 작업 (A-2 #5~#7) ----------
+export const jobStatusSchema = z.enum(['QUEUED', 'RUNNING', 'SUCCEEDED', 'FAILED', 'CANCELLED']);
+export const stepStatusSchema = z.enum(['PENDING', 'RUNNING', 'DONE', 'FAILED', 'SKIPPED']);
+
+export const jobStepSchema = z.object({
+  seq: z.number(),
+  /** BASELINE·NOTION·…·APPLY. 모르는 이름이면 원문 표시(A-1). */
+  name: z.string(),
+  status: stepStatusSchema,
+  message: z.string().nullable(),
+  startedAt: z.string().nullable(),
+  finishedAt: z.string().nullable(),
+});
+
+export const jobSchema = z.object({
+  id: z.number(),
+  /** SETUP 등 */
+  type: z.string(),
+  sprintId: z.number().nullable(),
+  status: jobStatusSchema,
+  attempt: z.number(),
+  maxAttempts: z.number(),
+  /** 재시도 대기 시각 */
+  nextRunAt: z.string().nullable(),
+  cancelRequested: z.boolean(),
+  lastError: z.string().nullable(),
+  steps: z.array(jobStepSchema),
+  createdAt: z.string(),
+  finishedAt: z.string().nullable(),
+});
+
 // ---------- 폼 ----------
 /** 스프린트 등록 (A-2 #2 `{ notionPageUrl: string(uri) }`). */
 export const sprintCreateFormSchema = z.object({
@@ -117,3 +148,7 @@ export type Baseline = z.infer<typeof baselineSchema>;
 export type SprintSummary = z.infer<typeof sprintSummarySchema>;
 export type Sprint = z.infer<typeof sprintSchema>;
 export type SprintCreateFormValues = z.infer<typeof sprintCreateFormSchema>;
+export type JobStatus = z.infer<typeof jobStatusSchema>;
+export type StepStatus = z.infer<typeof stepStatusSchema>;
+export type JobStep = z.infer<typeof jobStepSchema>;
+export type Job = z.infer<typeof jobSchema>;

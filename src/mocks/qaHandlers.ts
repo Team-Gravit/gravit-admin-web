@@ -8,6 +8,8 @@ import { env } from '@/env';
  * 시나리오 전환 — 페이지 URL 에 `?qaMock=` 를 붙인다(그 페이지의 QA 요청 전체에 적용):
  *   empty → 스프린트 0개 / 403 → ADMIN 아님 / 503 → 인증 서버 판정 불가
  *   401once → 첫 QA 요청만 401(토큰 만료) — 공유 재발급 후 1회 재시도 경로 확인용
+ *   retrywait → 실행 중인 준비 작업을 '재시도 대기(QUEUED + nextRunAt)' 로 보여 준다
+ * 준비 작업은 GET /jobs/:id 를 받을 때마다 한 단계씩 진행한다(INTERPRET 은 13개씩). 끝나면 스프린트가 REVIEW 로 바뀐다.
  * 스프린트 등록: URL 에 32자리 hex 페이지 ID 가 없으면 400, ID 가 `0000` 으로 시작하면 404(Notion 미발견),
  *   이미 등록된 페이지 ID 면 409.
  * 오류 본문의 `error` 값은 목업이다(실제 코드 목록 미확정, QA_SPEC G3). 프론트는 HTTP 상태로만 분기한다.
@@ -317,6 +319,271 @@ function nowKst(): string {
   return `${new Date(Date.now() + 9 * 3_600_000).toISOString().slice(0, 19)}+09:00`;
 }
 
+// ---------- 준비 작업 ----------
+type JobStatus = 'QUEUED' | 'RUNNING' | 'SUCCEEDED' | 'FAILED' | 'CANCELLED';
+type StepStatus = 'PENDING' | 'RUNNING' | 'DONE' | 'FAILED' | 'SKIPPED';
+
+interface MockStep {
+  seq: number;
+  name: string;
+  status: StepStatus;
+  message: string | null;
+  startedAt: string | null;
+  finishedAt: string | null;
+}
+
+interface MockJob {
+  id: number;
+  type: 'SETUP';
+  sprintId: number;
+  status: JobStatus;
+  attempt: number;
+  maxAttempts: number;
+  nextRunAt: string | null;
+  cancelRequested: boolean;
+  lastError: string | null;
+  steps: MockStep[];
+  createdAt: string;
+  finishedAt: string | null;
+}
+
+const STEP_NAMES = [
+  'BASELINE',
+  'NOTION',
+  'FIGMA',
+  'DIFF',
+  'OPENAPI',
+  'INTERPRET',
+  'VALIDATE',
+  'APPLY',
+];
+const FEATURE_COUNT = 53;
+const INTERPRET_CHUNK = 13;
+
+/** 단계가 끝났을 때의 message (목업 값). */
+const DONE_MESSAGE: Record<string, string> = {
+  BASELINE: 'release 저장소 3개',
+  NOTION: '기능 53개',
+  FIGMA: '프레임 49개',
+  DIFF: '커밋 61개',
+  OPENAPI: '엔드포인트 87개',
+  INTERPRET: `${FEATURE_COUNT}/${FEATURE_COUNT}`,
+  VALIDATE: '항목 214개',
+  APPLY: '검토 전 항목 214개',
+};
+
+const pad = (n: number) => String(n).padStart(2, '0');
+
+/** 전부 끝난 단계 목록 — 단계마다 1분 30초. */
+function finishedSteps(date: string): MockStep[] {
+  return STEP_NAMES.map((name, i) => ({
+    seq: i + 1,
+    name,
+    status: 'DONE',
+    message: DONE_MESSAGE[name] ?? null,
+    startedAt: `${date}T10:${pad(i * 2)}:00+09:00`,
+    finishedAt: `${date}T10:${pad(i * 2 + 1)}:30+09:00`,
+  }));
+}
+
+function succeededJob(id: number, sprintId: number, date: string): MockJob {
+  return {
+    id,
+    type: 'SETUP',
+    sprintId,
+    status: 'SUCCEEDED',
+    attempt: 1,
+    maxAttempts: 3,
+    nextRunAt: null,
+    cancelRequested: false,
+    lastError: null,
+    steps: finishedSteps(date),
+    createdAt: `${date}T09:59:40+09:00`,
+    finishedAt: `${date}T10:15:30+09:00`,
+  };
+}
+
+const pendingSteps = (fromSeq: number): MockStep[] =>
+  STEP_NAMES.slice(fromSeq - 1).map((name, i) => ({
+    seq: fromSeq + i,
+    name,
+    status: 'PENDING',
+    message: null,
+    startedAt: null,
+    finishedAt: null,
+  }));
+
+const jobs: MockJob[] = [
+  succeededJob(101, 1, '2026-03-20'),
+  succeededJob(201, 2, '2026-04-01'),
+  succeededJob(301, 3, '2026-06-24'),
+  {
+    // 셋업 FAILED — BASELINE 에서 release 브랜치 없음(RELEASE_BRANCH_MISSING), 3회 모두 실패
+    id: 401,
+    type: 'SETUP',
+    sprintId: 4,
+    status: 'FAILED',
+    attempt: 3,
+    maxAttempts: 3,
+    nextRunAt: null,
+    cancelRequested: false,
+    lastError:
+      'RELEASE_BRANCH_MISSING: gravit-aos 저장소에 release 브랜치가 없습니다. (3회 시도 후 중단)',
+    steps: [
+      {
+        seq: 1,
+        name: 'BASELINE',
+        status: 'FAILED',
+        message: 'gravit-aos 저장소에서 release 브랜치를 찾지 못했습니다.',
+        startedAt: '2026-10-08T11:15:02+09:00',
+        finishedAt: '2026-10-08T11:15:04+09:00',
+      },
+      ...pendingSteps(2).map((st) => ({ ...st, status: 'SKIPPED' as const })),
+    ],
+    createdAt: '2026-10-08T11:01:00+09:00',
+    finishedAt: '2026-10-08T11:15:04+09:00',
+  },
+  {
+    // 셋업 RUNNING — INTERPRET 12/53
+    id: 501,
+    type: 'SETUP',
+    sprintId: 5,
+    status: 'RUNNING',
+    attempt: 1,
+    maxAttempts: 3,
+    nextRunAt: null,
+    cancelRequested: false,
+    lastError: null,
+    steps: [
+      ...STEP_NAMES.slice(0, 5).map((name, i) => ({
+        seq: i + 1,
+        name,
+        status: 'DONE' as const,
+        message: DONE_MESSAGE[name] ?? null,
+        startedAt: `2026-10-17T09:52:${pad(i * 10)}+09:00`,
+        finishedAt: `2026-10-17T09:52:${pad(i * 10 + 8)}+09:00`,
+      })),
+      {
+        seq: 6,
+        name: 'INTERPRET',
+        status: 'RUNNING',
+        message: `12/${FEATURE_COUNT}`,
+        startedAt: '2026-10-17T09:53:00+09:00',
+        finishedAt: null,
+      },
+      ...pendingSteps(7),
+    ],
+    createdAt: '2026-10-17T09:52:00+09:00',
+    finishedAt: null,
+  },
+];
+
+let nextJobId = 601;
+/** 준비 시작 전 스프린트 상태 — 취소되면 되돌린다. 픽스처 501 은 DRAFT 에서 시작했다고 본다. */
+const statusBeforeSetup = new Map<number, SprintStatus>([[501, 'DRAFT']]);
+
+function setSprintStatus(sprint: MockSprint, status: SprintStatus) {
+  sprint.status = status;
+  sprint.version += 1;
+  if (status === 'DRAFT') sprint.guide = guide('PREPARE', 'START_SETUP');
+  if (status === 'PREPARING') {
+    sprint.guide = guide('PREPARE', 'WAIT_SETUP', [
+      { code: 'SETUP_IN_PROGRESS', count: null, part: null },
+    ]);
+  }
+  if (status === 'PREPARE_FAILED') sprint.guide = guide('PREPARE', 'RETRY_SETUP');
+  if (status === 'REVIEW') {
+    sprint.guide = guide('REVIEW', 'REVIEW_ITEMS', [
+      { code: 'PROPOSED_ITEMS_REMAINING', count: 9, part: null },
+    ]);
+    sprint.progress = progress({ SERVER: [0, 0, 20, 3], WEB: [0, 0, 17, 6], APP: [0, 0, 14, 9] });
+    sprint.preparedAt = nowKst();
+  }
+}
+
+/** BASELINE 단계가 끝나면 기준점을 기록한다(직전 기준점 = 가장 최근 다른 스프린트의 기준점). */
+function recordBaseline(sprint: MockSprint) {
+  if (sprint.baseline) return;
+  sprint.baseline = {
+    id: 900 + sprint.id,
+    previousBaselineId: 41,
+    createdAt: nowKst(),
+    repos: [
+      repo('gravit-server', SHA.server2, SHA.server1),
+      repo('gravit-web', SHA.web2, SHA.web1),
+      repo('gravit-aos', SHA.aos2, SHA.aos1, { code: 43, name: '1.4.3', warning: false }),
+    ],
+  };
+}
+
+const isActive = (job: MockJob) => job.status === 'QUEUED' || job.status === 'RUNNING';
+
+/** GET /jobs/:id 마다 한 칸 진행. 취소 요청이면 진행 중인 단계를 마치고 멈춘다. */
+function tick(job: MockJob) {
+  if (!isActive(job)) return;
+  const sprint = sprints.find((s) => s.id === job.sprintId);
+  const now = nowKst();
+  const update = (index: number, patch: Partial<MockStep>) => {
+    const target = job.steps[index];
+    if (target) job.steps[index] = { ...target, ...patch };
+  };
+
+  if (job.status === 'QUEUED') {
+    if (job.cancelRequested) return finish(job, 'CANCELLED', sprint);
+    job.status = 'RUNNING';
+    update(0, { status: 'RUNNING', startedAt: now });
+    return;
+  }
+
+  const i = job.steps.findIndex((st) => st.status === 'RUNNING');
+  const current = job.steps[i];
+  if (!current) return;
+
+  if (current.name === 'INTERPRET' && !job.cancelRequested) {
+    const done = Number(current.message?.split('/')[0] ?? 0) + INTERPRET_CHUNK;
+    if (done < FEATURE_COUNT) return update(i, { message: `${done}/${FEATURE_COUNT}` });
+  }
+
+  update(i, { status: 'DONE', message: DONE_MESSAGE[current.name] ?? null, finishedAt: now });
+  if (current.name === 'BASELINE' && sprint) recordBaseline(sprint);
+
+  if (job.cancelRequested) return finish(job, 'CANCELLED', sprint);
+  const next = job.steps[i + 1];
+  if (!next) return finish(job, 'SUCCEEDED', sprint);
+  update(i + 1, {
+    status: 'RUNNING',
+    startedAt: now,
+    message: next.name === 'INTERPRET' ? `0/${FEATURE_COUNT}` : null,
+  });
+}
+
+function finish(job: MockJob, status: 'SUCCEEDED' | 'CANCELLED', sprint: MockSprint | undefined) {
+  job.status = status;
+  job.finishedAt = nowKst();
+  job.steps = job.steps.map((st) => (st.status === 'PENDING' ? { ...st, status: 'SKIPPED' } : st));
+  if (!sprint) return;
+  if (status === 'SUCCEEDED') setSprintStatus(sprint, 'REVIEW');
+  else setSprintStatus(sprint, statusBeforeSetup.get(job.id) ?? 'DRAFT');
+}
+
+/** `?qaMock=retrywait` — 실행 중 작업을 1차 시도 실패 후 재시도 대기 상태로 보여 준다(진행하지 않음). */
+function retryWaitView(job: MockJob): MockJob {
+  return {
+    ...job,
+    status: 'QUEUED',
+    attempt: 2,
+    nextRunAt: `${new Date(Date.now() + 9 * 3_600_000 + 5 * 60_000).toISOString().slice(0, 19)}+09:00`,
+    lastError: 'Notion API 응답 429 (요청 한도 초과)',
+    steps: job.steps.map((st) =>
+      st.name === 'NOTION'
+        ? { ...st, status: 'FAILED', message: 'Notion API 응답 429 (요청 한도 초과)' }
+        : st.seq > 2
+          ? { ...st, status: 'PENDING', message: null, startedAt: null, finishedAt: null }
+          : st,
+    ),
+  };
+}
+
 export const qaHandlers = [
   // #1 listSprints — 최신 생성순, status 필터
   http.get(`${QA}/sprints`, async ({ request }) => {
@@ -378,5 +645,76 @@ export const qaHandlers = [
     };
     sprints = [created, ...sprints];
     return HttpResponse.json(created, { status: 201 });
+  }),
+
+  // #3 getSprint
+  http.get(`${QA}/sprints/:sprintId`, async ({ params }) => {
+    await delay();
+    const failure = forcedFailure();
+    if (failure) return failure;
+    const sprint = sprints.find((s) => s.id === Number(params.sprintId));
+    if (!sprint) return errorResponse(404, 'SPRINT_NOT_FOUND', '스프린트를 찾을 수 없습니다.');
+    return HttpResponse.json(sprint);
+  }),
+
+  // #5 startSetupJob — DRAFT·PREPARE_FAILED·REVIEW 에서만, 실행 중 작업이 있으면 409
+  http.post(`${QA}/sprints/:sprintId/setup-jobs`, async ({ params }) => {
+    await delay();
+    const failure = forcedFailure();
+    if (failure) return failure;
+    const sprint = sprints.find((s) => s.id === Number(params.sprintId));
+    if (!sprint) return errorResponse(404, 'SPRINT_NOT_FOUND', '스프린트를 찾을 수 없습니다.');
+    const running = jobs.some((j) => j.sprintId === sprint.id && isActive(j));
+    if (running || !['DRAFT', 'PREPARE_FAILED', 'REVIEW'].includes(sprint.status)) {
+      return errorResponse(
+        409,
+        'SETUP_NOT_ALLOWED',
+        '지금 상태에서는 준비 작업을 시작할 수 없습니다.',
+      );
+    }
+
+    const job: MockJob = {
+      id: nextJobId++,
+      type: 'SETUP',
+      sprintId: sprint.id,
+      status: 'QUEUED',
+      attempt: 1,
+      maxAttempts: 3,
+      nextRunAt: null,
+      cancelRequested: false,
+      lastError: null,
+      steps: pendingSteps(1),
+      createdAt: nowKst(),
+      finishedAt: null,
+    };
+    jobs.push(job);
+    statusBeforeSetup.set(job.id, sprint.status);
+    sprint.latestSetupJobId = job.id;
+    setSprintStatus(sprint, 'PREPARING');
+    return HttpResponse.json(job, { status: 202 });
+  }),
+
+  // #6 getJob — 받을 때마다 한 칸 진행
+  http.get(`${QA}/jobs/:jobId`, async ({ params }) => {
+    await delay();
+    const failure = forcedFailure();
+    if (failure) return failure;
+    const job = jobs.find((j) => j.id === Number(params.jobId));
+    if (!job) return errorResponse(404, 'JOB_NOT_FOUND', '작업을 찾을 수 없습니다.');
+    if (scenario() === 'retrywait' && isActive(job)) return HttpResponse.json(retryWaitView(job));
+    tick(job);
+    return HttpResponse.json(job);
+  }),
+
+  // #7 cancelJob — 끝난 작업이면 409
+  http.post(`${QA}/jobs/:jobId/cancel`, async ({ params }) => {
+    await delay();
+    const failure = forcedFailure();
+    if (failure) return failure;
+    const job = jobs.find((j) => j.id === Number(params.jobId));
+    if (!job) return errorResponse(404, 'JOB_NOT_FOUND', '작업을 찾을 수 없습니다.');
+    if (!isActive(job)) return errorResponse(409, 'JOB_ALREADY_FINISHED', '이미 끝난 작업입니다.');
+    job.cancelRequested = true;
+    return HttpResponse.json(job, { status: 202 });
   }),
 ];
