@@ -7,12 +7,18 @@ import { useSprint } from '@/features/qa/queries';
 import { useIsStartingSetupJob, useStartSetupJob } from '@/features/qa/mutations';
 import { SprintHeader } from '@/features/qa/components/SprintHeader';
 import { qaErrorView } from '@/features/qa/errorView';
-import { SPRINT_SCREENS, screenPath, type SprintScreen } from '@/features/qa/screens';
+import {
+  OPEN_CONFIRM_STATE,
+  SPRINT_SCREENS,
+  screenPath,
+  type SprintScreen,
+} from '@/features/qa/screens';
 import type { NextActionCode } from '@/features/qa/copy';
 
 /**
  * 배너 버튼이 향하는 하위 화면 (QA_SPEC F-1). 없으면 버튼 없음.
- * CONFIRM_CHECKLIST(확정 모달)·CLOSE_SPRINT(종료 모달)는 해당 화면 항목에서 연결한다 — 그 전에는 화면 이동만.
+ * CONFIRM_CHECKLIST 는 분류 검토 화면으로 가서 확정 모달을 연다(라우터 state).
+ * CLOSE_SPRINT(종료 모달)는 QA_CHECKLIST 항목에서 연결한다.
  */
 const ACTION_TARGET: Partial<Record<NextActionCode, SprintScreen>> = {
   START_SETUP: 'setup',
@@ -58,7 +64,10 @@ export function QaSprintLayout() {
     const target = ACTION_TARGET[code];
     if (!target) return;
     if (code === 'START_SETUP') startSetup.mutate();
-    navigate(screenPath(target, id));
+    navigate(
+      screenPath(target, id),
+      code === 'CONFIRM_CHECKLIST' ? { state: OPEN_CONFIRM_STATE } : undefined,
+    );
   };
 
   return (

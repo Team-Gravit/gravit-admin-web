@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react';
 import { keepPreviousData, useQuery, useQueryClient } from '@tanstack/react-query';
 import { qaQueryRetry } from '@/shared/api/qaClient';
-import { getJob, getSprint, listSprints } from '@/features/qa/api';
+import { getChecklist, getJob, getSprint, listSprints } from '@/features/qa/api';
 import type { JobStatus, SprintStatus } from '@/features/qa/schemas';
 
 export const qaKeys = {
@@ -73,4 +73,14 @@ export function useSetupJob(sprintId: number, jobId: number | null) {
   }, [status, sprintId, queryClient]);
 
   return query;
+}
+
+/** 분류 검토·체크리스트가 공유한다 (A-2 #8). 초안이 없는 상태(DRAFT·PREPARING·PREPARE_FAILED)에서는 부르지 않는다. */
+export function useChecklist(sprintId: number, enabled: boolean) {
+  return useQuery({
+    queryKey: qaKeys.checklist(sprintId),
+    queryFn: () => getChecklist(sprintId),
+    enabled: enabled && Number.isFinite(sprintId),
+    retry: qaQueryRetry,
+  });
 }

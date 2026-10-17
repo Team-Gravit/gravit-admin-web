@@ -126,6 +126,111 @@ export const jobSchema = z.object({
   finishedAt: z.string().nullable(),
 });
 
+// ---------- 체크리스트 (A-2 #8~#13) ----------
+export const cellStateSchema = z.enum(['UNCHECKED', 'PASS', 'FAIL', 'NOT_APPLICABLE']);
+export const cellSourceSchema = z.enum(['MANUAL', 'AUTO']);
+export const classificationSchema = z.enum(['AUTO', 'MANUAL']);
+export const reviewStateSchema = z.enum(['PROPOSED', 'CONFIRMED', 'REJECTED']);
+export const itemOriginSchema = z.enum(['LLM', 'HUMAN']);
+export const specStatusSchema = z.enum(['DRAFT', 'NEEDS_CHECK', 'CONFIRMED']);
+
+export const checkCellSchema = z.object({
+  itemId: z.number(),
+  part: partSchema,
+  state: cellStateSchema,
+  source: cellSourceSchema,
+  autoRunId: z.number().nullable(),
+  editable: z.boolean(),
+  /** adminId */
+  updatedBy: z.number().nullable(),
+  updatedAt: z.string().nullable(),
+  version: z.number(),
+});
+
+const criterionSchema = z.object({ met: z.boolean(), reason: z.string() });
+
+/** 분류 기준 5개 (A-1). */
+export const classificationCriteriaSchema = z.object({
+  specDecidable: criterionSchema,
+  preconditionReproducible: criterionSchema,
+  observable: criterionSchema,
+  noExternalDependency: criterionSchema,
+  notSubjective: criterionSchema,
+});
+
+export const checklistItemSchema = z.object({
+  id: z.number(),
+  featureId: z.number(),
+  title: z.string(),
+  expected: z.string(),
+  parts: z.array(partSchema),
+  classification: classificationSchema,
+  criteria: classificationCriteriaSchema.nullable(),
+  automationGap: z.boolean(),
+  testRef: z.string().nullable(),
+  personaKey: z.string().nullable(),
+  sourceRefs: z.array(z.number()),
+  origin: itemOriginSchema,
+  reviewState: reviewStateSchema,
+  cells: z.array(checkCellSchema),
+  version: z.number(),
+});
+
+export const featureSchema = z.object({
+  id: z.number(),
+  /** 예 `LRN-02`, 한글 포함 가능 예 `UP-학습` */
+  screenId: z.string(),
+  name: z.string(),
+  route: z.string().nullable(),
+  parts: z.array(partSchema),
+  specStatus: specStatusSchema,
+  notionUrl: z.string().nullable(),
+  figmaNodeIds: z.array(z.string()),
+});
+
+/**
+ * 경고 (decisions D9-5, QA_SPEC G2 — 사용자 결정 2026-10-17: 두 형태 모두 받는다).
+ * 서버 C4 브랜치는 경고 코드 문자열, QA_SPEC A-2 는 `ReportWarning{code, message, screenId}`.
+ * 어느 쪽이 와도 `{ code, message, screenId }` 로 맞춘다. 서버가 확정되면 다른 쪽 분기를 걷어낸다.
+ */
+export interface ChecklistWarning {
+  code: string;
+  /** 서버 문구. 코드 문자열로 왔으면 null. */
+  message: string | null;
+  screenId: string | null;
+}
+
+const reportWarningSchema = z.object({
+  code: z.string(),
+  message: z.string(),
+  screenId: z.string().nullable(),
+});
+
+export const checklistWarningSchema = z.union([
+  z.string().transform((code): ChecklistWarning => ({ code, message: null, screenId: null })),
+  reportWarningSchema.transform(
+    ({ code, message, screenId }): ChecklistWarning => ({ code, message, screenId }),
+  ),
+]);
+
+export const checklistFeatureSchema = z.object({
+  feature: featureSchema,
+  warnings: z.array(checklistWarningSchema),
+  items: z.array(checklistItemSchema),
+});
+
+export const checklistSchema = z.object({
+  sprintId: z.number(),
+  sprintStatus: sprintStatusSchema,
+  features: z.array(checklistFeatureSchema),
+});
+
+/** 확정 응답 — autoRun 은 이번 범위에서 값을 쓰지 않고 존재만 허용한다(A-2). */
+export const checklistConfirmResponseSchema = z.object({
+  sprint: sprintSchema,
+  autoRun: z.unknown().nullable(),
+});
+
 // ---------- 폼 ----------
 /** 스프린트 등록 (A-2 #2 `{ notionPageUrl: string(uri) }`). */
 export const sprintCreateFormSchema = z.object({
@@ -135,6 +240,32 @@ export const sprintCreateFormSchema = z.object({
     .min(1, 'Notion 스프린트 페이지 URL을 입력하세요.')
     .url('URL 형식이 올바르지 않습니다.'),
 });
+
+/** 페르소나 Select 의 '없음' 값(Radix Select 는 빈 문자열 값을 쓸 수 없다). 전송 시 null. */
+export const PERSONA_NONE = 'NONE';
+
+/**
+ * 체크 항목 추가·수정 폼 (A-2 #9·#10, QA_SPEC B-3).
+ * 자동 분류는 테스트 ID 를 입력해야 저장할 수 있다. 파트는 1개 이상(기능의 parts 밖 파트는 화면이 막는다).
+ */
+export const checklistItemFormSchema = z
+  .object({
+    title: z.string().trim().min(1, '제목을 입력하세요.'),
+    expected: z.string().trim().min(1, '기대 결과를 입력하세요.'),
+    parts: z.array(partSchema).min(1, '파트를 1개 이상 선택하세요.'),
+    classification: classificationSchema,
+    testRef: z.string().trim(),
+    personaKey: z.string(),
+  })
+  .superRefine((v, ctx) => {
+    if (v.classification === 'AUTO' && v.testRef.length === 0) {
+      ctx.addIssue({
+        code: z.ZodIssueCode.custom,
+        path: ['testRef'],
+        message: '자동 분류는 테스트 ID를 입력해야 합니다.',
+      });
+    }
+  });
 
 export type SprintStatus = z.infer<typeof sprintStatusSchema>;
 export type Part = z.infer<typeof partSchema>;
@@ -152,3 +283,17 @@ export type JobStatus = z.infer<typeof jobStatusSchema>;
 export type StepStatus = z.infer<typeof stepStatusSchema>;
 export type JobStep = z.infer<typeof jobStepSchema>;
 export type Job = z.infer<typeof jobSchema>;
+export type CellState = z.infer<typeof cellStateSchema>;
+export type CellSource = z.infer<typeof cellSourceSchema>;
+export type Classification = z.infer<typeof classificationSchema>;
+export type ReviewState = z.infer<typeof reviewStateSchema>;
+export type ItemOrigin = z.infer<typeof itemOriginSchema>;
+export type SpecStatus = z.infer<typeof specStatusSchema>;
+export type CheckCell = z.infer<typeof checkCellSchema>;
+export type ClassificationCriteria = z.infer<typeof classificationCriteriaSchema>;
+export type ChecklistItem = z.infer<typeof checklistItemSchema>;
+export type Feature = z.infer<typeof featureSchema>;
+export type ChecklistFeature = z.infer<typeof checklistFeatureSchema>;
+export type Checklist = z.infer<typeof checklistSchema>;
+export type ChecklistConfirmResponse = z.infer<typeof checklistConfirmResponseSchema>;
+export type ChecklistItemFormValues = z.infer<typeof checklistItemFormSchema>;

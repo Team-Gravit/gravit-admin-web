@@ -25,3 +25,6 @@ export function screenPath(screen: SprintScreen, sprintId: number): string {
   const found = SPRINT_SCREENS.find((s) => s.key === screen);
   return found ? found.to(sprintId) : ROUTES.QA_SPRINT(sprintId);
 }
+
+/** 배너의 [체크리스트 확정](다른 하위 화면에서)이 분류 검토 화면의 확정 모달을 열도록 넘기는 라우터 state (F-1). */
+export const OPEN_CONFIRM_STATE = { openConfirm: true } as const;

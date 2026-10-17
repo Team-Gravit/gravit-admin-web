@@ -1,10 +1,25 @@
-import { useIsMutating, useMutation, useQueryClient } from '@tanstack/react-query';
+import {
+  useIsMutating,
+  useMutation,
+  useQueryClient,
+  type QueryClient,
+} from '@tanstack/react-query';
 import { toast } from 'sonner';
+import { showErrorToast } from '@/shared/api/errorHandler';
 import { QaApiError } from '@/shared/api/qaClient';
-import { cancelJob, createSprint, startSetupJob } from '@/features/qa/api';
+import {
+  cancelJob,
+  confirmChecklist,
+  createChecklistItem,
+  createSprint,
+  startSetupJob,
+  updateChecklistItem,
+  type ChecklistItemCreateBody,
+  type ChecklistItemUpdateBody,
+} from '@/features/qa/api';
 import { qaKeys } from '@/features/qa/queries';
-import { TOAST_COPY } from '@/features/qa/copy';
-import type { Job, Sprint } from '@/features/qa/schemas';
+import { ERROR_COPY, TOAST_COPY } from '@/features/qa/copy';
+import type { Checklist, ChecklistItem, Job, Sprint } from '@/features/qa/schemas';
 
 /**
  * 스프린트 등록. 404·409·400 은 모달 입력 아래에 표시하므로(QA_SPEC A-3) 전역 토스트를 끈다 —
@@ -69,6 +84,139 @@ export function useCancelJob(jobId: number) {
     onError: (error) => {
       if (error instanceof QaApiError && error.status === 409) {
         void queryClient.invalidateQueries({ queryKey: qaKeys.job(jobId) });
+      }
+    },
+  });
+}
+
+// ---------- 체크 항목 (A-2 #9~#11) ----------
+
+/** 응답 항목으로 캐시의 그 항목만 바꾼다 — 새 version 을 들고 있어야 다음 변경이 409 가 되지 않는다(D9-2). */
+function withItem(checklist: Checklist | undefined, item: ChecklistItem): Checklist | undefined {
+  if (!checklist) return checklist;
+  return {
+    ...checklist,
+    features: checklist.features.map((f) =>
+      f.feature.id !== item.featureId
+        ? f
+        : {
+            ...f,
+            items: f.items.some((i) => i.id === item.id)
+              ? f.items.map((i) => (i.id === item.id ? item : i))
+              : [...f.items, item],
+          },
+    ),
+  };
+}
+
+function applyItem(queryClient: QueryClient, sprintId: number, item: ChecklistItem) {
+  queryClient.setQueryData<Checklist>(qaKeys.checklist(sprintId), (prev) => withItem(prev, item));
+  // 검토 전 개수·다음 할 일이 바뀐다
+  void queryClient.invalidateQueries({ queryKey: qaKeys.sprint(sprintId) });
+  void queryClient.invalidateQueries({ queryKey: qaKeys.sprintLists() });
+}
+
+/**
+ * 항목 변경 실패 공통 처리 (A-3 #9·#10). 409(version 불일치·REVIEW 아님) → 체크리스트·스프린트를 다시 조회하고
+ * F-5 STALE. 422(자동 분류 불가)는 호출한 화면이 입력 아래 등에 표시하므로 여기서 알리지 않는다.
+ * 그 밖은 오류 토스트(재발급 실패로 이미 안내한 경우 제외).
+ */
+export function handleItemMutationError(
+  queryClient: QueryClient,
+  sprintId: number,
+  error: unknown,
+): void {
+  if (error instanceof QaApiError) {
+    if (error.sessionEnded || error.status === 422) return;
+    if (error.status === 409) {
+      void queryClient.invalidateQueries({ queryKey: qaKeys.checklist(sprintId) });
+      void queryClient.invalidateQueries({ queryKey: qaKeys.sprint(sprintId) });
+      toast.error(ERROR_COPY.STALE);
+      return;
+    }
+  }
+  showErrorToast(error);
+}
+
+export function useUpdateChecklistItem(sprintId: number) {
+  const queryClient = useQueryClient();
+  return useMutation({
+    mutationFn: ({ itemId, body }: { itemId: number; body: ChecklistItemUpdateBody }) =>
+      updateChecklistItem(itemId, body),
+    meta: { skipGlobalErrorToast: true },
+    onSuccess: (item) => applyItem(queryClient, sprintId, item),
+    onError: (error) => handleItemMutationError(queryClient, sprintId, error),
+  });
+}
+
+export function useCreateChecklistItem(sprintId: number) {
+  const queryClient = useQueryClient();
+  return useMutation({
+    mutationFn: (body: ChecklistItemCreateBody) => createChecklistItem(sprintId, body),
+    meta: { skipGlobalErrorToast: true },
+    onSuccess: (item) => applyItem(queryClient, sprintId, item),
+    onError: (error) => handleItemMutationError(queryClient, sprintId, error),
+  });
+}
+
+/**
+ * 기능 단위 "이 기능 항목 모두 확정" (QA_SPEC 결정 #8). API 가 항목 단위라 PATCH 를 **순차** 호출하고,
+ * 하나라도 실패하면 거기서 멈춘다. 매번 캐시의 최신 version 으로 보낸다. onProgress 로 {i}/{n} 을 알린다.
+ */
+export function useConfirmFeatureItems(sprintId: number) {
+  const queryClient = useQueryClient();
+  return useMutation({
+    mutationFn: async ({
+      itemIds,
+      onProgress,
+    }: {
+      itemIds: number[];
+      onProgress: (done: number) => void;
+    }) => {
+      for (const [index, itemId] of itemIds.entries()) {
+        const current = queryClient
+          .getQueryData<Checklist>(qaKeys.checklist(sprintId))
+          ?.features.flatMap((f) => f.items)
+          .find((i) => i.id === itemId);
+        if (!current || current.reviewState !== 'PROPOSED') continue;
+        const item = await updateChecklistItem(itemId, {
+          reviewState: 'CONFIRMED',
+          version: current.version,
+        });
+        queryClient.setQueryData<Checklist>(qaKeys.checklist(sprintId), (prev) =>
+          withItem(prev, item),
+        );
+        onProgress(index + 1);
+      }
+    },
+    meta: { skipGlobalErrorToast: true },
+    onSettled: () => {
+      void queryClient.invalidateQueries({ queryKey: qaKeys.sprint(sprintId) });
+      void queryClient.invalidateQueries({ queryKey: qaKeys.sprintLists() });
+    },
+    onError: (error) => handleItemMutationError(queryClient, sprintId, error),
+  });
+}
+
+/**
+ * 체크리스트 확정 (A-2 #11). 성공 → 응답 sprint 로 캐시 갱신, 체크리스트 다시 조회, F-6 토스트.
+ * 409(검토 전 남음·version 불일치) → 스프린트·체크리스트 다시 조회(A-3). 오류 문구는 전역 토스트.
+ */
+export function useConfirmChecklist(sprintId: number) {
+  const queryClient = useQueryClient();
+  return useMutation({
+    mutationFn: (body: { startAutoRun?: boolean; version: number }) =>
+      confirmChecklist(sprintId, body),
+    onSuccess: ({ sprint }) => {
+      queryClient.setQueryData(qaKeys.sprint(sprintId), sprint);
+      void queryClient.invalidateQueries({ queryKey: qaKeys.checklist(sprintId) });
+      void queryClient.invalidateQueries({ queryKey: qaKeys.sprintLists() });
+      toast.success(TOAST_COPY.CHECKLIST_CONFIRMED);
+    },
+    onError: (error) => {
+      if (error instanceof QaApiError && error.status === 409) {
+        void queryClient.invalidateQueries({ queryKey: qaKeys.sprint(sprintId) });
+        void queryClient.invalidateQueries({ queryKey: qaKeys.checklist(sprintId) });
       }
     },
   });

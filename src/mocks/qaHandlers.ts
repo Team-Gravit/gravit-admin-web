@@ -1,5 +1,15 @@
 import { delay, http, HttpResponse } from 'msw';
 import { env } from '@/env';
+import {
+  TEST_CATALOG,
+  buildChecklist,
+  cellsFor,
+  progressOf,
+  toChecklistResponse,
+  toItemResponse,
+  type MockBlock,
+  type MockItem,
+} from '@/mocks/qaChecklist';
 
 /**
  * QA(gravit-qa) MSW 핸들러 (decisions D9-4, QA_SPEC 결정 #6·E절 MSW 시나리오).
@@ -9,6 +19,9 @@ import { env } from '@/env';
  *   empty → 스프린트 0개 / 403 → ADMIN 아님 / 503 → 인증 서버 판정 불가
  *   401once → 첫 QA 요청만 401(토큰 만료) — 공유 재발급 후 1회 재시도 경로 확인용
  *   retrywait → 실행 중인 준비 작업을 '재시도 대기(QUEUED + nextRunAt)' 로 보여 준다
+ *   stale → 항목·셀 변경과 체크리스트 확정을 409(다른 운영자가 먼저 변경)로 실패시킨다
+ * 체크리스트(qaChecklist.ts): 분류 검토 #3 · 체크 진행 #2 · 종료 #1 픽스처, 준비가 끝난 스프린트는 새 초안.
+ *   진행률·다음 할 일은 셀에서 다시 계산한다. 자동 분류 테스트 ID 는 TEST_CATALOG 에 있어야 한다(아니면 422).
  * 준비 작업은 GET /jobs/:id 를 받을 때마다 한 단계씩 진행한다(INTERPRET 은 13개씩). 끝나면 스프린트가 REVIEW 로 바뀐다.
  * 스프린트 등록: URL 에 32자리 hex 페이지 ID 가 없으면 400, ID 가 `0000` 으로 시작하면 404(Notion 미발견),
  *   이미 등록된 페이지 ID 면 409.
@@ -291,7 +304,8 @@ function scenario(): string | null {
   return new URLSearchParams(window.location.search).get('qaMock');
 }
 
-function errorResponse(status: number, error: string, message: string) {
+/** message 는 문자열 또는 필드별 오류 객체 (QA_SPEC A-0). */
+function errorResponse(status: number, error: string, message: string | Record<string, string>) {
   return HttpResponse.json({ error, message }, { status });
 }
 
@@ -492,14 +506,58 @@ function setSprintStatus(sprint: MockSprint, status: SprintStatus) {
     ]);
   }
   if (status === 'PREPARE_FAILED') sprint.guide = guide('PREPARE', 'RETRY_SETUP');
-  if (status === 'REVIEW') {
-    sprint.guide = guide('REVIEW', 'REVIEW_ITEMS', [
-      { code: 'PROPOSED_ITEMS_REMAINING', count: 9, part: null },
-    ]);
-    sprint.progress = progress({ SERVER: [0, 0, 20, 3], WEB: [0, 0, 17, 6], APP: [0, 0, 14, 9] });
-    sprint.preparedAt = nowKst();
+  if (status === 'REVIEW') sprint.preparedAt = nowKst();
+  syncSprint(sprint);
+}
+
+// ---------- 체크리스트 ----------
+const checklists = new Map<number, MockBlock[]>([
+  [3, buildChecklist(3, 'review')],
+  [2, buildChecklist(2, 'in-progress')],
+  [1, buildChecklist(1, 'closed')],
+]);
+let nextItemId = 50_001;
+
+/** 체크리스트가 있는 스프린트의 진행률·다음 할 일을 셀에서 다시 계산한다. */
+function syncSprint(sprint: MockSprint) {
+  const blocks = checklists.get(sprint.id);
+  if (!blocks || !['REVIEW', 'IN_PROGRESS', 'CLOSED'].includes(sprint.status)) return;
+  sprint.progress = progressOf(blocks);
+  if (sprint.status === 'REVIEW') {
+    const proposed = blocks
+      .flatMap((b) => b.items)
+      .filter((i) => i.reviewState === 'PROPOSED').length;
+    sprint.guide =
+      proposed > 0
+        ? guide('REVIEW', 'REVIEW_ITEMS', [
+            { code: 'PROPOSED_ITEMS_REMAINING', count: proposed, part: null },
+          ])
+        : guide('REVIEW', 'CONFIRM_CHECKLIST');
+  } else if (sprint.status === 'IN_PROGRESS') {
+    const blockers = sprint.progress
+      .filter((p) => p.unchecked > 0)
+      .map((p) => ({ code: 'UNCHECKED_CELLS_REMAINING', count: p.unchecked, part: p.part }));
+    sprint.guide =
+      blockers.length > 0
+        ? guide('CHECK', 'CHECK_CELLS', blockers)
+        : guide('CLOSE', 'CLOSE_SPRINT');
+  } else {
+    sprint.guide = guide('DONE', 'NONE');
   }
 }
+
+function findItem(itemId: number): { sprintId: number; item: MockItem } | null {
+  for (const [sprintId, blocks] of checklists) {
+    const item = blocks.flatMap((b) => b.items).find((i) => i.id === itemId);
+    if (item) return { sprintId, item };
+  }
+  return null;
+}
+
+const staleFailure = () =>
+  scenario() === 'stale'
+    ? errorResponse(409, 'VERSION_CONFLICT', '다른 사용자가 먼저 변경했습니다.')
+    : null;
 
 /** BASELINE 단계가 끝나면 기준점을 기록한다(직전 기준점 = 가장 최근 다른 스프린트의 기준점). */
 function recordBaseline(sprint: MockSprint) {
@@ -562,8 +620,10 @@ function finish(job: MockJob, status: 'SUCCEEDED' | 'CANCELLED', sprint: MockSpr
   job.finishedAt = nowKst();
   job.steps = job.steps.map((st) => (st.status === 'PENDING' ? { ...st, status: 'SKIPPED' } : st));
   if (!sprint) return;
-  if (status === 'SUCCEEDED') setSprintStatus(sprint, 'REVIEW');
-  else setSprintStatus(sprint, statusBeforeSetup.get(job.id) ?? 'DRAFT');
+  if (status === 'SUCCEEDED') {
+    if (!checklists.has(sprint.id)) checklists.set(sprint.id, buildChecklist(sprint.id, 'fresh'));
+    setSprintStatus(sprint, 'REVIEW');
+  } else setSprintStatus(sprint, statusBeforeSetup.get(job.id) ?? 'DRAFT');
 }
 
 /** `?qaMock=retrywait` — 실행 중 작업을 1차 시도 실패 후 재시도 대기 상태로 보여 준다(진행하지 않음). */
@@ -593,6 +653,7 @@ export const qaHandlers = [
     if (scenario() === 'empty') return HttpResponse.json([]);
 
     const status = new URL(request.url).searchParams.get('status');
+    sprints.forEach(syncSprint);
     const list = sprints
       .filter((s) => !status || s.status === status)
       .sort((a, b) => b.createdAt.localeCompare(a.createdAt))
@@ -654,6 +715,7 @@ export const qaHandlers = [
     if (failure) return failure;
     const sprint = sprints.find((s) => s.id === Number(params.sprintId));
     if (!sprint) return errorResponse(404, 'SPRINT_NOT_FOUND', '스프린트를 찾을 수 없습니다.');
+    syncSprint(sprint);
     return HttpResponse.json(sprint);
   }),
 
@@ -716,5 +778,138 @@ export const qaHandlers = [
     if (!isActive(job)) return errorResponse(409, 'JOB_ALREADY_FINISHED', '이미 끝난 작업입니다.');
     job.cancelRequested = true;
     return HttpResponse.json(job, { status: 202 });
+  }),
+
+  // #8 getChecklist
+  http.get(`${QA}/sprints/:sprintId/checklist`, async ({ params }) => {
+    await delay();
+    const failure = forcedFailure();
+    if (failure) return failure;
+    const sprint = sprints.find((s) => s.id === Number(params.sprintId));
+    if (!sprint) return errorResponse(404, 'SPRINT_NOT_FOUND', '스프린트를 찾을 수 없습니다.');
+    return HttpResponse.json(
+      toChecklistResponse(sprint.id, sprint.status, checklists.get(sprint.id) ?? []),
+    );
+  }),
+
+  // #9 createChecklistItem — REVIEW 에서만. 직접 추가 = HUMAN·CONFIRMED
+  http.post(`${QA}/sprints/:sprintId/checklist-items`, async ({ params, request }) => {
+    await delay();
+    const failure = forcedFailure() ?? staleFailure();
+    if (failure) return failure;
+    const sprint = sprints.find((s) => s.id === Number(params.sprintId));
+    const blocks = sprint ? checklists.get(sprint.id) : undefined;
+    if (!sprint || !blocks)
+      return errorResponse(404, 'SPRINT_NOT_FOUND', '스프린트를 찾을 수 없습니다.');
+    if (sprint.status !== 'REVIEW')
+      return errorResponse(409, 'INVALID_STATE', '분류 검토 중이 아닙니다.');
+
+    const body = (await request.json()) as Pick<
+      MockItem,
+      'featureId' | 'title' | 'expected' | 'parts' | 'classification'
+    > & { testRef?: string | null; personaKey?: string | null };
+    const block = blocks.find((b) => b.feature.id === body.featureId);
+    if (!block || !body.title || !body.expected || body.parts.length === 0) {
+      return errorResponse(400, 'INVALID_REQUEST', {
+        featureId: '필수 값이 비었거나 잘못되었습니다.',
+      });
+    }
+    if (body.classification === 'AUTO' && !TEST_CATALOG.includes(body.testRef ?? '')) {
+      return errorResponse(422, 'TEST_REF_NOT_IN_CATALOG', 'testRef not in catalog');
+    }
+    const id = nextItemId++;
+    const item: MockItem = {
+      id,
+      featureId: block.feature.id,
+      title: body.title,
+      expected: body.expected,
+      parts: body.parts,
+      classification: body.classification,
+      criteria: null,
+      automationGap: false,
+      testRef: body.testRef ?? null,
+      personaKey: body.personaKey ?? null,
+      sourceRefs: [],
+      origin: 'HUMAN',
+      reviewState: 'CONFIRMED',
+      cells: cellsFor({ id, parts: body.parts, classification: body.classification }),
+      version: 0,
+    };
+    block.items.push(item);
+    syncSprint(sprint);
+    return HttpResponse.json(toItemResponse(sprint.status, item), { status: 201 });
+  }),
+
+  // #10 updateChecklistItem — 바꾼 필드만 + version. REVIEW 아님·version 불일치 409, 카탈로그 밖 자동 422
+  http.patch(`${QA}/checklist-items/:itemId`, async ({ params, request }) => {
+    await delay();
+    const failure = forcedFailure() ?? staleFailure();
+    if (failure) return failure;
+    const found = findItem(Number(params.itemId));
+    const sprint = found && sprints.find((s) => s.id === found.sprintId);
+    if (!found || !sprint) return errorResponse(404, 'ITEM_NOT_FOUND', '항목을 찾을 수 없습니다.');
+    const { item } = found;
+    const body = (await request.json()) as Partial<MockItem> & { version: number };
+    if (sprint.status !== 'REVIEW' || body.version !== item.version) {
+      return errorResponse(409, 'VERSION_CONFLICT', '다른 사용자가 먼저 변경했습니다.');
+    }
+    const classification = body.classification ?? item.classification;
+    const testRef = body.testRef === undefined ? item.testRef : body.testRef;
+    if (
+      (body.classification !== undefined || body.testRef !== undefined) &&
+      classification === 'AUTO' &&
+      !TEST_CATALOG.includes(testRef ?? '')
+    ) {
+      return errorResponse(422, 'TEST_REF_NOT_IN_CATALOG', 'testRef not in catalog');
+    }
+    if (body.title !== undefined) item.title = body.title;
+    if (body.expected !== undefined) item.expected = body.expected;
+    if (body.personaKey !== undefined) item.personaKey = body.personaKey;
+    if (body.reviewState !== undefined) item.reviewState = body.reviewState;
+    item.classification = classification;
+    item.testRef = testRef;
+    if (body.parts !== undefined) item.parts = body.parts;
+    if (body.parts !== undefined || body.classification !== undefined) {
+      item.cells = cellsFor(item, item.cells);
+    }
+    item.version += 1;
+    syncSprint(sprint);
+    return HttpResponse.json(toItemResponse(sprint.status, item));
+  }),
+
+  // #11 confirmChecklist — 검토 전이 남았거나 version 불일치면 409
+  http.post(`${QA}/sprints/:sprintId/checklist/confirm`, async ({ params, request }) => {
+    await delay();
+    const failure = forcedFailure() ?? staleFailure();
+    if (failure) return failure;
+    const sprint = sprints.find((s) => s.id === Number(params.sprintId));
+    const blocks = sprint ? checklists.get(sprint.id) : undefined;
+    if (!sprint || !blocks)
+      return errorResponse(404, 'SPRINT_NOT_FOUND', '스프린트를 찾을 수 없습니다.');
+    const body = (await request.json()) as { startAutoRun?: boolean; version: number };
+    const items = blocks.flatMap((b) => b.items);
+    if (
+      sprint.status !== 'REVIEW' ||
+      body.version !== sprint.version ||
+      items.some((i) => i.reviewState === 'PROPOSED')
+    ) {
+      return errorResponse(409, 'CONFIRM_NOT_ALLOWED', '확정할 수 없는 상태입니다.');
+    }
+    // 목업: 자동 분류 항목은 자동 실행이 곧바로 끝난 것으로 본다(PASS)
+    const autoItems = items.filter(
+      (i) => i.reviewState === 'CONFIRMED' && i.classification === 'AUTO',
+    );
+    autoItems.forEach((i) => {
+      i.cells = i.cells.map((c) =>
+        c.state === 'NOT_APPLICABLE'
+          ? c
+          : { ...c, state: 'PASS', autoRunId: 77, updatedAt: nowKst(), version: c.version + 1 },
+      );
+    });
+    sprint.confirmedAt = nowKst();
+    setSprintStatus(sprint, 'IN_PROGRESS');
+    const autoRun =
+      autoItems.length > 0 && body.startAutoRun !== false ? { id: 77, status: 'QUEUED' } : null;
+    return HttpResponse.json({ sprint, autoRun });
   }),
 ];

@@ -1,5 +1,5 @@
 import { PART_LABELS } from '@/features/qa/labels';
-import type { GuideBlocker, SprintGuide } from '@/features/qa/schemas';
+import type { ChecklistWarning, GuideBlocker, SprintGuide } from '@/features/qa/schemas';
 
 /**
  * QA 화면 문구 — **QA_SPEC F절이 권위**(decisions D9-5). 톤은 합니다체.
@@ -130,6 +130,11 @@ export function warningCopy(code: string): string | null {
   return Object.prototype.hasOwnProperty.call(WARNING_COPY, code)
     ? (WARNING_COPY[code] ?? null)
     : null;
+}
+
+/** 경고 한 줄: F-3 문구 → 서버 message → 코드 원문 (B-3 "매핑 없으면 message"). */
+export function warningText(warning: ChecklistWarning): string {
+  return warningCopy(warning.code) ?? warning.message ?? warning.code;
 }
 
 // ---------- F-4. 안내, 빈 상태 ----------

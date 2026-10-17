@@ -29,6 +29,7 @@ import { QaSprintListPage } from '@/pages/qa/QaSprintListPage';
 import { QaSprintLayout } from '@/pages/qa/QaSprintLayout';
 import { QaSprintIndexPage } from '@/pages/qa/QaSprintIndexPage';
 import { QaSetupPage } from '@/pages/qa/QaSetupPage';
+import { QaReviewPage } from '@/pages/qa/QaReviewPage';
 
 const protectedLoader: LoaderFunction = async () => {
   const refreshToken = tokenManager.getRefreshToken();
@@ -94,6 +95,7 @@ export const router = createBrowserRouter([
         children: [
           { index: true, element: <QaSprintIndexPage /> },
           { path: 'setup', element: <QaSetupPage /> },
+          { path: 'review', element: <QaReviewPage /> },
         ],
       },
     ],

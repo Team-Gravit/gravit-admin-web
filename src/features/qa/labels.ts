@@ -1,8 +1,13 @@
 import type { BadgeVariant } from '@/shared/constants/badgeVariants';
 import type {
+  Classification,
+  ClassificationCriteria,
+  ItemOrigin,
   JobStatus,
   Part,
   Repo,
+  ReviewState,
+  SpecStatus,
   SprintStage,
   SprintStatus,
   StepStatus,
@@ -101,3 +106,80 @@ export function stepNameLabel(name: string): string {
     ? (STEP_NAME_LABELS[name] ?? name)
     : name;
 }
+
+// ---------- 분류 검토 (A-1) ----------
+export const CLASSIFICATION_LABELS: Record<Classification, string> = {
+  AUTO: '자동',
+  MANUAL: '수동',
+};
+
+export const REVIEW_STATE_LABELS: Record<ReviewState, string> = {
+  PROPOSED: '검토 전',
+  CONFIRMED: '확정',
+  REJECTED: '거절',
+};
+
+export const ORIGIN_LABELS: Record<ItemOrigin, string> = {
+  LLM: '초안',
+  HUMAN: '직접 추가',
+};
+
+export const SPEC_STATUS_LABELS: Record<SpecStatus, string> = {
+  DRAFT: '역문서화 초안',
+  NEEDS_CHECK: '확인 필요',
+  CONFIRMED: '확정',
+};
+
+/** 분류 기준 5개 — 표시 순서도 이 순서 (A-1). */
+export const CRITERIA_LABELS: ReadonlyArray<{ key: keyof ClassificationCriteria; label: string }> =
+  [
+    { key: 'specDecidable', label: '명세로 판정 가능' },
+    { key: 'preconditionReproducible', label: '사전 조건 재현 가능' },
+    { key: 'observable', label: '결과 관찰 가능' },
+    { key: 'noExternalDependency', label: '외부 의존 없음' },
+    { key: 'notSubjective', label: '주관 판단 아님' },
+  ];
+
+/** 페르소나 키 13개 고정 (A-1, 설계 9-3). Select 표시 순서. */
+export const PERSONA_OPTIONS: ReadonlyArray<{ key: string; label: string }> = [
+  { key: 'pre-onboarding', label: '온보딩 전' },
+  { key: 'fresh', label: '온보딩 직후' },
+  { key: 'learner', label: '학습 진행 중' },
+  { key: 'streak', label: '연속 학습' },
+  { key: 'chapter-almost', label: '챕터 완료 직전' },
+  { key: 'social', label: '팔로우 관계 보유' },
+  { key: 'league-edge', label: '승급, 강등 경계' },
+  { key: 'mission', label: '미션 완료 직전' },
+  { key: 'interviewer', label: '면접 이력 보유' },
+  { key: 'inquirer', label: '문의 답변 완료' },
+  { key: 'withdrawing', label: '탈퇴 유예 중' },
+  { key: 'suspended', label: '정지' },
+  { key: 'admin', label: '관리자' },
+];
+
+/** 모르는 키는 원문 그대로. */
+export function personaLabel(key: string): string {
+  return PERSONA_OPTIONS.find((p) => p.key === key)?.label ?? key;
+}
+
+/**
+ * 톤 (QA_SPEC C절): 검토 전 = 확인 필요(warning), 확정 = 완료(success), 거절 = 대상 밖(muted).
+ * 명세 상태: 확인 필요 = warning(B-3 명시), 확정 = success, 역문서화 초안 = muted.
+ * 분류: C절에 매핑이 없어 자동 = info, 수동 = muted, 자동화 후보 = accent 로 보완.
+ */
+export const REVIEW_STATE_BADGE_VARIANT: Record<ReviewState, BadgeVariant> = {
+  PROPOSED: 'warning',
+  CONFIRMED: 'success',
+  REJECTED: 'muted',
+};
+
+export const SPEC_STATUS_BADGE_VARIANT: Record<SpecStatus, BadgeVariant> = {
+  DRAFT: 'muted',
+  NEEDS_CHECK: 'warning',
+  CONFIRMED: 'success',
+};
+
+export const CLASSIFICATION_BADGE_VARIANT: Record<Classification, BadgeVariant> = {
+  AUTO: 'info',
+  MANUAL: 'muted',
+};

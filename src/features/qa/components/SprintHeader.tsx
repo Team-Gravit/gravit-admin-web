@@ -6,6 +6,7 @@ import { Button } from '@/shared/components/ui/button';
 import { StageStepper } from '@/features/qa/components/StageStepper';
 import { NextActionBanner } from '@/features/qa/components/NextActionBanner';
 import { SPRINT_SCREENS } from '@/features/qa/screens';
+import { notionPageUrl } from '@/features/qa/links';
 import type { NextActionCode } from '@/features/qa/copy';
 import type { Sprint } from '@/features/qa/schemas';
 
@@ -14,11 +15,6 @@ interface SprintHeaderProps {
   canAct: (code: NextActionCode) => boolean;
   onAction: (code: NextActionCode) => void;
   actionPending?: boolean;
-}
-
-/** Notion 페이지 ID 에서 하이픈을 뺀 공개 URL (QA_SPEC B-1). */
-function notionUrl(notionPageId: string): string {
-  return `https://www.notion.so/${notionPageId.replace(/-/g, '')}`;
 }
 
 /**
@@ -40,7 +36,7 @@ export function SprintHeader({ sprint, canAct, onAction, actionPending }: Sprint
           )}
         </div>
         <Button variant="outline" size="sm" asChild>
-          <a href={notionUrl(sprint.notionPageId)} target="_blank" rel="noopener noreferrer">
+          <a href={notionPageUrl(sprint.notionPageId)} target="_blank" rel="noopener noreferrer">
             Notion에서 보기
             <ExternalLink />
           </a>
