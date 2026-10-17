@@ -140,7 +140,7 @@
     },
     {
       "id": "step-11:QA_REVIEW",
-      "status": "IN_PROGRESS"
+      "status": "COMPLETED"
     },
     {
       "id": "step-11:QA_CHECKLIST",
@@ -170,9 +170,7 @@
     "step-11:QA_REVIEW": "none — QA_SPEC.md C절(시안 없음, 기존 패턴 자체 완성)",
     "step-11:QA_CHECKLIST": "none — QA_SPEC.md C절(시안 없음, 기존 패턴 자체 완성)"
   },
-  "retry": {
-    "step-11:QA_REVIEW": 1
-  },
+  "retry": {},
   "manual_review": [
     {
       "id": "step-1-setup",
@@ -296,6 +294,16 @@
     }
   ],
   "log": [
+    {
+      "id": "step-11:QA_REVIEW",
+      "status": "COMPLETED",
+      "ts": "2026-10-17",
+      "gate": "full(OK): validate-state+typecheck+token-lint+build",
+      "review": "spec PASS, ds PASS (1차 FAIL 각 1~2건 → 99590ea 수정 → 재리뷰 PASS)",
+      "retry": 1,
+      "figma": "none → QA_SPEC C절 + 기존 QA 화면·목록 선례 자체완성",
+      "note": "B-3 분류 검토. ReviewPanel(초안 전 REVIEW_NOT_READY·읽기 전용 REVIEW_READONLY 게이트, 요약 + [체크리스트 확정] + 막힌 이유, 필터 4종, 배너 CONFIRM_CHECKLIST → router state 로 확정 모달) · ReviewFeatureGroup(화면 ID·명세 상태·Notion/Figma·경고 두 형태, 이 기능 항목 모두 확정 순차·{i}/{n}, 항목 추가) · ReviewItemRow(판정 근거, 확정·거절·수정) · ChecklistItemFormModal(추가·수정 공용, 바꾼 필드만 + version, 422 AUTO_NOT_ALLOWED·409 STALE) · ConfirmChecklistModal(AUTO 있을 때만 자동 실행 체크박스). 스키마: Checklist·Feature·Item·CheckCell·Criteria·ConfirmResponse·경고 union. MSW: qaChecklist.ts(8기능·16항목, 분류 검토/새 초안/체크 진행/종료 픽스처, 진행률·다음 할 일 재계산, TEST_CATALOG), ?qaMock=stale. 브라우저 검증 36/36."
+    },
     {
       "id": "step-11:QA_SETUP",
       "status": "COMPLETED",

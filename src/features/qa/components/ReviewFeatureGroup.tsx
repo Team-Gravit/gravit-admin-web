@@ -113,14 +113,14 @@ export function ReviewFeatureGroup({
                 aria-expanded={warningsOpen}
                 className="group inline-flex items-center gap-0.5 text-fg-muted hover:text-foreground"
               >
+                <StatusBadge variant="warning" className="group-hover:underline">
+                  경고 {warnings.length}
+                </StatusBadge>
                 {warningsOpen ? (
                   <ChevronDown className="size-3.5" />
                 ) : (
                   <ChevronRight className="size-3.5" />
                 )}
-                <StatusBadge variant="warning" className="group-hover:underline">
-                  경고 {warnings.length}
-                </StatusBadge>
               </button>
             )}
           </div>
@@ -158,7 +158,8 @@ export function ReviewFeatureGroup({
               <Button
                 size="sm"
                 variant="outline"
-                disabled={confirmAll.isPending}
+                // 행 요청이 진행 중이면 응답 전 version 으로 다시 보내 409 가 나므로 함께 막는다
+                disabled={confirmAll.isPending || update.isPending}
                 onClick={confirmFeature}
               >
                 {confirmAll.isPending && <Loader2 className="animate-spin" />}
@@ -185,6 +186,13 @@ export function ReviewFeatureGroup({
             </li>
           ))}
         </ul>
+      )}
+
+      {/* 경고가 있어 남겨 둔 그룹 — 필터에 맞는 항목이 없음을 알린다 */}
+      {!collapsed && items.length === 0 && (
+        <p className="border-t border-border px-6 py-4 text-caption text-fg-muted">
+          조건에 맞는 항목이 없습니다.
+        </p>
       )}
 
       {!collapsed && items.length > 0 && (
