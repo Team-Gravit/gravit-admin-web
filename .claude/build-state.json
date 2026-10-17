@@ -145,6 +145,14 @@
     {
       "id": "step-11:QA_CHECKLIST",
       "status": "COMPLETED"
+    },
+    {
+      "id": "fix:H1-CN_FONT_SIZE",
+      "status": "TODO"
+    },
+    {
+      "id": "fix:H2-MSW_BOOT_REISSUE",
+      "status": "TODO"
     }
   ],
   "figma": {
@@ -299,6 +307,12 @@
     }
   ],
   "log": [
+    {
+      "id": "step-11:C5-rework",
+      "ts": "2026-10-17",
+      "gate": "(진행 중)",
+      "note": "C5 회신(조건부 승인) 반영 시작. QA_SPEC.md 는 사용자가 직접 갱신(서버 dev 99b9a1c C4 머지 기준). D9 갱신: warnings=코드 문자열 배열, 502, A-4 코드·422 구분, Job 표시 규칙(attempt/QUEUED_FIRST/시작 시각), null 처리, testRef null, 근거 없음 태그, 결정 #11~#16(D9-6), H1/H2 분리(D9-7). 기존 결함 H1·H2 를 별도 TODO 로 등록(fix:H1-CN_FONT_SIZE, fix:H2-MSW_BOOT_REISSUE) — 이번 Step 에서 고치지 않음."
+    },
     {
       "id": "step-11",
       "ts": "2026-10-17",
