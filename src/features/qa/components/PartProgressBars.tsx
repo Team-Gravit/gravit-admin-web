@@ -16,7 +16,9 @@ export function PartProgressBars({ progress }: { progress: PartProgress[] }) {
 
         return (
           <div key={part} className="flex items-center gap-2">
-            <span className="w-6 shrink-0 text-caption text-fg-secondary">{PART_LABELS[part]}</span>
+            <span className="w-6 shrink-0 whitespace-nowrap text-caption text-fg-secondary">
+              {PART_LABELS[part]}
+            </span>
             {total > 0 ? (
               <>
                 <div className="h-1.5 flex-1 overflow-hidden rounded-full bg-primary-subtle">
@@ -27,7 +29,7 @@ export function PartProgressBars({ progress }: { progress: PartProgress[] }) {
                 </span>
               </>
             ) : (
-              <span className="text-caption text-fg-muted">-</span>
+              <span className="text-caption text-foreground">-</span>
             )}
           </div>
         );

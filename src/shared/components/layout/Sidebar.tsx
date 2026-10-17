@@ -87,7 +87,12 @@ const NAV_SECTIONS: NavSection[] = [
         isActive: (p) => p.startsWith('/notices'),
       },
       // QA 는 운영 섹션 맨 아래 (decisions D9-1)
-      { label: 'QA', to: ROUTES.QA_SPRINTS, icon: ClipboardCheck, isActive: (p) => p.startsWith('/qa') },
+      {
+        label: 'QA',
+        to: ROUTES.QA_SPRINTS,
+        icon: ClipboardCheck,
+        isActive: (p) => p.startsWith('/qa'),
+      },
     ],
   },
 ];

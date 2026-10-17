@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
+import { Loader2 } from 'lucide-react';
 import { toast } from 'sonner';
 import { Button } from '@/shared/components/ui/button';
 import { Input } from '@/shared/components/ui/input';
@@ -61,6 +62,8 @@ export function SprintCreateModal({ open, onOpenChange, onCreated }: SprintCreat
         },
         onError: (error) => {
           if (error instanceof QaApiError) {
+            // 401 = 공유 재발급까지 실패 — 강제 로그아웃이 이미 안내했다(D9-3).
+            if (error.status === 401) return;
             if (error.status === 404) return showFieldError(ERROR_COPY.NOTION_NOT_FOUND);
             if (error.status === 409) return showFieldError(ERROR_COPY.SPRINT_DUPLICATED);
             if (error.status === 400) return showFieldError(error.serverMessage ?? INVALID_URL);
@@ -107,6 +110,7 @@ export function SprintCreateModal({ open, onOpenChange, onCreated }: SprintCreat
             취소
           </Button>
           <Button type="submit" form="qa-sprint-create" disabled={isPending}>
+            {isPending && <Loader2 className="animate-spin" />}
             등록
           </Button>
         </DialogFooter>

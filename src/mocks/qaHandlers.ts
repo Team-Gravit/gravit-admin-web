@@ -49,10 +49,21 @@ interface MockSprint {
     unchecked: number;
     notApplicable: number;
   }>;
-  guide: { stage: Stage; stageIndex: number; stageCount: number; nextAction: string; blockers: MockBlocker[] };
+  guide: {
+    stage: Stage;
+    stageIndex: number;
+    stageCount: number;
+    nextAction: string;
+    blockers: MockBlocker[];
+  };
   notionPageId: string;
   figmaFileKey: string | null;
-  baseline: { id: number; previousBaselineId: number | null; createdAt: string; repos: MockBaselineRepo[] } | null;
+  baseline: {
+    id: number;
+    previousBaselineId: number | null;
+    createdAt: string;
+    repos: MockBaselineRepo[];
+  } | null;
   latestSetupJobId: number | null;
   preparedAt: string | null;
   confirmedAt: string | null;
@@ -74,7 +85,11 @@ function progress(rows: Record<Part, Counts>): MockSprint['progress'] {
 
 const EMPTY_PROGRESS = progress({ SERVER: [0, 0, 0, 0], WEB: [0, 0, 0, 0], APP: [0, 0, 0, 0] });
 
-function guide(stage: Stage, nextAction: string, blockers: MockBlocker[] = []): MockSprint['guide'] {
+function guide(
+  stage: Stage,
+  nextAction: string,
+  blockers: MockBlocker[] = [],
+): MockSprint['guide'] {
   const stageIndex = { PREPARE: 1, REVIEW: 2, CHECK: 3, CLOSE: 4, DONE: 5 }[stage];
   return { stage, stageIndex, stageCount: 5, nextAction, blockers };
 }
@@ -163,7 +178,9 @@ let sprints: MockSprint[] = [
     periodEnd: null,
     status: 'PREPARE_FAILED',
     progress: EMPTY_PROGRESS,
-    guide: guide('PREPARE', 'RETRY_SETUP', [{ code: 'RELEASE_BRANCH_MISSING', count: null, part: null }]),
+    guide: guide('PREPARE', 'RETRY_SETUP', [
+      { code: 'RELEASE_BRANCH_MISSING', count: null, part: null },
+    ]),
     notionPageId: '0e2d4c6b-8a9f-4e1d-9c3b-5a7f9e1d3c5b',
     figmaFileKey: 'hu4c6qCEMB62qHXk2v8Gsl',
     baseline: null,
@@ -182,7 +199,9 @@ let sprints: MockSprint[] = [
     periodEnd: '2026-06-26',
     status: 'REVIEW',
     progress: progress({ SERVER: [0, 0, 18, 4], WEB: [0, 0, 15, 7], APP: [0, 0, 12, 10] }),
-    guide: guide('REVIEW', 'REVIEW_ITEMS', [{ code: 'PROPOSED_ITEMS_REMAINING', count: 7, part: null }]),
+    guide: guide('REVIEW', 'REVIEW_ITEMS', [
+      { code: 'PROPOSED_ITEMS_REMAINING', count: 7, part: null },
+    ]),
     notionPageId: '9c8b7a6f-5e4d-4c3b-a291-807f6e5d4c3b',
     figmaFileKey: 'hu4c6qCEMB62qHXk2v8Gsl',
     baseline: {

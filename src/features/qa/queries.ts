@@ -6,7 +6,8 @@ import type { SprintStatus } from '@/features/qa/schemas';
 export const qaKeys = {
   all: ['qa'] as const,
   sprintLists: () => [...qaKeys.all, 'sprints', 'list'] as const,
-  sprintList: (status: SprintStatus | undefined) => [...qaKeys.sprintLists(), status ?? 'ALL'] as const,
+  sprintList: (status: SprintStatus | undefined) =>
+    [...qaKeys.sprintLists(), status ?? 'ALL'] as const,
   sprints: () => [...qaKeys.all, 'sprints', 'detail'] as const,
   sprint: (sprintId: number) => [...qaKeys.sprints(), sprintId] as const,
 };

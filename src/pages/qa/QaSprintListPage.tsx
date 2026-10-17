@@ -29,6 +29,11 @@ import {
 
 type StatusFilter = SprintStatus | 'ALL';
 
+function toStatusFilter(value: string): StatusFilter {
+  const parsed = sprintStatusSchema.safeParse(value);
+  return parsed.success ? parsed.data : 'ALL';
+}
+
 function formatPeriod(sprint: SprintSummary): string {
   if (!sprint.periodStart && !sprint.periodEnd) return '-';
   return `${formatDate(sprint.periodStart)} ~ ${formatDate(sprint.periodEnd)}`;
@@ -108,7 +113,7 @@ export function QaSprintListPage() {
       </div>
 
       <div className="flex items-center gap-3">
-        <Select value={statusFilter} onValueChange={(v) => setStatusFilter(v as StatusFilter)}>
+        <Select value={statusFilter} onValueChange={(v) => setStatusFilter(toStatusFilter(v))}>
           <SelectTrigger className="w-40">
             <SelectValue placeholder="상태" />
           </SelectTrigger>

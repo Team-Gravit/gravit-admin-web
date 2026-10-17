@@ -82,8 +82,7 @@ export interface NextActionCopy extends NextActionTemplate {
 export function nextActionCopy(guide: SprintGuide): NextActionCopy | null {
   const { nextAction } = guide;
   if (!isNextActionCode(nextAction)) return null;
-  const count =
-    guide.blockers.find((b) => b.code === 'PROPOSED_ITEMS_REMAINING')?.count ?? null;
+  const count = guide.blockers.find((b) => b.code === 'PROPOSED_ITEMS_REMAINING')?.count ?? null;
   const fill = (text: string) => text.replace('{count}', count === null ? '-' : String(count));
   const t = NEXT_ACTION_TEMPLATES[nextAction];
   return { code: nextAction, banner: fill(t.banner), short: fill(t.short), button: t.button };
@@ -110,15 +109,23 @@ export function blockerCopy(blocker: GuideBlocker): string | null {
 }
 
 // ---------- F-3. 경고 (ReportWarning.code) ----------
-/** 매핑이 없으면 호출 쪽이 서버 `message` 원문을 쓴다. */
-export const WARNING_COPY: Record<string, string> = {
-  SPEC_NEEDS_CHECK: '명세가 확인 필요 상태입니다. 근거가 없는 항목은 기대 결과에 그렇게 적혀 있습니다.',
+const WARNING_COPY: Partial<Record<string, string>> = {
+  SPEC_NEEDS_CHECK:
+    '명세가 확인 필요 상태입니다. 근거가 없는 항목은 기대 결과에 그렇게 적혀 있습니다.',
   FIGMA_FRAME_MISSING: 'Figma QA 페이지에서 이 화면을 찾지 못했습니다.',
-  ITEM_GENERATION_FAILED: '체크 항목 초안을 만들지 못했습니다. 실패 항목을 거절하고 직접 추가하세요.',
+  ITEM_GENERATION_FAILED:
+    '체크 항목 초안을 만들지 못했습니다. 실패 항목을 거절하고 직접 추가하세요.',
   VERSION_CODE_NOT_INCREASED:
     '앱 versionCode가 직전 기준점보다 크지 않습니다. release마다 versionCode를 올려야 합니다.',
   NOTION_WRITE_FAILED: 'Notion에 QA 기준점을 기록하지 못했습니다. 종료는 정상 처리됐습니다.',
 };
+
+/** 경고 코드 → F-3 문구. **매핑이 없으면 null** — 호출 쪽이 서버 `message` 원문을 쓴다. */
+export function warningCopy(code: string): string | null {
+  return Object.prototype.hasOwnProperty.call(WARNING_COPY, code)
+    ? (WARNING_COPY[code] ?? null)
+    : null;
+}
 
 // ---------- F-4. 안내, 빈 상태 ----------
 export const NOTICE_COPY = {
@@ -128,7 +135,8 @@ export const NOTICE_COPY = {
   NO_BASELINE: '아직 기준점이 없습니다. QA 준비하기를 실행하면 release 브랜치 커밋이 기록됩니다.',
   NO_JOB: '아직 실행한 준비 작업이 없습니다.',
   RETRY_WAIT: (time: string) => `${time}에 자동으로 다시 시도합니다.`,
-  SETUP_DURATION: '기능 수가 많으면 10분 이상 걸릴 수 있습니다. 화면을 떠나도 서버에서 계속 진행됩니다.',
+  SETUP_DURATION:
+    '기능 수가 많으면 10분 이상 걸릴 수 있습니다. 화면을 떠나도 서버에서 계속 진행됩니다.',
   SETUP_LOCKED:
     '체크리스트를 확정한 뒤에는 다시 준비할 수 없습니다. 범위가 바뀌면 다음 스프린트에서 처리하세요.',
   REVIEW_NOT_READY: '아직 체크리스트 초안이 없습니다. 먼저 QA 준비하기를 완료하세요.',

@@ -132,7 +132,7 @@
     },
     {
       "id": "step-11:QA_SPRINT_LIST",
-      "status": "TODO"
+      "status": "COMPLETED"
     },
     {
       "id": "step-11:QA_SETUP",
@@ -276,9 +276,28 @@
       "id": "subjective-answer-model",
       "tag": "decision",
       "note": "D1/D2 재확정(사용자 2026-06-06): 주관식 정답 = 단일 객체 {answerId, content(콤마 String 1개), explanation}. prod·staging·GET·PATCH 전부 동일, 항상 1개. decisions.md/antipatterns.md/api-contract.md 반영. PROBLEM_DETAIL·STAGING_DETAIL 6-1 코드 정정 + 4 리뷰어 재PASS(167126b). 화면마다 재논의 금지."
+    },
+    {
+      "id": "step-11:QA_SPRINT_LIST",
+      "tag": "integration",
+      "note": "QA 서버 미배포 — MSW 로만 검증. 실서버에서 확인할 것: 401→공유 reissueAccessToken→1회 재시도(재발급 실패 시 강제 로그아웃), 403 종착, 503 은 재발급·로그아웃 없이 AUTH_UNAVAILABLE, 실제 응답 형태(OpenAPI 초안은 nullable 필드 다수를 required 에서 뺐다 — 키 생략 시 .nullable() 파싱 실패), 오류 본문 {error,message}."
+    },
+    {
+      "id": "step-11:QA_SPRINT_LIST",
+      "tag": "human-step",
+      "note": "QA 도메인 확정 후 사람 작업(D9-4, QA_SPEC G1): vercel.json rewrite /qa-api/:path* → https://{QA 도메인}/api/v1/:path* 를 SPA catch-all 앞에, vite server.proxy /qa-api → VITE_QA_ORIGIN + /api/v1. 그 전에는 운영에서 /qa-api 가 index.html(200)로 떨어져 파싱 실패 → F-5 DEFAULT 오류 화면."
     }
   ],
   "log": [
+    {
+      "id": "step-11:QA_SPRINT_LIST",
+      "status": "COMPLETED",
+      "ts": "2026-10-17",
+      "gate": "full(OK): validate-state+typecheck+token-lint+build",
+      "review": "spec PASS, ds PASS, architecture PASS (d8a55b8, 비차단 권고 반영)",
+      "figma": "none → QA_SPEC C절 + 신고·문의 목록 선례 자체완성",
+      "note": "공통 기반 + QA_SPRINT_LIST(B-0). env VITE_QA_API_BASE 기본 /qa-api(D9-2). shared/api/qaClient.ts: QA 전용 axios, 401→공유 reissueAccessToken 1회 재시도·403 종착·503 비재발급, 실패 전부 QaApiError(F-5 문구), parseQaResponse(파싱 실패=DEFAULT), qaQueryRetry(4xx·503·파싱 실패 재시도 없음). errorHandler/providers 가 QaApiError 인지(401 토스트 생략). DataTable errorMessage 선택 prop. features/qa: schemas(enum·Sprint·SprintSummary·guide·progress·baseline), api(listSprints·createSprint), queries(qaKeys), mutations(useCreateSprint), labels(A-1), copy(F절 전체), components(SprintStageBadge·PartProgressBars·SprintCreateModal). 사이드바 운영 맨 아래 QA(ClipboardCheck). ROUTES 5개 상수, 라우터는 목록만. MSW qaHandlers(6상태 픽스처, ?qaMock=empty|401once|403|503, 등록 400/404/409). 브라우저 검증 24/24 + 401 재시도 경로 확인."
+    },
     {
       "id": "step-11-intake",
       "ts": "2026-10-17",

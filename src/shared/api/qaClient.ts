@@ -55,7 +55,8 @@ function toQaApiError(error: unknown): QaApiError {
       ? body.data.message
       : null;
 
-  if (status === 503) return new QaApiError(status, QA_ERROR_MESSAGES.AUTH_UNAVAILABLE, serverMessage);
+  if (status === 503)
+    return new QaApiError(status, QA_ERROR_MESSAGES.AUTH_UNAVAILABLE, serverMessage);
   if (status === 403) return new QaApiError(status, QA_ERROR_MESSAGES.FORBIDDEN, serverMessage);
   return new QaApiError(status, serverMessage ?? QA_ERROR_MESSAGES.DEFAULT, serverMessage);
 }
@@ -78,7 +79,12 @@ qaApiClient.interceptors.response.use(
     const original =
       error instanceof AxiosError ? (error.config as RetryableRequest | undefined) : undefined;
 
-    if (error instanceof AxiosError && error.response?.status === 401 && original && !original._retry) {
+    if (
+      error instanceof AxiosError &&
+      error.response?.status === 401 &&
+      original &&
+      !original._retry
+    ) {
       original._retry = true;
       // 재발급 실패면 reissueAccessToken 이 강제 로그아웃까지 마친 상태다.
       const accessToken = await reissueAccessToken();
@@ -92,9 +98,25 @@ qaApiClient.interceptors.response.use(
 );
 
 /**
+ * 응답 본문 Zod 파싱. 형태가 계약과 다르면 F-5 DEFAULT 문구의 QaApiError 로 바꾼다 —
+ * QA 화면의 문구 체계(D9-5)를 벗어나 백오피스 공통 문구가 나가지 않게 한다.
+ * status 는 실제 응답 코드(2xx)라 재시도 대상이 아니다(qaQueryRetry).
+ */
+export function parseQaResponse<S extends z.ZodTypeAny>(
+  schema: S,
+  response: { status: number; data: unknown },
+): z.infer<S> {
+  const parsed = schema.safeParse(response.data);
+  if (!parsed.success) {
+    throw new QaApiError(response.status, QA_ERROR_MESSAGES.DEFAULT, null);
+  }
+  return parsed.data;
+}
+
+/**
  * QA 조회 재시도 정책 (TanStack Query `retry`).
  * 응답이 있는 4xx 와 503 은 다시 묻지 않는다 — 403 은 종착, 503 은 사용자가 다시 시도한다(D9-3).
- * 응답 파싱 실패도 다시 물어 봐야 같으므로 제외. 네트워크 오류·그 밖의 5xx 만 1회.
+ * 응답 파싱 실패(2xx 상태의 QaApiError)도 다시 물어 봐야 같으므로 제외. 네트워크 오류·그 밖의 5xx 만 1회.
  */
 export function qaQueryRetry(failureCount: number, error: unknown): boolean {
   if (!(error instanceof QaApiError)) return false;

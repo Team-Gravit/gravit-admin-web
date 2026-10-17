@@ -143,6 +143,7 @@
 ### D9-5 구현 제약 (QA_SPEC C·E·F·G절)
 - 신규 의존성 **0개**. 진행 막대·단계 표시는 기존 토큰으로 div 구성. Figma 시안 없음 → 기존 패턴(신고·문의 목록, `ConfirmModal`·dialog, `StatusBadge` 계열, shared table)으로 자체 완성.
 - **문구는 QA_SPEC F절이 권위.** 서버는 다음 할 일·막힌 이유·경고를 코드로만 내려 주고, 코드→문구 매핑은 프론트가 관리한다. 모르는 `nextAction` 은 배너를 숨기고, 모르는 단계 이름·경고 코드는 원문(`name`·`message`)으로 표시한다.
+- **QA enum 라벨·문구는 `features/qa/`(labels.ts·copy.ts)에 둔다.** QA 만 쓰는 값이라 `shared/constants` 로 올리지 않는다(문의 관리는 shared 에 둔 선례가 있으나, 공유 필요가 생길 때만 승격). HTTP 계층 공통 오류 문구(F-5 `AUTH_UNAVAILABLE`·`FORBIDDEN`·`DEFAULT`)만 `shared/api/qaClient.ts` 에 둔다.
 - **후속 범위(리포트·자동 실행·증적·페르소나 토큰 발급)는 화면·메뉴·자리 화면 모두 만들지 않는다**(E절). `ChecklistConfirmResponse.autoRun` 은 존재만 허용(`z.unknown().nullable()`).
 - **`ChecklistFeature.warnings`(G2)는 C4 보고로 형태가 확정되기 전까지 그 부분의 구현을 멈추고 질문한다(🙋🏻).** 오류 코드 목록(G3)·기능 `parts` 밖 파트 거부 여부(G4)도 추측하지 않는다.
 - 실서버 연동 확인(401 재발급·403·503·실제 응답 형태)은 `manual_review` 에 `integration` 태그로 남긴다.
