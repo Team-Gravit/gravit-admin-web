@@ -8,6 +8,10 @@
       "source": "/ravvit-api/:path*",
       "destination": "https://gravit-chatbot-sepia.vercel.app/api/:path*"
     },
+    {
+      "source": "/qa-api/:path*",
+      "destination": "https://grav-it-qa.inuappcenter.kr/api/v1/:path*"
+    },
     { "source": "/(.*)", "destination": "/index.html" }
   ]
 }

@@ -114,7 +114,7 @@
 - 별도 서비스 **gravit-qa**(저장소 `Team-Gravit/gravit-qa-server`, Spring Boot)를 백오피스 새 토픽 `QA` 로 들인다. gravit-server 가 아니다. 화면 명세는 루트 **`QA_SPEC.md`**(인테이크 산출물, 2026-10-17). 충돌 시 **D9 > QA_SPEC.md > 기존 spec/**.
 - **코드 이식 없음.** QA 서버는 독립 HTTP 서비스로 남고 프론트는 API만 호출한다(D8 과 같은 구도).
 - 이번 범위 **4화면**: 스프린트 목록 · 준비 · 분류 검토 · 체크리스트(QA_SPEC Q1). 기존 전역 규칙(1280px 단일 폭·라이트 모드·DS-01 토큰·Zod 파싱·`features` 간 import 금지)은 그대로 적용한다.
-- 서버 C4 가 dev 에 머지됐다(`99b9a1c`, 배포 전). QA_SPEC 의 **`[구현 확인]` 값**을 따른다. 남은 미결은 G1(QA 도메인)뿐이고, 추측으로 채우지 않는다(D9-4).
+- 서버 C4 가 dev 에 머지됐다(`99b9a1c`). QA_SPEC 의 **`[구현 확인]` 값**을 따른다. 마지막 미결 G1(QA 도메인)은 dev 배포로 해소됐다(D9-4).
 
 ### D9-1 사이드바·라우트 (QA_SPEC 결정 #1·#2·#3)
 - 사이드바: **`운영` 섹션 맨 아래**에 `QA`. 아이콘 `ClipboardCheck`(lucide), 활성 = `pathname.startsWith('/qa')`.
@@ -141,10 +141,11 @@
 - **503** 인증 서버(`/admin/me`) 판정 불가 → **401 로 다루지 않는다**(재발급·로그아웃 금지). F-5 `AUTH_UNAVAILABLE` 토스트 후 사용자가 다시 시도한다. 뭉개면 인증 서버 장애 때 재발급·강제 로그아웃 루프가 생긴다.
 - **강제 로그아웃은 재발급 자체가 실패할 때만.** 재발급은 성공했는데 재시도도 401 이면 로그아웃 없이 오류로 표시한다(QA_SPEC 결정 #12, 사용자 결정 2026-10-17).
 
-### D9-4 네트워크 경로 (QA_SPEC A-0, G1)
-- 운영: `vercel.json` rewrite `/qa-api/:path*` → `https://{QA 도메인}/api/v1/:path*`, **SPA catch-all 보다 앞**에 둔다(D8-4 와 같은 규칙). 로컬: vite `server.proxy` 의 `/qa-api` → `VITE_QA_ORIGIN` + `/api/v1`.
-- **QA 도메인 미확정 → 지금은 rewrite 와 proxy 를 추가하지 않는다.** 개발·화면 검증은 MSW 핸들러(`VITE_USE_MOCK=true`, 결정 #6). 도메인 입력은 사람 작업.
-- **도메인 확정 전에도 QA 메뉴는 그대로 노출한다**(플래그로 숨기지 않음, QA_SPEC 결정 #11). 그 사이 운영에서 열면 `/qa-api` 가 SPA catch-all(index.html)로 떨어져 F-5 `DEFAULT` 오류 화면이 된다 — 배포 시점은 사람이 조절한다.
+### D9-4 네트워크 경로 (QA_SPEC A-0, G1 해소)
+- **QA 도메인 = `https://grav-it-qa.inuappcenter.kr`**(서버 Caddy 리버스 프록시, HTTPS, 경로 접두 `/api/v1`). dev 배포 응답 확인(2026-10-26): `/actuator/health` UP, 토큰 없는 `/api/v1/sprints` 401 `AUTH_4011`, 관리자 토큰 200 `[]`.
+- 운영: `vercel.json` rewrite `/qa-api/:path*` → `https://grav-it-qa.inuappcenter.kr/api/v1/:path*`, **SPA catch-all 보다 앞**(D8-4 와 같은 규칙). 로컬: vite `server.proxy` 의 `/qa-api` → `VITE_QA_ORIGIN`(기본 QA 도메인, 로컬 QA 서버면 `http://localhost:8080`) + `/api/v1`, `changeOrigin`. 둘 다 `fix:QA_API_WIRING` 에서 추가했다. `VITE_QA_ORIGIN` 은 `VITE_RAVVIT_ORIGIN` 처럼 vite 설정에서만 읽으므로 `src/env.ts` 에 넣지 않는다.
+- **MSW 는 그대로 둔다**(`VITE_USE_MOCK=true`, 결정 #6). QA API 13개 모두 핸들러가 있고 서비스 워커가 `/qa-api/*` 를 먼저 가로채므로, 목 모드 동작은 proxy 추가 전과 같다. 목을 끄면 로컬도 실서버로 간다.
+- 도메인 확정 전 메뉴 노출(QA_SPEC 결정 #11) 때문에 운영에서 `/qa-api` 가 index.html 로 떨어지던 문제는 rewrite 로 해소된다. 배포 후 실서버 확인(Bearer 헤더 전달·목록 200·등록 201/409)은 `manual_review` `integration` 으로 남긴다.
 
 ### D9-5 구현 제약 (QA_SPEC C·E·F·G절)
 - 신규 의존성 **0개**. 진행 막대·단계 표시는 기존 토큰으로 div 구성. Figma 시안 없음 → 기존 패턴(신고·문의 목록, `ConfirmModal`·dialog, `StatusBadge` 계열, shared table)으로 자체 완성.

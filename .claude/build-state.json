@@ -147,6 +147,10 @@
       "status": "COMPLETED"
     },
     {
+      "id": "fix:QA_API_WIRING",
+      "status": "COMPLETED"
+    },
+    {
       "id": "fix:H1-CN_FONT_SIZE",
       "status": "TODO"
     },
@@ -293,7 +297,7 @@
     {
       "id": "step-11:QA_SPRINT_LIST",
       "tag": "human-step",
-      "note": "QA 도메인 확정 후 사람 작업(D9-4, QA_SPEC G1): vercel.json rewrite /qa-api/:path* → https://{QA 도메인}/api/v1/:path* 를 SPA catch-all 앞에, vite server.proxy /qa-api → VITE_QA_ORIGIN + /api/v1. 그 전에는 운영에서 /qa-api 가 index.html(200)로 떨어져 파싱 실패 → F-5 DEFAULT 오류 화면."
+      "note": "[해소 2026-10-26 fix:QA_API_WIRING — 도메인 https://grav-it-qa.inuappcenter.kr 로 rewrite·proxy 추가] QA 도메인 확정 후 사람 작업(D9-4, QA_SPEC G1): vercel.json rewrite /qa-api/:path* → https://{QA 도메인}/api/v1/:path* 를 SPA catch-all 앞에, vite server.proxy /qa-api → VITE_QA_ORIGIN + /api/v1. 그 전에는 운영에서 /qa-api 가 index.html(200)로 떨어져 파싱 실패 → F-5 DEFAULT 오류 화면."
     },
     {
       "id": "step-11:QA_SETUP",
@@ -304,9 +308,26 @@
       "id": "step-11:QA_CHECKLIST",
       "tag": "integration",
       "note": "[C5 일부 해소] warnings = 코드 문자열 배열 확정, NOTION_WRITE_FAILED 는 이번 범위 미표시 확정. 남은 확인(실서버): 거절 항목 셀의 editable·진행률 제외, 셀 PUT 409/422 와 closeSprint 409(SPRINT_4093/4094) 응답, 자동 판정 셀 source=AUTO·editable=false."
+    },
+    {
+      "id": "fix:QA_API_WIRING",
+      "tag": "integration",
+      "note": "[배포 후 사람 확인] 1) 운영 로그인 → QA 메뉴 → 스프린트 목록이 오류 없이 표시 2) Network /qa-api/sprints → 200 JSON 배열 3) 요청에 Authorization: Bearer 포함(Vercel 외부 rewrite 가 헤더를 전달하는지) 4) 등록 모달에 Notion 3rd Agile URL → 201 후 상세 이동(이미 등록했으면 409 '이미 등록된 스프린트입니다.' 정상). 로컬 vite proxy 는 확인함: 무토큰 401 AUTH_4011, 무효 Bearer 401 AUTH_4012(헤더 전달·/api/v1 rewrite 동작)."
+    },
+    {
+      "id": "fix:QA_API_WIRING",
+      "tag": "human-step",
+      "note": ".env.example 이 저장소에 없고, PreToolUse 가드가 .env* 쓰기를 차단(.env.example 포함) → 만들지 않음. VITE_QA_ORIGIN(선택, 로컬 QA 서버면 http://localhost:8080)은 VITE_RAVVIT_ORIGIN 선례대로 vite.config.ts 주석에 문서화. .env.example 이 필요하면 사람이 생성하거나 가드 예외를 결정."
     }
   ],
   "log": [
+    {
+      "id": "fix:QA_API_WIRING",
+      "status": "COMPLETED",
+      "ts": "2026-10-26",
+      "gate": "full(OK): validate-state+typecheck+token-lint+build. lint.sh(--max-warnings=0) 는 src 기존 경고 4건(badge·button·useBreadcrumb react-refresh, src 는 HEAD 와 동일)으로 실패 — npm run lint 는 0 errors",
+      "note": "QA_SPEC G1 해소(QA 도메인 https://grav-it-qa.inuappcenter.kr, dev 배포). vercel.json rewrite /qa-api/:path* → https://grav-it-qa.inuappcenter.kr/api/v1/:path* 를 SPA catch-all 앞(/ravvit-api 다음)에 추가. vite server.proxy /qa-api → VITE_QA_ORIGIN ?? QA 도메인, changeOrigin, /qa-api → /api/v1. MSW 무변경: QA API 13개 모두 핸들러 있음 + 서비스 워커가 먼저 가로챔 → 목 모드 동작 동일. decisions D9·D9-4 갱신, QA_SPEC A-0·G1 갱신(루트 핸드오프 문서, git 미추적). 화면 로직·문구·재발급 로직 무변경. 환경: node_modules 가 iCloud(Desktop 동기화)에 내려가(23,192/24,443 dataless) tsc·vite 가 멈춤 → 사용자 승인으로 npm ci 재설치. 로컬 서버는 SSH 포워딩 회피로 127.0.0.1:47821."
+    },
     {
       "id": "step-11",
       "ts": "2026-10-17",
