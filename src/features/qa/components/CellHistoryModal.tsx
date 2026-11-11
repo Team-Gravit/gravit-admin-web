@@ -1,5 +1,3 @@
-import { ArrowRight } from 'lucide-react';
-import { formatDateTime } from '@/shared/lib/formatDate';
 import {
   Dialog,
   DialogContent,
@@ -10,61 +8,25 @@ import {
 import { EmptyState } from '@/shared/components/states/EmptyState';
 import { ErrorState } from '@/shared/components/states/ErrorState';
 import { LoadingSkeleton } from '@/shared/components/states/LoadingSkeleton';
+import { formatDateTime } from '@/shared/lib/formatDate';
 import { useCellHistory } from '@/features/qa/queries';
 import { NOTICE_COPY } from '@/features/qa/copy';
 import { qaErrorView } from '@/features/qa/errorView';
 import { CELL_SOURCE_LABELS, CELL_STATE_LABELS, PART_LABELS } from '@/features/qa/labels';
 import type { Part } from '@/features/qa/schemas';
-
-interface CellHistoryModalProps {
+export function CellHistoryModal({
+  onClose,
+  itemId,
+  itemTitle,
+  part,
+}: {
   onClose: () => void;
   itemId: number;
   itemTitle: string;
   part: Part;
-}
-
-/**
- * 셀 변경 이력 (QA_SPEC B-4, A-2 #13) — 시각, `이전 → 이후`, 변경자, 출처. 최신순.
- * 변경자는 adminId 만 오므로 `운영자 #{id}`, null 이면 `자동 실행`. 열릴 때만 마운트한다.
- */
-export function CellHistoryModal({ onClose, itemId, itemTitle, part }: CellHistoryModalProps) {
-  const history = useCellHistory(itemId, part, true);
-
-  const body = () => {
-    if (history.isLoading) return <LoadingSkeleton rows={3} />;
-    if (history.isError || !history.data) {
-      const view = qaErrorView(history.error);
-      return (
-        <ErrorState
-          className="py-8"
-          message={view.message}
-          onRetry={view.retryable ? () => history.refetch() : undefined}
-        />
-      );
-    }
-    if (history.data.length === 0) {
-      return <EmptyState className="py-8" message={NOTICE_COPY.EMPTY_HISTORY} />;
-    }
-    return (
-      <ol className="flex flex-col divide-y divide-border">
-        {history.data.map((h, i) => (
-          <li key={`${h.changedAt}-${i}`} className="flex flex-col gap-1 py-3 text-body">
-            <div className="flex items-center gap-2 text-foreground">
-              <span>{CELL_STATE_LABELS[h.fromState]}</span>
-              <ArrowRight className="size-3.5 text-fg-muted" aria-label="에서" />
-              <span className="font-medium">{CELL_STATE_LABELS[h.toState]}</span>
-            </div>
-            <div className="flex flex-wrap items-center gap-x-3 text-caption text-fg-muted">
-              <span>{formatDateTime(h.changedAt)}</span>
-              <span>{h.changedBy === null ? '자동 실행' : `운영자 #${h.changedBy}`}</span>
-              <span>{CELL_SOURCE_LABELS[h.source]}</span>
-            </div>
-          </li>
-        ))}
-      </ol>
-    );
-  };
-
+}) {
+  const query = useCellHistory(itemId, part);
+  const view = qaErrorView(query.error);
   return (
     <Dialog open onOpenChange={(open) => !open && onClose()}>
       <DialogContent className="max-h-screen overflow-y-auto">
@@ -74,7 +36,37 @@ export function CellHistoryModal({ onClose, itemId, itemTitle, part }: CellHisto
             {itemTitle} · {PART_LABELS[part]}
           </DialogDescription>
         </DialogHeader>
-        {body()}
+        {query.isLoading ? (
+          <LoadingSkeleton rows={3} />
+        ) : query.isError ? (
+          <ErrorState
+            message={view.message}
+            onRetry={view.retryable ? () => query.refetch() : undefined}
+          />
+        ) : !query.data?.length ? (
+          <EmptyState message={NOTICE_COPY.EMPTY_HISTORY} />
+        ) : (
+          <ol className="divide-y divide-border">
+            {query.data.map((h, i) => (
+              <li key={`${h.changedAt}-${i}`} className="flex flex-col gap-2 py-3">
+                <p className="text-body text-foreground">
+                  {CELL_STATE_LABELS[h.fromState]} →{' '}
+                  <span className="font-medium">{CELL_STATE_LABELS[h.toState]}</span>
+                </p>
+                <p className="text-caption text-fg-muted">
+                  {formatDateTime(h.changedAt)} ·{' '}
+                  {h.changedBy === null ? '자동 판정' : `운영자 #${h.changedBy}`} ·{' '}
+                  {CELL_SOURCE_LABELS[h.source]}
+                </p>
+                {h.reason && (
+                  <p className="whitespace-pre-wrap rounded-md bg-page p-3 text-caption text-fg-secondary">
+                    {h.reason}
+                  </p>
+                )}
+              </li>
+            ))}
+          </ol>
+        )}
       </DialogContent>
     </Dialog>
   );

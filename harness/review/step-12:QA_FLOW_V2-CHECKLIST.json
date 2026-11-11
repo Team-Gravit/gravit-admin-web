@@ -1,0 +1,57 @@
+{
+  "id": "step-12:QA_FLOW_V2-CHECKLIST",
+  "spec": "PASS",
+  "ds": "PASS",
+  "diffs": [],
+  "resolvedFindings": [
+    "준비 작업이 시작되면 열린 수정/삭제 확인창도 disabled",
+    "삭제 GLOBAL_4091 시 확인창 닫고 재조회, 재오픈 오류 초기화",
+    "요청 중 Loader2/aria-busy 보완"
+  ],
+  "reviewers": {
+    "spec": "/root/qa_spec_review",
+    "ds": "/root/qa_ds_review"
+  },
+  "rounds": [
+    "initial",
+    "re-review"
+  ],
+  "commit": null,
+  "baseCommit": "8b33c683add47a3fbf2be86960c5419d3b96c6e0",
+  "commitStatus": "USER_APPROVED",
+  "ts": "2026-11-11",
+  "authority": "decisions.md D11; user W1-W14 + P1-P10 and approved adjustments",
+  "validation": {
+    "lint": {
+      "result": "PASS",
+      "errors": 0,
+      "existingWarnings": 4
+    },
+    "build": "PASS",
+    "typecheck": "PASS",
+    "tokenLint": "PASS",
+    "stateValidation": "PASS",
+    "e2e": {
+      "result": "PASS",
+      "total": 30,
+      "qa": 27,
+      "existing": 3
+    },
+    "harnessWithSmoke": "OK",
+    "diffCheck": "PASS",
+    "visual": {
+      "widths": [
+        1280,
+        1440
+      ],
+      "horizontalOverflow": false,
+      "pageErrors": []
+    }
+  },
+  "publication": {
+    "branch": "main",
+    "remote": "origin",
+    "approvalDate": "2026-11-11",
+    "note": "커밋 전 리뷰 산출물. 생성 커밋 해시와 실제 푸시 결과는 최종 응답으로 보고."
+  }
+}

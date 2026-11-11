@@ -1,12 +1,12 @@
+import { useState } from 'react';
+import { Loader2 } from 'lucide-react';
 import { Controller, useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { Loader2 } from 'lucide-react';
 import { toast } from 'sonner';
-import { QaApiError } from '@/shared/api/qaClient';
 import { Button } from '@/shared/components/ui/button';
-import { Checkbox } from '@/shared/components/ui/checkbox';
 import { Input } from '@/shared/components/ui/input';
-import { RadioGroup, RadioGroupItem } from '@/shared/components/ui/radio-group';
+import { Textarea } from '@/shared/components/ui/textarea';
+import { Checkbox } from '@/shared/components/ui/checkbox';
 import {
   Select,
   SelectContent,
@@ -14,320 +14,230 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@/shared/components/ui/select';
-import { Textarea } from '@/shared/components/ui/textarea';
 import {
   Dialog,
   DialogContent,
+  DialogDescription,
   DialogFooter,
   DialogHeader,
   DialogTitle,
 } from '@/shared/components/ui/dialog';
 import { FormField } from '@/shared/components/form/FormField';
-import { QaNotice } from '@/features/qa/components/QaNotice';
+import { QaConfirmModal } from '@/features/qa/components/QaConfirmModal';
+import { UnsavedChangesModal } from '@/shared/components/modals/UnsavedChangesModal';
+import { useUnsavedChangesGuard } from '@/shared/hooks/useUnsavedChangesGuard';
+import { QaApiError } from '@/shared/api/qaClient';
 import { useCreateChecklistItem, useUpdateChecklistItem } from '@/features/qa/mutations';
-import type { ChecklistItemUpdateBody } from '@/features/qa/api';
-import { NOTICE_COPY, TOAST_COPY } from '@/features/qa/copy';
-import { itemRuleError } from '@/features/qa/errorView';
+import { NOTICE_COPY } from '@/features/qa/copy';
+import { CLASSIFICATION_LABELS, PART_LABELS, PART_ORDER } from '@/features/qa/labels';
 import {
-  CLASSIFICATION_LABELS,
-  PART_LABELS,
-  PART_ORDER,
-  PERSONA_OPTIONS,
-} from '@/features/qa/labels';
-import {
-  PERSONA_NONE,
   checklistItemFormSchema,
+  type ChecklistFeature,
   type ChecklistItem,
   type ChecklistItemFormValues,
-  type Feature,
-  type Part,
+  type Round,
 } from '@/features/qa/schemas';
+import type { ChecklistItemUpdateBody } from '@/features/qa/api';
 
-interface ChecklistItemFormModalProps {
-  open: boolean;
-  onOpenChange: (open: boolean) => void;
-  sprintId: number;
-  feature: Feature;
-  /** 있으면 수정, 없으면 추가 */
-  item?: ChecklistItem;
-}
-
-const ordered = (parts: Part[]) => PART_ORDER.filter((p) => parts.includes(p));
-const sameParts = (a: Part[], b: Part[]) => ordered(a).join() === ordered(b).join();
-const personaOrNull = (key: string) => (key === PERSONA_NONE ? null : key);
-
-function defaultsOf(feature: Feature, item?: ChecklistItem): ChecklistItemFormValues {
-  if (!item) {
-    return {
-      title: '',
-      expected: '',
-      parts: ordered(feature.parts),
-      classification: 'MANUAL',
-      testRef: '',
-      personaKey: PERSONA_NONE,
-    };
-  }
+function changedFields(
+  item: ChecklistItem,
+  values: ChecklistItemFormValues,
+): Omit<ChecklistItemUpdateBody, 'version'> {
   return {
-    title: item.title,
-    expected: item.expected,
-    parts: ordered(item.parts),
-    classification: item.classification,
-    testRef: item.testRef ?? '',
-    personaKey: item.personaKey ?? PERSONA_NONE,
+    ...(item.title !== values.title ? { title: values.title } : {}),
+    ...(item.expected !== values.expected ? { expected: values.expected } : {}),
+    ...([...item.parts].sort().join() !== [...values.parts].sort().join()
+      ? { parts: values.parts }
+      : {}),
+    ...(item.classification !== values.classification
+      ? { classification: values.classification }
+      : {}),
   };
 }
-
-/** 바꾼 필드만 (A-2 #10). 자동이 아니면 테스트 ID 는 숨겨진 값이라 보내지 않는다. */
-function changedFields(item: ChecklistItem, v: ChecklistItemFormValues) {
-  const body: Omit<ChecklistItemUpdateBody, 'version'> = {};
-  // 폼 값은 trim 된다 — 원본도 trim 해 비교해야 앞뒤 공백만 다른 필드가 딸려 가지 않는다
-  if (v.title !== item.title.trim()) body.title = v.title;
-  if (v.expected !== item.expected.trim()) body.expected = v.expected;
-  if (!sameParts(v.parts, item.parts)) body.parts = ordered(v.parts);
-  if (v.classification !== item.classification) body.classification = v.classification;
-  if (v.classification === 'AUTO' && v.testRef !== (item.testRef ?? '')) body.testRef = v.testRef;
-  // 수동이 되는데 testRef 가 남아 있으면(자동 → 수동 포함) null 로 지운다 — 서버는 분류와 무관하게 null 이 아닌
-  // testRef 를 카탈로그와 대조해, 남겨 두면 이후 수정이 422 로 실패할 수 있다(B-3). 키를 빼면 유지, null 이면 지움.
-  if (v.classification === 'MANUAL' && (item.classification === 'AUTO' || item.testRef !== null)) {
-    body.testRef = null;
-  }
-  if (personaOrNull(v.personaKey) !== item.personaKey)
-    body.personaKey = personaOrNull(v.personaKey);
-  return body;
-}
-
-/**
- * 체크 항목 추가·수정 모달 (QA_SPEC B-3).
- * 파트는 기능의 parts 에 있는 것만 고를 수 있다(G4 — 서버 거부 여부 미확정이라 화면이 막는다).
- * 422 = CHECKLIST_4221 → 테스트 ID 아래 F-5 AUTO_NOT_ALLOWED, CHECKLIST_4222 → 페르소나 아래 서버 message(A-3).
- * 409 = 다른 운영자가 먼저 변경 → 모달을 닫는다(체크리스트 다시 조회·STALE 토스트는 훅이 한다).
- * 열 때마다 새로 마운트한다(부모가 열린 동안만 렌더) — 캐시가 바뀌어도 입력 중인 값을 덮지 않는다.
- */
 export function ChecklistItemFormModal({
-  open,
-  onOpenChange,
   sprintId,
   feature,
   item,
-}: ChecklistItemFormModalProps) {
-  const update = useUpdateChecklistItem(sprintId);
+  round,
+  locked,
+  onClose,
+}: {
+  sprintId: number;
+  feature: ChecklistFeature;
+  item?: ChecklistItem;
+  round: Round;
+  locked: boolean;
+  onClose: () => void;
+}) {
   const create = useCreateChecklistItem(sprintId);
-  const pending = update.isPending || create.isPending;
-
+  const update = useUpdateChecklistItem(sprintId);
+  const pending = create.isPending || update.isPending;
+  const disabled = locked || pending;
+  const [confirmation, setConfirmation] = useState<ChecklistItemFormValues | null>(null);
+  const [discard, setDiscard] = useState(false);
   const form = useForm<ChecklistItemFormValues>({
     resolver: zodResolver(checklistItemFormSchema),
     mode: 'onBlur',
-    defaultValues: defaultsOf(feature, item),
+    defaultValues: {
+      title: item?.title ?? '',
+      expected: item?.expected ?? '',
+      parts: item?.parts ?? [],
+      classification: item?.classification ?? (round === 1 ? 'AUTO' : 'MANUAL'),
+    },
   });
-  const { control, register, watch, setError, formState } = form;
-  const { errors } = formState;
-  const classification = watch('classification');
-
-  const onError = (error: unknown) => {
-    const rule = itemRuleError(error);
-    if (rule) {
-      // 테스트 ID 칸은 자동일 때만 있다 — 칸이 없으면 토스트로 알린다
-      const fieldShown =
-        rule.field === 'personaKey' || (rule.field === 'testRef' && classification === 'AUTO');
-      if (rule.field && fieldShown) {
-        setError(rule.field, { type: 'server', message: rule.message }, { shouldFocus: true });
-      } else {
-        toast.error(rule.message);
-      }
-      return;
-    }
-    if (error instanceof QaApiError && error.status === 409) onOpenChange(false);
+  const blocker = useUnsavedChangesGuard(form.formState.isDirty && !pending);
+  const requestClose = () => {
+    if (pending) return;
+    if (form.formState.isDirty) setDiscard(true);
+    else onClose();
   };
-
-  const onSubmit = form.handleSubmit(
-    (values) => {
-      if (item) {
-        const body = changedFields(item, values);
-        if (Object.keys(body).length === 0) return onOpenChange(false);
-        update.mutate(
-          { itemId: item.id, body: { ...body, version: item.version } },
-          {
-            onSuccess: () => {
-              toast.success(TOAST_COPY.ITEM_UPDATED);
-              onOpenChange(false);
-            },
-            onError,
-          },
-        );
-        return;
-      }
-      create.mutate(
-        {
-          featureId: feature.id,
-          title: values.title,
-          expected: values.expected,
-          parts: ordered(values.parts),
-          classification: values.classification,
-          ...(values.classification === 'AUTO' ? { testRef: values.testRef } : {}),
-          ...(values.personaKey !== PERSONA_NONE ? { personaKey: values.personaKey } : {}),
-        },
-        {
-          onSuccess: () => {
-            toast.success(TOAST_COPY.ITEM_CREATED);
-            onOpenChange(false);
-          },
-          onError,
-        },
+  const onError = (error: unknown) => {
+    if (error instanceof QaApiError && error.code === 'GLOBAL_4091') onClose();
+  };
+  const save = (values: ChecklistItemFormValues) => {
+    if (disabled) return;
+    if (item)
+      update.mutate(
+        { itemId: item.id, body: { ...changedFields(item, values), version: item.version } },
+        { onSuccess: onClose, onError },
       );
+    else
+      create.mutate({ ...values, featureId: feature.featureId }, { onSuccess: onClose, onError });
+  };
+  const submit = form.handleSubmit(
+    (values) => {
+      if (disabled) return;
+      if (item) {
+        if (!Object.keys(changedFields(item, values)).length) return onClose();
+        setConfirmation(values);
+      } else save(values);
     },
     () => toast.error('필수 항목을 확인해주세요.'),
   );
-
-  const formId = item ? `qa-item-edit-${item.id}` : `qa-item-create-${feature.id}`;
-
   return (
-    <Dialog open={open} onOpenChange={(next) => !pending && onOpenChange(next)}>
-      <DialogContent className="max-h-screen overflow-y-auto">
-        <DialogHeader>
-          <DialogTitle>{item ? '항목 수정' : '항목 추가'}</DialogTitle>
-        </DialogHeader>
-
-        <form id={formId} onSubmit={onSubmit} noValidate className="flex flex-col gap-4">
-          <FormField
-            label="제목"
-            htmlFor={`${formId}-title`}
-            required
-            error={errors.title?.message}
-          >
-            <Input id={`${formId}-title`} disabled={pending} {...register('title')} />
-          </FormField>
-
-          <FormField
-            label="기대 결과"
-            htmlFor={`${formId}-expected`}
-            required
-            error={errors.expected?.message}
-          >
-            <Textarea
-              id={`${formId}-expected`}
-              rows={4}
-              disabled={pending}
-              {...register('expected')}
-            />
-          </FormField>
-
-          <FormField label="파트" required error={errors.parts?.message}>
-            <Controller
-              control={control}
-              name="parts"
-              render={({ field }) => (
-                <div className="flex items-center gap-4">
-                  {PART_ORDER.map((part) => {
-                    // 기능 parts 밖 파트는 새로 고를 수 없다. 이미 들어 있으면 해제는 할 수 있다(G4).
-                    const allowed = feature.parts.includes(part) || field.value.includes(part);
-                    const id = `${formId}-part-${part}`;
-                    return (
+    <>
+      <Dialog open onOpenChange={(open) => !open && requestClose()}>
+        <DialogContent className="max-h-screen overflow-y-auto">
+          <DialogHeader>
+            <DialogTitle>{item ? '항목 수정' : '항목 추가'}</DialogTitle>
+            <DialogDescription>
+              {feature.screenId} · {feature.screenName}
+            </DialogDescription>
+          </DialogHeader>
+          <form id="qa-item-form" className="flex flex-col gap-4" onSubmit={submit} noValidate>
+            <FormField
+              label="행위"
+              htmlFor="qa-item-title"
+              required
+              error={form.formState.errors.title?.message}
+            >
+              <Input id="qa-item-title" disabled={disabled} {...form.register('title')} />
+            </FormField>
+            <FormField
+              label="설명"
+              htmlFor="qa-item-expected"
+              required
+              error={form.formState.errors.expected?.message}
+            >
+              <Textarea
+                id="qa-item-expected"
+                rows={4}
+                disabled={disabled}
+                {...form.register('expected')}
+              />
+            </FormField>
+            <FormField label="관련 파트" required error={form.formState.errors.parts?.message}>
+              <Controller
+                name="parts"
+                control={form.control}
+                render={({ field }) => (
+                  <div className="flex gap-4">
+                    {PART_ORDER.map((part) => (
                       <label
                         key={part}
-                        htmlFor={id}
-                        className={`flex items-center gap-2 text-body ${allowed ? 'text-foreground' : 'text-fg-disabled'}`}
+                        className="flex items-center gap-2 text-body text-foreground"
                       >
                         <Checkbox
-                          id={id}
-                          disabled={!allowed || pending}
+                          disabled={disabled}
                           checked={field.value.includes(part)}
                           onCheckedChange={(checked) =>
                             field.onChange(
                               checked === true
-                                ? ordered([...field.value, part])
+                                ? [...field.value, part]
                                 : field.value.filter((p) => p !== part),
                             )
                           }
                         />
                         {PART_LABELS[part]}
                       </label>
-                    );
-                  })}
-                </div>
-              )}
-            />
-            <QaNotice className="mt-1.5">{NOTICE_COPY.PARTS_HINT}</QaNotice>
-          </FormField>
-
-          <FormField label="분류" required>
-            <Controller
-              control={control}
-              name="classification"
-              render={({ field }) => (
-                <RadioGroup
-                  value={field.value}
-                  onValueChange={field.onChange}
-                  disabled={pending}
-                  className="flex items-center gap-4"
-                >
-                  {(['AUTO', 'MANUAL'] as const).map((value) => (
-                    <label
-                      key={value}
-                      htmlFor={`${formId}-cls-${value}`}
-                      className="flex items-center gap-2 text-body text-foreground"
-                    >
-                      <RadioGroupItem id={`${formId}-cls-${value}`} value={value} />
-                      {CLASSIFICATION_LABELS[value]}
-                    </label>
-                  ))}
-                </RadioGroup>
-              )}
-            />
-          </FormField>
-
-          {classification === 'AUTO' && (
-            <FormField
-              label="테스트 ID"
-              htmlFor={`${formId}-testref`}
-              required
-              error={errors.testRef?.message}
-            >
-              <Input
-                id={`${formId}-testref`}
-                autoComplete="off"
-                disabled={pending}
-                {...register('testRef')}
+                    ))}
+                  </div>
+                )}
               />
             </FormField>
-          )}
-
-          <FormField label="페르소나" error={errors.personaKey?.message}>
-            <Controller
-              control={control}
-              name="personaKey"
-              render={({ field }) => (
-                <Select value={field.value} onValueChange={field.onChange} disabled={pending}>
-                  <SelectTrigger ref={field.ref}>
-                    <SelectValue />
-                  </SelectTrigger>
-                  <SelectContent>
-                    <SelectItem value={PERSONA_NONE}>없음</SelectItem>
-                    {PERSONA_OPTIONS.map((p) => (
-                      <SelectItem key={p.key} value={p.key}>
-                        {p.label}
-                      </SelectItem>
-                    ))}
-                  </SelectContent>
-                </Select>
-              )}
-            />
-          </FormField>
-        </form>
-
-        <DialogFooter>
-          <Button variant="outline" onClick={() => onOpenChange(false)} disabled={pending}>
-            취소
-          </Button>
-          <Button
-            type="submit"
-            form={formId}
-            disabled={pending || (item !== undefined && !formState.isDirty)}
-          >
-            {pending && <Loader2 className="animate-spin" />}
-            {item ? '저장' : '추가'}
-          </Button>
-        </DialogFooter>
-      </DialogContent>
-    </Dialog>
+            <FormField label="분류" required>
+              <Controller
+                name="classification"
+                control={form.control}
+                render={({ field }) => (
+                  <Select value={field.value} onValueChange={field.onChange} disabled={disabled}>
+                    <SelectTrigger ref={field.ref} aria-label="분류">
+                      <SelectValue />
+                    </SelectTrigger>
+                    <SelectContent>
+                      {(['AUTO', 'MANUAL'] as const).map((value) => (
+                        <SelectItem key={value} value={value}>
+                          {CLASSIFICATION_LABELS[value]}
+                        </SelectItem>
+                      ))}
+                    </SelectContent>
+                  </Select>
+                )}
+              />
+            </FormField>
+            {locked && (
+              <p role="status" className="text-caption text-fg-muted">
+                {NOTICE_COPY.RUNNING}
+              </p>
+            )}
+          </form>
+          <DialogFooter>
+            <Button variant="outline" disabled={pending} onClick={requestClose}>
+              취소
+            </Button>
+            <Button
+              form="qa-item-form"
+              type="submit"
+              disabled={disabled || (item !== undefined && !form.formState.isDirty)}
+              aria-busy={pending}
+            >
+              {pending && <Loader2 className="size-4 animate-spin" aria-hidden />}
+              {item ? '저장' : '추가'}
+            </Button>
+          </DialogFooter>
+        </DialogContent>
+      </Dialog>
+      <QaConfirmModal
+        open={confirmation !== null}
+        title="항목을 수정할까요?"
+        description={NOTICE_COPY.RESET_RESULTS}
+        confirmLabel="수정"
+        pending={pending}
+        disabled={locked}
+        onClose={() => setConfirmation(null)}
+        onConfirm={() => confirmation && !disabled && save(confirmation)}
+      />
+      <UnsavedChangesModal
+        open={discard || blocker.state === 'blocked'}
+        onCancel={() => {
+          setDiscard(false);
+          if (blocker.state === 'blocked') blocker.reset();
+        }}
+        onConfirm={() => {
+          if (blocker.state === 'blocked') blocker.proceed();
+          else onClose();
+        }}
+      />
+    </>
   );
 }

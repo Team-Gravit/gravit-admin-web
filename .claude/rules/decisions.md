@@ -195,3 +195,41 @@
 - datetime 전송 **ISO 8601 UTC**. (`03 §12`)
 
 관련: [[source-of-truth]] · [[api-contract]]
+
+## D11 — QA 흐름 v2 (2026-11-11, 사용자 승인)
+
+### 권위·범위
+- 사용자 QA 화면 개편 요청(W1~W14), SESSION_E1 API 계약, 보완 P1~P10 및 구성안 승인/조정이 권위다. D9와 로컬 QA_SPEC.md의 충돌 부분을 대체한다. 기존 인증·네트워크 경로·전역 DS 규칙은 유지한다.
+- 목록은 스프린트(sprintKey)·약식 설명(summary, 없으면 -)·현재 상태 3열만. 상태 필터 없음. 목록 실패 배지/행별 상세 조회 없음.
+- 상세 헤더는 스프린트명+설명, 6단계 흐름, 4개 탭. 배너/Notion 링크/기간 제거. 마지막 Job 실패는 상세에만 표시.
+- 상태: DRAFT(준비 전), SPEC_LOAD(기능 명세서 로드), CHECKLIST(체크리스트 생성), DESIGN_REVIEW(디자인 검수), AUTO_REVIEW(1차 자동화 검수), MANUAL_REVIEW(2차 수동 검수), CLOSED(종료).
+- 탭/경로: 연결 현황 `/setup`, 디자인 검수 `/design-review`, 1차 체크리스트 `/checklist/1`, 2차 체크리스트 `/checklist/2`. `/review`와 기존 `/checklist` 제거, 없는 주소 처리 추가 없음.
+- 상세 index 진입: DRAFT/SPEC_LOAD/CHECKLIST→setup, DESIGN_REVIEW→design-review, AUTO_REVIEW→checklist/1, MANUAL_REVIEW/CLOSED→checklist/2. 반영 승인 대기 또는 마지막 작업 실패면 setup 우선. 명시적으로 선택한 탭은 자동 전환하지 않는다.
+
+### API 계약 (Base `/qa-api`, 기존 Bearer/공유 reissueAccessToken 유지)
+- 모든 JSON 응답은 Zod 파싱. 목록은 배열, pagination/status 요청 파라미터 없음. 변경은 version 낙관적 잠금.
+- GET /sprints → [{id,sprintKey,summary,status}]. POST /sprints {notionPageUrl} 및 GET /sprints/{id}, POST /sprints/{id}/close {version} → 상세.
+- 상세: {id,sprintKey,summary,status,version,connections[],progress[],setupSteps[],latestJob,pendingReflectionCount}. latestJob은 기존 JobResponse 또는 null(P1). 이전 guide/baseline/warnings/기간/상세 시각 필드는 사용하지 않는다.
+- connections: {target:NOTION|FIGMA|SERVER|WEB|APP,connected,ref,message}. 저장소 ref는 release@짧은SHA, Notion/Figma는 null. 준비 전 빈 배열.
+- progress: {part:DESIGN|WEB|APP|SERVER,total,checked,pass,fail}. NOT_APPLICABLE은 total에서 제외(P9). 게이지 checked/total, 화면 completionRate는 서버 값을 그대로 사용.
+- setupSteps: {key:CONNECT|SPEC_COLLECT|CHECKLIST_GENERATE|DESIGN_REVIEW|AUTO_REVIEW,status:PENDING|RUNNING|DONE|FAILED|WAITING,attempt,message}. DONE도 message 표시(P2). 제목 오른쪽 상태 태그, 시도 횟수. 시각 제거.
+- POST /sprints/{id}/setup-jobs {version} → {jobId}. DRAFT/최종 Job 실패 시 시작. 반영 승인 대기 중 다시 수집 허용(P5): 확인 후 PENDING/FAILED 제안 삭제, SPEC_COLLECT부터 재개. GET /jobs/{id}, POST /jobs/{id}/cancel은 기존 계약 유지. 3초 polling, 조회 실패 중 중단.
+- GET /sprints/{id}/reflections → [{id,featureId,screenId,screenName,historyRows:[{sprint,change}],before,after,state,message,version}]. before/after는 Markdown.
+- POST /reflections/{id}/approve 또는 /reject {version} → 반영 항목. PENDING→승인 중 APPROVED→APPLIED 또는 FAILED, FAILED 재승인/거절 허용(P6). pendingReflectionCount=PENDING+FAILED. FAILED 사유+다시 승인/거절. 전후는 좌우 비교.
+- GET /sprints/{id}/checklist?round=1|2 (round 필수, P7) 및 /design-review → {sprintId,sprintStatus,features:[{featureId,screenId,screenName,changed,completionRate,items}]}.
+- 체크 항목: {id,featureId,title,expected,parts[],classification:AUTO|MANUAL,origin:LLM|HUMAN,cells:[{part,state,source,reason,editable,version}],version}.
+- 디자인 항목: {id,featureId,platform:WEB|APP,title,expected,specRowIds[],state,source,reason,editable,version}. Figma 프레임 없는 화면×플랫폼도 일반 항목 1개로 표시하고 사유 표시(P3).
+- 상태 UNCHECKED|PASS|FAIL|NOT_APPLICABLE, source MANUAL|AUTO. PUT /design-review-items/{id} {state,version} → 디자인 항목. GET /design-review-items/{id}/history → [{state,source,reason,updatedBy,updatedAt}].
+- POST /sprints/{id}/checklist-items {featureId,title,expected,parts[],classification} → 체크 항목. PATCH /checklist-items/{id} {title?,expected?,parts?,classification?,version} → 체크 항목. DELETE /checklist-items/{id}?version= → 204. testRef/personaKey/reviewState 제거, 생성 즉시 확정. 확정 endpoint 제거.
+- PUT /checklist-items/{id}/cells/{part} {state,version} → 셀. GET 같은 경로/history → 기존 이력+reason. 셀 응답에는 itemId가 없으므로 요청의 itemId로 캐시 갱신.
+- 사람이 판정 변경하면 source=MANUAL,reason=null, AUTO 사유는 이력에 보존(P8). editable=true이면 AUTO도 변경 허용. 해당 없음도 판정 선택/이력 조회 가능.
+- 항목 수정 시 모든 셀 UNCHECKED, 이력 사유 '항목 수정으로 판정 초기화'(P10). 저장 전 이 문구 확인. 실행 중 준비 작업이 있으면 추가/수정/삭제 불가.
+- 종료는 MANUAL_REVIEW에서 디자인/1차/2차 미검수 모두 0일 때만. 2차 탭에만 종료 버튼. QA 기준점 기록 실패 시 종료하지 않음(P4).
+- 오류: GLOBAL_4091 버전 충돌→다시 조회 안내. SPRINT_4092 상태 불가/SPRINT_4093 미검수→서버 message. REFLECTION_5021 반영 실패→카드 새로 조회해 FAILED 표시. REFLECTION_4091 명세 변경→다시 수집 안내. SPRINT_5022 종료 기준점 기록 실패→서버 message+재시도. 이전 SPRINT_4094/CHECKLIST_4091/CHECKLIST_4221/4222 분기 제거.
+
+### 구현·검증
+- Recharts 반원형 게이지 4개: Design·Web·APP·Server. 신규 의존성 없음. 화면 머리는 screenId/name/변경/completionRate, 행은 title/작은 배경 설명/관련 파트(디자인은 platform)/판정·관리 액션. 분류·페르소나·출처·경고·확정/거절 배지는 제거. 분류 입력은 추가/수정 모달에서만 유지.
+- 다음 미검수 유지, 범례와 거절 보기 제거. 화면별 접기/파트 필터 유지. 로딩/빈 상태/오류/데이터와 키보드 포커스 포함.
+- MSW는 화면당 3~7개 항목, 새 계약과 version/오류/재수집/수정 초기화/수동 이력/종료 조건 검증. 실제 서버에는 변경 요청을 보내지 않는다.
+- 6개 step-12 항목을 H1 앞에 삽입, 기존 항목 ID/상태/상대 순서 유지. 각 리뷰 JSON, lint/build/e2e/하네스 게이트 및 실서버 확인사항 기록.
+- index.html의 의도치 않은 삭제만 HEAD로 복원 승인. architecture-reviewer.md와 .env.development/QA_SPEC.md/RAVVIT_SPEC.md는 변경하거나 커밋하지 않는다. rewrite/proxy 변경 금지. 커밋/푸시는 결과 보고 후 별도 승인.

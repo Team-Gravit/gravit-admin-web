@@ -1,0 +1,56 @@
+{
+  "id": "step-12:QA_FLOW_V2-VERIFY",
+  "spec": "PASS",
+  "ds": "PASS",
+  "diffs": [],
+  "resolvedFindings": [
+    "초기 e2e 폼 레이블 필수 *를 반영하도록 셀렉터 수정(2건)",
+    "삭제 충돌 회귀 및 준비 시작/진행/재시도/취소 e2e 추가"
+  ],
+  "reviewers": {
+    "spec": "/root/qa_spec_review",
+    "ds": "/root/qa_ds_review"
+  },
+  "rounds": [
+    "initial",
+    "re-review"
+  ],
+  "commit": null,
+  "baseCommit": "8b33c683add47a3fbf2be86960c5419d3b96c6e0",
+  "commitStatus": "USER_APPROVED",
+  "ts": "2026-11-11",
+  "authority": "decisions.md D11; user W1-W14 + P1-P10 and approved adjustments",
+  "validation": {
+    "lint": {
+      "result": "PASS",
+      "errors": 0,
+      "existingWarnings": 4
+    },
+    "build": "PASS",
+    "typecheck": "PASS",
+    "tokenLint": "PASS",
+    "stateValidation": "PASS",
+    "e2e": {
+      "result": "PASS",
+      "total": 30,
+      "qa": 27,
+      "existing": 3
+    },
+    "harnessWithSmoke": "OK",
+    "diffCheck": "PASS",
+    "visual": {
+      "widths": [
+        1280,
+        1440
+      ],
+      "horizontalOverflow": false,
+      "pageErrors": []
+    }
+  },
+  "publication": {
+    "branch": "main",
+    "remote": "origin",
+    "approvalDate": "2026-11-11",
+    "note": "커밋 전 리뷰 산출물. 생성 커밋 해시와 실제 푸시 결과는 최종 응답으로 보고."
+  }
+}

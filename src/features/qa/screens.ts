@@ -1,30 +1,20 @@
 import { ROUTES } from '@/shared/constants/routes';
-import type { SprintStage } from '@/features/qa/schemas';
+import type { Sprint } from '@/features/qa/schemas';
 
-/** 스프린트 하위 화면 3개 (decisions D9-1). 탭 컴포넌트 없이 링크로 이동한다. */
-export type SprintScreen = 'setup' | 'review' | 'checklist';
-
-export const SPRINT_SCREENS: ReadonlyArray<{
-  key: SprintScreen;
-  label: string;
-  to: (sprintId: number) => string;
-}> = [
-  { key: 'setup', label: '준비', to: ROUTES.QA_SPRINT_SETUP },
-  { key: 'review', label: '분류 검토', to: ROUTES.QA_SPRINT_REVIEW },
-  { key: 'checklist', label: '체크리스트', to: ROUTES.QA_SPRINT_CHECKLIST },
-];
-
-/** `/qa/sprints/:sprintId` 진입 시 단계에 맞는 하위 화면 (QA_SPEC B-1). */
-export function screenForStage(stage: SprintStage): SprintScreen {
-  if (stage === 'PREPARE') return 'setup';
-  if (stage === 'REVIEW') return 'review';
-  return 'checklist';
+export type SprintScreen = 'setup' | 'design' | 'first' | 'second';
+export const SPRINT_SCREENS = [
+  { key: 'setup', label: '연결 현황', to: ROUTES.QA_SPRINT_SETUP },
+  { key: 'design', label: '디자인 검수', to: ROUTES.QA_SPRINT_DESIGN },
+  { key: 'first', label: '1차 체크리스트', to: ROUTES.QA_SPRINT_CHECKLIST_FIRST },
+  { key: 'second', label: '2차 체크리스트', to: ROUTES.QA_SPRINT_CHECKLIST_SECOND },
+] as const;
+export function screenForSprint(sprint: Sprint): SprintScreen {
+  if (sprint.pendingReflectionCount > 0 || sprint.latestJob?.status === 'FAILED') return 'setup';
+  if (sprint.status === 'DESIGN_REVIEW') return 'design';
+  if (sprint.status === 'AUTO_REVIEW') return 'first';
+  if (sprint.status === 'MANUAL_REVIEW' || sprint.status === 'CLOSED') return 'second';
+  return 'setup';
 }
-
-export function screenPath(screen: SprintScreen, sprintId: number): string {
-  const found = SPRINT_SCREENS.find((s) => s.key === screen);
-  return found ? found.to(sprintId) : ROUTES.QA_SPRINT(sprintId);
+export function screenPath(screen: SprintScreen, id: number) {
+  return SPRINT_SCREENS.find((s) => s.key === screen)!.to(id);
 }
-
-/** 배너의 [체크리스트 확정](다른 하위 화면에서)이 분류 검토 화면의 확정 모달을 열도록 넘기는 라우터 state (F-1). */
-export const OPEN_CONFIRM_STATE = { openConfirm: true } as const;

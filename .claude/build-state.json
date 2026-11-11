@@ -151,6 +151,30 @@
       "status": "COMPLETED"
     },
     {
+      "id": "step-12:QA_FLOW_V2-CONTRACT",
+      "status": "COMPLETED"
+    },
+    {
+      "id": "step-12:QA_FLOW_V2-LIST",
+      "status": "COMPLETED"
+    },
+    {
+      "id": "step-12:QA_FLOW_V2-SETUP",
+      "status": "COMPLETED"
+    },
+    {
+      "id": "step-12:QA_FLOW_V2-DESIGN",
+      "status": "COMPLETED"
+    },
+    {
+      "id": "step-12:QA_FLOW_V2-CHECKLIST",
+      "status": "COMPLETED"
+    },
+    {
+      "id": "step-12:QA_FLOW_V2-VERIFY",
+      "status": "COMPLETED"
+    },
+    {
       "id": "fix:H1-CN_FONT_SIZE",
       "status": "TODO"
     },
@@ -182,7 +206,13 @@
     "step-11:QA_REVIEW": "none — QA_SPEC.md C절(시안 없음, 기존 패턴 자체 완성)",
     "step-11:QA_CHECKLIST": "none — QA_SPEC.md C절(시안 없음, 기존 패턴 자체 완성)"
   },
-  "retry": {},
+  "retry": {
+    "step-12:QA_FLOW_V2-CONTRACT": 1,
+    "step-12:QA_FLOW_V2-SETUP": 1,
+    "step-12:QA_FLOW_V2-DESIGN": 1,
+    "step-12:QA_FLOW_V2-CHECKLIST": 1,
+    "step-12:QA_FLOW_V2-VERIFY": 1
+  },
   "manual_review": [
     {
       "id": "step-1-setup",
@@ -318,6 +348,11 @@
       "id": "fix:QA_API_WIRING",
       "tag": "human-step",
       "note": ".env.example 이 저장소에 없고, PreToolUse 가드가 .env* 쓰기를 차단(.env.example 포함) → 만들지 않음. VITE_QA_ORIGIN(선택, 로컬 QA 서버면 http://localhost:8080)은 VITE_RAVVIT_ORIGIN 선례대로 vite.config.ts 주석에 문서화. .env.example 이 필요하면 사람이 생성하거나 가드 예외를 결정."
+    },
+    {
+      "id": "step-12:QA_FLOW_V2-VERIFY",
+      "tag": "integration",
+      "note": "QA v2는 SESSION_E1 + P1~P10 계약의 MSW로 검증. 실서버 변경 요청 없음. 서버 배포 후 실제 JSON nullable/enum, 두 round/셀 ID 분리, Job polling/WAITING 재수집, REFLECTION_5021 영속 FAILED+version/재승인, REFLECTION_4091, 수동 이력 원래 AUTO 사유, P10 초기화, SPRINT_5022 미종료/재시도, 공유 401 재발급·403/503, 종료 QA 기준점 기록을 통합 확인. 확인된 실서버 계약 차이는 없음(실서버 미검증)."
     }
   ],
   "log": [
@@ -699,6 +734,66 @@
       "figma": "8717:1273(PENDING)",
       "review": "spec PASS, ds PASS (446890b→167126b 모델통일 재PASS, retry=2)",
       "note": "STAGING_DETAIL 6-1: 데이터 페칭 + 좌측 리스트 골격. features/staging 확장(schemas[라벨 상세 그루핑: 레슨 1 + 문제 6 discriminatedUnion, 객관식 options[4]/주관식 answers 배열]·api[getStagingLabel]·queries[useStagingLabel]). StagingDetailPage: 헤더(StagingStatusBadge + 라벨명 font-mono h1 + 메타 U-{id}·desc·생성일) + 좌측 280px(w-72) nav 리스트(레슨 + 문제 6, ProblemTypeBadge, 활성 border-l-3 primary+bg-primary-subtle, Sidebar 선례) + 활성 항목 전환 + 우측 활성 항목 헤더(폼 미구현). 4상태(Loading/Error, 단건 Empty N/A). MSW GET /staging/labels/:label(객관식 4+주관식 2). 리뷰 FAIL→수정: 주관식 answer 단수→answers 배열(03 §8-2 권위). typecheck 자가수정 1회(activeProblem 가드). retry=2. deferred: breadcrumb. 우측 폼=6-2~6-4, dirty=6-5, 다중PATCH=6-6, promote=6-7, COMPLETED=6-8, 이탈보호=6-9."
+    },
+    {
+      "id": "step-12:QA_FLOW_V2-VERIFY",
+      "ts": "2026-11-11",
+      "gate": "initial e2e: 25 PASS / 2 FAIL; targeted correction: 2 PASS",
+      "note": "초기 폼 e2e 셀렉터가 공통 FormField의 필수 * 표시를 포함하지 않아 2건 실패. /^행위/, /^설명/으로 수정 후 통과. 전체 28 PASS 이후 준비 시작·polling·재시도·취소 2건 추가하여 단독 2 PASS. 최종 30건 smoke 실행 중. 명세/DS 1차 FAIL(목 KST, 삭제 충돌 복구, 빈 meter aria, pending 피드백, 동적 잠금) 수정 후 양쪽 재리뷰 PASS."
+    },
+    {
+      "id": "step-12:QA_FLOW_V2-CONTRACT",
+      "status": "COMPLETED",
+      "ts": "2026-11-11",
+      "gate": "OK: lint(0 errors, existing 4 warnings), tsc, token-lint, build, Playwright 30 PASS, gate-runner --with-smoke",
+      "review": "harness/review/step-12:QA_FLOW_V2-CONTRACT.json; spec PASS / ds PASS (independent reviewers)",
+      "note": "D11 적용. 사용자 요청에 따라 커밋/푸시는 별도 승인 전 이연. Figma 시안 없음 → 승인 와이어프레임과 DS-01/기존 화면 관례. 기존 체크리스트·보호 파일·rewrite/proxy 보존."
+    },
+    {
+      "id": "step-12:QA_FLOW_V2-LIST",
+      "status": "COMPLETED",
+      "ts": "2026-11-11",
+      "gate": "OK: lint(0 errors, existing 4 warnings), tsc, token-lint, build, Playwright 30 PASS, gate-runner --with-smoke",
+      "review": "harness/review/step-12:QA_FLOW_V2-LIST.json; spec PASS / ds PASS (independent reviewers)",
+      "note": "D11 적용. 사용자 요청에 따라 커밋/푸시는 별도 승인 전 이연. Figma 시안 없음 → 승인 와이어프레임과 DS-01/기존 화면 관례. 기존 체크리스트·보호 파일·rewrite/proxy 보존."
+    },
+    {
+      "id": "step-12:QA_FLOW_V2-SETUP",
+      "status": "COMPLETED",
+      "ts": "2026-11-11",
+      "gate": "OK: lint(0 errors, existing 4 warnings), tsc, token-lint, build, Playwright 30 PASS, gate-runner --with-smoke",
+      "review": "harness/review/step-12:QA_FLOW_V2-SETUP.json; spec PASS / ds PASS (independent reviewers)",
+      "note": "D11 적용. 사용자 요청에 따라 커밋/푸시는 별도 승인 전 이연. Figma 시안 없음 → 승인 와이어프레임과 DS-01/기존 화면 관례. 기존 체크리스트·보호 파일·rewrite/proxy 보존."
+    },
+    {
+      "id": "step-12:QA_FLOW_V2-DESIGN",
+      "status": "COMPLETED",
+      "ts": "2026-11-11",
+      "gate": "OK: lint(0 errors, existing 4 warnings), tsc, token-lint, build, Playwright 30 PASS, gate-runner --with-smoke",
+      "review": "harness/review/step-12:QA_FLOW_V2-DESIGN.json; spec PASS / ds PASS (independent reviewers)",
+      "note": "D11 적용. 사용자 요청에 따라 커밋/푸시는 별도 승인 전 이연. Figma 시안 없음 → 승인 와이어프레임과 DS-01/기존 화면 관례. 기존 체크리스트·보호 파일·rewrite/proxy 보존."
+    },
+    {
+      "id": "step-12:QA_FLOW_V2-CHECKLIST",
+      "status": "COMPLETED",
+      "ts": "2026-11-11",
+      "gate": "OK: lint(0 errors, existing 4 warnings), tsc, token-lint, build, Playwright 30 PASS, gate-runner --with-smoke",
+      "review": "harness/review/step-12:QA_FLOW_V2-CHECKLIST.json; spec PASS / ds PASS (independent reviewers)",
+      "note": "D11 적용. 사용자 요청에 따라 커밋/푸시는 별도 승인 전 이연. Figma 시안 없음 → 승인 와이어프레임과 DS-01/기존 화면 관례. 기존 체크리스트·보호 파일·rewrite/proxy 보존."
+    },
+    {
+      "id": "step-12:QA_FLOW_V2-VERIFY",
+      "status": "COMPLETED",
+      "ts": "2026-11-11",
+      "gate": "OK: lint(0 errors, existing 4 warnings), tsc, token-lint, build, Playwright 30 PASS, gate-runner --with-smoke",
+      "review": "harness/review/step-12:QA_FLOW_V2-VERIFY.json; spec PASS / ds PASS (independent reviewers)",
+      "note": "D11 적용. 사용자 요청에 따라 커밋/푸시는 별도 승인 전 이연. Figma 시안 없음 → 승인 와이어프레임과 DS-01/기존 화면 관례. 기존 체크리스트·보호 파일·rewrite/proxy 보존."
+    },
+    {
+      "id": "step-12:QA_FLOW_V2-VERIFY",
+      "ts": "2026-11-11",
+      "action": "COMMIT_PUSH_APPROVED",
+      "note": "사용자 커밋·푸시 승인. QA 코드/테스트/하네스/리뷰 산출물만 스테이징, origin/main에 일반 푸시. architecture-reviewer.md와 .env.development/QA_SPEC.md/RAVVIT_SPEC.md 제외. 결과 해시는 최종 응답으로 보고."
     }
   ]
 }

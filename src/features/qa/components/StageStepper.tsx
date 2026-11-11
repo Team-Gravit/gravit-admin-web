@@ -1,48 +1,35 @@
-import { Fragment } from 'react';
-import { Check } from 'lucide-react';
-import { cn } from '@/shared/lib/cn';
-import { STAGE_LABELS } from '@/features/qa/labels';
-import { sprintStageSchema, type SprintGuide } from '@/features/qa/schemas';
+import { Check, ChevronRight } from 'lucide-react';
+import { FLOW_ORDER, SPRINT_STATUS_LABELS } from '@/features/qa/labels';
+import type { Sprint } from '@/features/qa/schemas';
+import { StatusBadge } from '@/shared/components/status-badge/StatusBadge';
 
-/**
- * 단계 표시 (QA_SPEC B-1). stageCount 개 원 — stageIndex 이전은 완료 톤, 현재는 primary, 이후는 기본.
- */
-export function StageStepper({ guide }: { guide: SprintGuide }) {
-  const stages = sprintStageSchema.options.slice(0, guide.stageCount);
-
+export function StageStepper({ sprint }: { sprint: Sprint }) {
+  const position = FLOW_ORDER.indexOf(sprint.status);
+  const failed = sprint.latestJob?.status === 'FAILED';
   return (
-    <ol className="flex items-center gap-2" aria-label="진행 단계">
-      {stages.map((stage, i) => {
-        const index = i + 1;
-        const done = index < guide.stageIndex;
-        const current = index === guide.stageIndex;
+    <ol className="flex flex-wrap items-center gap-x-2 gap-y-3" aria-label="진행 단계">
+      {FLOW_ORDER.map((stage, i) => {
+        const current = i === position;
+        const done = position > i;
         return (
-          <Fragment key={stage}>
-            {i > 0 && <li aria-hidden className="h-px w-8 bg-border" />}
-            <li className="flex items-center gap-2" aria-current={current ? 'step' : undefined}>
-              {/* text-caption·text-body 는 cn(twMerge) 안에서 색 클래스와 충돌해 지워지므로 cn 밖에 붙인다. */}
-              <span
-                className={`text-caption ${cn(
-                  'flex size-6 items-center justify-center rounded-full font-medium',
-                  done && 'bg-success-bg text-success-text',
-                  current && 'bg-primary text-primary-foreground',
-                  !done && !current && 'bg-hover text-fg-muted',
-                )}`}
-              >
-                {done ? <Check className="size-3.5" /> : index}
-              </span>
-              <span
-                className={`text-body ${cn(
-                  'whitespace-nowrap',
-                  current && 'font-medium text-foreground',
-                  done && 'text-fg-secondary',
-                  !done && !current && 'text-fg-muted',
-                )}`}
-              >
-                {STAGE_LABELS[stage]}
-              </span>
-            </li>
-          </Fragment>
+          <li
+            key={stage}
+            className="flex items-center gap-2"
+            aria-current={current ? 'step' : undefined}
+          >
+            {i > 0 && <ChevronRight className="size-3.5 text-fg-disabled" aria-hidden />}
+            <span
+              className={`flex size-6 shrink-0 items-center justify-center rounded-full text-caption ${current ? 'bg-primary text-primary-foreground' : done ? 'bg-success-bg text-success-text' : 'bg-hover text-fg-muted'}`}
+            >
+              {done ? <Check className="size-3.5" aria-hidden /> : i + 1}
+            </span>
+            <span
+              className={`whitespace-nowrap text-caption ${current ? 'font-medium text-foreground' : 'text-fg-muted'}`}
+            >
+              {SPRINT_STATUS_LABELS[stage]}
+            </span>
+            {current && failed && <StatusBadge variant="danger">실패</StatusBadge>}
+          </li>
         );
       })}
     </ol>

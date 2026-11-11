@@ -31,7 +31,7 @@ import { QaSprintListPage } from '@/pages/qa/QaSprintListPage';
 import { QaSprintLayout } from '@/pages/qa/QaSprintLayout';
 import { QaSprintIndexPage } from '@/pages/qa/QaSprintIndexPage';
 import { QaSetupPage } from '@/pages/qa/QaSetupPage';
-import { QaReviewPage } from '@/pages/qa/QaReviewPage';
+import { QaDesignReviewPage } from '@/pages/qa/QaDesignReviewPage';
 import { QaChecklistPage } from '@/pages/qa/QaChecklistPage';
 
 const protectedLoader: LoaderFunction = async () => {
@@ -98,8 +98,9 @@ export const router = createBrowserRouter([
         children: [
           { index: true, element: <QaSprintIndexPage /> },
           { path: 'setup', element: <QaSetupPage /> },
-          { path: 'review', element: <QaReviewPage /> },
-          { path: 'checklist', element: <QaChecklistPage /> },
+          { path: 'design-review', element: <QaDesignReviewPage /> },
+          { path: 'checklist/1', element: <QaChecklistPage key="first" round={1} /> },
+          { path: 'checklist/2', element: <QaChecklistPage key="second" round={2} /> },
         ],
       },
     ],
