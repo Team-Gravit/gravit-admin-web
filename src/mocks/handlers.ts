@@ -5,18 +5,19 @@ import { qaHandlers } from '@/mocks/qaHandlers';
 export const handlers = [
   http.get('*/api/v1/oauth/login-url/:provider', ({ params }) =>
     HttpResponse.json({
-      loginUrl: `${window.location.origin}/login/oauth2/code/${params.provider}?code=mock-code`,
+      loginUrl: `${window.location.origin}/login/oauth2/code/${params.provider}?code=mock-code&state=mock-state`,
+      state: 'mock-state',
     }),
   ),
   http.post('*/api/v1/oauth/:provider', () =>
     HttpResponse.json({
       accessToken: 'mock-access-token',
-      refreshToken: 'mock-refresh-token',
       isOnboarded: true,
       role: 'ADMIN',
     }),
   ),
   http.post('*/api/v1/auth/reissue', () => HttpResponse.json({ accessToken: 'mock-access-token' })),
+  http.post('*/api/v1/auth/logout', () => new HttpResponse(null, { status: 204 })),
 
   http.get('*/api/v1/admin/me', () =>
     HttpResponse.json({

@@ -9,6 +9,7 @@
     "preview": "vite preview",
     "lint": "eslint . --ext ts,tsx",
     "test:e2e": "playwright test",
+    "test:auth": "playwright test --config playwright.auth.config.ts",
     "test:e2e:install": "playwright install chromium"
   },
   "dependencies": {

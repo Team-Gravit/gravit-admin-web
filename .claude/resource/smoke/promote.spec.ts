@@ -7,7 +7,7 @@ import { expect, test } from '@playwright/test';
  */
 test.beforeEach(async ({ page }) => {
   await page.addInitScript(() => {
-    localStorage.setItem('gravit_admin_refresh_token', 'e2e-stub-refresh-token');
+    localStorage.setItem('gravit_admin_session', 'true');
   });
 });
 

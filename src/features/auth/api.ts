@@ -4,7 +4,7 @@ import {
   adminMeResponseSchema,
   loginUrlResponseSchema,
   oauthLoginResponseSchema,
-  reissueResponseSchema,
+  type LoginUrlResponse,
   type OAuthLoginResponse,
 } from '@/features/auth/schemas';
 import type { AdminProfile, ProviderId } from '@/features/auth/types';
@@ -12,25 +12,28 @@ import type { AdminProfile, ProviderId } from '@/features/auth/types';
 const providerPath = (provider: ProviderId): string => provider.toLowerCase();
 
 export const authApi = {
-  getLoginUrl: async (provider: ProviderId): Promise<string> => {
+  getLoginUrl: async (provider: ProviderId): Promise<LoginUrlResponse> => {
     const { data } = await authApiClient.get(`/oauth/login-url/${providerPath(provider)}`, {
       params: { dest: env.VITE_OAUTH_DEST },
     });
-    return loginUrlResponseSchema.parse(data).loginUrl;
+    return loginUrlResponseSchema.parse(data);
   },
 
-  oauthLogin: async (provider: string, code: string): Promise<OAuthLoginResponse> => {
+  oauthLogin: async (
+    provider: ProviderId,
+    code: string,
+    state: string,
+  ): Promise<OAuthLoginResponse> => {
     const { data } = await authApiClient.post(
-      `/oauth/${provider}`,
-      { code },
+      `/oauth/${providerPath(provider)}`,
+      { code, state },
       { params: { dest: env.VITE_OAUTH_DEST } },
     );
     return oauthLoginResponseSchema.parse(data);
   },
 
-  reissue: async (refreshToken: string): Promise<string> => {
-    const { data } = await authApiClient.post('/auth/reissue', { refreshToken });
-    return reissueResponseSchema.parse(data).accessToken;
+  logout: async (): Promise<void> => {
+    await authApiClient.post('/auth/logout');
   },
 
   me: async (): Promise<AdminProfile> => {

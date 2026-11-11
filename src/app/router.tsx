@@ -1,6 +1,8 @@
 import { createBrowserRouter, redirect, type LoaderFunction } from 'react-router';
+import { isAxiosError } from 'axios';
 import { ROUTES } from '@/shared/constants/routes';
 import { tokenManager } from '@/shared/api/tokenManager';
+import { refreshAccessToken } from '@/shared/api/client';
 import { authApi } from '@/features/auth/api';
 import { useAuthStore } from '@/features/auth/store';
 import { LoginLayout } from '@/shared/components/layout/LoginLayout';
@@ -33,16 +35,10 @@ import { QaReviewPage } from '@/pages/qa/QaReviewPage';
 import { QaChecklistPage } from '@/pages/qa/QaChecklistPage';
 
 const protectedLoader: LoaderFunction = async () => {
-  const refreshToken = tokenManager.getRefreshToken();
-  if (!refreshToken) {
-    throw redirect(ROUTES.LOGIN);
-  }
   if (!tokenManager.getAccessToken()) {
-    try {
-      const accessToken = await authApi.reissue(refreshToken);
-      tokenManager.setAccessToken(accessToken);
-    } catch {
+    if (!tokenManager.hasSession() || !(await refreshAccessToken())) {
       tokenManager.clear();
+      useAuthStore.getState().reset();
       throw redirect(ROUTES.LOGIN);
     }
   }
@@ -51,8 +47,14 @@ const protectedLoader: LoaderFunction = async () => {
     try {
       const me = await authApi.me();
       useAuthStore.getState().setAdmin(me);
-    } catch {
-      // ignore
+    } catch (error) {
+      const status = isAxiosError(error) ? error.response?.status : undefined;
+      if (status === 401 || status === 403) {
+        tokenManager.clear();
+        useAuthStore.getState().reset();
+        throw redirect(`${ROUTES.LOGIN}?error=${status === 403 ? 'forbidden' : 'failed'}`);
+      }
+      // 프로필의 일시적인 조회 실패는 기존 운영자 폴백으로 표시한다.
     }
   }
   return null;

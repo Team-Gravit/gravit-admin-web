@@ -1,12 +1,10 @@
 /**
- * 토큰 저장 (04 §6-5).
- * - accessToken: 메모리(모듈 변수) — XSS 표면 축소.
- * - refreshToken: localStorage — 새로고침 후 세션 유지.
- *
- * ⚠️ 보안 트레이드오프(04 §6-5): refresh 를 localStorage 에 두면 XSS 시 노출 가능.
- *   내부 운영자 대상 + Bearer 방식 한계 내 UX 절충. 향후 httpOnly 쿠키 재설계 권장.
+ * accessToken은 메모리, refreshToken은 서버의 HttpOnly 쿠키에 둔다.
+ * localStorage에는 세션 복원을 시도할지 알려주는 힌트만 저장한다.
+ * 힌트는 인증 증거가 아니며, 새로고침 시 쿠키 재발급 결과로 세션을 판정한다.
  */
-const REFRESH_TOKEN_KEY = 'gravit_admin_refresh_token';
+const SESSION_HINT_KEY = 'gravit_admin_session';
+const LEGACY_REFRESH_TOKEN_KEY = 'gravit_admin_refresh_token';
 
 let accessTokenInMemory: string | null = null;
 
@@ -14,20 +12,15 @@ export const tokenManager = {
   getAccessToken: (): string | null => accessTokenInMemory,
   setAccessToken: (token: string): void => {
     accessTokenInMemory = token;
+    localStorage.setItem(SESSION_HINT_KEY, 'true');
+    localStorage.removeItem(LEGACY_REFRESH_TOKEN_KEY);
   },
 
-  getRefreshToken: (): string | null => localStorage.getItem(REFRESH_TOKEN_KEY),
-  setRefreshToken: (token: string): void => {
-    localStorage.setItem(REFRESH_TOKEN_KEY, token);
-  },
-
-  setTokens: (access: string, refresh: string): void => {
-    accessTokenInMemory = access;
-    localStorage.setItem(REFRESH_TOKEN_KEY, refresh);
-  },
+  hasSession: (): boolean => localStorage.getItem(SESSION_HINT_KEY) === 'true',
 
   clear: (): void => {
     accessTokenInMemory = null;
-    localStorage.removeItem(REFRESH_TOKEN_KEY);
+    localStorage.removeItem(SESSION_HINT_KEY);
+    localStorage.removeItem(LEGACY_REFRESH_TOKEN_KEY);
   },
 };

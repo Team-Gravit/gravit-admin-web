@@ -5,13 +5,15 @@ import { ROUTES } from '@/shared/constants/routes';
 import { tokenManager } from '@/shared/api/tokenManager';
 import { authApi } from '@/features/auth/api';
 import { useAuthStore } from '@/features/auth/store';
+import { savePendingOAuthState } from '@/features/auth/oauthState';
 import type { ProviderId } from '@/features/auth/types';
 
 export function useStartOAuth() {
   return useMutation({
     mutationFn: (provider: ProviderId) => authApi.getLoginUrl(provider),
     meta: { skipGlobalErrorToast: true },
-    onSuccess: (loginUrl) => {
+    onSuccess: ({ loginUrl, state }, provider) => {
+      savePendingOAuthState(provider, state);
       window.location.href = loginUrl;
     },
   });
@@ -25,15 +27,24 @@ export function useStartOAuth() {
 export function useOAuthCallback() {
   const navigate = useNavigate();
   return useMutation({
-    mutationFn: ({ provider, code }: { provider: string; code: string }) =>
-      authApi.oauthLogin(provider, code),
+    mutationFn: ({
+      provider,
+      code,
+      state,
+    }: {
+      provider: ProviderId;
+      code: string;
+      state: string;
+    }) => authApi.oauthLogin(provider, code, state),
+    retry: false,
+    meta: { skipGlobalErrorToast: true },
     onSuccess: (res) => {
       if (res.role !== 'ADMIN') {
         tokenManager.clear();
         navigate(`${ROUTES.LOGIN}?error=forbidden`, { replace: true });
         return;
       }
-      tokenManager.setTokens(res.accessToken, res.refreshToken);
+      tokenManager.setAccessToken(res.accessToken);
       navigate(ROUTES.DASHBOARD, { replace: true });
     },
     onError: () => {
@@ -52,6 +63,10 @@ export function useLogout() {
     reset();
     queryClient.clear();
     navigate(ROUTES.LOGIN, { replace: true });
+    // 힌트를 먼저 지워 요청이 실패해도 새로고침으로 세션이 복원되지 않게 한다.
+    void authApi.logout().catch((error: unknown) => {
+      console.warn('서버 로그아웃 요청에 실패했습니다.', error);
+    });
   }, [navigate, queryClient, reset]);
 }
 

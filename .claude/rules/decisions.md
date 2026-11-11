@@ -1,5 +1,14 @@
 # 규칙 — 확정 결정(Locked Decisions)
 
+## D10 — 웹 OAuth state 및 HttpOnly 쿠키 계약으로 전환
+- 사용자 요청(2026-11-11): `Team-Gravit/gravit-web` 최신 구현에 맞춰 관리자 OAuth 수정. 기존 spec/04 및 localStorage refreshToken 정책보다 이 결정이 우선한다.
+- 비교 기준: [gravit-web develop `10c4a148`](https://github.com/Team-Gravit/gravit-web/tree/10c4a14846b7d87a1279ed74fdc2b08fc388323d/apps/web/src/features/auth-login), 로컬 gravit-server의 `OAuthController`·`WebAuthCodeRequest`·`AuthTokenController`. 개발 서버 로그인 URL 응답도 `loginUrl` + `state` 확인.
+- `GET /api/v1/oauth/login-url/{provider}?dest=...` → `{ loginUrl, state }`. 제공자·state·발급 시각을 저장하고 콜백에서 일치·10분 만료·1회 소비를 검증한다.
+- `POST /api/v1/oauth/{provider}?dest=...` 본문은 `{ code, state }`. 응답은 `{ accessToken, isOnboarded, role }`, refreshToken은 HttpOnly 쿠키. 인증 클라이언트는 `withCredentials: true`.
+- accessToken은 메모리에만, localStorage에는 복원 힌트만 저장한다. 이전 localStorage refreshToken은 제거하고 다시 로그인한다.
+- 복원 및 401 재발급은 공유 큐에서 본문 없이 `POST /api/v1/auth/reissue`. 로그아웃은 힌트·메모리·캐시를 지우고 본문 없이 `POST /api/v1/auth/logout`으로 쿠키를 만료시킨다.
+- ADMIN 응답만 진입하고, 복원 후 `/admin/me`의 403도 차단한다. 프로필의 일시 장애는 D4 폴백을 유지한다.
+
 > spec 간 충돌·미확정 사항에 대해 **이미 내려진 결정**. 재논의 금지(바꾸려면 사용자 승인). 근거 spec 섹션을 함께 적는다. phase 파일들이 `D1~D4` 로 참조한다.
 
 ## D1 — 주관식 정답 = 단일 객체 (배열 아님, prod·staging·GET·PATCH 전부 동일)

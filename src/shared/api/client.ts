@@ -9,7 +9,11 @@ import { reissueQueue } from '@/shared/api/reissueQueue';
 const API_V1 = `${env.VITE_API_HOST}/api/v1`;
 const TIMEOUT = 30_000;
 
-export const authApiClient = axios.create({ baseURL: API_V1, timeout: TIMEOUT });
+export const authApiClient = axios.create({
+  baseURL: API_V1,
+  timeout: TIMEOUT,
+  withCredentials: true,
+});
 export const apiClient = axios.create({ baseURL: `${API_V1}/admin`, timeout: TIMEOUT });
 
 const reissueResponseSchema = z.object({
@@ -38,9 +42,9 @@ function forceLogout(): void {
  * 401 재발급 **단일 절차** (04 §6-4, decisions D8-3).
  * axios 인터셉터와 Ravvit fetch 클라이언트가 이 함수를 **공유**한다 — 각자 재발급하면
  * refresh Rotation 때문에 서로가 방금 받은 토큰을 무효화한다. 복제 금지.
- * 반환: 새 accessToken. 실패 시 강제 로그아웃까지 수행하고 null.
+ * 반환: 새 accessToken. 복원 실패는 호출부에서 로그인으로 이동하도록 null을 반환한다.
  */
-export async function reissueAccessToken(): Promise<string | null> {
+export async function refreshAccessToken(): Promise<string | null> {
   // 이미 다른 요청이 재발급 중이면 그 결과를 기다린다(단일 비행).
   if (reissueQueue.isReissuing) {
     return reissueQueue.subscribe();
@@ -48,21 +52,25 @@ export async function reissueAccessToken(): Promise<string | null> {
 
   reissueQueue.begin();
   try {
-    const refreshToken = tokenManager.getRefreshToken();
-    if (!refreshToken) throw new Error('NO_REFRESH_TOKEN');
-
-    const { data } = await authApiClient.post('/auth/reissue', { refreshToken });
+    // 웹은 본문 없이 HttpOnly refreshToken 쿠키로 재발급한다.
+    const { data } = await authApiClient.post('/auth/reissue');
     const { accessToken } = reissueResponseSchema.parse(data);
     tokenManager.setAccessToken(accessToken);
     reissueQueue.publish(accessToken);
     return accessToken;
   } catch {
     reissueQueue.publish(null);
-    forceLogout();
     return null;
   } finally {
     reissueQueue.end();
   }
+}
+
+/** 보호 API의 401 처리. 부팅 시 복원과 같은 재발급 큐를 사용한다. */
+export async function reissueAccessToken(): Promise<string | null> {
+  const accessToken = await refreshAccessToken();
+  if (!accessToken) forceLogout();
+  return accessToken;
 }
 
 apiClient.interceptors.response.use(

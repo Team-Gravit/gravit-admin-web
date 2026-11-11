@@ -2,7 +2,6 @@ import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import { RouterProvider } from 'react-router';
 import { AppProviders } from '@/app/providers';
-import { router } from '@/app/router';
 import { env } from '@/env';
 import '@/shared/styles/globals.css';
 
@@ -17,7 +16,9 @@ async function enableMocking(): Promise<void> {
   await worker.start({ onUnhandledRequest: 'bypass' });
 }
 
-void enableMocking().then(() => {
+void enableMocking().then(async () => {
+  // createBrowserRouter의 초기 loader 요청도 MSW 시작 이후에 실행한다.
+  const { router } = await import('@/app/router');
   createRoot(rootElement).render(
     <StrictMode>
       <AppProviders>

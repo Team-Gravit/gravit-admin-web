@@ -6,9 +6,9 @@ import { test, expect } from '@playwright/test';
  * MSW GET /users/:id 는 role=USER 반환. 모달까지만 검증(실제 PATCH 확인은 별도).
  */
 test.beforeEach(async ({ page }) => {
-  // auth-stub: protectedLoader 는 refreshToken 존재만 확인(MSW 가 토큰을 검증하지 않음).
+  // 세션 힌트가 있으면 MSW의 쿠키 재발급 응답으로 세션을 복원한다.
   await page.addInitScript(() => {
-    localStorage.setItem('gravit_admin_refresh_token', 'e2e-stub-refresh-token');
+    localStorage.setItem('gravit_admin_session', 'true');
   });
 });
 
