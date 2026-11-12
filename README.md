@@ -5,7 +5,7 @@ Gravit 서비스의 학습 콘텐츠와 운영 데이터를 관리하는 **관�
 
 <br>
 
-### 기술 스택
+## 기술 스택
 
 <img src="https://skillicons.dev/icons?i=react,ts,vite,tailwind&perline=6" alt="React, TypeScript, Vite, Tailwind CSS" />
 
@@ -13,7 +13,7 @@ TanStack Query · Zustand · React Hook Form + Zod · axios · React Router · R
 
 <br>
 
-### 시작하기
+## 시작하기
 
 실행 전에 루트의 `.env.development`에 연결할 서버의 환경변수를 설정합니다.
 `VITE_API_HOST`, `VITE_OAUTH_DEST`, `VITE_RAVVIT_API_BASE`는 필수이며, `VITE_QA_API_BASE`의 기본값은 `/qa-api`입니다.
@@ -22,6 +22,7 @@ TanStack Query · Zustand · React Hook Form + Zod · axios · React Router · R
 npm install
 npm run dev
 ```
+<br>
 
 개발 중 목 데이터를 사용하려면 `VITE_USE_MOCK=true`로 실행합니다. 목 모드에서도 위 필수 환경변수는 필요합니다.
 
@@ -39,7 +40,7 @@ npm run test:auth            # OAuth·쿠키 기반 세션 검증
 
 <br>
 
-### 구조
+## 구조
 
 ```text
 src/
