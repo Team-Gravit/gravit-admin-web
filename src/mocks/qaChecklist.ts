@@ -71,7 +71,6 @@ export function buildFixture(sprintId: number, complete = false): QaFixture {
               toState: cell.state,
               source: cell.source,
               changedBy: round === 1 ? null : 1,
-              autoRunId: round === 1 ? sprintId : null,
               changedAt: '2026-11-11T10:00:00+09:00',
               reason: cell.reason,
             },
@@ -81,22 +80,24 @@ export function buildFixture(sprintId: number, complete = false): QaFixture {
     for (const [n, platform] of (['WEB', 'APP', 'APP'] as const).entries()) {
       const missing = screenIndex === 1 && n === 2;
       const id = sprintId * 10000 + 3000 + screenIndex * 100 + n;
+      const figmaPlatform = platform === 'APP' ? 'AOS' : 'WEB';
+      const specRowIds = [`${screen.screenId}-C${n + 1}`];
       const item: DesignItem = {
         id,
         featureId: screen.featureId,
         platform,
         title: missing
-          ? 'Figma 프레임 없음'
+          ? `${figmaPlatform} 시안 프레임이 없다`
           : ((['주요 버튼 배치', '입력란과 안내 문구', '오류 화면 구성'] as const)[n] ??
             '화면 구성'),
         expected: missing
-          ? '이 화면에 대응하는 Figma 프레임이 없습니다. 디자인 대상 여부를 확인해 주세요.'
+          ? `QA 페이지의 이번 스프린트 ${figmaPlatform} Section에 이 화면 프레임이 없어 시안을 명세와 비교하지 못했습니다. 프레임을 확인한 뒤 사람이 판정한다 (${specRowIds.join(', ')})`
           : '명세의 구성 요소가 Figma 화면의 위치와 스타일에 맞게 표시됩니다.',
-        specRowIds: [screen.featureId * 10 + n],
+        specRowIds,
         state: complete ? (missing ? 'NOT_APPLICABLE' : 'PASS') : n === 0 ? 'PASS' : 'UNCHECKED',
         source: 'AUTO',
         reason: missing
-          ? '명세의 Figma 칸이 -로 지정되어 APP 프레임을 찾을 수 없습니다.'
+          ? 'Figma 프레임 없음'
           : 'Figma와 화면 명세를 비교한 자동 검수 결과입니다.',
         editable: true,
         version: 0,

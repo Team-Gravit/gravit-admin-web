@@ -122,6 +122,12 @@ export function parseQaResponse<S extends z.ZodTypeAny>(
 ): z.infer<S> {
   const parsed = schema.safeParse(response.data);
   if (!parsed.success) {
+    if (import.meta.env.DEV) {
+      console.error(
+        '[QA] 응답 스키마 파싱 실패',
+        parsed.error.issues.map(({ path, code }) => ({ path, code })),
+      );
+    }
     throw new QaApiError(response.status, QA_ERROR_MESSAGES.DEFAULT, null);
   }
   return parsed.data;

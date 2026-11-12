@@ -141,8 +141,9 @@ test('디자인 자동 판정을 변경하고 원래 사유를 이력에서 확�
   await expect(page.getByRole('meter')).toHaveCount(4);
   for (const name of ['Design', 'Web', 'APP', 'Server'])
     await expect(page.getByRole('meter', { name: `${name} 완료율` })).toBeVisible();
-  const missing = page.getByRole('article', { name: 'APP Figma 프레임 없음', exact: true });
-  await expect(missing).toContainText('명세의 Figma 칸이 -');
+  const missing = page.getByRole('article', { name: 'APP AOS 시안 프레임이 없다', exact: true });
+  await expect(missing.getByText('Figma 프레임 없음', { exact: true })).toBeVisible();
+  await expect(page.getByText('Figma와 화면 명세를 비교한 자동 검수 결과입니다.')).toHaveCount(0);
   const before = await api(page, '/sprints/2');
   await missing.getByRole('button', { name: '해당 없음', exact: true }).click();
   await expect(missing.getByRole('button', { name: '해당 없음', exact: true })).toHaveAttribute(
@@ -154,7 +155,7 @@ test('디자인 자동 판정을 변경하고 원래 사유를 이력에서 확�
   await missing.getByRole('button', { name: '이력 보기' }).click();
   const history = page.getByRole('dialog');
   await expect(history).toContainText('수동 판정');
-  await expect(history).toContainText('명세의 Figma 칸이 -');
+  await expect(history).toContainText('Figma 프레임 없음');
 });
 
 test('셀은 round별로 분리되고 자동 결과도 변경·해당 없음·이력 조회가 가능하다', async ({
