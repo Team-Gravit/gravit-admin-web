@@ -20,12 +20,12 @@ import { QaConfirmModal } from '@/features/qa/components/QaConfirmModal';
 import { EmptyState } from '@/shared/components/states/EmptyState';
 import { ErrorState } from '@/shared/components/states/ErrorState';
 import { LoadingSkeleton } from '@/shared/components/states/LoadingSkeleton';
-import { hasRunningSetup, useChecklist, useDesignReview } from '@/features/qa/queries';
+import { hasRunningSetup, isStageRunning, useChecklist } from '@/features/qa/queries';
 import { useDeleteChecklistItem } from '@/features/qa/mutations';
 import { useNextUnchecked } from '@/features/qa/useNextUnchecked';
 import { CheckCellButton } from '@/features/qa/components/CheckCellButton';
 import { ChecklistItemFormModal } from '@/features/qa/components/ChecklistItemFormModal';
-import { CloseSprintModal } from '@/features/qa/components/CloseSprintModal';
+import { QaStageActivity } from '@/features/qa/components/QaStageActivity';
 import { FeatureGroupHeader } from '@/features/qa/components/FeatureGroupHeader';
 import { ProgressGauges } from '@/features/qa/components/ProgressGauges';
 import { PartChips } from '@/features/qa/components/PartChips';
@@ -44,18 +44,25 @@ import {
 
 export function ChecklistPanel({ sprint, round }: { sprint: Sprint; round: Round }) {
   const query = useChecklist(sprint.id, round);
-  // Closing requires all three lists, not just progress for the visible part or round.
-  const first = useChecklist(sprint.id, 1, round === 2);
-  const design = useDesignReview(sprint.id, round === 2);
   const remove = useDeleteChecklistItem(sprint.id);
   const [filter, setFilter] = useState<Part | 'ALL'>('ALL');
   const [form, setForm] = useState<{ feature: ChecklistFeature; item?: ChecklistItem } | null>(
     null,
   );
   const [deleting, setDeleting] = useState<ChecklistItem | null>(null);
-  const [closing, setClosing] = useState(false);
   const closed = sprint.status === 'CLOSED';
   const running = hasRunningSetup(sprint);
+  const tabRunning = isStageRunning(
+    sprint,
+    round === 1 ? ['CHECKLIST_GENERATE', 'AUTO_REVIEW'] : ['CHECKLIST_GENERATE'],
+  );
+  const activity = (
+    <QaStageActivity>
+      {round === 1 && isStageRunning(sprint, ['AUTO_REVIEW'])
+        ? '1차 자동화 검수 중입니다.'
+        : '체크리스트를 생성 중입니다.'}
+    </QaStageActivity>
+  );
   const locked = closed || running;
   const parts = filter === 'ALL' ? PART_ORDER : [filter];
   const features = (query.data?.features ?? [])
@@ -77,23 +84,7 @@ export function ChecklistPanel({ sprint, round }: { sprint: Sprint; round: Round
       ),
     ),
   );
-  const allChecked =
-    query.isSuccess &&
-    first.isSuccess &&
-    design.isSuccess &&
-    [...query.data.features, ...first.data.features].every((f) =>
-      f.items.every((i) => i.cells.every((c) => c.state !== 'UNCHECKED')),
-    ) &&
-    design.data.features.every((f) => f.items.every((i) => i.state !== 'UNCHECKED'));
-  const canClose =
-    round === 2 &&
-    sprint.status === 'MANUAL_REVIEW' &&
-    !running &&
-    allChecked &&
-    !query.isFetching &&
-    !first.isFetching &&
-    !design.isFetching;
-  if (query.isLoading) return <LoadingSkeleton />;
+  if (query.isLoading) return tabRunning ? activity : <LoadingSkeleton />;
   if (query.isError) {
     const view = qaErrorView(query.error);
     return (
@@ -108,6 +99,7 @@ export function ChecklistPanel({ sprint, round }: { sprint: Sprint; round: Round
       <ProgressGauges progress={sprint.progress} />
       {closed && <QaNotice>{NOTICE_COPY.CLOSED}</QaNotice>}
       {running && <QaNotice>{NOTICE_COPY.RUNNING}</QaNotice>}
+      {tabRunning && activity}
       <div className="sticky top-header z-10 flex items-center justify-between border-b border-border bg-page py-3">
         <Select
           value={filter}
@@ -133,9 +125,11 @@ export function ChecklistPanel({ sprint, round }: { sprint: Sprint; round: Round
         </Button>
       </div>
       {features.length === 0 ? (
-        <EmptyState
-          message={filter === 'ALL' ? NOTICE_COPY.EMPTY_ITEMS : NOTICE_COPY.EMPTY_FILTERED}
-        />
+        tabRunning ? null : (
+          <EmptyState
+            message={filter === 'ALL' ? NOTICE_COPY.EMPTY_ITEMS : NOTICE_COPY.EMPTY_FILTERED}
+          />
+        )
       ) : (
         features.map((feature) => (
           <section
@@ -148,26 +142,35 @@ export function ChecklistPanel({ sprint, round }: { sprint: Sprint; round: Round
               collapsed={next.collapsed.has(feature.featureId)}
               onToggle={() => next.toggle(feature.featureId)}
             >
-              <Button
-                size="sm"
-                variant="outline"
-                disabled={locked}
-                onClick={() => setForm({ feature })}
-              >
-                항목 추가
-              </Button>
+              {round === 2 && (
+                <Button
+                  size="sm"
+                  variant="outline"
+                  disabled={locked}
+                  onClick={() => setForm({ feature })}
+                >
+                  항목 추가
+                </Button>
+              )}
             </FeatureGroupHeader>
             {!next.collapsed.has(feature.featureId) && (
-              <Table>
+              <Table className="table-fixed">
+                <colgroup>
+                  <col />
+                  {parts.map((part) => (
+                    <col key={part} className="w-28" />
+                  ))}
+                  <col className="w-32" />
+                </colgroup>
                 <TableHeader>
                   <TableRow className="hover:bg-transparent">
                     <TableHead>항목</TableHead>
                     {parts.map((part) => (
-                      <TableHead key={part} className="w-32 text-center">
+                      <TableHead key={part} className="text-center">
                         {PART_LABELS[part]}
                       </TableHead>
                     ))}
-                    <TableHead className="w-28">
+                    <TableHead>
                       <span className="sr-only">항목 관리</span>
                     </TableHead>
                   </TableRow>
@@ -179,7 +182,7 @@ export function ChecklistPanel({ sprint, round }: { sprint: Sprint; round: Round
                       className="hover:bg-transparent"
                       aria-label={item.title}
                     >
-                      <TableCell>
+                      <TableCell className="break-words">
                         <div className="flex flex-col gap-2">
                           <div className="flex flex-wrap items-center gap-2">
                             <h3 className="text-body font-medium text-foreground">{item.title}</h3>
@@ -243,34 +246,11 @@ export function ChecklistPanel({ sprint, round }: { sprint: Sprint; round: Round
           </section>
         ))
       )}
-      {round === 2 && !closed && (
-        <div className="flex flex-col items-end gap-2 border-t border-border pt-4">
-          <Button variant="destructive" disabled={!canClose} onClick={() => setClosing(true)}>
-            스프린트 종료
-          </Button>
-          {!canClose && <p className="text-caption text-fg-muted">{NOTICE_COPY.CLOSE_BLOCKED}</p>}
-          {(first.isError || design.isError) && (
-            <ErrorState
-              className="py-4"
-              message={qaErrorView(first.error ?? design.error).message}
-              onRetry={
-                qaErrorView(first.error ?? design.error).retryable
-                  ? () => {
-                      void first.refetch();
-                      void design.refetch();
-                    }
-                  : undefined
-              }
-            />
-          )}
-        </div>
-      )}
       {form && (
         <ChecklistItemFormModal
           sprintId={sprint.id}
           feature={form.feature}
           item={form.item}
-          round={round}
           locked={locked}
           onClose={() => setForm(null)}
         />
@@ -305,9 +285,6 @@ export function ChecklistPanel({ sprint, round }: { sprint: Sprint; round: Round
           )
         }
       />
-      {closing && (
-        <CloseSprintModal sprint={sprint} canClose={canClose} onClose={() => setClosing(false)} />
-      )}
     </div>
   );
 }

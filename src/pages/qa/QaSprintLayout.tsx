@@ -8,6 +8,7 @@ import { useSetupJob, useSprint } from '@/features/qa/queries';
 import { SprintHeader } from '@/features/qa/components/SprintHeader';
 import { qaErrorView } from '@/features/qa/errorView';
 import { SPRINT_SCREENS } from '@/features/qa/screens';
+import { TooltipProvider } from '@/shared/components/ui/tooltip';
 
 export function QaSprintLayout() {
   const id = Number(useParams().sprintId);
@@ -34,16 +35,18 @@ export function QaSprintLayout() {
   }
   const jobError = qaErrorView(job.error);
   return (
-    <div className="flex flex-col gap-6">
-      <SprintHeader sprint={sprint} />
-      {job.isError && (
-        <ErrorState
-          className="py-4"
-          message={jobError.message}
-          onRetry={jobError.retryable ? () => job.refetch() : undefined}
-        />
-      )}
-      <Outlet />
-    </div>
+    <TooltipProvider delayDuration={200}>
+      <div className="flex flex-col gap-6">
+        <SprintHeader sprint={sprint} />
+        {job.isError && (
+          <ErrorState
+            className="py-4"
+            message={jobError.message}
+            onRetry={jobError.retryable ? () => job.refetch() : undefined}
+          />
+        )}
+        <Outlet />
+      </div>
+    </TooltipProvider>
   );
 }

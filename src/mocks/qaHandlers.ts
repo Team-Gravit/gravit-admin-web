@@ -25,6 +25,13 @@ import {
 const QA = env.VITE_QA_API_BASE;
 const now = () => `${new Date(Date.now() + 9 * 60 * 60 * 1000).toISOString().slice(0, -1)}+09:00`;
 const scenario = () => new URLSearchParams(window.location.search).get('qaMock');
+function compatibilityBody<T>(data: T): T {
+  return scenario() === 'legacy'
+    ? (JSON.parse(
+        JSON.stringify(data, (key, value: unknown) => (key === 'evidence' ? undefined : value)),
+      ) as T)
+    : data;
+}
 const error = (status: number, code: string, message: string) =>
   HttpResponse.json({ error: code, message }, { status });
 const conflict = () =>
@@ -101,8 +108,8 @@ function seed(id: number, status: SprintStatus, complete = false) {
         : (['NOTION', 'FIGMA', 'SERVER', 'WEB', 'APP'] as const).map((target) => ({
             target,
             connected: id !== 8 || target !== 'APP',
-            ref: ['NOTION', 'FIGMA'].includes(target) ? null : 'release@abc1234',
-            message: id === 8 && target === 'APP' ? 'release 브랜치를 찾을 수 없습니다.' : null,
+            ref: ['NOTION', 'FIGMA'].includes(target) ? null : 'qa-baseline@abc1234',
+            message: id === 8 && target === 'APP' ? 'qa-baseline 브랜치를 찾을 수 없습니다.' : null,
           })),
     progress: ready ? progressOf(fixture) : [],
     setupSteps:
@@ -150,14 +157,14 @@ function seed(id: number, status: SprintStatus, complete = false) {
   } else if (id === 8) {
     const job = newJob(id, 0);
     job.status = 'FAILED';
-    job.lastError = 'APP 저장소 release 브랜치가 없습니다.';
+    job.lastError = 'NonRetryableJobException: APP 저장소 qa-baseline 브랜치가 없습니다.';
     if (job.steps[0]) job.steps[0].status = 'FAILED';
     sprint.latestJob = job;
     sprint.setupSteps = KEYS.map((key, i) => ({
       key,
       status: i === 0 ? 'FAILED' : 'PENDING',
       attempt: i === 0 ? 1 : 0,
-      message: i === 0 ? job.lastError : null,
+      message: i === 0 ? 'APP 저장소 qa-baseline 브랜치가 없습니다.' : null,
     }));
   } else if ([3, 4, 5].includes(id)) {
     const step = id === 3 ? 4 : id === 4 ? 3 : 2;
@@ -320,7 +327,7 @@ export const qaHandlers = [
       (target) => ({
         target,
         connected: true,
-        ref: ['NOTION', 'FIGMA'].includes(target) ? null : 'release@def5678',
+        ref: ['NOTION', 'FIGMA'].includes(target) ? null : 'qa-baseline@def5678',
         message: null,
       }),
     );
@@ -453,11 +460,13 @@ export const qaHandlers = [
       ? HttpResponse.json(
           ['DRAFT', 'SPEC_LOAD', 'CHECKLIST'].includes(record.sprint.status)
             ? { sprintId: record.sprint.id, sprintStatus: record.sprint.status, features: [] }
-            : checklistResponse(
-                record.sprint.id,
-                record.sprint.status,
-                record.fixture,
-                round === '1' ? 1 : 2,
+            : compatibilityBody(
+                checklistResponse(
+                  record.sprint.id,
+                  record.sprint.status,
+                  record.fixture,
+                  round === '1' ? 1 : 2,
+                ),
               ),
         )
       : missing();
@@ -477,11 +486,17 @@ export const qaHandlers = [
   http.put(`${QA}/design-review-items/:id`, async ({ params, request }) => {
     const failure = guard();
     if (failure) return failure;
+    if (scenario() === 'verdict-delay' || scenario() === 'verdict-fail') {
+      await delay(800);
+      if (scenario() === 'verdict-fail')
+        return error(500, 'GLOBAL_5001', '판정을 저장하지 못했습니다. 다시 시도해 주세요.');
+    }
     const found = findDesign(Number(params.id));
     if (!found) return missing();
     const { record, item } = found;
     const parsed = stateBody.safeParse(await request.json());
     if (!parsed.success) return badRequest();
+    if (scenario() === 'legacy' && parsed.data.state === 'NOT_APPLICABLE') return badRequest();
     if (versionMismatch(item.version, parsed.data.version)) return conflict();
     if (record.sprint.status === 'CLOSED' || !item.editable) return invalidState();
     Object.assign(item, {
@@ -508,6 +523,63 @@ export const qaHandlers = [
       ? HttpResponse.json(found.record.fixture.designHistory.get(found.item.id) ?? [])
       : missing();
   }),
+  http.patch(`${QA}/design-review-items/:id`, async ({ params, request }) => {
+    const failure = guard();
+    if (failure) return failure;
+    if (scenario() === 'legacy') return missing();
+    const found = findDesign(Number(params.id));
+    if (!found) return missing();
+    const { record, item } = found;
+    const parsed = versionBody
+      .extend({
+        title: z.string().trim().min(1).optional(),
+        expected: z.string().trim().min(1).optional(),
+      })
+      .safeParse(await request.json());
+    if (!parsed.success) return badRequest();
+    if (versionMismatch(item.version, parsed.data.version)) return conflict();
+    if (active(record) || record.sprint.status === 'CLOSED' || !item.editable)
+      return invalidState();
+    const title = parsed.data.title ?? item.title;
+    const expected = parsed.data.expected ?? item.expected;
+    if (title !== item.title || expected !== item.expected) {
+      Object.assign(item, {
+        title,
+        expected,
+        state: 'UNCHECKED',
+        source: 'MANUAL',
+        reason: null,
+        version: item.version + 1,
+      });
+      const history = record.fixture.designHistory.get(item.id) ?? [];
+      history.unshift({
+        state: 'UNCHECKED',
+        source: 'MANUAL',
+        reason: '항목 수정으로 판정 초기화',
+        updatedBy: 1,
+        updatedAt: now(),
+      });
+      record.fixture.designHistory.set(item.id, history);
+    }
+    sync(record);
+    return HttpResponse.json(item);
+  }),
+  http.delete(`${QA}/design-review-items/:id`, ({ params, request }) => {
+    const failure = guard();
+    if (failure) return failure;
+    if (scenario() === 'legacy') return missing();
+    const found = findDesign(Number(params.id));
+    if (!found) return missing();
+    const { record, item } = found;
+    const version = new URL(request.url).searchParams.get('version');
+    if (version === null || !/^\d+$/.test(version)) return badRequest();
+    if (versionMismatch(item.version, Number(version))) return conflict();
+    if (active(record) || record.sprint.status === 'CLOSED' || !item.editable)
+      return invalidState();
+    record.fixture.design = record.fixture.design.filter((entry) => entry.id !== item.id);
+    sync(record);
+    return new HttpResponse(null, { status: 204 });
+  }),
   http.post(`${QA}/sprints/:id/checklist-items`, async ({ params, request }) => {
     const failure = guard();
     if (failure) return failure;
@@ -515,12 +587,13 @@ export const qaHandlers = [
     if (!record) return missing();
     if (active(record) || record.sprint.status === 'CLOSED') return invalidState();
     const parsed = checklistItemFormSchema
-      .extend({ featureId: z.number() })
+      .extend({ featureId: z.number(), classification: z.enum(['AUTO', 'MANUAL']).optional() })
       .safeParse(await request.json());
     if (!parsed.success) return badRequest();
     if (!SCREENS.some((s) => s.featureId === parsed.data.featureId)) return badRequest();
     const item: ChecklistItem = {
       ...parsed.data,
+      classification: 'MANUAL',
       id: nextItemId++,
       origin: 'HUMAN',
       version: 0,
@@ -529,6 +602,7 @@ export const qaHandlers = [
         state: 'UNCHECKED',
         source: 'MANUAL',
         reason: null,
+        evidence: [],
         editable: true,
         version: 0,
       })),
@@ -550,6 +624,11 @@ export const qaHandlers = [
       .safeParse(await request.json());
     if (!parsed.success) return badRequest();
     if (versionMismatch(item.version, parsed.data.version)) return conflict();
+    if (
+      parsed.data.classification !== undefined &&
+      !(item.classification === 'AUTO' && parsed.data.classification === 'MANUAL')
+    )
+      return error(400, 'CHECKLIST_4001', '자동 항목을 수동으로 옮기는 것만 가능합니다.');
     const changes = checklistItemFormSchema.partial().parse(parsed.data);
     if (Object.keys(changes).length > 0) {
       Object.assign(item, changes);
@@ -565,6 +644,7 @@ export const qaHandlers = [
           changedBy: 1,
           changedAt: now(),
           reason: '항목 수정으로 판정 초기화',
+          evidence: [],
         });
         record.fixture.cellHistory.set(key, history);
         return {
@@ -572,6 +652,7 @@ export const qaHandlers = [
           state: 'UNCHECKED',
           source: 'MANUAL',
           reason: null,
+          evidence: [],
           editable: true,
           version: (old?.version ?? -1) + 1,
         };
@@ -597,6 +678,11 @@ export const qaHandlers = [
   http.put(`${QA}/checklist-items/:id/cells/:part`, async ({ params, request }) => {
     const failure = guard();
     if (failure) return failure;
+    if (scenario() === 'verdict-delay' || scenario() === 'verdict-fail') {
+      await delay(800);
+      if (scenario() === 'verdict-fail')
+        return error(500, 'GLOBAL_5001', '판정을 저장하지 못했습니다. 다시 시도해 주세요.');
+    }
     const found = findItem(Number(params.id));
     if (!found) return missing();
     const part = partSchema.safeParse(params.part);
@@ -606,6 +692,8 @@ export const qaHandlers = [
     if (!cell) return missing();
     const parsed = stateBody.safeParse(await request.json());
     if (!parsed.success) return badRequest();
+    if (parsed.data.state === 'NOT_APPLICABLE')
+      return error(400, 'CHECKLIST_4001', '체크 셀을 해당 없음으로 변경할 수 없습니다.');
     if (versionMismatch(cell.version, parsed.data.version)) return conflict();
     if (record.sprint.status === 'CLOSED' || !cell.editable) return invalidState();
     const key = `${item.id}:${cell.part}`;
@@ -617,23 +705,29 @@ export const qaHandlers = [
       changedBy: 1,
       changedAt: now(),
       reason: null,
+      evidence: [],
     });
     record.fixture.cellHistory.set(key, history);
     Object.assign(cell, {
       state: parsed.data.state,
       source: 'MANUAL',
       reason: null,
+      evidence: [],
       version: cell.version + 1,
     });
     sync(record);
-    return HttpResponse.json(cell);
+    return HttpResponse.json(compatibilityBody(cell));
   }),
   http.get(`${QA}/checklist-items/:id/cells/:part/history`, ({ params }) => {
     const failure = guard();
     if (failure) return failure;
     const found = findItem(Number(params.id));
     return found
-      ? HttpResponse.json(found.record.fixture.cellHistory.get(`${params.id}:${params.part}`) ?? [])
+      ? HttpResponse.json(
+          compatibilityBody(
+            found.record.fixture.cellHistory.get(`${params.id}:${params.part}`) ?? [],
+          ),
+        )
       : missing();
   }),
   http.post(`${QA}/sprints/:id/close`, async ({ params, request }) => {

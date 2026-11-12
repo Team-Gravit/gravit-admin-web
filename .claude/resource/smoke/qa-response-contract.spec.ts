@@ -1,6 +1,7 @@
 import { expect, test } from '@playwright/test';
 import {
   checkCellHistoryListSchema,
+  checkCellSchema,
   designReviewSchema,
   jobSchema,
 } from '../../../src/features/qa/schemas';
@@ -55,7 +56,8 @@ test('서버 체크 셀 이력은 autoRunId 없이 1차 판정 사유를 파싱�
   ];
   const parsed = checkCellHistoryListSchema.safeParse(history);
   expect(parsed.success).toBe(true);
-  if (parsed.success) expect(parsed.data).toEqual(history);
+  if (parsed.success)
+    expect(parsed.data).toEqual(history.map((entry) => ({ ...entry, evidence: [] })));
 });
 
 test('서버 작업 타입은 SPEC_LOAD와 QA_PREPARE만 허용한다', () => {
@@ -76,4 +78,30 @@ test('서버 작업 타입은 SPEC_LOAD와 QA_PREPARE만 허용한다', () => {
     expect(jobSchema.safeParse({ ...job, type }).success).toBe(true);
   }
   expect(jobSchema.safeParse({ ...job, type: 'SETUP' }).success).toBe(false);
+});
+
+test('새 서버 셀과 이력은 구조화된 근거를 보존하고 옛 셀은 빈 근거로 파싱한다', () => {
+  const evidence = [{ path: 'src/auth/login.ts', startLine: 12, endLine: 28 }];
+  const oldCell = {
+    part: 'WEB',
+    state: 'PASS',
+    source: 'AUTO',
+    reason: '로그인 분기를 확인했습니다.',
+    editable: true,
+    version: 1,
+  };
+  expect(checkCellSchema.parse(oldCell).evidence).toEqual([]);
+  expect(checkCellSchema.parse({ ...oldCell, evidence }).evidence).toEqual(evidence);
+  const history = [
+    {
+      fromState: 'UNCHECKED',
+      toState: 'PASS',
+      source: 'AUTO',
+      changedBy: null,
+      changedAt: '2026-11-12T14:43:00+09:00',
+      reason: oldCell.reason,
+      evidence,
+    },
+  ];
+  expect(checkCellHistoryListSchema.parse(history)[0]).toEqual(history[0]);
 });

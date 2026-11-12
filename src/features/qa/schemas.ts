@@ -14,6 +14,13 @@ export const sprintStatusSchema = z.enum([
 export const partSchema = z.enum(['SERVER', 'WEB', 'APP']);
 export const progressPartSchema = z.enum(['DESIGN', 'WEB', 'APP', 'SERVER']);
 export const cellStateSchema = z.enum(['UNCHECKED', 'PASS', 'FAIL', 'NOT_APPLICABLE']);
+export const manualCellStateSchema = cellStateSchema.exclude(['NOT_APPLICABLE']);
+export const evidenceSchema = z.object({
+  path: z.string(),
+  startLine: z.number().int(),
+  endLine: z.number().int(),
+});
+const cellEvidenceSchema = z.array(evidenceSchema).optional().default([]);
 export const cellSourceSchema = z.enum(['MANUAL', 'AUTO']);
 export const classificationSchema = z.enum(['AUTO', 'MANUAL']);
 export const jobStatusSchema = z.enum(['QUEUED', 'RUNNING', 'SUCCEEDED', 'FAILED', 'CANCELLED']);
@@ -109,6 +116,7 @@ export const checkCellSchema = z.object({
   state: cellStateSchema,
   source: cellSourceSchema,
   reason: z.string().nullable(),
+  evidence: cellEvidenceSchema,
   editable: z.boolean(),
   version: z.number(),
 });
@@ -119,6 +127,7 @@ export const checkCellHistorySchema = z.object({
   changedBy: z.number().nullable(),
   changedAt: z.string(),
   reason: z.string().nullable(),
+  evidence: cellEvidenceSchema,
 });
 export const checkCellHistoryListSchema = z.array(checkCellHistorySchema);
 export const checklistItemSchema = z.object({
@@ -188,11 +197,13 @@ export const checklistItemFormSchema = z.object({
   parts: z.array(partSchema).min(1, NOTICE_COPY.VALIDATION_PARTS),
   classification: classificationSchema,
 });
+export const designItemFormSchema = checklistItemFormSchema.pick({ title: true, expected: true });
 export type SprintStatus = z.infer<typeof sprintStatusSchema>;
 export type Part = z.infer<typeof partSchema>;
 export type ProgressPart = z.infer<typeof progressPartSchema>;
 export type PartProgress = z.infer<typeof partProgressSchema>;
 export type CellState = z.infer<typeof cellStateSchema>;
+export type ManualCellState = z.infer<typeof manualCellStateSchema>;
 export type CellSource = z.infer<typeof cellSourceSchema>;
 export type Classification = z.infer<typeof classificationSchema>;
 export type JobStatus = z.infer<typeof jobStatusSchema>;
@@ -213,4 +224,5 @@ export type DesignReview = z.infer<typeof designReviewSchema>;
 export type DesignHistory = z.infer<typeof designHistorySchema>;
 export type SprintCreateFormValues = z.infer<typeof sprintCreateFormSchema>;
 export type ChecklistItemFormValues = z.infer<typeof checklistItemFormSchema>;
+export type DesignItemFormValues = z.infer<typeof designItemFormSchema>;
 export type Round = 1 | 2;

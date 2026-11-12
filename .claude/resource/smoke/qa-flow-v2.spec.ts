@@ -54,7 +54,11 @@ for (const [id, path] of [
     await expect(page.getByText('Notion에서 보기')).toHaveCount(0);
     await expect(page.getByText('지금 할 일')).toHaveCount(0);
     if (id === 8)
-      await expect(page.getByRole('list', { name: '진행 단계' }).getByText('실패')).toBeVisible();
+      await expect(
+        page
+          .getByRole('list', { name: '진행 단계' })
+          .getByRole('listitem', { name: '기능 명세서 로드 실패', exact: true }),
+      ).toBeVisible();
   });
 }
 
@@ -80,12 +84,12 @@ test('등록 모달은 URL 검증 후 새 스프린트의 연결 현황으로 �
   await expect(page.getByRole('button', { name: '시작', exact: true })).toBeVisible();
 });
 
-test('연결 현황은 5개 대상과 DONE 단계 메시지, 제목 오른쪽 태그를 표시한다', async ({ page }) => {
+test('연결 현황은 5개 대상과 DONE 단계 메시지, 공통 상태 아이콘을 표시한다', async ({ page }) => {
   await page.goto('/qa/sprints/9/setup');
   const connections = page.getByRole('region', { name: '연결 상태' });
-  await expect(connections.getByText('연결됨', { exact: true })).toHaveCount(5);
+  await expect(connections.getByRole('img', { name: '연결됨', exact: true })).toHaveCount(5);
   const steps = page.getByRole('region', { name: '준비 작업' });
-  await expect(steps.getByText('완료', { exact: true })).toHaveCount(5);
+  await expect(steps.getByRole('img', { name: '완료', exact: true })).toHaveCount(5);
   await expect(
     steps.getByText('API 명세 일부가 없어 해당 항목은 수동 확인이 필요합니다.'),
   ).toBeVisible();
@@ -99,10 +103,10 @@ test('반영 실패는 DB의 새 버전을 읽어 다시 승인하고 나머지 
   await expect(proposal.getByRole('region', { name: '바뀌기 전' })).toBeVisible();
   await expect(proposal.getByRole('region', { name: '바뀐 후' })).toBeVisible();
   await proposal.getByRole('button', { name: '승인', exact: true }).click();
-  await expect(proposal.getByText('반영 실패', { exact: true })).toBeVisible();
+  await expect(proposal.getByRole('img', { name: '반영 실패', exact: true })).toBeVisible();
   await expect(proposal.getByRole('status')).toContainText('Notion 본문 반영에 실패');
   await proposal.getByRole('button', { name: '다시 승인' }).click();
-  await expect(proposal.getByText('반영 완료')).toBeVisible();
+  await expect(proposal.getByRole('img', { name: '반영 완료', exact: true })).toBeVisible();
   await page
     .getByRole('article', { name: 'G-APP 반영 제안' })
     .getByRole('button', { name: '거절', exact: true })
@@ -141,24 +145,25 @@ test('디자인 자동 판정을 변경하고 원래 사유를 이력에서 확�
   await expect(page.getByRole('meter')).toHaveCount(4);
   for (const name of ['Design', 'Web', 'APP', 'Server'])
     await expect(page.getByRole('meter', { name: `${name} 완료율` })).toBeVisible();
-  const missing = page.getByRole('article', { name: 'APP AOS 시안 프레임이 없다', exact: true });
+  const missing = page.getByRole('row', { name: 'APP AOS 시안 프레임이 없다', exact: true });
   await expect(missing.getByText('Figma 프레임 없음', { exact: true })).toBeVisible();
   await expect(page.getByText('Figma와 화면 명세를 비교한 자동 검수 결과입니다.')).toHaveCount(0);
   const before = await api(page, '/sprints/2');
-  await missing.getByRole('button', { name: '해당 없음', exact: true }).click();
-  await expect(missing.getByRole('button', { name: '해당 없음', exact: true })).toHaveAttribute(
-    'aria-pressed',
-    'true',
-  );
+  await missing.getByRole('button', { name: 'APP 미검수 — 변경', exact: true }).click();
+  await page.getByRole('menuitemcheckbox', { name: '해당 없음', exact: true }).click();
+  await expect(
+    missing.getByRole('button', { name: 'APP 해당 없음 — 변경', exact: true }),
+  ).toBeVisible();
   const after = await api(page, '/sprints/2');
   expect(after.data.progress[0].total).toBe(before.data.progress[0].total - 1);
-  await missing.getByRole('button', { name: '이력 보기' }).click();
+  await missing.getByRole('button', { name: 'APP 해당 없음 — 변경', exact: true }).click();
+  await page.getByRole('menuitem', { name: '변경 이력', exact: true }).click();
   const history = page.getByRole('dialog');
   await expect(history).toContainText('수동 판정');
   await expect(history).toContainText('Figma 프레임 없음');
 });
 
-test('셀은 round별로 분리되고 자동 결과도 변경·해당 없음·이력 조회가 가능하다', async ({
+test('셀은 round별로 분리되고 자동 결과도 변경·이력 조회가 가능하며 해당 없음은 금지한다', async ({
   page,
 }) => {
   const rounds: string[] = [];
@@ -173,15 +178,24 @@ test('셀은 round별로 분리되고 자동 결과도 변경·해당 없음·�
   await expect(target.getByRole('button', { name: 'APP Pass — 변경', exact: true })).toBeVisible();
   await target.getByRole('button', { name: 'APP Pass — 변경', exact: true }).click();
   await page.getByRole('menuitem', { name: '변경 이력', exact: true }).click();
-  await expect(page.getByRole('dialog')).toContainText('release 코드에서 명세');
+  await expect(page.getByRole('dialog')).toContainText('qa-baseline 코드에서 명세');
   await expect(page.getByRole('dialog')).toContainText('수동 판정');
   await page.getByRole('dialog').getByRole('button', { name: '닫기' }).click();
   await target.getByRole('button', { name: 'APP Pass — 변경', exact: true }).click();
-  await page.getByRole('menuitemcheckbox', { name: '해당 없음', exact: true }).click();
-  await target.getByRole('button', { name: 'APP 해당 없음 — 변경', exact: true }).click();
-  await page.getByRole('menuitem', { name: '변경 이력', exact: true }).click();
-  await expect(page.getByRole('dialog')).toContainText('해당 없음');
-  await page.getByRole('dialog').getByRole('button', { name: '닫기' }).click();
+  await expect(page.getByRole('menuitemcheckbox')).toHaveText(['미검수', 'Pass', 'Fail']);
+  await expect(page.getByRole('menuitemcheckbox', { name: '해당 없음', exact: true })).toHaveCount(
+    0,
+  );
+  await page.keyboard.press('Escape');
+  const current = (await api(page, '/sprints/2/checklist?round=1')).data.features[0].items[1];
+  const cell = current.cells.find((c: { part: string }) => c.part === 'APP');
+  const rejected = await api(page, `/checklist-items/${current.id}/cells/APP`, 'PUT', {
+    state: 'NOT_APPLICABLE',
+    version: cell.version,
+  });
+  expect(rejected.status).toBe(400);
+  expect(rejected.data.error).toBe('CHECKLIST_4001');
+  await expect(target.getByRole('button', { name: 'APP Pass — 변경', exact: true })).toBeVisible();
   await page
     .getByRole('navigation', { name: 'QA 탭' })
     .getByRole('link', { name: '2차 체크리스트' })
@@ -255,7 +269,7 @@ test('항목 폼은 미저장 입력을 닫기 전에 확인한다', async ({ pa
 
 test('준비 실행 중 항목 추가·수정·삭제는 비활성화한다', async ({ page }) => {
   await page.goto('/qa/sprints/4/checklist/1');
-  await expect(group(page).getByRole('button', { name: '항목 추가' })).toBeDisabled();
+  await expect(group(page).getByRole('button', { name: '항목 추가' })).toHaveCount(0);
   await expect(row(page).getByRole('button', { name: '수정', exact: true })).toBeDisabled();
   await expect(row(page).getByRole('button', { name: '삭제', exact: true })).toBeDisabled();
 });
@@ -271,28 +285,35 @@ test('버전 충돌은 재조회 안내를 표시하고 판정은 유지한다',
   await expect(target.getByRole('button', { name: 'Web Pass — 변경', exact: true })).toBeVisible();
 });
 
-test('종료는 2차 탭에만 있고 디자인 미검수도 종료를 막는다', async ({ page }) => {
+test('QA 종료는 모든 탭 상단에 있고 디자인 미검수도 종료를 막는다', async ({ page }) => {
   await page.goto('/qa/sprints/9/checklist/1');
-  await expect(page.getByRole('button', { name: '스프린트 종료', exact: true })).toHaveCount(0);
+  await expect(page.getByRole('button', { name: 'QA 종료', exact: true })).toBeEnabled();
   await page
     .getByRole('navigation', { name: 'QA 탭' })
     .getByRole('link', { name: '디자인 검수' })
     .click();
   await group(page)
-    .getByRole('article')
-    .first()
-    .getByRole('button', { name: '미검수로 변경' })
+    .getByRole('row', { name: 'WEB 주요 버튼 배치', exact: true })
+    .getByRole('button', { name: 'Web Pass — 변경', exact: true })
     .click();
+  await page.getByRole('menuitemcheckbox', { name: '미검수', exact: true }).click();
+  const close = page.getByRole('button', { name: 'QA 종료', exact: true });
+  await expect(close).toBeDisabled();
+  await close.focus();
+  await expect(page.getByRole('tooltip')).toContainText(
+    '디자인 검수와 1·2차 체크리스트의 모든 미검수를 처리해야 종료할 수 있습니다.',
+  );
+  await page.keyboard.press('Escape');
   await page
     .getByRole('navigation', { name: 'QA 탭' })
     .getByRole('link', { name: '2차 체크리스트' })
     .click();
-  await expect(page.getByRole('button', { name: '스프린트 종료', exact: true })).toBeDisabled();
+  await expect(close).toBeDisabled();
 });
 
 test('종료 기준점 기록 실패는 모달을 유지하고 다시 시도할 수 있다', async ({ page }) => {
   await page.goto('/qa/sprints/9/checklist/2?qaMock=close-fail');
-  await page.getByRole('button', { name: '스프린트 종료', exact: true }).click();
+  await page.getByRole('button', { name: 'QA 종료', exact: true }).click();
   const dialog = page.getByRole('dialog');
   await dialog.getByRole('button', { name: '종료', exact: true }).click();
   await expect(dialog.getByRole('alert')).toContainText('QA 기준점 기록에 실패');
@@ -341,7 +362,9 @@ test('준비 시작은 jobId로 진행을 추적하고 다른 탭에서도 완�
   await page.goto('/qa/sprints/7/setup');
   await page.getByRole('button', { name: '시작', exact: true }).click();
   await expect(
-    page.getByRole('region', { name: '준비 작업' }).getByText('진행 중', { exact: true }),
+    page
+      .getByRole('region', { name: '준비 작업' })
+      .getByRole('img', { name: '진행 중', exact: true }),
   ).toBeVisible();
   expect(starts).toEqual([{ version: 0 }]);
   await page
@@ -352,7 +375,8 @@ test('준비 시작은 jobId로 진행을 추적하고 다른 탭에서도 완�
     page.getByRole('list', { name: '진행 단계' }).locator('[aria-current="step"]'),
   ).toContainText('2차 수동 검수', { timeout: 30_000 });
   await expect(page).toHaveURL(/\/qa\/sprints\/7\/checklist\/1$/);
-  await expect(group(page).getByRole('button', { name: '항목 추가' })).toBeEnabled();
+  await expect(group(page).getByRole('button', { name: '항목 추가' })).toHaveCount(0);
+  await expect(row(page).getByRole('button', { name: '수정', exact: true })).toBeEnabled();
 });
 
 test('실패 단계부터 재시도하고 진행 중 작업을 취소할 수 있다', async ({ page }) => {

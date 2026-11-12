@@ -2,6 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer utilities {
+  /* Keep centering independent of the scale transform used by dialog animations. */
+  .dialog-position {
+    left: 50%;
+    top: 50%;
+    translate: -50% -50%;
+  }
+}
+
 /*
  * DS-01 디자인 토큰 — CSS 변수 정의 (라이트 모드 전용, 권위: spec/DS-01 §1).
  * 값은 HSL 트리플(공백 구분)로 두고 tailwind.config.ts 에서 hsl(var(--x)) 로 참조한다.

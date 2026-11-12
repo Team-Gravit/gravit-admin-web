@@ -11,7 +11,7 @@ import {
   listCheckCellHistory,
   listSprints,
 } from '@/features/qa/api';
-import type { Job, JobStatus, Part, Round, Sprint } from '@/features/qa/schemas';
+import type { Job, JobStatus, Part, Round, SetupStepKey, Sprint } from '@/features/qa/schemas';
 
 export const qaKeys = {
   all: ['qa'] as const,
@@ -28,6 +28,12 @@ export const qaKeys = {
 export const isJobActive = (status: JobStatus | undefined) =>
   status === 'QUEUED' || status === 'RUNNING';
 export const hasRunningSetup = (sprint: Sprint) => isJobActive(sprint.latestJob?.status);
+export function isStageRunning(sprint: Sprint, keys: readonly SetupStepKey[]) {
+  return (
+    hasRunningSetup(sprint) &&
+    sprint.setupSteps.some((step) => keys.includes(step.key) && step.status === 'RUNNING')
+  );
+}
 export function useSprints() {
   return useQuery({ queryKey: qaKeys.sprintLists(), queryFn: listSprints, retry: qaQueryRetry });
 }

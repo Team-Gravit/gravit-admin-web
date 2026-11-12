@@ -14,7 +14,7 @@ export function FeatureGroupHeader({
   children?: ReactNode;
 }) {
   return (
-    <div className="flex items-center justify-between gap-4 bg-page px-4 py-3">
+    <div className="flex items-center justify-between gap-4 border-b border-border bg-hover px-4 py-3">
       <button
         type="button"
         aria-expanded={!collapsed}

@@ -9,6 +9,7 @@ import type {
   CellState,
   Checklist,
   DesignReview,
+  ManualCellState,
   Part,
   Reflection,
   Round,
@@ -146,7 +147,7 @@ export function useUpdateCheckCell(id: number, round: Round) {
     }: {
       itemId: number;
       part: Part;
-      state: CellState;
+      state: ManualCellState;
       version: number;
     }) => api.updateCheckCell(itemId, part, state, version),
     meta,
@@ -212,6 +213,33 @@ export function useCloseSprint(id: number) {
       client.setQueryData(qaKeys.sprint(id), sprint);
       await refreshSprint(client, id);
       toast.success(TOAST_COPY.SPRINT_CLOSED);
+    },
+    onError: (error) => mutationError(client, id, error),
+  });
+}
+export function useEditDesignItem(id: number) {
+  const client = useQueryClient();
+  return useMutation({
+    mutationFn: ({ itemId, body }: { itemId: number; body: api.DesignItemUpdateBody }) =>
+      api.editDesignItem(itemId, body),
+    meta,
+    onSuccess: async (item) => {
+      await refreshSprint(client, id);
+      void client.invalidateQueries({ queryKey: qaKeys.designHistory(item.id) });
+      toast.success(TOAST_COPY.ITEM_UPDATED);
+    },
+    onError: (error) => mutationError(client, id, error),
+  });
+}
+export function useDeleteDesignItem(id: number) {
+  const client = useQueryClient();
+  return useMutation({
+    mutationFn: ({ itemId, version }: { itemId: number; version: number }) =>
+      api.deleteDesignItem(itemId, version),
+    meta,
+    onSuccess: async () => {
+      await refreshSprint(client, id);
+      toast.success(TOAST_COPY.ITEM_DELETED);
     },
     onError: (error) => mutationError(client, id, error),
   });

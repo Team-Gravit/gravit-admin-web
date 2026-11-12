@@ -8,13 +8,6 @@ import { Input } from '@/shared/components/ui/input';
 import { Textarea } from '@/shared/components/ui/textarea';
 import { Checkbox } from '@/shared/components/ui/checkbox';
 import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from '@/shared/components/ui/select';
-import {
   Dialog,
   DialogContent,
   DialogDescription,
@@ -29,13 +22,12 @@ import { useUnsavedChangesGuard } from '@/shared/hooks/useUnsavedChangesGuard';
 import { QaApiError } from '@/shared/api/qaClient';
 import { useCreateChecklistItem, useUpdateChecklistItem } from '@/features/qa/mutations';
 import { NOTICE_COPY } from '@/features/qa/copy';
-import { CLASSIFICATION_LABELS, PART_LABELS, PART_ORDER } from '@/features/qa/labels';
+import { PART_LABELS, PART_ORDER } from '@/features/qa/labels';
 import {
   checklistItemFormSchema,
   type ChecklistFeature,
   type ChecklistItem,
   type ChecklistItemFormValues,
-  type Round,
 } from '@/features/qa/schemas';
 import type { ChecklistItemUpdateBody } from '@/features/qa/api';
 
@@ -49,8 +41,8 @@ function changedFields(
     ...([...item.parts].sort().join() !== [...values.parts].sort().join()
       ? { parts: values.parts }
       : {}),
-    ...(item.classification !== values.classification
-      ? { classification: values.classification }
+    ...(item.classification === 'AUTO' && values.classification === 'MANUAL'
+      ? { classification: 'MANUAL' as const }
       : {}),
   };
 }
@@ -58,14 +50,12 @@ export function ChecklistItemFormModal({
   sprintId,
   feature,
   item,
-  round,
   locked,
   onClose,
 }: {
   sprintId: number;
   feature: ChecklistFeature;
   item?: ChecklistItem;
-  round: Round;
   locked: boolean;
   onClose: () => void;
 }) {
@@ -82,7 +72,7 @@ export function ChecklistItemFormModal({
       title: item?.title ?? '',
       expected: item?.expected ?? '',
       parts: item?.parts ?? [],
-      classification: item?.classification ?? (round === 1 ? 'AUTO' : 'MANUAL'),
+      classification: item?.classification ?? 'MANUAL',
     },
   });
   const blocker = useUnsavedChangesGuard(form.formState.isDirty && !pending);
@@ -102,7 +92,10 @@ export function ChecklistItemFormModal({
         { onSuccess: onClose, onError },
       );
     else
-      create.mutate({ ...values, featureId: feature.featureId }, { onSuccess: onClose, onError });
+      create.mutate(
+        { ...values, featureId: feature.featureId, classification: 'MANUAL' },
+        { onSuccess: onClose, onError },
+      );
   };
   const submit = form.handleSubmit(
     (values) => {
@@ -175,26 +168,25 @@ export function ChecklistItemFormModal({
                 )}
               />
             </FormField>
-            <FormField label="분류" required>
+            {item?.classification === 'AUTO' && (
               <Controller
                 name="classification"
                 control={form.control}
                 render={({ field }) => (
-                  <Select value={field.value} onValueChange={field.onChange} disabled={disabled}>
-                    <SelectTrigger ref={field.ref} aria-label="분류">
-                      <SelectValue />
-                    </SelectTrigger>
-                    <SelectContent>
-                      {(['AUTO', 'MANUAL'] as const).map((value) => (
-                        <SelectItem key={value} value={value}>
-                          {CLASSIFICATION_LABELS[value]}
-                        </SelectItem>
-                      ))}
-                    </SelectContent>
-                  </Select>
+                  <label className="flex items-center gap-2 text-body text-foreground">
+                    <Checkbox
+                      ref={field.ref}
+                      disabled={disabled}
+                      checked={field.value === 'MANUAL'}
+                      onCheckedChange={(checked) =>
+                        field.onChange(checked === true ? 'MANUAL' : 'AUTO')
+                      }
+                    />
+                    수동(2차)으로 옮기기
+                  </label>
                 )}
               />
-            </FormField>
+            )}
             {locked && (
               <p role="status" className="text-caption text-fg-muted">
                 {NOTICE_COPY.RUNNING}

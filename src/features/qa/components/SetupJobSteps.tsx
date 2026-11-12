@@ -1,10 +1,6 @@
-import { StatusBadge } from '@/shared/components/status-badge/StatusBadge';
-import {
-  SETUP_LABELS,
-  SETUP_ORDER,
-  SETUP_STATUS_LABELS,
-  SETUP_STATUS_VARIANTS,
-} from '@/features/qa/labels';
+import { SETUP_CATEGORIES } from '@/features/qa/status';
+import { QaStatusIcon } from '@/features/qa/components/QaStatusIcon';
+import { SETUP_LABELS, SETUP_ORDER, SETUP_STATUS_LABELS } from '@/features/qa/labels';
 import type { SetupStep } from '@/features/qa/schemas';
 export function SetupJobSteps({ steps }: { steps: SetupStep[] }) {
   return (
@@ -16,9 +12,10 @@ export function SetupJobSteps({ steps }: { steps: SetupStep[] }) {
           <li key={key} className="flex flex-col gap-2 py-3">
             <div className="flex items-center gap-3">
               <span className="text-body font-medium text-foreground">{SETUP_LABELS[key]}</span>
-              <StatusBadge variant={SETUP_STATUS_VARIANTS[status]}>
-                {SETUP_STATUS_LABELS[status]}
-              </StatusBadge>
+              <QaStatusIcon
+                category={SETUP_CATEGORIES[status]}
+                label={SETUP_STATUS_LABELS[status]}
+              />
               <span className="ml-auto text-caption text-fg-muted">
                 시도 {step?.attempt ?? 0}회
               </span>

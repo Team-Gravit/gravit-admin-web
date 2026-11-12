@@ -25,7 +25,7 @@ export function CloseSprintModal({
     <Dialog open onOpenChange={(open) => !open && !close.isPending && onClose()}>
       <DialogContent>
         <DialogHeader>
-          <DialogTitle>스프린트를 종료할까요?</DialogTitle>
+          <DialogTitle>QA를 종료할까요?</DialogTitle>
           <DialogDescription>
             Fail {failCount}건은 미해결로 남습니다. 종료 후에는 판정을 바꿀 수 없습니다.
           </DialogDescription>

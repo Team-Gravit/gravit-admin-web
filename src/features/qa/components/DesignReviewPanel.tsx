@@ -2,7 +2,9 @@ import { Button } from '@/shared/components/ui/button';
 import { LoadingSkeleton } from '@/shared/components/states/LoadingSkeleton';
 import { EmptyState } from '@/shared/components/states/EmptyState';
 import { ErrorState } from '@/shared/components/states/ErrorState';
-import { useDesignReview } from '@/features/qa/queries';
+import { hasRunningSetup, isStageRunning, useDesignReview } from '@/features/qa/queries';
+import { Table, TableBody, TableHead, TableHeader, TableRow } from '@/shared/components/ui/table';
+import { QaStageActivity } from '@/features/qa/components/QaStageActivity';
 import { useNextUnchecked } from '@/features/qa/useNextUnchecked';
 import { ProgressGauges } from '@/features/qa/components/ProgressGauges';
 import { FeatureGroupHeader } from '@/features/qa/components/FeatureGroupHeader';
@@ -14,6 +16,8 @@ import type { Sprint } from '@/features/qa/schemas';
 export function DesignReviewPanel({ sprint }: { sprint: Sprint }) {
   const query = useDesignReview(sprint.id);
   const closed = sprint.status === 'CLOSED';
+  const running = hasRunningSetup(sprint);
+  const tabRunning = isStageRunning(sprint, ['DESIGN_REVIEW']);
   const features = query.data?.features ?? [];
   const next = useNextUnchecked(
     features.flatMap((f) =>
@@ -24,7 +28,12 @@ export function DesignReviewPanel({ sprint }: { sprint: Sprint }) {
       })),
     ),
   );
-  if (query.isLoading) return <LoadingSkeleton />;
+  if (query.isLoading)
+    return tabRunning ? (
+      <QaStageActivity>디자인 검수 중입니다.</QaStageActivity>
+    ) : (
+      <LoadingSkeleton />
+    );
   if (query.isError) {
     const view = qaErrorView(query.error);
     return (
@@ -38,13 +47,16 @@ export function DesignReviewPanel({ sprint }: { sprint: Sprint }) {
     <div className="flex flex-col gap-4">
       <ProgressGauges progress={sprint.progress} />
       {closed && <QaNotice>{NOTICE_COPY.CLOSED}</QaNotice>}
+      {tabRunning && <QaStageActivity>디자인 검수 중입니다.</QaStageActivity>}
       <div className="sticky top-header z-10 flex justify-end bg-page py-3">
         <Button size="sm" variant="outline" disabled={!next.hasTarget} onClick={next.next}>
           다음 미검수
         </Button>
       </div>
       {features.length === 0 ? (
-        <EmptyState message={NOTICE_COPY.EMPTY_ITEMS} />
+        tabRunning ? null : (
+          <EmptyState message={NOTICE_COPY.EMPTY_ITEMS} />
+        )
       ) : (
         features.map((feature) => (
           <section
@@ -58,18 +70,37 @@ export function DesignReviewPanel({ sprint }: { sprint: Sprint }) {
               onToggle={() => next.toggle(feature.featureId)}
             />
             {!next.collapsed.has(feature.featureId) && (
-              <div className="divide-y divide-border">
-                {feature.items.map((item) => (
-                  <DesignReviewItem
-                    key={item.id}
-                    sprintId={sprint.id}
-                    item={item}
-                    closed={closed}
-                    registerRef={(el) => next.register(String(item.id), el)}
-                    onFocus={() => next.onFocus(String(item.id))}
-                  />
-                ))}
-              </div>
+              <Table className="table-fixed">
+                <colgroup>
+                  <col />
+                  <col className="w-28" />
+                  <col className="w-28" />
+                  <col className="w-32" />
+                </colgroup>
+                <TableHeader>
+                  <TableRow className="hover:bg-transparent">
+                    <TableHead>항목</TableHead>
+                    <TableHead className="text-center">Web</TableHead>
+                    <TableHead className="text-center">APP</TableHead>
+                    <TableHead>
+                      <span className="sr-only">항목 관리</span>
+                    </TableHead>
+                  </TableRow>
+                </TableHeader>
+                <TableBody>
+                  {feature.items.map((item) => (
+                    <DesignReviewItem
+                      key={item.id}
+                      sprintId={sprint.id}
+                      item={item}
+                      closed={closed}
+                      running={running}
+                      registerRef={(el) => next.register(String(item.id), el)}
+                      onFocus={() => next.onFocus(String(item.id))}
+                    />
+                  ))}
+                </TableBody>
+              </Table>
             )}
           </section>
         ))

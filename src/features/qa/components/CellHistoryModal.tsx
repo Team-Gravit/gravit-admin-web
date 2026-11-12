@@ -29,7 +29,7 @@ export function CellHistoryModal({
   const view = qaErrorView(query.error);
   return (
     <Dialog open onOpenChange={(open) => !open && onClose()}>
-      <DialogContent className="max-h-screen overflow-y-auto">
+      <DialogContent className="max-w-modal-history">
         <DialogHeader>
           <DialogTitle>변경 이력</DialogTitle>
           <DialogDescription>
@@ -50,13 +50,9 @@ export function CellHistoryModal({
             {query.data.map((h, i) => (
               <li key={`${h.changedAt}-${i}`} className="flex flex-col gap-2 py-3">
                 <p className="text-body text-foreground">
-                  {CELL_STATE_LABELS[h.fromState]} →{' '}
-                  <span className="font-medium">{CELL_STATE_LABELS[h.toState]}</span>
-                </p>
-                <p className="text-caption text-fg-muted">
-                  {formatDateTime(h.changedAt)} ·{' '}
-                  {h.changedBy === null ? '자동 판정' : `운영자 #${h.changedBy}`} ·{' '}
-                  {CELL_SOURCE_LABELS[h.source]}
+                  <span className="font-medium">{CELL_STATE_LABELS[h.toState]}</span> ·{' '}
+                  {formatDateTime(h.changedAt)} · {CELL_SOURCE_LABELS[h.source]}
+                  {h.changedBy !== null && ` (운영자 #${h.changedBy})`}
                 </p>
                 {h.reason && (
                   <p className="whitespace-pre-wrap rounded-md bg-page p-3 text-caption text-fg-secondary">

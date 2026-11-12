@@ -1,7 +1,8 @@
+import { REFLECTION_CATEGORIES } from '@/features/qa/status';
 import { useState } from 'react';
 import { Loader2 } from 'lucide-react';
 import { Button } from '@/shared/components/ui/button';
-import { StatusBadge } from '@/shared/components/status-badge/StatusBadge';
+import { QaStatusIcon } from '@/features/qa/components/QaStatusIcon';
 import { LoadingSkeleton } from '@/shared/components/states/LoadingSkeleton';
 import { EmptyState } from '@/shared/components/states/EmptyState';
 import { ErrorState } from '@/shared/components/states/ErrorState';
@@ -77,13 +78,10 @@ function ReflectionCard({
       <div className="flex items-center gap-2">
         <code className="font-mono text-caption text-fg-secondary">{item.screenId}</code>
         <h3 className="text-body font-medium text-foreground">{item.screenName}</h3>
-        <StatusBadge
-          variant={
-            item.state === 'FAILED' ? 'danger' : item.state === 'APPLIED' ? 'success' : 'muted'
-          }
-        >
-          {REFLECTION_LABELS[item.state]}
-        </StatusBadge>
+        <QaStatusIcon
+          category={REFLECTION_CATEGORIES[item.state]}
+          label={REFLECTION_LABELS[item.state]}
+        />
       </div>
       <ul className="flex flex-col gap-1 text-caption text-fg-secondary">
         {item.historyRows.map((row, i) => (

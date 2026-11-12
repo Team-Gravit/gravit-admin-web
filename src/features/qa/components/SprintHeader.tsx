@@ -1,6 +1,7 @@
 import { NavLink, useLocation } from 'react-router';
 import { StageStepper } from '@/features/qa/components/StageStepper';
-import { SprintStatusBadge } from '@/features/qa/components/SprintStatusBadge';
+import { QaCloseAction } from '@/features/qa/components/QaCloseAction';
+import { QaStatusLegend } from '@/features/qa/components/QaStatusIcon';
 import { SPRINT_SCREENS } from '@/features/qa/screens';
 import type { Sprint } from '@/features/qa/schemas';
 
@@ -13,7 +14,7 @@ export function SprintHeader({ sprint }: { sprint: Sprint }) {
           <h1 className="text-h1 text-foreground">{sprint.sprintKey}</h1>
           <p className="text-body text-fg-muted">{sprint.summary || '-'}</p>
         </div>
-        <SprintStatusBadge status={sprint.status} />
+        <QaCloseAction sprint={sprint} />
       </div>
       <StageStepper sprint={sprint} />
       <nav aria-label="QA 탭" className="flex gap-6 border-b border-border">
@@ -28,6 +29,7 @@ export function SprintHeader({ sprint }: { sprint: Sprint }) {
             {screen.label}
           </NavLink>
         ))}
+        <QaStatusLegend />
       </nav>
     </header>
   );

@@ -15,6 +15,8 @@ import {
   sprintSchema,
   type CellState,
   type ChecklistItemFormValues,
+  type DesignItemFormValues,
+  type ManualCellState,
   type Part,
   type Round,
 } from '@/features/qa/schemas';
@@ -77,12 +79,31 @@ export async function getDesignHistory(id: number) {
     await qaApiClient.get(`/design-review-items/${id}/history`),
   );
 }
-export type ChecklistItemCreateBody = ChecklistItemFormValues & { featureId: number };
-export type ChecklistItemUpdateBody = Partial<ChecklistItemFormValues> & { version: number };
+export type DesignItemUpdateBody = Partial<DesignItemFormValues> & { version: number };
+export async function editDesignItem(id: number, body: DesignItemUpdateBody) {
+  return parseQaResponse(
+    designItemSchema,
+    await qaApiClient.patch(`/design-review-items/${id}`, body),
+  );
+}
+export async function deleteDesignItem(id: number, version: number): Promise<void> {
+  await qaApiClient.delete(`/design-review-items/${id}`, { params: { version } });
+}
+export type ChecklistItemCreateBody = Omit<ChecklistItemFormValues, 'classification'> & {
+  featureId: number;
+  classification: 'MANUAL';
+};
+export type ChecklistItemUpdateBody = Partial<Omit<ChecklistItemFormValues, 'classification'>> & {
+  classification?: 'MANUAL';
+  version: number;
+};
 export async function createChecklistItem(sprintId: number, body: ChecklistItemCreateBody) {
   return parseQaResponse(
     checklistItemSchema,
-    await qaApiClient.post(`/sprints/${sprintId}/checklist-items`, body),
+    await qaApiClient.post(`/sprints/${sprintId}/checklist-items`, {
+      ...body,
+      classification: 'MANUAL',
+    }),
   );
 }
 export async function updateChecklistItem(id: number, body: ChecklistItemUpdateBody) {
@@ -97,7 +118,7 @@ export async function deleteChecklistItem(id: number, version: number): Promise<
 export async function updateCheckCell(
   itemId: number,
   part: Part,
-  state: CellState,
+  state: ManualCellState,
   version: number,
 ) {
   return parseQaResponse(

@@ -1,4 +1,4 @@
-import { StatusBadge } from '@/shared/components/status-badge/StatusBadge';
+import { QaStatusIcon } from '@/features/qa/components/QaStatusIcon';
 import { CONNECTION_LABELS } from '@/features/qa/labels';
 import { NOTICE_COPY } from '@/features/qa/copy';
 import type { Connection } from '@/features/qa/schemas';
@@ -18,11 +18,15 @@ export function ConnectionStatusCard({ connections }: { connections: Connection[
               <span className="w-36 shrink-0 text-body text-foreground">
                 {CONNECTION_LABELS[target]}
               </span>
-              <StatusBadge
-                variant={connection ? (connection.connected ? 'success' : 'danger') : 'muted'}
-              >
-                {connection ? (connection.connected ? '연결됨' : '실패') : '확인 전'}
-              </StatusBadge>
+              <QaStatusIcon
+                category={connection ? (connection.connected ? 'success' : 'failure') : 'pending'}
+                label={connection ? (connection.connected ? '연결됨' : '실패') : '확인 전'}
+              />
+              {connection?.ref && (
+                <code className="break-all font-mono text-caption text-fg-secondary">
+                  {connection.ref}
+                </code>
+              )}
               {connection && !connection.connected && connection.message && (
                 <span className="truncate text-caption text-danger-text" title={connection.message}>
                   {connection.message}

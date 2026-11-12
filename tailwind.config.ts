@@ -118,6 +118,10 @@ const config: Config = {
         'login-card': '400px',
         modal: '400px',
         'modal-wide': '480px',
+        'modal-history': '768px',
+      },
+      maxHeight: {
+        dialog: 'calc(100dvh - 48px)',
       },
       minWidth: {
         viewport: '1280px',

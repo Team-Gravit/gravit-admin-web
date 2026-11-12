@@ -32,9 +32,9 @@ export const PROGRESS_LABELS: Record<ProgressPart, string> = { DESIGN: 'Design',
 export const CONNECTION_LABELS = {
   NOTION: 'Notion',
   FIGMA: 'Figma',
-  SERVER: 'Server (release)',
-  WEB: 'Web (release)',
-  APP: 'APP (release)',
+  SERVER: 'Server',
+  WEB: 'Web',
+  APP: 'APP',
 };
 export const SETUP_ORDER: readonly SetupStepKey[] = [
   'CONNECT',

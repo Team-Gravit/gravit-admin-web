@@ -64,11 +64,6 @@ export function SetupPanel({ sprint }: { sprint: Sprint }) {
           </div>
         </div>
         {active && <QaNotice>{NOTICE_COPY.SETUP_DURATION}</QaNotice>}
-        {sprint.latestJob?.status === 'FAILED' && (
-          <p role="alert" className="rounded-md bg-danger-bg px-4 py-3 text-body text-danger-text">
-            {sprint.latestJob.lastError || '마지막 준비 작업에 실패했습니다.'}
-          </p>
-        )}
         <SetupJobSteps steps={sprint.setupSteps} />
       </section>
       <ReflectionPanel sprint={sprint} />

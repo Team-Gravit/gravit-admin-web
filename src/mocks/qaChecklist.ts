@@ -45,11 +45,19 @@ export function buildFixture(sprintId: number, complete = false): QaFixture {
         const id = sprintId * 10000 + round * 1000 + screenIndex * 100 + n;
         const cells: CheckCell[] = (['WEB', 'APP', 'SERVER'] as const).map((part, p) => ({
           part,
-          state: complete || n === 0 ? 'PASS' : n === 1 && p === 0 ? 'FAIL' : 'UNCHECKED',
+          state:
+            n === 2 && p === 2
+              ? 'NOT_APPLICABLE'
+              : complete || n === 0
+                ? 'PASS'
+                : n === 1 && p === 0
+                  ? 'FAIL'
+                  : 'UNCHECKED',
           source: round === 1 ? 'AUTO' : 'MANUAL',
           reason:
-            round === 1 ? 'release 코드에서 명세에 해당하는 분기와 응답을 확인했습니다.' : null,
-          editable: true,
+            round === 1 ? 'qa-baseline 코드에서 명세에 해당하는 분기와 응답을 확인했습니다.' : null,
+          evidence: round === 1 ? [{ path: 'src/auth/login.ts', startLine: 12, endLine: 28 }] : [],
+          editable: !(n === 2 && p === 2),
           version: 0,
         }));
         const item: ChecklistItem = {
@@ -57,7 +65,7 @@ export function buildFixture(sprintId: number, complete = false): QaFixture {
           featureId: screen.featureId,
           title,
           expected,
-          parts: ['WEB', 'APP', 'SERVER'],
+          parts: n === 2 ? ['WEB', 'APP'] : ['WEB', 'APP', 'SERVER'],
           classification: round === 1 ? 'AUTO' : 'MANUAL',
           origin: 'LLM',
           cells,
@@ -73,6 +81,7 @@ export function buildFixture(sprintId: number, complete = false): QaFixture {
               changedBy: round === 1 ? null : 1,
               changedAt: '2026-11-11T10:00:00+09:00',
               reason: cell.reason,
+              evidence: cell.evidence,
             },
           ]);
       });
@@ -96,9 +105,7 @@ export function buildFixture(sprintId: number, complete = false): QaFixture {
         specRowIds,
         state: complete ? (missing ? 'NOT_APPLICABLE' : 'PASS') : n === 0 ? 'PASS' : 'UNCHECKED',
         source: 'AUTO',
-        reason: missing
-          ? 'Figma 프레임 없음'
-          : 'Figma와 화면 명세를 비교한 자동 검수 결과입니다.',
+        reason: missing ? 'Figma 프레임 없음' : 'Figma와 화면 명세를 비교한 자동 검수 결과입니다.',
         editable: true,
         version: 0,
       };

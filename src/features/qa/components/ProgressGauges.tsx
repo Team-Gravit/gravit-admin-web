@@ -1,9 +1,26 @@
+import { useEffect, useState } from 'react';
 import { Cell, Pie, PieChart, ResponsiveContainer } from 'recharts';
+import { usePrefersReducedMotion } from '@/shared/hooks/usePrefersReducedMotion';
 import { PROGRESS_LABELS, PROGRESS_ORDER } from '@/features/qa/labels';
 import type { PartProgress } from '@/features/qa/schemas';
 
 /** P9: checked/total is supplied by the server, which excludes NOT_APPLICABLE. */
 export function ProgressGauges({ progress }: { progress: PartProgress[] }) {
+  const reduced = usePrefersReducedMotion();
+  const [entrance, setEntrance] = useState(0);
+  useEffect(() => {
+    if (reduced) return;
+    let frame: number;
+    const start = performance.now();
+    const tick = (time: number) => {
+      const elapsed = Math.min(1, (time - start) / 650);
+      setEntrance(1 - (1 - elapsed) ** 3);
+      if (elapsed < 1) frame = requestAnimationFrame(tick);
+    };
+    frame = requestAnimationFrame(tick);
+    return () => cancelAnimationFrame(frame);
+  }, [reduced]);
+  const fill = reduced ? 1 : entrance;
   return (
     <div className="grid grid-cols-4 gap-4" aria-label="QA 진행도">
       {PROGRESS_ORDER.map((part) => {
@@ -12,8 +29,8 @@ export function ProgressGauges({ progress }: { progress: PartProgress[] }) {
         const checked = p?.checked ?? 0;
         const percent = total > 0 ? Math.round((checked / total) * 100) : 0;
         const data = [
-          { value: total > 0 ? checked : 0 },
-          { value: total > 0 ? Math.max(0, total - checked) : 1 },
+          { value: total > 0 ? checked * fill : 0 },
+          { value: total > 0 ? Math.max(0, total - checked * fill) : 1 },
         ];
         return (
           <section
@@ -56,7 +73,7 @@ export function ProgressGauges({ progress }: { progress: PartProgress[] }) {
               </div>
               <div className="absolute inset-x-0 bottom-2 text-center">
                 <span className="text-h2 tabular-nums text-foreground">
-                  {total > 0 ? `${percent}%` : '-'}
+                  {total > 0 ? `${Math.round(percent * fill)}%` : '-'}
                 </span>
               </div>
             </div>
