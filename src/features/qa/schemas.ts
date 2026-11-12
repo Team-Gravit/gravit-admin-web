@@ -29,7 +29,7 @@ export const jobStepSchema = z.object({
 /** JobResponse is unchanged (P1). */
 export const jobSchema = z.object({
   id: z.number(),
-  type: z.string(),
+  type: z.enum(['SPEC_LOAD', 'QA_PREPARE']),
   sprintId: z.number().nullable(),
   status: jobStatusSchema,
   attempt: z.number(),
@@ -117,7 +117,6 @@ export const checkCellHistorySchema = z.object({
   toState: cellStateSchema,
   source: cellSourceSchema,
   changedBy: z.number().nullable(),
-  autoRunId: z.number().nullable(),
   changedAt: z.string(),
   reason: z.string().nullable(),
 });
@@ -155,7 +154,7 @@ export const designItemSchema = z.object({
   platform: z.enum(['WEB', 'APP']),
   title: z.string(),
   expected: z.string(),
-  specRowIds: z.array(z.number()),
+  specRowIds: z.array(z.string()),
   state: cellStateSchema,
   source: cellSourceSchema,
   reason: z.string().nullable(),

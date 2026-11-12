@@ -56,7 +56,7 @@ let closeFailed = false;
 function newJob(sprintId: number, step: number, waiting = false): Job {
   const job: Job = {
     id: nextJobId++,
-    type: 'SETUP',
+    type: step <= 1 ? 'SPEC_LOAD' : 'QA_PREPARE',
     sprintId,
     status: 'RUNNING',
     attempt: 1,
@@ -354,6 +354,7 @@ export const qaHandlers = [
           entry.job.finishedAt = now();
           record.sprint.status = 'MANUAL_REVIEW';
         } else {
+          entry.job.type = entry.step <= 1 ? 'SPEC_LOAD' : 'QA_PREPARE';
           const nextJobStep = entry.job.steps[entry.step];
           if (nextJobStep) {
             nextJobStep.status = 'RUNNING';
@@ -562,7 +563,6 @@ export const qaHandlers = [
           toState: 'UNCHECKED',
           source: 'MANUAL',
           changedBy: 1,
-          autoRunId: null,
           changedAt: now(),
           reason: '항목 수정으로 판정 초기화',
         });
@@ -615,7 +615,6 @@ export const qaHandlers = [
       toState: parsed.data.state,
       source: 'MANUAL',
       changedBy: 1,
-      autoRunId: null,
       changedAt: now(),
       reason: null,
     });

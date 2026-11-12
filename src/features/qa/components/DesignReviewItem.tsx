@@ -34,7 +34,7 @@ export function DesignReviewItem({
       <p className="whitespace-pre-wrap rounded-md bg-page px-3 py-2 text-caption text-fg-secondary">
         {item.expected}
       </p>
-      {item.title === 'Figma 프레임 없음' && item.reason && (
+      {item.reason === 'Figma 프레임 없음' && (
         <p className="text-caption text-fg-muted">{item.reason}</p>
       )}
       <div className="flex items-center gap-2" role="group" aria-label={`${item.title} 판정`}>
