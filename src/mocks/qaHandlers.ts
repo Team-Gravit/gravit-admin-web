@@ -10,12 +10,14 @@ import {
   type QaFixture,
 } from '@/mocks/qaChecklist';
 import {
-  cellStateSchema,
   checklistItemFormSchema,
   partSchema,
+  progressPartSchema,
+  verdictUpdateSchema,
   type ChecklistItem,
   type DesignItem,
   type Job,
+  type FixReports,
   type Reflection,
   type Sprint,
   type SprintStatus,
@@ -45,7 +47,17 @@ const KEYS = [
   'AUTO_REVIEW',
 ] as const;
 const versionBody = z.object({ version: z.number().int() });
-const stateBody = versionBody.extend({ state: cellStateSchema });
+const stateBody = verdictUpdateSchema;
+function unchangedFail(
+  current: Pick<DesignItem, 'state' | 'reason'>,
+  update: z.infer<typeof stateBody>,
+) {
+  return (
+    current.state === 'FAIL' &&
+    update.state === 'FAIL' &&
+    (scenario() === 'legacy' || !update.reason || update.reason === current.reason)
+  );
+}
 interface RecordData {
   sprint: Sprint;
   fixture: QaFixture;
@@ -87,6 +99,15 @@ function newJob(sprintId: number, step: number, waiting = false): Job {
 }
 function seed(id: number, status: SprintStatus, complete = false) {
   const fixture = buildFixture(id, complete);
+  if (id === 2 && scenario() === 'auto-fail') {
+    const item = fixture.design[0];
+    if (item) {
+      item.state = 'FAIL';
+      item.reason = 'Figma의 버튼 배치와 명세가 다릅니다.';
+      const history = fixture.designHistory.get(item.id)?.[0];
+      if (history) Object.assign(history, { state: item.state, reason: item.reason });
+    }
+  }
   const ready = !['DRAFT', 'SPEC_LOAD', 'CHECKLIST'].includes(status);
   const sprint: Sprint = {
     id,
@@ -228,7 +249,83 @@ function active(record: RecordData) {
 const missing = () => error(404, 'GLOBAL_4041', '대상을 찾을 수 없습니다.');
 const badRequest = () => error(400, 'GLOBAL_4001', '요청 형식이 올바르지 않습니다.');
 
+function fixReportsOf(record: RecordData): FixReports {
+  const countUnchecked = (classification: 'AUTO' | 'MANUAL') =>
+    record.fixture.items
+      .filter((item) => item.classification === classification)
+      .flatMap((item) => item.cells)
+      .filter((cell) => cell.state === 'UNCHECKED').length;
+  const unchecked = {
+    design: record.fixture.design.filter((item) => item.state === 'UNCHECKED').length,
+    first: countUnchecked('AUTO'),
+    second: countUnchecked('MANUAL'),
+  };
+  return {
+    sprintId: record.sprint.id,
+    status: record.sprint.status,
+    ready:
+      ['MANUAL_REVIEW', 'CLOSED'].includes(record.sprint.status) &&
+      !active(record) &&
+      Object.values(unchecked).every((count) => count === 0),
+    unchecked,
+    parts: (['DESIGN', 'WEB', 'APP', 'SERVER'] as const).map((part) => ({
+      part,
+      failCount:
+        part === 'DESIGN'
+          ? record.fixture.design.filter((item) => item.state === 'FAIL').length
+          : record.fixture.items
+              .flatMap((item) => item.cells)
+              .filter((cell) => cell.part === part && cell.state === 'FAIL').length,
+      fileName: `${record.sprint.sprintKey}-${part}-수정사항.txt`,
+    })),
+  };
+}
+
 export const qaHandlers = [
+  http.get(`${QA}/sprints/:id/fix-reports`, async ({ params }) => {
+    const failure = guard();
+    if (failure) return failure;
+    if (scenario() === 'legacy') return missing();
+    if (scenario() === 'fixes-loading') await delay(600);
+    const record = records.get(Number(params.id));
+    return record ? HttpResponse.json(fixReportsOf(record)) : missing();
+  }),
+  http.get(`${QA}/sprints/:id/fix-reports/:part`, ({ params }) => {
+    const failure = guard();
+    if (failure) return failure;
+    if (scenario() === 'legacy' || scenario() === 'fixes-download-404') return missing();
+    const record = records.get(Number(params.id));
+    if (!record) return missing();
+    const part = progressPartSchema.safeParse(params.part);
+    if (!part.success) return badRequest();
+    if (!fixReportsOf(record).ready || scenario() === 'fixes-download-conflict')
+      return error(409, 'SPRINT_4093', '검수가 완료되지 않았습니다.');
+    // Temporary transfer fixture: the server prompt's TXT example has not been supplied.
+    // This is deliberately labelled as a mock, not an assertion of the server's TXT layout.
+    const entries =
+      part.data === 'DESIGN'
+        ? record.fixture.design
+            .filter((item) => item.state === 'FAIL')
+            .map((item) => `${item.title}\n${item.reason ?? ''}`)
+        : record.fixture.items.flatMap((item) =>
+            item.cells
+              .filter((cell) => cell.part === part.data && cell.state === 'FAIL')
+              .map((cell) => `${item.title}\n${cell.reason ?? ''}`),
+          );
+    return new HttpResponse(
+      [
+        '임시 목 TXT — 서버 계약 예시 틀 확인 필요',
+        `${record.sprint.sprintKey} / ${part.data}`,
+        ...entries,
+      ].join('\n\n'),
+      {
+        headers: {
+          'Content-Type': 'text/plain; charset=UTF-8',
+          'Content-Disposition': 'attachment; filename="ignored-header.txt"',
+        },
+      },
+    );
+  }),
   http.get(`${QA}/sprints`, async () => {
     await delay(60);
     const failure = guard();
@@ -499,16 +596,18 @@ export const qaHandlers = [
     if (scenario() === 'legacy' && parsed.data.state === 'NOT_APPLICABLE') return badRequest();
     if (versionMismatch(item.version, parsed.data.version)) return conflict();
     if (record.sprint.status === 'CLOSED' || !item.editable) return invalidState();
+    if (unchangedFail(item, parsed.data)) return HttpResponse.json(item);
     Object.assign(item, {
       state: parsed.data.state,
       source: 'MANUAL',
-      reason: null,
+      reason:
+        parsed.data.state === 'FAIL' && scenario() !== 'legacy' ? parsed.data.reason || null : null,
       version: item.version + 1,
     });
     record.fixture.designHistory.get(item.id)?.unshift({
       state: item.state,
       source: 'MANUAL',
-      reason: null,
+      reason: item.reason,
       updatedBy: 1,
       updatedAt: now(),
     });
@@ -696,6 +795,7 @@ export const qaHandlers = [
       return error(400, 'CHECKLIST_4001', '체크 셀을 해당 없음으로 변경할 수 없습니다.');
     if (versionMismatch(cell.version, parsed.data.version)) return conflict();
     if (record.sprint.status === 'CLOSED' || !cell.editable) return invalidState();
+    if (unchangedFail(cell, parsed.data)) return HttpResponse.json(compatibilityBody(cell));
     const key = `${item.id}:${cell.part}`;
     const history = record.fixture.cellHistory.get(key) ?? [];
     history.unshift({
@@ -704,14 +804,16 @@ export const qaHandlers = [
       source: 'MANUAL',
       changedBy: 1,
       changedAt: now(),
-      reason: null,
+      reason:
+        parsed.data.state === 'FAIL' && scenario() !== 'legacy' ? parsed.data.reason || null : null,
       evidence: [],
     });
     record.fixture.cellHistory.set(key, history);
     Object.assign(cell, {
       state: parsed.data.state,
       source: 'MANUAL',
-      reason: null,
+      reason:
+        parsed.data.state === 'FAIL' && scenario() !== 'legacy' ? parsed.data.reason || null : null,
       evidence: [],
       version: cell.version + 1,
     });

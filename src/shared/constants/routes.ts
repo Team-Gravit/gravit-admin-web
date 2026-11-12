@@ -31,4 +31,5 @@ export const ROUTES = {
   QA_SPRINT_DESIGN: (sprintId: number | string) => `/qa/sprints/${sprintId}/design-review`,
   QA_SPRINT_CHECKLIST_FIRST: (sprintId: number | string) => `/qa/sprints/${sprintId}/checklist/1`,
   QA_SPRINT_CHECKLIST_SECOND: (sprintId: number | string) => `/qa/sprints/${sprintId}/checklist/2`,
+  QA_SPRINT_FIX_REPORTS: (sprintId: number | string) => `/qa/sprints/${sprintId}/fix-reports`,
 } as const;

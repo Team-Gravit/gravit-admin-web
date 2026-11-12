@@ -64,7 +64,16 @@ export function QaStatusLegend() {
         </TooltipTrigger>
         <TooltipContent side="bottom">상태 아이콘 안내</TooltipContent>
       </Tooltip>
-      <PopoverContent side="bottom" aria-label="상태 아이콘 안내">
+      <PopoverContent
+        side="bottom"
+        aria-label="상태 아이콘 안내"
+        onKeyDown={(event) => {
+          if (event.key === 'Escape') {
+            event.preventDefault();
+            setOpen(false);
+          }
+        }}
+      >
         <h2 className="mb-3 text-body font-medium">상태 아이콘 안내</h2>
         <ul className="flex flex-col gap-3">
           {Object.entries(QA_STATUS_CATEGORIES).map(([key, entry]) => (

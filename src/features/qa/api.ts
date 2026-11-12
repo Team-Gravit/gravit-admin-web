@@ -1,3 +1,4 @@
+import { z } from 'zod';
 import { parseQaResponse, qaApiClient } from '@/shared/api/qaClient';
 import {
   checkCellHistoryListSchema,
@@ -7,17 +8,20 @@ import {
   designHistorySchema,
   designItemSchema,
   designReviewSchema,
+  fixReportsSchema,
   jobSchema,
   reflectionSchema,
   reflectionsSchema,
   setupJobResponseSchema,
   sprintListResponseSchema,
   sprintSchema,
+  verdictUpdateSchema,
   type CellState,
   type ChecklistItemFormValues,
   type DesignItemFormValues,
   type ManualCellState,
   type Part,
+  type ProgressPart,
   type Round,
 } from '@/features/qa/schemas';
 
@@ -30,6 +34,18 @@ export async function createSprint(notionPageUrl: string) {
 }
 export async function getSprint(sprintId: number) {
   return parseQaResponse(sprintSchema, await qaApiClient.get(`/sprints/${sprintId}`));
+}
+export async function getFixReports(sprintId: number) {
+  return parseQaResponse(
+    fixReportsSchema,
+    await qaApiClient.get(`/sprints/${sprintId}/fix-reports`),
+  );
+}
+export async function getFixReportFile(sprintId: number, part: ProgressPart) {
+  return parseQaResponse(
+    z.instanceof(Blob),
+    await qaApiClient.get(`/sprints/${sprintId}/fix-reports/${part}`, { responseType: 'blob' }),
+  );
 }
 export async function startSetupJob(sprintId: number, version: number) {
   return parseQaResponse(
@@ -67,10 +83,18 @@ export async function getDesignReview(sprintId: number) {
     await qaApiClient.get(`/sprints/${sprintId}/design-review`),
   );
 }
-export async function updateDesignItem(id: number, state: CellState, version: number) {
+export async function updateDesignItem(
+  id: number,
+  state: CellState,
+  version: number,
+  reason?: string,
+) {
   return parseQaResponse(
     designItemSchema,
-    await qaApiClient.put(`/design-review-items/${id}`, { state, version }),
+    await qaApiClient.put(
+      `/design-review-items/${id}`,
+      verdictUpdateSchema.parse({ state, version, ...(state === 'FAIL' ? { reason } : {}) }),
+    ),
   );
 }
 export async function getDesignHistory(id: number) {
@@ -120,10 +144,14 @@ export async function updateCheckCell(
   part: Part,
   state: ManualCellState,
   version: number,
+  reason?: string,
 ) {
   return parseQaResponse(
     checkCellSchema,
-    await qaApiClient.put(`/checklist-items/${itemId}/cells/${part}`, { state, version }),
+    await qaApiClient.put(
+      `/checklist-items/${itemId}/cells/${part}`,
+      verdictUpdateSchema.parse({ state, version, ...(state === 'FAIL' ? { reason } : {}) }),
+    ),
   );
 }
 export async function listCheckCellHistory(itemId: number, part: Part) {

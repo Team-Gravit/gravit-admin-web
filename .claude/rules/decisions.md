@@ -1,5 +1,15 @@
 # 규칙 — 확정 결정(Locked Decisions)
 
+## D12 — 파트별 수정사항·사람 Fail 사유·QA 매뉴얼 (2026-11-12, 사용자 승인)
+- G3 후속 D1·D6: 이미 Fail인 셀·디자인에는 `Fail 사유 수정` 메뉴를 제공하며 출처와 무관하게 현재 사유를 미리 채운다. 사유를 trim한 후 JS string.length 500자 이하만 전송한다. 기존 FAIL에서 빈 사유/동일 사유는 정상 무변경(기존 사유·version·이력 유지), 사유 삭제 기능은 없다. 목도 같은 조건을 모사한다. 실제 서버 구현 검증과는 구분한다.
+- 사용자 G1~G3 계약과 승인된 구현안이 D9/D11의 충돌 부분(탭 수·수동 reason=null·목록 등록 위치)을 대체한다. 인증·프록시·기본 탭 이동 규칙은 유지한다.
+- 마지막 탭 `fixes` / `파트별 수정사항` / `/qa/sprints/:sprintId/fix-reports`. G1 GET `/sprints/{id}/fix-reports`의 `{sprintId,status,ready,unchecked:{design,first,second},parts:[{part,failCount,fileName}]}`를 Zod 검증한다. 집계는 서버 값만 사용한다.
+- G2 GET `/sprints/{id}/fix-reports/{part}`는 인증 axios의 blob 요청. G1 fileName으로 저장한다. 404는 일반 오류, 다운로드 실패는 토스트+G1 재조회. 작업 정보는 기존 Sprint 조회를 재사용한다.
+- G3 두 PUT 판정 API에 선택 문자열 reason(최대 500자). Fail 선택→공통 사유 Dialog→확인 후 요청. 다른 상태는 기존 요청. 요청 중 이전 색을 옅게 표시하고 성공 응답으로 새 색 적용. 사유는 현재 1차 사유와 동일하게 변경 이력에서 표시하며 F-12 첫 줄 유지.
+- 페이지 우상단 QA 매뉴얼 외부 링크(사용자 제공 Notion URL), 빈 목록 등록 버튼 유지. 비어 있지 않은 목록 카드 머리에 등록 버튼. DataTable 선택형 header 슬롯은 미전달 시 기존 출력 유지.
+- TXT 본문 예시 틀과 실제 서버/옛 서버 reason 처리 설정은 확인 필요. 임시 목 본문은 계약 예시로 주장하지 않는다. 기존 변경 파일과 비밀 값, H1/H2는 건드리지 않는다. 커밋/푸시는 별도 승인 후.
+- 승인된 전체 범위를 순차 구현한 뒤 리뷰 패킷으로 보고한다. 항목별 중간 승인과 자동 커밋은 이번 요청에 적용하지 않는다.
+
 ## D10 — 웹 OAuth state 및 HttpOnly 쿠키 계약으로 전환
 - 사용자 요청(2026-11-11): `Team-Gravit/gravit-web` 최신 구현에 맞춰 관리자 OAuth 수정. 기존 spec/04 및 localStorage refreshToken 정책보다 이 결정이 우선한다.
 - 비교 기준: [gravit-web develop `10c4a148`](https://github.com/Team-Gravit/gravit-web/tree/10c4a14846b7d87a1279ed74fdc2b08fc388323d/apps/web/src/features/auth-login), 로컬 gravit-server의 `OAuthController`·`WebAuthCodeRequest`·`AuthTokenController`. 개발 서버 로그인 URL 응답도 `loginUrl` + `state` 확인.

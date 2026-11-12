@@ -33,6 +33,8 @@ interface DataTableProps<T> {
   emptyMessage?: string;
   emptyIcon?: LucideIcon;
   emptyAction?: ReactNode;
+  /** Optional content inside the card, above all table states. */
+  header?: ReactNode;
   onRowClick?: (row: T) => void;
 }
 
@@ -47,6 +49,7 @@ export function DataTable<T>({
   emptyMessage = '데이터가 없습니다.',
   emptyIcon,
   emptyAction,
+  header,
   onRowClick,
 }: DataTableProps<T>) {
   const body = () => {
@@ -86,6 +89,9 @@ export function DataTable<T>({
   };
 
   return (
-    <div className="rounded-lg border border-border bg-surface">{body()}</div>
+    <div className="rounded-lg border border-border bg-surface">
+      {header && <div className="border-b border-border px-6 py-4">{header}</div>}
+      {body()}
+    </div>
   );
 }

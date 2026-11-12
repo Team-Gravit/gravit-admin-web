@@ -29,6 +29,12 @@ export const PART_ORDER: readonly Part[] = ['WEB', 'APP', 'SERVER'];
 export const PART_LABELS: Record<Part, string> = { SERVER: 'Server', WEB: 'Web', APP: 'APP' };
 export const PROGRESS_ORDER: readonly ProgressPart[] = ['DESIGN', 'WEB', 'APP', 'SERVER'];
 export const PROGRESS_LABELS: Record<ProgressPart, string> = { DESIGN: 'Design', ...PART_LABELS };
+export const FIX_REPORT_PART_LABELS: Record<ProgressPart, string> = {
+  DESIGN: '디자인',
+  WEB: '웹',
+  APP: '앱',
+  SERVER: '서버',
+};
 export const CONNECTION_LABELS = {
   NOTION: 'Notion',
   FIGMA: 'Figma',

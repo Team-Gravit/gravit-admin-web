@@ -15,10 +15,12 @@ import { Tooltip, TooltipContent, TooltipTrigger } from '@/shared/components/ui/
 import { QaApiError } from '@/shared/api/qaClient';
 import { useDeleteDesignItem, useUpdateDesignItem } from '@/features/qa/mutations';
 import { DesignHistoryModal } from '@/features/qa/components/DesignHistoryModal';
+import { FailReasonModal } from '@/features/qa/components/FailReasonModal';
 import { DesignItemFormModal } from '@/features/qa/components/DesignItemFormModal';
 import { QaConfirmModal } from '@/features/qa/components/QaConfirmModal';
 import { QaStatusIcon } from '@/features/qa/components/QaStatusIcon';
 import { CELL_STATE_LABELS, PART_LABELS } from '@/features/qa/labels';
+import { NOTICE_COPY } from '@/features/qa/copy';
 import type { DesignItem } from '@/features/qa/schemas';
 
 export function DesignReviewItem({
@@ -42,6 +44,7 @@ export function DesignReviewItem({
   const [editing, setEditing] = useState(false);
   const [deleting, setDeleting] = useState(false);
   const [menu, setMenu] = useState(false);
+  const [failReason, setFailReason] = useState(false);
   const triggerRef = useRef<HTMLButtonElement | null>(null);
   const locked = closed || !item.editable;
   const managementLocked = locked || running;
@@ -69,7 +72,9 @@ export function DesignReviewItem({
               >
                 <Tooltip
                   open={
-                    menu || history || editing || deleting || update.isPending ? false : undefined
+                    menu || history || editing || deleting || failReason || update.isPending
+                      ? false
+                      : undefined
                   }
                 >
                   <TooltipTrigger asChild>
@@ -118,6 +123,12 @@ export function DesignReviewItem({
                           checked={item.state === state}
                           onCheckedChange={() => {
                             setMenu(false);
+                            if (update.isPending) return;
+                            if (state === 'FAIL' && item.state !== 'FAIL') {
+                              update.reset();
+                              setFailReason(true);
+                              return;
+                            }
                             if (!update.isPending && item.state !== state)
                               update.mutate({ itemId: item.id, state, version: item.version });
                           }}
@@ -125,6 +136,18 @@ export function DesignReviewItem({
                           {CELL_STATE_LABELS[state]}
                         </DropdownMenuCheckboxItem>
                       ))}
+                      {item.state === 'FAIL' && (
+                        <DropdownMenuItem
+                          onSelect={() => {
+                            if (update.isPending) return;
+                            setMenu(false);
+                            update.reset();
+                            setFailReason(true);
+                          }}
+                        >
+                          {NOTICE_COPY.FAIL_REASON_EDIT}
+                        </DropdownMenuItem>
+                      )}
                       <DropdownMenuSeparator />
                     </>
                   )}
@@ -159,6 +182,30 @@ export function DesignReviewItem({
           </div>
         </TableCell>
       </TableRow>
+      {failReason && (
+        <FailReasonModal
+          initialReason={item.state === 'FAIL' ? (item.reason ?? '') : ''}
+          editingReason={item.state === 'FAIL'}
+          pending={update.isPending}
+          locked={locked}
+          error={update.isError ? update.error.message : undefined}
+          onClose={() => setFailReason(false)}
+          restoreFocus={() => triggerRef.current?.focus()}
+          onConfirm={(reason) => {
+            if (!locked && !update.isPending)
+              update.mutate(
+                { itemId: item.id, state: 'FAIL', reason, version: item.version },
+                {
+                  onSuccess: () => setFailReason(false),
+                  onError: (error) => {
+                    if (error instanceof QaApiError && error.code === 'GLOBAL_4091')
+                      setFailReason(false);
+                  },
+                },
+              );
+          }}
+        />
+      )}
       {history && <DesignHistoryModal item={item} onClose={() => setHistory(false)} />}
       {editing && (
         <DesignItemFormModal

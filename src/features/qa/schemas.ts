@@ -1,5 +1,6 @@
 import { z } from 'zod';
 import { NOTICE_COPY } from '@/features/qa/copy';
+import { FIELD_LIMITS } from '@/shared/constants/fieldLimits';
 
 /** D11 / SESSION_E1 + P1~P10. Nullable keys are present in the JSON contract. */
 export const sprintStatusSchema = z.enum([
@@ -15,6 +16,15 @@ export const partSchema = z.enum(['SERVER', 'WEB', 'APP']);
 export const progressPartSchema = z.enum(['DESIGN', 'WEB', 'APP', 'SERVER']);
 export const cellStateSchema = z.enum(['UNCHECKED', 'PASS', 'FAIL', 'NOT_APPLICABLE']);
 export const manualCellStateSchema = cellStateSchema.exclude(['NOT_APPLICABLE']);
+export const failReasonFormSchema = z.object({
+  reason: z.string().trim().max(FIELD_LIMITS.qa.reason, NOTICE_COPY.FAIL_REASON_LIMIT),
+});
+export const verdictUpdateSchema = z.object({
+  state: cellStateSchema,
+  version: z.number().int(),
+  reason: failReasonFormSchema.shape.reason.optional(),
+});
+export type FailReasonFormValues = z.infer<typeof failReasonFormSchema>;
 export const evidenceSchema = z.object({
   path: z.string(),
   startLine: z.number().int(),
@@ -91,6 +101,33 @@ export const sprintSchema = sprintSummarySchema.extend({
   pendingReflectionCount: z.number(),
 });
 export const setupJobResponseSchema = z.object({ jobId: z.number() });
+export const fixReportsSchema = z
+  .object({
+    sprintId: z.number().int().positive(),
+    status: sprintStatusSchema,
+    ready: z.boolean(),
+    unchecked: z.object({
+      design: z.number().int().nonnegative(),
+      first: z.number().int().nonnegative(),
+      second: z.number().int().nonnegative(),
+    }),
+    parts: z
+      .array(
+        z.object({
+          part: progressPartSchema,
+          failCount: z.number().int().nonnegative(),
+          fileName: z.string(),
+        }),
+      )
+      .refine((parts) => new Set(parts.map(({ part }) => part)).size === parts.length),
+  })
+  .refine(
+    ({ ready, parts }) =>
+      !ready ||
+      (parts.length === 4 &&
+        parts.every(({ failCount, fileName }) => failCount === 0 || fileName.length > 0)),
+  );
+export type FixReports = z.infer<typeof fixReportsSchema>;
 export const reflectionStateSchema = z.enum([
   'PENDING',
   'APPROVED',

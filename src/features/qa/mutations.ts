@@ -2,6 +2,7 @@ import { useMutation, useQueryClient, type QueryClient } from '@tanstack/react-q
 import { toast } from 'sonner';
 import { showErrorToast } from '@/shared/api/errorHandler';
 import { QaApiError } from '@/shared/api/qaClient';
+import { downloadBlob } from '@/shared/lib/downloadBlob';
 import * as api from '@/features/qa/api';
 import { qaKeys } from '@/features/qa/queries';
 import { ERROR_COPY, NOTICE_COPY, TOAST_COPY } from '@/features/qa/copy';
@@ -11,6 +12,7 @@ import type {
   DesignReview,
   ManualCellState,
   Part,
+  ProgressPart,
   Reflection,
   Round,
 } from '@/features/qa/schemas';
@@ -23,6 +25,7 @@ export function refreshSprint(client: QueryClient, id: number) {
     client.invalidateQueries({ queryKey: qaKeys.checklists(id) }),
     client.invalidateQueries({ queryKey: qaKeys.design(id) }),
     client.invalidateQueries({ queryKey: qaKeys.reflections(id) }),
+    client.invalidateQueries({ queryKey: qaKeys.fixReports(id) }),
   ]);
 }
 function mutationError(client: QueryClient, id: number, error: unknown) {
@@ -36,6 +39,22 @@ function mutationError(client: QueryClient, id: number, error: unknown) {
   showErrorToast(error);
 }
 const meta = { skipGlobalErrorToast: true };
+export function useDownloadFixReport(sprintId: number) {
+  const client = useQueryClient();
+  return useMutation({
+    mutationFn: ({ part }: { part: ProgressPart; fileName: string }) =>
+      api.getFixReportFile(sprintId, part),
+    meta,
+    onSuccess: (blob, { fileName }) => downloadBlob(blob, fileName),
+    onError: (error) => {
+      if (error instanceof QaApiError && error.sessionEnded) return;
+      if (error instanceof QaApiError && error.status === 409)
+        toast.error(ERROR_COPY.FIXES_NOT_READY);
+      else showErrorToast(error);
+      void client.invalidateQueries({ queryKey: qaKeys.fixReports(sprintId) });
+    },
+  });
+}
 export function useCreateSprint() {
   const client = useQueryClient();
   return useMutation({
@@ -144,12 +163,14 @@ export function useUpdateCheckCell(id: number, round: Round) {
       part,
       state,
       version,
+      reason,
     }: {
       itemId: number;
       part: Part;
       state: ManualCellState;
       version: number;
-    }) => api.updateCheckCell(itemId, part, state, version),
+      reason?: string;
+    }) => api.updateCheckCell(itemId, part, state, version, reason),
     meta,
     onSuccess: async (cell, { itemId, part }) => {
       client.setQueryData<Checklist>(
@@ -180,11 +201,13 @@ export function useUpdateDesignItem(id: number) {
       itemId,
       state,
       version,
+      reason,
     }: {
       itemId: number;
       state: CellState;
       version: number;
-    }) => api.updateDesignItem(itemId, state, version),
+      reason?: string;
+    }) => api.updateDesignItem(itemId, state, version, reason),
     meta,
     onSuccess: async (item) => {
       client.setQueryData<DesignReview>(

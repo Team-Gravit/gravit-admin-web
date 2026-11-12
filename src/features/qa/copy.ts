@@ -1,5 +1,17 @@
 /** QA v2 UI copy, D11. Server messages take precedence for domain failures. */
 export const NOTICE_COPY = {
+  MANUAL: 'QA 매뉴얼',
+  SPRINT_LIST_TITLE: '스프린트 목록',
+  SPRINT_REGISTER: '스프린트 등록',
+  FAIL_REASON_TITLE: 'Fail 사유',
+  FAIL_REASON_EDIT: 'Fail 사유 수정',
+  FAIL_REASON_LABEL: '사유 (선택)',
+  FAIL_REASON_HINT: '사유는 선택 사항입니다. 수정할 내용을 남겨 주세요.',
+  FAIL_REASON_EDIT_HINT: '현재 사유를 수정해 주세요. 비워 두면 기존 사유가 유지됩니다.',
+  FAIL_REASON_CONFIRM: 'Fail로 변경',
+  FAIL_REASON_PENDING: '판정을 저장하고 있습니다. 잠시 기다려 주세요.',
+  FAIL_REASON_LOCKED: '지금은 판정을 변경할 수 없습니다.',
+  FAIL_REASON_LIMIT: '사유는 500자까지 입력할 수 있습니다.',
   SPRINT_LIST_SUBTITLE: '스프린트별 QA 현황을 확인합니다.',
   EMPTY_SPRINTS: '등록된 스프린트가 없습니다. Notion 스프린트 페이지를 연결해 시작하세요.',
   REGISTER_HINT:
@@ -21,11 +33,24 @@ export const NOTICE_COPY = {
   VALIDATION_TITLE: '행위를 입력하세요.',
   VALIDATION_EXPECTED: '설명을 입력하세요.',
   VALIDATION_PARTS: '파트를 1개 이상 선택하세요.',
+  FIXES_NOT_READY: '아직 검수가 완료되지 않았어요',
+  FIXES_CURRENT_STAGE: '지금 단계',
+  FIXES_UNCHECKED: '남은 미검수',
+  FIXES_UNCHECKED_SUMMARY: (counts: { design: number; first: number; second: number }) =>
+    `디자인 ${counts.design} · 1차 ${counts.first} · 2차 ${counts.second}`,
+  FIXES_CARD_LABEL: (part: string) => `${part} 수정사항`,
+  FIXES_RUNNING: '단계 작업이 실행 중입니다. 작업이 끝나면 수정사항을 확인할 수 있습니다.',
+  FIXES_EMPTY: '수정할 항목이 없어요',
+  FIXES_DOWNLOAD: '내려받기',
+  FIXES_DOWNLOADING: '내려받는 중',
+  FIXES_DOWNLOAD_PENDING: '파일을 내려받고 있습니다. 잠시 기다려 주세요.',
+  FIXES_FAIL_COUNT: 'Fail',
 };
 export const ERROR_COPY = {
   NOTION_NOT_FOUND: 'Notion 페이지를 찾을 수 없습니다. URL과 QA Integration 연결을 확인하세요.',
   SPRINT_DUPLICATED: '이미 등록된 스프린트입니다.',
   STALE: '다른 운영자가 먼저 변경했습니다. 최신 내용을 다시 불러왔습니다.',
+  FIXES_NOT_READY: '검수가 완료되지 않아 파일을 내려받을 수 없습니다. 최신 상태를 다시 불러옵니다.',
 };
 export const TOAST_COPY = {
   SPRINT_CREATED: '스프린트를 등록했습니다.',

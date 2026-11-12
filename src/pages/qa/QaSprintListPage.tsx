@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useLocation, useNavigate } from 'react-router';
-import { Plus } from 'lucide-react';
+import { ExternalLink, Plus } from 'lucide-react';
 import { toast } from 'sonner';
 import { ROUTES } from '@/shared/constants/routes';
 import { Button } from '@/shared/components/ui/button';
@@ -9,6 +9,7 @@ import { useSprints } from '@/features/qa/queries';
 import { SprintStatusBadge } from '@/features/qa/components/SprintStatusBadge';
 import { SprintCreateModal } from '@/features/qa/components/SprintCreateModal';
 import { NOTICE_COPY, TOAST_COPY } from '@/features/qa/copy';
+import { QA_MANUAL_URL } from '@/features/qa/constants';
 import { qaErrorView } from '@/features/qa/errorView';
 import type { Sprint, SprintSummary } from '@/features/qa/schemas';
 
@@ -40,33 +41,48 @@ export function QaSprintListPage() {
   };
   return (
     <div className="flex flex-col gap-6">
-      <div className="flex items-start justify-between">
+      <header className="flex items-start justify-between">
         <div className="flex flex-col gap-1">
           <h1 className="text-h1 text-foreground">QA</h1>
           <p className="text-body text-fg-muted">{NOTICE_COPY.SPRINT_LIST_SUBTITLE}</p>
         </div>
-        <Button onClick={() => setCreateOpen(true)}>
-          <Plus />
-          스프린트 등록
+        <Button asChild variant="outline">
+          <a href={QA_MANUAL_URL} target="_blank" rel="noopener noreferrer">
+            {NOTICE_COPY.MANUAL}
+            <ExternalLink aria-hidden />
+          </a>
         </Button>
-      </div>
-      <DataTable
-        columns={columns}
-        data={query.data ?? []}
-        rowKey={(s) => s.id}
-        isLoading={query.isLoading}
-        isError={query.isError}
-        errorMessage={view.message}
-        onRetry={view.retryable ? () => query.refetch() : undefined}
-        emptyMessage={NOTICE_COPY.EMPTY_SPRINTS}
-        emptyAction={
-          <Button onClick={() => setCreateOpen(true)}>
-            <Plus />
-            스프린트 등록
-          </Button>
-        }
-        onRowClick={(s) => navigate({ pathname: ROUTES.QA_SPRINT(s.id), search })}
-      />
+      </header>
+      <section aria-label={NOTICE_COPY.SPRINT_LIST_TITLE}>
+        <DataTable
+          header={
+            !query.isLoading && !query.isError && !!query.data?.length ? (
+              <div className="flex items-center justify-between gap-4">
+                <h2 className="text-h3 text-foreground">{NOTICE_COPY.SPRINT_LIST_TITLE}</h2>
+                <Button onClick={() => setCreateOpen(true)}>
+                  <Plus aria-hidden />
+                  {NOTICE_COPY.SPRINT_REGISTER}
+                </Button>
+              </div>
+            ) : undefined
+          }
+          columns={columns}
+          data={query.data ?? []}
+          rowKey={(s) => s.id}
+          isLoading={query.isLoading}
+          isError={query.isError}
+          errorMessage={view.message}
+          onRetry={view.retryable ? () => query.refetch() : undefined}
+          emptyMessage={NOTICE_COPY.EMPTY_SPRINTS}
+          emptyAction={
+            <Button onClick={() => setCreateOpen(true)}>
+              <Plus aria-hidden />
+              {NOTICE_COPY.SPRINT_REGISTER}
+            </Button>
+          }
+          onRowClick={(s) => navigate({ pathname: ROUTES.QA_SPRINT(s.id), search })}
+        />
+      </section>
       <SprintCreateModal open={createOpen} onOpenChange={setCreateOpen} onCreated={handleCreated} />
     </div>
   );

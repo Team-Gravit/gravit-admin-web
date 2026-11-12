@@ -5,6 +5,7 @@ import {
   getChecklist,
   getDesignHistory,
   getDesignReview,
+  getFixReports,
   getJob,
   getReflections,
   getSprint,
@@ -24,6 +25,7 @@ export const qaKeys = {
   reflections: (id: number) => ['qa', 'reflections', id] as const,
   cellHistory: (id: number, part: Part) => ['qa', 'cellHistory', id, part] as const,
   designHistory: (id: number) => ['qa', 'designHistory', id] as const,
+  fixReports: (id: number) => ['qa', 'fixReports', id] as const,
 };
 export const isJobActive = (status: JobStatus | undefined) =>
   status === 'QUEUED' || status === 'RUNNING';
@@ -68,6 +70,7 @@ export function useSetupJob(sprintId: number, latestJob: Job | null) {
     void client.invalidateQueries({ queryKey: qaKeys.checklists(sprintId) });
     void client.invalidateQueries({ queryKey: qaKeys.design(sprintId) });
     void client.invalidateQueries({ queryKey: qaKeys.reflections(sprintId) });
+    void client.invalidateQueries({ queryKey: qaKeys.fixReports(sprintId) });
   }, [job, updatedAt, sprintId, client]);
   return query;
 }
@@ -76,6 +79,13 @@ export function useChecklist(id: number, round: Round, enabled = true) {
     queryKey: qaKeys.checklist(id, round),
     queryFn: () => getChecklist(id, round),
     enabled,
+    retry: qaQueryRetry,
+  });
+}
+export function useFixReports(id: number) {
+  return useQuery({
+    queryKey: qaKeys.fixReports(id),
+    queryFn: () => getFixReports(id),
     retry: qaQueryRetry,
   });
 }

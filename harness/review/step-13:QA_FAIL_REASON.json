@@ -1,0 +1,29 @@
+{
+  "id": "step-13:QA_FAIL_REASON",
+  "spec": "PASS",
+  "ds": "PASS",
+  "diffs": [],
+  "commit": null,
+  "base": "616c9b9",
+  "branch": "feat/qa-fix-reports-reasons",
+  "ts": "2026-11-12",
+  "reviewers": {
+    "spec": "/root/spec_review",
+    "ds": "/root/ds_review"
+  },
+  "scope": "User G1-G3 and decisions D12; static and mocked runtime review. No live QA verification.",
+  "limitations": [
+    "Actual server and legacy unknown-field configuration require verification.",
+    "TXT contract example not supplied; temporary labelled fixture only."
+  ],
+  "gate": "D1/D6: gate-runner.sh --full OK; npm lint PASS; npm test:e2e 83 PASS",
+  "report": "qa-fix-reports/REPORT.md",
+  "followup": {
+    "contract": "User qa-server D1/D6",
+    "spec": "PASS",
+    "ds": "PASS",
+    "note": "Explicit edit action, current AUTO/MANUAL reason, trim+JS500, no-op reason/version/history/source preservation, accessible length validation."
+  },
+  "targetBranch": "main",
+  "integrationBase": "99585ee"
+}

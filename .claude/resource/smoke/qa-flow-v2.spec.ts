@@ -1,4 +1,37 @@
 import { expect, test, type Page } from '@playwright/test';
+import { readFile } from 'node:fs/promises';
+
+const fixesLink = (page: Page) =>
+  page
+    .getByRole('navigation', { name: 'QA 탭' })
+    .getByRole('link', { name: '파트별 수정사항', exact: true });
+const failDialog = (page: Page) => page.getByRole('dialog', { name: 'Fail 사유', exact: true });
+async function prepareFixes(page: Page, scenario = '') {
+  await page.goto(`/qa/sprints/9/checklist/1${scenario ? `?qaMock=${scenario}` : ''}`);
+  await expect(group(page)).toBeVisible();
+  const checklist = (await api(page, '/sprints/9/checklist?round=1')).data;
+  const item = checklist.features[0].items[0];
+  for (const part of ['WEB', 'APP', 'SERVER']) {
+    const response = await api(page, `/checklist-items/${item.id}/cells/${part}`, 'PUT', {
+      state: 'FAIL',
+      version: 0,
+      reason: `${part} 수정 사유입니다.\n한글 줄바꿈을 보존합니다.`,
+    });
+    expect(response.status).toBe(200);
+  }
+  const design = (await api(page, '/sprints/9/design-review')).data.features[0].items[0];
+  expect(
+    (
+      await api(page, `/design-review-items/${design.id}`, 'PUT', {
+        state: 'FAIL',
+        version: 0,
+        reason: '디자인 수정 사유입니다.',
+      })
+    ).status,
+  ).toBe(200);
+  await fixesLink(page).click();
+  await expect(page.getByRole('region', { name: '디자인 수정사항', exact: true })).toBeVisible();
+}
 
 test.beforeEach(async ({ page }) => {
   await page.addInitScript(() => localStorage.setItem('gravit_admin_session', 'true'));
@@ -37,6 +70,7 @@ for (const [id, path] of [
   [7, 'setup'],
   [6, 'setup'],
   [8, 'setup'],
+  [5, 'setup'],
   [4, 'design-review'],
   [3, 'checklist/1'],
   [2, 'checklist/2'],
@@ -50,6 +84,7 @@ for (const [id, path] of [
       '디자인 검수',
       '1차 체크리스트',
       '2차 체크리스트',
+      '파트별 수정사항',
     ]);
     await expect(page.getByText('Notion에서 보기')).toHaveCount(0);
     await expect(page.getByText('지금 할 일')).toHaveCount(0);
@@ -279,6 +314,10 @@ test('버전 충돌은 재조회 안내를 표시하고 판정은 유지한다',
   const target = row(page);
   await target.getByRole('button', { name: 'Web Pass — 변경', exact: true }).click();
   await page.getByRole('menuitemcheckbox', { name: 'Fail', exact: true }).click();
+  await page
+    .getByRole('dialog', { name: 'Fail 사유', exact: true })
+    .getByRole('button', { name: 'Fail로 변경', exact: true })
+    .click();
   await expect(
     page.getByText('다른 운영자가 먼저 변경했습니다. 최신 내용을 다시 불러왔습니다.'),
   ).toBeVisible();
@@ -394,3 +433,415 @@ test('실패 단계부터 재시도하고 진행 중 작업을 취소할 수 있
   expect(sprint.data.latestJob.status).toBe('CANCELLED');
   expect(sprint.data.latestJob.finishedAt).toMatch(/\+09:00$/);
 });
+
+for (const [id, message] of [
+  [7, '지금 단계: 준비 전'],
+  [8, '지금 단계: 기능 명세서 로드'],
+  [2, '남은 미검수: 디자인 4 · 1차 8 · 2차 8'],
+] as const) {
+  test(`수정사항 미완료 화면: 스프린트 ${id}`, async ({ page }) => {
+    await page.goto(`/qa/sprints/${id}/fix-reports`);
+    await expect(page.getByText('아직 검수가 완료되지 않았어요', { exact: true })).toBeVisible();
+    await expect(page.getByText(message, { exact: true })).toBeVisible();
+    await expect(page.getByRole('button', { name: '내려받기', exact: true })).toHaveCount(0);
+  });
+}
+
+for (const id of [3, 4, 5]) {
+  test(`수정사항 실행 중 안내: 스프린트 ${id}`, async ({ page }) => {
+    await page.goto(`/qa/sprints/${id}/fix-reports`);
+    await expect(
+      page.getByRole('status').filter({ hasText: '단계 작업이 실행 중입니다.' }),
+    ).toBeVisible();
+    await expect(page.getByRole('button', { name: '내려받기', exact: true })).toHaveCount(0);
+  });
+}
+
+for (const id of [1, 9]) {
+  test(`수정사항 준비 완료 0건 카드와 비활성 이유: 스프린트 ${id}`, async ({ page }) => {
+    await page.goto(`/qa/sprints/${id}/fix-reports`);
+    for (const part of ['디자인', '웹', '앱', '서버']) {
+      const card = page.getByRole('region', { name: `${part} 수정사항`, exact: true });
+      await expect(card.getByText('Fail 0', { exact: true })).toBeVisible();
+      await expect(card.getByRole('button', { name: '내려받기', exact: true })).toBeDisabled();
+    }
+    await page.getByLabel('디자인: 수정할 항목이 없어요', { exact: true }).focus();
+    await expect(page.getByRole('tooltip')).toHaveText('수정할 항목이 없어요');
+  });
+}
+
+test('수정사항은 4개 파트를 인증 Blob으로 받아 G1 파일명과 UTF-8 내용을 저장한다', async ({
+  page,
+}) => {
+  await prepareFixes(page);
+  const summary = (await api(page, '/sprints/9/fix-reports')).data;
+  for (const [part, label] of [
+    ['DESIGN', '디자인'],
+    ['WEB', '웹'],
+    ['APP', '앱'],
+    ['SERVER', '서버'],
+  ] as const) {
+    const card = page.getByRole('region', { name: `${label} 수정사항`, exact: true });
+    await expect(card.getByText('Fail 1', { exact: true })).toBeVisible();
+    const requestPromise = page.waitForRequest((req) => req.url().endsWith(`/fix-reports/${part}`));
+    const downloadPromise = page.waitForEvent('download');
+    await card.getByRole('button', { name: '내려받기', exact: true }).click();
+    const request = await requestPromise;
+    expect(request.method()).toBe('GET');
+    expect(Object.hasOwn(request.headers(), 'authorization')).toBe(true);
+    const download = await downloadPromise;
+    expect(download.suggestedFilename()).toBe(
+      summary.parts.find((entry: { part: string }) => entry.part === part).fileName,
+    );
+    expect(download.suggestedFilename()).not.toBe('ignored-header.txt');
+    const body = await readFile((await download.path())!, 'utf8');
+    expect(body).toContain('임시 목 TXT — 서버 계약 예시 틀 확인 필요');
+    expect(body).toContain(
+      part === 'DESIGN'
+        ? '디자인 수정 사유입니다.'
+        : `${part} 수정 사유입니다.\n한글 줄바꿈을 보존합니다.`,
+    );
+    await expect(card.getByRole('button', { name: '내려받기', exact: true })).toBeEnabled();
+  }
+  await expect(page).toHaveURL(/\/fix-reports$/);
+});
+
+for (const scenario of ['fixes-download-conflict', 'fixes-download-404']) {
+  test(`다운로드 실패 ${scenario}는 토스트 후 G1을 다시 조회한다`, async ({ page }) => {
+    await prepareFixes(page, scenario);
+    const refetch = page.waitForRequest((req) => /\/sprints\/9\/fix-reports$/.test(req.url()));
+    await page
+      .getByRole('region', { name: '웹 수정사항', exact: true })
+      .getByRole('button', { name: '내려받기', exact: true })
+      .click();
+    await refetch;
+    await expect(
+      page.getByText(
+        scenario === 'fixes-download-conflict'
+          ? '검수가 완료되지 않아 파일을 내려받을 수 없습니다. 최신 상태를 다시 불러옵니다.'
+          : '요청을 처리하지 못했습니다. 잠시 후 다시 시도하세요.',
+        { exact: true },
+      ),
+    ).toBeVisible();
+    await expect(
+      page
+        .getByRole('region', { name: '웹 수정사항', exact: true })
+        .getByRole('button', { name: '내려받기', exact: true }),
+    ).toBeEnabled();
+  });
+}
+
+test('구서버 G1 404는 일반 오류를 표시하고 다른 탭을 사용할 수 있다', async ({ page }) => {
+  await page.goto('/qa/sprints/2/fix-reports?qaMock=legacy');
+  await expect(
+    page.getByRole('main').getByText('대상을 찾을 수 없습니다.', { exact: true }),
+  ).toBeVisible();
+  await expect(page.getByRole('button', { name: '다시 시도', exact: true })).toBeVisible();
+  await page
+    .getByRole('navigation', { name: 'QA 탭' })
+    .getByRole('link', { name: '1차 체크리스트', exact: true })
+    .click();
+  await expect(row(page)).toBeVisible();
+});
+
+for (const type of ['1차', '2차', '디자인'] as const) {
+  test(`${type} Fail 사유는 확인 전 요청이 없고 취소·저장·이력·해제를 지원한다`, async ({
+    page,
+  }) => {
+    const design = type === '디자인';
+    await page.goto(
+      `/qa/sprints/2/${design ? 'design-review' : `checklist/${type === '1차' ? 1 : 2}`}`,
+    );
+    const target = design
+      ? group(page).getByRole('row', { name: 'WEB 주요 버튼 배치', exact: true })
+      : row(page);
+    let puts = 0;
+    page.on('request', (req) => {
+      if (req.method() === 'PUT' && req.url().includes('/qa-api/')) puts++;
+    });
+    await target.getByRole('button', { name: 'Web Pass — 변경', exact: true }).click();
+    await page.getByRole('menuitemcheckbox', { name: 'Fail', exact: true }).click();
+    await expect(
+      failDialog(page).getByRole('textbox', { name: '사유 (선택)', exact: true }),
+    ).toBeFocused();
+    await expect(failDialog(page).getByText('0/500', { exact: true })).toBeVisible();
+    await failDialog(page).getByRole('textbox').fill('취소할 사유');
+    expect(puts).toBe(0);
+    await failDialog(page).getByRole('button', { name: '취소', exact: true }).click();
+    await expect(
+      target.getByRole('button', { name: 'Web Pass — 변경', exact: true }),
+    ).toBeFocused();
+    expect(puts).toBe(0);
+    await target.getByRole('button', { name: 'Web Pass — 변경', exact: true }).click();
+    await page.getByRole('menuitemcheckbox', { name: 'Fail', exact: true }).click();
+    await expect(failDialog(page).getByRole('textbox')).toHaveValue('');
+    const reason = '버튼을 눌러도 다음 화면으로 이동하지 않습니다.\n재현 후 수정해 주세요.';
+    await failDialog(page).getByRole('textbox').fill(reason);
+    const put = page.waitForRequest(
+      (req) => req.method() === 'PUT' && req.url().includes('/qa-api/'),
+    );
+    await failDialog(page).getByRole('button', { name: 'Fail로 변경', exact: true }).click();
+    expect((await put).postDataJSON()).toMatchObject({ state: 'FAIL', reason, version: 0 });
+    await expect(failDialog(page)).toHaveCount(0);
+    await target.getByRole('button', { name: 'Web Fail — 변경', exact: true }).click();
+    await page.getByRole('menuitem', { name: '변경 이력', exact: true }).click();
+    const history = page.getByRole('dialog', { name: '변경 이력', exact: true });
+    await expect(history.getByText(reason, { exact: true })).toBeVisible();
+    await expect(history.getByRole('listitem').first()).toContainText('수동 판정 (운영자 #1)');
+    if (type !== '2차') await expect(history).toContainText('자동 판정');
+    await history.getByRole('button', { name: '닫기', exact: true }).click();
+    await target.getByRole('button', { name: 'Web Fail — 변경', exact: true }).click();
+    const pass = page.waitForRequest(
+      (req) => req.method() === 'PUT' && req.url().includes('/qa-api/'),
+    );
+    await page.getByRole('menuitemcheckbox', { name: 'Pass', exact: true }).click();
+    expect((await pass).postDataJSON()).toEqual({ state: 'PASS', version: 1 });
+    await expect(failDialog(page)).toHaveCount(0);
+  });
+}
+
+for (const type of ['셀', '디자인']) {
+  test(`${type} Fail 사유는 선택 입력이고 500자까지 저장하며 초과 요청은 거부한다`, async ({
+    page,
+  }) => {
+    const design = type === '디자인';
+    await page.goto(`/qa/sprints/2/${design ? 'design-review' : 'checklist/1'}`);
+    const target = design
+      ? group(page).getByRole('row', { name: 'WEB 주요 버튼 배치', exact: true })
+      : row(page);
+    await target.getByRole('button', { name: 'Web Pass — 변경', exact: true }).click();
+    await page.getByRole('menuitemcheckbox', { name: 'Fail', exact: true }).click();
+    const requestPromise = page.waitForRequest(
+      (req) => req.method() === 'PUT' && req.url().includes('/qa-api/'),
+    );
+    await failDialog(page).getByRole('button', { name: 'Fail로 변경', exact: true }).click();
+    const request = await requestPromise;
+    expect(request.postDataJSON()).toEqual({ state: 'FAIL', reason: '', version: 0 });
+    const url = new URL(request.url());
+    await expect(failDialog(page)).toHaveCount(0);
+    await target.getByRole('button', { name: 'Web Fail — 변경', exact: true }).click();
+    await page.getByRole('menuitem', { name: 'Fail 사유 수정', exact: true }).click();
+    await failDialog(page).getByRole('textbox').fill('가'.repeat(501));
+    await expect(failDialog(page).getByText('501/500', { exact: true })).toBeVisible();
+    let extraPuts = 0;
+    page.on('request', (req) => {
+      if (req.method() === 'PUT' && req.url().includes('/qa-api/')) extraPuts++;
+    });
+    await failDialog(page).getByRole('button', { name: 'Fail로 변경', exact: true }).click();
+    await expect(
+      failDialog(page).getByText('사유는 500자까지 입력할 수 있습니다.', { exact: true }),
+    ).toBeVisible();
+    await expect(failDialog(page).getByRole('textbox')).toHaveAttribute('aria-invalid', 'true');
+    await expect(failDialog(page).getByRole('alert')).toHaveText(
+      '사유는 500자까지 입력할 수 있습니다.',
+    );
+    expect(extraPuts).toBe(0);
+    await failDialog(page)
+      .getByRole('textbox')
+      .fill(`  \n${'가'.repeat(500)} \n `);
+    await expect(failDialog(page).getByText('500/500', { exact: true })).toBeVisible();
+    const normalizedRequest = page.waitForRequest(
+      (req) => req.method() === 'PUT' && req.url().includes('/qa-api/'),
+    );
+    await failDialog(page).getByRole('button', { name: 'Fail로 변경', exact: true }).click();
+    expect((await normalizedRequest).postDataJSON()).toMatchObject({
+      reason: '가'.repeat(500),
+      version: 1,
+    });
+    await expect(failDialog(page)).toHaveCount(0);
+    expect(
+      (
+        await api(page, url.pathname.replace('/qa-api', ''), 'PUT', {
+          state: 'FAIL',
+          reason: '가'.repeat(501),
+          version: 2,
+        })
+      ).status,
+    ).toBe(400);
+    await target.getByRole('button', { name: 'Web Fail — 변경', exact: true }).click();
+    await page.getByRole('menuitem', { name: 'Fail 사유 수정', exact: true }).click();
+    await expect(failDialog(page).getByRole('textbox')).toHaveValue('가'.repeat(500));
+    await page.keyboard.press('Escape');
+    await expect(failDialog(page)).toHaveCount(0);
+  });
+}
+
+test('구서버가 reason을 무시하는 목에서도 Fail 변경과 이력 화면이 유지된다', async ({ page }) => {
+  await page.goto('/qa/sprints/2/checklist/1?qaMock=legacy');
+  await row(page).getByRole('button', { name: 'Web Pass — 변경', exact: true }).click();
+  await page.getByRole('menuitemcheckbox', { name: 'Fail', exact: true }).click();
+  await failDialog(page).getByRole('textbox').fill('구서버 호환 목');
+  await failDialog(page).getByRole('button', { name: 'Fail로 변경', exact: true }).click();
+  await expect(failDialog(page)).toHaveCount(0);
+  await row(page).getByRole('button', { name: 'Web Fail — 변경', exact: true }).click();
+  await page.getByRole('menuitem', { name: '변경 이력', exact: true }).click();
+  await expect(page.getByRole('dialog', { name: '변경 이력', exact: true })).toContainText(
+    '수동 판정',
+  );
+});
+
+test('판정과 항목 수정·삭제 뒤 수정사항의 수와 ready가 갱신된다', async ({ page }) => {
+  await page.goto('/qa/sprints/9/fix-reports');
+  const web = page.getByRole('region', { name: '웹 수정사항', exact: true });
+  await expect(web).toContainText('Fail 0');
+  await page
+    .getByRole('navigation', { name: 'QA 탭' })
+    .getByRole('link', { name: '2차 체크리스트', exact: true })
+    .click();
+  await row(page).getByRole('button', { name: 'Web Pass — 변경', exact: true }).click();
+  await page.getByRole('menuitemcheckbox', { name: 'Fail', exact: true }).click();
+  await failDialog(page).getByRole('button', { name: 'Fail로 변경', exact: true }).click();
+  await expect(failDialog(page)).toHaveCount(0);
+  await fixesLink(page).click();
+  await expect(web).toContainText('Fail 1');
+  await page
+    .getByRole('navigation', { name: 'QA 탭' })
+    .getByRole('link', { name: '2차 체크리스트', exact: true })
+    .click();
+  await row(page).getByRole('button', { name: '수정', exact: true }).click();
+  const form = page.getByRole('dialog', { name: '항목 수정', exact: true });
+  await form.getByRole('textbox', { name: /^행위/ }).fill('수정된 로그인 버튼 동작');
+  await form.getByRole('button', { name: '저장', exact: true }).click();
+  await page
+    .getByRole('dialog', { name: '항목을 수정할까요?', exact: true })
+    .getByRole('button', { name: '수정', exact: true })
+    .click();
+  await expect(form).toHaveCount(0);
+  await fixesLink(page).click();
+  await expect(
+    page.getByText('남은 미검수: 디자인 0 · 1차 0 · 2차 3', { exact: true }),
+  ).toBeVisible();
+  await page
+    .getByRole('navigation', { name: 'QA 탭' })
+    .getByRole('link', { name: '2차 체크리스트', exact: true })
+    .click();
+  await row(page, '수정된 로그인 버튼 동작')
+    .getByRole('button', { name: '삭제', exact: true })
+    .click();
+  await page
+    .getByRole('dialog', { name: '항목을 삭제할까요?', exact: true })
+    .getByRole('button', { name: '삭제', exact: true })
+    .click();
+  await expect(page.getByRole('dialog')).toHaveCount(0);
+  await fixesLink(page).click();
+  await expect(web).toContainText('Fail 0');
+});
+
+for (const empty of [false, true]) {
+  test(`목록 ${empty ? '0개' : '1개 이상'}의 매뉴얼·등록 버튼 위치와 링크 속성`, async ({
+    page,
+  }) => {
+    await page.goto(`/qa/sprints${empty ? '?qaMock=empty' : ''}`);
+    const heading = page
+      .getByRole('heading', { name: 'QA', exact: true })
+      .locator('..')
+      .locator('..');
+    const manual = heading.getByRole('link', { name: 'QA 매뉴얼', exact: true });
+    await expect(manual).toHaveAttribute(
+      'href',
+      'https://app.notion.com/p/xunxxoie/QA-4165b32f003c80719229f197cec2d97f',
+    );
+    await expect(manual).toHaveAttribute('target', '_blank');
+    await expect(manual).toHaveAttribute('rel', 'noopener noreferrer');
+    await expect(heading.getByRole('button', { name: '스프린트 등록', exact: true })).toHaveCount(
+      0,
+    );
+    const list = page.getByRole('region', { name: '스프린트 목록', exact: true });
+    const register = list.getByRole('button', { name: '스프린트 등록', exact: true });
+    await expect(register).toBeVisible();
+    await expect(page.getByRole('button', { name: '스프린트 등록', exact: true })).toHaveCount(1);
+    if (!empty) {
+      const table = await list.getByRole('table').boundingBox();
+      const button = await register.boundingBox();
+      expect(button!.y + button!.height).toBeLessThanOrEqual(table!.y);
+      expect(button!.x).toBeGreaterThan(table!.x + table!.width / 2);
+    }
+    await register.click();
+    await expect(page.getByRole('dialog', { name: '스프린트 등록', exact: true })).toBeVisible();
+  });
+}
+
+for (const type of ['1차', '2차', '디자인'] as const) {
+  test(`${type} 기존 Fail 사유 수정은 현재 사유를 채우고 빈 값·같은 값은 정상 무변경이다`, async ({
+    page,
+  }) => {
+    const design = type === '디자인';
+    const round = type === '1차' ? 1 : 2;
+    await page.goto(
+      `/qa/sprints/2/${design ? 'design-review?qaMock=auto-fail' : `checklist/${round}`}`,
+    );
+    const target = group(page).getByRole('row', {
+      name: design ? 'WEB 주요 버튼 배치' : '필수 입력 안내',
+      exact: true,
+    });
+    await expect(target).toBeVisible();
+    const read = async () => {
+      const result = await api(
+        page,
+        `/sprints/2/${design ? 'design-review' : `checklist?round=${round}`}`,
+      );
+      const item = result.data.features[0].items[design ? 0 : 1];
+      const current = design
+        ? item
+        : item.cells.find((cell: { part: string }) => cell.part === 'WEB');
+      const path = design
+        ? `/design-review-items/${item.id}`
+        : `/checklist-items/${item.id}/cells/WEB`;
+      const history = (await api(page, `${path}/history`)).data;
+      return { current, path, history };
+    };
+    let before = await read();
+    const edit = async (input: string) => {
+      await target.getByRole('button', { name: 'Web Fail — 변경', exact: true }).click();
+      await page.getByRole('menuitem', { name: 'Fail 사유 수정', exact: true }).click();
+      await expect(failDialog(page).getByRole('textbox')).toHaveValue(before.current.reason ?? '');
+      await expect(failDialog(page)).toContainText('비워 두면 기존 사유가 유지됩니다.');
+      await failDialog(page).getByRole('textbox').fill(input);
+      const request = page.waitForRequest(
+        (req) => req.method() === 'PUT' && req.url().endsWith(before.path),
+      );
+      await failDialog(page).getByRole('button', { name: 'Fail로 변경', exact: true }).click();
+      expect((await request).postDataJSON()).toEqual({
+        state: 'FAIL',
+        reason: input.trim(),
+        version: before.current.version,
+      });
+      await expect(failDialog(page)).toHaveCount(0);
+      await expect(
+        target.getByRole('button', { name: 'Web Fail — 변경', exact: true }),
+      ).toHaveAttribute('aria-busy', 'false');
+    };
+    for (const input of [` \n${before.current.reason ?? ''}\t `, ' \n\t ']) {
+      await edit(input);
+      expect(await read()).toEqual(before);
+    }
+    await edit('  \n새로 확인한 Fail 사유입니다. \t');
+    const saved = await read();
+    expect(saved.current).toMatchObject({
+      state: 'FAIL',
+      reason: '새로 확인한 Fail 사유입니다.',
+      version: before.current.version + 1,
+      source: 'MANUAL',
+    });
+    expect(saved.history).toHaveLength(before.history.length + 1);
+    expect(saved.history[0].reason).toBe('새로 확인한 Fail 사유입니다.');
+    before = saved;
+    await edit(' \n\t ');
+    expect(await read()).toEqual(saved);
+    await edit(' 새로 확인한 Fail 사유입니다. ');
+    expect(await read()).toEqual(saved);
+    const tooLong = await api(page, before.path, 'PUT', {
+      state: 'FAIL',
+      reason: ` ${'🙂'.repeat(251)} `,
+      version: before.current.version,
+    });
+    expect(tooLong.status).toBe(400);
+    expect(tooLong.data.error).toBe('GLOBAL_4001');
+    expect(await read()).toEqual(saved);
+    await target.getByRole('button', { name: 'Web Fail — 변경', exact: true }).click();
+    await page.getByRole('menuitem', { name: '변경 이력', exact: true }).click();
+    await expect(page.getByRole('dialog', { name: '변경 이력', exact: true })).toContainText(
+      '새로 확인한 Fail 사유입니다.',
+    );
+  });
+}

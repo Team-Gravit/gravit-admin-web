@@ -33,6 +33,7 @@ import { QaSprintIndexPage } from '@/pages/qa/QaSprintIndexPage';
 import { QaSetupPage } from '@/pages/qa/QaSetupPage';
 import { QaDesignReviewPage } from '@/pages/qa/QaDesignReviewPage';
 import { QaChecklistPage } from '@/pages/qa/QaChecklistPage';
+import { QaFixReportsPage } from '@/pages/qa/QaFixReportsPage';
 
 const protectedLoader: LoaderFunction = async () => {
   if (!tokenManager.getAccessToken()) {
@@ -101,6 +102,7 @@ export const router = createBrowserRouter([
           { path: 'design-review', element: <QaDesignReviewPage /> },
           { path: 'checklist/1', element: <QaChecklistPage key="first" round={1} /> },
           { path: 'checklist/2', element: <QaChecklistPage key="second" round={2} /> },
+          { path: 'fix-reports', element: <QaFixReportsPage /> },
         ],
       },
     ],

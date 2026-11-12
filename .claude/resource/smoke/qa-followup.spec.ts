@@ -39,6 +39,7 @@ test('연결 ref와 공통 범례를 표시하고 키보드로 툴팁과 팝오�
   const legend = page.getByRole('dialog', { name: '상태 아이콘 안내' });
   await expect(legend.getByRole('listitem')).toHaveCount(6);
   await expect(legend.getByText('사람 조치 필요', { exact: true })).toBeVisible();
+  await expect(legend).toBeFocused();
   await page.keyboard.press('Escape');
   await expect(legend).toHaveCount(0);
   await expect(page.getByRole('button', { name: '상태 아이콘 안내', exact: true })).toBeFocused();
@@ -318,11 +319,23 @@ for (const type of ['셀', '디자인'] as const) {
         `/qa/sprints/2/${type === '셀' ? 'checklist/1' : 'design-review'}?qaMock=verdict-${outcome}`,
       );
       const target = type === '셀' ? checklistRow(page) : designRow(page);
-      const previous = target.getByRole('button', { name: 'Web Pass — 변경', exact: true });
+      // Dialog intentionally hides the background from the accessibility tree;
+      // inspect its existing status indicator through the DOM while saving.
+      const previous = page.locator(
+        `section[aria-label="ACC-01 로그인"] tr[aria-label="${type === '셀' ? '로그인 버튼 동작' : 'WEB 주요 버튼 배치'}"] button[aria-label="Web Pass — 변경"]`,
+      );
       await previous.click();
       await page.getByRole('menuitemcheckbox', { name: 'Fail', exact: true }).click();
+      await expect(previous).toHaveAttribute('aria-busy', 'false');
+      await page
+        .getByRole('dialog', { name: 'Fail 사유', exact: true })
+        .getByRole('button', { name: 'Fail로 변경', exact: true })
+        .click();
       await expect(previous).toHaveAttribute('aria-busy', 'true');
-      await expect(previous.getByRole('img', { name: 'Pass', exact: true })).toBeVisible();
+      await expect(
+        previous.getByRole('img', { name: 'Pass', exact: true, includeHidden: true }),
+      ).toBeVisible();
+      await expect(previous.locator('.opacity-40')).toHaveCount(1);
       await expect(previous.locator('.animate-spin')).toHaveCount(0);
       if (outcome === 'delay')
         await expect(
@@ -330,8 +343,8 @@ for (const type of ['셀', '디자인'] as const) {
         ).toHaveAttribute('aria-busy', 'false');
       else {
         await expect(
-          page.getByText('판정을 저장하지 못했습니다. 다시 시도해 주세요.', { exact: true }),
-        ).toBeVisible();
+          page.getByRole('dialog', { name: 'Fail 사유', exact: true }).getByRole('alert'),
+        ).toHaveText('판정을 저장하지 못했습니다. 다시 시도해 주세요.');
         await expect(previous).toHaveAttribute('aria-busy', 'false');
       }
     });
