@@ -1,1 +1,0 @@
-{ "id": "step-3:LOGIN", "spec": "PASS", "ds": "PASS", "diffs": ["naver 버튼 text-white→text-brand-naver-fg 토큰 반영(ds DIFF)"], "commit": "7a2aa98", "ts": "2026-06-05" }

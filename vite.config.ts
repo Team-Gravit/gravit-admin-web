@@ -1,3 +1,4 @@
+/// <reference types="vitest/config" />
 import { defineConfig, loadEnv } from 'vite';
 import react from '@vitejs/plugin-react';
 import { fileURLToPath, URL } from 'node:url';
@@ -32,6 +33,21 @@ export default defineConfig(({ mode }) => {
           rewrite: (path) => path.replace(/^\/qa-api/, '/api/v1'),
         },
       },
+    },
+    // Vitest 단위 테스트 (docs/conventions/testing.md). e2e(tests/e2e)·auth(tests/auth)는 Playwright 몫이라 제외한다.
+    test: {
+      environment: 'jsdom',
+      include: ['src/**/*.test.{ts,tsx}'],
+      setupFiles: ['./src/test/setup.ts'],
+      // src/env.ts 가 import 시점에 검증하므로 테스트 전용 더미 값을 준다(비밀 값 아님, 네트워크 미사용).
+      env: {
+        VITE_API_HOST: 'http://localhost:5999',
+        VITE_OAUTH_DEST: 'test',
+        VITE_RAVVIT_API_BASE: '/ravvit-api',
+        VITE_QA_API_BASE: '/qa-api',
+        VITE_USE_MOCK: 'false',
+      },
+      restoreMocks: true,
     },
   };
 });

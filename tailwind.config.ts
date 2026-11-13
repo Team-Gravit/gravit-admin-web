@@ -6,7 +6,7 @@ import typography from '@tailwindcss/typography';
  * DS-01 디자인 토큰 정의 (값 권위: spec/DS-01 §1~4).
  * - 색 값(HSL 트리플)은 globals.css 의 CSS 변수에 정의되고, 여기서 hsl(var(--x)) 로 참조한다.
  * - 이 파일은 token-lint allow 대상이므로 토큰 정의가 허용된다.
- * - DS-01 토큰명 ↔ Tailwind 클래스 **명명 매핑의 권위 = .claude/rules/ui-conventions.md**
+ * - DS-01 토큰명 ↔ Tailwind 클래스 **명명 매핑의 권위 = docs/conventions/ui-conventions.md**
  *   ('text-primary' 가 shadcn primary(브랜드 보라)와 충돌하는 등 매핑·주의는 거기서 확인. 여기 중복 금지.)
  */
 const config: Config = {

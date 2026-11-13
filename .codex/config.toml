@@ -1,0 +1,26 @@
+# gravit-admin-web 프로젝트 Codex 설정.
+# - 프로젝트 .codex/ 레이어는 이 프로젝트를 신뢰(trust)해야 로드된다.
+# - 훅은 새로 추가되거나 바뀌면 /hooks 에서 신뢰 승인해야 실행된다(해시 기준).
+# - 훅 동작 검증: npm run check:hooks
+# 문서: https://developers.openai.com/codex/hooks
+
+# 위험·비가역 셸 명령 차단 (강제 푸시, reset --hard, 배포, publish, curl | sh, .env 쓰기 등)
+[[hooks.PreToolUse]]
+matcher = "^Bash$"
+
+[[hooks.PreToolUse.hooks]]
+type = "command"
+command = 'node "$(git rev-parse --show-toplevel)/.codex/hooks/guard-bash.mjs"'
+timeout = 10
+statusMessage = "위험 명령 확인"
+
+# 파일 수정 보호: .env* 차단, 하네스 설정(AGENTS.md·.codex/·.agents/)은 사용자 승인 세션에서만
+# apply_patch 는 Edit·Write 로도 매칭된다. 입력의 tool_name 은 항상 apply_patch.
+[[hooks.PreToolUse]]
+matcher = "^(apply_patch|Edit|Write)$"
+
+[[hooks.PreToolUse.hooks]]
+type = "command"
+command = 'node "$(git rev-parse --show-toplevel)/.codex/hooks/guard-patch.mjs"'
+timeout = 10
+statusMessage = "보호 파일 확인"

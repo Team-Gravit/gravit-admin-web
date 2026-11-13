@@ -39,4 +39,6 @@ playwright-report
 .env.local
 .env.production
 .env
-.env.development/RAVVIT_SPEC.md
+.env.development
+/RAVVIT_SPEC.md
+/QA_SPEC.md

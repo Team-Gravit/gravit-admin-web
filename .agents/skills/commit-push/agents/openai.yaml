@@ -1,0 +1,6 @@
+interface:
+  display_name: "커밋·푸시"
+  short_description: "계획서 작업을 커밋하고 main 에 푸시합니다(사용자 확인 후)."
+policy:
+  # 원격에 게시하는 작업이라 사용자가 $commit-push 로 직접 부를 때만 실행한다.
+  allow_implicit_invocation: false

@@ -9,7 +9,7 @@ Gravit 서비스의 학습 콘텐츠와 운영 데이터를 관리하는 **관�
 
 <img src="https://skillicons.dev/icons?i=react,ts,vite,tailwind&perline=6" alt="React, TypeScript, Vite, Tailwind CSS" />
 
-TanStack Query · Zustand · React Hook Form + Zod · axios · React Router · Radix UI · Recharts · MSW · Playwright
+TanStack Query · Zustand · React Hook Form + Zod · axios · React Router · Radix UI · Recharts · MSW · Vitest · Playwright
 
 <br>
 
@@ -31,11 +31,12 @@ VITE_USE_MOCK=true npm run dev
 ```
 
 ```bash
-npm run build               # 타입 검사 + 프로덕션 빌드
-npm run lint                # ESLint 검사
-npm run test:e2e:install     # Chromium 설치 — 최초 1회
-npm run test:e2e             # MSW 기반 스모크 56건
-npm run test:auth            # OAuth·쿠키 기반 세션 검증
+npm run check               # 타입 검사 + ESLint + token-lint
+npm run check:full          # check + 프로덕션 빌드
+npm run test                # Vitest 단위 테스트
+npm run test:e2e:install    # Chromium 설치 — 최초 1회
+npm run test:e2e            # MSW 기반 e2e (tests/e2e)
+npm run test:auth           # OAuth·쿠키 기반 세션 검증
 ```
 
 <br>
@@ -67,9 +68,23 @@ src/
 │       └── components/      연결 현황, 디자인 검수, 1·2차 체크리스트
 ├── shared/                  도메인 무관 공용 — API 클라이언트, UI, 훅, 전역 CSS
 ├── mocks/                   MSW 핸들러와 인메모리 시드 데이터
+├── test/                    Vitest 공용 setup·render (단위 테스트는 대상 옆 *.test.ts(x))
 └── env.ts                   환경변수 검증
 
-.claude/                     개발 명세·규칙·검증 게이트·스모크
-tests/auth/                  OAuth·쿠키 기반 세션 테스트
-docs/qa-test-agile-followup/  QA 화면 개선 보고서와 변경 전·후 캡처
+docs/
+├── spec/                    제품 명세 — 동작·API 계약·디자인 시스템 (인덱스 00_INDEX.md)
+├── conventions/             아키텍처·API·UI·테스트 규칙과 확정 결정(decisions.md)
+├── plans/                   변경별 계획서 PLAN-{YYYYMMDD}-{slug}.md 와 남은 작업
+└── qa-test-agile-followup/  QA 화면 개선 보고서와 변경 전·후 캡처
+tests/
+├── e2e/                     Playwright + MSW e2e
+└── auth/                    OAuth·쿠키 기반 세션 테스트
+scripts/checks/              token-lint, Codex 훅 검증
+AGENTS.md · .codex/ · .agents/skills/   Codex 작업 지침·훅·스킬
 ```
+
+<br>
+
+## 작업 방식
+
+Codex 로 **계획 → 구현 → 테스트 → 커밋·푸시** 순서로 작업합니다. 자세한 규칙은 [AGENTS.md](AGENTS.md)를 봅니다.
