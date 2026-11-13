@@ -26,14 +26,13 @@ test.beforeEach(async ({ page }) => {
   await page.addInitScript(() => localStorage.setItem('gravit_admin_session', 'true'));
 });
 
-test('연결 ref와 공통 범례를 표시하고 키보드로 툴팁과 팝오버를 연다', async ({ page }) => {
+test('연결 ref와 공통 범례를 표시하고 성공 툴팁 없이 키보드로 팝오버를 연다', async ({ page }) => {
   await page.goto('/qa/sprints/9/setup');
   const connections = page.getByRole('region', { name: '연결 상태' });
   await expect(connections.getByText('qa-baseline@abc1234', { exact: true })).toHaveCount(3);
   await expect(connections.getByText('(release)', { exact: false })).toHaveCount(0);
-  await connections.getByRole('img', { name: '연결됨' }).first().focus();
-  await expect(page.getByRole('tooltip')).toHaveText('연결됨');
-  await page.keyboard.press('Escape');
+  await connections.getByRole('img', { name: '연결됨' }).first().hover();
+  await expect(page.getByRole('tooltip')).toHaveCount(0);
   await page.getByRole('button', { name: '상태 아이콘 안내', exact: true }).focus();
   await page.keyboard.press('Enter');
   const legend = page.getByRole('dialog', { name: '상태 아이콘 안내' });

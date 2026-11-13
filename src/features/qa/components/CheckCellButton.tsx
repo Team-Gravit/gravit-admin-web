@@ -1,8 +1,10 @@
+import { QaTooltipContent } from '@/features/qa/components/QaTooltipContent';
+import { NOTICE_COPY } from '@/features/qa/copy';
 import { CELL_CATEGORIES } from '@/features/qa/status';
 import { useRef, useState } from 'react';
 import { ChevronDown } from 'lucide-react';
 import { QaStatusIcon } from '@/features/qa/components/QaStatusIcon';
-import { Tooltip, TooltipContent, TooltipTrigger } from '@/shared/components/ui/tooltip';
+import { Tooltip, TooltipTrigger } from '@/shared/components/ui/tooltip';
 import {
   DropdownMenu,
   DropdownMenuCheckboxItem,
@@ -16,14 +18,14 @@ import { FailReasonModal } from '@/features/qa/components/FailReasonModal';
 import { QaApiError } from '@/shared/api/qaClient';
 import { useUpdateCheckCell } from '@/features/qa/mutations';
 import { CELL_STATE_LABELS, PART_LABELS } from '@/features/qa/labels';
-import { NOTICE_COPY } from '@/features/qa/copy';
-import type { CheckCell, ChecklistItem, Round } from '@/features/qa/schemas';
+import type { CheckCell, ChecklistItem, Round, SprintStatus } from '@/features/qa/schemas';
 export function CheckCellButton({
   sprintId,
   round,
   item,
   cell,
   closed,
+  sprintStatus,
   registerRef,
   onFocusCell,
 }: {
@@ -32,6 +34,7 @@ export function CheckCellButton({
   item: ChecklistItem;
   cell: CheckCell;
   closed: boolean;
+  sprintStatus: SprintStatus;
   registerRef: (el: HTMLButtonElement | null) => void;
   onFocusCell: () => void;
 }) {
@@ -40,15 +43,22 @@ export function CheckCellButton({
   const [menu, setMenu] = useState(false);
   const [failReason, setFailReason] = useState(false);
   const triggerRef = useRef<HTMLButtonElement | null>(null);
+  const beforeManualReview =
+    sprintStatus !== 'MANUAL_REVIEW' && !closed && cell.state !== 'NOT_APPLICABLE';
   const locked = closed || !cell.editable;
+  const showTooltip = beforeManualReview || (cell.state !== 'PASS' && cell.state !== 'FAIL');
   return (
     <>
       <DropdownMenu
         modal={false}
-        open={menu}
-        onOpenChange={(open) => setMenu(open && !update.isPending)}
+        open={menu && !beforeManualReview}
+        onOpenChange={(open) => setMenu(open && !update.isPending && !beforeManualReview)}
       >
-        <Tooltip open={menu || history || failReason || update.isPending ? false : undefined}>
+        <Tooltip
+          open={
+            !showTooltip || menu || history || failReason || update.isPending ? false : undefined
+          }
+        >
           <TooltipTrigger asChild>
             <DropdownMenuTrigger asChild>
               <button
@@ -58,7 +68,7 @@ export function CheckCellButton({
                 }}
                 type="button"
                 aria-busy={update.isPending}
-                aria-disabled={update.isPending}
+                aria-disabled={beforeManualReview || update.isPending}
                 onFocus={onFocusCell}
                 aria-label={`${PART_LABELS[cell.part]} ${CELL_STATE_LABELS[cell.state]} — ${locked ? '변경 이력' : '변경'}`}
                 className="relative inline-flex h-10 w-16 items-center justify-center rounded-md hover:bg-hover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
@@ -75,7 +85,11 @@ export function CheckCellButton({
               </button>
             </DropdownMenuTrigger>
           </TooltipTrigger>
-          <TooltipContent side="bottom">{CELL_STATE_LABELS[cell.state]}</TooltipContent>
+          <QaTooltipContent side="bottom">
+            {beforeManualReview
+              ? NOTICE_COPY.CELL_BEFORE_MANUAL_REVIEW
+              : CELL_STATE_LABELS[cell.state]}
+          </QaTooltipContent>
         </Tooltip>
         <DropdownMenuContent
           align="center"
@@ -93,7 +107,7 @@ export function CheckCellButton({
                   onCheckedChange={() => {
                     setMenu(false);
                     if (update.isPending) return;
-                    if (state === 'FAIL' && cell.state !== 'FAIL') {
+                    if (state === 'FAIL') {
                       update.reset();
                       setFailReason(true);
                       return;
@@ -110,18 +124,6 @@ export function CheckCellButton({
                   {CELL_STATE_LABELS[state]}
                 </DropdownMenuCheckboxItem>
               ))}
-              {cell.state === 'FAIL' && (
-                <DropdownMenuItem
-                  onSelect={() => {
-                    if (update.isPending) return;
-                    setMenu(false);
-                    update.reset();
-                    setFailReason(true);
-                  }}
-                >
-                  {NOTICE_COPY.FAIL_REASON_EDIT}
-                </DropdownMenuItem>
-              )}
               <DropdownMenuSeparator />
             </>
           )}

@@ -60,10 +60,13 @@ export function DataTable<T>({
     }
     return (
       <Table>
-        <TableHeader>
+        <TableHeader className="bg-hover">
           <TableRow>
             {columns.map((col) => (
-              <TableHead key={col.key} className={col.headerClassName}>
+              <TableHead
+                key={col.key}
+                className={cn('font-semibold text-fg-secondary', col.headerClassName)}
+              >
                 {col.header}
               </TableHead>
             ))}

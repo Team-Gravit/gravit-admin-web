@@ -1,3 +1,4 @@
+import { QaTooltipContent } from '@/features/qa/components/QaTooltipContent';
 import { useId } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -11,7 +12,7 @@ import {
   DialogHeader,
   DialogTitle,
 } from '@/shared/components/ui/dialog';
-import { Tooltip, TooltipContent, TooltipTrigger } from '@/shared/components/ui/tooltip';
+import { Tooltip, TooltipTrigger } from '@/shared/components/ui/tooltip';
 import { FormField } from '@/shared/components/form/FormField';
 import { FieldError } from '@/shared/components/form/FieldError';
 import { FIELD_LIMITS } from '@/shared/constants/fieldLimits';
@@ -107,7 +108,7 @@ export function FailReasonModal({
                 취소
               </Button>
             </TooltipTrigger>
-            {pending && <TooltipContent>{NOTICE_COPY.FAIL_REASON_PENDING}</TooltipContent>}
+            {pending && <QaTooltipContent>{NOTICE_COPY.FAIL_REASON_PENDING}</QaTooltipContent>}
           </Tooltip>
           <Tooltip>
             <TooltipTrigger asChild>
@@ -121,7 +122,7 @@ export function FailReasonModal({
                 {NOTICE_COPY.FAIL_REASON_CONFIRM}
               </Button>
             </TooltipTrigger>
-            {blocked && <TooltipContent>{blockedMessage}</TooltipContent>}
+            {blocked && <QaTooltipContent>{blockedMessage}</QaTooltipContent>}
           </Tooltip>
         </DialogFooter>
       </DialogContent>

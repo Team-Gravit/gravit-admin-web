@@ -227,7 +227,7 @@ export function useUpdateDesignItem(id: number) {
     onError: (error) => mutationError(client, id, error),
   });
 }
-export function useCloseSprint(id: number) {
+export function useCloseSprint(id: number, onClosed: () => void) {
   const client = useQueryClient();
   return useMutation({
     mutationFn: (version: number) => api.closeSprint(id, version),
@@ -236,6 +236,8 @@ export function useCloseSprint(id: number) {
       client.setQueryData(qaKeys.sprint(id), sprint);
       await refreshSprint(client, id);
       toast.success(TOAST_COPY.SPRINT_CLOSED);
+      // Mutation-level callbacks still run after the CLOSED cache unmounts the dialog.
+      onClosed();
     },
     onError: (error) => mutationError(client, id, error),
   });

@@ -1,5 +1,6 @@
 /** QA v2 UI copy, D11. Server messages take precedence for domain failures. */
 export const NOTICE_COPY = {
+  CELL_BEFORE_MANUAL_REVIEW: '1차 검수가 끝난 뒤 변경할 수 있습니다.',
   MANUAL: 'QA 매뉴얼',
   SPRINT_LIST_TITLE: '스프린트 목록',
   SPRINT_REGISTER: '스프린트 등록',

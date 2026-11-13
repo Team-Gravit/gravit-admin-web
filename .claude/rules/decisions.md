@@ -234,8 +234,8 @@
 - PUT /checklist-items/{id}/cells/{part} {state,version} → 셀. GET 같은 경로/history → 기존 이력+reason. 셀 응답에는 itemId가 없으므로 요청의 itemId로 캐시 갱신.
 - 사람이 판정 변경하면 source=MANUAL,reason=null, AUTO 사유는 이력에 보존(P8). editable=true이면 AUTO도 변경 허용. 해당 없음도 판정 선택/이력 조회 가능.
 - 항목 수정 시 모든 셀 UNCHECKED, 이력 사유 '항목 수정으로 판정 초기화'(P10). 저장 전 이 문구 확인. 실행 중 준비 작업이 있으면 추가/수정/삭제 불가.
-- 종료는 MANUAL_REVIEW에서 디자인/1차/2차 미검수 모두 0일 때만. 2차 탭에만 종료 버튼. QA 기준점 기록 실패 시 종료하지 않음(P4).
-- 오류: GLOBAL_4091 버전 충돌→다시 조회 안내. SPRINT_4092 상태 불가/SPRINT_4093 미검수→서버 message. REFLECTION_5021 반영 실패→카드 새로 조회해 FAILED 표시. REFLECTION_4091 명세 변경→다시 수집 안내. SPRINT_5022 종료 기준점 기록 실패→서버 message+재시도. 이전 SPRINT_4094/CHECKLIST_4091/CHECKLIST_4221/4222 분기 제거.
+- 종료는 MANUAL_REVIEW에서 디자인/1차/2차 미검수 모두 0일 때만. 2차 탭에만 종료 버튼.
+- 오류: GLOBAL_4091 버전 충돌→다시 조회 안내. SPRINT_4092 상태 불가/SPRINT_4093 미검수→서버 message. REFLECTION_5021 반영 실패→카드 새로 조회해 FAILED 표시. REFLECTION_4091 명세 변경→다시 수집 안내. 이전 SPRINT_4094/CHECKLIST_4091/CHECKLIST_4221/4222 분기 제거.
 
 ### 구현·검증
 - Recharts 반원형 게이지 4개: Design·Web·APP·Server. 신규 의존성 없음. 화면 머리는 screenId/name/변경/completionRate, 행은 title/작은 배경 설명/관련 파트(디자인은 platform)/판정·관리 액션. 분류·페르소나·출처·경고·확정/거절 배지는 제거. 분류 입력은 추가/수정 모달에서만 유지.
@@ -243,3 +243,22 @@
 - MSW는 화면당 3~7개 항목, 새 계약과 version/오류/재수집/수정 초기화/수동 이력/종료 조건 검증. 실제 서버에는 변경 요청을 보내지 않는다.
 - 6개 step-12 항목을 H1 앞에 삽입, 기존 항목 ID/상태/상대 순서 유지. 각 리뷰 JSON, lint/build/e2e/하네스 게이트 및 실서버 확인사항 기록.
 - index.html의 의도치 않은 삭제만 HEAD로 복원 승인. architecture-reviewer.md와 .env.development/QA_SPEC.md/RAVVIT_SPEC.md는 변경하거나 커밋하지 않는다. rewrite/proxy 변경 금지. 커밋/푸시는 결과 보고 후 별도 승인.
+
+
+## D13 — QA 화면 다듬기 (세션 H2, 2026-11-13 사용자 결정)
+- K-3: 종료의 폐기된 외부 기록 실패 목·스모크·결정 문구를 삭제한다. 서버 계약·종료 요청 필드는 유지한다.
+- K-5: 제목↔단계의 기존 간격은 유지하고 단계↔탭만 content-padding-x(gap-8, 32) 토큰으로 넓힌다.
+- K-6: 범례 버튼의 p-2/mb-2와 flex stretch로 늘어난 탭 높이를 items-start·p-1·pb-1로 줄인다.
+- K-7: 대기·미검수 범주의 아이콘을 lucide Minus로 바꾸고 공통 범례에도 반영한다.
+- K-8: 상태 범례는 호버·포커스·클릭으로 바로 팝오버를 열고 Esc로 닫는다.
+- K-9: QA 전용 툴팁만 caption과 최소 토큰 여백(p-1)으로 줄이며 공용 tooltip 기본값은 유지한다.
+- K-10: 성공·실패 범주와 Pass·Fail 판정 툴팁은 제거하고 aria-label과 나머지 상태 안내는 유지한다. K-12의 잠금 안내가 우선한다.
+- K-11: 마지막 승인/거절 후 기존 refreshSprint로 서버 상태를 재조회하며, 재수집 창은 오류를 포함한 요청 종료 및 waiting=false에 닫힌다. 목은 같은 요청에서 CHECKLIST/QA_PREPARE로 전환한다.
+- K-12: DRAFT~AUTO_REVIEW 체크 셀은 메뉴를 열지 않고 ‘1차 검수가 끝난 뒤 변경할 수 있습니다.’를 표시한다. CLOSED·NOT_APPLICABLE·디자인 검수 동작은 유지한다.
+- K-13: 디자인 항목 아래 중복되는 프레임 부재 사유 한 줄을 제거하며 변경 이력의 사유는 보존한다.
+- K-14: 체크 셀의 별도 Fail 사유 수정 메뉴를 제거하고, Fail 재선택으로 현재 사유가 채워진 창을 연다. 디자인 항목 메뉴와 QA 매뉴얼은 유지한다(D12의 체크 셀 메뉴만 대체).
+- K-15: 종료 성공 후 현재 쿼리스트링을 유지해 파트별 수정사항 탭으로 이동한다.
+- K-16: DS-01에 머리글 전용 규정이 없어 질문 후 승인받음. 공용 DataTable에 bg-hover·font-semibold·text-fg-secondary를 적용하고 영향 화면을 리뷰 패킷에 기록한다.
+- 이번 요청 13건을 fix:QA_H2_UI_POLISH로 H1/MSW 기존 TODO 앞에서 순차 처리한다. 커밋·푸시·배포 없이 with-smoke 게이트와 리뷰 패킷 제출 후 정지한다.
+
+- 세션 H2 후속 승인(2026-11-13): 사용자가 이번 QA 수정·증빙의 main 커밋·푸시를 명시 승인했다. 기존 사용자 작업은 제외하며 배포 명령은 실행하지 않는다.

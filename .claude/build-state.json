@@ -191,6 +191,10 @@
       "status": "COMPLETED"
     },
     {
+      "id": "fix:QA_H2_UI_POLISH",
+      "status": "COMPLETED"
+    },
+    {
       "id": "fix:H1-CN_FONT_SIZE",
       "status": "TODO"
     },
@@ -231,7 +235,8 @@
     "step-13:QA_FAIL_REASON": 1,
     "step-13:QA_MANUAL_LINK": 1,
     "step-13:QA_VERIFY": 2,
-    "step-13:G3_D1_D6": 1
+    "step-13:G3_D1_D6": 1,
+    "fix:QA_H2_UI_POLISH": 3
   },
   "manual_review": [
     {
@@ -383,6 +388,11 @@
       "id": "step-13:QA_VERIFY",
       "tag": "txt-example",
       "note": "SESSION_G1_QA_SERVER_FIX_REPORT.md TXT 본문 예시가 제공되지 않아 임시 목임을 TXT 첫 줄과 보고서에 명시. 예시 수신 후 본문 대조 필요."
+    },
+    {
+      "id": "fix:QA_H2_UI_POLISH",
+      "tag": "integration",
+      "note": "K-11 당시 배포 커밋/URL은 사용자도 모름. main 4199350에서 마지막 승인 뒤 버튼 잔존은 미재현(0개), 409 확인창 잔존만 재현(1개). 마지막 승인/거절·waiting 해제·409/500 창 닫힘은 서버와 일치시킨 MSW로 통과. 당시 현상의 정확한 원인은 확정하지 않음. 실서버 변경 요청 없음."
     }
   ],
   "log": [
@@ -891,6 +901,25 @@
       "ts": "2026-11-12",
       "action": "COMMIT_PUSH_APPROVED",
       "note": "사용자 커밋·푸시 승인, 대상 origin/main. fetch로 99585ee(README 변경 1건) 확인 후 로컬 main을 fast-forward. QA 소스·테스트·하네스·리뷰 캡처만 스테이징. 사용자 architecture-reviewer.md와 .env.development/QA_SPEC.md/RAVVIT_SPEC.md 제외. 일반 푸시, 결과 해시는 최종 응답으로 보고."
+    },
+    {
+      "id": "fix:QA_H2_UI_POLISH",
+      "ts": "2026-11-13",
+      "note": "사용자 세션 H2 요청 13건을 H1/MSW TODO 앞에서 수행. origin/main=4199350 최신 확인. 기존 사용자 변경 보존."
+    },
+    {
+      "id": "fix:QA_H2_UI_POLISH",
+      "ts": "2026-11-13",
+      "status": "COMPLETED",
+      "gate": "gate-runner.sh --with-smoke OK; 97 smoke PASS; targeted ESLint PASS; diff --check PASS",
+      "review": "spec PASS; ds PASS; before/after 12 captures",
+      "note": "K-3/K-5~K-16 반영, 결정 D13 및 리뷰패킷 harness/review/qa-h2/README.md. 자가수정 3회: 범례 Esc/툴팁 검사 대상, 종료 콜백 언마운트+포커스 복원+기존 스모크 기대, hover Esc 이후 포커스 재진입. K11 과거 버튼 잔존 원인 미확정은 manual_review에 기록. H1/기존 MSW TODO 보존. 커밋/푸시/배포 미실행, 패킷 제출 후 정지."
+    },
+    {
+      "id": "fix:QA_H2_UI_POLISH",
+      "ts": "2026-11-13",
+      "action": "COMMIT_PUSH_APPROVED",
+      "note": "사용자가 main 브랜치 커밋·푸시 승인. fetch로 origin/main=4199350 유지 확인. QA H2 소스·스모크·결정·하네스·리뷰패킷만 포함. 기존 architecture-reviewer.md 및 .env.development/QA_SPEC.md/RAVVIT_SPEC.md는 제외. 일반 푸시로 반영, 배포 명령은 실행하지 않음."
     }
   ]
 }

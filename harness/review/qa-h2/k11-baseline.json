@@ -1,0 +1,8 @@
+{
+  "frontend": "4199350 SetupPanel + existing mutation refreshSprint",
+  "mock": "H2 server-aligned synchronous QA_PREPARE transition",
+  "recollectErrorStatus": 409,
+  "errorDialogRemains": 1,
+  "lastApprovalRecollectButtonCount": 0,
+  "conclusion": "409 dialog retention reproduced; post-decision stale button not reproduced on main"
+}

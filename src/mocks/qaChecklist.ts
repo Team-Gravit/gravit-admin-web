@@ -147,7 +147,10 @@ export function checklistResponse(
         )
         .map((i) => ({
           ...i,
-          cells: i.cells.map((c) => ({ ...c, editable: sprintStatus !== 'CLOSED' && c.editable })),
+          cells: i.cells.map((c) => ({
+            ...c,
+            editable: sprintStatus === 'MANUAL_REVIEW' && c.editable,
+          })),
         }));
       return {
         ...screen,

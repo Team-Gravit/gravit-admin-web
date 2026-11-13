@@ -1,3 +1,4 @@
+import { QaTooltipContent } from '@/features/qa/components/QaTooltipContent';
 import { CELL_CATEGORIES } from '@/features/qa/status';
 import { useRef, useState } from 'react';
 import { ChevronDown } from 'lucide-react';
@@ -11,7 +12,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from '@/shared/components/ui/dropdown-menu';
-import { Tooltip, TooltipContent, TooltipTrigger } from '@/shared/components/ui/tooltip';
+import { Tooltip, TooltipTrigger } from '@/shared/components/ui/tooltip';
 import { QaApiError } from '@/shared/api/qaClient';
 import { useDeleteDesignItem, useUpdateDesignItem } from '@/features/qa/mutations';
 import { DesignHistoryModal } from '@/features/qa/components/DesignHistoryModal';
@@ -56,9 +57,6 @@ export function DesignReviewItem({
           <p className="whitespace-pre-wrap rounded-md bg-page px-3 py-2 text-caption text-fg-secondary">
             {item.expected}
           </p>
-          {item.reason === 'Figma 프레임 없음' && (
-            <p className="mt-2 text-caption text-fg-muted">{item.reason}</p>
-          )}
         </TableCell>
         {(['WEB', 'APP'] as const).map((platform) => (
           <TableCell key={platform} className="text-center">
@@ -72,7 +70,14 @@ export function DesignReviewItem({
               >
                 <Tooltip
                   open={
-                    menu || history || editing || deleting || failReason || update.isPending
+                    item.state === 'PASS' ||
+                    item.state === 'FAIL' ||
+                    menu ||
+                    history ||
+                    editing ||
+                    deleting ||
+                    failReason ||
+                    update.isPending
                       ? false
                       : undefined
                   }
@@ -106,7 +111,7 @@ export function DesignReviewItem({
                       </button>
                     </DropdownMenuTrigger>
                   </TooltipTrigger>
-                  <TooltipContent side="bottom">{CELL_STATE_LABELS[item.state]}</TooltipContent>
+                  <QaTooltipContent side="bottom">{CELL_STATE_LABELS[item.state]}</QaTooltipContent>
                 </Tooltip>
                 <DropdownMenuContent
                   align="center"

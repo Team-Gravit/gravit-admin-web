@@ -1,6 +1,8 @@
+import { useEffect, useRef, useState } from 'react';
+import { QaTooltipContent } from '@/features/qa/components/QaTooltipContent';
 import { Info } from 'lucide-react';
 import { cn } from '@/shared/lib/cn';
-import { Tooltip, TooltipContent, TooltipTrigger } from '@/shared/components/ui/tooltip';
+import { Tooltip, TooltipTrigger } from '@/shared/components/ui/tooltip';
 import { Popover, PopoverContent, PopoverTrigger } from '@/shared/components/ui/popover';
 import { QA_STATUS_CATEGORIES, type QaStatusCategory } from '@/features/qa/status';
 
@@ -16,11 +18,12 @@ export function QaStatusIcon({
   pending?: boolean;
 }) {
   const { icon: Icon, color } = QA_STATUS_CATEGORIES[category];
+  const showTooltip = tooltip && category !== 'success' && category !== 'failure';
   const icon = (
     <span
       role="img"
       aria-label={label}
-      tabIndex={tooltip ? 0 : undefined}
+      tabIndex={showTooltip ? 0 : undefined}
       className={cn(
         'inline-flex size-8 shrink-0 items-center justify-center rounded-full transition-opacity focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring',
         color,
@@ -36,10 +39,10 @@ export function QaStatusIcon({
       />
     </span>
   );
-  return tooltip ? (
+  return showTooltip ? (
     <Tooltip>
       <TooltipTrigger asChild>{icon}</TooltipTrigger>
-      <TooltipContent side="bottom">{label}</TooltipContent>
+      <QaTooltipContent side="bottom">{label}</QaTooltipContent>
     </Tooltip>
   ) : (
     icon
@@ -48,29 +51,79 @@ export function QaStatusIcon({
 
 export function QaStatusLegend() {
   const [open, setOpen] = useState(false);
+  const triggerRef = useRef<HTMLButtonElement>(null);
+  const contentRef = useRef<HTMLDivElement>(null);
+  const restoreKeyboardFocus = useRef(false);
+  const closeTimer = useRef<ReturnType<typeof setTimeout>>();
+  const dismissed = useRef(false);
+  const cancelClose = () => clearTimeout(closeTimer.current);
+  const show = () => {
+    cancelClose();
+    setOpen(true);
+  };
+  const scheduleClose = () => {
+    cancelClose();
+    closeTimer.current = setTimeout(() => setOpen(false), 150);
+  };
+  useEffect(() => () => clearTimeout(closeTimer.current), []);
   return (
     <Popover open={open} onOpenChange={setOpen}>
-      <Tooltip open={open ? false : undefined}>
-        <TooltipTrigger asChild>
-          <PopoverTrigger asChild>
-            <button
-              type="button"
-              aria-label="상태 아이콘 안내"
-              className="ml-auto mb-2 rounded-md p-2 text-fg-muted hover:bg-hover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
-            >
-              <Info className="size-4" aria-hidden />
-            </button>
-          </PopoverTrigger>
-        </TooltipTrigger>
-        <TooltipContent side="bottom">상태 아이콘 안내</TooltipContent>
-      </Tooltip>
+      <PopoverTrigger asChild>
+        <button
+          ref={triggerRef}
+          type="button"
+          aria-label="상태 아이콘 안내"
+          onPointerEnter={() => {
+            dismissed.current = false;
+            show();
+          }}
+          onPointerLeave={scheduleClose}
+          onFocus={() => !dismissed.current && show()}
+          onBlur={() => {
+            dismissed.current = false;
+          }}
+          onKeyDown={(event) => {
+            if (['Enter', ' ', 'ArrowDown'].includes(event.key)) {
+              event.preventDefault();
+              show();
+              requestAnimationFrame(() => contentRef.current?.focus());
+            }
+            if (event.key === 'Escape') {
+              cancelClose();
+              dismissed.current = true;
+              setOpen(false);
+            }
+          }}
+          onClick={(event) => {
+            event.preventDefault();
+            dismissed.current = false;
+            show();
+          }}
+          className="ml-auto rounded-md p-1 text-fg-muted hover:bg-hover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+        >
+          <Info className="size-4" aria-hidden />
+        </button>
+      </PopoverTrigger>
       <PopoverContent
+        ref={contentRef}
         side="bottom"
         aria-label="상태 아이콘 안내"
-        onKeyDown={(event) => {
-          if (event.key === 'Escape') {
-            event.preventDefault();
-            setOpen(false);
+        onPointerEnter={cancelClose}
+        onPointerLeave={scheduleClose}
+        onEscapeKeyDown={() => {
+          restoreKeyboardFocus.current =
+            contentRef.current?.contains(document.activeElement) ?? false;
+          cancelClose();
+          dismissed.current =
+            document.activeElement === triggerRef.current || restoreKeyboardFocus.current;
+        }}
+        onOpenAutoFocus={(event) => event.preventDefault()}
+        onCloseAutoFocus={(event) => {
+          event.preventDefault();
+          if (restoreKeyboardFocus.current) {
+            dismissed.current = true;
+            triggerRef.current?.focus();
+            restoreKeyboardFocus.current = false;
           }
         }}
       >
@@ -94,4 +147,3 @@ export function QaStatusLegend() {
     </Popover>
   );
 }
-import { useState } from 'react';

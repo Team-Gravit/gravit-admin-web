@@ -181,7 +181,7 @@ test('디자인 자동 판정을 변경하고 원래 사유를 이력에서 확�
   for (const name of ['Design', 'Web', 'APP', 'Server'])
     await expect(page.getByRole('meter', { name: `${name} 완료율` })).toBeVisible();
   const missing = page.getByRole('row', { name: 'APP AOS 시안 프레임이 없다', exact: true });
-  await expect(missing.getByText('Figma 프레임 없음', { exact: true })).toBeVisible();
+  await expect(missing.getByText('Figma 프레임 없음', { exact: true })).toHaveCount(0);
   await expect(page.getByText('Figma와 화면 명세를 비교한 자동 검수 결과입니다.')).toHaveCount(0);
   const before = await api(page, '/sprints/2');
   await missing.getByRole('button', { name: 'APP 미검수 — 변경', exact: true }).click();
@@ -350,15 +350,20 @@ test('QA 종료는 모든 탭 상단에 있고 디자인 미검수도 종료를 
   await expect(close).toBeDisabled();
 });
 
-test('종료 기준점 기록 실패는 모달을 유지하고 다시 시도할 수 있다', async ({ page }) => {
-  await page.goto('/qa/sprints/9/checklist/2?qaMock=close-fail');
+test('종료 성공은 쿼리를 유지해 수정사항 탭으로 이동하고 종료 셀 이력은 유지한다', async ({
+  page,
+}) => {
+  await page.goto('/qa/sprints/9/checklist/2?qaMock=h2&context=review');
   await page.getByRole('button', { name: 'QA 종료', exact: true }).click();
   const dialog = page.getByRole('dialog');
   await dialog.getByRole('button', { name: '종료', exact: true }).click();
-  await expect(dialog.getByRole('alert')).toContainText('QA 기준점 기록에 실패');
-  expect((await api(page, '/sprints/9')).data.status).toBe('MANUAL_REVIEW');
-  await dialog.getByRole('button', { name: '다시 시도', exact: true }).click();
   await expect(dialog).toHaveCount(0);
+  await expect(page).toHaveURL('/qa/sprints/9/fix-reports?qaMock=h2&context=review');
+  expect((await api(page, '/sprints/9')).data.status).toBe('CLOSED');
+  await page
+    .getByRole('navigation', { name: 'QA 탭' })
+    .getByRole('link', { name: '2차 체크리스트', exact: true })
+    .click();
   await expect(page.getByText('종료된 스프린트입니다.', { exact: false })).toBeVisible();
   await row(page).getByRole('button', { name: 'Web Pass — 변경 이력', exact: true }).click();
   await expect(page.getByRole('menuitemcheckbox')).toHaveCount(0);
@@ -620,7 +625,12 @@ for (const type of ['셀', '디자인']) {
     const url = new URL(request.url());
     await expect(failDialog(page)).toHaveCount(0);
     await target.getByRole('button', { name: 'Web Fail — 변경', exact: true }).click();
-    await page.getByRole('menuitem', { name: 'Fail 사유 수정', exact: true }).click();
+    await page
+      .getByRole(design ? 'menuitem' : 'menuitemcheckbox', {
+        name: design ? 'Fail 사유 수정' : 'Fail',
+        exact: true,
+      })
+      .click();
     await failDialog(page).getByRole('textbox').fill('가'.repeat(501));
     await expect(failDialog(page).getByText('501/500', { exact: true })).toBeVisible();
     let extraPuts = 0;
@@ -659,7 +669,12 @@ for (const type of ['셀', '디자인']) {
       ).status,
     ).toBe(400);
     await target.getByRole('button', { name: 'Web Fail — 변경', exact: true }).click();
-    await page.getByRole('menuitem', { name: 'Fail 사유 수정', exact: true }).click();
+    await page
+      .getByRole(design ? 'menuitem' : 'menuitemcheckbox', {
+        name: design ? 'Fail 사유 수정' : 'Fail',
+        exact: true,
+      })
+      .click();
     await expect(failDialog(page).getByRole('textbox')).toHaveValue('가'.repeat(500));
     await page.keyboard.press('Escape');
     await expect(failDialog(page)).toHaveCount(0);
@@ -793,7 +808,15 @@ for (const type of ['1차', '2차', '디자인'] as const) {
     let before = await read();
     const edit = async (input: string) => {
       await target.getByRole('button', { name: 'Web Fail — 변경', exact: true }).click();
-      await page.getByRole('menuitem', { name: 'Fail 사유 수정', exact: true }).click();
+      await expect(page.getByRole('menuitem', { name: 'Fail 사유 수정', exact: true })).toHaveCount(
+        design ? 1 : 0,
+      );
+      await page
+        .getByRole(design ? 'menuitem' : 'menuitemcheckbox', {
+          name: design ? 'Fail 사유 수정' : 'Fail',
+          exact: true,
+        })
+        .click();
       await expect(failDialog(page).getByRole('textbox')).toHaveValue(before.current.reason ?? '');
       await expect(failDialog(page)).toContainText('비워 두면 기존 사유가 유지됩니다.');
       await failDialog(page).getByRole('textbox').fill(input);

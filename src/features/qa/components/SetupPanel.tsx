@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Loader2 } from 'lucide-react';
 import { Button } from '@/shared/components/ui/button';
 import { QaConfirmModal } from '@/features/qa/components/QaConfirmModal';
@@ -17,6 +17,9 @@ export function SetupPanel({ sprint }: { sprint: Sprint }) {
   const cancel = useCancelJob(sprint.id, sprint.latestJob?.id ?? -1);
   const waiting =
     sprint.pendingReflectionCount > 0 && sprint.setupSteps.some((s) => s.status === 'WAITING');
+  useEffect(() => {
+    if (!waiting) setConfirm((current) => (current === 'recollect' ? null : current));
+  }, [waiting]);
   const active = hasRunningSetup(sprint);
   const closed = sprint.status === 'CLOSED';
   const canStart =
@@ -68,14 +71,14 @@ export function SetupPanel({ sprint }: { sprint: Sprint }) {
       </section>
       <ReflectionPanel sprint={sprint} />
       <QaConfirmModal
-        open={confirm === 'recollect'}
+        open={confirm === 'recollect' && waiting}
         onClose={() => setConfirm(null)}
         title="명세를 다시 수집할까요?"
         description={NOTICE_COPY.RECOLLECT}
         confirmLabel="다시 수집"
         pending={start.isPending}
         disabled={!waiting || closed}
-        onConfirm={() => start.mutate(sprint.version, { onSuccess: () => setConfirm(null) })}
+        onConfirm={() => start.mutate(sprint.version, { onSettled: () => setConfirm(null) })}
       />
       <QaConfirmModal
         open={confirm === 'cancel'}

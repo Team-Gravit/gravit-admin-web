@@ -1,4 +1,4 @@
-import { CircleAlert, CircleCheck, CircleDashed, CircleX, LoaderCircle, Lock } from 'lucide-react';
+import { CircleAlert, CircleCheck, Minus, CircleX, LoaderCircle, Lock } from 'lucide-react';
 import type { CellState, Reflection, SetupStep } from '@/features/qa/schemas';
 
 export const QA_STATUS_CATEGORIES = {
@@ -27,7 +27,7 @@ export const QA_STATUS_CATEGORIES = {
     color: 'bg-primary-badge text-primary',
   },
   pending: {
-    icon: CircleDashed,
+    icon: Minus,
     label: '대기·미검수',
     description: '대기 · 미검수 · 확인 전',
     color: 'bg-muted-ds-bg text-muted-ds-text',

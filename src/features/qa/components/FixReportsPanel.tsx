@@ -1,6 +1,7 @@
+import { QaTooltipContent } from '@/features/qa/components/QaTooltipContent';
 import { Download } from 'lucide-react';
 import { Button } from '@/shared/components/ui/button';
-import { Tooltip, TooltipContent, TooltipTrigger } from '@/shared/components/ui/tooltip';
+import { Tooltip, TooltipTrigger } from '@/shared/components/ui/tooltip';
 import { LoadingSkeleton } from '@/shared/components/states/LoadingSkeleton';
 import { ErrorState } from '@/shared/components/states/ErrorState';
 import { QaNotice } from '@/features/qa/components/QaNotice';
@@ -91,13 +92,13 @@ export function FixReportsPanel({ sprint }: { sprint: Sprint }) {
                   </Button>
                 </span>
               </TooltipTrigger>
-              <TooltipContent>
+              <QaTooltipContent>
                 {empty
                   ? NOTICE_COPY.FIXES_EMPTY
                   : pending
                     ? NOTICE_COPY.FIXES_DOWNLOAD_PENDING
                     : `${label} ${NOTICE_COPY.FIXES_DOWNLOAD}`}
-              </TooltipContent>
+              </QaTooltipContent>
             </Tooltip>
           </section>
         );

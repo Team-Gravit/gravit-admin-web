@@ -70,7 +70,6 @@ let nextSprintId = 11;
 let nextJobId = 100;
 let nextItemId = 900000;
 const failedApproval = new Set<number>();
-let closeFailed = false;
 
 function newJob(sprintId: number, step: number, waiting = false): Job {
   const job: Job = {
@@ -175,6 +174,9 @@ function seed(id: number, status: SprintStatus, complete = false) {
       message: i === 1 ? '명세 수정 이력의 본문 반영 승인을 기다리고 있습니다.' : null,
     }));
     sprint.latestJob = newJob(id, 1, true);
+    // SPEC_LOAD has finished while the server waits for human decisions.
+    sprint.latestJob.status = 'SUCCEEDED';
+    sprint.latestJob.finishedAt = now();
   } else if (id === 8) {
     const job = newJob(id, 0);
     job.status = 'FAILED';
@@ -373,6 +375,9 @@ export const qaHandlers = [
     const parsed = versionBody.safeParse(await request.json());
     if (!parsed.success) return badRequest();
     if (versionMismatch(record.sprint.version, parsed.data.version)) return conflict();
+    if (scenario() === 'recollect-conflict') return invalidState();
+    if (scenario() === 'recollect-error')
+      return error(500, 'GLOBAL_5001', '준비 작업을 시작하지 못했습니다.');
     const recollect =
       record.sprint.pendingReflectionCount > 0 &&
       record.sprint.setupSteps.some((s) => s.status === 'WAITING');
@@ -532,17 +537,29 @@ export const qaHandlers = [
         sync(record);
         return error(502, 'REFLECTION_5021', item.message);
       }
+      if (scenario() === 'reflection-delay') await delay(800);
       item.state = action === 'approve' ? 'APPLIED' : 'REJECTED';
       item.message = null;
       record.sprint.version++;
       sync(record);
-      if (record.sprint.pendingReflectionCount === 0 && record.sprint.latestJob) {
-        const job = jobs.get(record.sprint.latestJob.id);
-        if (job) {
-          job.waiting = false;
-          const step = record.sprint.setupSteps[1];
-          if (step) step.status = 'RUNNING';
+      if (record.sprint.pendingReflectionCount === 0) {
+        // SetupFacade.proceedAfterReflections enters QA_PREPARE in this request.
+        const collected = record.sprint.setupSteps[1];
+        if (collected) {
+          collected.status = 'DONE';
+          collected.message = '반영 제안 처리가 끝났습니다.';
         }
+        const next = record.sprint.setupSteps[2];
+        if (next) {
+          next.status = 'RUNNING';
+          next.attempt = 1;
+        }
+        const job = newJob(record.sprint.id, 2);
+        job.status = 'QUEUED';
+        job.attempt = 0;
+        job.nextRunAt = now();
+        record.sprint.latestJob = job;
+        record.sprint.status = 'CHECKLIST';
       }
       return HttpResponse.json(item);
     }),
@@ -555,7 +572,8 @@ export const qaHandlers = [
     const record = records.get(Number(params.id));
     return record
       ? HttpResponse.json(
-          ['DRAFT', 'SPEC_LOAD', 'CHECKLIST'].includes(record.sprint.status)
+          ['DRAFT', 'SPEC_LOAD', 'CHECKLIST'].includes(record.sprint.status) &&
+            scenario() !== 'pre-review-cells'
             ? { sprintId: record.sprint.id, sprintStatus: record.sprint.status, features: [] }
             : compatibilityBody(
                 checklistResponse(
@@ -794,7 +812,7 @@ export const qaHandlers = [
     if (parsed.data.state === 'NOT_APPLICABLE')
       return error(400, 'CHECKLIST_4001', '체크 셀을 해당 없음으로 변경할 수 없습니다.');
     if (versionMismatch(cell.version, parsed.data.version)) return conflict();
-    if (record.sprint.status === 'CLOSED' || !cell.editable) return invalidState();
+    if (record.sprint.status !== 'MANUAL_REVIEW' || !cell.editable) return invalidState();
     if (unchangedFail(cell, parsed.data)) return HttpResponse.json(compatibilityBody(cell));
     const key = `${item.id}:${cell.part}`;
     const history = record.fixture.cellHistory.get(key) ?? [];
@@ -846,10 +864,6 @@ export const qaHandlers = [
       record.fixture.items.some((i) => i.cells.some((c) => c.state === 'UNCHECKED'))
     )
       return error(409, 'SPRINT_4093', '디자인·1차·2차 목록에 미검수가 남아 있습니다.');
-    if (scenario() === 'close-fail' && !closeFailed) {
-      closeFailed = true;
-      return error(502, 'SPRINT_5022', 'QA 기준점 기록에 실패했습니다. 다시 시도해 주세요.');
-    }
     record.sprint.status = 'CLOSED';
     record.sprint.version++;
     sync(record);

@@ -1,6 +1,7 @@
+import { QaTooltipContent } from '@/features/qa/components/QaTooltipContent';
 import { useState } from 'react';
 import { Button } from '@/shared/components/ui/button';
-import { Tooltip, TooltipContent, TooltipTrigger } from '@/shared/components/ui/tooltip';
+import { Tooltip, TooltipTrigger } from '@/shared/components/ui/tooltip';
 import { CloseSprintModal } from '@/features/qa/components/CloseSprintModal';
 import { hasRunningSetup, useChecklist, useDesignReview } from '@/features/qa/queries';
 import { NOTICE_COPY } from '@/features/qa/copy';
@@ -47,7 +48,9 @@ export function QaCloseAction({ sprint }: { sprint: Sprint }) {
             QA 종료
           </Button>
         </TooltipTrigger>
-        {!canClose && <TooltipContent side="bottom">{NOTICE_COPY.CLOSE_BLOCKED}</TooltipContent>}
+        {!canClose && (
+          <QaTooltipContent side="bottom">{NOTICE_COPY.CLOSE_BLOCKED}</QaTooltipContent>
+        )}
       </Tooltip>
       {!canClose && (
         <span id="qa-close-blocked" className="sr-only">

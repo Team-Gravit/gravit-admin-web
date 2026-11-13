@@ -1,3 +1,5 @@
+import { useLocation, useNavigate } from 'react-router';
+import { ROUTES } from '@/shared/constants/routes';
 import { Loader2 } from 'lucide-react';
 import {
   Dialog,
@@ -19,7 +21,12 @@ export function CloseSprintModal({
   canClose: boolean;
   onClose: () => void;
 }) {
-  const close = useCloseSprint(sprint.id);
+  const navigate = useNavigate();
+  const { search } = useLocation();
+  const close = useCloseSprint(sprint.id, () => {
+    onClose();
+    navigate({ pathname: ROUTES.QA_SPRINT_FIX_REPORTS(sprint.id), search });
+  });
   const failCount = sprint.progress.reduce((sum, p) => sum + p.fail, 0);
   return (
     <Dialog open onOpenChange={(open) => !open && !close.isPending && onClose()}>
@@ -43,7 +50,7 @@ export function CloseSprintModal({
             variant="destructive"
             disabled={!canClose || close.isPending}
             aria-busy={close.isPending}
-            onClick={() => close.mutate(sprint.version, { onSuccess: onClose })}
+            onClick={() => close.mutate(sprint.version)}
           >
             {close.isPending && <Loader2 className="size-4 animate-spin" aria-hidden />}
             {close.isError ? '다시 시도' : '종료'}

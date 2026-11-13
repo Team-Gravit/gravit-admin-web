@@ -205,6 +205,7 @@ export function ChecklistPanel({ sprint, round }: { sprint: Sprint; round: Round
                                 item={item}
                                 cell={cell}
                                 closed={closed}
+                                sprintStatus={sprint.status}
                                 registerRef={(el) => next.register(key, el)}
                                 onFocusCell={() => next.onFocus(key)}
                               />
