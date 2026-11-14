@@ -1,0 +1,65 @@
+[
+  {
+    "command": "npm run check",
+    "exitCode": 0,
+    "errors": 0,
+    "warnings": 6,
+    "log": "check.txt"
+  },
+  {
+    "command": "npm run test",
+    "exitCode": 0,
+    "filesPassed": 22,
+    "passed": 78,
+    "failed": 0,
+    "log": "test.txt"
+  },
+  {
+    "command": "npm run test:e2e",
+    "exitCode": 0,
+    "passed": 133,
+    "failed": 0,
+    "log": "e2e.txt"
+  },
+  {
+    "command": "npm run check:full",
+    "exitCode": 0,
+    "log": "check-full.txt"
+  },
+  {
+    "command": "python3 /tmp/gravit-table-white-capture.py before",
+    "exitCode": 0,
+    "conditions": 6,
+    "screenshots": 8
+  },
+  {
+    "command": "python3 /tmp/gravit-table-white-capture.py after",
+    "exitCode": 0,
+    "conditions": 26,
+    "screenshots": 8
+  },
+  {
+    "command": "python3 /tmp/gravit-table-white-review.py",
+    "exitCode": 0,
+    "representativeComparisons": 6,
+    "propagationConditions": 26
+  },
+  {
+    "command": "agent-browser --session table-white-97d832c2c5e9 close",
+    "exitCode": 0
+  },
+  {
+    "command": "manual Vite server SIGINT",
+    "exitCode": 130,
+    "intentionalShutdown": true
+  },
+  {
+    "command": "npm run check:full",
+    "phase": "pre-commit",
+    "exitCode": 0,
+    "errors": 0,
+    "warnings": 6,
+    "log": "commit-check-full.txt",
+    "scope": "흰 헤더와 로그인 복원이 함께 적용된 최종 작업 트리"
+  }
+]

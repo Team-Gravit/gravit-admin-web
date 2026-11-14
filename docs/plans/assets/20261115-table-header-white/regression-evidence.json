@@ -1,0 +1,105 @@
+{
+  "representativeComparisons": [
+    {
+      "route": "/users",
+      "width": 1280,
+      "shellSame": true,
+      "tableCountSame": true,
+      "geometrySame": true,
+      "headerWasGray": true,
+      "headerNowWhite": true,
+      "hoverStable": true,
+      "focusSame": true
+    },
+    {
+      "route": "/chapters/1",
+      "width": 1280,
+      "shellSame": true,
+      "tableCountSame": true,
+      "geometrySame": true,
+      "headerWasGray": true,
+      "headerNowWhite": true,
+      "hoverStable": true,
+      "focusSame": true
+    },
+    {
+      "route": "/qa/sprints/2/checklist/1",
+      "width": 1280,
+      "shellSame": true,
+      "tableCountSame": true,
+      "geometrySame": true,
+      "headerWasGray": true,
+      "headerNowWhite": true,
+      "hoverStable": true,
+      "focusSame": true
+    },
+    {
+      "route": "/users",
+      "width": 1440,
+      "shellSame": true,
+      "tableCountSame": true,
+      "geometrySame": true,
+      "headerWasGray": true,
+      "headerNowWhite": true,
+      "hoverStable": true,
+      "focusSame": true
+    },
+    {
+      "route": "/chapters/1",
+      "width": 1440,
+      "shellSame": true,
+      "tableCountSame": true,
+      "geometrySame": true,
+      "headerWasGray": true,
+      "headerNowWhite": true,
+      "hoverStable": true,
+      "focusSame": true
+    },
+    {
+      "route": "/qa/sprints/2/checklist/1",
+      "width": 1440,
+      "shellSame": true,
+      "tableCountSame": true,
+      "geometrySame": true,
+      "headerWasGray": true,
+      "headerNowWhite": true,
+      "hoverStable": true,
+      "focusSame": true
+    }
+  ],
+  "propagation": {
+    "routes": 13,
+    "viewports": 2,
+    "conditions": 26,
+    "allHeadersWhite": true,
+    "headerHeight": 48,
+    "foreground": "rgb(32, 40, 51)",
+    "fontWeight": 600,
+    "border": "1px rgb(124, 137, 153)",
+    "page": "rgb(244, 246, 248)",
+    "overflowConditions": 0
+  },
+  "foregroundWhiteContrast": 14.864781134737772,
+  "focus": [
+    {
+      "route": "/qa/sprints/2/checklist/1",
+      "width": 1280,
+      "focus": {
+        "boxShadow": "rgb(255, 255, 255) 0px 0px 0px 0px, rgb(36, 95, 204) 0px 0px 0px 2px, rgba(0, 0, 0, 0) 0px 0px 0px 0px",
+        "focusVisible": true,
+        "label": "Web Pass — 변경",
+        "tag": "BUTTON"
+      }
+    },
+    {
+      "route": "/qa/sprints/2/checklist/1",
+      "width": 1440,
+      "focus": {
+        "boxShadow": "rgb(255, 255, 255) 0px 0px 0px 0px, rgb(36, 95, 204) 0px 0px 0px 2px, rgba(0, 0, 0, 0) 0px 0px 0px 0px",
+        "focusVisible": true,
+        "label": "Web Pass — 변경",
+        "tag": "BUTTON"
+      }
+    }
+  ]
+}
