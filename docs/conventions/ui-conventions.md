@@ -42,6 +42,7 @@
 | `border` | `border-border` | `--border` | 카드·구분선 보더 |
 | `bg-surface` | `bg-surface` (≡ `bg-background`/`bg-card`) | `--surface` | 카드·사이드바·헤더 배경 |
 | `bg-page` | `bg-page` | `--page` | 페이지 전체·로그인 배경 |
+| `table-header` | `bg-table-header` | `--table-header` | 관리자 공용 표 머리 면(D16), 글자는 text-foreground/600 |
 | `bg-hover` | `bg-hover` (≡ `bg-muted`) | `--hover` | 메뉴·행 hover, disabled input 배경 |
 
 **시맨틱 의미별 (DS-01 §1-3)** — text/bg 쌍. DS `accent`(주관식)·`muted`(DRAFT 등)는 shadcn `accent`/`muted` 와 구분 위해 **`-ds`** 접미.

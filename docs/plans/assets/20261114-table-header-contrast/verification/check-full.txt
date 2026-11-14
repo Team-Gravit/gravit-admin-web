@@ -1,0 +1,120 @@
+
+> gravit-admin-web@0.1.0 check:full
+> npm run check && vite build
+
+
+> gravit-admin-web@0.1.0 check
+> npm run typecheck && npm run lint && npm run check:tokens
+
+
+> gravit-admin-web@0.1.0 typecheck
+> tsc --noEmit
+
+
+> gravit-admin-web@0.1.0 lint
+> eslint . --ext ts,tsx
+
+
+/Users/xunsseoie/Desktop/melong/INU/appcenter/gravit-admin-web/src/shared/components/markdown/MarkdownEditor.test 2.tsx
+  8:10  warning  Fast refresh only works when a file has exports. Move your component(s) to a separate file  react-refresh/only-export-components
+
+/Users/xunsseoie/Desktop/melong/INU/appcenter/gravit-admin-web/src/shared/components/modals/StrictMatchModal.test 2.tsx
+  9:10  warning  Fast refresh only works when a file has exports. Move your component(s) to a separate file  react-refresh/only-export-components
+
+/Users/xunsseoie/Desktop/melong/INU/appcenter/gravit-admin-web/src/shared/components/ui/badge.tsx
+  29:17  warning  Fast refresh only works when a file only exports components. Use a new file to share constants or functions between components  react-refresh/only-export-components
+
+/Users/xunsseoie/Desktop/melong/INU/appcenter/gravit-admin-web/src/shared/components/ui/button.tsx
+  47:18  warning  Fast refresh only works when a file only exports components. Use a new file to share constants or functions between components  react-refresh/only-export-components
+
+/Users/xunsseoie/Desktop/melong/INU/appcenter/gravit-admin-web/src/shared/hooks/useBreadcrumb.tsx
+  26:17  warning  Fast refresh only works when a file only exports components. Use a new file to share constants or functions between components  react-refresh/only-export-components
+  30:17  warning  Fast refresh only works when a file only exports components. Use a new file to share constants or functions between components  react-refresh/only-export-components
+
+✖ 6 problems (0 errors, 6 warnings)
+
+
+> gravit-admin-web@0.1.0 check:tokens
+> node scripts/checks/token-lint.mjs
+
+token-lint OK
+vite v5.4.21 building for production...
+transforming...
+Browserslist: browsers data (caniuse-lite) is 6 months old. Please run:
+  npx update-browserslist-db@latest
+  Why you should do it regularly: https://github.com/browserslist/update-db#readme
+✓ 4109 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/index.html                           0.66 kB │ gzip:   0.48 kB
+dist/assets/gravit-logo-CZ-qUu6F.svg     12.04 kB │ gzip:   5.45 kB
+dist/assets/index-CMpBPfgT.css           48.61 kB │ gzip:   9.04 kB
+dist/assets/index-063mHo2-.js           405.70 kB │ gzip: 127.39 kB
+dist/assets/router-D0S4BEMc.js        1,003.71 kB │ gzip: 288.87 kB
+
+(!) Some chunks are larger than 500 kB after minification. Consider:
+- Using dynamic import() to code-split the application
+- Use build.rollupOptions.output.manualChunks to improve chunking: https://rollupjs.org/configuration-options/#output-manualchunks
+- Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.
+✓ built in 3.11s
+
+=== 2026-11-15 pre-commit check:full exit0 ===
+
+> gravit-admin-web@0.1.0 check:full
+> npm run check && vite build
+
+
+> gravit-admin-web@0.1.0 check
+> npm run typecheck && npm run lint && npm run check:tokens
+
+
+> gravit-admin-web@0.1.0 typecheck
+> tsc --noEmit
+
+
+> gravit-admin-web@0.1.0 lint
+> eslint . --ext ts,tsx
+
+
+/Users/xunsseoie/Desktop/melong/INU/appcenter/gravit-admin-web/src/shared/components/markdown/MarkdownEditor.test 2.tsx
+  8:10  warning  Fast refresh only works when a file has exports. Move your component(s) to a separate file  react-refresh/only-export-components
+
+/Users/xunsseoie/Desktop/melong/INU/appcenter/gravit-admin-web/src/shared/components/modals/StrictMatchModal.test 2.tsx
+  9:10  warning  Fast refresh only works when a file has exports. Move your component(s) to a separate file  react-refresh/only-export-components
+
+/Users/xunsseoie/Desktop/melong/INU/appcenter/gravit-admin-web/src/shared/components/ui/badge.tsx
+  29:17  warning  Fast refresh only works when a file only exports components. Use a new file to share constants or functions between components  react-refresh/only-export-components
+
+/Users/xunsseoie/Desktop/melong/INU/appcenter/gravit-admin-web/src/shared/components/ui/button.tsx
+  47:18  warning  Fast refresh only works when a file only exports components. Use a new file to share constants or functions between components  react-refresh/only-export-components
+
+/Users/xunsseoie/Desktop/melong/INU/appcenter/gravit-admin-web/src/shared/hooks/useBreadcrumb.tsx
+  26:17  warning  Fast refresh only works when a file only exports components. Use a new file to share constants or functions between components  react-refresh/only-export-components
+  30:17  warning  Fast refresh only works when a file only exports components. Use a new file to share constants or functions between components  react-refresh/only-export-components
+
+✖ 6 problems (0 errors, 6 warnings)
+
+
+> gravit-admin-web@0.1.0 check:tokens
+> node scripts/checks/token-lint.mjs
+
+token-lint OK
+vite v5.4.21 building for production...
+transforming...
+Browserslist: browsers data (caniuse-lite) is 6 months old. Please run:
+  npx update-browserslist-db@latest
+  Why you should do it regularly: https://github.com/browserslist/update-db#readme
+✓ 4109 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/index.html                           0.66 kB │ gzip:   0.48 kB
+dist/assets/gravit-logo-CZ-qUu6F.svg     12.04 kB │ gzip:   5.45 kB
+dist/assets/index-CMpBPfgT.css           48.61 kB │ gzip:   9.04 kB
+dist/assets/index-063mHo2-.js           405.70 kB │ gzip: 127.39 kB
+dist/assets/router-D0S4BEMc.js        1,003.71 kB │ gzip: 288.87 kB
+
+(!) Some chunks are larger than 500 kB after minification. Consider:
+- Using dynamic import() to code-split the application
+- Use build.rollupOptions.output.manualChunks to improve chunking: https://rollupjs.org/configuration-options/#output-manualchunks
+- Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.
+✓ built in 3.25s

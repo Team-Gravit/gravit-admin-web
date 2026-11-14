@@ -12,7 +12,7 @@
 | Button 크기 | default40·sm32·lg48·icon40, control8, body/600. disabled0.48 | V4·V5·V8 |
 | Input·Textarea·Select | 40px 기본 높이·body14/22·control8·input 경계·N600 placeholder. Textarea 최소80px | P5·V4·V10 |
 | Checkbox·Radio | 24px 외곽·16px 체크 아이콘, checkbox8·radio 원형. 미선택 중립 경계/선택 파랑 | V5·V8·V10 |
-| Table·DataTable | 머리48·한 줄 셀52 이상·여러 줄 자동 증가. 카드12·그림자 없음. 기존 열·rowKey·정렬·클릭 조건 유지 | P8·V1·V4 |
+| Table·DataTable | 전용 table-header 면·foreground/600 글자·input 색 아래1px 경계(D16). 머리48·한 줄 셀52 이상·여러 줄 자동 증가. 카드12 안에서 면 자름·그림자 없음. 기존 열·rowKey·정렬·클릭 조건 유지 | P8·V1·V4·V10 |
 | 행 피드백 | 클릭 가능한 행만 옅은 파랑 hover, 정적 데이터에는 새 이동 신호를 넣지 않음 | V2·V8 |
 | Pagination | 기존 페이지 계산·이전/다음·aria-current 유지, 선택 페이지만 파랑 | P5·V2 |
 | StatusBadge·Badge | control8·caption/500·작은 면. 성공/완료·대기/주의·오류/위험만 의미 색 | V3·V8 |

@@ -57,6 +57,7 @@ const config: Config = {
 
         // DS-01 1-2 중립 표면
         surface: 'hsl(var(--surface))',
+        'table-header': 'hsl(var(--table-header))',
         page: 'hsl(var(--page))',
         hover: 'hsl(var(--hover))',
 

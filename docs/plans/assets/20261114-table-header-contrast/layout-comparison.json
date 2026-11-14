@@ -1,0 +1,2474 @@
+[
+  {
+    "key": "users",
+    "width": 1280,
+    "tableCountSame": true,
+    "shellSame": true,
+    "overflow": false,
+    "tables": [
+      {
+        "headBackground": "rgb(222, 224, 228)",
+        "headHeight": 48,
+        "columnNamesSame": true,
+        "tableRectSame": true,
+        "headRectSame": true,
+        "firstRowRectSame": true,
+        "columnRectDeltas": [
+          {
+            "text": "이메일",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "color": "rgb(32, 40, 51)",
+            "weight": "600"
+          },
+          {
+            "text": "닉네임",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "color": "rgb(32, 40, 51)",
+            "weight": "600"
+          },
+          {
+            "text": "handle",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "color": "rgb(32, 40, 51)",
+            "weight": "600"
+          },
+          {
+            "text": "역할",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "color": "rgb(32, 40, 51)",
+            "weight": "600"
+          },
+          {
+            "text": "상태",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "color": "rgb(32, 40, 51)",
+            "weight": "600"
+          },
+          {
+            "text": "가입일",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "color": "rgb(32, 40, 51)",
+            "weight": "600"
+          }
+        ],
+        "divider": "rgb(124, 137, 153)"
+      }
+    ]
+  },
+  {
+    "key": "users-interaction",
+    "width": 1280,
+    "tableCountSame": true,
+    "shellSame": true,
+    "overflow": false,
+    "tables": [
+      {
+        "headBackground": "rgb(222, 224, 228)",
+        "headHeight": 48,
+        "columnNamesSame": true,
+        "tableRectSame": true,
+        "headRectSame": true,
+        "firstRowRectSame": true,
+        "columnRectDeltas": [
+          {
+            "text": "이메일",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "color": "rgb(32, 40, 51)",
+            "weight": "600"
+          },
+          {
+            "text": "닉네임",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "color": "rgb(32, 40, 51)",
+            "weight": "600"
+          },
+          {
+            "text": "handle",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "color": "rgb(32, 40, 51)",
+            "weight": "600"
+          },
+          {
+            "text": "역할",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "color": "rgb(32, 40, 51)",
+            "weight": "600"
+          },
+          {
+            "text": "상태",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "color": "rgb(32, 40, 51)",
+            "weight": "600"
+          },
+          {
+            "text": "가입일",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "color": "rgb(32, 40, 51)",
+            "weight": "600"
+          }
+        ],
+        "divider": "rgb(124, 137, 153)"
+      }
+    ],
+    "interaction": {
+      "normalHeader": {
+        "background": "rgb(222, 224, 228)",
+        "borderBottomColor": "rgb(244, 246, 248)",
+        "borderBottomWidth": "0px",
+        "borderRadius": "0px",
+        "color": "rgb(32, 40, 51)",
+        "fontSize": "14px",
+        "fontWeight": "400",
+        "lineHeight": "22px",
+        "overflow": "visible"
+      },
+      "hoverHeader": {
+        "background": "rgb(222, 224, 228)",
+        "borderBottomColor": "rgb(244, 246, 248)",
+        "borderBottomWidth": "0px",
+        "borderRadius": "0px",
+        "color": "rgb(32, 40, 51)",
+        "fontSize": "14px",
+        "fontWeight": "400",
+        "lineHeight": "22px",
+        "overflow": "visible"
+      },
+      "focus": {
+        "boxShadow": "rgb(255, 255, 255) 0px 0px 0px 2px, rgb(36, 95, 204) 0px 0px 0px 4px, rgba(0, 0, 0, 0) 0px 0px 0px 0px",
+        "clippingAncestors": [],
+        "focusVisible": true,
+        "label": "",
+        "outline": "rgba(0, 0, 0, 0) solid 2px",
+        "tag": "INPUT"
+      },
+      "reduced": true
+    }
+  },
+  {
+    "key": "notices",
+    "width": 1280,
+    "tableCountSame": true,
+    "shellSame": true,
+    "overflow": false,
+    "tables": [
+      {
+        "headBackground": "rgb(222, 224, 228)",
+        "headHeight": 48,
+        "columnNamesSame": true,
+        "tableRectSame": true,
+        "headRectSame": true,
+        "firstRowRectSame": true,
+        "columnRectDeltas": [
+          {
+            "text": "",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "color": "rgb(32, 40, 51)",
+            "weight": "600"
+          },
+          {
+            "text": "제목",
+            "x": 0,
+            "y": 0,
+            "width": 0.0,
+            "color": "rgb(32, 40, 51)",
+            "weight": "600"
+          },
+          {
+            "text": "상태",
+            "x": 0.0,
+            "y": 0,
+            "width": 0,
+            "color": "rgb(32, 40, 51)",
+            "weight": "600"
+          },
+          {
+            "text": "게시일",
+            "x": 0.0,
+            "y": 0,
+            "width": 0,
+            "color": "rgb(32, 40, 51)",
+            "weight": "600"
+          },
+          {
+            "text": "수정",
+            "x": 0.0,
+            "y": 0,
+            "width": 0.0,
+            "color": "rgb(32, 40, 51)",
+            "weight": "600"
+          }
+        ],
+        "divider": "rgb(124, 137, 153)"
+      }
+    ]
+  },
+  {
+    "key": "reports",
+    "width": 1280,
+    "tableCountSame": true,
+    "shellSame": true,
+    "overflow": false,
+    "tables": [
+      {
+        "headBackground": "rgb(222, 224, 228)",
+        "headHeight": 48,
+        "columnNamesSame": true,
+        "tableRectSame": true,
+        "headRectSame": true,
+        "firstRowRectSame": true,
+        "columnRectDeltas": [
+          {
+            "text": "ID",
+            "x": 0,
+            "y": 0,
+            "width": 0.0,
+            "color": "rgb(32, 40, 51)",
+            "weight": "600"
+          },
+          {
+            "text": "유형",
+            "x": 0.0,
+            "y": 0,
+            "width": 0.0,
+            "color": "rgb(32, 40, 51)",
+            "weight": "600"
+          },
+          {
+            "text": "문제ID",
+            "x": 0.0,
+            "y": 0,
+            "width": 0.0,
+            "color": "rgb(32, 40, 51)",
+            "weight": "600"
+          },
+          {
+            "text": "상태",
+            "x": 0.0,
+            "y": 0,
+            "width": 0.0,
+            "color": "rgb(32, 40, 51)",
+            "weight": "600"
+          },
+          {
+            "text": "제출일",
+            "x": 0.0,
+            "y": 0,
+            "width": 0.0,
+            "color": "rgb(32, 40, 51)",
+            "weight": "600"
+          }
+        ],
+        "divider": "rgb(124, 137, 153)"
+      }
+    ]
+  },
+  {
+    "key": "inquiries",
+    "width": 1280,
+    "tableCountSame": true,
+    "shellSame": true,
+    "overflow": false,
+    "tables": [
+      {
+        "headBackground": "rgb(222, 224, 228)",
+        "headHeight": 48,
+        "columnNamesSame": true,
+        "tableRectSame": true,
+        "headRectSame": true,
+        "firstRowRectSame": true,
+        "columnRectDeltas": [
+          {
+            "text": "ID",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "color": "rgb(32, 40, 51)",
+            "weight": "600"
+          },
+          {
+            "text": "유형",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "color": "rgb(32, 40, 51)",
+            "weight": "600"
+          },
+          {
+            "text": "제목",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "color": "rgb(32, 40, 51)",
+            "weight": "600"
+          },
+          {
+            "text": "작성자",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "color": "rgb(32, 40, 51)",
+            "weight": "600"
+          },
+          {
+            "text": "상태",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "color": "rgb(32, 40, 51)",
+            "weight": "600"
+          },
+          {
+            "text": "작성일",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "color": "rgb(32, 40, 51)",
+            "weight": "600"
+          }
+        ],
+        "divider": "rgb(124, 137, 153)"
+      }
+    ]
+  },
+  {
+    "key": "chapters",
+    "width": 1280,
+    "tableCountSame": true,
+    "shellSame": true,
+    "overflow": false,
+    "tables": [
+      {
+        "headBackground": "rgb(222, 224, 228)",
+        "headHeight": 48,
+        "columnNamesSame": true,
+        "tableRectSame": true,
+        "headRectSame": true,
+        "firstRowRectSame": true,
+        "columnRectDeltas": [
+          {
+            "text": "제목",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "color": "rgb(32, 40, 51)",
+            "weight": "600"
+          },
+          {
+            "text": "설명",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "color": "rgb(32, 40, 51)",
+            "weight": "600"
+          }
+        ],
+        "divider": "rgb(124, 137, 153)"
+      }
+    ]
+  },
+  {
+    "key": "staging",
+    "width": 1280,
+    "tableCountSame": true,
+    "shellSame": true,
+    "overflow": false,
+    "tables": [
+      {
+        "headBackground": "rgb(222, 224, 228)",
+        "headHeight": 48,
+        "columnNamesSame": true,
+        "tableRectSame": true,
+        "headRectSame": true,
+        "firstRowRectSame": true,
+        "columnRectDeltas": [
+          {
+            "text": "라벨",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "color": "rgb(32, 40, 51)",
+            "weight": "600"
+          },
+          {
+            "text": "유닛",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "color": "rgb(32, 40, 51)",
+            "weight": "600"
+          },
+          {
+            "text": "설명",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "color": "rgb(32, 40, 51)",
+            "weight": "600"
+          },
+          {
+            "text": "상태",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "color": "rgb(32, 40, 51)",
+            "weight": "600"
+          },
+          {
+            "text": "생성일",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "color": "rgb(32, 40, 51)",
+            "weight": "600"
+          }
+        ],
+        "divider": "rgb(124, 137, 153)"
+      }
+    ]
+  },
+  {
+    "key": "qa-sprints",
+    "width": 1280,
+    "tableCountSame": true,
+    "shellSame": true,
+    "overflow": false,
+    "tables": [
+      {
+        "headBackground": "rgb(222, 224, 228)",
+        "headHeight": 48,
+        "columnNamesSame": true,
+        "tableRectSame": true,
+        "headRectSame": true,
+        "firstRowRectSame": true,
+        "columnRectDeltas": [
+          {
+            "text": "스프린트",
+            "x": 0,
+            "y": 0,
+            "width": 0.0,
+            "color": "rgb(32, 40, 51)",
+            "weight": "600"
+          },
+          {
+            "text": "약식 설명",
+            "x": 0.0,
+            "y": 0,
+            "width": 0.0,
+            "color": "rgb(32, 40, 51)",
+            "weight": "600"
+          },
+          {
+            "text": "현재 상태",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "color": "rgb(32, 40, 51)",
+            "weight": "600"
+          }
+        ],
+        "divider": "rgb(124, 137, 153)"
+      }
+    ]
+  },
+  {
+    "key": "chapter-detail",
+    "width": 1280,
+    "tableCountSame": true,
+    "shellSame": true,
+    "overflow": false,
+    "tables": [
+      {
+        "headBackground": "rgb(222, 224, 228)",
+        "headHeight": 48,
+        "columnNamesSame": true,
+        "tableRectSame": true,
+        "headRectSame": true,
+        "firstRowRectSame": true,
+        "columnRectDeltas": [
+          {
+            "text": "유닛명",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "color": "rgb(32, 40, 51)",
+            "weight": "600"
+          },
+          {
+            "text": "참여 인원",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "color": "rgb(32, 40, 51)",
+            "weight": "600"
+          },
+          {
+            "text": "진행률",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "color": "rgb(32, 40, 51)",
+            "weight": "600"
+          }
+        ],
+        "divider": "rgb(124, 137, 153)"
+      },
+      {
+        "headBackground": "rgb(222, 224, 228)",
+        "headHeight": 48,
+        "columnNamesSame": true,
+        "tableRectSame": true,
+        "headRectSame": true,
+        "firstRowRectSame": true,
+        "columnRectDeltas": [
+          {
+            "text": "제목",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "color": "rgb(32, 40, 51)",
+            "weight": "600"
+          },
+          {
+            "text": "설명",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "color": "rgb(32, 40, 51)",
+            "weight": "600"
+          }
+        ],
+        "divider": "rgb(124, 137, 153)"
+      }
+    ]
+  },
+  {
+    "key": "chapter-detail-interaction",
+    "width": 1280,
+    "tableCountSame": true,
+    "shellSame": true,
+    "overflow": false,
+    "tables": [
+      {
+        "headBackground": "rgb(222, 224, 228)",
+        "headHeight": 48,
+        "columnNamesSame": true,
+        "tableRectSame": true,
+        "headRectSame": true,
+        "firstRowRectSame": true,
+        "columnRectDeltas": [
+          {
+            "text": "유닛명",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "color": "rgb(32, 40, 51)",
+            "weight": "600"
+          },
+          {
+            "text": "참여 인원",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "color": "rgb(32, 40, 51)",
+            "weight": "600"
+          },
+          {
+            "text": "진행률",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "color": "rgb(32, 40, 51)",
+            "weight": "600"
+          }
+        ],
+        "divider": "rgb(124, 137, 153)"
+      },
+      {
+        "headBackground": "rgb(222, 224, 228)",
+        "headHeight": 48,
+        "columnNamesSame": true,
+        "tableRectSame": true,
+        "headRectSame": true,
+        "firstRowRectSame": true,
+        "columnRectDeltas": [
+          {
+            "text": "제목",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "color": "rgb(32, 40, 51)",
+            "weight": "600"
+          },
+          {
+            "text": "설명",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "color": "rgb(32, 40, 51)",
+            "weight": "600"
+          }
+        ],
+        "divider": "rgb(124, 137, 153)"
+      }
+    ],
+    "interaction": {
+      "normalHeader": {
+        "background": "rgb(222, 224, 228)",
+        "borderBottomColor": "rgb(244, 246, 248)",
+        "borderBottomWidth": "0px",
+        "borderRadius": "0px",
+        "color": "rgb(32, 40, 51)",
+        "fontSize": "14px",
+        "fontWeight": "400",
+        "lineHeight": "22px",
+        "overflow": "visible"
+      },
+      "hoverHeader": {
+        "background": "rgb(222, 224, 228)",
+        "borderBottomColor": "rgb(244, 246, 248)",
+        "borderBottomWidth": "0px",
+        "borderRadius": "0px",
+        "color": "rgb(32, 40, 51)",
+        "fontSize": "14px",
+        "fontWeight": "400",
+        "lineHeight": "22px",
+        "overflow": "visible"
+      },
+      "focus": {
+        "boxShadow": "rgb(255, 255, 255) 0px 0px 0px 2px, rgb(36, 95, 204) 0px 0px 0px 4px, rgba(0, 0, 0, 0) 0px 0px 0px 0px",
+        "clippingAncestors": [],
+        "focusVisible": true,
+        "label": "편집",
+        "outline": "rgba(0, 0, 0, 0) solid 2px",
+        "tag": "BUTTON"
+      },
+      "reduced": true
+    }
+  },
+  {
+    "key": "unit-detail",
+    "width": 1280,
+    "tableCountSame": true,
+    "shellSame": true,
+    "overflow": false,
+    "tables": [
+      {
+        "headBackground": "rgb(222, 224, 228)",
+        "headHeight": 48,
+        "columnNamesSame": true,
+        "tableRectSame": true,
+        "headRectSame": true,
+        "firstRowRectSame": true,
+        "columnRectDeltas": [
+          {
+            "text": "제목",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "color": "rgb(32, 40, 51)",
+            "weight": "600"
+          }
+        ],
+        "divider": "rgb(124, 137, 153)"
+      }
+    ]
+  },
+  {
+    "key": "lesson-detail",
+    "width": 1280,
+    "tableCountSame": true,
+    "shellSame": true,
+    "overflow": false,
+    "tables": [
+      {
+        "headBackground": "rgb(222, 224, 228)",
+        "headHeight": 48,
+        "columnNamesSame": true,
+        "tableRectSame": true,
+        "headRectSame": true,
+        "firstRowRectSame": true,
+        "columnRectDeltas": [
+          {
+            "text": "ID",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "color": "rgb(32, 40, 51)",
+            "weight": "600"
+          },
+          {
+            "text": "유형",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "color": "rgb(32, 40, 51)",
+            "weight": "600"
+          },
+          {
+            "text": "지시문",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "color": "rgb(32, 40, 51)",
+            "weight": "600"
+          }
+        ],
+        "divider": "rgb(124, 137, 153)"
+      }
+    ]
+  },
+  {
+    "key": "qa-design",
+    "width": 1280,
+    "tableCountSame": true,
+    "shellSame": true,
+    "overflow": false,
+    "tables": [
+      {
+        "headBackground": "rgb(222, 224, 228)",
+        "headHeight": 48,
+        "columnNamesSame": true,
+        "tableRectSame": true,
+        "headRectSame": true,
+        "firstRowRectSame": true,
+        "columnRectDeltas": [
+          {
+            "text": "항목",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "color": "rgb(32, 40, 51)",
+            "weight": "600"
+          },
+          {
+            "text": "Web",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "color": "rgb(32, 40, 51)",
+            "weight": "600"
+          },
+          {
+            "text": "APP",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "color": "rgb(32, 40, 51)",
+            "weight": "600"
+          },
+          {
+            "text": "항목 관리",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "color": "rgb(32, 40, 51)",
+            "weight": "600"
+          }
+        ],
+        "divider": "rgb(124, 137, 153)"
+      },
+      {
+        "headBackground": "rgb(222, 224, 228)",
+        "headHeight": 48,
+        "columnNamesSame": true,
+        "tableRectSame": true,
+        "headRectSame": true,
+        "firstRowRectSame": true,
+        "columnRectDeltas": [
+          {
+            "text": "항목",
+            "x": 0,
+            "y": 0.0,
+            "width": 0,
+            "color": "rgb(32, 40, 51)",
+            "weight": "600"
+          },
+          {
+            "text": "Web",
+            "x": 0,
+            "y": 0.0,
+            "width": 0,
+            "color": "rgb(32, 40, 51)",
+            "weight": "600"
+          },
+          {
+            "text": "APP",
+            "x": 0,
+            "y": 0.0,
+            "width": 0,
+            "color": "rgb(32, 40, 51)",
+            "weight": "600"
+          },
+          {
+            "text": "항목 관리",
+            "x": 0,
+            "y": 0.0,
+            "width": 0,
+            "color": "rgb(32, 40, 51)",
+            "weight": "600"
+          }
+        ],
+        "divider": "rgb(124, 137, 153)"
+      }
+    ]
+  },
+  {
+    "key": "qa-first",
+    "width": 1280,
+    "tableCountSame": true,
+    "shellSame": true,
+    "overflow": false,
+    "tables": [
+      {
+        "headBackground": "rgb(222, 224, 228)",
+        "headHeight": 48,
+        "columnNamesSame": true,
+        "tableRectSame": true,
+        "headRectSame": true,
+        "firstRowRectSame": true,
+        "columnRectDeltas": [
+          {
+            "text": "항목",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "color": "rgb(32, 40, 51)",
+            "weight": "600"
+          },
+          {
+            "text": "Web",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "color": "rgb(32, 40, 51)",
+            "weight": "600"
+          },
+          {
+            "text": "APP",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "color": "rgb(32, 40, 51)",
+            "weight": "600"
+          },
+          {
+            "text": "Server",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "color": "rgb(32, 40, 51)",
+            "weight": "600"
+          },
+          {
+            "text": "항목 관리",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "color": "rgb(32, 40, 51)",
+            "weight": "600"
+          }
+        ],
+        "divider": "rgb(124, 137, 153)"
+      },
+      {
+        "headBackground": "rgb(222, 224, 228)",
+        "headHeight": 48,
+        "columnNamesSame": true,
+        "tableRectSame": true,
+        "headRectSame": true,
+        "firstRowRectSame": true,
+        "columnRectDeltas": [
+          {
+            "text": "항목",
+            "x": 0,
+            "y": 0.0,
+            "width": 0,
+            "color": "rgb(32, 40, 51)",
+            "weight": "600"
+          },
+          {
+            "text": "Web",
+            "x": 0,
+            "y": 0.0,
+            "width": 0,
+            "color": "rgb(32, 40, 51)",
+            "weight": "600"
+          },
+          {
+            "text": "APP",
+            "x": 0,
+            "y": 0.0,
+            "width": 0,
+            "color": "rgb(32, 40, 51)",
+            "weight": "600"
+          },
+          {
+            "text": "Server",
+            "x": 0,
+            "y": 0.0,
+            "width": 0,
+            "color": "rgb(32, 40, 51)",
+            "weight": "600"
+          },
+          {
+            "text": "항목 관리",
+            "x": 0,
+            "y": 0.0,
+            "width": 0,
+            "color": "rgb(32, 40, 51)",
+            "weight": "600"
+          }
+        ],
+        "divider": "rgb(124, 137, 153)"
+      }
+    ]
+  },
+  {
+    "key": "qa-first-interaction",
+    "width": 1280,
+    "tableCountSame": true,
+    "shellSame": true,
+    "overflow": false,
+    "tables": [
+      {
+        "headBackground": "rgb(222, 224, 228)",
+        "headHeight": 48,
+        "columnNamesSame": true,
+        "tableRectSame": true,
+        "headRectSame": true,
+        "firstRowRectSame": true,
+        "columnRectDeltas": [
+          {
+            "text": "항목",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "color": "rgb(32, 40, 51)",
+            "weight": "600"
+          },
+          {
+            "text": "Web",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "color": "rgb(32, 40, 51)",
+            "weight": "600"
+          },
+          {
+            "text": "APP",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "color": "rgb(32, 40, 51)",
+            "weight": "600"
+          },
+          {
+            "text": "Server",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "color": "rgb(32, 40, 51)",
+            "weight": "600"
+          },
+          {
+            "text": "항목 관리",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "color": "rgb(32, 40, 51)",
+            "weight": "600"
+          }
+        ],
+        "divider": "rgb(124, 137, 153)"
+      },
+      {
+        "headBackground": "rgb(222, 224, 228)",
+        "headHeight": 48,
+        "columnNamesSame": true,
+        "tableRectSame": true,
+        "headRectSame": true,
+        "firstRowRectSame": true,
+        "columnRectDeltas": [
+          {
+            "text": "항목",
+            "x": 0,
+            "y": 0.0,
+            "width": 0,
+            "color": "rgb(32, 40, 51)",
+            "weight": "600"
+          },
+          {
+            "text": "Web",
+            "x": 0,
+            "y": 0.0,
+            "width": 0,
+            "color": "rgb(32, 40, 51)",
+            "weight": "600"
+          },
+          {
+            "text": "APP",
+            "x": 0,
+            "y": 0.0,
+            "width": 0,
+            "color": "rgb(32, 40, 51)",
+            "weight": "600"
+          },
+          {
+            "text": "Server",
+            "x": 0,
+            "y": 0.0,
+            "width": 0,
+            "color": "rgb(32, 40, 51)",
+            "weight": "600"
+          },
+          {
+            "text": "항목 관리",
+            "x": 0,
+            "y": 0.0,
+            "width": 0,
+            "color": "rgb(32, 40, 51)",
+            "weight": "600"
+          }
+        ],
+        "divider": "rgb(124, 137, 153)"
+      }
+    ],
+    "interaction": {
+      "normalHeader": {
+        "background": "rgb(222, 224, 228)",
+        "borderBottomColor": "rgb(244, 246, 248)",
+        "borderBottomWidth": "0px",
+        "borderRadius": "0px",
+        "color": "rgb(32, 40, 51)",
+        "fontSize": "14px",
+        "fontWeight": "400",
+        "lineHeight": "22px",
+        "overflow": "visible"
+      },
+      "hoverHeader": {
+        "background": "rgb(222, 224, 228)",
+        "borderBottomColor": "rgb(244, 246, 248)",
+        "borderBottomWidth": "0px",
+        "borderRadius": "0px",
+        "color": "rgb(32, 40, 51)",
+        "fontSize": "14px",
+        "fontWeight": "400",
+        "lineHeight": "22px",
+        "overflow": "visible"
+      },
+      "focus": {
+        "boxShadow": "rgb(255, 255, 255) 0px 0px 0px 0px, rgb(36, 95, 204) 0px 0px 0px 2px, rgba(0, 0, 0, 0) 0px 0px 0px 0px",
+        "clippingAncestors": [
+          {
+            "overflowX": "hidden",
+            "overflowY": "hidden",
+            "ringFits": true,
+            "tag": "SECTION"
+          }
+        ],
+        "focusVisible": true,
+        "label": "Web Pass — 변경",
+        "outline": "rgba(0, 0, 0, 0) solid 2px",
+        "tag": "BUTTON"
+      },
+      "reduced": true
+    }
+  },
+  {
+    "key": "qa-second",
+    "width": 1280,
+    "tableCountSame": true,
+    "shellSame": true,
+    "overflow": false,
+    "tables": [
+      {
+        "headBackground": "rgb(222, 224, 228)",
+        "headHeight": 48,
+        "columnNamesSame": true,
+        "tableRectSame": true,
+        "headRectSame": true,
+        "firstRowRectSame": true,
+        "columnRectDeltas": [
+          {
+            "text": "항목",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "color": "rgb(32, 40, 51)",
+            "weight": "600"
+          },
+          {
+            "text": "Web",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "color": "rgb(32, 40, 51)",
+            "weight": "600"
+          },
+          {
+            "text": "APP",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "color": "rgb(32, 40, 51)",
+            "weight": "600"
+          },
+          {
+            "text": "Server",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "color": "rgb(32, 40, 51)",
+            "weight": "600"
+          },
+          {
+            "text": "항목 관리",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "color": "rgb(32, 40, 51)",
+            "weight": "600"
+          }
+        ],
+        "divider": "rgb(124, 137, 153)"
+      },
+      {
+        "headBackground": "rgb(222, 224, 228)",
+        "headHeight": 48,
+        "columnNamesSame": true,
+        "tableRectSame": true,
+        "headRectSame": true,
+        "firstRowRectSame": true,
+        "columnRectDeltas": [
+          {
+            "text": "항목",
+            "x": 0,
+            "y": 0.0,
+            "width": 0,
+            "color": "rgb(32, 40, 51)",
+            "weight": "600"
+          },
+          {
+            "text": "Web",
+            "x": 0,
+            "y": 0.0,
+            "width": 0,
+            "color": "rgb(32, 40, 51)",
+            "weight": "600"
+          },
+          {
+            "text": "APP",
+            "x": 0,
+            "y": 0.0,
+            "width": 0,
+            "color": "rgb(32, 40, 51)",
+            "weight": "600"
+          },
+          {
+            "text": "Server",
+            "x": 0,
+            "y": 0.0,
+            "width": 0,
+            "color": "rgb(32, 40, 51)",
+            "weight": "600"
+          },
+          {
+            "text": "항목 관리",
+            "x": 0,
+            "y": 0.0,
+            "width": 0,
+            "color": "rgb(32, 40, 51)",
+            "weight": "600"
+          }
+        ],
+        "divider": "rgb(124, 137, 153)"
+      }
+    ]
+  },
+  {
+    "key": "users-loading",
+    "width": 1280,
+    "tableCountSame": true,
+    "shellSame": true,
+    "overflow": false,
+    "tables": []
+  },
+  {
+    "key": "users-empty",
+    "width": 1280,
+    "tableCountSame": true,
+    "shellSame": true,
+    "overflow": false,
+    "tables": []
+  },
+  {
+    "key": "users-error",
+    "width": 1280,
+    "tableCountSame": true,
+    "shellSame": true,
+    "overflow": false,
+    "tables": []
+  },
+  {
+    "key": "users",
+    "width": 1440,
+    "tableCountSame": true,
+    "shellSame": true,
+    "overflow": false,
+    "tables": [
+      {
+        "headBackground": "rgb(222, 224, 228)",
+        "headHeight": 48,
+        "columnNamesSame": true,
+        "tableRectSame": true,
+        "headRectSame": true,
+        "firstRowRectSame": true,
+        "columnRectDeltas": [
+          {
+            "text": "이메일",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "color": "rgb(32, 40, 51)",
+            "weight": "600"
+          },
+          {
+            "text": "닉네임",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "color": "rgb(32, 40, 51)",
+            "weight": "600"
+          },
+          {
+            "text": "handle",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "color": "rgb(32, 40, 51)",
+            "weight": "600"
+          },
+          {
+            "text": "역할",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "color": "rgb(32, 40, 51)",
+            "weight": "600"
+          },
+          {
+            "text": "상태",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "color": "rgb(32, 40, 51)",
+            "weight": "600"
+          },
+          {
+            "text": "가입일",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "color": "rgb(32, 40, 51)",
+            "weight": "600"
+          }
+        ],
+        "divider": "rgb(124, 137, 153)"
+      }
+    ]
+  },
+  {
+    "key": "users-interaction",
+    "width": 1440,
+    "tableCountSame": true,
+    "shellSame": true,
+    "overflow": false,
+    "tables": [
+      {
+        "headBackground": "rgb(222, 224, 228)",
+        "headHeight": 48,
+        "columnNamesSame": true,
+        "tableRectSame": true,
+        "headRectSame": true,
+        "firstRowRectSame": true,
+        "columnRectDeltas": [
+          {
+            "text": "이메일",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "color": "rgb(32, 40, 51)",
+            "weight": "600"
+          },
+          {
+            "text": "닉네임",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "color": "rgb(32, 40, 51)",
+            "weight": "600"
+          },
+          {
+            "text": "handle",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "color": "rgb(32, 40, 51)",
+            "weight": "600"
+          },
+          {
+            "text": "역할",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "color": "rgb(32, 40, 51)",
+            "weight": "600"
+          },
+          {
+            "text": "상태",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "color": "rgb(32, 40, 51)",
+            "weight": "600"
+          },
+          {
+            "text": "가입일",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "color": "rgb(32, 40, 51)",
+            "weight": "600"
+          }
+        ],
+        "divider": "rgb(124, 137, 153)"
+      }
+    ],
+    "interaction": {
+      "normalHeader": {
+        "background": "rgb(222, 224, 228)",
+        "borderBottomColor": "rgb(244, 246, 248)",
+        "borderBottomWidth": "0px",
+        "borderRadius": "0px",
+        "color": "rgb(32, 40, 51)",
+        "fontSize": "14px",
+        "fontWeight": "400",
+        "lineHeight": "22px",
+        "overflow": "visible"
+      },
+      "hoverHeader": {
+        "background": "rgb(222, 224, 228)",
+        "borderBottomColor": "rgb(244, 246, 248)",
+        "borderBottomWidth": "0px",
+        "borderRadius": "0px",
+        "color": "rgb(32, 40, 51)",
+        "fontSize": "14px",
+        "fontWeight": "400",
+        "lineHeight": "22px",
+        "overflow": "visible"
+      },
+      "focus": {
+        "boxShadow": "rgb(255, 255, 255) 0px 0px 0px 2px, rgb(36, 95, 204) 0px 0px 0px 4px, rgba(0, 0, 0, 0) 0px 0px 0px 0px",
+        "clippingAncestors": [],
+        "focusVisible": true,
+        "label": "",
+        "outline": "rgba(0, 0, 0, 0) solid 2px",
+        "tag": "INPUT"
+      },
+      "reduced": true
+    }
+  },
+  {
+    "key": "notices",
+    "width": 1440,
+    "tableCountSame": true,
+    "shellSame": true,
+    "overflow": false,
+    "tables": [
+      {
+        "headBackground": "rgb(222, 224, 228)",
+        "headHeight": 48,
+        "columnNamesSame": true,
+        "tableRectSame": true,
+        "headRectSame": true,
+        "firstRowRectSame": true,
+        "columnRectDeltas": [
+          {
+            "text": "",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "color": "rgb(32, 40, 51)",
+            "weight": "600"
+          },
+          {
+            "text": "제목",
+            "x": 0,
+            "y": 0,
+            "width": 0.0,
+            "color": "rgb(32, 40, 51)",
+            "weight": "600"
+          },
+          {
+            "text": "상태",
+            "x": 0.0,
+            "y": 0,
+            "width": 0,
+            "color": "rgb(32, 40, 51)",
+            "weight": "600"
+          },
+          {
+            "text": "게시일",
+            "x": 0.0,
+            "y": 0,
+            "width": 0,
+            "color": "rgb(32, 40, 51)",
+            "weight": "600"
+          },
+          {
+            "text": "수정",
+            "x": 0.0,
+            "y": 0,
+            "width": 0.0,
+            "color": "rgb(32, 40, 51)",
+            "weight": "600"
+          }
+        ],
+        "divider": "rgb(124, 137, 153)"
+      }
+    ]
+  },
+  {
+    "key": "reports",
+    "width": 1440,
+    "tableCountSame": true,
+    "shellSame": true,
+    "overflow": false,
+    "tables": [
+      {
+        "headBackground": "rgb(222, 224, 228)",
+        "headHeight": 48,
+        "columnNamesSame": true,
+        "tableRectSame": true,
+        "headRectSame": true,
+        "firstRowRectSame": true,
+        "columnRectDeltas": [
+          {
+            "text": "ID",
+            "x": 0,
+            "y": 0,
+            "width": 0.0,
+            "color": "rgb(32, 40, 51)",
+            "weight": "600"
+          },
+          {
+            "text": "유형",
+            "x": 0.0,
+            "y": 0,
+            "width": 0.0,
+            "color": "rgb(32, 40, 51)",
+            "weight": "600"
+          },
+          {
+            "text": "문제ID",
+            "x": 0.0,
+            "y": 0,
+            "width": 0.0,
+            "color": "rgb(32, 40, 51)",
+            "weight": "600"
+          },
+          {
+            "text": "상태",
+            "x": 0.0,
+            "y": 0,
+            "width": 0.0,
+            "color": "rgb(32, 40, 51)",
+            "weight": "600"
+          },
+          {
+            "text": "제출일",
+            "x": 0.0,
+            "y": 0,
+            "width": 0.0,
+            "color": "rgb(32, 40, 51)",
+            "weight": "600"
+          }
+        ],
+        "divider": "rgb(124, 137, 153)"
+      }
+    ]
+  },
+  {
+    "key": "inquiries",
+    "width": 1440,
+    "tableCountSame": true,
+    "shellSame": true,
+    "overflow": false,
+    "tables": [
+      {
+        "headBackground": "rgb(222, 224, 228)",
+        "headHeight": 48,
+        "columnNamesSame": true,
+        "tableRectSame": true,
+        "headRectSame": true,
+        "firstRowRectSame": true,
+        "columnRectDeltas": [
+          {
+            "text": "ID",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "color": "rgb(32, 40, 51)",
+            "weight": "600"
+          },
+          {
+            "text": "유형",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "color": "rgb(32, 40, 51)",
+            "weight": "600"
+          },
+          {
+            "text": "제목",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "color": "rgb(32, 40, 51)",
+            "weight": "600"
+          },
+          {
+            "text": "작성자",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "color": "rgb(32, 40, 51)",
+            "weight": "600"
+          },
+          {
+            "text": "상태",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "color": "rgb(32, 40, 51)",
+            "weight": "600"
+          },
+          {
+            "text": "작성일",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "color": "rgb(32, 40, 51)",
+            "weight": "600"
+          }
+        ],
+        "divider": "rgb(124, 137, 153)"
+      }
+    ]
+  },
+  {
+    "key": "chapters",
+    "width": 1440,
+    "tableCountSame": true,
+    "shellSame": true,
+    "overflow": false,
+    "tables": [
+      {
+        "headBackground": "rgb(222, 224, 228)",
+        "headHeight": 48,
+        "columnNamesSame": true,
+        "tableRectSame": true,
+        "headRectSame": true,
+        "firstRowRectSame": true,
+        "columnRectDeltas": [
+          {
+            "text": "제목",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "color": "rgb(32, 40, 51)",
+            "weight": "600"
+          },
+          {
+            "text": "설명",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "color": "rgb(32, 40, 51)",
+            "weight": "600"
+          }
+        ],
+        "divider": "rgb(124, 137, 153)"
+      }
+    ]
+  },
+  {
+    "key": "staging",
+    "width": 1440,
+    "tableCountSame": true,
+    "shellSame": true,
+    "overflow": false,
+    "tables": [
+      {
+        "headBackground": "rgb(222, 224, 228)",
+        "headHeight": 48,
+        "columnNamesSame": true,
+        "tableRectSame": true,
+        "headRectSame": true,
+        "firstRowRectSame": true,
+        "columnRectDeltas": [
+          {
+            "text": "라벨",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "color": "rgb(32, 40, 51)",
+            "weight": "600"
+          },
+          {
+            "text": "유닛",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "color": "rgb(32, 40, 51)",
+            "weight": "600"
+          },
+          {
+            "text": "설명",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "color": "rgb(32, 40, 51)",
+            "weight": "600"
+          },
+          {
+            "text": "상태",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "color": "rgb(32, 40, 51)",
+            "weight": "600"
+          },
+          {
+            "text": "생성일",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "color": "rgb(32, 40, 51)",
+            "weight": "600"
+          }
+        ],
+        "divider": "rgb(124, 137, 153)"
+      }
+    ]
+  },
+  {
+    "key": "qa-sprints",
+    "width": 1440,
+    "tableCountSame": true,
+    "shellSame": true,
+    "overflow": false,
+    "tables": [
+      {
+        "headBackground": "rgb(222, 224, 228)",
+        "headHeight": 48,
+        "columnNamesSame": true,
+        "tableRectSame": true,
+        "headRectSame": true,
+        "firstRowRectSame": true,
+        "columnRectDeltas": [
+          {
+            "text": "스프린트",
+            "x": 0,
+            "y": 0,
+            "width": 0.0,
+            "color": "rgb(32, 40, 51)",
+            "weight": "600"
+          },
+          {
+            "text": "약식 설명",
+            "x": 0.0,
+            "y": 0,
+            "width": 0.0,
+            "color": "rgb(32, 40, 51)",
+            "weight": "600"
+          },
+          {
+            "text": "현재 상태",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "color": "rgb(32, 40, 51)",
+            "weight": "600"
+          }
+        ],
+        "divider": "rgb(124, 137, 153)"
+      }
+    ]
+  },
+  {
+    "key": "chapter-detail",
+    "width": 1440,
+    "tableCountSame": true,
+    "shellSame": true,
+    "overflow": false,
+    "tables": [
+      {
+        "headBackground": "rgb(222, 224, 228)",
+        "headHeight": 48,
+        "columnNamesSame": true,
+        "tableRectSame": true,
+        "headRectSame": true,
+        "firstRowRectSame": true,
+        "columnRectDeltas": [
+          {
+            "text": "유닛명",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "color": "rgb(32, 40, 51)",
+            "weight": "600"
+          },
+          {
+            "text": "참여 인원",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "color": "rgb(32, 40, 51)",
+            "weight": "600"
+          },
+          {
+            "text": "진행률",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "color": "rgb(32, 40, 51)",
+            "weight": "600"
+          }
+        ],
+        "divider": "rgb(124, 137, 153)"
+      },
+      {
+        "headBackground": "rgb(222, 224, 228)",
+        "headHeight": 48,
+        "columnNamesSame": true,
+        "tableRectSame": true,
+        "headRectSame": true,
+        "firstRowRectSame": true,
+        "columnRectDeltas": [
+          {
+            "text": "제목",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "color": "rgb(32, 40, 51)",
+            "weight": "600"
+          },
+          {
+            "text": "설명",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "color": "rgb(32, 40, 51)",
+            "weight": "600"
+          }
+        ],
+        "divider": "rgb(124, 137, 153)"
+      }
+    ]
+  },
+  {
+    "key": "chapter-detail-interaction",
+    "width": 1440,
+    "tableCountSame": true,
+    "shellSame": true,
+    "overflow": false,
+    "tables": [
+      {
+        "headBackground": "rgb(222, 224, 228)",
+        "headHeight": 48,
+        "columnNamesSame": true,
+        "tableRectSame": true,
+        "headRectSame": true,
+        "firstRowRectSame": true,
+        "columnRectDeltas": [
+          {
+            "text": "유닛명",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "color": "rgb(32, 40, 51)",
+            "weight": "600"
+          },
+          {
+            "text": "참여 인원",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "color": "rgb(32, 40, 51)",
+            "weight": "600"
+          },
+          {
+            "text": "진행률",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "color": "rgb(32, 40, 51)",
+            "weight": "600"
+          }
+        ],
+        "divider": "rgb(124, 137, 153)"
+      },
+      {
+        "headBackground": "rgb(222, 224, 228)",
+        "headHeight": 48,
+        "columnNamesSame": true,
+        "tableRectSame": true,
+        "headRectSame": true,
+        "firstRowRectSame": true,
+        "columnRectDeltas": [
+          {
+            "text": "제목",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "color": "rgb(32, 40, 51)",
+            "weight": "600"
+          },
+          {
+            "text": "설명",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "color": "rgb(32, 40, 51)",
+            "weight": "600"
+          }
+        ],
+        "divider": "rgb(124, 137, 153)"
+      }
+    ],
+    "interaction": {
+      "normalHeader": {
+        "background": "rgb(222, 224, 228)",
+        "borderBottomColor": "rgb(244, 246, 248)",
+        "borderBottomWidth": "0px",
+        "borderRadius": "0px",
+        "color": "rgb(32, 40, 51)",
+        "fontSize": "14px",
+        "fontWeight": "400",
+        "lineHeight": "22px",
+        "overflow": "visible"
+      },
+      "hoverHeader": {
+        "background": "rgb(222, 224, 228)",
+        "borderBottomColor": "rgb(244, 246, 248)",
+        "borderBottomWidth": "0px",
+        "borderRadius": "0px",
+        "color": "rgb(32, 40, 51)",
+        "fontSize": "14px",
+        "fontWeight": "400",
+        "lineHeight": "22px",
+        "overflow": "visible"
+      },
+      "focus": {
+        "boxShadow": "rgb(255, 255, 255) 0px 0px 0px 2px, rgb(36, 95, 204) 0px 0px 0px 4px, rgba(0, 0, 0, 0) 0px 0px 0px 0px",
+        "clippingAncestors": [],
+        "focusVisible": true,
+        "label": "편집",
+        "outline": "rgba(0, 0, 0, 0) solid 2px",
+        "tag": "BUTTON"
+      },
+      "reduced": true
+    }
+  },
+  {
+    "key": "unit-detail",
+    "width": 1440,
+    "tableCountSame": true,
+    "shellSame": true,
+    "overflow": false,
+    "tables": [
+      {
+        "headBackground": "rgb(222, 224, 228)",
+        "headHeight": 48,
+        "columnNamesSame": true,
+        "tableRectSame": true,
+        "headRectSame": true,
+        "firstRowRectSame": true,
+        "columnRectDeltas": [
+          {
+            "text": "제목",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "color": "rgb(32, 40, 51)",
+            "weight": "600"
+          }
+        ],
+        "divider": "rgb(124, 137, 153)"
+      }
+    ]
+  },
+  {
+    "key": "lesson-detail",
+    "width": 1440,
+    "tableCountSame": true,
+    "shellSame": true,
+    "overflow": false,
+    "tables": [
+      {
+        "headBackground": "rgb(222, 224, 228)",
+        "headHeight": 48,
+        "columnNamesSame": true,
+        "tableRectSame": true,
+        "headRectSame": true,
+        "firstRowRectSame": true,
+        "columnRectDeltas": [
+          {
+            "text": "ID",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "color": "rgb(32, 40, 51)",
+            "weight": "600"
+          },
+          {
+            "text": "유형",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "color": "rgb(32, 40, 51)",
+            "weight": "600"
+          },
+          {
+            "text": "지시문",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "color": "rgb(32, 40, 51)",
+            "weight": "600"
+          }
+        ],
+        "divider": "rgb(124, 137, 153)"
+      }
+    ]
+  },
+  {
+    "key": "qa-design",
+    "width": 1440,
+    "tableCountSame": true,
+    "shellSame": true,
+    "overflow": false,
+    "tables": [
+      {
+        "headBackground": "rgb(222, 224, 228)",
+        "headHeight": 48,
+        "columnNamesSame": true,
+        "tableRectSame": true,
+        "headRectSame": true,
+        "firstRowRectSame": true,
+        "columnRectDeltas": [
+          {
+            "text": "항목",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "color": "rgb(32, 40, 51)",
+            "weight": "600"
+          },
+          {
+            "text": "Web",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "color": "rgb(32, 40, 51)",
+            "weight": "600"
+          },
+          {
+            "text": "APP",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "color": "rgb(32, 40, 51)",
+            "weight": "600"
+          },
+          {
+            "text": "항목 관리",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "color": "rgb(32, 40, 51)",
+            "weight": "600"
+          }
+        ],
+        "divider": "rgb(124, 137, 153)"
+      },
+      {
+        "headBackground": "rgb(222, 224, 228)",
+        "headHeight": 48,
+        "columnNamesSame": true,
+        "tableRectSame": true,
+        "headRectSame": true,
+        "firstRowRectSame": true,
+        "columnRectDeltas": [
+          {
+            "text": "항목",
+            "x": 0,
+            "y": 0.0,
+            "width": 0,
+            "color": "rgb(32, 40, 51)",
+            "weight": "600"
+          },
+          {
+            "text": "Web",
+            "x": 0,
+            "y": 0.0,
+            "width": 0,
+            "color": "rgb(32, 40, 51)",
+            "weight": "600"
+          },
+          {
+            "text": "APP",
+            "x": 0,
+            "y": 0.0,
+            "width": 0,
+            "color": "rgb(32, 40, 51)",
+            "weight": "600"
+          },
+          {
+            "text": "항목 관리",
+            "x": 0,
+            "y": 0.0,
+            "width": 0,
+            "color": "rgb(32, 40, 51)",
+            "weight": "600"
+          }
+        ],
+        "divider": "rgb(124, 137, 153)"
+      }
+    ]
+  },
+  {
+    "key": "qa-first",
+    "width": 1440,
+    "tableCountSame": true,
+    "shellSame": true,
+    "overflow": false,
+    "tables": [
+      {
+        "headBackground": "rgb(222, 224, 228)",
+        "headHeight": 48,
+        "columnNamesSame": true,
+        "tableRectSame": true,
+        "headRectSame": true,
+        "firstRowRectSame": true,
+        "columnRectDeltas": [
+          {
+            "text": "항목",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "color": "rgb(32, 40, 51)",
+            "weight": "600"
+          },
+          {
+            "text": "Web",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "color": "rgb(32, 40, 51)",
+            "weight": "600"
+          },
+          {
+            "text": "APP",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "color": "rgb(32, 40, 51)",
+            "weight": "600"
+          },
+          {
+            "text": "Server",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "color": "rgb(32, 40, 51)",
+            "weight": "600"
+          },
+          {
+            "text": "항목 관리",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "color": "rgb(32, 40, 51)",
+            "weight": "600"
+          }
+        ],
+        "divider": "rgb(124, 137, 153)"
+      },
+      {
+        "headBackground": "rgb(222, 224, 228)",
+        "headHeight": 48,
+        "columnNamesSame": true,
+        "tableRectSame": true,
+        "headRectSame": true,
+        "firstRowRectSame": true,
+        "columnRectDeltas": [
+          {
+            "text": "항목",
+            "x": 0,
+            "y": 0.0,
+            "width": 0,
+            "color": "rgb(32, 40, 51)",
+            "weight": "600"
+          },
+          {
+            "text": "Web",
+            "x": 0,
+            "y": 0.0,
+            "width": 0,
+            "color": "rgb(32, 40, 51)",
+            "weight": "600"
+          },
+          {
+            "text": "APP",
+            "x": 0,
+            "y": 0.0,
+            "width": 0,
+            "color": "rgb(32, 40, 51)",
+            "weight": "600"
+          },
+          {
+            "text": "Server",
+            "x": 0,
+            "y": 0.0,
+            "width": 0,
+            "color": "rgb(32, 40, 51)",
+            "weight": "600"
+          },
+          {
+            "text": "항목 관리",
+            "x": 0,
+            "y": 0.0,
+            "width": 0,
+            "color": "rgb(32, 40, 51)",
+            "weight": "600"
+          }
+        ],
+        "divider": "rgb(124, 137, 153)"
+      }
+    ]
+  },
+  {
+    "key": "qa-first-interaction",
+    "width": 1440,
+    "tableCountSame": true,
+    "shellSame": true,
+    "overflow": false,
+    "tables": [
+      {
+        "headBackground": "rgb(222, 224, 228)",
+        "headHeight": 48,
+        "columnNamesSame": true,
+        "tableRectSame": true,
+        "headRectSame": true,
+        "firstRowRectSame": true,
+        "columnRectDeltas": [
+          {
+            "text": "항목",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "color": "rgb(32, 40, 51)",
+            "weight": "600"
+          },
+          {
+            "text": "Web",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "color": "rgb(32, 40, 51)",
+            "weight": "600"
+          },
+          {
+            "text": "APP",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "color": "rgb(32, 40, 51)",
+            "weight": "600"
+          },
+          {
+            "text": "Server",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "color": "rgb(32, 40, 51)",
+            "weight": "600"
+          },
+          {
+            "text": "항목 관리",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "color": "rgb(32, 40, 51)",
+            "weight": "600"
+          }
+        ],
+        "divider": "rgb(124, 137, 153)"
+      },
+      {
+        "headBackground": "rgb(222, 224, 228)",
+        "headHeight": 48,
+        "columnNamesSame": true,
+        "tableRectSame": true,
+        "headRectSame": true,
+        "firstRowRectSame": true,
+        "columnRectDeltas": [
+          {
+            "text": "항목",
+            "x": 0,
+            "y": 0.0,
+            "width": 0,
+            "color": "rgb(32, 40, 51)",
+            "weight": "600"
+          },
+          {
+            "text": "Web",
+            "x": 0,
+            "y": 0.0,
+            "width": 0,
+            "color": "rgb(32, 40, 51)",
+            "weight": "600"
+          },
+          {
+            "text": "APP",
+            "x": 0,
+            "y": 0.0,
+            "width": 0,
+            "color": "rgb(32, 40, 51)",
+            "weight": "600"
+          },
+          {
+            "text": "Server",
+            "x": 0,
+            "y": 0.0,
+            "width": 0,
+            "color": "rgb(32, 40, 51)",
+            "weight": "600"
+          },
+          {
+            "text": "항목 관리",
+            "x": 0,
+            "y": 0.0,
+            "width": 0,
+            "color": "rgb(32, 40, 51)",
+            "weight": "600"
+          }
+        ],
+        "divider": "rgb(124, 137, 153)"
+      }
+    ],
+    "interaction": {
+      "normalHeader": {
+        "background": "rgb(222, 224, 228)",
+        "borderBottomColor": "rgb(244, 246, 248)",
+        "borderBottomWidth": "0px",
+        "borderRadius": "0px",
+        "color": "rgb(32, 40, 51)",
+        "fontSize": "14px",
+        "fontWeight": "400",
+        "lineHeight": "22px",
+        "overflow": "visible"
+      },
+      "hoverHeader": {
+        "background": "rgb(222, 224, 228)",
+        "borderBottomColor": "rgb(244, 246, 248)",
+        "borderBottomWidth": "0px",
+        "borderRadius": "0px",
+        "color": "rgb(32, 40, 51)",
+        "fontSize": "14px",
+        "fontWeight": "400",
+        "lineHeight": "22px",
+        "overflow": "visible"
+      },
+      "focus": {
+        "boxShadow": "rgb(255, 255, 255) 0px 0px 0px 0px, rgb(36, 95, 204) 0px 0px 0px 2px, rgba(0, 0, 0, 0) 0px 0px 0px 0px",
+        "clippingAncestors": [
+          {
+            "overflowX": "hidden",
+            "overflowY": "hidden",
+            "ringFits": true,
+            "tag": "SECTION"
+          }
+        ],
+        "focusVisible": true,
+        "label": "Web Pass — 변경",
+        "outline": "rgba(0, 0, 0, 0) solid 2px",
+        "tag": "BUTTON"
+      },
+      "reduced": true
+    }
+  },
+  {
+    "key": "qa-second",
+    "width": 1440,
+    "tableCountSame": true,
+    "shellSame": true,
+    "overflow": false,
+    "tables": [
+      {
+        "headBackground": "rgb(222, 224, 228)",
+        "headHeight": 48,
+        "columnNamesSame": true,
+        "tableRectSame": true,
+        "headRectSame": true,
+        "firstRowRectSame": true,
+        "columnRectDeltas": [
+          {
+            "text": "항목",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "color": "rgb(32, 40, 51)",
+            "weight": "600"
+          },
+          {
+            "text": "Web",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "color": "rgb(32, 40, 51)",
+            "weight": "600"
+          },
+          {
+            "text": "APP",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "color": "rgb(32, 40, 51)",
+            "weight": "600"
+          },
+          {
+            "text": "Server",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "color": "rgb(32, 40, 51)",
+            "weight": "600"
+          },
+          {
+            "text": "항목 관리",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "color": "rgb(32, 40, 51)",
+            "weight": "600"
+          }
+        ],
+        "divider": "rgb(124, 137, 153)"
+      },
+      {
+        "headBackground": "rgb(222, 224, 228)",
+        "headHeight": 48,
+        "columnNamesSame": true,
+        "tableRectSame": true,
+        "headRectSame": true,
+        "firstRowRectSame": true,
+        "columnRectDeltas": [
+          {
+            "text": "항목",
+            "x": 0,
+            "y": 0.0,
+            "width": 0,
+            "color": "rgb(32, 40, 51)",
+            "weight": "600"
+          },
+          {
+            "text": "Web",
+            "x": 0,
+            "y": 0.0,
+            "width": 0,
+            "color": "rgb(32, 40, 51)",
+            "weight": "600"
+          },
+          {
+            "text": "APP",
+            "x": 0,
+            "y": 0.0,
+            "width": 0,
+            "color": "rgb(32, 40, 51)",
+            "weight": "600"
+          },
+          {
+            "text": "Server",
+            "x": 0,
+            "y": 0.0,
+            "width": 0,
+            "color": "rgb(32, 40, 51)",
+            "weight": "600"
+          },
+          {
+            "text": "항목 관리",
+            "x": 0,
+            "y": 0.0,
+            "width": 0,
+            "color": "rgb(32, 40, 51)",
+            "weight": "600"
+          }
+        ],
+        "divider": "rgb(124, 137, 153)"
+      }
+    ]
+  },
+  {
+    "key": "users-loading",
+    "width": 1440,
+    "tableCountSame": true,
+    "shellSame": true,
+    "overflow": false,
+    "tables": []
+  },
+  {
+    "key": "users-empty",
+    "width": 1440,
+    "tableCountSame": true,
+    "shellSame": true,
+    "overflow": false,
+    "tables": []
+  },
+  {
+    "key": "users-error",
+    "width": 1440,
+    "tableCountSame": true,
+    "shellSame": true,
+    "overflow": false,
+    "tables": []
+  }
+]

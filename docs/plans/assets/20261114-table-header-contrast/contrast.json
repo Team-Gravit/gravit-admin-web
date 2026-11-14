@@ -1,0 +1,242 @@
+[
+  {
+    "pair": "본문 / 흰 면",
+    "fg": "#202833",
+    "bg": "#FFFFFF",
+    "ratio": 14.8648,
+    "threshold": 4.5,
+    "pass": true
+  },
+  {
+    "pair": "본문 / 페이지",
+    "fg": "#202833",
+    "bg": "#F4F6F8",
+    "ratio": 13.7212,
+    "threshold": 4.5,
+    "pass": true
+  },
+  {
+    "pair": "보조·메타·중립 배지 / 흰 면",
+    "fg": "#596677",
+    "bg": "#FFFFFF",
+    "ratio": 5.8468,
+    "threshold": 4.5,
+    "pass": true
+  },
+  {
+    "pair": "보조·메타·중립 배지 / 페이지",
+    "fg": "#596677",
+    "bg": "#F4F6F8",
+    "ratio": 5.397,
+    "threshold": 4.5,
+    "pass": true
+  },
+  {
+    "pair": "일반 링크 / 흰 면",
+    "fg": "#245FCC",
+    "bg": "#FFFFFF",
+    "ratio": 5.8597,
+    "threshold": 4.5,
+    "pass": true
+  },
+  {
+    "pair": "일반 링크 / 페이지",
+    "fg": "#245FCC",
+    "bg": "#F4F6F8",
+    "ratio": 5.4089,
+    "threshold": 4.5,
+    "pass": true
+  },
+  {
+    "pair": "흰 버튼 글자 / primary",
+    "fg": "#FFFFFF",
+    "bg": "#245FCC",
+    "ratio": 5.8597,
+    "threshold": 4.5,
+    "pass": true
+  },
+  {
+    "pair": "흰 버튼 글자 / primary-hover",
+    "fg": "#FFFFFF",
+    "bg": "#1B4DAA",
+    "ratio": 7.8107,
+    "threshold": 4.5,
+    "pass": true
+  },
+  {
+    "pair": "흰 버튼 글자 / danger",
+    "fg": "#FFFFFF",
+    "bg": "#AD3543",
+    "ratio": 6.2368,
+    "threshold": 4.5,
+    "pass": true
+  },
+  {
+    "pair": "선택 글자 / 흰 면의 8% 파랑",
+    "fg": "#245FCC",
+    "bg": "#EDF2FB",
+    "ratio": 5.2164,
+    "threshold": 4.5,
+    "pass": true
+  },
+  {
+    "pair": "선택 글자 / 페이지의 8% 파랑",
+    "fg": "#245FCC",
+    "bg": "#E3EAF4",
+    "ratio": 4.8389,
+    "threshold": 4.5,
+    "pass": true
+  },
+  {
+    "pair": "호버 링크 / 4% 파랑",
+    "fg": "#245FCC",
+    "bg": "#F6F9FD",
+    "ratio": 5.5492,
+    "threshold": 4.5,
+    "pass": true
+  },
+  {
+    "pair": "success 글자 / 흰 면",
+    "fg": "#257050",
+    "bg": "#FFFFFF",
+    "ratio": 5.9792,
+    "threshold": 4.5,
+    "pass": true
+  },
+  {
+    "pair": "success 글자 / 8% 상태 면",
+    "fg": "#257050",
+    "bg": "#EEF4F1",
+    "ratio": 5.3659,
+    "threshold": 4.5,
+    "pass": true
+  },
+  {
+    "pair": "success 글자 / 페이지의 8% 상태 면",
+    "fg": "#257050",
+    "bg": "#E3EBEB",
+    "ratio": 4.9397,
+    "threshold": 4.5,
+    "pass": true
+  },
+  {
+    "pair": "warning 글자 / 흰 면",
+    "fg": "#8B541D",
+    "bg": "#FFFFFF",
+    "ratio": 6.2063,
+    "threshold": 4.5,
+    "pass": true
+  },
+  {
+    "pair": "warning 글자 / 8% 상태 면",
+    "fg": "#8B541D",
+    "bg": "#F6F1ED",
+    "ratio": 5.5335,
+    "threshold": 4.5,
+    "pass": true
+  },
+  {
+    "pair": "warning 글자 / 페이지의 8% 상태 면",
+    "fg": "#8B541D",
+    "bg": "#ECE9E6",
+    "ratio": 5.1319,
+    "threshold": 4.5,
+    "pass": true
+  },
+  {
+    "pair": "danger 글자 / 흰 면",
+    "fg": "#AD3543",
+    "bg": "#FFFFFF",
+    "ratio": 6.2368,
+    "threshold": 4.5,
+    "pass": true
+  },
+  {
+    "pair": "danger 글자 / 8% 상태 면",
+    "fg": "#AD3543",
+    "bg": "#F8EFF0",
+    "ratio": 5.5228,
+    "threshold": 4.5,
+    "pass": true
+  },
+  {
+    "pair": "danger 글자 / 페이지의 8% 상태 면",
+    "fg": "#AD3543",
+    "bg": "#EEE7EA",
+    "ratio": 5.1242,
+    "threshold": 4.5,
+    "pass": true
+  },
+  {
+    "pair": "입력 경계·미검수 아이콘 / 흰 면",
+    "fg": "#7C8999",
+    "bg": "#FFFFFF",
+    "ratio": 3.5622,
+    "threshold": 3.0,
+    "pass": true
+  },
+  {
+    "pair": "포커스 파랑 / 흰 면",
+    "fg": "#245FCC",
+    "bg": "#FFFFFF",
+    "ratio": 5.8597,
+    "threshold": 3.0,
+    "pass": true
+  },
+  {
+    "pair": "입력 경계·미검수 아이콘 / 페이지",
+    "fg": "#7C8999",
+    "bg": "#F4F6F8",
+    "ratio": 3.2881,
+    "threshold": 3.0,
+    "pass": true
+  },
+  {
+    "pair": "포커스 파랑 / 페이지",
+    "fg": "#245FCC",
+    "bg": "#F4F6F8",
+    "ratio": 5.4089,
+    "threshold": 3.0,
+    "pass": true
+  },
+  {
+    "pair": "일반 보조 글자 / 선택 면",
+    "fg": "#596677",
+    "bg": "#EDF2FB",
+    "ratio": 5.205,
+    "threshold": 4.5,
+    "pass": true
+  },
+  {
+    "pair": "일반 보조 글자 / 성공 면",
+    "fg": "#596677",
+    "bg": "#EEF4F1",
+    "ratio": 5.2471,
+    "threshold": 4.5,
+    "pass": true
+  },
+  {
+    "pair": "일반 보조 글자 / 주의 면",
+    "fg": "#596677",
+    "bg": "#F6F1ED",
+    "ratio": 5.213,
+    "threshold": 4.5,
+    "pass": true
+  },
+  {
+    "pair": "일반 보조 글자 / 오류 면",
+    "fg": "#596677",
+    "bg": "#F8EFF0",
+    "ratio": 5.1775,
+    "threshold": 4.5,
+    "pass": true
+  },
+  {
+    "pair": "표 머리글 / 전용 머리 면(D16)",
+    "fg": "#202833",
+    "bg": "#DEE0E4",
+    "ratio": 11.2466,
+    "threshold": 4.5,
+    "pass": true
+  }
+]

@@ -69,7 +69,7 @@ export function ChapterStatsWidget({ stats, isLoading, isError, onRetry }: Chapt
   return (
     <section className="flex flex-col gap-4">
       <h3 className="text-h3 text-foreground">풀이 현황</h3>
-      <div className="rounded-lg border border-border bg-surface">{body()}</div>
+      <div className="overflow-hidden rounded-lg border border-border bg-surface">{body()}</div>
     </section>
   );
 }

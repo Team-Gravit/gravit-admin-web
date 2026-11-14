@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>테이블 머리글 식별성 수정안</title>
+  <style>
+    :root { --page:#f4f6f8; --surface:#fff; --foreground:#202833; --secondary:#596677; --input:#7c8999; --table-header:#dee0e4; }
+    * { box-sizing:border-box; }
+    body { margin:0; padding:32px; background:var(--page); color:var(--foreground); font:14px/22px Pretendard,system-ui,sans-serif; }
+    main { max-width:1100px; margin:auto; }
+    h1 { margin:0 0 12px; font-size:26px; line-height:36px; }
+    h2 { margin:0 0 12px; font-size:20px; line-height:28px; }
+    p { color:var(--secondary); margin:0 0 20px; }
+    section { margin:32px 0 40px; }
+    .card { border:1px solid var(--page); border-radius:12px; background:var(--surface); }
+    table { width:100%; border-collapse:collapse; font-variant-numeric:tabular-nums; text-align:left; }
+    th { height:48px; padding:0 16px; font-weight:600; }
+    td { height:52px; padding:12px 16px; border-bottom:1px solid var(--page); }
+    tr:last-child td { border-bottom:0; }
+    .before thead { background:var(--page); color:var(--secondary); }
+    .after { overflow:hidden; }
+    .after thead { background:var(--table-header); color:var(--foreground); border-bottom:1px solid var(--input); }
+    .meta { color:var(--secondary); }
+    footer { color:var(--secondary); border-top:1px solid var(--input); padding-top:16px; }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>테이블 머리글 식별성 수정안</h1>
+    <p>기존 중립 색을 유지하면서 속성 이름이 있는 머리글 면을 분리해요. 제품 코드 적용 전 정적 견본이에요.</p>
+    <section>
+      <h2>현재</h2>
+      <p>머리글 면이 페이지 바탕과 이어져 보여요.</p>
+      <div class="card before"><table>
+        <thead><tr><th>이메일</th><th>닉네임</th><th>역할</th><th>가입일</th></tr></thead>
+        <tbody><tr><td>operator@example.com</td><td>운영자</td><td>관리자</td><td class="meta">2026-11-14</td></tr><tr><td>member@example.com</td><td>유저</td><td>일반</td><td class="meta">2026-11-13</td></tr></tbody>
+      </table></div>
+    </section>
+    <section>
+      <h2>수정안</h2>
+      <p>전용 회색 면·진한 머리글·아래 구분선으로 표의 시작을 명확하게 보여줘요.</p>
+      <div class="card after"><table>
+        <thead><tr><th>이메일</th><th>닉네임</th><th>역할</th><th>가입일</th></tr></thead>
+        <tbody><tr><td>operator@example.com</td><td>운영자</td><td>관리자</td><td class="meta">2026-11-14</td></tr><tr><td>member@example.com</td><td>유저</td><td>일반</td><td class="meta">2026-11-13</td></tr></tbody>
+      </table></div>
+    </section>
+    <footer>머리글48·본문52·모서리12 유지 · 머리글 글자 대비11.25:1 · 열/행/데이터/행동 변경 없음</footer>
+  </main>
+</body>
+</html>

@@ -1,0 +1,165 @@
+{
+  "samples": [
+    {
+      "key": "users",
+      "width": 1280,
+      "beforeMatchesApprovedStyle": false,
+      "afterMatchesApprovedStyle": true
+    },
+    {
+      "key": "notices",
+      "width": 1280,
+      "beforeMatchesApprovedStyle": false,
+      "afterMatchesApprovedStyle": true
+    },
+    {
+      "key": "reports",
+      "width": 1280,
+      "beforeMatchesApprovedStyle": false,
+      "afterMatchesApprovedStyle": true
+    },
+    {
+      "key": "inquiries",
+      "width": 1280,
+      "beforeMatchesApprovedStyle": false,
+      "afterMatchesApprovedStyle": true
+    },
+    {
+      "key": "chapters",
+      "width": 1280,
+      "beforeMatchesApprovedStyle": false,
+      "afterMatchesApprovedStyle": true
+    },
+    {
+      "key": "staging",
+      "width": 1280,
+      "beforeMatchesApprovedStyle": false,
+      "afterMatchesApprovedStyle": true
+    },
+    {
+      "key": "qa-sprints",
+      "width": 1280,
+      "beforeMatchesApprovedStyle": false,
+      "afterMatchesApprovedStyle": true
+    },
+    {
+      "key": "chapter-detail",
+      "width": 1280,
+      "beforeMatchesApprovedStyle": false,
+      "afterMatchesApprovedStyle": true
+    },
+    {
+      "key": "unit-detail",
+      "width": 1280,
+      "beforeMatchesApprovedStyle": false,
+      "afterMatchesApprovedStyle": true
+    },
+    {
+      "key": "lesson-detail",
+      "width": 1280,
+      "beforeMatchesApprovedStyle": false,
+      "afterMatchesApprovedStyle": true
+    },
+    {
+      "key": "qa-design",
+      "width": 1280,
+      "beforeMatchesApprovedStyle": false,
+      "afterMatchesApprovedStyle": true
+    },
+    {
+      "key": "qa-first",
+      "width": 1280,
+      "beforeMatchesApprovedStyle": false,
+      "afterMatchesApprovedStyle": true
+    },
+    {
+      "key": "qa-second",
+      "width": 1280,
+      "beforeMatchesApprovedStyle": false,
+      "afterMatchesApprovedStyle": true
+    },
+    {
+      "key": "users",
+      "width": 1440,
+      "beforeMatchesApprovedStyle": false,
+      "afterMatchesApprovedStyle": true
+    },
+    {
+      "key": "notices",
+      "width": 1440,
+      "beforeMatchesApprovedStyle": false,
+      "afterMatchesApprovedStyle": true
+    },
+    {
+      "key": "reports",
+      "width": 1440,
+      "beforeMatchesApprovedStyle": false,
+      "afterMatchesApprovedStyle": true
+    },
+    {
+      "key": "inquiries",
+      "width": 1440,
+      "beforeMatchesApprovedStyle": false,
+      "afterMatchesApprovedStyle": true
+    },
+    {
+      "key": "chapters",
+      "width": 1440,
+      "beforeMatchesApprovedStyle": false,
+      "afterMatchesApprovedStyle": true
+    },
+    {
+      "key": "staging",
+      "width": 1440,
+      "beforeMatchesApprovedStyle": false,
+      "afterMatchesApprovedStyle": true
+    },
+    {
+      "key": "qa-sprints",
+      "width": 1440,
+      "beforeMatchesApprovedStyle": false,
+      "afterMatchesApprovedStyle": true
+    },
+    {
+      "key": "chapter-detail",
+      "width": 1440,
+      "beforeMatchesApprovedStyle": false,
+      "afterMatchesApprovedStyle": true
+    },
+    {
+      "key": "unit-detail",
+      "width": 1440,
+      "beforeMatchesApprovedStyle": false,
+      "afterMatchesApprovedStyle": true
+    },
+    {
+      "key": "lesson-detail",
+      "width": 1440,
+      "beforeMatchesApprovedStyle": false,
+      "afterMatchesApprovedStyle": true
+    },
+    {
+      "key": "qa-design",
+      "width": 1440,
+      "beforeMatchesApprovedStyle": false,
+      "afterMatchesApprovedStyle": true
+    },
+    {
+      "key": "qa-first",
+      "width": 1440,
+      "beforeMatchesApprovedStyle": false,
+      "afterMatchesApprovedStyle": true
+    },
+    {
+      "key": "qa-second",
+      "width": 1440,
+      "beforeMatchesApprovedStyle": false,
+      "afterMatchesApprovedStyle": true
+    }
+  ],
+  "beforePassed": 0,
+  "afterPassed": 26,
+  "columnChanges": [],
+  "tablesAndFirstRowsGeometrySame": true,
+  "hoverSame": true
+}

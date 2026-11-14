@@ -60,13 +60,10 @@ export function DataTable<T>({
     }
     return (
       <Table>
-        <TableHeader className="bg-hover">
+        <TableHeader>
           <TableRow>
             {columns.map((col) => (
-              <TableHead
-                key={col.key}
-                className={cn('font-semibold text-fg-secondary', col.headerClassName)}
-              >
+              <TableHead key={col.key} className={col.headerClassName}>
                 {col.header}
               </TableHead>
             ))}
@@ -92,7 +89,7 @@ export function DataTable<T>({
   };
 
   return (
-    <div className="rounded-lg border border-border bg-surface">
+    <div className="overflow-hidden rounded-lg border border-border bg-surface">
       {header && <div className="border-b border-border px-6 py-4">{header}</div>}
       {body()}
     </div>

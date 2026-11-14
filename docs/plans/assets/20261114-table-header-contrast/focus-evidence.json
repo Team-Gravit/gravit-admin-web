@@ -1,0 +1,82 @@
+[
+  {
+    "key": "qa-register-focus",
+    "route": "/qa/sprints",
+    "width": 1280,
+    "file": "qa-register-focus-1280.png",
+    "evidence": {
+      "clipping": [
+        {
+          "ringFits": true,
+          "tag": "DIV"
+        }
+      ],
+      "focusVisible": true,
+      "href": null,
+      "label": "스프린트 등록",
+      "outline": "rgba(0, 0, 0, 0) solid 2px",
+      "shadow": "rgb(255, 255, 255) 0px 0px 0px 2px, rgb(36, 95, 204) 0px 0px 0px 4px, rgba(0, 0, 0, 0) 0px 0px 0px 0px",
+      "tag": "BUTTON"
+    }
+  },
+  {
+    "key": "report-action-focus",
+    "route": "/reports",
+    "width": 1280,
+    "file": "report-action-focus-1280.png",
+    "evidence": {
+      "clipping": [
+        {
+          "ringFits": true,
+          "tag": "DIV"
+        }
+      ],
+      "focusVisible": true,
+      "href": null,
+      "label": "P-512",
+      "outline": "rgb(0, 95, 204) auto 1px",
+      "shadow": "none",
+      "tag": "BUTTON"
+    }
+  },
+  {
+    "key": "qa-register-focus",
+    "route": "/qa/sprints",
+    "width": 1440,
+    "file": "qa-register-focus-1440.png",
+    "evidence": {
+      "clipping": [
+        {
+          "ringFits": true,
+          "tag": "DIV"
+        }
+      ],
+      "focusVisible": true,
+      "href": null,
+      "label": "스프린트 등록",
+      "outline": "rgba(0, 0, 0, 0) solid 2px",
+      "shadow": "rgb(255, 255, 255) 0px 0px 0px 2px, rgb(36, 95, 204) 0px 0px 0px 4px, rgba(0, 0, 0, 0) 0px 0px 0px 0px",
+      "tag": "BUTTON"
+    }
+  },
+  {
+    "key": "report-action-focus",
+    "route": "/reports",
+    "width": 1440,
+    "file": "report-action-focus-1440.png",
+    "evidence": {
+      "clipping": [
+        {
+          "ringFits": true,
+          "tag": "DIV"
+        }
+      ],
+      "focusVisible": true,
+      "href": null,
+      "label": "P-512",
+      "outline": "rgb(0, 95, 204) auto 1px",
+      "shadow": "none",
+      "tag": "BUTTON"
+    }
+  }
+]
