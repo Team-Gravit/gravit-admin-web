@@ -1,0 +1,39 @@
+[
+  {
+    "command": "npm run check:full",
+    "exitCode": 0,
+    "result": "type/ESLint 0errors 4existing warnings/token/build",
+    "sourceTreeSha256": "a958aa8b7039823af95350d16000d1655fc78e289a97c76d06a8b81455860062"
+  },
+  {
+    "command": "npm run test",
+    "exitCode": 0,
+    "result": "22files78pass",
+    "sourceTreeSha256": "a958aa8b7039823af95350d16000d1655fc78e289a97c76d06a8b81455860062"
+  },
+  {
+    "command": "npm run test:e2e",
+    "exitCode": 0,
+    "result": "133pass;1.0m",
+    "sourceTreeSha256": "a958aa8b7039823af95350d16000d1655fc78e289a97c76d06a8b81455860062"
+  },
+  {
+    "command": "node --test scripts/checks/token-lint.test.mjs",
+    "exitCode": 0,
+    "result": "4pass",
+    "sourceTreeSha256": "a958aa8b7039823af95350d16000d1655fc78e289a97c76d06a8b81455860062"
+  },
+  {
+    "command": "npm run test:auth",
+    "exitCode": 0,
+    "result": "17pass; after login H2; later auth code unchanged",
+    "evidence": "auth.log"
+  },
+  {
+    "command": "npm run check:full",
+    "phase": "approved-commit-preflight-2026-11-14",
+    "exitCode": 0,
+    "result": "type/ESLint0errors4existingwarnings/token/build",
+    "sourceTreeSha256": "a958aa8b7039823af95350d16000d1655fc78e289a97c76d06a8b81455860062"
+  }
+]

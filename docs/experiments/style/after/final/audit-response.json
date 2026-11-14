@@ -1,0 +1,1352 @@
+[
+  {
+    "id": "4-1.1",
+    "screen": "LOGIN — 로그인",
+    "location": "제공자 버튼",
+    "principles": "P4·P8",
+    "status": "적용·유지",
+    "decision": "원래 주요 행동·순서·활성/이동 조건 유지. 관련 묶음 e2e 확인",
+    "evidence": "after/login/manifest.json"
+  },
+  {
+    "id": "4-1.2",
+    "screen": "LOGIN — 로그인",
+    "location": "초록 버튼 글자",
+    "principles": "V8·V10",
+    "status": "적용·유지",
+    "decision": "제공자 공용 outline 본문/white14.86·경계3.56. 이름/인증 유지",
+    "evidence": "after/login/manifest.json"
+  },
+  {
+    "id": "4-1.3",
+    "screen": "LOGIN — 로그인",
+    "location": "왼쪽 그림·오른쪽 버튼",
+    "principles": "V2·V7",
+    "status": "적용·유지",
+    "decision": "H2 승인: 중립 면·기존 Gravit 식별자,559/720 비율·2열 보존",
+    "evidence": "after/login/manifest.json"
+  },
+  {
+    "id": "4-1.4",
+    "screen": "LOGIN — 로그인",
+    "location": "제목 아래",
+    "principles": "W5·W6",
+    "status": "유지(후보 미채택)",
+    "decision": "유지: H2는 기존 이름/2열/위치 유지. Admin Page·보조문구도 원래대로 유지하여 정보 삭제 안 함",
+    "evidence": "after/login/manifest.json"
+  },
+  {
+    "id": "4-1.5",
+    "screen": "LOGIN — 로그인",
+    "location": "버튼 호버",
+    "principles": "M1·M2",
+    "status": "적용·유지",
+    "decision": "본문·표·수치 즉시, 공용 메뉴/모달 토큰·reduced. 타이핑·차트 진입 제거, 실제대기만 신호",
+    "evidence": "after/login/manifest.json"
+  },
+  {
+    "id": "4-1.6",
+    "screen": "LOGIN — 로그인",
+    "location": "중앙 카드",
+    "principles": "P10·V6",
+    "status": "적용·유지",
+    "decision": "적용: 고정 카드 shadow 제거, 면·경계로 구분",
+    "evidence": "after/login/manifest.json"
+  },
+  {
+    "id": "4-2.1",
+    "screen": "DASHBOARD — 대시보드",
+    "location": "통계 카드",
+    "principles": "P3·P4",
+    "status": "적용·유지",
+    "decision": "원래 주요 행동·순서·활성/이동 조건 유지. 관련 묶음 e2e 확인",
+    "evidence": "after/dashboard/manifest.json"
+  },
+  {
+    "id": "4-2.2",
+    "screen": "DASHBOARD — 대시보드",
+    "location": "MAU 마지막 막대",
+    "principles": "V8",
+    "status": "적용·유지",
+    "decision": "부분 MAU N400불투명3.56:1+집계중 설명, 데이터/기간 유지",
+    "evidence": "after/dashboard/manifest.json"
+  },
+  {
+    "id": "4-2.3",
+    "screen": "DASHBOARD — 대시보드",
+    "location": "두 차트",
+    "principles": "V2·V4",
+    "status": "적용·유지",
+    "decision": "비조작/분류는 중립, 선택·행동만 파랑·실제 상태 작은 의미색. 원문 ID/enum 보존",
+    "evidence": "after/dashboard/manifest.json"
+  },
+  {
+    "id": "4-2.4",
+    "screen": "DASHBOARD — 대시보드",
+    "location": "설명·지표 라벨",
+    "principles": "W5·W11",
+    "status": "적용·유지",
+    "decision": "프론트 안내만 해요체·반복 소개 정리. 원문·코드·라벨·입력/검증 조건 보존",
+    "evidence": "after/dashboard/manifest.json"
+  },
+  {
+    "id": "4-2.5",
+    "screen": "DASHBOARD — 대시보드",
+    "location": "차트 진입",
+    "principles": "M1·M4",
+    "status": "적용·유지",
+    "decision": "Area/Bar/Tooltip isAnimationActive=false·보통/reduced 즉시",
+    "evidence": "after/dashboard/manifest.json"
+  },
+  {
+    "id": "4-2.6",
+    "screen": "DASHBOARD — 대시보드",
+    "location": "숫자 위계",
+    "principles": "P10·V9",
+    "status": "적용·유지",
+    "decision": "기존 셸·카드/표·열/폼/행동 구조 유지. 선/면/글자 무게만 정리, 새 장식 없음",
+    "evidence": "after/dashboard/manifest.json"
+  },
+  {
+    "id": "4-3.1",
+    "screen": "NOTICE_LIST — 공지 목록",
+    "location": "제목 오른쪽",
+    "principles": "P4",
+    "status": "적용·유지",
+    "decision": "원래 주요 행동·순서·활성/이동 조건 유지. 관련 묶음 e2e 확인",
+    "evidence": "after/operations/manifest.json"
+  },
+  {
+    "id": "4-3.2",
+    "screen": "NOTICE_LIST — 공지 목록",
+    "location": "상태 열",
+    "principles": "V8·V10",
+    "status": "적용·유지",
+    "decision": "원래 상태/조건·글자/형태 보존. 중립/의미색 대비와 실제 상태 검증",
+    "evidence": "after/operations/manifest.json"
+  },
+  {
+    "id": "4-3.3",
+    "screen": "NOTICE_LIST — 공지 목록",
+    "location": "고정 핀",
+    "principles": "V2·V3",
+    "status": "적용·유지",
+    "decision": "비조작/분류는 중립, 선택·행동만 파랑·실제 상태 작은 의미색. 원문 ID/enum 보존",
+    "evidence": "after/operations/manifest.json"
+  },
+  {
+    "id": "4-3.4",
+    "screen": "NOTICE_LIST — 공지 목록",
+    "location": "소개 문장",
+    "principles": "W1·W5",
+    "status": "적용·유지",
+    "decision": "프론트 안내만 해요체·반복 소개 정리. 원문·코드·라벨·입력/검증 조건 보존",
+    "evidence": "after/operations/manifest.json"
+  },
+  {
+    "id": "4-3.5",
+    "screen": "NOTICE_LIST — 공지 목록",
+    "location": "본문 전환",
+    "principles": "M1·M4",
+    "status": "적용·유지",
+    "decision": "본문·표·수치 즉시, 공용 메뉴/모달 토큰·reduced. 타이핑·차트 진입 제거, 실제대기만 신호",
+    "evidence": "after/operations/manifest.json"
+  },
+  {
+    "id": "4-3.6",
+    "screen": "NOTICE_LIST — 공지 목록",
+    "location": "표",
+    "principles": "P10·V1",
+    "status": "적용·유지",
+    "decision": "기존 셸·카드/표·열/폼/행동 구조 유지. 선/면/글자 무게만 정리, 새 장식 없음",
+    "evidence": "after/operations/manifest.json"
+  },
+  {
+    "id": "4-4.1",
+    "screen": "NOTICE_NEW — 공지 작성",
+    "location": "하단 행동",
+    "principles": "P4·P8",
+    "status": "적용·유지",
+    "decision": "원래 주요 행동·순서·활성/이동 조건 유지. 관련 묶음 e2e 확인",
+    "evidence": "after/operations/manifest.json"
+  },
+  {
+    "id": "4-4.2",
+    "screen": "NOTICE_NEW — 공지 작성",
+    "location": "초기 폼",
+    "principles": "V8",
+    "status": "적용·유지",
+    "decision": "원래 상태/조건·글자/형태 보존. 중립/의미색 대비와 실제 상태 검증",
+    "evidence": "after/operations/manifest.json"
+  },
+  {
+    "id": "4-4.3",
+    "screen": "NOTICE_NEW — 공지 작성",
+    "location": "작성/미리보기",
+    "principles": "V2",
+    "status": "적용·유지",
+    "decision": "비조작/분류는 중립, 선택·행동만 파랑·실제 상태 작은 의미색. 원문 ID/enum 보존",
+    "evidence": "after/operations/manifest.json"
+  },
+  {
+    "id": "4-4.4",
+    "screen": "NOTICE_NEW — 공지 작성",
+    "location": "하단 버튼",
+    "principles": "W7·W8",
+    "status": "적용·유지",
+    "decision": "프론트 안내만 해요체·반복 소개 정리. 원문·코드·라벨·입력/검증 조건 보존",
+    "evidence": "after/operations/manifest.json"
+  },
+  {
+    "id": "4-4.5",
+    "screen": "NOTICE_NEW — 공지 작성",
+    "location": "본문 전환",
+    "principles": "M1·M4",
+    "status": "적용·유지",
+    "decision": "본문·표·수치 즉시, 공용 메뉴/모달 토큰·reduced. 타이핑·차트 진입 제거, 실제대기만 신호",
+    "evidence": "after/operations/manifest.json"
+  },
+  {
+    "id": "4-4.6",
+    "screen": "NOTICE_NEW — 공지 작성",
+    "location": "입력 카드",
+    "principles": "P10·V1",
+    "status": "적용·유지",
+    "decision": "기존 셸·카드/표·열/폼/행동 구조 유지. 선/면/글자 무게만 정리, 새 장식 없음",
+    "evidence": "after/operations/manifest.json"
+  },
+  {
+    "id": "4-5.1",
+    "screen": "NOTICE_DETAIL — 공지 상세",
+    "location": "편집·삭제",
+    "principles": "P4·V3",
+    "status": "적용·유지",
+    "decision": "원래 주요 행동·순서·활성/이동 조건 유지. 관련 묶음 e2e 확인",
+    "evidence": "after/operations/manifest.json"
+  },
+  {
+    "id": "4-5.2",
+    "screen": "NOTICE_DETAIL — 공지 상세",
+    "location": "머리 상태",
+    "principles": "V8",
+    "status": "적용·유지",
+    "decision": "원래 상태/조건·글자/형태 보존. 중립/의미색 대비와 실제 상태 검증",
+    "evidence": "after/operations/manifest.json"
+  },
+  {
+    "id": "4-5.3",
+    "screen": "NOTICE_DETAIL — 공지 상세",
+    "location": "핀과 배지",
+    "principles": "V2·V4",
+    "status": "적용·유지",
+    "decision": "비조작/분류는 중립, 선택·행동만 파랑·실제 상태 작은 의미색. 원문 ID/enum 보존",
+    "evidence": "after/operations/manifest.json"
+  },
+  {
+    "id": "4-5.4",
+    "screen": "NOTICE_DETAIL — 공지 상세",
+    "location": "문서 본문",
+    "principles": "W1·W5",
+    "status": "적용·유지",
+    "decision": "프론트 안내만 해요체·반복 소개 정리. 원문·코드·라벨·입력/검증 조건 보존",
+    "evidence": "after/operations/manifest.json"
+  },
+  {
+    "id": "4-5.5",
+    "screen": "NOTICE_DETAIL — 공지 상세",
+    "location": "본문 전환",
+    "principles": "M1·M4",
+    "status": "적용·유지",
+    "decision": "본문·표·수치 즉시, 공용 메뉴/모달 토큰·reduced. 타이핑·차트 진입 제거, 실제대기만 신호",
+    "evidence": "after/operations/manifest.json"
+  },
+  {
+    "id": "4-5.6",
+    "screen": "NOTICE_DETAIL — 공지 상세",
+    "location": "요약·본문 사이",
+    "principles": "P10·V1",
+    "status": "적용·유지",
+    "decision": "기존 셸·카드/표·열/폼/행동 구조 유지. 선/면/글자 무게만 정리, 새 장식 없음",
+    "evidence": "after/operations/manifest.json"
+  },
+  {
+    "id": "4-6.1",
+    "screen": "USER_LIST — 유저 목록",
+    "location": "검색·행 진입",
+    "principles": "P4·P5",
+    "status": "유지·별도 과제",
+    "decision": "배치/검색 유지. DataTable 행 키보드 진입은 별도 승인 과제로 남김",
+    "evidence": "after/operations/manifest.json"
+  },
+  {
+    "id": "4-6.2",
+    "screen": "USER_LIST — 유저 목록",
+    "location": "역할·상태",
+    "principles": "V8·V10",
+    "status": "적용·유지",
+    "decision": "원래 상태/조건·글자/형태 보존. 중립/의미색 대비와 실제 상태 검증",
+    "evidence": "after/operations/manifest.json"
+  },
+  {
+    "id": "4-6.3",
+    "screen": "USER_LIST — 유저 목록",
+    "location": "관리자 역할",
+    "principles": "V2·V3",
+    "status": "적용·유지",
+    "decision": "비조작/분류는 중립, 선택·행동만 파랑·실제 상태 작은 의미색. 원문 ID/enum 보존",
+    "evidence": "after/operations/manifest.json"
+  },
+  {
+    "id": "4-6.4",
+    "screen": "USER_LIST — 유저 목록",
+    "location": "검색 안내",
+    "principles": "W5·W11",
+    "status": "적용·유지",
+    "decision": "프론트 안내만 해요체·반복 소개 정리. 원문·코드·라벨·입력/검증 조건 보존",
+    "evidence": "after/operations/manifest.json"
+  },
+  {
+    "id": "4-6.5",
+    "screen": "USER_LIST — 유저 목록",
+    "location": "본문 전환",
+    "principles": "M1·M4",
+    "status": "적용·유지",
+    "decision": "본문·표·수치 즉시, 공용 메뉴/모달 토큰·reduced. 타이핑·차트 진입 제거, 실제대기만 신호",
+    "evidence": "after/operations/manifest.json"
+  },
+  {
+    "id": "4-6.6",
+    "screen": "USER_LIST — 유저 목록",
+    "location": "표 셀",
+    "principles": "P10·V4",
+    "status": "적용·유지",
+    "decision": "기존 셸·카드/표·열/폼/행동 구조 유지. 선/면/글자 무게만 정리, 새 장식 없음",
+    "evidence": "after/operations/manifest.json"
+  },
+  {
+    "id": "4-7.1",
+    "screen": "USER_DETAIL — 유저 상세",
+    "location": "권한·상태 카드",
+    "principles": "P4·P7",
+    "status": "적용·유지",
+    "decision": "원래 주요 행동·순서·활성/이동 조건 유지. 관련 묶음 e2e 확인",
+    "evidence": "after/operations/manifest.json"
+  },
+  {
+    "id": "4-7.2",
+    "screen": "USER_DETAIL — 유저 상세",
+    "location": "프로필·상태",
+    "principles": "V8",
+    "status": "적용·유지",
+    "decision": "원래 상태/조건·글자/형태 보존. 중립/의미색 대비와 실제 상태 검증",
+    "evidence": "after/operations/manifest.json"
+  },
+  {
+    "id": "4-7.3",
+    "screen": "USER_DETAIL — 유저 상세",
+    "location": "역할과 상태",
+    "principles": "V2·V3",
+    "status": "적용·유지",
+    "decision": "비조작/분류는 중립, 선택·행동만 파랑·실제 상태 작은 의미색. 원문 ID/enum 보존",
+    "evidence": "after/operations/manifest.json"
+  },
+  {
+    "id": "4-7.4",
+    "screen": "USER_DETAIL — 유저 상세",
+    "location": "반복 현재 값",
+    "principles": "W5",
+    "status": "유지(후보 미채택)",
+    "decision": "유지: 현재값 배지는 요약으로 보존. 제거 후보는 실행하지 않고 중립 위계로 낮춤",
+    "evidence": "after/operations/manifest.json"
+  },
+  {
+    "id": "4-7.5",
+    "screen": "USER_DETAIL — 유저 상세",
+    "location": "본문 전환",
+    "principles": "M1·M4",
+    "status": "적용·유지",
+    "decision": "본문·표·수치 즉시, 공용 메뉴/모달 토큰·reduced. 타이핑·차트 진입 제거, 실제대기만 신호",
+    "evidence": "after/operations/manifest.json"
+  },
+  {
+    "id": "4-7.6",
+    "screen": "USER_DETAIL — 유저 상세",
+    "location": "프로필 카드",
+    "principles": "P10·V1",
+    "status": "적용·유지",
+    "decision": "기존 셸·카드/표·열/폼/행동 구조 유지. 선/면/글자 무게만 정리, 새 장식 없음",
+    "evidence": "after/operations/manifest.json"
+  },
+  {
+    "id": "4-8.1",
+    "screen": "REPORT_LIST — 신고 목록",
+    "location": "문제 링크·행",
+    "principles": "P4·P5",
+    "status": "적용·유지",
+    "decision": "원래 주요 행동·순서·활성/이동 조건 유지. 관련 묶음 e2e 확인",
+    "evidence": "after/operations/manifest.json"
+  },
+  {
+    "id": "4-8.2",
+    "screen": "REPORT_LIST — 신고 목록",
+    "location": "미해결 상태",
+    "principles": "V8",
+    "status": "적용·유지",
+    "decision": "원래 상태/조건·글자/형태 보존. 중립/의미색 대비와 실제 상태 검증",
+    "evidence": "after/operations/manifest.json"
+  },
+  {
+    "id": "4-8.3",
+    "screen": "REPORT_LIST — 신고 목록",
+    "location": "유형 배지",
+    "principles": "V2·V3",
+    "status": "적용·유지",
+    "decision": "비조작/분류는 중립, 선택·행동만 파랑·실제 상태 작은 의미색. 원문 ID/enum 보존",
+    "evidence": "after/operations/manifest.json"
+  },
+  {
+    "id": "4-8.4",
+    "screen": "REPORT_LIST — 신고 목록",
+    "location": "필터·유형",
+    "principles": "W5·W11",
+    "status": "적용·유지",
+    "decision": "프론트 안내만 해요체·반복 소개 정리. 원문·코드·라벨·입력/검증 조건 보존",
+    "evidence": "after/operations/manifest.json"
+  },
+  {
+    "id": "4-8.5",
+    "screen": "REPORT_LIST — 신고 목록",
+    "location": "본문 전환",
+    "principles": "M1·M4",
+    "status": "적용·유지",
+    "decision": "본문·표·수치 즉시, 공용 메뉴/모달 토큰·reduced. 타이핑·차트 진입 제거, 실제대기만 신호",
+    "evidence": "after/operations/manifest.json"
+  },
+  {
+    "id": "4-8.6",
+    "screen": "REPORT_LIST — 신고 목록",
+    "location": "표 테두리",
+    "principles": "P10·V1",
+    "status": "적용·유지",
+    "decision": "기존 셸·카드/표·열/폼/행동 구조 유지. 선/면/글자 무게만 정리, 새 장식 없음",
+    "evidence": "after/operations/manifest.json"
+  },
+  {
+    "id": "4-9.1",
+    "screen": "REPORT_DETAIL — 신고 상세",
+    "location": "문제 보기·처리 상태",
+    "principles": "P4·P8",
+    "status": "적용·유지",
+    "decision": "원래 주요 행동·순서·활성/이동 조건 유지. 관련 묶음 e2e 확인",
+    "evidence": "after/operations/manifest.json"
+  },
+  {
+    "id": "4-9.2",
+    "screen": "REPORT_DETAIL — 신고 상세",
+    "location": "제목 옆 상태",
+    "principles": "V8",
+    "status": "적용·유지",
+    "decision": "원래 상태/조건·글자/형태 보존. 중립/의미색 대비와 실제 상태 검증",
+    "evidence": "after/operations/manifest.json"
+  },
+  {
+    "id": "4-9.3",
+    "screen": "REPORT_DETAIL — 신고 상세",
+    "location": "유형·문제 정보",
+    "principles": "V2·V4",
+    "status": "적용·유지",
+    "decision": "비조작/분류는 중립, 선택·행동만 파랑·실제 상태 작은 의미색. 원문 ID/enum 보존",
+    "evidence": "after/operations/manifest.json"
+  },
+  {
+    "id": "4-9.4",
+    "screen": "REPORT_DETAIL — 신고 상세",
+    "location": "신고 내용",
+    "principles": "W1·W11",
+    "status": "적용·유지",
+    "decision": "프론트 안내만 해요체·반복 소개 정리. 원문·코드·라벨·입력/검증 조건 보존",
+    "evidence": "after/operations/manifest.json"
+  },
+  {
+    "id": "4-9.5",
+    "screen": "REPORT_DETAIL — 신고 상세",
+    "location": "본문 전환",
+    "principles": "M1·M4",
+    "status": "적용·유지",
+    "decision": "본문·표·수치 즉시, 공용 메뉴/모달 토큰·reduced. 타이핑·차트 진입 제거, 실제대기만 신호",
+    "evidence": "after/operations/manifest.json"
+  },
+  {
+    "id": "4-9.6",
+    "screen": "REPORT_DETAIL — 신고 상세",
+    "location": "신고 정보 카드",
+    "principles": "P10·V1",
+    "status": "적용·유지",
+    "decision": "기존 셸·카드/표·열/폼/행동 구조 유지. 선/면/글자 무게만 정리, 새 장식 없음",
+    "evidence": "after/operations/manifest.json"
+  },
+  {
+    "id": "4-10.1",
+    "screen": "CHAPTER_LIST — 컨텐츠 목록",
+    "location": "목록",
+    "principles": "P4·P10",
+    "status": "적용·유지",
+    "decision": "원래 주요 행동·순서·활성/이동 조건 유지. 관련 묶음 e2e 확인",
+    "evidence": "after/learning-staging/manifest.json"
+  },
+  {
+    "id": "4-10.2",
+    "screen": "CHAPTER_LIST — 컨텐츠 목록",
+    "location": "표 데이터",
+    "principles": "V8",
+    "status": "적용·유지",
+    "decision": "단계1 미확인 이력을 보존. 단계5B에서 로딩/빈/오류 상태 추가 검증",
+    "evidence": "after/learning-staging/manifest.json"
+  },
+  {
+    "id": "4-10.3",
+    "screen": "CHAPTER_LIST — 컨텐츠 목록",
+    "location": "제목·설명",
+    "principles": "V2·V4",
+    "status": "적용·유지",
+    "decision": "비조작/분류는 중립, 선택·행동만 파랑·실제 상태 작은 의미색. 원문 ID/enum 보존",
+    "evidence": "after/learning-staging/manifest.json"
+  },
+  {
+    "id": "4-10.4",
+    "screen": "CHAPTER_LIST — 컨텐츠 목록",
+    "location": "소개 문장",
+    "principles": "W5",
+    "status": "적용·유지",
+    "decision": "프론트 안내만 해요체·반복 소개 정리. 원문·코드·라벨·입력/검증 조건 보존",
+    "evidence": "after/learning-staging/manifest.json"
+  },
+  {
+    "id": "4-10.5",
+    "screen": "CHAPTER_LIST — 컨텐츠 목록",
+    "location": "본문 전환",
+    "principles": "M1·M4",
+    "status": "적용·유지",
+    "decision": "본문·표·수치 즉시, 공용 메뉴/모달 토큰·reduced. 타이핑·차트 진입 제거, 실제대기만 신호",
+    "evidence": "after/learning-staging/manifest.json"
+  },
+  {
+    "id": "4-10.6",
+    "screen": "CHAPTER_LIST — 컨텐츠 목록",
+    "location": "표 선",
+    "principles": "P10·V1",
+    "status": "적용·유지",
+    "decision": "기존 셸·카드/표·열/폼/행동 구조 유지. 선/면/글자 무게만 정리, 새 장식 없음",
+    "evidence": "after/learning-staging/manifest.json"
+  },
+  {
+    "id": "4-11.1",
+    "screen": "CHAPTER_DETAIL — 챕터 상세",
+    "location": "편집",
+    "principles": "P4",
+    "status": "적용·유지",
+    "decision": "원래 주요 행동·순서·활성/이동 조건 유지. 관련 묶음 e2e 확인",
+    "evidence": "after/learning-staging/manifest.json"
+  },
+  {
+    "id": "4-11.2",
+    "screen": "CHAPTER_DETAIL — 챕터 상세",
+    "location": "풀이 현황",
+    "principles": "V8·V9",
+    "status": "적용·유지",
+    "decision": "원래 상태/조건·글자/형태 보존. 중립/의미색 대비와 실제 상태 검증",
+    "evidence": "after/learning-staging/manifest.json"
+  },
+  {
+    "id": "4-11.3",
+    "screen": "CHAPTER_DETAIL — 챕터 상세",
+    "location": "진행 막대",
+    "principles": "V2",
+    "status": "적용·유지",
+    "decision": "비조작/분류는 중립, 선택·행동만 파랑·실제 상태 작은 의미색. 원문 ID/enum 보존",
+    "evidence": "after/learning-staging/manifest.json"
+  },
+  {
+    "id": "4-11.4",
+    "screen": "CHAPTER_DETAIL — 챕터 상세",
+    "location": "카드 제목",
+    "principles": "W5",
+    "status": "유지(후보 미채택)",
+    "decision": "기존 유닛(총N개) 수량/표현 유지. 의미/구조를 위한 불필요한 교체 없음",
+    "evidence": "after/learning-staging/manifest.json"
+  },
+  {
+    "id": "4-11.5",
+    "screen": "CHAPTER_DETAIL — 챕터 상세",
+    "location": "본문 전환",
+    "principles": "M1·M4",
+    "status": "적용·유지",
+    "decision": "본문·표·수치 즉시, 공용 메뉴/모달 토큰·reduced. 타이핑·차트 진입 제거, 실제대기만 신호",
+    "evidence": "after/learning-staging/manifest.json"
+  },
+  {
+    "id": "4-11.6",
+    "screen": "CHAPTER_DETAIL — 챕터 상세",
+    "location": "통계·목록 경계",
+    "principles": "P10·V1",
+    "status": "적용·유지",
+    "decision": "기존 셸·카드/표·열/폼/행동 구조 유지. 선/면/글자 무게만 정리, 새 장식 없음",
+    "evidence": "after/learning-staging/manifest.json"
+  },
+  {
+    "id": "4-12.1",
+    "screen": "UNIT_DETAIL — 유닛 상세",
+    "location": "헤더·레슨 목록",
+    "principles": "P4·P5",
+    "status": "적용·유지",
+    "decision": "원래 주요 행동·순서·활성/이동 조건 유지. 관련 묶음 e2e 확인",
+    "evidence": "after/learning-staging/manifest.json"
+  },
+  {
+    "id": "4-12.2",
+    "screen": "UNIT_DETAIL — 유닛 상세",
+    "location": "레슨 수",
+    "principles": "V8",
+    "status": "적용·유지",
+    "decision": "원래 상태/조건·글자/형태 보존. 중립/의미색 대비와 실제 상태 검증",
+    "evidence": "after/learning-staging/manifest.json"
+  },
+  {
+    "id": "4-12.3",
+    "screen": "UNIT_DETAIL — 유닛 상세",
+    "location": "목록 데이터",
+    "principles": "V2·V4",
+    "status": "적용·유지",
+    "decision": "비조작/분류는 중립, 선택·행동만 파랑·실제 상태 작은 의미색. 원문 ID/enum 보존",
+    "evidence": "after/learning-staging/manifest.json"
+  },
+  {
+    "id": "4-12.4",
+    "screen": "UNIT_DETAIL — 유닛 상세",
+    "location": "제목·설명",
+    "principles": "W5",
+    "status": "유지(후보 미채택)",
+    "decision": "레슨 수량 원문/정보 유지. UI 안내/검증 문구만 변경",
+    "evidence": "after/learning-staging/manifest.json"
+  },
+  {
+    "id": "4-12.5",
+    "screen": "UNIT_DETAIL — 유닛 상세",
+    "location": "본문 전환",
+    "principles": "M1·M4",
+    "status": "적용·유지",
+    "decision": "본문·표·수치 즉시, 공용 메뉴/모달 토큰·reduced. 타이핑·차트 진입 제거, 실제대기만 신호",
+    "evidence": "after/learning-staging/manifest.json"
+  },
+  {
+    "id": "4-12.6",
+    "screen": "UNIT_DETAIL — 유닛 상세",
+    "location": "표·카드",
+    "principles": "P10·V1",
+    "status": "적용·유지",
+    "decision": "기존 셸·카드/표·열/폼/행동 구조 유지. 선/면/글자 무게만 정리, 새 장식 없음",
+    "evidence": "after/learning-staging/manifest.json"
+  },
+  {
+    "id": "4-13.1",
+    "screen": "LESSON_DETAIL — 레슨 상세",
+    "location": "편집·문제 선택",
+    "principles": "P4·P5",
+    "status": "적용·유지",
+    "decision": "원래 주요 행동·순서·활성/이동 조건 유지. 관련 묶음 e2e 확인",
+    "evidence": "after/learning-staging/manifest.json"
+  },
+  {
+    "id": "4-13.2",
+    "screen": "LESSON_DETAIL — 레슨 상세",
+    "location": "유형·ID",
+    "principles": "V8",
+    "status": "적용·유지",
+    "decision": "원래 상태/조건·글자/형태 보존. 중립/의미색 대비와 실제 상태 검증",
+    "evidence": "after/learning-staging/manifest.json"
+  },
+  {
+    "id": "4-13.3",
+    "screen": "LESSON_DETAIL — 레슨 상세",
+    "location": "유형 배지",
+    "principles": "V2·V3",
+    "status": "적용·유지",
+    "decision": "비조작/분류는 중립, 선택·행동만 파랑·실제 상태 작은 의미색. 원문 ID/enum 보존",
+    "evidence": "after/learning-staging/manifest.json"
+  },
+  {
+    "id": "4-13.4",
+    "screen": "LESSON_DETAIL — 레슨 상세",
+    "location": "문제 지시문",
+    "principles": "W1·W11",
+    "status": "적용·유지",
+    "decision": "프론트 안내만 해요체·반복 소개 정리. 원문·코드·라벨·입력/검증 조건 보존",
+    "evidence": "after/learning-staging/manifest.json"
+  },
+  {
+    "id": "4-13.5",
+    "screen": "LESSON_DETAIL — 레슨 상세",
+    "location": "본문 전환",
+    "principles": "M1·M4",
+    "status": "적용·유지",
+    "decision": "본문·표·수치 즉시, 공용 메뉴/모달 토큰·reduced. 타이핑·차트 진입 제거, 실제대기만 신호",
+    "evidence": "after/learning-staging/manifest.json"
+  },
+  {
+    "id": "4-13.6",
+    "screen": "LESSON_DETAIL — 레슨 상세",
+    "location": "표 밀도",
+    "principles": "P10·V4",
+    "status": "적용·유지",
+    "decision": "기존 셸·카드/표·열/폼/행동 구조 유지. 선/면/글자 무게만 정리, 새 장식 없음",
+    "evidence": "after/learning-staging/manifest.json"
+  },
+  {
+    "id": "4-14.1",
+    "screen": "PROBLEM_DETAIL — 객관식",
+    "location": "헤더 편집",
+    "principles": "P4",
+    "status": "적용·유지",
+    "decision": "원래 주요 행동·순서·활성/이동 조건 유지. 관련 묶음 e2e 확인",
+    "evidence": "after/learning-staging/manifest.json"
+  },
+  {
+    "id": "4-14.2",
+    "screen": "PROBLEM_DETAIL — 객관식",
+    "location": "정답·주관식 변형",
+    "principles": "V8",
+    "status": "적용·유지",
+    "decision": "원래 상태/조건·글자/형태 보존. 중립/의미색 대비와 실제 상태 검증",
+    "evidence": "after/learning-staging/manifest.json"
+  },
+  {
+    "id": "4-14.3",
+    "screen": "PROBLEM_DETAIL — 객관식",
+    "location": "유형 배지",
+    "principles": "V2·V3",
+    "status": "적용·유지",
+    "decision": "비조작/분류는 중립, 선택·행동만 파랑·실제 상태 작은 의미색. 원문 ID/enum 보존",
+    "evidence": "after/learning-staging/manifest.json"
+  },
+  {
+    "id": "4-14.4",
+    "screen": "PROBLEM_DETAIL — 객관식",
+    "location": "보기·해설",
+    "principles": "W5·W11",
+    "status": "유지(후보 미채택)",
+    "decision": "보기4개 고정·단일콤마정답/해설 원문 유지. 제약 삭제 안 함",
+    "evidence": "after/learning-staging/manifest.json"
+  },
+  {
+    "id": "4-14.5",
+    "screen": "PROBLEM_DETAIL — 객관식",
+    "location": "본문 전환",
+    "principles": "M1·M4",
+    "status": "적용·유지",
+    "decision": "본문·표·수치 즉시, 공용 메뉴/모달 토큰·reduced. 타이핑·차트 진입 제거, 실제대기만 신호",
+    "evidence": "after/learning-staging/manifest.json"
+  },
+  {
+    "id": "4-14.6",
+    "screen": "PROBLEM_DETAIL — 객관식",
+    "location": "편집 폼 내부",
+    "principles": "P10·V1",
+    "status": "유지(후보 미채택)",
+    "decision": "4보기/라디오/필드와 보더 그룹 유지, 토큰 대비/여백 정리. 필수 식별 경계 삭제 안 함",
+    "evidence": "after/learning-staging/manifest.json"
+  },
+  {
+    "id": "4-15.1",
+    "screen": "STAGING_LIST — 라벨 목록",
+    "location": "상태 필터·라벨 진입",
+    "principles": "P4",
+    "status": "적용·유지",
+    "decision": "원래 주요 행동·순서·활성/이동 조건 유지. 관련 묶음 e2e 확인",
+    "evidence": "after/learning-staging/manifest.json"
+  },
+  {
+    "id": "4-15.2",
+    "screen": "STAGING_LIST — 라벨 목록",
+    "location": "대기 배지",
+    "principles": "V8",
+    "status": "적용·유지",
+    "decision": "원래 상태/조건·글자/형태 보존. 중립/의미색 대비와 실제 상태 검증",
+    "evidence": "after/learning-staging/manifest.json"
+  },
+  {
+    "id": "4-15.3",
+    "screen": "STAGING_LIST — 라벨 목록",
+    "location": "라벨 코드",
+    "principles": "V2·V4",
+    "status": "적용·유지",
+    "decision": "비조작/분류는 중립, 선택·행동만 파랑·실제 상태 작은 의미색. 원문 ID/enum 보존",
+    "evidence": "after/learning-staging/manifest.json"
+  },
+  {
+    "id": "4-15.4",
+    "screen": "STAGING_LIST — 라벨 목록",
+    "location": "페이지 설명",
+    "principles": "W1·W5",
+    "status": "적용·유지",
+    "decision": "프론트 안내만 해요체·반복 소개 정리. 원문·코드·라벨·입력/검증 조건 보존",
+    "evidence": "after/learning-staging/manifest.json"
+  },
+  {
+    "id": "4-15.5",
+    "screen": "STAGING_LIST — 라벨 목록",
+    "location": "본문 전환",
+    "principles": "M1·M4",
+    "status": "적용·유지",
+    "decision": "본문·표·수치 즉시, 공용 메뉴/모달 토큰·reduced. 타이핑·차트 진입 제거, 실제대기만 신호",
+    "evidence": "after/learning-staging/manifest.json"
+  },
+  {
+    "id": "4-15.6",
+    "screen": "STAGING_LIST — 라벨 목록",
+    "location": "표",
+    "principles": "P10·V1",
+    "status": "적용·유지",
+    "decision": "기존 셸·카드/표·열/폼/행동 구조 유지. 선/면/글자 무게만 정리, 새 장식 없음",
+    "evidence": "after/learning-staging/manifest.json"
+  },
+  {
+    "id": "4-16.1",
+    "screen": "STAGING_DETAIL — 라벨 상세",
+    "location": "반영·저장",
+    "principles": "P4·P7",
+    "status": "적용·유지",
+    "decision": "원래 주요 행동·순서·활성/이동 조건 유지. 관련 묶음 e2e 확인",
+    "evidence": "after/learning-staging/manifest.json"
+  },
+  {
+    "id": "4-16.2",
+    "screen": "STAGING_DETAIL — 라벨 상세",
+    "location": "완료 변형",
+    "principles": "V8",
+    "status": "적용·유지",
+    "decision": "원래 상태/조건·글자/형태 보존. 중립/의미색 대비와 실제 상태 검증",
+    "evidence": "after/learning-staging/manifest.json"
+  },
+  {
+    "id": "4-16.3",
+    "screen": "STAGING_DETAIL — 라벨 상세",
+    "location": "선택·유형 배지",
+    "principles": "V2·V3",
+    "status": "적용·유지",
+    "decision": "비조작/분류는 중립, 선택·행동만 파랑·실제 상태 작은 의미색. 원문 ID/enum 보존",
+    "evidence": "after/learning-staging/manifest.json"
+  },
+  {
+    "id": "4-16.4",
+    "screen": "STAGING_DETAIL — 라벨 상세",
+    "location": "정확 일치 모달",
+    "principles": "W4·W7·W8",
+    "status": "적용·유지",
+    "decision": "프론트 안내만 해요체·반복 소개 정리. 원문·코드·라벨·입력/검증 조건 보존",
+    "evidence": "after/learning-staging/manifest.json"
+  },
+  {
+    "id": "4-16.5",
+    "screen": "STAGING_DETAIL — 라벨 상세",
+    "location": "선택 호버·모달",
+    "principles": "M1·M3",
+    "status": "적용·유지",
+    "decision": "본문·표·수치 즉시, 공용 메뉴/모달 토큰·reduced. 타이핑·차트 진입 제거, 실제대기만 신호",
+    "evidence": "after/learning-staging/manifest.json"
+  },
+  {
+    "id": "4-16.6",
+    "screen": "STAGING_DETAIL — 라벨 상세",
+    "location": "2단 내부 선",
+    "principles": "P10·V1",
+    "status": "유지(후보 미채택)",
+    "decision": "내부nav288·항목/폼순서·필수 그룹 경계 보존, 선택 즉시·중립 분류",
+    "evidence": "after/learning-staging/manifest.json"
+  },
+  {
+    "id": "4-17.1",
+    "screen": "문의 목록",
+    "location": "필터·행",
+    "principles": "P4",
+    "status": "적용·유지",
+    "decision": "원래 주요 행동·순서·활성/이동 조건 유지. 관련 묶음 e2e 확인",
+    "evidence": "after/operations/manifest.json"
+  },
+  {
+    "id": "4-17.2",
+    "screen": "문의 목록",
+    "location": "유형과 대기",
+    "principles": "V8",
+    "status": "적용·유지",
+    "decision": "원래 상태/조건·글자/형태 보존. 중립/의미색 대비와 실제 상태 검증",
+    "evidence": "after/operations/manifest.json"
+  },
+  {
+    "id": "4-17.3",
+    "screen": "문의 목록",
+    "location": "분류 배지",
+    "principles": "V2·V3",
+    "status": "적용·유지",
+    "decision": "비조작/분류는 중립, 선택·행동만 파랑·실제 상태 작은 의미색. 원문 ID/enum 보존",
+    "evidence": "after/operations/manifest.json"
+  },
+  {
+    "id": "4-17.4",
+    "screen": "문의 목록",
+    "location": "목록 설명",
+    "principles": "W5",
+    "status": "적용·유지",
+    "decision": "프론트 안내만 해요체·반복 소개 정리. 원문·코드·라벨·입력/검증 조건 보존",
+    "evidence": "after/operations/manifest.json"
+  },
+  {
+    "id": "4-17.5",
+    "screen": "문의 목록",
+    "location": "본문 전환",
+    "principles": "M1·M4",
+    "status": "적용·유지",
+    "decision": "본문·표·수치 즉시, 공용 메뉴/모달 토큰·reduced. 타이핑·차트 진입 제거, 실제대기만 신호",
+    "evidence": "after/operations/manifest.json"
+  },
+  {
+    "id": "4-17.6",
+    "screen": "문의 목록",
+    "location": "작성자·제목",
+    "principles": "P10·V4",
+    "status": "적용·유지",
+    "decision": "기존 셸·카드/표·열/폼/행동 구조 유지. 선/면/글자 무게만 정리, 새 장식 없음",
+    "evidence": "after/operations/manifest.json"
+  },
+  {
+    "id": "4-18.1",
+    "screen": "문의 상세",
+    "location": "답변 영역",
+    "principles": "P4",
+    "status": "적용·유지",
+    "decision": "원래 주요 행동·순서·활성/이동 조건 유지. 관련 묶음 e2e 확인",
+    "evidence": "after/operations/manifest.json"
+  },
+  {
+    "id": "4-18.2",
+    "screen": "문의 상세",
+    "location": "문의 상태·입력",
+    "principles": "V8",
+    "status": "적용·유지",
+    "decision": "원래 상태/조건·글자/형태 보존. 중립/의미색 대비와 실제 상태 검증",
+    "evidence": "after/operations/manifest.json"
+  },
+  {
+    "id": "4-18.3",
+    "screen": "문의 상세",
+    "location": "문의 유형·상태",
+    "principles": "V2·V3",
+    "status": "적용·유지",
+    "decision": "비조작/분류는 중립, 선택·행동만 파랑·실제 상태 작은 의미색. 원문 ID/enum 보존",
+    "evidence": "after/operations/manifest.json"
+  },
+  {
+    "id": "4-18.4",
+    "screen": "문의 상세",
+    "location": "문의·답변 본문",
+    "principles": "W1·W11",
+    "status": "적용·유지",
+    "decision": "프론트 안내만 해요체·반복 소개 정리. 원문·코드·라벨·입력/검증 조건 보존",
+    "evidence": "after/operations/manifest.json"
+  },
+  {
+    "id": "4-18.5",
+    "screen": "문의 상세",
+    "location": "본문 전환",
+    "principles": "M1·M4",
+    "status": "적용·유지",
+    "decision": "본문·표·수치 즉시, 공용 메뉴/모달 토큰·reduced. 타이핑·차트 진입 제거, 실제대기만 신호",
+    "evidence": "after/operations/manifest.json"
+  },
+  {
+    "id": "4-18.6",
+    "screen": "문의 상세",
+    "location": "세 카드",
+    "principles": "P10·V1",
+    "status": "적용·유지",
+    "decision": "기존 셸·카드/표·열/폼/행동 구조 유지. 선/면/글자 무게만 정리, 새 장식 없음",
+    "evidence": "after/operations/manifest.json"
+  },
+  {
+    "id": "4-19.1",
+    "screen": "Ravvit — 새 대화",
+    "location": "추천 질문·입력",
+    "principles": "P4·P6",
+    "status": "적용·유지",
+    "decision": "원래 주요 행동·순서·활성/이동 조건 유지. 관련 묶음 e2e 확인",
+    "evidence": "after/ravvit/manifest.json"
+  },
+  {
+    "id": "4-19.2",
+    "screen": "Ravvit — 새 대화",
+    "location": "초기 상태",
+    "principles": "V8",
+    "status": "적용·유지",
+    "decision": "단계1 health-only 한계 해소: D8 계약 MSW4상태·HTTP403/503·실제 SSE 목 검증",
+    "evidence": "after/ravvit/manifest.json"
+  },
+  {
+    "id": "4-19.3",
+    "screen": "Ravvit — 새 대화",
+    "location": "추천 칩",
+    "principles": "V2·V4",
+    "status": "적용·유지",
+    "decision": "비조작/분류는 중립, 선택·행동만 파랑·실제 상태 작은 의미색. 원문 ID/enum 보존",
+    "evidence": "after/ravvit/manifest.json"
+  },
+  {
+    "id": "4-19.4",
+    "screen": "Ravvit — 새 대화",
+    "location": "인사·추천 문장",
+    "principles": "W1·W5",
+    "status": "유지(후보 미채택)",
+    "decision": "인사 후보·높임 표현/닉네임·추천질문 원문과 선택메커니즘 유지. 추천은 사용자 입력 초안이므로 자동교정0",
+    "evidence": "after/ravvit/manifest.json"
+  },
+  {
+    "id": "4-19.5",
+    "screen": "Ravvit — 새 대화",
+    "location": "답변 표시 소스",
+    "principles": "M1·M5",
+    "status": "적용·유지",
+    "decision": "H3 승인: 완성 답변/액션 즉시·표시알림1회, SSE/history/스크롤조건 유지",
+    "evidence": "after/ravvit/manifest.json"
+  },
+  {
+    "id": "4-19.6",
+    "screen": "Ravvit — 새 대화",
+    "location": "빈 대화",
+    "principles": "P10·V7",
+    "status": "적용·유지",
+    "decision": "기존 셸·카드/표·열/폼/행동 구조 유지. 선/면/글자 무게만 정리, 새 장식 없음",
+    "evidence": "after/ravvit/manifest.json"
+  },
+  {
+    "id": "4-20.1",
+    "screen": "QA — 스프린트 목록",
+    "location": "목록 카드 머리",
+    "principles": "P4",
+    "status": "적용·유지",
+    "decision": "원래 주요 행동·순서·활성/이동 조건 유지. 관련 묶음 e2e 확인",
+    "evidence": "after/qa/manifest.json"
+  },
+  {
+    "id": "4-20.2",
+    "screen": "QA — 스프린트 목록",
+    "location": "현재 상태 열",
+    "principles": "V8",
+    "status": "적용·유지",
+    "decision": "원래 상태/조건·글자/형태 보존. 중립/의미색 대비와 실제 상태 검증",
+    "evidence": "after/qa/manifest.json"
+  },
+  {
+    "id": "4-20.3",
+    "screen": "QA — 스프린트 목록",
+    "location": "단계 배지",
+    "principles": "V2",
+    "status": "적용·유지",
+    "decision": "비조작/분류는 중립, 선택·행동만 파랑·실제 상태 작은 의미색. 원문 ID/enum 보존",
+    "evidence": "after/qa/manifest.json"
+  },
+  {
+    "id": "4-20.4",
+    "screen": "QA — 스프린트 목록",
+    "location": "빈·오류·등록",
+    "principles": "W1·W8·W12",
+    "status": "적용·유지",
+    "decision": "프론트 안내만 해요체·반복 소개 정리. 원문·코드·라벨·입력/검증 조건 보존",
+    "evidence": "after/qa/manifest.json"
+  },
+  {
+    "id": "4-20.5",
+    "screen": "QA — 스프린트 목록",
+    "location": "본문 전환",
+    "principles": "M1·M4",
+    "status": "적용·유지",
+    "decision": "본문·표·수치 즉시, 공용 메뉴/모달 토큰·reduced. 타이핑·차트 진입 제거, 실제대기만 신호",
+    "evidence": "after/qa/manifest.json"
+  },
+  {
+    "id": "4-20.6",
+    "screen": "QA — 스프린트 목록",
+    "location": "503 안내",
+    "principles": "P10·P8",
+    "status": "유지·별도 과제",
+    "decision": "본문 메시지 위계 정리. 전역 중복 오류토스트 제거는 별도 동작 과제로 남김",
+    "evidence": "after/qa/manifest.json"
+  },
+  {
+    "id": "4-21.1",
+    "screen": "QA — 연결 현황",
+    "location": "연결·준비·반영 승인",
+    "principles": "P4·P8",
+    "status": "적용·유지",
+    "decision": "원래 주요 행동·순서·활성/이동 조건 유지. 관련 묶음 e2e 확인",
+    "evidence": "after/qa/manifest.json"
+  },
+  {
+    "id": "4-21.2",
+    "screen": "QA — 연결 현황",
+    "location": "상태 아이콘",
+    "principles": "V8",
+    "status": "적용·유지",
+    "decision": "원래 상태/조건·글자/형태 보존. 중립/의미색 대비와 실제 상태 검증",
+    "evidence": "after/qa/manifest.json"
+  },
+  {
+    "id": "4-21.3",
+    "screen": "QA — 연결 현황",
+    "location": "단계·탭",
+    "principles": "V2",
+    "status": "적용·유지",
+    "decision": "비조작/분류는 중립, 선택·행동만 파랑·실제 상태 작은 의미색. 원문 ID/enum 보존",
+    "evidence": "after/qa/manifest.json"
+  },
+  {
+    "id": "4-21.4",
+    "screen": "QA — 연결 현황",
+    "location": "준비 안내·빈 제안",
+    "principles": "W1·W5",
+    "status": "적용·유지",
+    "decision": "프론트 안내만 해요체·반복 소개 정리. 원문·코드·라벨·입력/검증 조건 보존",
+    "evidence": "after/qa/manifest.json"
+  },
+  {
+    "id": "4-21.5",
+    "screen": "QA — 연결 현황",
+    "location": "본문 전환",
+    "principles": "M1·M4",
+    "status": "적용·유지",
+    "decision": "본문·표·수치 즉시, 공용 메뉴/모달 토큰·reduced. 타이핑·차트 진입 제거, 실제대기만 신호",
+    "evidence": "after/qa/manifest.json"
+  },
+  {
+    "id": "4-21.6",
+    "screen": "QA — 연결 현황",
+    "location": "영역 사이·상태 행",
+    "principles": "P10·V1",
+    "status": "적용·유지",
+    "decision": "기존 셸·카드/표·열/폼/행동 구조 유지. 선/면/글자 무게만 정리, 새 장식 없음",
+    "evidence": "after/qa/manifest.json"
+  },
+  {
+    "id": "4-22.1",
+    "screen": "QA — 디자인 검수",
+    "location": "항목 판정·관리",
+    "principles": "P4·P8",
+    "status": "적용·유지",
+    "decision": "원래 주요 행동·순서·활성/이동 조건 유지. 관련 묶음 e2e 확인",
+    "evidence": "after/qa/manifest.json"
+  },
+  {
+    "id": "4-22.2",
+    "screen": "QA — 디자인 검수",
+    "location": "판정 표시",
+    "principles": "V8",
+    "status": "적용·유지",
+    "decision": "원래 상태/조건·글자/형태 보존. 중립/의미색 대비와 실제 상태 검증",
+    "evidence": "after/qa/manifest.json"
+  },
+  {
+    "id": "4-22.3",
+    "screen": "QA — 디자인 검수",
+    "location": "상단 게이지",
+    "principles": "V2·V4",
+    "status": "적용·유지",
+    "decision": "비조작/분류는 중립, 선택·행동만 파랑·실제 상태 작은 의미색. 원문 ID/enum 보존",
+    "evidence": "after/qa/manifest.json"
+  },
+  {
+    "id": "4-22.4",
+    "screen": "QA — 디자인 검수",
+    "location": "기대 결과·단계",
+    "principles": "W1·W11",
+    "status": "적용·유지",
+    "decision": "프론트 안내만 해요체·반복 소개 정리. 원문·코드·라벨·입력/검증 조건 보존",
+    "evidence": "after/qa/manifest.json"
+  },
+  {
+    "id": "4-22.5",
+    "screen": "QA — 디자인 검수",
+    "location": "게이지·행",
+    "principles": "M1·M4·M6",
+    "status": "적용·유지",
+    "decision": "본문·표·수치 즉시, 공용 메뉴/모달 토큰·reduced. 타이핑·차트 진입 제거, 실제대기만 신호",
+    "evidence": "after/qa/manifest.json"
+  },
+  {
+    "id": "4-22.6",
+    "screen": "QA — 디자인 검수",
+    "location": "기대 결과 면",
+    "principles": "P10·V1",
+    "status": "적용·유지",
+    "decision": "기대결과 회색박스 제거·14/22, 원문/행/판정/관리 유지",
+    "evidence": "after/qa/manifest.json"
+  },
+  {
+    "id": "4-23.1",
+    "screen": "QA — 1차 체크리스트",
+    "location": "파트·다음 미검수·판정",
+    "principles": "P4·P8",
+    "status": "적용·유지",
+    "decision": "원래 주요 행동·순서·활성/이동 조건 유지. 관련 묶음 e2e 확인",
+    "evidence": "after/qa/manifest.json"
+  },
+  {
+    "id": "4-23.2",
+    "screen": "QA — 1차 체크리스트",
+    "location": "판정 4종",
+    "principles": "V8",
+    "status": "적용·유지",
+    "decision": "원래 상태/조건·글자/형태 보존. 중립/의미색 대비와 실제 상태 검증",
+    "evidence": "after/qa/manifest.json"
+  },
+  {
+    "id": "4-23.3",
+    "screen": "QA — 1차 체크리스트",
+    "location": "게이지·선택",
+    "principles": "V2·V4",
+    "status": "적용·유지",
+    "decision": "비조작/분류는 중립, 선택·행동만 파랑·실제 상태 작은 의미색. 원문 ID/enum 보존",
+    "evidence": "after/qa/manifest.json"
+  },
+  {
+    "id": "4-23.4",
+    "screen": "QA — 1차 체크리스트",
+    "location": "Fail 사유 창",
+    "principles": "W1·W7·W8",
+    "status": "적용·유지",
+    "decision": "프론트 안내만 해요체·반복 소개 정리. 원문·코드·라벨·입력/검증 조건 보존",
+    "evidence": "after/qa/manifest.json"
+  },
+  {
+    "id": "4-23.5",
+    "screen": "QA — 1차 체크리스트",
+    "location": "게이지·메뉴",
+    "principles": "M1·M4·M5",
+    "status": "적용·유지",
+    "decision": "본문·표·수치 즉시, 공용 메뉴/모달 토큰·reduced. 타이핑·차트 진입 제거, 실제대기만 신호",
+    "evidence": "after/qa/manifest.json"
+  },
+  {
+    "id": "4-23.6",
+    "screen": "QA — 1차 체크리스트",
+    "location": "행 내부",
+    "principles": "P10·V1·V4",
+    "status": "적용·유지",
+    "decision": "승인 샘플 재사용: 보조파트글·기대결과14/22·행관리 아이콘, 첫 표 위치0~0.5px차",
+    "evidence": "after/qa/manifest.json"
+  },
+  {
+    "id": "4-24.1",
+    "screen": "QA — 2차 체크리스트",
+    "location": "수동 검수·추가",
+    "principles": "P4·P8",
+    "status": "적용·유지",
+    "decision": "원래 주요 행동·순서·활성/이동 조건 유지. 관련 묶음 e2e 확인",
+    "evidence": "after/qa/manifest.json"
+  },
+  {
+    "id": "4-24.2",
+    "screen": "QA — 2차 체크리스트",
+    "location": "미검수·잠금",
+    "principles": "V8·P7",
+    "status": "적용·유지",
+    "decision": "원래 상태/조건·글자/형태 보존. 중립/의미색 대비와 실제 상태 검증",
+    "evidence": "after/qa/manifest.json"
+  },
+  {
+    "id": "4-24.3",
+    "screen": "QA — 2차 체크리스트",
+    "location": "게이지",
+    "principles": "V2·V4",
+    "status": "적용·유지",
+    "decision": "비조작/분류는 중립, 선택·행동만 파랑·실제 상태 작은 의미색. 원문 ID/enum 보존",
+    "evidence": "after/qa/manifest.json"
+  },
+  {
+    "id": "4-24.4",
+    "screen": "QA — 2차 체크리스트",
+    "location": "행 관리 문구",
+    "principles": "W7",
+    "status": "적용·유지",
+    "decision": "기존 접근 이름/콜백 보존, 관리 아이콘 aria-label 수정/삭제 유지(새 props 의미 변경0)",
+    "evidence": "after/qa/manifest.json"
+  },
+  {
+    "id": "4-24.5",
+    "screen": "QA — 2차 체크리스트",
+    "location": "셀·진행도",
+    "principles": "M1·M6",
+    "status": "적용·유지",
+    "decision": "본문·표·수치 즉시, 공용 메뉴/모달 토큰·reduced. 타이핑·차트 진입 제거, 실제대기만 신호",
+    "evidence": "after/qa/manifest.json"
+  },
+  {
+    "id": "4-24.6",
+    "screen": "QA — 2차 체크리스트",
+    "location": "관리 버튼 반복",
+    "principles": "P10·V4",
+    "status": "적용·유지",
+    "decision": "샘플 관리아이콘을 재사용·기본색 중립/hover위험, 확인절차 유지",
+    "evidence": "after/qa/manifest.json"
+  },
+  {
+    "id": "4-25.1",
+    "screen": "QA — 파트별 수정사항",
+    "location": "파트별 내려받기",
+    "principles": "P4·P7",
+    "status": "적용·유지",
+    "decision": "원래 주요 행동·순서·활성/이동 조건 유지. 관련 묶음 e2e 확인",
+    "evidence": "after/qa/manifest.json"
+  },
+  {
+    "id": "4-25.2",
+    "screen": "QA — 파트별 수정사항",
+    "location": "결과·빈·로딩",
+    "principles": "V8",
+    "status": "적용·유지",
+    "decision": "원래 상태/조건·글자/형태 보존. 중립/의미색 대비와 실제 상태 검증",
+    "evidence": "after/qa/manifest.json"
+  },
+  {
+    "id": "4-25.3",
+    "screen": "QA — 파트별 수정사항",
+    "location": "결과 카드",
+    "principles": "V2·V3",
+    "status": "적용·유지",
+    "decision": "비조작/분류는 중립, 선택·행동만 파랑·실제 상태 작은 의미색. 원문 ID/enum 보존",
+    "evidence": "after/qa/manifest.json"
+  },
+  {
+    "id": "4-25.4",
+    "screen": "QA — 파트별 수정사항",
+    "location": "준비 전·결과 안내",
+    "principles": "W1·W5",
+    "status": "적용·유지",
+    "decision": "프론트 안내만 해요체·반복 소개 정리. 원문·코드·라벨·입력/검증 조건 보존",
+    "evidence": "after/qa/manifest.json"
+  },
+  {
+    "id": "4-25.5",
+    "screen": "QA — 파트별 수정사항",
+    "location": "로딩 소스",
+    "principles": "M1·M5",
+    "status": "적용·유지",
+    "decision": "본문·표·수치 즉시, 공용 메뉴/모달 토큰·reduced. 타이핑·차트 진입 제거, 실제대기만 신호",
+    "evidence": "after/qa/manifest.json"
+  },
+  {
+    "id": "4-25.6",
+    "screen": "QA — 파트별 수정사항",
+    "location": "빈 결과 카드",
+    "principles": "P10·V1",
+    "status": "적용·유지",
+    "decision": "기존 셸·카드/표·열/폼/행동 구조 유지. 선/면/글자 무게만 정리, 새 장식 없음",
+    "evidence": "after/qa/manifest.json"
+  }
+]

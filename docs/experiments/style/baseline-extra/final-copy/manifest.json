@@ -1,0 +1,68 @@
+[
+  {
+    "file": "user-status-1280.png",
+    "width": 1280,
+    "height": 900,
+    "route": "/users/1001",
+    "phase": "before",
+    "evidence": {
+      "body": "유저 상세\n홍길동\n\n@gildong\n\ngildong@example.com\n\n가입일: 2026-01-15\n\n레벨: Lv.12\n\n권한 및 상태\n역할\n일반\n일반\n상태\n활성\n활성",
+      "font": "Pretendard, system-ui, -apple-system, sans-serif",
+      "headings": [
+        {
+          "text": "유저 상세",
+          "width": 976,
+          "x": 272,
+          "y": 80
+        },
+        {
+          "text": "홍길동",
+          "width": 142.015625,
+          "x": 401,
+          "y": 165
+        },
+        {
+          "text": "권한 및 상태",
+          "width": 926,
+          "x": 297,
+          "y": 367
+        }
+      ],
+      "overflow": false,
+      "table": null
+    }
+  },
+  {
+    "file": "user-status-1440.png",
+    "width": 1440,
+    "height": 900,
+    "route": "/users/1001",
+    "phase": "before",
+    "evidence": {
+      "body": "유저 상세\n홍길동\n\n@gildong\n\ngildong@example.com\n\n가입일: 2026-01-15\n\n레벨: Lv.12\n\n권한 및 상태\n역할\n일반\n일반\n상태\n활성\n활성",
+      "font": "Pretendard, system-ui, -apple-system, sans-serif",
+      "headings": [
+        {
+          "text": "유저 상세",
+          "width": 1136,
+          "x": 272,
+          "y": 80
+        },
+        {
+          "text": "홍길동",
+          "width": 142.015625,
+          "x": 401,
+          "y": 165
+        },
+        {
+          "text": "권한 및 상태",
+          "width": 1086,
+          "x": 297,
+          "y": 367
+        }
+      ],
+      "overflow": false,
+      "table": null
+    }
+  }
+]

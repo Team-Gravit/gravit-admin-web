@@ -1,0 +1,1368 @@
+[
+  {
+    "file": "notices-loading-1280.png",
+    "width": 1280,
+    "height": 900,
+    "route": "/notices",
+    "phase": "after",
+    "evidence": {
+      "body": "공지 관리\n공지 작성",
+      "font": "Pretendard, system-ui, -apple-system, sans-serif",
+      "headings": [
+        {
+          "text": "공지 관리",
+          "width": 95.875,
+          "x": 272,
+          "y": 80
+        }
+      ],
+      "overflow": false,
+      "table": null
+    }
+  },
+  {
+    "file": "notices-empty-1280.png",
+    "width": 1280,
+    "height": 900,
+    "route": "/notices",
+    "phase": "after",
+    "evidence": {
+      "body": "공지 관리\n공지 작성\n\n공지가 없어요.",
+      "font": "Pretendard, system-ui, -apple-system, sans-serif",
+      "headings": [
+        {
+          "text": "공지 관리",
+          "width": 95.875,
+          "x": 272,
+          "y": 80
+        }
+      ],
+      "overflow": false,
+      "table": null
+    }
+  },
+  {
+    "file": "notices-error-1280.png",
+    "width": 1280,
+    "height": 900,
+    "route": "/notices",
+    "phase": "after",
+    "evidence": {
+      "body": "공지 관리\n공지 작성\n\n데이터를 불러오지 못했어요. 잠시 뒤 다시 시도해 주세요.\n\n다시 시도하기",
+      "font": "Pretendard, system-ui, -apple-system, sans-serif",
+      "headings": [
+        {
+          "text": "공지 관리",
+          "width": 95.875,
+          "x": 272,
+          "y": 80
+        }
+      ],
+      "overflow": false,
+      "table": null
+    }
+  },
+  {
+    "file": "strict-match-empty-1280.png",
+    "width": 1280,
+    "height": 900,
+    "route": "/staging/labels/2026-04-25-update",
+    "phase": "after",
+    "evidence": {
+      "body": "검수 대기\n2026-04-25-update\n반영 완료 처리\n\nU-12 · 배열 챕터 5번째 사이클 · 생성일 2026-04-25\n\n레슨\n문제 1\n객관식\n문제 2\n객관식\n문제 3\n주관식\n문제 4\n객관식\n문제 5\n주관식\n문제 6\n객관식\n레슨\n\nID: 901\n\n제목 *\n저장하기",
+      "font": "Pretendard, system-ui, -apple-system, sans-serif",
+      "headings": [
+        {
+          "text": "2026-04-25-update",
+          "width": 266.109375,
+          "x": 351.828125,
+          "y": 80
+        },
+        {
+          "text": "레슨",
+          "width": 638,
+          "x": 585,
+          "y": 195
+        },
+        {
+          "text": "문제 1",
+          "width": 0,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "text": "문제 2",
+          "width": 0,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "text": "문제 3",
+          "width": 0,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "text": "문제 4",
+          "width": 0,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "text": "문제 5",
+          "width": 0,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "text": "문제 6",
+          "width": 0,
+          "x": 0,
+          "y": 0
+        }
+      ],
+      "overflow": false,
+      "table": null
+    }
+  },
+  {
+    "file": "strict-match-matched-1280.png",
+    "width": 1280,
+    "height": 900,
+    "route": "/staging/labels/2026-04-25-update",
+    "phase": "after",
+    "evidence": {
+      "body": "검수 대기\n2026-04-25-update\n반영 완료 처리\n\nU-12 · 배열 챕터 5번째 사이클 · 생성일 2026-04-25\n\n레슨\n문제 1\n객관식\n문제 2\n객관식\n문제 3\n주관식\n문제 4\n객관식\n문제 5\n주관식\n문제 6\n객관식\n레슨\n\nID: 901\n\n제목 *\n저장하기",
+      "font": "Pretendard, system-ui, -apple-system, sans-serif",
+      "headings": [
+        {
+          "text": "2026-04-25-update",
+          "width": 266.109375,
+          "x": 351.828125,
+          "y": 80
+        },
+        {
+          "text": "레슨",
+          "width": 638,
+          "x": 585,
+          "y": 195
+        },
+        {
+          "text": "문제 1",
+          "width": 0,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "text": "문제 2",
+          "width": 0,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "text": "문제 3",
+          "width": 0,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "text": "문제 4",
+          "width": 0,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "text": "문제 5",
+          "width": 0,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "text": "문제 6",
+          "width": 0,
+          "x": 0,
+          "y": 0
+        }
+      ],
+      "overflow": false,
+      "table": null
+    }
+  },
+  {
+    "file": "qa-menu-1280.png",
+    "width": 1280,
+    "height": 900,
+    "route": "/qa/sprints/9/checklist/1",
+    "phase": "after",
+    "evidence": {
+      "body": "9th Agile\n\n모든 검수 완료\n\nQA 종료\n기능 명세서 로드\n체크리스트 생성\n디자인 검수\n1차 자동화 검수\n5\n2차 수동 검수\n6\n종료\n연결 현황\n디자인 검수\n1차 체크리스트\n2차 체크리스트\n파트별 수정사항\nDesign\n100%\n\n5 / 5\n\nWeb\n100%\n\n12 / 12\n\nAPP\n100%\n\n12 / 12\n\nSer",
+      "font": "Pretendard, system-ui, -apple-system, sans-serif",
+      "headings": [
+        {
+          "text": "9th Agile",
+          "width": 110.359375,
+          "x": 272,
+          "y": 80
+        },
+        {
+          "text": "로그인 버튼 동작",
+          "width": 91.34375,
+          "x": 289,
+          "y": 653.5
+        },
+        {
+          "text": "필수 입력 안내",
+          "width": 79.25,
+          "x": 289,
+          "y": 726.5
+        },
+        {
+          "text": "실패 후 재시도",
+          "width": 79.25,
+          "x": 289,
+          "y": 799.5
+        },
+        {
+          "text": "로그인 버튼 동작",
+          "width": 91.34375,
+          "x": 289,
+          "y": 985
+        },
+        {
+          "text": "필수 입력 안내",
+          "width": 79.25,
+          "x": 289,
+          "y": 1058
+        },
+        {
+          "text": "실패 후 재시도",
+          "width": 79.25,
+          "x": 289,
+          "y": 1131
+        }
+      ],
+      "overflow": false,
+      "table": {
+        "width": 974,
+        "x": 273,
+        "y": 593
+      }
+    }
+  },
+  {
+    "file": "qa-fail-1280.png",
+    "width": 1280,
+    "height": 900,
+    "route": "/qa/sprints/9/checklist/1",
+    "phase": "after",
+    "evidence": {
+      "body": "9th Agile\n\n모든 검수 완료\n\nQA 종료\n기능 명세서 로드\n체크리스트 생성\n디자인 검수\n1차 자동화 검수\n5\n2차 수동 검수\n6\n종료\n연결 현황\n디자인 검수\n1차 체크리스트\n2차 체크리스트\n파트별 수정사항\nDesign\n100%\n\n5 / 5\n\nWeb\n100%\n\n12 / 12\n\nAPP\n100%\n\n12 / 12\n\nSer",
+      "font": "Pretendard, system-ui, -apple-system, sans-serif",
+      "headings": [
+        {
+          "text": "9th Agile",
+          "width": 110.359375,
+          "x": 272,
+          "y": 80
+        },
+        {
+          "text": "로그인 버튼 동작",
+          "width": 91.34375,
+          "x": 289,
+          "y": 653.5
+        },
+        {
+          "text": "필수 입력 안내",
+          "width": 79.25,
+          "x": 289,
+          "y": 726.5
+        },
+        {
+          "text": "실패 후 재시도",
+          "width": 79.25,
+          "x": 289,
+          "y": 799.5
+        },
+        {
+          "text": "로그인 버튼 동작",
+          "width": 91.34375,
+          "x": 289,
+          "y": 985
+        },
+        {
+          "text": "필수 입력 안내",
+          "width": 79.25,
+          "x": 289,
+          "y": 1058
+        },
+        {
+          "text": "실패 후 재시도",
+          "width": 79.25,
+          "x": 289,
+          "y": 1131
+        }
+      ],
+      "overflow": false,
+      "table": {
+        "width": 974,
+        "x": 273,
+        "y": 593
+      }
+    }
+  },
+  {
+    "file": "strict-match-empty-reduced-1280.png",
+    "width": 1280,
+    "height": 900,
+    "route": "/staging/labels/2026-04-25-update",
+    "phase": "after",
+    "evidence": {
+      "body": "검수 대기\n2026-04-25-update\n반영 완료 처리\n\nU-12 · 배열 챕터 5번째 사이클 · 생성일 2026-04-25\n\n레슨\n문제 1\n객관식\n문제 2\n객관식\n문제 3\n주관식\n문제 4\n객관식\n문제 5\n주관식\n문제 6\n객관식\n레슨\n\nID: 901\n\n제목 *\n저장하기",
+      "font": "Pretendard, system-ui, -apple-system, sans-serif",
+      "headings": [
+        {
+          "text": "2026-04-25-update",
+          "width": 266.109375,
+          "x": 351.828125,
+          "y": 80
+        },
+        {
+          "text": "레슨",
+          "width": 638,
+          "x": 585,
+          "y": 195
+        },
+        {
+          "text": "문제 1",
+          "width": 0,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "text": "문제 2",
+          "width": 0,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "text": "문제 3",
+          "width": 0,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "text": "문제 4",
+          "width": 0,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "text": "문제 5",
+          "width": 0,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "text": "문제 6",
+          "width": 0,
+          "x": 0,
+          "y": 0
+        }
+      ],
+      "overflow": false,
+      "table": null
+    }
+  },
+  {
+    "file": "strict-match-matched-reduced-1280.png",
+    "width": 1280,
+    "height": 900,
+    "route": "/staging/labels/2026-04-25-update",
+    "phase": "after",
+    "evidence": {
+      "body": "검수 대기\n2026-04-25-update\n반영 완료 처리\n\nU-12 · 배열 챕터 5번째 사이클 · 생성일 2026-04-25\n\n레슨\n문제 1\n객관식\n문제 2\n객관식\n문제 3\n주관식\n문제 4\n객관식\n문제 5\n주관식\n문제 6\n객관식\n레슨\n\nID: 901\n\n제목 *\n저장하기",
+      "font": "Pretendard, system-ui, -apple-system, sans-serif",
+      "headings": [
+        {
+          "text": "2026-04-25-update",
+          "width": 266.109375,
+          "x": 351.828125,
+          "y": 80
+        },
+        {
+          "text": "레슨",
+          "width": 638,
+          "x": 585,
+          "y": 195
+        },
+        {
+          "text": "문제 1",
+          "width": 0,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "text": "문제 2",
+          "width": 0,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "text": "문제 3",
+          "width": 0,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "text": "문제 4",
+          "width": 0,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "text": "문제 5",
+          "width": 0,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "text": "문제 6",
+          "width": 0,
+          "x": 0,
+          "y": 0
+        }
+      ],
+      "overflow": false,
+      "table": null
+    }
+  },
+  {
+    "file": "qa-menu-reduced-1280.png",
+    "width": 1280,
+    "height": 900,
+    "route": "/qa/sprints/9/checklist/1",
+    "phase": "after",
+    "evidence": {
+      "body": "9th Agile\n\n모든 검수 완료\n\nQA 종료\n기능 명세서 로드\n체크리스트 생성\n디자인 검수\n1차 자동화 검수\n5\n2차 수동 검수\n6\n종료\n연결 현황\n디자인 검수\n1차 체크리스트\n2차 체크리스트\n파트별 수정사항\nDesign\n100%\n\n5 / 5\n\nWeb\n100%\n\n12 / 12\n\nAPP\n100%\n\n12 / 12\n\nSer",
+      "font": "Pretendard, system-ui, -apple-system, sans-serif",
+      "headings": [
+        {
+          "text": "9th Agile",
+          "width": 110.359375,
+          "x": 272,
+          "y": 80
+        },
+        {
+          "text": "로그인 버튼 동작",
+          "width": 91.34375,
+          "x": 289,
+          "y": 653.5
+        },
+        {
+          "text": "필수 입력 안내",
+          "width": 79.25,
+          "x": 289,
+          "y": 726.5
+        },
+        {
+          "text": "실패 후 재시도",
+          "width": 79.25,
+          "x": 289,
+          "y": 799.5
+        },
+        {
+          "text": "로그인 버튼 동작",
+          "width": 91.34375,
+          "x": 289,
+          "y": 985
+        },
+        {
+          "text": "필수 입력 안내",
+          "width": 79.25,
+          "x": 289,
+          "y": 1058
+        },
+        {
+          "text": "실패 후 재시도",
+          "width": 79.25,
+          "x": 289,
+          "y": 1131
+        }
+      ],
+      "overflow": false,
+      "table": {
+        "width": 974,
+        "x": 273,
+        "y": 593
+      }
+    }
+  },
+  {
+    "file": "qa-fail-reduced-1280.png",
+    "width": 1280,
+    "height": 900,
+    "route": "/qa/sprints/9/checklist/1",
+    "phase": "after",
+    "evidence": {
+      "body": "9th Agile\n\n모든 검수 완료\n\nQA 종료\n기능 명세서 로드\n체크리스트 생성\n디자인 검수\n1차 자동화 검수\n5\n2차 수동 검수\n6\n종료\n연결 현황\n디자인 검수\n1차 체크리스트\n2차 체크리스트\n파트별 수정사항\nDesign\n100%\n\n5 / 5\n\nWeb\n100%\n\n12 / 12\n\nAPP\n100%\n\n12 / 12\n\nSer",
+      "font": "Pretendard, system-ui, -apple-system, sans-serif",
+      "headings": [
+        {
+          "text": "9th Agile",
+          "width": 110.359375,
+          "x": 272,
+          "y": 80
+        },
+        {
+          "text": "로그인 버튼 동작",
+          "width": 91.34375,
+          "x": 289,
+          "y": 653.5
+        },
+        {
+          "text": "필수 입력 안내",
+          "width": 79.25,
+          "x": 289,
+          "y": 726.5
+        },
+        {
+          "text": "실패 후 재시도",
+          "width": 79.25,
+          "x": 289,
+          "y": 799.5
+        },
+        {
+          "text": "로그인 버튼 동작",
+          "width": 91.34375,
+          "x": 289,
+          "y": 985
+        },
+        {
+          "text": "필수 입력 안내",
+          "width": 79.25,
+          "x": 289,
+          "y": 1058
+        },
+        {
+          "text": "실패 후 재시도",
+          "width": 79.25,
+          "x": 289,
+          "y": 1131
+        }
+      ],
+      "overflow": false,
+      "table": {
+        "width": 974,
+        "x": 273,
+        "y": 593
+      }
+    }
+  },
+  {
+    "file": "notice-delete-1280.png",
+    "width": 1280,
+    "height": 900,
+    "route": "/notices/1",
+    "phase": "after",
+    "evidence": {
+      "body": "게시중\n서비스 점검 안내 (5월 11일)\n\n게시일: 2026-04-25 · 작성일: 2026-04-24\n\n편집\n삭제\n요약\n\n정기 점검으로 인한 서비스 이용 제한 안내\n\n점검 안내\n\n안녕하세요. Gravit 운영팀입니다.\n\n일시: 2026-05-11 02:00 ~ 04:00 (KST)\n대상: 전체 서비스\n\n이용에 참고 부탁",
+      "font": "Pretendard, system-ui, -apple-system, sans-serif",
+      "headings": [
+        {
+          "text": "서비스 점검 안내 (5월 11일)",
+          "width": 287.15625,
+          "x": 368.3125,
+          "y": 80
+        },
+        {
+          "text": "요약",
+          "width": 926,
+          "x": 297,
+          "y": 191
+        }
+      ],
+      "overflow": false,
+      "table": null
+    }
+  },
+  {
+    "file": "qa-register-1280.png",
+    "width": 1280,
+    "height": 900,
+    "route": "/qa/sprints",
+    "phase": "after",
+    "evidence": {
+      "body": "QA\nQA 매뉴얼\n스프린트 목록\n스프린트 등록\n스프린트\t약식 설명\t현재 상태\n9th Agile\t모든 검수 완료\t2차 수동 검수\n8th Agile\t저장소 연결 실패\t기능 명세서 로드\n7th Agile\t-\t준비 전\n6th Agile\t기능 명세 변경 반영 승인\t기능 명세서 로드\n5th Agile\tQA 흐름 예시\t체크리스트 생성",
+      "font": "Pretendard, system-ui, -apple-system, sans-serif",
+      "headings": [
+        {
+          "text": "QA",
+          "width": 37.25,
+          "x": 272,
+          "y": 80
+        }
+      ],
+      "overflow": false,
+      "table": {
+        "width": 974,
+        "x": 273,
+        "y": 242
+      }
+    }
+  },
+  {
+    "file": "problem-subjective-1280.png",
+    "width": 1280,
+    "height": 900,
+    "route": "/problems/1003",
+    "phase": "after",
+    "evidence": {
+      "body": "주관식\nP-1003\n편집\n문제\n지시문\n배열에서 임의 위치에 요소를 삽입할 때의 시간 복잡도를 빅오 표기법으로 쓰시오.\n본문\n\n배열은 연속된 메모리에 저장되므로 중간 삽입 시 원소 이동이 발생한다.\n\n정답\n\nO(n),O(N),빅오 n\n\n해설: 평균적으로 n개 원소를 이동해야 합니다.",
+      "font": "Pretendard, system-ui, -apple-system, sans-serif",
+      "headings": [
+        {
+          "text": "P-1003",
+          "width": 90.53125,
+          "x": 336.3125,
+          "y": 80
+        },
+        {
+          "text": "문제",
+          "width": 926,
+          "x": 297,
+          "y": 169
+        },
+        {
+          "text": "정답",
+          "width": 926,
+          "x": 297,
+          "y": 343
+        }
+      ],
+      "overflow": false,
+      "table": null
+    }
+  },
+  {
+    "file": "problem-subjective-full-1280.png",
+    "width": 1280,
+    "route": "/problems/1003",
+    "full": true
+  },
+  {
+    "file": "notices-loading-1440.png",
+    "width": 1440,
+    "height": 900,
+    "route": "/notices",
+    "phase": "after",
+    "evidence": {
+      "body": "공지 관리\n공지 작성",
+      "font": "Pretendard, system-ui, -apple-system, sans-serif",
+      "headings": [
+        {
+          "text": "공지 관리",
+          "width": 95.875,
+          "x": 272,
+          "y": 80
+        }
+      ],
+      "overflow": false,
+      "table": null
+    }
+  },
+  {
+    "file": "notices-empty-1440.png",
+    "width": 1440,
+    "height": 900,
+    "route": "/notices",
+    "phase": "after",
+    "evidence": {
+      "body": "공지 관리\n공지 작성\n\n공지가 없어요.",
+      "font": "Pretendard, system-ui, -apple-system, sans-serif",
+      "headings": [
+        {
+          "text": "공지 관리",
+          "width": 95.875,
+          "x": 272,
+          "y": 80
+        }
+      ],
+      "overflow": false,
+      "table": null
+    }
+  },
+  {
+    "file": "notices-error-1440.png",
+    "width": 1440,
+    "height": 900,
+    "route": "/notices",
+    "phase": "after",
+    "evidence": {
+      "body": "공지 관리\n공지 작성\n\n데이터를 불러오지 못했어요. 잠시 뒤 다시 시도해 주세요.\n\n다시 시도하기",
+      "font": "Pretendard, system-ui, -apple-system, sans-serif",
+      "headings": [
+        {
+          "text": "공지 관리",
+          "width": 95.875,
+          "x": 272,
+          "y": 80
+        }
+      ],
+      "overflow": false,
+      "table": null
+    }
+  },
+  {
+    "file": "strict-match-empty-1440.png",
+    "width": 1440,
+    "height": 900,
+    "route": "/staging/labels/2026-04-25-update",
+    "phase": "after",
+    "evidence": {
+      "body": "검수 대기\n2026-04-25-update\n반영 완료 처리\n\nU-12 · 배열 챕터 5번째 사이클 · 생성일 2026-04-25\n\n레슨\n문제 1\n객관식\n문제 2\n객관식\n문제 3\n주관식\n문제 4\n객관식\n문제 5\n주관식\n문제 6\n객관식\n레슨\n\nID: 901\n\n제목 *\n저장하기",
+      "font": "Pretendard, system-ui, -apple-system, sans-serif",
+      "headings": [
+        {
+          "text": "2026-04-25-update",
+          "width": 266.109375,
+          "x": 351.828125,
+          "y": 80
+        },
+        {
+          "text": "레슨",
+          "width": 798,
+          "x": 585,
+          "y": 195
+        },
+        {
+          "text": "문제 1",
+          "width": 0,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "text": "문제 2",
+          "width": 0,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "text": "문제 3",
+          "width": 0,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "text": "문제 4",
+          "width": 0,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "text": "문제 5",
+          "width": 0,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "text": "문제 6",
+          "width": 0,
+          "x": 0,
+          "y": 0
+        }
+      ],
+      "overflow": false,
+      "table": null
+    }
+  },
+  {
+    "file": "strict-match-matched-1440.png",
+    "width": 1440,
+    "height": 900,
+    "route": "/staging/labels/2026-04-25-update",
+    "phase": "after",
+    "evidence": {
+      "body": "검수 대기\n2026-04-25-update\n반영 완료 처리\n\nU-12 · 배열 챕터 5번째 사이클 · 생성일 2026-04-25\n\n레슨\n문제 1\n객관식\n문제 2\n객관식\n문제 3\n주관식\n문제 4\n객관식\n문제 5\n주관식\n문제 6\n객관식\n레슨\n\nID: 901\n\n제목 *\n저장하기",
+      "font": "Pretendard, system-ui, -apple-system, sans-serif",
+      "headings": [
+        {
+          "text": "2026-04-25-update",
+          "width": 266.109375,
+          "x": 351.828125,
+          "y": 80
+        },
+        {
+          "text": "레슨",
+          "width": 798,
+          "x": 585,
+          "y": 195
+        },
+        {
+          "text": "문제 1",
+          "width": 0,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "text": "문제 2",
+          "width": 0,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "text": "문제 3",
+          "width": 0,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "text": "문제 4",
+          "width": 0,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "text": "문제 5",
+          "width": 0,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "text": "문제 6",
+          "width": 0,
+          "x": 0,
+          "y": 0
+        }
+      ],
+      "overflow": false,
+      "table": null
+    }
+  },
+  {
+    "file": "qa-menu-1440.png",
+    "width": 1440,
+    "height": 900,
+    "route": "/qa/sprints/9/checklist/1",
+    "phase": "after",
+    "evidence": {
+      "body": "9th Agile\n\n모든 검수 완료\n\nQA 종료\n기능 명세서 로드\n체크리스트 생성\n디자인 검수\n1차 자동화 검수\n5\n2차 수동 검수\n6\n종료\n연결 현황\n디자인 검수\n1차 체크리스트\n2차 체크리스트\n파트별 수정사항\nDesign\n100%\n\n5 / 5\n\nWeb\n100%\n\n12 / 12\n\nAPP\n100%\n\n12 / 12\n\nSer",
+      "font": "Pretendard, system-ui, -apple-system, sans-serif",
+      "headings": [
+        {
+          "text": "9th Agile",
+          "width": 110.359375,
+          "x": 272,
+          "y": 80
+        },
+        {
+          "text": "로그인 버튼 동작",
+          "width": 91.34375,
+          "x": 289,
+          "y": 653.5
+        },
+        {
+          "text": "필수 입력 안내",
+          "width": 79.25,
+          "x": 289,
+          "y": 726.5
+        },
+        {
+          "text": "실패 후 재시도",
+          "width": 79.25,
+          "x": 289,
+          "y": 799.5
+        },
+        {
+          "text": "로그인 버튼 동작",
+          "width": 91.34375,
+          "x": 289,
+          "y": 985
+        },
+        {
+          "text": "필수 입력 안내",
+          "width": 79.25,
+          "x": 289,
+          "y": 1058
+        },
+        {
+          "text": "실패 후 재시도",
+          "width": 79.25,
+          "x": 289,
+          "y": 1131
+        }
+      ],
+      "overflow": false,
+      "table": {
+        "width": 1134,
+        "x": 273,
+        "y": 593
+      }
+    }
+  },
+  {
+    "file": "qa-fail-1440.png",
+    "width": 1440,
+    "height": 900,
+    "route": "/qa/sprints/9/checklist/1",
+    "phase": "after",
+    "evidence": {
+      "body": "9th Agile\n\n모든 검수 완료\n\nQA 종료\n기능 명세서 로드\n체크리스트 생성\n디자인 검수\n1차 자동화 검수\n5\n2차 수동 검수\n6\n종료\n연결 현황\n디자인 검수\n1차 체크리스트\n2차 체크리스트\n파트별 수정사항\nDesign\n100%\n\n5 / 5\n\nWeb\n100%\n\n12 / 12\n\nAPP\n100%\n\n12 / 12\n\nSer",
+      "font": "Pretendard, system-ui, -apple-system, sans-serif",
+      "headings": [
+        {
+          "text": "9th Agile",
+          "width": 110.359375,
+          "x": 272,
+          "y": 80
+        },
+        {
+          "text": "로그인 버튼 동작",
+          "width": 91.34375,
+          "x": 289,
+          "y": 653.5
+        },
+        {
+          "text": "필수 입력 안내",
+          "width": 79.25,
+          "x": 289,
+          "y": 726.5
+        },
+        {
+          "text": "실패 후 재시도",
+          "width": 79.25,
+          "x": 289,
+          "y": 799.5
+        },
+        {
+          "text": "로그인 버튼 동작",
+          "width": 91.34375,
+          "x": 289,
+          "y": 985
+        },
+        {
+          "text": "필수 입력 안내",
+          "width": 79.25,
+          "x": 289,
+          "y": 1058
+        },
+        {
+          "text": "실패 후 재시도",
+          "width": 79.25,
+          "x": 289,
+          "y": 1131
+        }
+      ],
+      "overflow": false,
+      "table": {
+        "width": 1134,
+        "x": 273,
+        "y": 593
+      }
+    }
+  },
+  {
+    "file": "strict-match-empty-reduced-1440.png",
+    "width": 1440,
+    "height": 900,
+    "route": "/staging/labels/2026-04-25-update",
+    "phase": "after",
+    "evidence": {
+      "body": "검수 대기\n2026-04-25-update\n반영 완료 처리\n\nU-12 · 배열 챕터 5번째 사이클 · 생성일 2026-04-25\n\n레슨\n문제 1\n객관식\n문제 2\n객관식\n문제 3\n주관식\n문제 4\n객관식\n문제 5\n주관식\n문제 6\n객관식\n레슨\n\nID: 901\n\n제목 *\n저장하기",
+      "font": "Pretendard, system-ui, -apple-system, sans-serif",
+      "headings": [
+        {
+          "text": "2026-04-25-update",
+          "width": 266.109375,
+          "x": 351.828125,
+          "y": 80
+        },
+        {
+          "text": "레슨",
+          "width": 798,
+          "x": 585,
+          "y": 195
+        },
+        {
+          "text": "문제 1",
+          "width": 0,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "text": "문제 2",
+          "width": 0,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "text": "문제 3",
+          "width": 0,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "text": "문제 4",
+          "width": 0,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "text": "문제 5",
+          "width": 0,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "text": "문제 6",
+          "width": 0,
+          "x": 0,
+          "y": 0
+        }
+      ],
+      "overflow": false,
+      "table": null
+    }
+  },
+  {
+    "file": "strict-match-matched-reduced-1440.png",
+    "width": 1440,
+    "height": 900,
+    "route": "/staging/labels/2026-04-25-update",
+    "phase": "after",
+    "evidence": {
+      "body": "검수 대기\n2026-04-25-update\n반영 완료 처리\n\nU-12 · 배열 챕터 5번째 사이클 · 생성일 2026-04-25\n\n레슨\n문제 1\n객관식\n문제 2\n객관식\n문제 3\n주관식\n문제 4\n객관식\n문제 5\n주관식\n문제 6\n객관식\n레슨\n\nID: 901\n\n제목 *\n저장하기",
+      "font": "Pretendard, system-ui, -apple-system, sans-serif",
+      "headings": [
+        {
+          "text": "2026-04-25-update",
+          "width": 266.109375,
+          "x": 351.828125,
+          "y": 80
+        },
+        {
+          "text": "레슨",
+          "width": 798,
+          "x": 585,
+          "y": 195
+        },
+        {
+          "text": "문제 1",
+          "width": 0,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "text": "문제 2",
+          "width": 0,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "text": "문제 3",
+          "width": 0,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "text": "문제 4",
+          "width": 0,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "text": "문제 5",
+          "width": 0,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "text": "문제 6",
+          "width": 0,
+          "x": 0,
+          "y": 0
+        }
+      ],
+      "overflow": false,
+      "table": null
+    }
+  },
+  {
+    "file": "qa-menu-reduced-1440.png",
+    "width": 1440,
+    "height": 900,
+    "route": "/qa/sprints/9/checklist/1",
+    "phase": "after",
+    "evidence": {
+      "body": "9th Agile\n\n모든 검수 완료\n\nQA 종료\n기능 명세서 로드\n체크리스트 생성\n디자인 검수\n1차 자동화 검수\n5\n2차 수동 검수\n6\n종료\n연결 현황\n디자인 검수\n1차 체크리스트\n2차 체크리스트\n파트별 수정사항\nDesign\n100%\n\n5 / 5\n\nWeb\n100%\n\n12 / 12\n\nAPP\n100%\n\n12 / 12\n\nSer",
+      "font": "Pretendard, system-ui, -apple-system, sans-serif",
+      "headings": [
+        {
+          "text": "9th Agile",
+          "width": 110.359375,
+          "x": 272,
+          "y": 80
+        },
+        {
+          "text": "로그인 버튼 동작",
+          "width": 91.34375,
+          "x": 289,
+          "y": 653.5
+        },
+        {
+          "text": "필수 입력 안내",
+          "width": 79.25,
+          "x": 289,
+          "y": 726.5
+        },
+        {
+          "text": "실패 후 재시도",
+          "width": 79.25,
+          "x": 289,
+          "y": 799.5
+        },
+        {
+          "text": "로그인 버튼 동작",
+          "width": 91.34375,
+          "x": 289,
+          "y": 985
+        },
+        {
+          "text": "필수 입력 안내",
+          "width": 79.25,
+          "x": 289,
+          "y": 1058
+        },
+        {
+          "text": "실패 후 재시도",
+          "width": 79.25,
+          "x": 289,
+          "y": 1131
+        }
+      ],
+      "overflow": false,
+      "table": {
+        "width": 1134,
+        "x": 273,
+        "y": 593
+      }
+    }
+  },
+  {
+    "file": "qa-fail-reduced-1440.png",
+    "width": 1440,
+    "height": 900,
+    "route": "/qa/sprints/9/checklist/1",
+    "phase": "after",
+    "evidence": {
+      "body": "9th Agile\n\n모든 검수 완료\n\nQA 종료\n기능 명세서 로드\n체크리스트 생성\n디자인 검수\n1차 자동화 검수\n5\n2차 수동 검수\n6\n종료\n연결 현황\n디자인 검수\n1차 체크리스트\n2차 체크리스트\n파트별 수정사항\nDesign\n100%\n\n5 / 5\n\nWeb\n100%\n\n12 / 12\n\nAPP\n100%\n\n12 / 12\n\nSer",
+      "font": "Pretendard, system-ui, -apple-system, sans-serif",
+      "headings": [
+        {
+          "text": "9th Agile",
+          "width": 110.359375,
+          "x": 272,
+          "y": 80
+        },
+        {
+          "text": "로그인 버튼 동작",
+          "width": 91.34375,
+          "x": 289,
+          "y": 653.5
+        },
+        {
+          "text": "필수 입력 안내",
+          "width": 79.25,
+          "x": 289,
+          "y": 726.5
+        },
+        {
+          "text": "실패 후 재시도",
+          "width": 79.25,
+          "x": 289,
+          "y": 799.5
+        },
+        {
+          "text": "로그인 버튼 동작",
+          "width": 91.34375,
+          "x": 289,
+          "y": 985
+        },
+        {
+          "text": "필수 입력 안내",
+          "width": 79.25,
+          "x": 289,
+          "y": 1058
+        },
+        {
+          "text": "실패 후 재시도",
+          "width": 79.25,
+          "x": 289,
+          "y": 1131
+        }
+      ],
+      "overflow": false,
+      "table": {
+        "width": 1134,
+        "x": 273,
+        "y": 593
+      }
+    }
+  },
+  {
+    "file": "notice-delete-1440.png",
+    "width": 1440,
+    "height": 900,
+    "route": "/notices/1",
+    "phase": "after",
+    "evidence": {
+      "body": "게시중\n서비스 점검 안내 (5월 11일)\n\n게시일: 2026-04-25 · 작성일: 2026-04-24\n\n편집\n삭제\n요약\n\n정기 점검으로 인한 서비스 이용 제한 안내\n\n점검 안내\n\n안녕하세요. Gravit 운영팀입니다.\n\n일시: 2026-05-11 02:00 ~ 04:00 (KST)\n대상: 전체 서비스\n\n이용에 참고 부탁",
+      "font": "Pretendard, system-ui, -apple-system, sans-serif",
+      "headings": [
+        {
+          "text": "서비스 점검 안내 (5월 11일)",
+          "width": 287.15625,
+          "x": 368.3125,
+          "y": 80
+        },
+        {
+          "text": "요약",
+          "width": 1086,
+          "x": 297,
+          "y": 191
+        }
+      ],
+      "overflow": false,
+      "table": null
+    }
+  },
+  {
+    "file": "qa-register-1440.png",
+    "width": 1440,
+    "height": 900,
+    "route": "/qa/sprints",
+    "phase": "after",
+    "evidence": {
+      "body": "QA\nQA 매뉴얼\n스프린트 목록\n스프린트 등록\n스프린트\t약식 설명\t현재 상태\n9th Agile\t모든 검수 완료\t2차 수동 검수\n8th Agile\t저장소 연결 실패\t기능 명세서 로드\n7th Agile\t-\t준비 전\n6th Agile\t기능 명세 변경 반영 승인\t기능 명세서 로드\n5th Agile\tQA 흐름 예시\t체크리스트 생성",
+      "font": "Pretendard, system-ui, -apple-system, sans-serif",
+      "headings": [
+        {
+          "text": "QA",
+          "width": 37.25,
+          "x": 272,
+          "y": 80
+        }
+      ],
+      "overflow": false,
+      "table": {
+        "width": 1134,
+        "x": 273,
+        "y": 242
+      }
+    }
+  },
+  {
+    "file": "problem-subjective-1440.png",
+    "width": 1440,
+    "height": 900,
+    "route": "/problems/1003",
+    "phase": "after",
+    "evidence": {
+      "body": "주관식\nP-1003\n편집\n문제\n지시문\n배열에서 임의 위치에 요소를 삽입할 때의 시간 복잡도를 빅오 표기법으로 쓰시오.\n본문\n\n배열은 연속된 메모리에 저장되므로 중간 삽입 시 원소 이동이 발생한다.\n\n정답\n\nO(n),O(N),빅오 n\n\n해설: 평균적으로 n개 원소를 이동해야 합니다.",
+      "font": "Pretendard, system-ui, -apple-system, sans-serif",
+      "headings": [
+        {
+          "text": "P-1003",
+          "width": 90.53125,
+          "x": 336.3125,
+          "y": 80
+        },
+        {
+          "text": "문제",
+          "width": 1086,
+          "x": 297,
+          "y": 169
+        },
+        {
+          "text": "정답",
+          "width": 1086,
+          "x": 297,
+          "y": 343
+        }
+      ],
+      "overflow": false,
+      "table": null
+    }
+  },
+  {
+    "file": "problem-subjective-full-1440.png",
+    "width": 1440,
+    "route": "/problems/1003",
+    "full": true
+  },
+  {
+    "file": "user-status-1280.png",
+    "width": 1280,
+    "height": 900,
+    "route": "/users/1001",
+    "phase": "after",
+    "evidence": {
+      "body": "유저 상세\n홍길동\n\n@gildong\n\ngildong@example.com\n\n가입일: 2026-01-15\n\n레벨: Lv.12\n\n권한 및 상태\n역할\n일반\n일반\n상태\n활성\n활성",
+      "font": "Pretendard, system-ui, -apple-system, sans-serif",
+      "headings": [
+        {
+          "text": "유저 상세",
+          "width": 976,
+          "x": 272,
+          "y": 80
+        },
+        {
+          "text": "홍길동",
+          "width": 142.015625,
+          "x": 401,
+          "y": 165
+        },
+        {
+          "text": "권한 및 상태",
+          "width": 926,
+          "x": 297,
+          "y": 367
+        }
+      ],
+      "overflow": false,
+      "table": null
+    }
+  },
+  {
+    "file": "user-status-1440.png",
+    "width": 1440,
+    "height": 900,
+    "route": "/users/1001",
+    "phase": "after",
+    "evidence": {
+      "body": "유저 상세\n홍길동\n\n@gildong\n\ngildong@example.com\n\n가입일: 2026-01-15\n\n레벨: Lv.12\n\n권한 및 상태\n역할\n일반\n일반\n상태\n활성\n활성",
+      "font": "Pretendard, system-ui, -apple-system, sans-serif",
+      "headings": [
+        {
+          "text": "유저 상세",
+          "width": 1136,
+          "x": 272,
+          "y": 80
+        },
+        {
+          "text": "홍길동",
+          "width": 142.015625,
+          "x": 401,
+          "y": 165
+        },
+        {
+          "text": "권한 및 상태",
+          "width": 1086,
+          "x": 297,
+          "y": 367
+        }
+      ],
+      "overflow": false,
+      "table": null
+    }
+  }
+]

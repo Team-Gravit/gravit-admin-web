@@ -1,0 +1,2312 @@
+[
+  {
+    "key": "login-normal",
+    "route": "/login",
+    "width": 1280,
+    "overflow": false,
+    "activeAnimations": 0,
+    "shared": {
+      "shellXWidthSame": true,
+      "headingOrderSame": true,
+      "headingDeltaY": [
+        -0.02
+      ],
+      "oldHeadings": [
+        "백오피스 로그인"
+      ],
+      "newHeadings": [
+        "백오피스 로그인"
+      ]
+    },
+    "t0": {
+      "shellXWidthSame": true,
+      "headingOrderSame": true,
+      "headingDeltaY": [
+        1.98
+      ],
+      "oldHeadings": [
+        "백오피스 로그인"
+      ],
+      "newHeadings": [
+        "백오피스 로그인"
+      ]
+    }
+  },
+  {
+    "key": "dashboard-normal",
+    "route": "/",
+    "width": 1280,
+    "overflow": false,
+    "activeAnimations": 0,
+    "shared": {
+      "shellXWidthSame": true,
+      "headingOrderSame": true,
+      "headingDeltaY": [
+        0,
+        2,
+        2
+      ],
+      "oldHeadings": [
+        "대시보드",
+        "DAU",
+        "MAU"
+      ],
+      "newHeadings": [
+        "대시보드",
+        "DAU",
+        "MAU"
+      ]
+    },
+    "t0": {
+      "shellXWidthSame": true,
+      "headingOrderSame": true,
+      "headingDeltaY": [
+        0,
+        12,
+        12
+      ],
+      "oldHeadings": [
+        "대시보드",
+        "DAU",
+        "MAU"
+      ],
+      "newHeadings": [
+        "대시보드",
+        "DAU",
+        "MAU"
+      ]
+    }
+  },
+  {
+    "key": "notices-normal",
+    "route": "/notices",
+    "width": 1280,
+    "overflow": false,
+    "activeAnimations": 0,
+    "shared": {
+      "shellXWidthSame": true,
+      "headingOrderSame": true,
+      "headingDeltaY": [
+        0
+      ],
+      "oldHeadings": [
+        "공지 관리"
+      ],
+      "newHeadings": [
+        "공지 관리"
+      ]
+    },
+    "t0": {
+      "shellXWidthSame": true,
+      "headingOrderSame": true,
+      "headingDeltaY": [
+        0
+      ],
+      "oldHeadings": [
+        "공지 관리"
+      ],
+      "newHeadings": [
+        "공지 관리"
+      ]
+    }
+  },
+  {
+    "key": "notice-new-normal",
+    "route": "/notices/new",
+    "width": 1280,
+    "overflow": false,
+    "activeAnimations": 0,
+    "shared": {
+      "shellXWidthSame": true,
+      "headingOrderSame": true,
+      "headingDeltaY": [
+        0
+      ],
+      "oldHeadings": [
+        "공지 작성"
+      ],
+      "newHeadings": [
+        "공지 작성"
+      ]
+    },
+    "t0": {
+      "shellXWidthSame": true,
+      "headingOrderSame": true,
+      "headingDeltaY": [
+        0
+      ],
+      "oldHeadings": [
+        "공지 작성"
+      ],
+      "newHeadings": [
+        "공지 작성"
+      ]
+    }
+  },
+  {
+    "key": "notice-detail-normal",
+    "route": "/notices/1",
+    "width": 1280,
+    "overflow": false,
+    "activeAnimations": 0,
+    "shared": {
+      "shellXWidthSame": true,
+      "headingOrderSame": true,
+      "headingDeltaY": [
+        0,
+        0,
+        0
+      ],
+      "oldHeadings": [
+        "서비스 점검 안내 (5월 11일)",
+        "요약",
+        "점검 안내"
+      ],
+      "newHeadings": [
+        "서비스 점검 안내 (5월 11일)",
+        "요약",
+        "점검 안내"
+      ]
+    },
+    "t0": {
+      "shellXWidthSame": true,
+      "headingOrderSame": true,
+      "headingDeltaY": [
+        0,
+        6,
+        8
+      ],
+      "oldHeadings": [
+        "서비스 점검 안내 (5월 11일)",
+        "요약",
+        "점검 안내"
+      ],
+      "newHeadings": [
+        "서비스 점검 안내 (5월 11일)",
+        "요약",
+        "점검 안내"
+      ]
+    }
+  },
+  {
+    "key": "users-normal",
+    "route": "/users",
+    "width": 1280,
+    "overflow": false,
+    "activeAnimations": 0,
+    "shared": {
+      "shellXWidthSame": true,
+      "headingOrderSame": true,
+      "headingDeltaY": [
+        0
+      ],
+      "oldHeadings": [
+        "유저 관리"
+      ],
+      "newHeadings": [
+        "유저 관리"
+      ]
+    },
+    "t0": {
+      "shellXWidthSame": true,
+      "headingOrderSame": true,
+      "headingDeltaY": [
+        0
+      ],
+      "oldHeadings": [
+        "유저 관리"
+      ],
+      "newHeadings": [
+        "유저 관리"
+      ]
+    }
+  },
+  {
+    "key": "user-detail-normal",
+    "route": "/users/1001",
+    "width": 1280,
+    "overflow": false,
+    "activeAnimations": 0,
+    "shared": {
+      "shellXWidthSame": true,
+      "headingOrderSame": true,
+      "headingDeltaY": [
+        0,
+        0,
+        0
+      ],
+      "oldHeadings": [
+        "유저 상세",
+        "홍길동",
+        "권한 및 상태"
+      ],
+      "newHeadings": [
+        "유저 상세",
+        "홍길동",
+        "권한 및 상태"
+      ]
+    },
+    "t0": {
+      "shellXWidthSame": true,
+      "headingOrderSame": true,
+      "headingDeltaY": [
+        0,
+        4,
+        12
+      ],
+      "oldHeadings": [
+        "유저 상세",
+        "홍길동",
+        "권한 및 상태"
+      ],
+      "newHeadings": [
+        "유저 상세",
+        "홍길동",
+        "권한 및 상태"
+      ]
+    }
+  },
+  {
+    "key": "reports-normal",
+    "route": "/reports",
+    "width": 1280,
+    "overflow": false,
+    "activeAnimations": 0,
+    "shared": {
+      "shellXWidthSame": true,
+      "headingOrderSame": true,
+      "headingDeltaY": [
+        0
+      ],
+      "oldHeadings": [
+        "신고 관리"
+      ],
+      "newHeadings": [
+        "신고 관리"
+      ]
+    },
+    "t0": {
+      "shellXWidthSame": true,
+      "headingOrderSame": true,
+      "headingDeltaY": [
+        0
+      ],
+      "oldHeadings": [
+        "신고 관리"
+      ],
+      "newHeadings": [
+        "신고 관리"
+      ]
+    }
+  },
+  {
+    "key": "report-detail-normal",
+    "route": "/reports/1024",
+    "width": 1280,
+    "overflow": false,
+    "activeAnimations": 0,
+    "shared": {
+      "shellXWidthSame": true,
+      "headingOrderSame": true,
+      "headingDeltaY": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "oldHeadings": [
+        "신고 #1024",
+        "신고 정보",
+        "신고 내용",
+        "처리 상태"
+      ],
+      "newHeadings": [
+        "신고 #1024",
+        "신고 정보",
+        "신고 내용",
+        "처리 상태"
+      ]
+    },
+    "t0": {
+      "shellXWidthSame": true,
+      "headingOrderSame": true,
+      "headingDeltaY": [
+        0,
+        4,
+        4,
+        6
+      ],
+      "oldHeadings": [
+        "신고 #1024",
+        "신고 정보",
+        "신고 내용",
+        "처리 상태"
+      ],
+      "newHeadings": [
+        "신고 #1024",
+        "신고 정보",
+        "신고 내용",
+        "처리 상태"
+      ]
+    }
+  },
+  {
+    "key": "chapters-normal",
+    "route": "/chapters",
+    "width": 1280,
+    "overflow": false,
+    "activeAnimations": 0,
+    "shared": {
+      "shellXWidthSame": true,
+      "headingOrderSame": true,
+      "headingDeltaY": [
+        0
+      ],
+      "oldHeadings": [
+        "컨텐츠 관리"
+      ],
+      "newHeadings": [
+        "컨텐츠 관리"
+      ]
+    },
+    "t0": {
+      "shellXWidthSame": true,
+      "headingOrderSame": true,
+      "headingDeltaY": [
+        0
+      ],
+      "oldHeadings": [
+        "컨텐츠 관리"
+      ],
+      "newHeadings": [
+        "컨텐츠 관리"
+      ]
+    }
+  },
+  {
+    "key": "chapter-detail-normal",
+    "route": "/chapters/1",
+    "width": 1280,
+    "overflow": false,
+    "activeAnimations": 0,
+    "shared": {
+      "shellXWidthSame": true,
+      "headingOrderSame": true,
+      "headingDeltaY": [
+        0,
+        0,
+        0
+      ],
+      "oldHeadings": [
+        "자료구조 기초",
+        "풀이 현황",
+        "유닛 (총 4개)"
+      ],
+      "newHeadings": [
+        "자료구조 기초",
+        "풀이 현황",
+        "유닛 (총 4개)"
+      ]
+    },
+    "t0": {
+      "shellXWidthSame": true,
+      "headingOrderSame": true,
+      "headingDeltaY": [
+        0,
+        6,
+        3
+      ],
+      "oldHeadings": [
+        "자료구조 기초",
+        "풀이 현황",
+        "유닛 (총 4개)"
+      ],
+      "newHeadings": [
+        "자료구조 기초",
+        "풀이 현황",
+        "유닛 (총 4개)"
+      ]
+    }
+  },
+  {
+    "key": "unit-detail-normal",
+    "route": "/units/12",
+    "width": 1280,
+    "overflow": false,
+    "activeAnimations": 0,
+    "shared": {
+      "shellXWidthSame": true,
+      "headingOrderSame": true,
+      "headingDeltaY": [
+        0,
+        0
+      ],
+      "oldHeadings": [
+        "배열 (Array)",
+        "레슨 (총 2개)"
+      ],
+      "newHeadings": [
+        "배열 (Array)",
+        "레슨 (총 2개)"
+      ]
+    },
+    "t0": {
+      "shellXWidthSame": true,
+      "headingOrderSame": true,
+      "headingDeltaY": [
+        0,
+        6
+      ],
+      "oldHeadings": [
+        "배열 (Array)",
+        "레슨 (총 2개)"
+      ],
+      "newHeadings": [
+        "배열 (Array)",
+        "레슨 (총 2개)"
+      ]
+    }
+  },
+  {
+    "key": "lesson-detail-normal",
+    "route": "/lessons/901",
+    "width": 1280,
+    "overflow": false,
+    "activeAnimations": 0,
+    "shared": {
+      "shellXWidthSame": true,
+      "headingOrderSame": true,
+      "headingDeltaY": [
+        0,
+        0
+      ],
+      "oldHeadings": [
+        "배열의 시간 복잡도",
+        "문제 (총 3개)"
+      ],
+      "newHeadings": [
+        "배열의 시간 복잡도",
+        "문제 (총 3개)"
+      ]
+    },
+    "t0": {
+      "shellXWidthSame": true,
+      "headingOrderSame": true,
+      "headingDeltaY": [
+        0,
+        0
+      ],
+      "oldHeadings": [
+        "배열의 시간 복잡도",
+        "문제 (총 3개)"
+      ],
+      "newHeadings": [
+        "배열의 시간 복잡도",
+        "문제 (총 3개)"
+      ]
+    }
+  },
+  {
+    "key": "problem-objective-normal",
+    "route": "/problems/1001",
+    "width": 1280,
+    "overflow": false,
+    "activeAnimations": 0,
+    "shared": {
+      "shellXWidthSame": true,
+      "headingOrderSame": true,
+      "headingDeltaY": [
+        0,
+        0,
+        0
+      ],
+      "oldHeadings": [
+        "P-1001",
+        "문제",
+        "보기 (4개 고정)"
+      ],
+      "newHeadings": [
+        "P-1001",
+        "문제",
+        "보기 (4개 고정)"
+      ]
+    },
+    "t0": {
+      "shellXWidthSame": true,
+      "headingOrderSame": true,
+      "headingDeltaY": [
+        0,
+        0,
+        0
+      ],
+      "oldHeadings": [
+        "P-1001",
+        "문제",
+        "보기 (4개 고정)"
+      ],
+      "newHeadings": [
+        "P-1001",
+        "문제",
+        "보기 (4개 고정)"
+      ]
+    }
+  },
+  {
+    "key": "staging-normal",
+    "route": "/staging/labels",
+    "width": 1280,
+    "overflow": false,
+    "activeAnimations": 0,
+    "shared": {
+      "shellXWidthSame": true,
+      "headingOrderSame": true,
+      "headingDeltaY": [
+        0
+      ],
+      "oldHeadings": [
+        "스테이징"
+      ],
+      "newHeadings": [
+        "스테이징"
+      ]
+    },
+    "t0": {
+      "shellXWidthSame": true,
+      "headingOrderSame": true,
+      "headingDeltaY": [
+        0
+      ],
+      "oldHeadings": [
+        "스테이징"
+      ],
+      "newHeadings": [
+        "스테이징"
+      ]
+    }
+  },
+  {
+    "key": "staging-detail-normal",
+    "route": "/staging/labels/2026-04-25-a3f9",
+    "width": 1280,
+    "overflow": false,
+    "activeAnimations": 0,
+    "shared": {
+      "shellXWidthSame": true,
+      "headingOrderSame": true,
+      "headingDeltaY": [
+        0,
+        0
+      ],
+      "oldHeadings": [
+        "2026-04-25-a3f9",
+        "레슨"
+      ],
+      "newHeadings": [
+        "2026-04-25-a3f9",
+        "레슨"
+      ]
+    },
+    "t0": {
+      "shellXWidthSame": true,
+      "headingOrderSame": true,
+      "headingDeltaY": [
+        0,
+        2
+      ],
+      "oldHeadings": [
+        "2026-04-25-a3f9",
+        "레슨"
+      ],
+      "newHeadings": [
+        "2026-04-25-a3f9",
+        "레슨"
+      ]
+    }
+  },
+  {
+    "key": "inquiries-normal",
+    "route": "/inquiries",
+    "width": 1280,
+    "overflow": false,
+    "activeAnimations": 0,
+    "shared": {
+      "shellXWidthSame": true,
+      "headingOrderSame": true,
+      "headingDeltaY": [
+        0
+      ],
+      "oldHeadings": [
+        "문의 관리"
+      ],
+      "newHeadings": [
+        "문의 관리"
+      ]
+    },
+    "t0": {
+      "shellXWidthSame": true,
+      "headingOrderSame": true,
+      "headingDeltaY": [
+        0
+      ],
+      "oldHeadings": [
+        "문의 관리"
+      ],
+      "newHeadings": [
+        "문의 관리"
+      ]
+    }
+  },
+  {
+    "key": "inquiry-detail-normal",
+    "route": "/inquiries/5001",
+    "width": 1280,
+    "overflow": false,
+    "activeAnimations": 0,
+    "shared": {
+      "shellXWidthSame": true,
+      "headingOrderSame": true,
+      "headingDeltaY": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "oldHeadings": [
+        "결제했는데 코인이 안 들어와요",
+        "문의 정보",
+        "문의 내용",
+        "답변"
+      ],
+      "newHeadings": [
+        "결제했는데 코인이 안 들어와요",
+        "문의 정보",
+        "문의 내용",
+        "답변"
+      ]
+    },
+    "t0": {
+      "shellXWidthSame": true,
+      "headingOrderSame": true,
+      "headingDeltaY": [
+        0,
+        4,
+        10,
+        14
+      ],
+      "oldHeadings": [
+        "결제했는데 코인이 안 들어와요",
+        "문의 정보",
+        "문의 내용",
+        "답변"
+      ],
+      "newHeadings": [
+        "결제했는데 코인이 안 들어와요",
+        "문의 정보",
+        "문의 내용",
+        "답변"
+      ]
+    }
+  },
+  {
+    "key": "ravvit-normal",
+    "route": "/ravvit",
+    "width": 1280,
+    "overflow": false,
+    "activeAnimations": 0,
+    "shared": {
+      "shellXWidthSame": true,
+      "headingOrderSame": true,
+      "headingDeltaY": [],
+      "oldHeadings": [],
+      "newHeadings": []
+    },
+    "t0": {
+      "shellXWidthSame": true,
+      "headingOrderSame": true,
+      "headingDeltaY": [],
+      "oldHeadings": [],
+      "newHeadings": []
+    }
+  },
+  {
+    "key": "qa-sprints-normal",
+    "route": "/qa/sprints",
+    "width": 1280,
+    "overflow": false,
+    "activeAnimations": 0,
+    "shared": {
+      "shellXWidthSame": true,
+      "headingOrderSame": true,
+      "headingDeltaY": [
+        0,
+        2
+      ],
+      "oldHeadings": [
+        "QA",
+        "스프린트 목록"
+      ],
+      "newHeadings": [
+        "QA",
+        "스프린트 목록"
+      ]
+    },
+    "t0": {
+      "shellXWidthSame": true,
+      "headingOrderSame": true,
+      "headingDeltaY": [
+        0,
+        8
+      ],
+      "oldHeadings": [
+        "QA",
+        "스프린트 목록"
+      ],
+      "newHeadings": [
+        "QA",
+        "스프린트 목록"
+      ]
+    }
+  },
+  {
+    "key": "qa-setup-normal",
+    "route": "/qa/sprints/9/setup",
+    "width": 1280,
+    "overflow": false,
+    "activeAnimations": 0,
+    "shared": {
+      "shellXWidthSame": true,
+      "headingOrderSame": true,
+      "headingDeltaY": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "oldHeadings": [
+        "9th Agile",
+        "연결 상태",
+        "준비 작업",
+        "반영 승인"
+      ],
+      "newHeadings": [
+        "9th Agile",
+        "연결 상태",
+        "준비 작업",
+        "반영 승인"
+      ]
+    },
+    "t0": {
+      "shellXWidthSame": true,
+      "headingOrderSame": true,
+      "headingDeltaY": [
+        0,
+        8,
+        8,
+        10
+      ],
+      "oldHeadings": [
+        "9th Agile",
+        "연결 상태",
+        "준비 작업",
+        "반영 승인"
+      ],
+      "newHeadings": [
+        "9th Agile",
+        "연결 상태",
+        "준비 작업",
+        "반영 승인"
+      ]
+    }
+  },
+  {
+    "key": "qa-design-normal",
+    "route": "/qa/sprints/9/design-review",
+    "width": 1280,
+    "overflow": false,
+    "activeAnimations": 0,
+    "shared": {
+      "shellXWidthSame": true,
+      "headingOrderSame": true,
+      "headingDeltaY": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        -0.5,
+        -16.5,
+        -32.5,
+        -48,
+        -64,
+        -80
+      ],
+      "oldHeadings": [
+        "9th Agile",
+        "Design",
+        "Web",
+        "APP",
+        "Server",
+        "주요 버튼 배치",
+        "입력란과 안내 문구",
+        "오류 화면 구성",
+        "주요 버튼 배치",
+        "입력란과 안내 문구",
+        "AOS 시안 프레임이 없다"
+      ],
+      "newHeadings": [
+        "9th Agile",
+        "Design",
+        "Web",
+        "APP",
+        "Server",
+        "주요 버튼 배치",
+        "입력란과 안내 문구",
+        "오류 화면 구성",
+        "주요 버튼 배치",
+        "입력란과 안내 문구",
+        "AOS 시안 프레임이 없다"
+      ]
+    },
+    "t0": {
+      "shellXWidthSame": true,
+      "headingOrderSame": true,
+      "headingDeltaY": [
+        0,
+        8,
+        8,
+        8,
+        8,
+        3.5,
+        -16.5,
+        -36.5,
+        -54,
+        -74,
+        -94
+      ],
+      "oldHeadings": [
+        "9th Agile",
+        "Design",
+        "Web",
+        "APP",
+        "Server",
+        "주요 버튼 배치",
+        "입력란과 안내 문구",
+        "오류 화면 구성",
+        "주요 버튼 배치",
+        "입력란과 안내 문구",
+        "AOS 시안 프레임이 없다"
+      ],
+      "newHeadings": [
+        "9th Agile",
+        "Design",
+        "Web",
+        "APP",
+        "Server",
+        "주요 버튼 배치",
+        "입력란과 안내 문구",
+        "오류 화면 구성",
+        "주요 버튼 배치",
+        "입력란과 안내 문구",
+        "AOS 시안 프레임이 없다"
+      ]
+    }
+  },
+  {
+    "key": "qa-first-normal",
+    "route": "/qa/sprints/2/checklist/1",
+    "width": 1280,
+    "overflow": false,
+    "activeAnimations": 0,
+    "shared": {
+      "shellXWidthSame": true,
+      "headingOrderSame": true,
+      "headingDeltaY": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        -0.5,
+        -16.5,
+        -32.5,
+        -48,
+        -64,
+        -80
+      ],
+      "oldHeadings": [
+        "2th Agile",
+        "Design",
+        "Web",
+        "APP",
+        "Server",
+        "로그인 버튼 동작",
+        "필수 입력 안내",
+        "실패 후 재시도",
+        "로그인 버튼 동작",
+        "필수 입력 안내",
+        "실패 후 재시도"
+      ],
+      "newHeadings": [
+        "2th Agile",
+        "Design",
+        "Web",
+        "APP",
+        "Server",
+        "로그인 버튼 동작",
+        "필수 입력 안내",
+        "실패 후 재시도",
+        "로그인 버튼 동작",
+        "필수 입력 안내",
+        "실패 후 재시도"
+      ]
+    },
+    "t0": {
+      "shellXWidthSame": true,
+      "headingOrderSame": true,
+      "headingDeltaY": [
+        0,
+        8,
+        8,
+        8,
+        8,
+        6.5,
+        -15.5,
+        -37.5,
+        -57,
+        -79,
+        -101
+      ],
+      "oldHeadings": [
+        "2th Agile",
+        "Design",
+        "Web",
+        "APP",
+        "Server",
+        "로그인 버튼 동작",
+        "필수 입력 안내",
+        "실패 후 재시도",
+        "로그인 버튼 동작",
+        "필수 입력 안내",
+        "실패 후 재시도"
+      ],
+      "newHeadings": [
+        "2th Agile",
+        "Design",
+        "Web",
+        "APP",
+        "Server",
+        "로그인 버튼 동작",
+        "필수 입력 안내",
+        "실패 후 재시도",
+        "로그인 버튼 동작",
+        "필수 입력 안내",
+        "실패 후 재시도"
+      ]
+    }
+  },
+  {
+    "key": "qa-second-normal",
+    "route": "/qa/sprints/2/checklist/2",
+    "width": 1280,
+    "overflow": false,
+    "activeAnimations": 0,
+    "shared": {
+      "shellXWidthSame": true,
+      "headingOrderSame": true,
+      "headingDeltaY": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        -0.5,
+        -16.5,
+        -32.5,
+        -48,
+        -64,
+        -80
+      ],
+      "oldHeadings": [
+        "2th Agile",
+        "Design",
+        "Web",
+        "APP",
+        "Server",
+        "로그인 버튼 동작",
+        "필수 입력 안내",
+        "실패 후 재시도",
+        "로그인 버튼 동작",
+        "필수 입력 안내",
+        "실패 후 재시도"
+      ],
+      "newHeadings": [
+        "2th Agile",
+        "Design",
+        "Web",
+        "APP",
+        "Server",
+        "로그인 버튼 동작",
+        "필수 입력 안내",
+        "실패 후 재시도",
+        "로그인 버튼 동작",
+        "필수 입력 안내",
+        "실패 후 재시도"
+      ]
+    },
+    "t0": {
+      "shellXWidthSame": true,
+      "headingOrderSame": true,
+      "headingDeltaY": [
+        0,
+        8,
+        8,
+        8,
+        8,
+        2.5,
+        -19.5,
+        -41.5,
+        -67,
+        -89,
+        -111
+      ],
+      "oldHeadings": [
+        "2th Agile",
+        "Design",
+        "Web",
+        "APP",
+        "Server",
+        "로그인 버튼 동작",
+        "필수 입력 안내",
+        "실패 후 재시도",
+        "로그인 버튼 동작",
+        "필수 입력 안내",
+        "실패 후 재시도"
+      ],
+      "newHeadings": [
+        "2th Agile",
+        "Design",
+        "Web",
+        "APP",
+        "Server",
+        "로그인 버튼 동작",
+        "필수 입력 안내",
+        "실패 후 재시도",
+        "로그인 버튼 동작",
+        "필수 입력 안내",
+        "실패 후 재시도"
+      ]
+    }
+  },
+  {
+    "key": "qa-fixes-normal",
+    "route": "/qa/sprints/9/fix-reports",
+    "width": 1280,
+    "overflow": false,
+    "activeAnimations": 0,
+    "shared": {
+      "shellXWidthSame": true,
+      "headingOrderSame": true,
+      "headingDeltaY": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "oldHeadings": [
+        "9th Agile",
+        "디자인",
+        "웹",
+        "앱",
+        "서버"
+      ],
+      "newHeadings": [
+        "9th Agile",
+        "디자인",
+        "웹",
+        "앱",
+        "서버"
+      ]
+    },
+    "t0": {
+      "shellXWidthSame": true,
+      "headingOrderSame": true,
+      "headingDeltaY": [
+        0,
+        8,
+        8,
+        8,
+        8
+      ],
+      "oldHeadings": [
+        "9th Agile",
+        "디자인",
+        "웹",
+        "앱",
+        "서버"
+      ],
+      "newHeadings": [
+        "9th Agile",
+        "디자인",
+        "웹",
+        "앱",
+        "서버"
+      ]
+    }
+  },
+  {
+    "key": "login-normal",
+    "route": "/login",
+    "width": 1440,
+    "overflow": false,
+    "activeAnimations": 0,
+    "shared": {
+      "shellXWidthSame": true,
+      "headingOrderSame": true,
+      "headingDeltaY": [
+        -0.02
+      ],
+      "oldHeadings": [
+        "백오피스 로그인"
+      ],
+      "newHeadings": [
+        "백오피스 로그인"
+      ]
+    },
+    "t0": {
+      "shellXWidthSame": true,
+      "headingOrderSame": true,
+      "headingDeltaY": [
+        1.98
+      ],
+      "oldHeadings": [
+        "백오피스 로그인"
+      ],
+      "newHeadings": [
+        "백오피스 로그인"
+      ]
+    }
+  },
+  {
+    "key": "dashboard-normal",
+    "route": "/",
+    "width": 1440,
+    "overflow": false,
+    "activeAnimations": 0,
+    "shared": {
+      "shellXWidthSame": true,
+      "headingOrderSame": true,
+      "headingDeltaY": [
+        0,
+        2,
+        2
+      ],
+      "oldHeadings": [
+        "대시보드",
+        "DAU",
+        "MAU"
+      ],
+      "newHeadings": [
+        "대시보드",
+        "DAU",
+        "MAU"
+      ]
+    },
+    "t0": {
+      "shellXWidthSame": true,
+      "headingOrderSame": true,
+      "headingDeltaY": [
+        0,
+        12,
+        12
+      ],
+      "oldHeadings": [
+        "대시보드",
+        "DAU",
+        "MAU"
+      ],
+      "newHeadings": [
+        "대시보드",
+        "DAU",
+        "MAU"
+      ]
+    }
+  },
+  {
+    "key": "notices-normal",
+    "route": "/notices",
+    "width": 1440,
+    "overflow": false,
+    "activeAnimations": 0,
+    "shared": {
+      "shellXWidthSame": true,
+      "headingOrderSame": true,
+      "headingDeltaY": [
+        0
+      ],
+      "oldHeadings": [
+        "공지 관리"
+      ],
+      "newHeadings": [
+        "공지 관리"
+      ]
+    },
+    "t0": {
+      "shellXWidthSame": true,
+      "headingOrderSame": true,
+      "headingDeltaY": [
+        0
+      ],
+      "oldHeadings": [
+        "공지 관리"
+      ],
+      "newHeadings": [
+        "공지 관리"
+      ]
+    }
+  },
+  {
+    "key": "notice-new-normal",
+    "route": "/notices/new",
+    "width": 1440,
+    "overflow": false,
+    "activeAnimations": 0,
+    "shared": {
+      "shellXWidthSame": true,
+      "headingOrderSame": true,
+      "headingDeltaY": [
+        0
+      ],
+      "oldHeadings": [
+        "공지 작성"
+      ],
+      "newHeadings": [
+        "공지 작성"
+      ]
+    },
+    "t0": {
+      "shellXWidthSame": true,
+      "headingOrderSame": true,
+      "headingDeltaY": [
+        0
+      ],
+      "oldHeadings": [
+        "공지 작성"
+      ],
+      "newHeadings": [
+        "공지 작성"
+      ]
+    }
+  },
+  {
+    "key": "notice-detail-normal",
+    "route": "/notices/1",
+    "width": 1440,
+    "overflow": false,
+    "activeAnimations": 0,
+    "shared": {
+      "shellXWidthSame": true,
+      "headingOrderSame": true,
+      "headingDeltaY": [
+        0,
+        0,
+        0
+      ],
+      "oldHeadings": [
+        "서비스 점검 안내 (5월 11일)",
+        "요약",
+        "점검 안내"
+      ],
+      "newHeadings": [
+        "서비스 점검 안내 (5월 11일)",
+        "요약",
+        "점검 안내"
+      ]
+    },
+    "t0": {
+      "shellXWidthSame": true,
+      "headingOrderSame": true,
+      "headingDeltaY": [
+        0,
+        6,
+        8
+      ],
+      "oldHeadings": [
+        "서비스 점검 안내 (5월 11일)",
+        "요약",
+        "점검 안내"
+      ],
+      "newHeadings": [
+        "서비스 점검 안내 (5월 11일)",
+        "요약",
+        "점검 안내"
+      ]
+    }
+  },
+  {
+    "key": "users-normal",
+    "route": "/users",
+    "width": 1440,
+    "overflow": false,
+    "activeAnimations": 0,
+    "shared": {
+      "shellXWidthSame": true,
+      "headingOrderSame": true,
+      "headingDeltaY": [
+        0
+      ],
+      "oldHeadings": [
+        "유저 관리"
+      ],
+      "newHeadings": [
+        "유저 관리"
+      ]
+    },
+    "t0": {
+      "shellXWidthSame": true,
+      "headingOrderSame": true,
+      "headingDeltaY": [
+        0
+      ],
+      "oldHeadings": [
+        "유저 관리"
+      ],
+      "newHeadings": [
+        "유저 관리"
+      ]
+    }
+  },
+  {
+    "key": "user-detail-normal",
+    "route": "/users/1001",
+    "width": 1440,
+    "overflow": false,
+    "activeAnimations": 0,
+    "shared": {
+      "shellXWidthSame": true,
+      "headingOrderSame": true,
+      "headingDeltaY": [
+        0,
+        0,
+        0
+      ],
+      "oldHeadings": [
+        "유저 상세",
+        "홍길동",
+        "권한 및 상태"
+      ],
+      "newHeadings": [
+        "유저 상세",
+        "홍길동",
+        "권한 및 상태"
+      ]
+    },
+    "t0": {
+      "shellXWidthSame": true,
+      "headingOrderSame": true,
+      "headingDeltaY": [
+        0,
+        4,
+        12
+      ],
+      "oldHeadings": [
+        "유저 상세",
+        "홍길동",
+        "권한 및 상태"
+      ],
+      "newHeadings": [
+        "유저 상세",
+        "홍길동",
+        "권한 및 상태"
+      ]
+    }
+  },
+  {
+    "key": "reports-normal",
+    "route": "/reports",
+    "width": 1440,
+    "overflow": false,
+    "activeAnimations": 0,
+    "shared": {
+      "shellXWidthSame": true,
+      "headingOrderSame": true,
+      "headingDeltaY": [
+        0
+      ],
+      "oldHeadings": [
+        "신고 관리"
+      ],
+      "newHeadings": [
+        "신고 관리"
+      ]
+    },
+    "t0": {
+      "shellXWidthSame": true,
+      "headingOrderSame": true,
+      "headingDeltaY": [
+        0
+      ],
+      "oldHeadings": [
+        "신고 관리"
+      ],
+      "newHeadings": [
+        "신고 관리"
+      ]
+    }
+  },
+  {
+    "key": "report-detail-normal",
+    "route": "/reports/1024",
+    "width": 1440,
+    "overflow": false,
+    "activeAnimations": 0,
+    "shared": {
+      "shellXWidthSame": true,
+      "headingOrderSame": true,
+      "headingDeltaY": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "oldHeadings": [
+        "신고 #1024",
+        "신고 정보",
+        "신고 내용",
+        "처리 상태"
+      ],
+      "newHeadings": [
+        "신고 #1024",
+        "신고 정보",
+        "신고 내용",
+        "처리 상태"
+      ]
+    },
+    "t0": {
+      "shellXWidthSame": true,
+      "headingOrderSame": true,
+      "headingDeltaY": [
+        0,
+        4,
+        4,
+        6
+      ],
+      "oldHeadings": [
+        "신고 #1024",
+        "신고 정보",
+        "신고 내용",
+        "처리 상태"
+      ],
+      "newHeadings": [
+        "신고 #1024",
+        "신고 정보",
+        "신고 내용",
+        "처리 상태"
+      ]
+    }
+  },
+  {
+    "key": "chapters-normal",
+    "route": "/chapters",
+    "width": 1440,
+    "overflow": false,
+    "activeAnimations": 0,
+    "shared": {
+      "shellXWidthSame": true,
+      "headingOrderSame": true,
+      "headingDeltaY": [
+        0
+      ],
+      "oldHeadings": [
+        "컨텐츠 관리"
+      ],
+      "newHeadings": [
+        "컨텐츠 관리"
+      ]
+    },
+    "t0": {
+      "shellXWidthSame": true,
+      "headingOrderSame": true,
+      "headingDeltaY": [
+        0
+      ],
+      "oldHeadings": [
+        "컨텐츠 관리"
+      ],
+      "newHeadings": [
+        "컨텐츠 관리"
+      ]
+    }
+  },
+  {
+    "key": "chapter-detail-normal",
+    "route": "/chapters/1",
+    "width": 1440,
+    "overflow": false,
+    "activeAnimations": 0,
+    "shared": {
+      "shellXWidthSame": true,
+      "headingOrderSame": true,
+      "headingDeltaY": [
+        0,
+        0,
+        0
+      ],
+      "oldHeadings": [
+        "자료구조 기초",
+        "풀이 현황",
+        "유닛 (총 4개)"
+      ],
+      "newHeadings": [
+        "자료구조 기초",
+        "풀이 현황",
+        "유닛 (총 4개)"
+      ]
+    },
+    "t0": {
+      "shellXWidthSame": true,
+      "headingOrderSame": true,
+      "headingDeltaY": [
+        0,
+        6,
+        3
+      ],
+      "oldHeadings": [
+        "자료구조 기초",
+        "풀이 현황",
+        "유닛 (총 4개)"
+      ],
+      "newHeadings": [
+        "자료구조 기초",
+        "풀이 현황",
+        "유닛 (총 4개)"
+      ]
+    }
+  },
+  {
+    "key": "unit-detail-normal",
+    "route": "/units/12",
+    "width": 1440,
+    "overflow": false,
+    "activeAnimations": 0,
+    "shared": {
+      "shellXWidthSame": true,
+      "headingOrderSame": true,
+      "headingDeltaY": [
+        0,
+        0
+      ],
+      "oldHeadings": [
+        "배열 (Array)",
+        "레슨 (총 2개)"
+      ],
+      "newHeadings": [
+        "배열 (Array)",
+        "레슨 (총 2개)"
+      ]
+    },
+    "t0": {
+      "shellXWidthSame": true,
+      "headingOrderSame": true,
+      "headingDeltaY": [
+        0,
+        6
+      ],
+      "oldHeadings": [
+        "배열 (Array)",
+        "레슨 (총 2개)"
+      ],
+      "newHeadings": [
+        "배열 (Array)",
+        "레슨 (총 2개)"
+      ]
+    }
+  },
+  {
+    "key": "lesson-detail-normal",
+    "route": "/lessons/901",
+    "width": 1440,
+    "overflow": false,
+    "activeAnimations": 0,
+    "shared": {
+      "shellXWidthSame": true,
+      "headingOrderSame": true,
+      "headingDeltaY": [
+        0,
+        0
+      ],
+      "oldHeadings": [
+        "배열의 시간 복잡도",
+        "문제 (총 3개)"
+      ],
+      "newHeadings": [
+        "배열의 시간 복잡도",
+        "문제 (총 3개)"
+      ]
+    },
+    "t0": {
+      "shellXWidthSame": true,
+      "headingOrderSame": true,
+      "headingDeltaY": [
+        0,
+        0
+      ],
+      "oldHeadings": [
+        "배열의 시간 복잡도",
+        "문제 (총 3개)"
+      ],
+      "newHeadings": [
+        "배열의 시간 복잡도",
+        "문제 (총 3개)"
+      ]
+    }
+  },
+  {
+    "key": "problem-objective-normal",
+    "route": "/problems/1001",
+    "width": 1440,
+    "overflow": false,
+    "activeAnimations": 0,
+    "shared": {
+      "shellXWidthSame": true,
+      "headingOrderSame": true,
+      "headingDeltaY": [
+        0,
+        0,
+        0
+      ],
+      "oldHeadings": [
+        "P-1001",
+        "문제",
+        "보기 (4개 고정)"
+      ],
+      "newHeadings": [
+        "P-1001",
+        "문제",
+        "보기 (4개 고정)"
+      ]
+    },
+    "t0": {
+      "shellXWidthSame": true,
+      "headingOrderSame": true,
+      "headingDeltaY": [
+        0,
+        0,
+        0
+      ],
+      "oldHeadings": [
+        "P-1001",
+        "문제",
+        "보기 (4개 고정)"
+      ],
+      "newHeadings": [
+        "P-1001",
+        "문제",
+        "보기 (4개 고정)"
+      ]
+    }
+  },
+  {
+    "key": "staging-normal",
+    "route": "/staging/labels",
+    "width": 1440,
+    "overflow": false,
+    "activeAnimations": 0,
+    "shared": {
+      "shellXWidthSame": true,
+      "headingOrderSame": true,
+      "headingDeltaY": [
+        0
+      ],
+      "oldHeadings": [
+        "스테이징"
+      ],
+      "newHeadings": [
+        "스테이징"
+      ]
+    },
+    "t0": {
+      "shellXWidthSame": true,
+      "headingOrderSame": true,
+      "headingDeltaY": [
+        0
+      ],
+      "oldHeadings": [
+        "스테이징"
+      ],
+      "newHeadings": [
+        "스테이징"
+      ]
+    }
+  },
+  {
+    "key": "staging-detail-normal",
+    "route": "/staging/labels/2026-04-25-a3f9",
+    "width": 1440,
+    "overflow": false,
+    "activeAnimations": 0,
+    "shared": {
+      "shellXWidthSame": true,
+      "headingOrderSame": true,
+      "headingDeltaY": [
+        0,
+        0
+      ],
+      "oldHeadings": [
+        "2026-04-25-a3f9",
+        "레슨"
+      ],
+      "newHeadings": [
+        "2026-04-25-a3f9",
+        "레슨"
+      ]
+    },
+    "t0": {
+      "shellXWidthSame": true,
+      "headingOrderSame": true,
+      "headingDeltaY": [
+        0,
+        2
+      ],
+      "oldHeadings": [
+        "2026-04-25-a3f9",
+        "레슨"
+      ],
+      "newHeadings": [
+        "2026-04-25-a3f9",
+        "레슨"
+      ]
+    }
+  },
+  {
+    "key": "inquiries-normal",
+    "route": "/inquiries",
+    "width": 1440,
+    "overflow": false,
+    "activeAnimations": 0,
+    "shared": {
+      "shellXWidthSame": true,
+      "headingOrderSame": true,
+      "headingDeltaY": [
+        0
+      ],
+      "oldHeadings": [
+        "문의 관리"
+      ],
+      "newHeadings": [
+        "문의 관리"
+      ]
+    },
+    "t0": {
+      "shellXWidthSame": true,
+      "headingOrderSame": true,
+      "headingDeltaY": [
+        0
+      ],
+      "oldHeadings": [
+        "문의 관리"
+      ],
+      "newHeadings": [
+        "문의 관리"
+      ]
+    }
+  },
+  {
+    "key": "inquiry-detail-normal",
+    "route": "/inquiries/5001",
+    "width": 1440,
+    "overflow": false,
+    "activeAnimations": 0,
+    "shared": {
+      "shellXWidthSame": true,
+      "headingOrderSame": true,
+      "headingDeltaY": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "oldHeadings": [
+        "결제했는데 코인이 안 들어와요",
+        "문의 정보",
+        "문의 내용",
+        "답변"
+      ],
+      "newHeadings": [
+        "결제했는데 코인이 안 들어와요",
+        "문의 정보",
+        "문의 내용",
+        "답변"
+      ]
+    },
+    "t0": {
+      "shellXWidthSame": true,
+      "headingOrderSame": true,
+      "headingDeltaY": [
+        0,
+        4,
+        10,
+        14
+      ],
+      "oldHeadings": [
+        "결제했는데 코인이 안 들어와요",
+        "문의 정보",
+        "문의 내용",
+        "답변"
+      ],
+      "newHeadings": [
+        "결제했는데 코인이 안 들어와요",
+        "문의 정보",
+        "문의 내용",
+        "답변"
+      ]
+    }
+  },
+  {
+    "key": "ravvit-normal",
+    "route": "/ravvit",
+    "width": 1440,
+    "overflow": false,
+    "activeAnimations": 0,
+    "shared": {
+      "shellXWidthSame": true,
+      "headingOrderSame": true,
+      "headingDeltaY": [],
+      "oldHeadings": [],
+      "newHeadings": []
+    },
+    "t0": {
+      "shellXWidthSame": true,
+      "headingOrderSame": true,
+      "headingDeltaY": [],
+      "oldHeadings": [],
+      "newHeadings": []
+    }
+  },
+  {
+    "key": "qa-sprints-normal",
+    "route": "/qa/sprints",
+    "width": 1440,
+    "overflow": false,
+    "activeAnimations": 0,
+    "shared": {
+      "shellXWidthSame": true,
+      "headingOrderSame": true,
+      "headingDeltaY": [
+        0,
+        2
+      ],
+      "oldHeadings": [
+        "QA",
+        "스프린트 목록"
+      ],
+      "newHeadings": [
+        "QA",
+        "스프린트 목록"
+      ]
+    },
+    "t0": {
+      "shellXWidthSame": true,
+      "headingOrderSame": true,
+      "headingDeltaY": [
+        0,
+        8
+      ],
+      "oldHeadings": [
+        "QA",
+        "스프린트 목록"
+      ],
+      "newHeadings": [
+        "QA",
+        "스프린트 목록"
+      ]
+    }
+  },
+  {
+    "key": "qa-setup-normal",
+    "route": "/qa/sprints/9/setup",
+    "width": 1440,
+    "overflow": false,
+    "activeAnimations": 0,
+    "shared": {
+      "shellXWidthSame": true,
+      "headingOrderSame": true,
+      "headingDeltaY": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "oldHeadings": [
+        "9th Agile",
+        "연결 상태",
+        "준비 작업",
+        "반영 승인"
+      ],
+      "newHeadings": [
+        "9th Agile",
+        "연결 상태",
+        "준비 작업",
+        "반영 승인"
+      ]
+    },
+    "t0": {
+      "shellXWidthSame": true,
+      "headingOrderSame": true,
+      "headingDeltaY": [
+        0,
+        8,
+        8,
+        10
+      ],
+      "oldHeadings": [
+        "9th Agile",
+        "연결 상태",
+        "준비 작업",
+        "반영 승인"
+      ],
+      "newHeadings": [
+        "9th Agile",
+        "연결 상태",
+        "준비 작업",
+        "반영 승인"
+      ]
+    }
+  },
+  {
+    "key": "qa-design-normal",
+    "route": "/qa/sprints/9/design-review",
+    "width": 1440,
+    "overflow": false,
+    "activeAnimations": 0,
+    "shared": {
+      "shellXWidthSame": true,
+      "headingOrderSame": true,
+      "headingDeltaY": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        -0.5,
+        -16.5,
+        -32.5,
+        -48,
+        -64,
+        -80
+      ],
+      "oldHeadings": [
+        "9th Agile",
+        "Design",
+        "Web",
+        "APP",
+        "Server",
+        "주요 버튼 배치",
+        "입력란과 안내 문구",
+        "오류 화면 구성",
+        "주요 버튼 배치",
+        "입력란과 안내 문구",
+        "AOS 시안 프레임이 없다"
+      ],
+      "newHeadings": [
+        "9th Agile",
+        "Design",
+        "Web",
+        "APP",
+        "Server",
+        "주요 버튼 배치",
+        "입력란과 안내 문구",
+        "오류 화면 구성",
+        "주요 버튼 배치",
+        "입력란과 안내 문구",
+        "AOS 시안 프레임이 없다"
+      ]
+    },
+    "t0": {
+      "shellXWidthSame": true,
+      "headingOrderSame": true,
+      "headingDeltaY": [
+        0,
+        8,
+        8,
+        8,
+        8,
+        3.5,
+        -16.5,
+        -36.5,
+        -54,
+        -74,
+        -94
+      ],
+      "oldHeadings": [
+        "9th Agile",
+        "Design",
+        "Web",
+        "APP",
+        "Server",
+        "주요 버튼 배치",
+        "입력란과 안내 문구",
+        "오류 화면 구성",
+        "주요 버튼 배치",
+        "입력란과 안내 문구",
+        "AOS 시안 프레임이 없다"
+      ],
+      "newHeadings": [
+        "9th Agile",
+        "Design",
+        "Web",
+        "APP",
+        "Server",
+        "주요 버튼 배치",
+        "입력란과 안내 문구",
+        "오류 화면 구성",
+        "주요 버튼 배치",
+        "입력란과 안내 문구",
+        "AOS 시안 프레임이 없다"
+      ]
+    }
+  },
+  {
+    "key": "qa-first-normal",
+    "route": "/qa/sprints/2/checklist/1",
+    "width": 1440,
+    "overflow": false,
+    "activeAnimations": 0,
+    "shared": {
+      "shellXWidthSame": true,
+      "headingOrderSame": true,
+      "headingDeltaY": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        -0.5,
+        -16.5,
+        -32.5,
+        -48,
+        -64,
+        -80
+      ],
+      "oldHeadings": [
+        "2th Agile",
+        "Design",
+        "Web",
+        "APP",
+        "Server",
+        "로그인 버튼 동작",
+        "필수 입력 안내",
+        "실패 후 재시도",
+        "로그인 버튼 동작",
+        "필수 입력 안내",
+        "실패 후 재시도"
+      ],
+      "newHeadings": [
+        "2th Agile",
+        "Design",
+        "Web",
+        "APP",
+        "Server",
+        "로그인 버튼 동작",
+        "필수 입력 안내",
+        "실패 후 재시도",
+        "로그인 버튼 동작",
+        "필수 입력 안내",
+        "실패 후 재시도"
+      ]
+    },
+    "t0": {
+      "shellXWidthSame": true,
+      "headingOrderSame": true,
+      "headingDeltaY": [
+        0,
+        8,
+        8,
+        8,
+        8,
+        6.5,
+        -15.5,
+        -37.5,
+        -57,
+        -79,
+        -101
+      ],
+      "oldHeadings": [
+        "2th Agile",
+        "Design",
+        "Web",
+        "APP",
+        "Server",
+        "로그인 버튼 동작",
+        "필수 입력 안내",
+        "실패 후 재시도",
+        "로그인 버튼 동작",
+        "필수 입력 안내",
+        "실패 후 재시도"
+      ],
+      "newHeadings": [
+        "2th Agile",
+        "Design",
+        "Web",
+        "APP",
+        "Server",
+        "로그인 버튼 동작",
+        "필수 입력 안내",
+        "실패 후 재시도",
+        "로그인 버튼 동작",
+        "필수 입력 안내",
+        "실패 후 재시도"
+      ]
+    }
+  },
+  {
+    "key": "qa-second-normal",
+    "route": "/qa/sprints/2/checklist/2",
+    "width": 1440,
+    "overflow": false,
+    "activeAnimations": 0,
+    "shared": {
+      "shellXWidthSame": true,
+      "headingOrderSame": true,
+      "headingDeltaY": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        -0.5,
+        -16.5,
+        -32.5,
+        -48,
+        -64,
+        -80
+      ],
+      "oldHeadings": [
+        "2th Agile",
+        "Design",
+        "Web",
+        "APP",
+        "Server",
+        "로그인 버튼 동작",
+        "필수 입력 안내",
+        "실패 후 재시도",
+        "로그인 버튼 동작",
+        "필수 입력 안내",
+        "실패 후 재시도"
+      ],
+      "newHeadings": [
+        "2th Agile",
+        "Design",
+        "Web",
+        "APP",
+        "Server",
+        "로그인 버튼 동작",
+        "필수 입력 안내",
+        "실패 후 재시도",
+        "로그인 버튼 동작",
+        "필수 입력 안내",
+        "실패 후 재시도"
+      ]
+    },
+    "t0": {
+      "shellXWidthSame": true,
+      "headingOrderSame": true,
+      "headingDeltaY": [
+        0,
+        8,
+        8,
+        8,
+        8,
+        2.5,
+        -19.5,
+        -41.5,
+        -67,
+        -89,
+        -111
+      ],
+      "oldHeadings": [
+        "2th Agile",
+        "Design",
+        "Web",
+        "APP",
+        "Server",
+        "로그인 버튼 동작",
+        "필수 입력 안내",
+        "실패 후 재시도",
+        "로그인 버튼 동작",
+        "필수 입력 안내",
+        "실패 후 재시도"
+      ],
+      "newHeadings": [
+        "2th Agile",
+        "Design",
+        "Web",
+        "APP",
+        "Server",
+        "로그인 버튼 동작",
+        "필수 입력 안내",
+        "실패 후 재시도",
+        "로그인 버튼 동작",
+        "필수 입력 안내",
+        "실패 후 재시도"
+      ]
+    }
+  },
+  {
+    "key": "qa-fixes-normal",
+    "route": "/qa/sprints/9/fix-reports",
+    "width": 1440,
+    "overflow": false,
+    "activeAnimations": 0,
+    "shared": {
+      "shellXWidthSame": true,
+      "headingOrderSame": true,
+      "headingDeltaY": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "oldHeadings": [
+        "9th Agile",
+        "디자인",
+        "웹",
+        "앱",
+        "서버"
+      ],
+      "newHeadings": [
+        "9th Agile",
+        "디자인",
+        "웹",
+        "앱",
+        "서버"
+      ]
+    },
+    "t0": {
+      "shellXWidthSame": true,
+      "headingOrderSame": true,
+      "headingDeltaY": [
+        0,
+        8,
+        8,
+        8,
+        8
+      ],
+      "oldHeadings": [
+        "9th Agile",
+        "디자인",
+        "웹",
+        "앱",
+        "서버"
+      ],
+      "newHeadings": [
+        "9th Agile",
+        "디자인",
+        "웹",
+        "앱",
+        "서버"
+      ]
+    }
+  }
+]

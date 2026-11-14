@@ -1,0 +1,56 @@
+{
+  "branch": "experiment/style-refresh",
+  "head": "fd83538bc640e62cc1bed5a17ddc4657e3de421b",
+  "stagedPaths": "",
+  "schemas": [
+    {
+      "path": "src/features/chapters/schemas.ts",
+      "validationStructureSame": true
+    },
+    {
+      "path": "src/features/inquiries/schemas.ts",
+      "validationStructureSame": true
+    },
+    {
+      "path": "src/features/lessons/schemas.ts",
+      "validationStructureSame": true
+    },
+    {
+      "path": "src/features/notices/schemas.ts",
+      "validationStructureSame": true
+    },
+    {
+      "path": "src/features/problems/schemas.ts",
+      "validationStructureSame": true
+    },
+    {
+      "path": "src/features/staging/schemas.ts",
+      "validationStructureSame": true
+    },
+    {
+      "path": "src/features/units/schemas.ts",
+      "validationStructureSame": true
+    }
+  ],
+  "apiChanges": [
+    "src/shared/api/qaClient.ts"
+  ],
+  "protectedTracked": [],
+  "initialPngCount": 231,
+  "initialPngFailures": [],
+  "sourceTreeSha256": "a958aa8b7039823af95350d16000d1655fc78e289a97c76d06a8b81455860062",
+  "sourceFileCount": 265,
+  "notes": [
+    "schemas AST: min/max message arg and message property only normalized; all enum/limits/trim/refine conditions retained",
+    "qaClient diff reviewed: fallback strings only; store diff fallback only",
+    "src/features/ravvit/hooks.ts deletion is internal visual typewriter; all other network/state logic retained",
+    "No env file read or write; harness changes not performed; initial316 archive available"
+  ],
+  "baselineArchive": {
+    "path": "/tmp/gravit-style-t1-stage0-4-20261114.tar.gz",
+    "sha256": "361ec7aa35073777a770461e25a657d7bf9bc6f3e06233ebed0237326fe3e8c6",
+    "originalFiles": 316,
+    "verifiedFiles": 316,
+    "failures": []
+  }
+}

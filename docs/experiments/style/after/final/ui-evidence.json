@@ -1,0 +1,181 @@
+[
+  {
+    "route": "/users",
+    "width": 1280,
+    "evidence": {
+      "content": {
+        "maxWidth": "1200px",
+        "padding": [
+          "24px",
+          "32px",
+          "48px",
+          "32px"
+        ],
+        "width": 1040
+      },
+      "font": "Pretendard, system-ui, -apple-system, sans-serif",
+      "stagingNav": [],
+      "tokens": {
+        "--border": "210 22.222222% 96.470588%",
+        "--chart-mau-partial": "213.103448 12.446352% 54.313725%",
+        "--fg-secondary": "214 14.423077% 40.784314%",
+        "--foreground": "214.736842 22.891566% 16.27451%",
+        "--input": "213.103448 12.446352% 54.313725%",
+        "--motion-feedback": "80ms",
+        "--motion-loading-cycle": "1200ms",
+        "--primary": "218.928571 70% 47.058824%"
+      }
+    }
+  },
+  {
+    "route": "/staging/labels/2026-04-25-a3f9",
+    "width": 1280,
+    "evidence": {
+      "content": {
+        "maxWidth": "1200px",
+        "padding": [
+          "24px",
+          "32px",
+          "48px",
+          "32px"
+        ],
+        "width": 1040
+      },
+      "font": "Pretendard, system-ui, -apple-system, sans-serif",
+      "stagingNav": [],
+      "tokens": {
+        "--border": "210 22.222222% 96.470588%",
+        "--chart-mau-partial": "213.103448 12.446352% 54.313725%",
+        "--fg-secondary": "214 14.423077% 40.784314%",
+        "--foreground": "214.736842 22.891566% 16.27451%",
+        "--input": "213.103448 12.446352% 54.313725%",
+        "--motion-feedback": "80ms",
+        "--motion-loading-cycle": "1200ms",
+        "--primary": "218.928571 70% 47.058824%"
+      }
+    }
+  },
+  {
+    "route": "/ravvit",
+    "width": 1280,
+    "evidence": {
+      "content": {
+        "maxWidth": "1200px",
+        "padding": [
+          "24px",
+          "32px",
+          "24px",
+          "32px"
+        ],
+        "width": 1040
+      },
+      "font": "Pretendard, system-ui, -apple-system, sans-serif",
+      "stagingNav": [],
+      "tokens": {
+        "--border": "210 22.222222% 96.470588%",
+        "--chart-mau-partial": "213.103448 12.446352% 54.313725%",
+        "--fg-secondary": "214 14.423077% 40.784314%",
+        "--foreground": "214.736842 22.891566% 16.27451%",
+        "--input": "213.103448 12.446352% 54.313725%",
+        "--motion-feedback": "80ms",
+        "--motion-loading-cycle": "1200ms",
+        "--primary": "218.928571 70% 47.058824%"
+      }
+    }
+  },
+  {
+    "route": "/users",
+    "width": 1440,
+    "evidence": {
+      "content": {
+        "maxWidth": "1200px",
+        "padding": [
+          "24px",
+          "32px",
+          "48px",
+          "32px"
+        ],
+        "width": 1200
+      },
+      "font": "Pretendard, system-ui, -apple-system, sans-serif",
+      "stagingNav": [],
+      "tokens": {
+        "--border": "210 22.222222% 96.470588%",
+        "--chart-mau-partial": "213.103448 12.446352% 54.313725%",
+        "--fg-secondary": "214 14.423077% 40.784314%",
+        "--foreground": "214.736842 22.891566% 16.27451%",
+        "--input": "213.103448 12.446352% 54.313725%",
+        "--motion-feedback": "80ms",
+        "--motion-loading-cycle": "1200ms",
+        "--primary": "218.928571 70% 47.058824%"
+      }
+    }
+  },
+  {
+    "route": "/staging/labels/2026-04-25-a3f9",
+    "width": 1440,
+    "evidence": {
+      "content": {
+        "maxWidth": "1200px",
+        "padding": [
+          "24px",
+          "32px",
+          "48px",
+          "32px"
+        ],
+        "width": 1200
+      },
+      "font": "Pretendard, system-ui, -apple-system, sans-serif",
+      "stagingNav": [],
+      "tokens": {
+        "--border": "210 22.222222% 96.470588%",
+        "--chart-mau-partial": "213.103448 12.446352% 54.313725%",
+        "--fg-secondary": "214 14.423077% 40.784314%",
+        "--foreground": "214.736842 22.891566% 16.27451%",
+        "--input": "213.103448 12.446352% 54.313725%",
+        "--motion-feedback": "80ms",
+        "--motion-loading-cycle": "1200ms",
+        "--primary": "218.928571 70% 47.058824%"
+      }
+    }
+  },
+  {
+    "route": "/ravvit",
+    "width": 1440,
+    "evidence": {
+      "content": {
+        "maxWidth": "1200px",
+        "padding": [
+          "24px",
+          "32px",
+          "24px",
+          "32px"
+        ],
+        "width": 1200
+      },
+      "font": "Pretendard, system-ui, -apple-system, sans-serif",
+      "stagingNav": [],
+      "tokens": {
+        "--border": "210 22.222222% 96.470588%",
+        "--chart-mau-partial": "213.103448 12.446352% 54.313725%",
+        "--fg-secondary": "214 14.423077% 40.784314%",
+        "--foreground": "214.736842 22.891566% 16.27451%",
+        "--input": "213.103448 12.446352% 54.313725%",
+        "--motion-feedback": "80ms",
+        "--motion-loading-cycle": "1200ms",
+        "--primary": "218.928571 70% 47.058824%"
+      }
+    }
+  },
+  {
+    "modal": "strict-match",
+    "evidence": {
+      "bodyLine": "22px",
+      "bodySize": "14px",
+      "inputBorder": "rgb(124, 137, 153)",
+      "inputRadius": "8px",
+      "radius": "16px",
+      "width": 480
+    }
+  }
+]

@@ -1,0 +1,4928 @@
+[
+  {
+    "file": "base/login-normal-1280.png",
+    "key": "login-normal",
+    "route": "/login",
+    "viewport": {
+      "width": 1280,
+      "height": 900
+    },
+    "condition": "existing MSW fixture; Ravvit D8 contract mock",
+    "evidence": {
+      "activeAnimations": 0,
+      "body": "Admin Page\n백오피스 로그인\n\n내부 운영자 전용 관리 시스템\n\nGoogle로 시작하기\n카카오로 시작하기\n네이버로 시작하기",
+      "composer": null,
+      "contentPadding": null,
+      "headings": [
+        {
+          "height": 40,
+          "label": "백오피스 로그인",
+          "tag": "H2",
+          "width": 415,
+          "x": 688,
+          "y": 291.984375
+        }
+      ],
+      "layout": {
+        "header": null,
+        "main": null,
+        "scrollWidth": 1280,
+        "sidebar": null,
+        "viewport": 1280
+      },
+      "loginCard": {
+        "height": 660.171875,
+        "width": 1024,
+        "x": 128,
+        "y": 119.90625
+      },
+      "loginColumns": [
+        {
+          "height": 658.171875,
+          "width": 511,
+          "x": 129,
+          "y": 120.90625
+        },
+        {
+          "height": 658.171875,
+          "width": 511,
+          "x": 640,
+          "y": 120.90625
+        }
+      ],
+      "readingColumns": [],
+      "regions": [],
+      "tableHeaders": []
+    }
+  },
+  {
+    "file": "base/dashboard-normal-1280.png",
+    "key": "dashboard-normal",
+    "route": "/",
+    "viewport": {
+      "width": 1280,
+      "height": 900
+    },
+    "condition": "existing MSW fixture; Ravvit D8 contract mock",
+    "evidence": {
+      "activeAnimations": 0,
+      "body": "대시보드\n총 유저 수\n12,345\n유저 관리 →\nPENDING 라벨\n8\n스테이징 →\n미해결 신고\n24\n신고 관리 →\nDAU\n\n최근 30일 일별 활성 유저\n\n49\n오늘\n▼ 14 전일 대비\n10.17\n10.22\n10.27\n11.1\n11.5\n11.9\n11.14\n0\n20\n40\n60\n80\nMAU\n\n최근 12개월 월별 활성 유저\n\n121\n이번 달 (집계 중)\n지난달 291\n26.01\n26.03\n26.05\n26.07\n26.09\n26.11\n0\n75\n150\n225\n300\n\n마지",
+      "composer": null,
+      "contentPadding": {
+        "bottom": "0px",
+        "left": "0px",
+        "right": "0px",
+        "top": "0px"
+      },
+      "headings": [
+        {
+          "height": 36,
+          "label": "대시보드",
+          "tag": "H1",
+          "width": 976,
+          "x": 272,
+          "y": 80
+        },
+        {
+          "height": 24,
+          "label": "DAU",
+          "tag": "H2",
+          "width": 430,
+          "x": 297,
+          "y": 371
+        },
+        {
+          "height": 24,
+          "label": "MAU",
+          "tag": "H2",
+          "width": 430,
+          "x": 793,
+          "y": 371
+        }
+      ],
+      "layout": {
+        "header": {
+          "height": 56,
+          "width": 1040,
+          "x": 240,
+          "y": 0
+        },
+        "main": {
+          "height": 844,
+          "width": 1040,
+          "x": 240,
+          "y": 56
+        },
+        "scrollWidth": 1280,
+        "sidebar": {
+          "height": 900,
+          "width": 240,
+          "x": 0,
+          "y": 0
+        },
+        "viewport": 1280
+      },
+      "loginCard": null,
+      "loginColumns": [],
+      "readingColumns": [],
+      "regions": [
+        {
+          "height": 426,
+          "tag": "SECTION",
+          "width": 480,
+          "x": 272,
+          "y": 346
+        },
+        {
+          "height": 426,
+          "tag": "SECTION",
+          "width": 480,
+          "x": 768,
+          "y": 346
+        }
+      ],
+      "tableHeaders": []
+    }
+  },
+  {
+    "file": "base/notices-normal-1280.png",
+    "key": "notices-normal",
+    "route": "/notices",
+    "viewport": {
+      "width": 1280,
+      "height": 900
+    },
+    "condition": "existing MSW fixture; Ravvit D8 contract mock",
+    "evidence": {
+      "activeAnimations": 0,
+      "body": "공지 관리\n공지 작성\n\t제목\t상태\t게시일\t수정\n\n\t\n서비스 점검 안내 (5월 11일)\n\t게시중\t2026-04-25\t수정\n\n\t\n신규 서비스 런칭 (6월 1일)\n\t초안\t-\t수정\n\t\n시스템 업데이트 (7월 15일)\n\t보관됨\t2026-06-30\t수정",
+      "composer": null,
+      "contentPadding": {
+        "bottom": "0px",
+        "left": "0px",
+        "right": "0px",
+        "top": "0px"
+      },
+      "headings": [
+        {
+          "height": 36,
+          "label": "공지 관리",
+          "tag": "H1",
+          "width": 95.875,
+          "x": 272,
+          "y": 80
+        }
+      ],
+      "layout": {
+        "header": {
+          "height": 56,
+          "width": 1040,
+          "x": 240,
+          "y": 0
+        },
+        "main": {
+          "height": 844,
+          "width": 1040,
+          "x": 240,
+          "y": 56
+        },
+        "scrollWidth": 1280,
+        "sidebar": {
+          "height": 900,
+          "width": 240,
+          "x": 0,
+          "y": 0
+        },
+        "viewport": 1280
+      },
+      "loginCard": null,
+      "loginColumns": [],
+      "readingColumns": [],
+      "regions": [
+        {
+          "height": 218.5,
+          "tag": "TABLE",
+          "width": 974,
+          "x": 273,
+          "y": 169
+        }
+      ],
+      "tableHeaders": [
+        "",
+        "제목",
+        "상태",
+        "게시일",
+        "수정"
+      ]
+    }
+  },
+  {
+    "file": "base/notice-new-normal-1280.png",
+    "key": "notice-new-normal",
+    "route": "/notices/new",
+    "viewport": {
+      "width": 1280,
+      "height": 900
+    },
+    "condition": "existing MSW fixture; Ravvit D8 contract mock",
+    "evidence": {
+      "activeAnimations": 0,
+      "body": "공지 작성\n제목 *\n요약 *\n본문 (마크다운 지원) *\n작성\n미리보기\n상단 고정\n목록으로\n임시 저장하기\n공지 게시하기",
+      "composer": {
+        "height": 80,
+        "width": 926,
+        "x": 297,
+        "y": 417
+      },
+      "contentPadding": {
+        "bottom": "0px",
+        "left": "0px",
+        "right": "0px",
+        "top": "0px"
+      },
+      "headings": [
+        {
+          "height": 36,
+          "label": "공지 작성",
+          "tag": "H1",
+          "width": 976,
+          "x": 272,
+          "y": 80
+        }
+      ],
+      "layout": {
+        "header": {
+          "height": 56,
+          "width": 1040,
+          "x": 240,
+          "y": 0
+        },
+        "main": {
+          "height": 844,
+          "width": 1040,
+          "x": 240,
+          "y": 56
+        },
+        "scrollWidth": 1280,
+        "sidebar": {
+          "height": 900,
+          "width": 240,
+          "x": 0,
+          "y": 0
+        },
+        "viewport": 1280
+      },
+      "loginCard": null,
+      "loginColumns": [],
+      "readingColumns": [],
+      "regions": [],
+      "tableHeaders": []
+    }
+  },
+  {
+    "file": "base/notice-detail-normal-1280.png",
+    "key": "notice-detail-normal",
+    "route": "/notices/1",
+    "viewport": {
+      "width": 1280,
+      "height": 900
+    },
+    "condition": "existing MSW fixture; Ravvit D8 contract mock",
+    "evidence": {
+      "activeAnimations": 0,
+      "body": "게시중\n서비스 점검 안내 (5월 11일)\n\n게시일: 2026-04-25 · 작성일: 2026-04-24\n\n편집\n삭제\n요약\n\n정기 점검으로 인한 서비스 이용 제한 안내\n\n점검 안내\n\n안녕하세요. Gravit 운영팀입니다.\n\n일시: 2026-05-11 02:00 ~ 04:00 (KST)\n대상: 전체 서비스\n\n이용에 참고 부탁드립니다.",
+      "composer": null,
+      "contentPadding": {
+        "bottom": "0px",
+        "left": "0px",
+        "right": "0px",
+        "top": "0px"
+      },
+      "headings": [
+        {
+          "height": 36,
+          "label": "서비스 점검 안내 (5월 11일)",
+          "tag": "H1",
+          "width": 287.15625,
+          "x": 368.3125,
+          "y": 80
+        },
+        {
+          "height": 24,
+          "label": "요약",
+          "tag": "H3",
+          "width": 926,
+          "x": 297,
+          "y": 191
+        },
+        {
+          "height": 28,
+          "label": "점검 안내",
+          "tag": "H2",
+          "width": 926,
+          "x": 297,
+          "y": 294
+        }
+      ],
+      "layout": {
+        "header": {
+          "height": 56,
+          "width": 1040,
+          "x": 240,
+          "y": 0
+        },
+        "main": {
+          "height": 844,
+          "width": 1040,
+          "x": 240,
+          "y": 56
+        },
+        "scrollWidth": 1280,
+        "sidebar": {
+          "height": 900,
+          "width": 240,
+          "x": 0,
+          "y": 0
+        },
+        "viewport": 1280
+      },
+      "loginCard": null,
+      "loginColumns": [],
+      "readingColumns": [],
+      "regions": [
+        {
+          "height": 54,
+          "tag": "SECTION",
+          "width": 926,
+          "x": 297,
+          "y": 191
+        }
+      ],
+      "tableHeaders": []
+    }
+  },
+  {
+    "file": "full/notice-detail-normal-1280-full.png",
+    "key": "notice-detail-normal",
+    "route": "/notices/1",
+    "viewport": {
+      "width": 1280,
+      "height": 900
+    },
+    "full": true
+  },
+  {
+    "file": "base/users-normal-1280.png",
+    "key": "users-normal",
+    "route": "/users",
+    "viewport": {
+      "width": 1280,
+      "height": 900
+    },
+    "condition": "existing MSW fixture; Ravvit D8 contract mock",
+    "evidence": {
+      "activeAnimations": 0,
+      "body": "유저 관리\n검색\n상태 전체\n역할 전체\n이메일\t닉네임\thandle\t역할\t상태\t가입일\n\ngildong@example.com\n\t\n홍길동\n\t@gildong\t일반\t활성\t2026-01-15\n\nadmin@gravit.com\n\t\n운영자\n\t@admin\t관리자\t활성\t2025-12-01\n\nsuspended@example.com\n\t\n정지된유저\n\t@onhold\t일반\t정지\t2026-02-20\n\nleft@example.com\n\t\n탈퇴유저\n\t@gone\t일반\t삭제됨\t2026-03-05",
+      "composer": null,
+      "contentPadding": {
+        "bottom": "0px",
+        "left": "0px",
+        "right": "0px",
+        "top": "0px"
+      },
+      "headings": [
+        {
+          "height": 36,
+          "label": "유저 관리",
+          "tag": "H1",
+          "width": 976,
+          "x": 272,
+          "y": 80
+        }
+      ],
+      "layout": {
+        "header": {
+          "height": 56,
+          "width": 1040,
+          "x": 240,
+          "y": 0
+        },
+        "main": {
+          "height": 844,
+          "width": 1040,
+          "x": 240,
+          "y": 56
+        },
+        "scrollWidth": 1280,
+        "sidebar": {
+          "height": 900,
+          "width": 240,
+          "x": 0,
+          "y": 0
+        },
+        "viewport": 1280
+      },
+      "loginCard": null,
+      "loginColumns": [],
+      "readingColumns": [],
+      "regions": [
+        {
+          "height": 40,
+          "tag": "FORM",
+          "width": 386.203125,
+          "x": 272,
+          "y": 168
+        },
+        {
+          "height": 256,
+          "tag": "TABLE",
+          "width": 974,
+          "x": 273,
+          "y": 233
+        }
+      ],
+      "tableHeaders": [
+        "이메일",
+        "닉네임",
+        "handle",
+        "역할",
+        "상태",
+        "가입일"
+      ]
+    }
+  },
+  {
+    "file": "base/user-detail-normal-1280.png",
+    "key": "user-detail-normal",
+    "route": "/users/1001",
+    "viewport": {
+      "width": 1280,
+      "height": 900
+    },
+    "condition": "existing MSW fixture; Ravvit D8 contract mock",
+    "evidence": {
+      "activeAnimations": 0,
+      "body": "유저 상세\n홍길동\n\n@gildong\n\ngildong@example.com\n\n가입일: 2026-01-15\n\n레벨: Lv.12\n\n권한 및 상태\n역할\n일반\n일반\n상태\n활성\n활성",
+      "composer": null,
+      "contentPadding": {
+        "bottom": "0px",
+        "left": "0px",
+        "right": "0px",
+        "top": "0px"
+      },
+      "headings": [
+        {
+          "height": 36,
+          "label": "유저 상세",
+          "tag": "H1",
+          "width": 976,
+          "x": 272,
+          "y": 80
+        },
+        {
+          "height": 24,
+          "label": "홍길동",
+          "tag": "H3",
+          "width": 142.015625,
+          "x": 401,
+          "y": 165
+        },
+        {
+          "height": 24,
+          "label": "권한 및 상태",
+          "tag": "H3",
+          "width": 926,
+          "x": 297,
+          "y": 367
+        }
+      ],
+      "layout": {
+        "header": {
+          "height": 56,
+          "width": 1040,
+          "x": 240,
+          "y": 0
+        },
+        "main": {
+          "height": 844,
+          "width": 1040,
+          "x": 240,
+          "y": 56
+        },
+        "scrollWidth": 1280,
+        "sidebar": {
+          "height": 900,
+          "width": 240,
+          "x": 0,
+          "y": 0
+        },
+        "viewport": 1280
+      },
+      "loginCard": null,
+      "loginColumns": [],
+      "readingColumns": [],
+      "regions": [],
+      "tableHeaders": []
+    }
+  },
+  {
+    "file": "base/reports-normal-1280.png",
+    "key": "reports-normal",
+    "route": "/reports",
+    "viewport": {
+      "width": 1280,
+      "height": 900
+    },
+    "condition": "existing MSW fixture; Ravvit D8 contract mock",
+    "evidence": {
+      "activeAnimations": 0,
+      "body": "신고 관리\n유형 전체\n미해결\nID\t유형\t문제ID\t상태\t제출일\n#1024\t오타\tP-512\t미해결\t2026-04-23 23:32\n#1023\t정답 오류\tP-488\t미해결\t2026-04-22 18:10",
+      "composer": null,
+      "contentPadding": {
+        "bottom": "0px",
+        "left": "0px",
+        "right": "0px",
+        "top": "0px"
+      },
+      "headings": [
+        {
+          "height": 36,
+          "label": "신고 관리",
+          "tag": "H1",
+          "width": 976,
+          "x": 272,
+          "y": 80
+        }
+      ],
+      "layout": {
+        "header": {
+          "height": 56,
+          "width": 1040,
+          "x": 240,
+          "y": 0
+        },
+        "main": {
+          "height": 844,
+          "width": 1040,
+          "x": 240,
+          "y": 56
+        },
+        "scrollWidth": 1280,
+        "sidebar": {
+          "height": 900,
+          "width": 240,
+          "x": 0,
+          "y": 0
+        },
+        "viewport": 1280
+      },
+      "loginCard": null,
+      "loginColumns": [],
+      "readingColumns": [],
+      "regions": [
+        {
+          "height": 152,
+          "tag": "TABLE",
+          "width": 974,
+          "x": 273,
+          "y": 233
+        }
+      ],
+      "tableHeaders": [
+        "ID",
+        "유형",
+        "문제ID",
+        "상태",
+        "제출일"
+      ]
+    }
+  },
+  {
+    "file": "base/report-detail-normal-1280.png",
+    "key": "report-detail-normal",
+    "route": "/reports/1024",
+    "viewport": {
+      "width": 1280,
+      "height": 900
+    },
+    "condition": "existing MSW fixture; Ravvit D8 contract mock",
+    "evidence": {
+      "activeAnimations": 0,
+      "body": "신고 #1024\n미해결\n신고 정보\n유형\n오타 (TYPO_ERROR)\n문제 ID\nP-512\n문제 보기 →\n제출일\n2026-04-23 23:32\n신고 내용\n두 번째 줄에서 '알고리듬'이 '알고리즘'으로 표기되어 있습니다. 오타로 보입니다.\n처리 상태\n현재 상태\n미해결",
+      "composer": null,
+      "contentPadding": {
+        "bottom": "0px",
+        "left": "0px",
+        "right": "0px",
+        "top": "0px"
+      },
+      "headings": [
+        {
+          "height": 36,
+          "label": "신고 #1024",
+          "tag": "H1",
+          "width": 129.09375,
+          "x": 272,
+          "y": 80
+        },
+        {
+          "height": 24,
+          "label": "신고 정보",
+          "tag": "H3",
+          "width": 926,
+          "x": 297,
+          "y": 165
+        },
+        {
+          "height": 24,
+          "label": "신고 내용",
+          "tag": "H3",
+          "width": 926,
+          "x": 297,
+          "y": 387
+        },
+        {
+          "height": 24,
+          "label": "처리 상태",
+          "tag": "H3",
+          "width": 926,
+          "x": 297,
+          "y": 523
+        }
+      ],
+      "layout": {
+        "header": {
+          "height": 56,
+          "width": 1040,
+          "x": 240,
+          "y": 0
+        },
+        "main": {
+          "height": 844,
+          "width": 1040,
+          "x": 240,
+          "y": 56
+        },
+        "scrollWidth": 1280,
+        "sidebar": {
+          "height": 900,
+          "width": 240,
+          "x": 0,
+          "y": 0
+        },
+        "viewport": 1280
+      },
+      "loginCard": null,
+      "loginColumns": [],
+      "readingColumns": [],
+      "regions": [],
+      "tableHeaders": []
+    }
+  },
+  {
+    "file": "base/chapters-normal-1280.png",
+    "key": "chapters-normal",
+    "route": "/chapters",
+    "viewport": {
+      "width": 1280,
+      "height": 900
+    },
+    "condition": "existing MSW fixture; Ravvit D8 contract mock",
+    "evidence": {
+      "activeAnimations": 0,
+      "body": "컨텐츠 관리\n제목\t설명\n\n자료구조 기초\n\t\n배열, 리스트, 스택, 큐, 트리, 그래프 등 기본 자료구조\n\n\n알고리즘 입문\n\t\n정렬, 탐색, 재귀, 분할정복 등 기본 알고리즘\n\n\n운영체제\n\t\n프로세스, 스레드, 스케줄링, 메모리 관리",
+      "composer": null,
+      "contentPadding": {
+        "bottom": "0px",
+        "left": "0px",
+        "right": "0px",
+        "top": "0px"
+      },
+      "headings": [
+        {
+          "height": 36,
+          "label": "컨텐츠 관리",
+          "tag": "H1",
+          "width": 976,
+          "x": 272,
+          "y": 80
+        }
+      ],
+      "layout": {
+        "header": {
+          "height": 56,
+          "width": 1040,
+          "x": 240,
+          "y": 0
+        },
+        "main": {
+          "height": 844,
+          "width": 1040,
+          "x": 240,
+          "y": 56
+        },
+        "scrollWidth": 1280,
+        "sidebar": {
+          "height": 900,
+          "width": 240,
+          "x": 0,
+          "y": 0
+        },
+        "viewport": 1280
+      },
+      "loginCard": null,
+      "loginColumns": [],
+      "readingColumns": [],
+      "regions": [
+        {
+          "height": 204,
+          "tag": "TABLE",
+          "width": 974,
+          "x": 273,
+          "y": 169
+        }
+      ],
+      "tableHeaders": [
+        "제목",
+        "설명"
+      ]
+    }
+  },
+  {
+    "file": "base/chapter-detail-normal-1280.png",
+    "key": "chapter-detail-normal",
+    "route": "/chapters/1",
+    "viewport": {
+      "width": 1280,
+      "height": 900
+    },
+    "condition": "existing MSW fixture; Ravvit D8 contract mock",
+    "evidence": {
+      "activeAnimations": 0,
+      "body": "자료구조 기초\n\n배열, 리스트, 스택, 큐, 트리, 그래프 등 기본 자료구조\n\n편집\n풀이 현황\n유닛명\t참여 인원\t진행률\n\n배열 (Array)\n\t2,300\t\n79%\n\n\n연결 리스트\n\t1,820\t\n64%\n\n\n스택과 큐\n\t1,540\t\n58%\n유닛 (총 4개)\n제목\t설명\n\n배열\n\t\n배열의 개념과 활용\n\n\n연결 리스트\n\t\n노드 기반 선형 자료구조\n\n\n스택과 큐\n\t\nLIFO/FIFO 자료구조\n\n\n트리\n\t\n계층적 자료구조",
+      "composer": null,
+      "contentPadding": {
+        "bottom": "0px",
+        "left": "0px",
+        "right": "0px",
+        "top": "0px"
+      },
+      "headings": [
+        {
+          "height": 36,
+          "label": "자료구조 기초",
+          "tag": "H1",
+          "width": 288.046875,
+          "x": 272,
+          "y": 80
+        },
+        {
+          "height": 24,
+          "label": "풀이 현황",
+          "tag": "H3",
+          "width": 976,
+          "x": 272,
+          "y": 166
+        },
+        {
+          "height": 24,
+          "label": "유닛 (총 4개)",
+          "tag": "H3",
+          "width": 976,
+          "x": 272,
+          "y": 436
+        }
+      ],
+      "layout": {
+        "header": {
+          "height": 56,
+          "width": 1040,
+          "x": 240,
+          "y": 0
+        },
+        "main": {
+          "height": 844,
+          "width": 1040,
+          "x": 240,
+          "y": 56
+        },
+        "scrollWidth": 1280,
+        "sidebar": {
+          "height": 900,
+          "width": 240,
+          "x": 0,
+          "y": 0
+        },
+        "viewport": 1280
+      },
+      "loginCard": null,
+      "loginColumns": [],
+      "readingColumns": [],
+      "regions": [
+        {
+          "height": 246,
+          "tag": "SECTION",
+          "width": 976,
+          "x": 272,
+          "y": 166
+        },
+        {
+          "height": 204,
+          "tag": "TABLE",
+          "width": 974,
+          "x": 273,
+          "y": 207
+        },
+        {
+          "height": 298,
+          "tag": "SECTION",
+          "width": 976,
+          "x": 272,
+          "y": 436
+        },
+        {
+          "height": 256,
+          "tag": "TABLE",
+          "width": 974,
+          "x": 273,
+          "y": 477
+        }
+      ],
+      "tableHeaders": [
+        "유닛명",
+        "참여 인원",
+        "진행률",
+        "제목",
+        "설명"
+      ]
+    }
+  },
+  {
+    "file": "base/unit-detail-normal-1280.png",
+    "key": "unit-detail-normal",
+    "route": "/units/12",
+    "viewport": {
+      "width": 1280,
+      "height": 900
+    },
+    "condition": "existing MSW fixture; Ravvit D8 contract mock",
+    "evidence": {
+      "activeAnimations": 0,
+      "body": "배열 (Array)\n\n배열의 기본 개념과 시간 복잡도\n\n편집\n레슨 (총 2개)\n제목\n배열이란 무엇인가\n배열의 시간 복잡도",
+      "composer": null,
+      "contentPadding": {
+        "bottom": "0px",
+        "left": "0px",
+        "right": "0px",
+        "top": "0px"
+      },
+      "headings": [
+        {
+          "height": 36,
+          "label": "배열 (Array)",
+          "tag": "H1",
+          "width": 171.359375,
+          "x": 272,
+          "y": 80
+        },
+        {
+          "height": 24,
+          "label": "레슨 (총 2개)",
+          "tag": "H3",
+          "width": 976,
+          "x": 272,
+          "y": 166
+        }
+      ],
+      "layout": {
+        "header": {
+          "height": 56,
+          "width": 1040,
+          "x": 240,
+          "y": 0
+        },
+        "main": {
+          "height": 844,
+          "width": 1040,
+          "x": 240,
+          "y": 56
+        },
+        "scrollWidth": 1280,
+        "sidebar": {
+          "height": 900,
+          "width": 240,
+          "x": 0,
+          "y": 0
+        },
+        "viewport": 1280
+      },
+      "loginCard": null,
+      "loginColumns": [],
+      "readingColumns": [],
+      "regions": [
+        {
+          "height": 194,
+          "tag": "SECTION",
+          "width": 976,
+          "x": 272,
+          "y": 166
+        },
+        {
+          "height": 152,
+          "tag": "TABLE",
+          "width": 974,
+          "x": 273,
+          "y": 207
+        }
+      ],
+      "tableHeaders": [
+        "제목"
+      ]
+    }
+  },
+  {
+    "file": "base/lesson-detail-normal-1280.png",
+    "key": "lesson-detail-normal",
+    "route": "/lessons/901",
+    "viewport": {
+      "width": 1280,
+      "height": 900
+    },
+    "condition": "existing MSW fixture; Ravvit D8 contract mock",
+    "evidence": {
+      "activeAnimations": 0,
+      "body": "배열의 시간 복잡도\n편집\n문제 (총 3개)\nID\t유형\t지시문\nP-1001\t객관식\t\n다음 중 배열의 임의 접근(random access) 시간 복잡도는?\n\nP-1002\t객관식\t\n정렬된 배열에서 특정 값을 탐색할 때 가장 효율적인 알고리즘의 시간 복잡도는?\n\nP-1003\t주관식\t\n배열에서 임의 위치에 요소를 삽입할 때의 시간 복잡도를 빅오 표기법으로 쓰시오.",
+      "composer": null,
+      "contentPadding": {
+        "bottom": "0px",
+        "left": "0px",
+        "right": "0px",
+        "top": "0px"
+      },
+      "headings": [
+        {
+          "height": 36,
+          "label": "배열의 시간 복잡도",
+          "tag": "H1",
+          "width": 191.75,
+          "x": 272,
+          "y": 80
+        },
+        {
+          "height": 24,
+          "label": "문제 (총 3개)",
+          "tag": "H3",
+          "width": 976,
+          "x": 272,
+          "y": 144
+        }
+      ],
+      "layout": {
+        "header": {
+          "height": 56,
+          "width": 1040,
+          "x": 240,
+          "y": 0
+        },
+        "main": {
+          "height": 844,
+          "width": 1040,
+          "x": 240,
+          "y": 56
+        },
+        "scrollWidth": 1280,
+        "sidebar": {
+          "height": 900,
+          "width": 240,
+          "x": 0,
+          "y": 0
+        },
+        "viewport": 1280
+      },
+      "loginCard": null,
+      "loginColumns": [],
+      "readingColumns": [],
+      "regions": [
+        {
+          "height": 246,
+          "tag": "SECTION",
+          "width": 976,
+          "x": 272,
+          "y": 144
+        },
+        {
+          "height": 204,
+          "tag": "TABLE",
+          "width": 974,
+          "x": 273,
+          "y": 185
+        }
+      ],
+      "tableHeaders": [
+        "ID",
+        "유형",
+        "지시문"
+      ]
+    }
+  },
+  {
+    "file": "base/problem-objective-normal-1280.png",
+    "key": "problem-objective-normal",
+    "route": "/problems/1001",
+    "viewport": {
+      "width": 1280,
+      "height": 900
+    },
+    "condition": "existing MSW fixture; Ravvit D8 contract mock",
+    "evidence": {
+      "activeAnimations": 0,
+      "body": "객관식\nP-1001\n편집\n문제\n지시문\n다음 중 배열의 임의 접근(random access) 시간 복잡도는?\n본문\n\n배열은 인덱스를 통해 임의의 원소에 직접 접근할 수 있다.\n\n보기 (4개 고정)\n① O(1)\n정답\n\n해설: 인덱스 계산으로 바로 접근 가능\n\n② O(log n)\n\n해설: 이진 탐색의 복잡도\n\n③ O(n)\n\n해설: 선형 탐색의 복잡도\n\n④ O(n²)\n\n해설: 이중 반복의 복잡도",
+      "composer": null,
+      "contentPadding": {
+        "bottom": "0px",
+        "left": "0px",
+        "right": "0px",
+        "top": "0px"
+      },
+      "headings": [
+        {
+          "height": 36,
+          "label": "P-1001",
+          "tag": "H1",
+          "width": 86.109375,
+          "x": 336.3125,
+          "y": 80
+        },
+        {
+          "height": 24,
+          "label": "문제",
+          "tag": "H3",
+          "width": 926,
+          "x": 297,
+          "y": 169
+        },
+        {
+          "height": 24,
+          "label": "보기 (4개 고정)",
+          "tag": "H3",
+          "width": 926,
+          "x": 297,
+          "y": 343
+        }
+      ],
+      "layout": {
+        "header": {
+          "height": 56,
+          "width": 1040,
+          "x": 240,
+          "y": 0
+        },
+        "main": {
+          "height": 844,
+          "width": 1040,
+          "x": 240,
+          "y": 56
+        },
+        "scrollWidth": 1280,
+        "sidebar": {
+          "height": 900,
+          "width": 240,
+          "x": 0,
+          "y": 0
+        },
+        "viewport": 1280
+      },
+      "loginCard": null,
+      "loginColumns": [],
+      "readingColumns": [],
+      "regions": [
+        {
+          "height": 150,
+          "tag": "SECTION",
+          "width": 976,
+          "x": 272,
+          "y": 144
+        },
+        {
+          "height": 330,
+          "tag": "SECTION",
+          "width": 976,
+          "x": 272,
+          "y": 318
+        }
+      ],
+      "tableHeaders": []
+    }
+  },
+  {
+    "file": "full/problem-objective-normal-1280-full.png",
+    "key": "problem-objective-normal",
+    "route": "/problems/1001",
+    "viewport": {
+      "width": 1280,
+      "height": 900
+    },
+    "full": true
+  },
+  {
+    "file": "base/staging-normal-1280.png",
+    "key": "staging-normal",
+    "route": "/staging/labels",
+    "viewport": {
+      "width": 1280,
+      "height": 900
+    },
+    "condition": "existing MSW fixture; Ravvit D8 contract mock",
+    "evidence": {
+      "activeAnimations": 0,
+      "body": "스테이징\n\n자동 생성한 컨텐츠를 검수하고 운영에 반영해요.\n\n상태\n검수 대기\n라벨\t유닛\t설명\t상태\t생성일\n2026-04-25-a3f9\tU-12\t\n배열 챕터 5번째 사이클\n\t검수 대기\t2026-04-25\n2026-04-24-b7c2\tU-13\t\n연결리스트 사이클\n\t검수 대기\t2026-04-24",
+      "composer": null,
+      "contentPadding": {
+        "bottom": "0px",
+        "left": "0px",
+        "right": "0px",
+        "top": "0px"
+      },
+      "headings": [
+        {
+          "height": 36,
+          "label": "스테이징",
+          "tag": "H1",
+          "width": 976,
+          "x": 272,
+          "y": 80
+        }
+      ],
+      "layout": {
+        "header": {
+          "height": 56,
+          "width": 1040,
+          "x": 240,
+          "y": 0
+        },
+        "main": {
+          "height": 844,
+          "width": 1040,
+          "x": 240,
+          "y": 56
+        },
+        "scrollWidth": 1280,
+        "sidebar": {
+          "height": 900,
+          "width": 240,
+          "x": 0,
+          "y": 0
+        },
+        "viewport": 1280
+      },
+      "loginCard": null,
+      "loginColumns": [],
+      "readingColumns": [],
+      "regions": [
+        {
+          "height": 152,
+          "tag": "TABLE",
+          "width": 974,
+          "x": 273,
+          "y": 231
+        }
+      ],
+      "tableHeaders": [
+        "라벨",
+        "유닛",
+        "설명",
+        "상태",
+        "생성일"
+      ]
+    }
+  },
+  {
+    "file": "base/staging-detail-normal-1280.png",
+    "key": "staging-detail-normal",
+    "route": "/staging/labels/2026-04-25-a3f9",
+    "viewport": {
+      "width": 1280,
+      "height": 900
+    },
+    "condition": "existing MSW fixture; Ravvit D8 contract mock",
+    "evidence": {
+      "activeAnimations": 0,
+      "body": "검수 대기\n2026-04-25-a3f9\n반영 완료 처리\n\nU-12 · 배열 챕터 5번째 사이클 · 생성일 2026-04-25\n\n레슨\n문제 1\n객관식\n문제 2\n객관식\n문제 3\n주관식\n문제 4\n객관식\n문제 5\n주관식\n문제 6\n객관식\n레슨\n\nID: 901\n\n제목 *\n저장하기",
+      "composer": {
+        "height": 0,
+        "width": 0,
+        "x": 0,
+        "y": 0
+      },
+      "contentPadding": {
+        "bottom": "0px",
+        "left": "0px",
+        "right": "0px",
+        "top": "0px"
+      },
+      "headings": [
+        {
+          "height": 36,
+          "label": "2026-04-25-a3f9",
+          "tag": "H1",
+          "width": 234.8125,
+          "x": 351.828125,
+          "y": 80
+        },
+        {
+          "height": 24,
+          "label": "레슨",
+          "tag": "H3",
+          "width": 638,
+          "x": 585,
+          "y": 195
+        }
+      ],
+      "layout": {
+        "header": {
+          "height": 56,
+          "width": 1040,
+          "x": 240,
+          "y": 0
+        },
+        "main": {
+          "height": 844,
+          "width": 1040,
+          "x": 240,
+          "y": 56
+        },
+        "scrollWidth": 1280,
+        "sidebar": {
+          "height": 900,
+          "width": 240,
+          "x": 0,
+          "y": 0
+        },
+        "viewport": 1280
+      },
+      "loginCard": null,
+      "loginColumns": [],
+      "readingColumns": [],
+      "regions": [],
+      "tableHeaders": []
+    }
+  },
+  {
+    "file": "full/staging-detail-normal-1280-full.png",
+    "key": "staging-detail-normal",
+    "route": "/staging/labels/2026-04-25-a3f9",
+    "viewport": {
+      "width": 1280,
+      "height": 900
+    },
+    "full": true
+  },
+  {
+    "file": "base/inquiries-normal-1280.png",
+    "key": "inquiries-normal",
+    "route": "/inquiries",
+    "viewport": {
+      "width": 1280,
+      "height": 900
+    },
+    "condition": "existing MSW fixture; Ravvit D8 contract mock",
+    "evidence": {
+      "activeAnimations": 0,
+      "body": "문의 관리\n대기\nID\t유형\t제목\t작성자\t상태\t작성일\n#5004\t버그 신고\t\n앱이 자꾸 튕겨요\n\t이버그\t대기\t2026-06-18 20:30\n#5003\t기능 제안\t\n다크 모드도 만들어주세요\n\t(탈퇴한 사용자)\t대기\t2026-06-17 11:05\n#5001\t기타\t\n결제했는데 코인이 안 들어와요\n\t홍길동\t대기\t2026-06-15 09:12",
+      "composer": null,
+      "contentPadding": {
+        "bottom": "0px",
+        "left": "0px",
+        "right": "0px",
+        "top": "0px"
+      },
+      "headings": [
+        {
+          "height": 36,
+          "label": "문의 관리",
+          "tag": "H1",
+          "width": 976,
+          "x": 272,
+          "y": 80
+        }
+      ],
+      "layout": {
+        "header": {
+          "height": 56,
+          "width": 1040,
+          "x": 240,
+          "y": 0
+        },
+        "main": {
+          "height": 844,
+          "width": 1040,
+          "x": 240,
+          "y": 56
+        },
+        "scrollWidth": 1280,
+        "sidebar": {
+          "height": 900,
+          "width": 240,
+          "x": 0,
+          "y": 0
+        },
+        "viewport": 1280
+      },
+      "loginCard": null,
+      "loginColumns": [],
+      "readingColumns": [],
+      "regions": [
+        {
+          "height": 204,
+          "tag": "TABLE",
+          "width": 974,
+          "x": 273,
+          "y": 233
+        }
+      ],
+      "tableHeaders": [
+        "ID",
+        "유형",
+        "제목",
+        "작성자",
+        "상태",
+        "작성일"
+      ]
+    }
+  },
+  {
+    "file": "base/inquiry-detail-normal-1280.png",
+    "key": "inquiry-detail-normal",
+    "route": "/inquiries/5001",
+    "viewport": {
+      "width": 1280,
+      "height": 900
+    },
+    "condition": "existing MSW fixture; Ravvit D8 contract mock",
+    "evidence": {
+      "activeAnimations": 0,
+      "body": "기타\n결제했는데 코인이 안 들어와요\n대기\n문의 정보\n작성자\n홍길동\n이메일\ngildong@example.com\n작성일\n2026-06-15 09:12\n문의 내용\n안녕하세요. 어제 10,000원 결제를 완료했는데 코인이 충전되지 않았습니다.\n주문번호는 ORD-20260615-0012 입니다. 확인 부탁드립니다.\n답변\n답변 등록하기",
+      "composer": {
+        "height": 150,
+        "width": 926,
+        "x": 297,
+        "y": 575
+      },
+      "contentPadding": {
+        "bottom": "0px",
+        "left": "0px",
+        "right": "0px",
+        "top": "0px"
+      },
+      "headings": [
+        {
+          "height": 36,
+          "label": "결제했는데 코인이 안 들어와요",
+          "tag": "H1",
+          "width": 310.109375,
+          "x": 324.203125,
+          "y": 80
+        },
+        {
+          "height": 24,
+          "label": "문의 정보",
+          "tag": "H3",
+          "width": 926,
+          "x": 297,
+          "y": 165
+        },
+        {
+          "height": 24,
+          "label": "문의 내용",
+          "tag": "H3",
+          "width": 926,
+          "x": 297,
+          "y": 377
+        },
+        {
+          "height": 24,
+          "label": "답변",
+          "tag": "H3",
+          "width": 27.65625,
+          "x": 297,
+          "y": 535
+        }
+      ],
+      "layout": {
+        "header": {
+          "height": 56,
+          "width": 1040,
+          "x": 240,
+          "y": 0
+        },
+        "main": {
+          "height": 844,
+          "width": 1040,
+          "x": 240,
+          "y": 56
+        },
+        "scrollWidth": 1280,
+        "sidebar": {
+          "height": 900,
+          "width": 240,
+          "x": 0,
+          "y": 0
+        },
+        "viewport": 1280
+      },
+      "loginCard": null,
+      "loginColumns": [],
+      "readingColumns": [],
+      "regions": [
+        {
+          "height": 206,
+          "tag": "FORM",
+          "width": 926,
+          "x": 297,
+          "y": 575
+        }
+      ],
+      "tableHeaders": []
+    }
+  },
+  {
+    "file": "base/ravvit-normal-1280.png",
+    "key": "ravvit-normal",
+    "route": "/ravvit",
+    "viewport": {
+      "width": 1280,
+      "height": 900
+    },
+    "condition": "existing MSW fixture; Ravvit D8 contract mock",
+    "evidence": {
+      "activeAnimations": 0,
+      "body": "어떤 게 궁금하신가요?\n\n이번 스프린트 진행 중인 작업 알려줘\n마감이 다가오는 작업 알려줘\n저번 주 회의록 요약해줘",
+      "composer": {
+        "height": 34,
+        "width": 714,
+        "x": 383,
+        "y": 835
+      },
+      "contentPadding": {
+        "bottom": "0px",
+        "left": "0px",
+        "right": "0px",
+        "top": "0px"
+      },
+      "headings": [],
+      "layout": {
+        "header": {
+          "height": 56,
+          "width": 1040,
+          "x": 240,
+          "y": 0
+        },
+        "main": {
+          "height": 844,
+          "width": 1040,
+          "x": 240,
+          "y": 56
+        },
+        "scrollWidth": 1280,
+        "sidebar": {
+          "height": 900,
+          "width": 240,
+          "x": 0,
+          "y": 0
+        },
+        "viewport": 1280
+      },
+      "loginCard": null,
+      "loginColumns": [],
+      "readingColumns": [
+        {
+          "height": 0,
+          "width": 768,
+          "x": 376,
+          "y": 124
+        },
+        {
+          "height": 688,
+          "width": 768,
+          "x": 376,
+          "y": 124
+        },
+        {
+          "height": 64,
+          "width": 768,
+          "x": 376,
+          "y": 812
+        }
+      ],
+      "regions": [],
+      "tableHeaders": []
+    }
+  },
+  {
+    "file": "base/qa-sprints-normal-1280.png",
+    "key": "qa-sprints-normal",
+    "route": "/qa/sprints",
+    "viewport": {
+      "width": 1280,
+      "height": 900
+    },
+    "condition": "existing MSW fixture; Ravvit D8 contract mock",
+    "evidence": {
+      "activeAnimations": 0,
+      "body": "QA\nQA 매뉴얼\n스프린트 목록\n스프린트 등록\n스프린트\t약식 설명\t현재 상태\n9th Agile\t모든 검수 완료\t2차 수동 검수\n8th Agile\t저장소 연결 실패\t기능 명세서 로드\n7th Agile\t-\t준비 전\n6th Agile\t기능 명세 변경 반영 승인\t기능 명세서 로드\n5th Agile\tQA 흐름 예시\t체크리스트 생성\n4th Agile\tQA 흐름 예시\t디자인 검수\n3th Agile\tQA 흐름 예시\t1차 자동화 검수\n2th Agile\t로그인·공통 화면 수동 검",
+      "composer": null,
+      "contentPadding": {
+        "bottom": "0px",
+        "left": "0px",
+        "right": "0px",
+        "top": "0px"
+      },
+      "headings": [
+        {
+          "height": 36,
+          "label": "QA",
+          "tag": "H1",
+          "width": 37.25,
+          "x": 272,
+          "y": 80
+        },
+        {
+          "height": 24,
+          "label": "스프린트 목록",
+          "tag": "H2",
+          "width": 86.765625,
+          "x": 297,
+          "y": 193
+        }
+      ],
+      "layout": {
+        "header": {
+          "height": 56,
+          "width": 1040,
+          "x": 240,
+          "y": 0
+        },
+        "main": {
+          "height": 844,
+          "width": 1040,
+          "x": 240,
+          "y": 56
+        },
+        "scrollWidth": 1280,
+        "sidebar": {
+          "height": 900,
+          "width": 240,
+          "x": 0,
+          "y": 0
+        },
+        "viewport": 1280
+      },
+      "loginCard": null,
+      "loginColumns": [],
+      "readingColumns": [],
+      "regions": [
+        {
+          "height": 591,
+          "tag": "SECTION",
+          "width": 976,
+          "x": 272,
+          "y": 168
+        },
+        {
+          "height": 516,
+          "tag": "TABLE",
+          "width": 974,
+          "x": 273,
+          "y": 242
+        }
+      ],
+      "tableHeaders": [
+        "스프린트",
+        "약식 설명",
+        "현재 상태"
+      ]
+    }
+  },
+  {
+    "file": "base/qa-setup-normal-1280.png",
+    "key": "qa-setup-normal",
+    "route": "/qa/sprints/9/setup",
+    "viewport": {
+      "width": 1280,
+      "height": 900
+    },
+    "condition": "existing MSW fixture; Ravvit D8 contract mock",
+    "evidence": {
+      "activeAnimations": 0,
+      "body": "9th Agile\n\n모든 검수 완료\n\nQA 종료\n기능 명세서 로드\n체크리스트 생성\n디자인 검수\n1차 자동화 검수\n5\n2차 수동 검수\n6\n종료\n연결 현황\n디자인 검수\n1차 체크리스트\n2차 체크리스트\n파트별 수정사항\n연결 상태\nNotion\nFigma\nServer\nqa-baseline@abc1234\nWeb\nqa-baseline@abc1234\nAPP\nqa-baseline@abc1234\n준비 작업\n연결\n시도 1회\n명세 수집\n시도 1회\n\nAPI 명세 일부가 없어 해당 항목",
+      "composer": null,
+      "contentPadding": {
+        "bottom": "0px",
+        "left": "0px",
+        "right": "0px",
+        "top": "0px"
+      },
+      "headings": [
+        {
+          "height": 36,
+          "label": "9th Agile",
+          "tag": "H1",
+          "width": 110.359375,
+          "x": 272,
+          "y": 80
+        },
+        {
+          "height": 24,
+          "label": "연결 상태",
+          "tag": "H2",
+          "width": 926,
+          "x": 297,
+          "y": 295
+        },
+        {
+          "height": 24,
+          "label": "준비 작업",
+          "tag": "H2",
+          "width": 59.109375,
+          "x": 297,
+          "y": 693
+        },
+        {
+          "height": 24,
+          "label": "반영 승인",
+          "tag": "H2",
+          "width": 59.109375,
+          "x": 297,
+          "y": 1133
+        }
+      ],
+      "layout": {
+        "header": {
+          "height": 56,
+          "width": 1040,
+          "x": 240,
+          "y": 0
+        },
+        "main": {
+          "height": 1308,
+          "width": 1040,
+          "x": 240,
+          "y": 56
+        },
+        "scrollWidth": 1280,
+        "sidebar": {
+          "height": 900,
+          "width": 240,
+          "x": 0,
+          "y": 0
+        },
+        "viewport": 1280
+      },
+      "loginCard": null,
+      "loginColumns": [],
+      "readingColumns": [],
+      "regions": [
+        {
+          "height": 374,
+          "tag": "SECTION",
+          "width": 976,
+          "x": 272,
+          "y": 270
+        },
+        {
+          "height": 416,
+          "tag": "SECTION",
+          "width": 976,
+          "x": 272,
+          "y": 668
+        },
+        {
+          "height": 208,
+          "tag": "SECTION",
+          "width": 976,
+          "x": 272,
+          "y": 1108
+        }
+      ],
+      "tableHeaders": []
+    }
+  },
+  {
+    "file": "base/qa-design-normal-1280.png",
+    "key": "qa-design-normal",
+    "route": "/qa/sprints/9/design-review",
+    "viewport": {
+      "width": 1280,
+      "height": 900
+    },
+    "condition": "existing MSW fixture; Ravvit D8 contract mock",
+    "evidence": {
+      "activeAnimations": 0,
+      "body": "9th Agile\n\n모든 검수 완료\n\nQA 종료\n기능 명세서 로드\n체크리스트 생성\n디자인 검수\n1차 자동화 검수\n5\n2차 수동 검수\n6\n종료\n연결 현황\n디자인 검수\n1차 체크리스트\n2차 체크리스트\n파트별 수정사항\nDesign\n100%\n\n5 / 5\n\nWeb\n100%\n\n12 / 12\n\nAPP\n100%\n\n12 / 12\n\nServer\n100%\n\n8 / 8\n\n다음 미검수로 이동\nACC-01\n로그인\n변경\n100% 완료\n항목\tWeb\tAPP\t\n항목 관리\n\n\n주요 버튼 배치\n\n",
+      "composer": null,
+      "contentPadding": {
+        "bottom": "0px",
+        "left": "0px",
+        "right": "0px",
+        "top": "0px"
+      },
+      "headings": [
+        {
+          "height": 36,
+          "label": "9th Agile",
+          "tag": "H1",
+          "width": 110.359375,
+          "x": 272,
+          "y": 80
+        },
+        {
+          "height": 22,
+          "label": "Design",
+          "tag": "H2",
+          "width": 198,
+          "x": 289,
+          "y": 283
+        },
+        {
+          "height": 22,
+          "label": "Web",
+          "tag": "H2",
+          "width": 198,
+          "x": 537,
+          "y": 283
+        },
+        {
+          "height": 22,
+          "label": "APP",
+          "tag": "H2",
+          "width": 198,
+          "x": 785,
+          "y": 283
+        },
+        {
+          "height": 22,
+          "label": "Server",
+          "tag": "H2",
+          "width": 198,
+          "x": 1033,
+          "y": 283
+        },
+        {
+          "height": 22,
+          "label": "주요 버튼 배치",
+          "tag": "H3",
+          "width": 590,
+          "x": 289,
+          "y": 644.5
+        },
+        {
+          "height": 22,
+          "label": "입력란과 안내 문구",
+          "tag": "H3",
+          "width": 590,
+          "x": 289,
+          "y": 717.5
+        },
+        {
+          "height": 22,
+          "label": "오류 화면 구성",
+          "tag": "H3",
+          "width": 590,
+          "x": 289,
+          "y": 790.5
+        },
+        {
+          "height": 22,
+          "label": "주요 버튼 배치",
+          "tag": "H3",
+          "width": 590,
+          "x": 289,
+          "y": 976
+        },
+        {
+          "height": 22,
+          "label": "입력란과 안내 문구",
+          "tag": "H3",
+          "width": 590,
+          "x": 289,
+          "y": 1049
+        },
+        {
+          "height": 22,
+          "label": "AOS 시안 프레임이 없다",
+          "tag": "H3",
+          "width": 590,
+          "x": 289,
+          "y": 1122
+        }
+      ],
+      "layout": {
+        "header": {
+          "height": 56,
+          "width": 1040,
+          "x": 240,
+          "y": 0
+        },
+        "main": {
+          "height": 1197,
+          "width": 1040,
+          "x": 240,
+          "y": 56
+        },
+        "scrollWidth": 1280,
+        "sidebar": {
+          "height": 900,
+          "width": 240,
+          "x": 0,
+          "y": 0
+        },
+        "viewport": 1280
+      },
+      "loginCard": null,
+      "loginColumns": [],
+      "readingColumns": [],
+      "regions": [
+        {
+          "height": 178,
+          "tag": "SECTION",
+          "width": 232,
+          "x": 272,
+          "y": 270
+        },
+        {
+          "height": 178,
+          "tag": "SECTION",
+          "width": 232,
+          "x": 520,
+          "y": 270
+        },
+        {
+          "height": 178,
+          "tag": "SECTION",
+          "width": 232,
+          "x": 768,
+          "y": 270
+        },
+        {
+          "height": 178,
+          "tag": "SECTION",
+          "width": 232,
+          "x": 1016,
+          "y": 270
+        },
+        {
+          "height": 315.5,
+          "tag": "SECTION",
+          "width": 976,
+          "x": 272,
+          "y": 536
+        },
+        {
+          "height": 266.5,
+          "tag": "TABLE",
+          "width": 974,
+          "x": 273,
+          "y": 584
+        },
+        {
+          "height": 337.5,
+          "tag": "SECTION",
+          "width": 976,
+          "x": 272,
+          "y": 867.5
+        },
+        {
+          "height": 288.5,
+          "tag": "TABLE",
+          "width": 974,
+          "x": 273,
+          "y": 915.5
+        }
+      ],
+      "tableHeaders": [
+        "항목",
+        "Web",
+        "APP",
+        "항목 관리",
+        "항목",
+        "Web",
+        "APP",
+        "항목 관리"
+      ]
+    }
+  },
+  {
+    "file": "base/qa-first-normal-1280.png",
+    "key": "qa-first-normal",
+    "route": "/qa/sprints/2/checklist/1",
+    "viewport": {
+      "width": 1280,
+      "height": 900
+    },
+    "condition": "existing MSW fixture; Ravvit D8 contract mock",
+    "evidence": {
+      "activeAnimations": 0,
+      "body": "2th Agile\n\n로그인·공통 화면 수동 검수\n\nQA 종료\n디자인 검수와 1·2차 체크리스트의 모든 미검수를 처리하면 종료할 수 있어요.\n기능 명세서 로드\n체크리스트 생성\n디자인 검수\n1차 자동화 검수\n5\n2차 수동 검수\n6\n종료\n연결 현황\n디자인 검수\n1차 체크리스트\n2차 체크리스트\n파트별 수정사항\nDesign\n33%\n\n2 / 6\n\nWeb\n67%\n\n8 / 12\n\nAPP\n33%\n\n4 / 12\n\nServer\n50%\n\n4 / 8\n\n전체 파트\n다음 미검수로 이동\nA",
+      "composer": null,
+      "contentPadding": {
+        "bottom": "0px",
+        "left": "0px",
+        "right": "0px",
+        "top": "0px"
+      },
+      "headings": [
+        {
+          "height": 36,
+          "label": "2th Agile",
+          "tag": "H1",
+          "width": 147.203125,
+          "x": 272,
+          "y": 80
+        },
+        {
+          "height": 22,
+          "label": "Design",
+          "tag": "H2",
+          "width": 198,
+          "x": 289,
+          "y": 283
+        },
+        {
+          "height": 22,
+          "label": "Web",
+          "tag": "H2",
+          "width": 198,
+          "x": 537,
+          "y": 283
+        },
+        {
+          "height": 22,
+          "label": "APP",
+          "tag": "H2",
+          "width": 198,
+          "x": 785,
+          "y": 283
+        },
+        {
+          "height": 22,
+          "label": "Server",
+          "tag": "H2",
+          "width": 198,
+          "x": 1033,
+          "y": 283
+        },
+        {
+          "height": 22,
+          "label": "로그인 버튼 동작",
+          "tag": "H3",
+          "width": 91.34375,
+          "x": 289,
+          "y": 653.5
+        },
+        {
+          "height": 22,
+          "label": "필수 입력 안내",
+          "tag": "H3",
+          "width": 79.25,
+          "x": 289,
+          "y": 726.5
+        },
+        {
+          "height": 22,
+          "label": "실패 후 재시도",
+          "tag": "H3",
+          "width": 79.25,
+          "x": 289,
+          "y": 799.5
+        },
+        {
+          "height": 22,
+          "label": "로그인 버튼 동작",
+          "tag": "H3",
+          "width": 91.34375,
+          "x": 289,
+          "y": 985
+        },
+        {
+          "height": 22,
+          "label": "필수 입력 안내",
+          "tag": "H3",
+          "width": 79.25,
+          "x": 289,
+          "y": 1058
+        },
+        {
+          "height": 22,
+          "label": "실패 후 재시도",
+          "tag": "H3",
+          "width": 79.25,
+          "x": 289,
+          "y": 1131
+        }
+      ],
+      "layout": {
+        "header": {
+          "height": 56,
+          "width": 1040,
+          "x": 240,
+          "y": 0
+        },
+        "main": {
+          "height": 1184,
+          "width": 1040,
+          "x": 240,
+          "y": 56
+        },
+        "scrollWidth": 1280,
+        "sidebar": {
+          "height": 900,
+          "width": 240,
+          "x": 0,
+          "y": 0
+        },
+        "viewport": 1280
+      },
+      "loginCard": null,
+      "loginColumns": [],
+      "readingColumns": [],
+      "regions": [
+        {
+          "height": 178,
+          "tag": "SECTION",
+          "width": 232,
+          "x": 272,
+          "y": 270
+        },
+        {
+          "height": 178,
+          "tag": "SECTION",
+          "width": 232,
+          "x": 520,
+          "y": 270
+        },
+        {
+          "height": 178,
+          "tag": "SECTION",
+          "width": 232,
+          "x": 768,
+          "y": 270
+        },
+        {
+          "height": 178,
+          "tag": "SECTION",
+          "width": 232,
+          "x": 1016,
+          "y": 270
+        },
+        {
+          "height": 315.5,
+          "tag": "SECTION",
+          "width": 976,
+          "x": 272,
+          "y": 545
+        },
+        {
+          "height": 266.5,
+          "tag": "TABLE",
+          "width": 974,
+          "x": 273,
+          "y": 593
+        },
+        {
+          "height": 315.5,
+          "tag": "SECTION",
+          "width": 976,
+          "x": 272,
+          "y": 876.5
+        },
+        {
+          "height": 266.5,
+          "tag": "TABLE",
+          "width": 974,
+          "x": 273,
+          "y": 924.5
+        }
+      ],
+      "tableHeaders": [
+        "항목",
+        "Web",
+        "APP",
+        "Server",
+        "항목 관리",
+        "항목",
+        "Web",
+        "APP",
+        "Server",
+        "항목 관리"
+      ]
+    }
+  },
+  {
+    "file": "full/qa-first-normal-1280-full.png",
+    "key": "qa-first-normal",
+    "route": "/qa/sprints/2/checklist/1",
+    "viewport": {
+      "width": 1280,
+      "height": 900
+    },
+    "full": true
+  },
+  {
+    "file": "base/qa-second-normal-1280.png",
+    "key": "qa-second-normal",
+    "route": "/qa/sprints/2/checklist/2",
+    "viewport": {
+      "width": 1280,
+      "height": 900
+    },
+    "condition": "existing MSW fixture; Ravvit D8 contract mock",
+    "evidence": {
+      "activeAnimations": 0,
+      "body": "2th Agile\n\n로그인·공통 화면 수동 검수\n\nQA 종료\n디자인 검수와 1·2차 체크리스트의 모든 미검수를 처리하면 종료할 수 있어요.\n기능 명세서 로드\n체크리스트 생성\n디자인 검수\n1차 자동화 검수\n5\n2차 수동 검수\n6\n종료\n연결 현황\n디자인 검수\n1차 체크리스트\n2차 체크리스트\n파트별 수정사항\nDesign\n33%\n\n2 / 6\n\nWeb\n67%\n\n8 / 12\n\nAPP\n33%\n\n4 / 12\n\nServer\n50%\n\n4 / 8\n\n전체 파트\n다음 미검수로 이동\nA",
+      "composer": null,
+      "contentPadding": {
+        "bottom": "0px",
+        "left": "0px",
+        "right": "0px",
+        "top": "0px"
+      },
+      "headings": [
+        {
+          "height": 36,
+          "label": "2th Agile",
+          "tag": "H1",
+          "width": 147.203125,
+          "x": 272,
+          "y": 80
+        },
+        {
+          "height": 22,
+          "label": "Design",
+          "tag": "H2",
+          "width": 198,
+          "x": 289,
+          "y": 283
+        },
+        {
+          "height": 22,
+          "label": "Web",
+          "tag": "H2",
+          "width": 198,
+          "x": 537,
+          "y": 283
+        },
+        {
+          "height": 22,
+          "label": "APP",
+          "tag": "H2",
+          "width": 198,
+          "x": 785,
+          "y": 283
+        },
+        {
+          "height": 22,
+          "label": "Server",
+          "tag": "H2",
+          "width": 198,
+          "x": 1033,
+          "y": 283
+        },
+        {
+          "height": 22,
+          "label": "로그인 버튼 동작",
+          "tag": "H3",
+          "width": 91.34375,
+          "x": 289,
+          "y": 663.5
+        },
+        {
+          "height": 22,
+          "label": "필수 입력 안내",
+          "tag": "H3",
+          "width": 79.25,
+          "x": 289,
+          "y": 736.5
+        },
+        {
+          "height": 22,
+          "label": "실패 후 재시도",
+          "tag": "H3",
+          "width": 79.25,
+          "x": 289,
+          "y": 809.5
+        },
+        {
+          "height": 22,
+          "label": "로그인 버튼 동작",
+          "tag": "H3",
+          "width": 91.34375,
+          "x": 289,
+          "y": 1005
+        },
+        {
+          "height": 22,
+          "label": "필수 입력 안내",
+          "tag": "H3",
+          "width": 79.25,
+          "x": 289,
+          "y": 1078
+        },
+        {
+          "height": 22,
+          "label": "실패 후 재시도",
+          "tag": "H3",
+          "width": 79.25,
+          "x": 289,
+          "y": 1151
+        }
+      ],
+      "layout": {
+        "header": {
+          "height": 56,
+          "width": 1040,
+          "x": 240,
+          "y": 0
+        },
+        "main": {
+          "height": 1204,
+          "width": 1040,
+          "x": 240,
+          "y": 56
+        },
+        "scrollWidth": 1280,
+        "sidebar": {
+          "height": 900,
+          "width": 240,
+          "x": 0,
+          "y": 0
+        },
+        "viewport": 1280
+      },
+      "loginCard": null,
+      "loginColumns": [],
+      "readingColumns": [],
+      "regions": [
+        {
+          "height": 178,
+          "tag": "SECTION",
+          "width": 232,
+          "x": 272,
+          "y": 270
+        },
+        {
+          "height": 178,
+          "tag": "SECTION",
+          "width": 232,
+          "x": 520,
+          "y": 270
+        },
+        {
+          "height": 178,
+          "tag": "SECTION",
+          "width": 232,
+          "x": 768,
+          "y": 270
+        },
+        {
+          "height": 178,
+          "tag": "SECTION",
+          "width": 232,
+          "x": 1016,
+          "y": 270
+        },
+        {
+          "height": 325.5,
+          "tag": "SECTION",
+          "width": 976,
+          "x": 272,
+          "y": 545
+        },
+        {
+          "height": 266.5,
+          "tag": "TABLE",
+          "width": 974,
+          "x": 273,
+          "y": 603
+        },
+        {
+          "height": 325.5,
+          "tag": "SECTION",
+          "width": 976,
+          "x": 272,
+          "y": 886.5
+        },
+        {
+          "height": 266.5,
+          "tag": "TABLE",
+          "width": 974,
+          "x": 273,
+          "y": 944.5
+        }
+      ],
+      "tableHeaders": [
+        "항목",
+        "Web",
+        "APP",
+        "Server",
+        "항목 관리",
+        "항목",
+        "Web",
+        "APP",
+        "Server",
+        "항목 관리"
+      ]
+    }
+  },
+  {
+    "file": "full/qa-second-normal-1280-full.png",
+    "key": "qa-second-normal",
+    "route": "/qa/sprints/2/checklist/2",
+    "viewport": {
+      "width": 1280,
+      "height": 900
+    },
+    "full": true
+  },
+  {
+    "file": "base/qa-fixes-normal-1280.png",
+    "key": "qa-fixes-normal",
+    "route": "/qa/sprints/9/fix-reports",
+    "viewport": {
+      "width": 1280,
+      "height": 900
+    },
+    "condition": "existing MSW fixture; Ravvit D8 contract mock",
+    "evidence": {
+      "activeAnimations": 0,
+      "body": "9th Agile\n\n모든 검수 완료\n\nQA 종료\n기능 명세서 로드\n체크리스트 생성\n디자인 검수\n1차 자동화 검수\n5\n2차 수동 검수\n6\n종료\n연결 현황\n디자인 검수\n1차 체크리스트\n2차 체크리스트\n파트별 수정사항\n디자인\n\nFail 0\n\n수정할 항목이 없어요\n\n내려받기\n웹\n\nFail 0\n\n수정할 항목이 없어요\n\n내려받기\n앱\n\nFail 0\n\n수정할 항목이 없어요\n\n내려받기\n서버\n\nFail 0\n\n수정할 항목이 없어요\n\n내려받기",
+      "composer": null,
+      "contentPadding": {
+        "bottom": "0px",
+        "left": "0px",
+        "right": "0px",
+        "top": "0px"
+      },
+      "headings": [
+        {
+          "height": 36,
+          "label": "9th Agile",
+          "tag": "H1",
+          "width": 110.359375,
+          "x": 272,
+          "y": 80
+        },
+        {
+          "height": 24,
+          "label": "디자인",
+          "tag": "H2",
+          "width": 182,
+          "x": 297,
+          "y": 295
+        },
+        {
+          "height": 24,
+          "label": "웹",
+          "tag": "H2",
+          "width": 182,
+          "x": 545,
+          "y": 295
+        },
+        {
+          "height": 24,
+          "label": "앱",
+          "tag": "H2",
+          "width": 182,
+          "x": 793,
+          "y": 295
+        },
+        {
+          "height": 24,
+          "label": "서버",
+          "tag": "H2",
+          "width": 182,
+          "x": 1041,
+          "y": 295
+        }
+      ],
+      "layout": {
+        "header": {
+          "height": 56,
+          "width": 1040,
+          "x": 240,
+          "y": 0
+        },
+        "main": {
+          "height": 844,
+          "width": 1040,
+          "x": 240,
+          "y": 56
+        },
+        "scrollWidth": 1280,
+        "sidebar": {
+          "height": 900,
+          "width": 240,
+          "x": 0,
+          "y": 0
+        },
+        "viewport": 1280
+      },
+      "loginCard": null,
+      "loginColumns": [],
+      "readingColumns": [],
+      "regions": [
+        {
+          "height": 204,
+          "tag": "SECTION",
+          "width": 232,
+          "x": 272,
+          "y": 270
+        },
+        {
+          "height": 204,
+          "tag": "SECTION",
+          "width": 232,
+          "x": 520,
+          "y": 270
+        },
+        {
+          "height": 204,
+          "tag": "SECTION",
+          "width": 232,
+          "x": 768,
+          "y": 270
+        },
+        {
+          "height": 204,
+          "tag": "SECTION",
+          "width": 232,
+          "x": 1016,
+          "y": 270
+        }
+      ],
+      "tableHeaders": []
+    }
+  },
+  {
+    "file": "base/login-normal-1440.png",
+    "key": "login-normal",
+    "route": "/login",
+    "viewport": {
+      "width": 1440,
+      "height": 900
+    },
+    "condition": "existing MSW fixture; Ravvit D8 contract mock",
+    "evidence": {
+      "activeAnimations": 0,
+      "body": "Admin Page\n백오피스 로그인\n\n내부 운영자 전용 관리 시스템\n\nGoogle로 시작하기\n카카오로 시작하기\n네이버로 시작하기",
+      "composer": null,
+      "contentPadding": null,
+      "headings": [
+        {
+          "height": 40,
+          "label": "백오피스 로그인",
+          "tag": "H2",
+          "width": 415,
+          "x": 768,
+          "y": 291.984375
+        }
+      ],
+      "layout": {
+        "header": null,
+        "main": null,
+        "scrollWidth": 1440,
+        "sidebar": null,
+        "viewport": 1440
+      },
+      "loginCard": {
+        "height": 660.171875,
+        "width": 1024,
+        "x": 208,
+        "y": 119.90625
+      },
+      "loginColumns": [
+        {
+          "height": 658.171875,
+          "width": 511,
+          "x": 209,
+          "y": 120.90625
+        },
+        {
+          "height": 658.171875,
+          "width": 511,
+          "x": 720,
+          "y": 120.90625
+        }
+      ],
+      "readingColumns": [],
+      "regions": [],
+      "tableHeaders": []
+    }
+  },
+  {
+    "file": "base/dashboard-normal-1440.png",
+    "key": "dashboard-normal",
+    "route": "/",
+    "viewport": {
+      "width": 1440,
+      "height": 900
+    },
+    "condition": "existing MSW fixture; Ravvit D8 contract mock",
+    "evidence": {
+      "activeAnimations": 0,
+      "body": "대시보드\n총 유저 수\n12,345\n유저 관리 →\nPENDING 라벨\n8\n스테이징 →\n미해결 신고\n24\n신고 관리 →\nDAU\n\n최근 30일 일별 활성 유저\n\n49\n오늘\n▼ 14 전일 대비\n10.17\n10.21\n10.25\n10.29\n11.2\n11.6\n11.10\n11.14\n0\n20\n40\n60\n80\nMAU\n\n최근 12개월 월별 활성 유저\n\n121\n이번 달 (집계 중)\n지난달 291\n25.12\n26.01\n26.02\n26.03\n26.04\n26.05\n26.06\n26.07\n2",
+      "composer": null,
+      "contentPadding": {
+        "bottom": "0px",
+        "left": "0px",
+        "right": "0px",
+        "top": "0px"
+      },
+      "headings": [
+        {
+          "height": 36,
+          "label": "대시보드",
+          "tag": "H1",
+          "width": 1136,
+          "x": 272,
+          "y": 80
+        },
+        {
+          "height": 24,
+          "label": "DAU",
+          "tag": "H2",
+          "width": 510,
+          "x": 297,
+          "y": 371
+        },
+        {
+          "height": 24,
+          "label": "MAU",
+          "tag": "H2",
+          "width": 510,
+          "x": 873,
+          "y": 371
+        }
+      ],
+      "layout": {
+        "header": {
+          "height": 56,
+          "width": 1200,
+          "x": 240,
+          "y": 0
+        },
+        "main": {
+          "height": 844,
+          "width": 1200,
+          "x": 240,
+          "y": 56
+        },
+        "scrollWidth": 1440,
+        "sidebar": {
+          "height": 900,
+          "width": 240,
+          "x": 0,
+          "y": 0
+        },
+        "viewport": 1440
+      },
+      "loginCard": null,
+      "loginColumns": [],
+      "readingColumns": [],
+      "regions": [
+        {
+          "height": 426,
+          "tag": "SECTION",
+          "width": 560,
+          "x": 272,
+          "y": 346
+        },
+        {
+          "height": 426,
+          "tag": "SECTION",
+          "width": 560,
+          "x": 848,
+          "y": 346
+        }
+      ],
+      "tableHeaders": []
+    }
+  },
+  {
+    "file": "base/notices-normal-1440.png",
+    "key": "notices-normal",
+    "route": "/notices",
+    "viewport": {
+      "width": 1440,
+      "height": 900
+    },
+    "condition": "existing MSW fixture; Ravvit D8 contract mock",
+    "evidence": {
+      "activeAnimations": 0,
+      "body": "공지 관리\n공지 작성\n\t제목\t상태\t게시일\t수정\n\n\t\n서비스 점검 안내 (5월 11일)\n\t게시중\t2026-04-25\t수정\n\n\t\n신규 서비스 런칭 (6월 1일)\n\t초안\t-\t수정\n\t\n시스템 업데이트 (7월 15일)\n\t보관됨\t2026-06-30\t수정",
+      "composer": null,
+      "contentPadding": {
+        "bottom": "0px",
+        "left": "0px",
+        "right": "0px",
+        "top": "0px"
+      },
+      "headings": [
+        {
+          "height": 36,
+          "label": "공지 관리",
+          "tag": "H1",
+          "width": 95.875,
+          "x": 272,
+          "y": 80
+        }
+      ],
+      "layout": {
+        "header": {
+          "height": 56,
+          "width": 1200,
+          "x": 240,
+          "y": 0
+        },
+        "main": {
+          "height": 844,
+          "width": 1200,
+          "x": 240,
+          "y": 56
+        },
+        "scrollWidth": 1440,
+        "sidebar": {
+          "height": 900,
+          "width": 240,
+          "x": 0,
+          "y": 0
+        },
+        "viewport": 1440
+      },
+      "loginCard": null,
+      "loginColumns": [],
+      "readingColumns": [],
+      "regions": [
+        {
+          "height": 218.5,
+          "tag": "TABLE",
+          "width": 1134,
+          "x": 273,
+          "y": 169
+        }
+      ],
+      "tableHeaders": [
+        "",
+        "제목",
+        "상태",
+        "게시일",
+        "수정"
+      ]
+    }
+  },
+  {
+    "file": "base/notice-new-normal-1440.png",
+    "key": "notice-new-normal",
+    "route": "/notices/new",
+    "viewport": {
+      "width": 1440,
+      "height": 900
+    },
+    "condition": "existing MSW fixture; Ravvit D8 contract mock",
+    "evidence": {
+      "activeAnimations": 0,
+      "body": "공지 작성\n제목 *\n요약 *\n본문 (마크다운 지원) *\n작성\n미리보기\n상단 고정\n목록으로\n임시 저장하기\n공지 게시하기",
+      "composer": {
+        "height": 80,
+        "width": 1086,
+        "x": 297,
+        "y": 417
+      },
+      "contentPadding": {
+        "bottom": "0px",
+        "left": "0px",
+        "right": "0px",
+        "top": "0px"
+      },
+      "headings": [
+        {
+          "height": 36,
+          "label": "공지 작성",
+          "tag": "H1",
+          "width": 1136,
+          "x": 272,
+          "y": 80
+        }
+      ],
+      "layout": {
+        "header": {
+          "height": 56,
+          "width": 1200,
+          "x": 240,
+          "y": 0
+        },
+        "main": {
+          "height": 844,
+          "width": 1200,
+          "x": 240,
+          "y": 56
+        },
+        "scrollWidth": 1440,
+        "sidebar": {
+          "height": 900,
+          "width": 240,
+          "x": 0,
+          "y": 0
+        },
+        "viewport": 1440
+      },
+      "loginCard": null,
+      "loginColumns": [],
+      "readingColumns": [],
+      "regions": [],
+      "tableHeaders": []
+    }
+  },
+  {
+    "file": "base/notice-detail-normal-1440.png",
+    "key": "notice-detail-normal",
+    "route": "/notices/1",
+    "viewport": {
+      "width": 1440,
+      "height": 900
+    },
+    "condition": "existing MSW fixture; Ravvit D8 contract mock",
+    "evidence": {
+      "activeAnimations": 0,
+      "body": "게시중\n서비스 점검 안내 (5월 11일)\n\n게시일: 2026-04-25 · 작성일: 2026-04-24\n\n편집\n삭제\n요약\n\n정기 점검으로 인한 서비스 이용 제한 안내\n\n점검 안내\n\n안녕하세요. Gravit 운영팀입니다.\n\n일시: 2026-05-11 02:00 ~ 04:00 (KST)\n대상: 전체 서비스\n\n이용에 참고 부탁드립니다.",
+      "composer": null,
+      "contentPadding": {
+        "bottom": "0px",
+        "left": "0px",
+        "right": "0px",
+        "top": "0px"
+      },
+      "headings": [
+        {
+          "height": 36,
+          "label": "서비스 점검 안내 (5월 11일)",
+          "tag": "H1",
+          "width": 287.15625,
+          "x": 368.3125,
+          "y": 80
+        },
+        {
+          "height": 24,
+          "label": "요약",
+          "tag": "H3",
+          "width": 1086,
+          "x": 297,
+          "y": 191
+        },
+        {
+          "height": 28,
+          "label": "점검 안내",
+          "tag": "H2",
+          "width": 1086,
+          "x": 297,
+          "y": 294
+        }
+      ],
+      "layout": {
+        "header": {
+          "height": 56,
+          "width": 1200,
+          "x": 240,
+          "y": 0
+        },
+        "main": {
+          "height": 844,
+          "width": 1200,
+          "x": 240,
+          "y": 56
+        },
+        "scrollWidth": 1440,
+        "sidebar": {
+          "height": 900,
+          "width": 240,
+          "x": 0,
+          "y": 0
+        },
+        "viewport": 1440
+      },
+      "loginCard": null,
+      "loginColumns": [],
+      "readingColumns": [],
+      "regions": [
+        {
+          "height": 54,
+          "tag": "SECTION",
+          "width": 1086,
+          "x": 297,
+          "y": 191
+        }
+      ],
+      "tableHeaders": []
+    }
+  },
+  {
+    "file": "full/notice-detail-normal-1440-full.png",
+    "key": "notice-detail-normal",
+    "route": "/notices/1",
+    "viewport": {
+      "width": 1440,
+      "height": 900
+    },
+    "full": true
+  },
+  {
+    "file": "base/users-normal-1440.png",
+    "key": "users-normal",
+    "route": "/users",
+    "viewport": {
+      "width": 1440,
+      "height": 900
+    },
+    "condition": "existing MSW fixture; Ravvit D8 contract mock",
+    "evidence": {
+      "activeAnimations": 0,
+      "body": "유저 관리\n검색\n상태 전체\n역할 전체\n이메일\t닉네임\thandle\t역할\t상태\t가입일\n\ngildong@example.com\n\t\n홍길동\n\t@gildong\t일반\t활성\t2026-01-15\n\nadmin@gravit.com\n\t\n운영자\n\t@admin\t관리자\t활성\t2025-12-01\n\nsuspended@example.com\n\t\n정지된유저\n\t@onhold\t일반\t정지\t2026-02-20\n\nleft@example.com\n\t\n탈퇴유저\n\t@gone\t일반\t삭제됨\t2026-03-05",
+      "composer": null,
+      "contentPadding": {
+        "bottom": "0px",
+        "left": "0px",
+        "right": "0px",
+        "top": "0px"
+      },
+      "headings": [
+        {
+          "height": 36,
+          "label": "유저 관리",
+          "tag": "H1",
+          "width": 1136,
+          "x": 272,
+          "y": 80
+        }
+      ],
+      "layout": {
+        "header": {
+          "height": 56,
+          "width": 1200,
+          "x": 240,
+          "y": 0
+        },
+        "main": {
+          "height": 844,
+          "width": 1200,
+          "x": 240,
+          "y": 56
+        },
+        "scrollWidth": 1440,
+        "sidebar": {
+          "height": 900,
+          "width": 240,
+          "x": 0,
+          "y": 0
+        },
+        "viewport": 1440
+      },
+      "loginCard": null,
+      "loginColumns": [],
+      "readingColumns": [],
+      "regions": [
+        {
+          "height": 40,
+          "tag": "FORM",
+          "width": 386.203125,
+          "x": 272,
+          "y": 168
+        },
+        {
+          "height": 256,
+          "tag": "TABLE",
+          "width": 1134,
+          "x": 273,
+          "y": 233
+        }
+      ],
+      "tableHeaders": [
+        "이메일",
+        "닉네임",
+        "handle",
+        "역할",
+        "상태",
+        "가입일"
+      ]
+    }
+  },
+  {
+    "file": "base/user-detail-normal-1440.png",
+    "key": "user-detail-normal",
+    "route": "/users/1001",
+    "viewport": {
+      "width": 1440,
+      "height": 900
+    },
+    "condition": "existing MSW fixture; Ravvit D8 contract mock",
+    "evidence": {
+      "activeAnimations": 0,
+      "body": "유저 상세\n홍길동\n\n@gildong\n\ngildong@example.com\n\n가입일: 2026-01-15\n\n레벨: Lv.12\n\n권한 및 상태\n역할\n일반\n일반\n상태\n활성\n활성",
+      "composer": null,
+      "contentPadding": {
+        "bottom": "0px",
+        "left": "0px",
+        "right": "0px",
+        "top": "0px"
+      },
+      "headings": [
+        {
+          "height": 36,
+          "label": "유저 상세",
+          "tag": "H1",
+          "width": 1136,
+          "x": 272,
+          "y": 80
+        },
+        {
+          "height": 24,
+          "label": "홍길동",
+          "tag": "H3",
+          "width": 142.015625,
+          "x": 401,
+          "y": 165
+        },
+        {
+          "height": 24,
+          "label": "권한 및 상태",
+          "tag": "H3",
+          "width": 1086,
+          "x": 297,
+          "y": 367
+        }
+      ],
+      "layout": {
+        "header": {
+          "height": 56,
+          "width": 1200,
+          "x": 240,
+          "y": 0
+        },
+        "main": {
+          "height": 844,
+          "width": 1200,
+          "x": 240,
+          "y": 56
+        },
+        "scrollWidth": 1440,
+        "sidebar": {
+          "height": 900,
+          "width": 240,
+          "x": 0,
+          "y": 0
+        },
+        "viewport": 1440
+      },
+      "loginCard": null,
+      "loginColumns": [],
+      "readingColumns": [],
+      "regions": [],
+      "tableHeaders": []
+    }
+  },
+  {
+    "file": "base/reports-normal-1440.png",
+    "key": "reports-normal",
+    "route": "/reports",
+    "viewport": {
+      "width": 1440,
+      "height": 900
+    },
+    "condition": "existing MSW fixture; Ravvit D8 contract mock",
+    "evidence": {
+      "activeAnimations": 0,
+      "body": "신고 관리\n유형 전체\n미해결\nID\t유형\t문제ID\t상태\t제출일\n#1024\t오타\tP-512\t미해결\t2026-04-23 23:32\n#1023\t정답 오류\tP-488\t미해결\t2026-04-22 18:10",
+      "composer": null,
+      "contentPadding": {
+        "bottom": "0px",
+        "left": "0px",
+        "right": "0px",
+        "top": "0px"
+      },
+      "headings": [
+        {
+          "height": 36,
+          "label": "신고 관리",
+          "tag": "H1",
+          "width": 1136,
+          "x": 272,
+          "y": 80
+        }
+      ],
+      "layout": {
+        "header": {
+          "height": 56,
+          "width": 1200,
+          "x": 240,
+          "y": 0
+        },
+        "main": {
+          "height": 844,
+          "width": 1200,
+          "x": 240,
+          "y": 56
+        },
+        "scrollWidth": 1440,
+        "sidebar": {
+          "height": 900,
+          "width": 240,
+          "x": 0,
+          "y": 0
+        },
+        "viewport": 1440
+      },
+      "loginCard": null,
+      "loginColumns": [],
+      "readingColumns": [],
+      "regions": [
+        {
+          "height": 152,
+          "tag": "TABLE",
+          "width": 1134,
+          "x": 273,
+          "y": 233
+        }
+      ],
+      "tableHeaders": [
+        "ID",
+        "유형",
+        "문제ID",
+        "상태",
+        "제출일"
+      ]
+    }
+  },
+  {
+    "file": "base/report-detail-normal-1440.png",
+    "key": "report-detail-normal",
+    "route": "/reports/1024",
+    "viewport": {
+      "width": 1440,
+      "height": 900
+    },
+    "condition": "existing MSW fixture; Ravvit D8 contract mock",
+    "evidence": {
+      "activeAnimations": 0,
+      "body": "신고 #1024\n미해결\n신고 정보\n유형\n오타 (TYPO_ERROR)\n문제 ID\nP-512\n문제 보기 →\n제출일\n2026-04-23 23:32\n신고 내용\n두 번째 줄에서 '알고리듬'이 '알고리즘'으로 표기되어 있습니다. 오타로 보입니다.\n처리 상태\n현재 상태\n미해결",
+      "composer": null,
+      "contentPadding": {
+        "bottom": "0px",
+        "left": "0px",
+        "right": "0px",
+        "top": "0px"
+      },
+      "headings": [
+        {
+          "height": 36,
+          "label": "신고 #1024",
+          "tag": "H1",
+          "width": 129.09375,
+          "x": 272,
+          "y": 80
+        },
+        {
+          "height": 24,
+          "label": "신고 정보",
+          "tag": "H3",
+          "width": 1086,
+          "x": 297,
+          "y": 165
+        },
+        {
+          "height": 24,
+          "label": "신고 내용",
+          "tag": "H3",
+          "width": 1086,
+          "x": 297,
+          "y": 387
+        },
+        {
+          "height": 24,
+          "label": "처리 상태",
+          "tag": "H3",
+          "width": 1086,
+          "x": 297,
+          "y": 523
+        }
+      ],
+      "layout": {
+        "header": {
+          "height": 56,
+          "width": 1200,
+          "x": 240,
+          "y": 0
+        },
+        "main": {
+          "height": 844,
+          "width": 1200,
+          "x": 240,
+          "y": 56
+        },
+        "scrollWidth": 1440,
+        "sidebar": {
+          "height": 900,
+          "width": 240,
+          "x": 0,
+          "y": 0
+        },
+        "viewport": 1440
+      },
+      "loginCard": null,
+      "loginColumns": [],
+      "readingColumns": [],
+      "regions": [],
+      "tableHeaders": []
+    }
+  },
+  {
+    "file": "base/chapters-normal-1440.png",
+    "key": "chapters-normal",
+    "route": "/chapters",
+    "viewport": {
+      "width": 1440,
+      "height": 900
+    },
+    "condition": "existing MSW fixture; Ravvit D8 contract mock",
+    "evidence": {
+      "activeAnimations": 0,
+      "body": "컨텐츠 관리\n제목\t설명\n\n자료구조 기초\n\t\n배열, 리스트, 스택, 큐, 트리, 그래프 등 기본 자료구조\n\n\n알고리즘 입문\n\t\n정렬, 탐색, 재귀, 분할정복 등 기본 알고리즘\n\n\n운영체제\n\t\n프로세스, 스레드, 스케줄링, 메모리 관리",
+      "composer": null,
+      "contentPadding": {
+        "bottom": "0px",
+        "left": "0px",
+        "right": "0px",
+        "top": "0px"
+      },
+      "headings": [
+        {
+          "height": 36,
+          "label": "컨텐츠 관리",
+          "tag": "H1",
+          "width": 1136,
+          "x": 272,
+          "y": 80
+        }
+      ],
+      "layout": {
+        "header": {
+          "height": 56,
+          "width": 1200,
+          "x": 240,
+          "y": 0
+        },
+        "main": {
+          "height": 844,
+          "width": 1200,
+          "x": 240,
+          "y": 56
+        },
+        "scrollWidth": 1440,
+        "sidebar": {
+          "height": 900,
+          "width": 240,
+          "x": 0,
+          "y": 0
+        },
+        "viewport": 1440
+      },
+      "loginCard": null,
+      "loginColumns": [],
+      "readingColumns": [],
+      "regions": [
+        {
+          "height": 204,
+          "tag": "TABLE",
+          "width": 1134,
+          "x": 273,
+          "y": 169
+        }
+      ],
+      "tableHeaders": [
+        "제목",
+        "설명"
+      ]
+    }
+  },
+  {
+    "file": "base/chapter-detail-normal-1440.png",
+    "key": "chapter-detail-normal",
+    "route": "/chapters/1",
+    "viewport": {
+      "width": 1440,
+      "height": 900
+    },
+    "condition": "existing MSW fixture; Ravvit D8 contract mock",
+    "evidence": {
+      "activeAnimations": 0,
+      "body": "자료구조 기초\n\n배열, 리스트, 스택, 큐, 트리, 그래프 등 기본 자료구조\n\n편집\n풀이 현황\n유닛명\t참여 인원\t진행률\n\n배열 (Array)\n\t2,300\t\n79%\n\n\n연결 리스트\n\t1,820\t\n64%\n\n\n스택과 큐\n\t1,540\t\n58%\n유닛 (총 4개)\n제목\t설명\n\n배열\n\t\n배열의 개념과 활용\n\n\n연결 리스트\n\t\n노드 기반 선형 자료구조\n\n\n스택과 큐\n\t\nLIFO/FIFO 자료구조\n\n\n트리\n\t\n계층적 자료구조",
+      "composer": null,
+      "contentPadding": {
+        "bottom": "0px",
+        "left": "0px",
+        "right": "0px",
+        "top": "0px"
+      },
+      "headings": [
+        {
+          "height": 36,
+          "label": "자료구조 기초",
+          "tag": "H1",
+          "width": 288.046875,
+          "x": 272,
+          "y": 80
+        },
+        {
+          "height": 24,
+          "label": "풀이 현황",
+          "tag": "H3",
+          "width": 1136,
+          "x": 272,
+          "y": 166
+        },
+        {
+          "height": 24,
+          "label": "유닛 (총 4개)",
+          "tag": "H3",
+          "width": 1136,
+          "x": 272,
+          "y": 436
+        }
+      ],
+      "layout": {
+        "header": {
+          "height": 56,
+          "width": 1200,
+          "x": 240,
+          "y": 0
+        },
+        "main": {
+          "height": 844,
+          "width": 1200,
+          "x": 240,
+          "y": 56
+        },
+        "scrollWidth": 1440,
+        "sidebar": {
+          "height": 900,
+          "width": 240,
+          "x": 0,
+          "y": 0
+        },
+        "viewport": 1440
+      },
+      "loginCard": null,
+      "loginColumns": [],
+      "readingColumns": [],
+      "regions": [
+        {
+          "height": 246,
+          "tag": "SECTION",
+          "width": 1136,
+          "x": 272,
+          "y": 166
+        },
+        {
+          "height": 204,
+          "tag": "TABLE",
+          "width": 1134,
+          "x": 273,
+          "y": 207
+        },
+        {
+          "height": 298,
+          "tag": "SECTION",
+          "width": 1136,
+          "x": 272,
+          "y": 436
+        },
+        {
+          "height": 256,
+          "tag": "TABLE",
+          "width": 1134,
+          "x": 273,
+          "y": 477
+        }
+      ],
+      "tableHeaders": [
+        "유닛명",
+        "참여 인원",
+        "진행률",
+        "제목",
+        "설명"
+      ]
+    }
+  },
+  {
+    "file": "base/unit-detail-normal-1440.png",
+    "key": "unit-detail-normal",
+    "route": "/units/12",
+    "viewport": {
+      "width": 1440,
+      "height": 900
+    },
+    "condition": "existing MSW fixture; Ravvit D8 contract mock",
+    "evidence": {
+      "activeAnimations": 0,
+      "body": "배열 (Array)\n\n배열의 기본 개념과 시간 복잡도\n\n편집\n레슨 (총 2개)\n제목\n배열이란 무엇인가\n배열의 시간 복잡도",
+      "composer": null,
+      "contentPadding": {
+        "bottom": "0px",
+        "left": "0px",
+        "right": "0px",
+        "top": "0px"
+      },
+      "headings": [
+        {
+          "height": 36,
+          "label": "배열 (Array)",
+          "tag": "H1",
+          "width": 171.359375,
+          "x": 272,
+          "y": 80
+        },
+        {
+          "height": 24,
+          "label": "레슨 (총 2개)",
+          "tag": "H3",
+          "width": 1136,
+          "x": 272,
+          "y": 166
+        }
+      ],
+      "layout": {
+        "header": {
+          "height": 56,
+          "width": 1200,
+          "x": 240,
+          "y": 0
+        },
+        "main": {
+          "height": 844,
+          "width": 1200,
+          "x": 240,
+          "y": 56
+        },
+        "scrollWidth": 1440,
+        "sidebar": {
+          "height": 900,
+          "width": 240,
+          "x": 0,
+          "y": 0
+        },
+        "viewport": 1440
+      },
+      "loginCard": null,
+      "loginColumns": [],
+      "readingColumns": [],
+      "regions": [
+        {
+          "height": 194,
+          "tag": "SECTION",
+          "width": 1136,
+          "x": 272,
+          "y": 166
+        },
+        {
+          "height": 152,
+          "tag": "TABLE",
+          "width": 1134,
+          "x": 273,
+          "y": 207
+        }
+      ],
+      "tableHeaders": [
+        "제목"
+      ]
+    }
+  },
+  {
+    "file": "base/lesson-detail-normal-1440.png",
+    "key": "lesson-detail-normal",
+    "route": "/lessons/901",
+    "viewport": {
+      "width": 1440,
+      "height": 900
+    },
+    "condition": "existing MSW fixture; Ravvit D8 contract mock",
+    "evidence": {
+      "activeAnimations": 0,
+      "body": "배열의 시간 복잡도\n편집\n문제 (총 3개)\nID\t유형\t지시문\nP-1001\t객관식\t\n다음 중 배열의 임의 접근(random access) 시간 복잡도는?\n\nP-1002\t객관식\t\n정렬된 배열에서 특정 값을 탐색할 때 가장 효율적인 알고리즘의 시간 복잡도는?\n\nP-1003\t주관식\t\n배열에서 임의 위치에 요소를 삽입할 때의 시간 복잡도를 빅오 표기법으로 쓰시오.",
+      "composer": null,
+      "contentPadding": {
+        "bottom": "0px",
+        "left": "0px",
+        "right": "0px",
+        "top": "0px"
+      },
+      "headings": [
+        {
+          "height": 36,
+          "label": "배열의 시간 복잡도",
+          "tag": "H1",
+          "width": 191.75,
+          "x": 272,
+          "y": 80
+        },
+        {
+          "height": 24,
+          "label": "문제 (총 3개)",
+          "tag": "H3",
+          "width": 1136,
+          "x": 272,
+          "y": 144
+        }
+      ],
+      "layout": {
+        "header": {
+          "height": 56,
+          "width": 1200,
+          "x": 240,
+          "y": 0
+        },
+        "main": {
+          "height": 844,
+          "width": 1200,
+          "x": 240,
+          "y": 56
+        },
+        "scrollWidth": 1440,
+        "sidebar": {
+          "height": 900,
+          "width": 240,
+          "x": 0,
+          "y": 0
+        },
+        "viewport": 1440
+      },
+      "loginCard": null,
+      "loginColumns": [],
+      "readingColumns": [],
+      "regions": [
+        {
+          "height": 246,
+          "tag": "SECTION",
+          "width": 1136,
+          "x": 272,
+          "y": 144
+        },
+        {
+          "height": 204,
+          "tag": "TABLE",
+          "width": 1134,
+          "x": 273,
+          "y": 185
+        }
+      ],
+      "tableHeaders": [
+        "ID",
+        "유형",
+        "지시문"
+      ]
+    }
+  },
+  {
+    "file": "base/problem-objective-normal-1440.png",
+    "key": "problem-objective-normal",
+    "route": "/problems/1001",
+    "viewport": {
+      "width": 1440,
+      "height": 900
+    },
+    "condition": "existing MSW fixture; Ravvit D8 contract mock",
+    "evidence": {
+      "activeAnimations": 0,
+      "body": "객관식\nP-1001\n편집\n문제\n지시문\n다음 중 배열의 임의 접근(random access) 시간 복잡도는?\n본문\n\n배열은 인덱스를 통해 임의의 원소에 직접 접근할 수 있다.\n\n보기 (4개 고정)\n① O(1)\n정답\n\n해설: 인덱스 계산으로 바로 접근 가능\n\n② O(log n)\n\n해설: 이진 탐색의 복잡도\n\n③ O(n)\n\n해설: 선형 탐색의 복잡도\n\n④ O(n²)\n\n해설: 이중 반복의 복잡도",
+      "composer": null,
+      "contentPadding": {
+        "bottom": "0px",
+        "left": "0px",
+        "right": "0px",
+        "top": "0px"
+      },
+      "headings": [
+        {
+          "height": 36,
+          "label": "P-1001",
+          "tag": "H1",
+          "width": 86.109375,
+          "x": 336.3125,
+          "y": 80
+        },
+        {
+          "height": 24,
+          "label": "문제",
+          "tag": "H3",
+          "width": 1086,
+          "x": 297,
+          "y": 169
+        },
+        {
+          "height": 24,
+          "label": "보기 (4개 고정)",
+          "tag": "H3",
+          "width": 1086,
+          "x": 297,
+          "y": 343
+        }
+      ],
+      "layout": {
+        "header": {
+          "height": 56,
+          "width": 1200,
+          "x": 240,
+          "y": 0
+        },
+        "main": {
+          "height": 844,
+          "width": 1200,
+          "x": 240,
+          "y": 56
+        },
+        "scrollWidth": 1440,
+        "sidebar": {
+          "height": 900,
+          "width": 240,
+          "x": 0,
+          "y": 0
+        },
+        "viewport": 1440
+      },
+      "loginCard": null,
+      "loginColumns": [],
+      "readingColumns": [],
+      "regions": [
+        {
+          "height": 150,
+          "tag": "SECTION",
+          "width": 1136,
+          "x": 272,
+          "y": 144
+        },
+        {
+          "height": 330,
+          "tag": "SECTION",
+          "width": 1136,
+          "x": 272,
+          "y": 318
+        }
+      ],
+      "tableHeaders": []
+    }
+  },
+  {
+    "file": "full/problem-objective-normal-1440-full.png",
+    "key": "problem-objective-normal",
+    "route": "/problems/1001",
+    "viewport": {
+      "width": 1440,
+      "height": 900
+    },
+    "full": true
+  },
+  {
+    "file": "base/staging-normal-1440.png",
+    "key": "staging-normal",
+    "route": "/staging/labels",
+    "viewport": {
+      "width": 1440,
+      "height": 900
+    },
+    "condition": "existing MSW fixture; Ravvit D8 contract mock",
+    "evidence": {
+      "activeAnimations": 0,
+      "body": "스테이징\n\n자동 생성한 컨텐츠를 검수하고 운영에 반영해요.\n\n상태\n검수 대기\n라벨\t유닛\t설명\t상태\t생성일\n2026-04-25-a3f9\tU-12\t\n배열 챕터 5번째 사이클\n\t검수 대기\t2026-04-25\n2026-04-24-b7c2\tU-13\t\n연결리스트 사이클\n\t검수 대기\t2026-04-24",
+      "composer": null,
+      "contentPadding": {
+        "bottom": "0px",
+        "left": "0px",
+        "right": "0px",
+        "top": "0px"
+      },
+      "headings": [
+        {
+          "height": 36,
+          "label": "스테이징",
+          "tag": "H1",
+          "width": 1136,
+          "x": 272,
+          "y": 80
+        }
+      ],
+      "layout": {
+        "header": {
+          "height": 56,
+          "width": 1200,
+          "x": 240,
+          "y": 0
+        },
+        "main": {
+          "height": 844,
+          "width": 1200,
+          "x": 240,
+          "y": 56
+        },
+        "scrollWidth": 1440,
+        "sidebar": {
+          "height": 900,
+          "width": 240,
+          "x": 0,
+          "y": 0
+        },
+        "viewport": 1440
+      },
+      "loginCard": null,
+      "loginColumns": [],
+      "readingColumns": [],
+      "regions": [
+        {
+          "height": 152,
+          "tag": "TABLE",
+          "width": 1134,
+          "x": 273,
+          "y": 231
+        }
+      ],
+      "tableHeaders": [
+        "라벨",
+        "유닛",
+        "설명",
+        "상태",
+        "생성일"
+      ]
+    }
+  },
+  {
+    "file": "base/staging-detail-normal-1440.png",
+    "key": "staging-detail-normal",
+    "route": "/staging/labels/2026-04-25-a3f9",
+    "viewport": {
+      "width": 1440,
+      "height": 900
+    },
+    "condition": "existing MSW fixture; Ravvit D8 contract mock",
+    "evidence": {
+      "activeAnimations": 0,
+      "body": "검수 대기\n2026-04-25-a3f9\n반영 완료 처리\n\nU-12 · 배열 챕터 5번째 사이클 · 생성일 2026-04-25\n\n레슨\n문제 1\n객관식\n문제 2\n객관식\n문제 3\n주관식\n문제 4\n객관식\n문제 5\n주관식\n문제 6\n객관식\n레슨\n\nID: 901\n\n제목 *\n저장하기",
+      "composer": {
+        "height": 0,
+        "width": 0,
+        "x": 0,
+        "y": 0
+      },
+      "contentPadding": {
+        "bottom": "0px",
+        "left": "0px",
+        "right": "0px",
+        "top": "0px"
+      },
+      "headings": [
+        {
+          "height": 36,
+          "label": "2026-04-25-a3f9",
+          "tag": "H1",
+          "width": 234.8125,
+          "x": 351.828125,
+          "y": 80
+        },
+        {
+          "height": 24,
+          "label": "레슨",
+          "tag": "H3",
+          "width": 798,
+          "x": 585,
+          "y": 195
+        }
+      ],
+      "layout": {
+        "header": {
+          "height": 56,
+          "width": 1200,
+          "x": 240,
+          "y": 0
+        },
+        "main": {
+          "height": 844,
+          "width": 1200,
+          "x": 240,
+          "y": 56
+        },
+        "scrollWidth": 1440,
+        "sidebar": {
+          "height": 900,
+          "width": 240,
+          "x": 0,
+          "y": 0
+        },
+        "viewport": 1440
+      },
+      "loginCard": null,
+      "loginColumns": [],
+      "readingColumns": [],
+      "regions": [],
+      "tableHeaders": []
+    }
+  },
+  {
+    "file": "full/staging-detail-normal-1440-full.png",
+    "key": "staging-detail-normal",
+    "route": "/staging/labels/2026-04-25-a3f9",
+    "viewport": {
+      "width": 1440,
+      "height": 900
+    },
+    "full": true
+  },
+  {
+    "file": "base/inquiries-normal-1440.png",
+    "key": "inquiries-normal",
+    "route": "/inquiries",
+    "viewport": {
+      "width": 1440,
+      "height": 900
+    },
+    "condition": "existing MSW fixture; Ravvit D8 contract mock",
+    "evidence": {
+      "activeAnimations": 0,
+      "body": "문의 관리\n대기\nID\t유형\t제목\t작성자\t상태\t작성일\n#5004\t버그 신고\t\n앱이 자꾸 튕겨요\n\t이버그\t대기\t2026-06-18 20:30\n#5003\t기능 제안\t\n다크 모드도 만들어주세요\n\t(탈퇴한 사용자)\t대기\t2026-06-17 11:05\n#5001\t기타\t\n결제했는데 코인이 안 들어와요\n\t홍길동\t대기\t2026-06-15 09:12",
+      "composer": null,
+      "contentPadding": {
+        "bottom": "0px",
+        "left": "0px",
+        "right": "0px",
+        "top": "0px"
+      },
+      "headings": [
+        {
+          "height": 36,
+          "label": "문의 관리",
+          "tag": "H1",
+          "width": 1136,
+          "x": 272,
+          "y": 80
+        }
+      ],
+      "layout": {
+        "header": {
+          "height": 56,
+          "width": 1200,
+          "x": 240,
+          "y": 0
+        },
+        "main": {
+          "height": 844,
+          "width": 1200,
+          "x": 240,
+          "y": 56
+        },
+        "scrollWidth": 1440,
+        "sidebar": {
+          "height": 900,
+          "width": 240,
+          "x": 0,
+          "y": 0
+        },
+        "viewport": 1440
+      },
+      "loginCard": null,
+      "loginColumns": [],
+      "readingColumns": [],
+      "regions": [
+        {
+          "height": 204,
+          "tag": "TABLE",
+          "width": 1134,
+          "x": 273,
+          "y": 233
+        }
+      ],
+      "tableHeaders": [
+        "ID",
+        "유형",
+        "제목",
+        "작성자",
+        "상태",
+        "작성일"
+      ]
+    }
+  },
+  {
+    "file": "base/inquiry-detail-normal-1440.png",
+    "key": "inquiry-detail-normal",
+    "route": "/inquiries/5001",
+    "viewport": {
+      "width": 1440,
+      "height": 900
+    },
+    "condition": "existing MSW fixture; Ravvit D8 contract mock",
+    "evidence": {
+      "activeAnimations": 0,
+      "body": "기타\n결제했는데 코인이 안 들어와요\n대기\n문의 정보\n작성자\n홍길동\n이메일\ngildong@example.com\n작성일\n2026-06-15 09:12\n문의 내용\n안녕하세요. 어제 10,000원 결제를 완료했는데 코인이 충전되지 않았습니다.\n주문번호는 ORD-20260615-0012 입니다. 확인 부탁드립니다.\n답변\n답변 등록하기",
+      "composer": {
+        "height": 150,
+        "width": 1086,
+        "x": 297,
+        "y": 575
+      },
+      "contentPadding": {
+        "bottom": "0px",
+        "left": "0px",
+        "right": "0px",
+        "top": "0px"
+      },
+      "headings": [
+        {
+          "height": 36,
+          "label": "결제했는데 코인이 안 들어와요",
+          "tag": "H1",
+          "width": 310.109375,
+          "x": 324.203125,
+          "y": 80
+        },
+        {
+          "height": 24,
+          "label": "문의 정보",
+          "tag": "H3",
+          "width": 1086,
+          "x": 297,
+          "y": 165
+        },
+        {
+          "height": 24,
+          "label": "문의 내용",
+          "tag": "H3",
+          "width": 1086,
+          "x": 297,
+          "y": 377
+        },
+        {
+          "height": 24,
+          "label": "답변",
+          "tag": "H3",
+          "width": 27.65625,
+          "x": 297,
+          "y": 535
+        }
+      ],
+      "layout": {
+        "header": {
+          "height": 56,
+          "width": 1200,
+          "x": 240,
+          "y": 0
+        },
+        "main": {
+          "height": 844,
+          "width": 1200,
+          "x": 240,
+          "y": 56
+        },
+        "scrollWidth": 1440,
+        "sidebar": {
+          "height": 900,
+          "width": 240,
+          "x": 0,
+          "y": 0
+        },
+        "viewport": 1440
+      },
+      "loginCard": null,
+      "loginColumns": [],
+      "readingColumns": [],
+      "regions": [
+        {
+          "height": 206,
+          "tag": "FORM",
+          "width": 1086,
+          "x": 297,
+          "y": 575
+        }
+      ],
+      "tableHeaders": []
+    }
+  },
+  {
+    "file": "base/ravvit-normal-1440.png",
+    "key": "ravvit-normal",
+    "route": "/ravvit",
+    "viewport": {
+      "width": 1440,
+      "height": 900
+    },
+    "condition": "existing MSW fixture; Ravvit D8 contract mock",
+    "evidence": {
+      "activeAnimations": 0,
+      "body": "어떤 게 궁금하신가요?\n\n이번 스프린트 진행 중인 작업 알려줘\n마감이 다가오는 작업 알려줘\n저번 주 회의록 요약해줘",
+      "composer": {
+        "height": 34,
+        "width": 714,
+        "x": 463,
+        "y": 835
+      },
+      "contentPadding": {
+        "bottom": "0px",
+        "left": "0px",
+        "right": "0px",
+        "top": "0px"
+      },
+      "headings": [],
+      "layout": {
+        "header": {
+          "height": 56,
+          "width": 1200,
+          "x": 240,
+          "y": 0
+        },
+        "main": {
+          "height": 844,
+          "width": 1200,
+          "x": 240,
+          "y": 56
+        },
+        "scrollWidth": 1440,
+        "sidebar": {
+          "height": 900,
+          "width": 240,
+          "x": 0,
+          "y": 0
+        },
+        "viewport": 1440
+      },
+      "loginCard": null,
+      "loginColumns": [],
+      "readingColumns": [
+        {
+          "height": 0,
+          "width": 768,
+          "x": 456,
+          "y": 124
+        },
+        {
+          "height": 688,
+          "width": 768,
+          "x": 456,
+          "y": 124
+        },
+        {
+          "height": 64,
+          "width": 768,
+          "x": 456,
+          "y": 812
+        }
+      ],
+      "regions": [],
+      "tableHeaders": []
+    }
+  },
+  {
+    "file": "base/qa-sprints-normal-1440.png",
+    "key": "qa-sprints-normal",
+    "route": "/qa/sprints",
+    "viewport": {
+      "width": 1440,
+      "height": 900
+    },
+    "condition": "existing MSW fixture; Ravvit D8 contract mock",
+    "evidence": {
+      "activeAnimations": 0,
+      "body": "QA\nQA 매뉴얼\n스프린트 목록\n스프린트 등록\n스프린트\t약식 설명\t현재 상태\n9th Agile\t모든 검수 완료\t2차 수동 검수\n8th Agile\t저장소 연결 실패\t기능 명세서 로드\n7th Agile\t-\t준비 전\n6th Agile\t기능 명세 변경 반영 승인\t기능 명세서 로드\n5th Agile\tQA 흐름 예시\t체크리스트 생성\n4th Agile\tQA 흐름 예시\t디자인 검수\n3th Agile\tQA 흐름 예시\t1차 자동화 검수\n2th Agile\t로그인·공통 화면 수동 검",
+      "composer": null,
+      "contentPadding": {
+        "bottom": "0px",
+        "left": "0px",
+        "right": "0px",
+        "top": "0px"
+      },
+      "headings": [
+        {
+          "height": 36,
+          "label": "QA",
+          "tag": "H1",
+          "width": 37.25,
+          "x": 272,
+          "y": 80
+        },
+        {
+          "height": 24,
+          "label": "스프린트 목록",
+          "tag": "H2",
+          "width": 86.765625,
+          "x": 297,
+          "y": 193
+        }
+      ],
+      "layout": {
+        "header": {
+          "height": 56,
+          "width": 1200,
+          "x": 240,
+          "y": 0
+        },
+        "main": {
+          "height": 844,
+          "width": 1200,
+          "x": 240,
+          "y": 56
+        },
+        "scrollWidth": 1440,
+        "sidebar": {
+          "height": 900,
+          "width": 240,
+          "x": 0,
+          "y": 0
+        },
+        "viewport": 1440
+      },
+      "loginCard": null,
+      "loginColumns": [],
+      "readingColumns": [],
+      "regions": [
+        {
+          "height": 591,
+          "tag": "SECTION",
+          "width": 1136,
+          "x": 272,
+          "y": 168
+        },
+        {
+          "height": 516,
+          "tag": "TABLE",
+          "width": 1134,
+          "x": 273,
+          "y": 242
+        }
+      ],
+      "tableHeaders": [
+        "스프린트",
+        "약식 설명",
+        "현재 상태"
+      ]
+    }
+  },
+  {
+    "file": "base/qa-setup-normal-1440.png",
+    "key": "qa-setup-normal",
+    "route": "/qa/sprints/9/setup",
+    "viewport": {
+      "width": 1440,
+      "height": 900
+    },
+    "condition": "existing MSW fixture; Ravvit D8 contract mock",
+    "evidence": {
+      "activeAnimations": 0,
+      "body": "9th Agile\n\n모든 검수 완료\n\nQA 종료\n기능 명세서 로드\n체크리스트 생성\n디자인 검수\n1차 자동화 검수\n5\n2차 수동 검수\n6\n종료\n연결 현황\n디자인 검수\n1차 체크리스트\n2차 체크리스트\n파트별 수정사항\n연결 상태\nNotion\nFigma\nServer\nqa-baseline@abc1234\nWeb\nqa-baseline@abc1234\nAPP\nqa-baseline@abc1234\n준비 작업\n연결\n시도 1회\n명세 수집\n시도 1회\n\nAPI 명세 일부가 없어 해당 항목",
+      "composer": null,
+      "contentPadding": {
+        "bottom": "0px",
+        "left": "0px",
+        "right": "0px",
+        "top": "0px"
+      },
+      "headings": [
+        {
+          "height": 36,
+          "label": "9th Agile",
+          "tag": "H1",
+          "width": 110.359375,
+          "x": 272,
+          "y": 80
+        },
+        {
+          "height": 24,
+          "label": "연결 상태",
+          "tag": "H2",
+          "width": 1086,
+          "x": 297,
+          "y": 295
+        },
+        {
+          "height": 24,
+          "label": "준비 작업",
+          "tag": "H2",
+          "width": 59.109375,
+          "x": 297,
+          "y": 693
+        },
+        {
+          "height": 24,
+          "label": "반영 승인",
+          "tag": "H2",
+          "width": 59.109375,
+          "x": 297,
+          "y": 1133
+        }
+      ],
+      "layout": {
+        "header": {
+          "height": 56,
+          "width": 1200,
+          "x": 240,
+          "y": 0
+        },
+        "main": {
+          "height": 1308,
+          "width": 1200,
+          "x": 240,
+          "y": 56
+        },
+        "scrollWidth": 1440,
+        "sidebar": {
+          "height": 900,
+          "width": 240,
+          "x": 0,
+          "y": 0
+        },
+        "viewport": 1440
+      },
+      "loginCard": null,
+      "loginColumns": [],
+      "readingColumns": [],
+      "regions": [
+        {
+          "height": 374,
+          "tag": "SECTION",
+          "width": 1136,
+          "x": 272,
+          "y": 270
+        },
+        {
+          "height": 416,
+          "tag": "SECTION",
+          "width": 1136,
+          "x": 272,
+          "y": 668
+        },
+        {
+          "height": 208,
+          "tag": "SECTION",
+          "width": 1136,
+          "x": 272,
+          "y": 1108
+        }
+      ],
+      "tableHeaders": []
+    }
+  },
+  {
+    "file": "base/qa-design-normal-1440.png",
+    "key": "qa-design-normal",
+    "route": "/qa/sprints/9/design-review",
+    "viewport": {
+      "width": 1440,
+      "height": 900
+    },
+    "condition": "existing MSW fixture; Ravvit D8 contract mock",
+    "evidence": {
+      "activeAnimations": 0,
+      "body": "9th Agile\n\n모든 검수 완료\n\nQA 종료\n기능 명세서 로드\n체크리스트 생성\n디자인 검수\n1차 자동화 검수\n5\n2차 수동 검수\n6\n종료\n연결 현황\n디자인 검수\n1차 체크리스트\n2차 체크리스트\n파트별 수정사항\nDesign\n100%\n\n5 / 5\n\nWeb\n100%\n\n12 / 12\n\nAPP\n100%\n\n12 / 12\n\nServer\n100%\n\n8 / 8\n\n다음 미검수로 이동\nACC-01\n로그인\n변경\n100% 완료\n항목\tWeb\tAPP\t\n항목 관리\n\n\n주요 버튼 배치\n\n",
+      "composer": null,
+      "contentPadding": {
+        "bottom": "0px",
+        "left": "0px",
+        "right": "0px",
+        "top": "0px"
+      },
+      "headings": [
+        {
+          "height": 36,
+          "label": "9th Agile",
+          "tag": "H1",
+          "width": 110.359375,
+          "x": 272,
+          "y": 80
+        },
+        {
+          "height": 22,
+          "label": "Design",
+          "tag": "H2",
+          "width": 238,
+          "x": 289,
+          "y": 283
+        },
+        {
+          "height": 22,
+          "label": "Web",
+          "tag": "H2",
+          "width": 238,
+          "x": 577,
+          "y": 283
+        },
+        {
+          "height": 22,
+          "label": "APP",
+          "tag": "H2",
+          "width": 238,
+          "x": 865,
+          "y": 283
+        },
+        {
+          "height": 22,
+          "label": "Server",
+          "tag": "H2",
+          "width": 238,
+          "x": 1153,
+          "y": 283
+        },
+        {
+          "height": 22,
+          "label": "주요 버튼 배치",
+          "tag": "H3",
+          "width": 750,
+          "x": 289,
+          "y": 644.5
+        },
+        {
+          "height": 22,
+          "label": "입력란과 안내 문구",
+          "tag": "H3",
+          "width": 750,
+          "x": 289,
+          "y": 717.5
+        },
+        {
+          "height": 22,
+          "label": "오류 화면 구성",
+          "tag": "H3",
+          "width": 750,
+          "x": 289,
+          "y": 790.5
+        },
+        {
+          "height": 22,
+          "label": "주요 버튼 배치",
+          "tag": "H3",
+          "width": 750,
+          "x": 289,
+          "y": 976
+        },
+        {
+          "height": 22,
+          "label": "입력란과 안내 문구",
+          "tag": "H3",
+          "width": 750,
+          "x": 289,
+          "y": 1049
+        },
+        {
+          "height": 22,
+          "label": "AOS 시안 프레임이 없다",
+          "tag": "H3",
+          "width": 750,
+          "x": 289,
+          "y": 1122
+        }
+      ],
+      "layout": {
+        "header": {
+          "height": 56,
+          "width": 1200,
+          "x": 240,
+          "y": 0
+        },
+        "main": {
+          "height": 1197,
+          "width": 1200,
+          "x": 240,
+          "y": 56
+        },
+        "scrollWidth": 1440,
+        "sidebar": {
+          "height": 900,
+          "width": 240,
+          "x": 0,
+          "y": 0
+        },
+        "viewport": 1440
+      },
+      "loginCard": null,
+      "loginColumns": [],
+      "readingColumns": [],
+      "regions": [
+        {
+          "height": 178,
+          "tag": "SECTION",
+          "width": 272,
+          "x": 272,
+          "y": 270
+        },
+        {
+          "height": 178,
+          "tag": "SECTION",
+          "width": 272,
+          "x": 560,
+          "y": 270
+        },
+        {
+          "height": 178,
+          "tag": "SECTION",
+          "width": 272,
+          "x": 848,
+          "y": 270
+        },
+        {
+          "height": 178,
+          "tag": "SECTION",
+          "width": 272,
+          "x": 1136,
+          "y": 270
+        },
+        {
+          "height": 315.5,
+          "tag": "SECTION",
+          "width": 1136,
+          "x": 272,
+          "y": 536
+        },
+        {
+          "height": 266.5,
+          "tag": "TABLE",
+          "width": 1134,
+          "x": 273,
+          "y": 584
+        },
+        {
+          "height": 337.5,
+          "tag": "SECTION",
+          "width": 1136,
+          "x": 272,
+          "y": 867.5
+        },
+        {
+          "height": 288.5,
+          "tag": "TABLE",
+          "width": 1134,
+          "x": 273,
+          "y": 915.5
+        }
+      ],
+      "tableHeaders": [
+        "항목",
+        "Web",
+        "APP",
+        "항목 관리",
+        "항목",
+        "Web",
+        "APP",
+        "항목 관리"
+      ]
+    }
+  },
+  {
+    "file": "base/qa-first-normal-1440.png",
+    "key": "qa-first-normal",
+    "route": "/qa/sprints/2/checklist/1",
+    "viewport": {
+      "width": 1440,
+      "height": 900
+    },
+    "condition": "existing MSW fixture; Ravvit D8 contract mock",
+    "evidence": {
+      "activeAnimations": 0,
+      "body": "2th Agile\n\n로그인·공통 화면 수동 검수\n\nQA 종료\n디자인 검수와 1·2차 체크리스트의 모든 미검수를 처리하면 종료할 수 있어요.\n기능 명세서 로드\n체크리스트 생성\n디자인 검수\n1차 자동화 검수\n5\n2차 수동 검수\n6\n종료\n연결 현황\n디자인 검수\n1차 체크리스트\n2차 체크리스트\n파트별 수정사항\nDesign\n33%\n\n2 / 6\n\nWeb\n67%\n\n8 / 12\n\nAPP\n33%\n\n4 / 12\n\nServer\n50%\n\n4 / 8\n\n전체 파트\n다음 미검수로 이동\nA",
+      "composer": null,
+      "contentPadding": {
+        "bottom": "0px",
+        "left": "0px",
+        "right": "0px",
+        "top": "0px"
+      },
+      "headings": [
+        {
+          "height": 36,
+          "label": "2th Agile",
+          "tag": "H1",
+          "width": 147.203125,
+          "x": 272,
+          "y": 80
+        },
+        {
+          "height": 22,
+          "label": "Design",
+          "tag": "H2",
+          "width": 238,
+          "x": 289,
+          "y": 283
+        },
+        {
+          "height": 22,
+          "label": "Web",
+          "tag": "H2",
+          "width": 238,
+          "x": 577,
+          "y": 283
+        },
+        {
+          "height": 22,
+          "label": "APP",
+          "tag": "H2",
+          "width": 238,
+          "x": 865,
+          "y": 283
+        },
+        {
+          "height": 22,
+          "label": "Server",
+          "tag": "H2",
+          "width": 238,
+          "x": 1153,
+          "y": 283
+        },
+        {
+          "height": 22,
+          "label": "로그인 버튼 동작",
+          "tag": "H3",
+          "width": 91.34375,
+          "x": 289,
+          "y": 653.5
+        },
+        {
+          "height": 22,
+          "label": "필수 입력 안내",
+          "tag": "H3",
+          "width": 79.25,
+          "x": 289,
+          "y": 726.5
+        },
+        {
+          "height": 22,
+          "label": "실패 후 재시도",
+          "tag": "H3",
+          "width": 79.25,
+          "x": 289,
+          "y": 799.5
+        },
+        {
+          "height": 22,
+          "label": "로그인 버튼 동작",
+          "tag": "H3",
+          "width": 91.34375,
+          "x": 289,
+          "y": 985
+        },
+        {
+          "height": 22,
+          "label": "필수 입력 안내",
+          "tag": "H3",
+          "width": 79.25,
+          "x": 289,
+          "y": 1058
+        },
+        {
+          "height": 22,
+          "label": "실패 후 재시도",
+          "tag": "H3",
+          "width": 79.25,
+          "x": 289,
+          "y": 1131
+        }
+      ],
+      "layout": {
+        "header": {
+          "height": 56,
+          "width": 1200,
+          "x": 240,
+          "y": 0
+        },
+        "main": {
+          "height": 1184,
+          "width": 1200,
+          "x": 240,
+          "y": 56
+        },
+        "scrollWidth": 1440,
+        "sidebar": {
+          "height": 900,
+          "width": 240,
+          "x": 0,
+          "y": 0
+        },
+        "viewport": 1440
+      },
+      "loginCard": null,
+      "loginColumns": [],
+      "readingColumns": [],
+      "regions": [
+        {
+          "height": 178,
+          "tag": "SECTION",
+          "width": 272,
+          "x": 272,
+          "y": 270
+        },
+        {
+          "height": 178,
+          "tag": "SECTION",
+          "width": 272,
+          "x": 560,
+          "y": 270
+        },
+        {
+          "height": 178,
+          "tag": "SECTION",
+          "width": 272,
+          "x": 848,
+          "y": 270
+        },
+        {
+          "height": 178,
+          "tag": "SECTION",
+          "width": 272,
+          "x": 1136,
+          "y": 270
+        },
+        {
+          "height": 315.5,
+          "tag": "SECTION",
+          "width": 1136,
+          "x": 272,
+          "y": 545
+        },
+        {
+          "height": 266.5,
+          "tag": "TABLE",
+          "width": 1134,
+          "x": 273,
+          "y": 593
+        },
+        {
+          "height": 315.5,
+          "tag": "SECTION",
+          "width": 1136,
+          "x": 272,
+          "y": 876.5
+        },
+        {
+          "height": 266.5,
+          "tag": "TABLE",
+          "width": 1134,
+          "x": 273,
+          "y": 924.5
+        }
+      ],
+      "tableHeaders": [
+        "항목",
+        "Web",
+        "APP",
+        "Server",
+        "항목 관리",
+        "항목",
+        "Web",
+        "APP",
+        "Server",
+        "항목 관리"
+      ]
+    }
+  },
+  {
+    "file": "full/qa-first-normal-1440-full.png",
+    "key": "qa-first-normal",
+    "route": "/qa/sprints/2/checklist/1",
+    "viewport": {
+      "width": 1440,
+      "height": 900
+    },
+    "full": true
+  },
+  {
+    "file": "base/qa-second-normal-1440.png",
+    "key": "qa-second-normal",
+    "route": "/qa/sprints/2/checklist/2",
+    "viewport": {
+      "width": 1440,
+      "height": 900
+    },
+    "condition": "existing MSW fixture; Ravvit D8 contract mock",
+    "evidence": {
+      "activeAnimations": 0,
+      "body": "2th Agile\n\n로그인·공통 화면 수동 검수\n\nQA 종료\n디자인 검수와 1·2차 체크리스트의 모든 미검수를 처리하면 종료할 수 있어요.\n기능 명세서 로드\n체크리스트 생성\n디자인 검수\n1차 자동화 검수\n5\n2차 수동 검수\n6\n종료\n연결 현황\n디자인 검수\n1차 체크리스트\n2차 체크리스트\n파트별 수정사항\nDesign\n33%\n\n2 / 6\n\nWeb\n67%\n\n8 / 12\n\nAPP\n33%\n\n4 / 12\n\nServer\n50%\n\n4 / 8\n\n전체 파트\n다음 미검수로 이동\nA",
+      "composer": null,
+      "contentPadding": {
+        "bottom": "0px",
+        "left": "0px",
+        "right": "0px",
+        "top": "0px"
+      },
+      "headings": [
+        {
+          "height": 36,
+          "label": "2th Agile",
+          "tag": "H1",
+          "width": 147.203125,
+          "x": 272,
+          "y": 80
+        },
+        {
+          "height": 22,
+          "label": "Design",
+          "tag": "H2",
+          "width": 238,
+          "x": 289,
+          "y": 283
+        },
+        {
+          "height": 22,
+          "label": "Web",
+          "tag": "H2",
+          "width": 238,
+          "x": 577,
+          "y": 283
+        },
+        {
+          "height": 22,
+          "label": "APP",
+          "tag": "H2",
+          "width": 238,
+          "x": 865,
+          "y": 283
+        },
+        {
+          "height": 22,
+          "label": "Server",
+          "tag": "H2",
+          "width": 238,
+          "x": 1153,
+          "y": 283
+        },
+        {
+          "height": 22,
+          "label": "로그인 버튼 동작",
+          "tag": "H3",
+          "width": 91.34375,
+          "x": 289,
+          "y": 663.5
+        },
+        {
+          "height": 22,
+          "label": "필수 입력 안내",
+          "tag": "H3",
+          "width": 79.25,
+          "x": 289,
+          "y": 736.5
+        },
+        {
+          "height": 22,
+          "label": "실패 후 재시도",
+          "tag": "H3",
+          "width": 79.25,
+          "x": 289,
+          "y": 809.5
+        },
+        {
+          "height": 22,
+          "label": "로그인 버튼 동작",
+          "tag": "H3",
+          "width": 91.34375,
+          "x": 289,
+          "y": 1005
+        },
+        {
+          "height": 22,
+          "label": "필수 입력 안내",
+          "tag": "H3",
+          "width": 79.25,
+          "x": 289,
+          "y": 1078
+        },
+        {
+          "height": 22,
+          "label": "실패 후 재시도",
+          "tag": "H3",
+          "width": 79.25,
+          "x": 289,
+          "y": 1151
+        }
+      ],
+      "layout": {
+        "header": {
+          "height": 56,
+          "width": 1200,
+          "x": 240,
+          "y": 0
+        },
+        "main": {
+          "height": 1204,
+          "width": 1200,
+          "x": 240,
+          "y": 56
+        },
+        "scrollWidth": 1440,
+        "sidebar": {
+          "height": 900,
+          "width": 240,
+          "x": 0,
+          "y": 0
+        },
+        "viewport": 1440
+      },
+      "loginCard": null,
+      "loginColumns": [],
+      "readingColumns": [],
+      "regions": [
+        {
+          "height": 178,
+          "tag": "SECTION",
+          "width": 272,
+          "x": 272,
+          "y": 270
+        },
+        {
+          "height": 178,
+          "tag": "SECTION",
+          "width": 272,
+          "x": 560,
+          "y": 270
+        },
+        {
+          "height": 178,
+          "tag": "SECTION",
+          "width": 272,
+          "x": 848,
+          "y": 270
+        },
+        {
+          "height": 178,
+          "tag": "SECTION",
+          "width": 272,
+          "x": 1136,
+          "y": 270
+        },
+        {
+          "height": 325.5,
+          "tag": "SECTION",
+          "width": 1136,
+          "x": 272,
+          "y": 545
+        },
+        {
+          "height": 266.5,
+          "tag": "TABLE",
+          "width": 1134,
+          "x": 273,
+          "y": 603
+        },
+        {
+          "height": 325.5,
+          "tag": "SECTION",
+          "width": 1136,
+          "x": 272,
+          "y": 886.5
+        },
+        {
+          "height": 266.5,
+          "tag": "TABLE",
+          "width": 1134,
+          "x": 273,
+          "y": 944.5
+        }
+      ],
+      "tableHeaders": [
+        "항목",
+        "Web",
+        "APP",
+        "Server",
+        "항목 관리",
+        "항목",
+        "Web",
+        "APP",
+        "Server",
+        "항목 관리"
+      ]
+    }
+  },
+  {
+    "file": "full/qa-second-normal-1440-full.png",
+    "key": "qa-second-normal",
+    "route": "/qa/sprints/2/checklist/2",
+    "viewport": {
+      "width": 1440,
+      "height": 900
+    },
+    "full": true
+  },
+  {
+    "file": "base/qa-fixes-normal-1440.png",
+    "key": "qa-fixes-normal",
+    "route": "/qa/sprints/9/fix-reports",
+    "viewport": {
+      "width": 1440,
+      "height": 900
+    },
+    "condition": "existing MSW fixture; Ravvit D8 contract mock",
+    "evidence": {
+      "activeAnimations": 0,
+      "body": "9th Agile\n\n모든 검수 완료\n\nQA 종료\n기능 명세서 로드\n체크리스트 생성\n디자인 검수\n1차 자동화 검수\n5\n2차 수동 검수\n6\n종료\n연결 현황\n디자인 검수\n1차 체크리스트\n2차 체크리스트\n파트별 수정사항\n디자인\n\nFail 0\n\n수정할 항목이 없어요\n\n내려받기\n웹\n\nFail 0\n\n수정할 항목이 없어요\n\n내려받기\n앱\n\nFail 0\n\n수정할 항목이 없어요\n\n내려받기\n서버\n\nFail 0\n\n수정할 항목이 없어요\n\n내려받기",
+      "composer": null,
+      "contentPadding": {
+        "bottom": "0px",
+        "left": "0px",
+        "right": "0px",
+        "top": "0px"
+      },
+      "headings": [
+        {
+          "height": 36,
+          "label": "9th Agile",
+          "tag": "H1",
+          "width": 110.359375,
+          "x": 272,
+          "y": 80
+        },
+        {
+          "height": 24,
+          "label": "디자인",
+          "tag": "H2",
+          "width": 222,
+          "x": 297,
+          "y": 295
+        },
+        {
+          "height": 24,
+          "label": "웹",
+          "tag": "H2",
+          "width": 222,
+          "x": 585,
+          "y": 295
+        },
+        {
+          "height": 24,
+          "label": "앱",
+          "tag": "H2",
+          "width": 222,
+          "x": 873,
+          "y": 295
+        },
+        {
+          "height": 24,
+          "label": "서버",
+          "tag": "H2",
+          "width": 222,
+          "x": 1161,
+          "y": 295
+        }
+      ],
+      "layout": {
+        "header": {
+          "height": 56,
+          "width": 1200,
+          "x": 240,
+          "y": 0
+        },
+        "main": {
+          "height": 844,
+          "width": 1200,
+          "x": 240,
+          "y": 56
+        },
+        "scrollWidth": 1440,
+        "sidebar": {
+          "height": 900,
+          "width": 240,
+          "x": 0,
+          "y": 0
+        },
+        "viewport": 1440
+      },
+      "loginCard": null,
+      "loginColumns": [],
+      "readingColumns": [],
+      "regions": [
+        {
+          "height": 204,
+          "tag": "SECTION",
+          "width": 272,
+          "x": 272,
+          "y": 270
+        },
+        {
+          "height": 204,
+          "tag": "SECTION",
+          "width": 272,
+          "x": 560,
+          "y": 270
+        },
+        {
+          "height": 204,
+          "tag": "SECTION",
+          "width": 272,
+          "x": 848,
+          "y": 270
+        },
+        {
+          "height": 204,
+          "tag": "SECTION",
+          "width": 272,
+          "x": 1136,
+          "y": 270
+        }
+      ],
+      "tableHeaders": []
+    }
+  }
+]
