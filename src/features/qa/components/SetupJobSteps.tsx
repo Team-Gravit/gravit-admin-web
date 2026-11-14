@@ -16,7 +16,7 @@ export function SetupJobSteps({ steps }: { steps: SetupStep[] }) {
                 category={SETUP_CATEGORIES[status]}
                 label={SETUP_STATUS_LABELS[status]}
               />
-              <span className="ml-auto text-caption text-fg-muted">
+              <span className="ml-auto text-caption tabular-nums text-fg-muted">
                 시도 {step?.attempt ?? 0}회
               </span>
             </div>

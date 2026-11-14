@@ -20,9 +20,10 @@ export const qaApiClient = axios.create({ baseURL: env.VITE_QA_API_BASE, timeout
 
 /** QA_SPEC F-5 중 HTTP 계층 공통 문구. 도메인 문구(Notion 미발견·중복 등)는 features/qa 가 가진다. */
 export const QA_ERROR_MESSAGES = {
-  AUTH_UNAVAILABLE: '인증 서버 응답이 없어 권한을 확인하지 못했습니다. 잠시 후 다시 시도하세요.',
-  FORBIDDEN: 'QA 메뉴를 사용할 권한이 없습니다.',
-  DEFAULT: '요청을 처리하지 못했습니다. 잠시 후 다시 시도하세요.',
+  AUTH_UNAVAILABLE:
+    '인증 서버가 응답하지 않아 권한을 확인하지 못했어요. 잠시 뒤 다시 시도해 주세요.',
+  FORBIDDEN: 'QA 메뉴를 사용할 권한이 없어요.',
+  DEFAULT: '요청을 처리하지 못했어요. 잠시 뒤 다시 시도해 주세요.',
 } as const;
 
 /** 오류 본문 `{ error, message }` (QA_SPEC A-0). message 는 문자열·배열·필드별 객체. */

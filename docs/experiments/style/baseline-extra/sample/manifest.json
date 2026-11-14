@@ -1,0 +1,4088 @@
+[
+  {
+    "file": "qa-first-empty-1280.png",
+    "key": "qa-first-empty",
+    "group": "state",
+    "route": "/qa/sprints/7/checklist/1",
+    "viewport": {
+      "width": 1280,
+      "height": 900
+    },
+    "condition": "existing MSW fixture",
+    "full": false,
+    "evidence": {
+      "bodyText": "7th Agile\n\n-\n\nQA 종료\n디자인 검수와 1·2차 체크리스트의 모든 미검수를 처리해야 종료할 수 있습니다.\n1\n기능 명세서 로드\n2\n체크리스트 생성\n3\n디자인 검수\n4\n1차 자동화 검수\n5\n2차 수동 검수\n6\n종료\n연결 현황\n디자인 검수\n1차 체크리스트\n2차 체크리스트\n파트별 수정사항\nDesign\n-\n\n대상 없음\n\nWeb\n-\n\n대상 없음\n\nAPP\n-\n\n대상 없음\n\nServer\n-\n\n대상 없음\n\n전체 파트\n다음 미검수\n\n아직 생성된 항목이 없습니다.",
+      "controls": [
+        {
+          "disabled": false,
+          "id": "",
+          "label": "로그아웃",
+          "tag": "BUTTON",
+          "type": null
+        },
+        {
+          "disabled": true,
+          "id": "",
+          "label": "QA 종료",
+          "tag": "BUTTON",
+          "type": null
+        },
+        {
+          "disabled": false,
+          "id": "",
+          "label": "상태 아이콘 안내",
+          "tag": "BUTTON",
+          "type": "button"
+        },
+        {
+          "disabled": false,
+          "id": "",
+          "label": "파트 필터",
+          "tag": "BUTTON",
+          "type": "button"
+        },
+        {
+          "disabled": true,
+          "id": "",
+          "label": "다음 미검수",
+          "tag": "BUTTON",
+          "type": null
+        }
+      ],
+      "headings": [
+        {
+          "height": 36,
+          "label": "7th Agile",
+          "role": null,
+          "tag": "H1",
+          "width": 109,
+          "x": 272,
+          "y": 80
+        },
+        {
+          "height": 22,
+          "label": "Design",
+          "role": null,
+          "tag": "H2",
+          "width": 198,
+          "x": 289,
+          "y": 283
+        },
+        {
+          "height": 112,
+          "label": "Design 완료율",
+          "role": "meter",
+          "tag": "DIV",
+          "width": 198,
+          "x": 289,
+          "y": 305
+        },
+        {
+          "height": 22,
+          "label": "Web",
+          "role": null,
+          "tag": "H2",
+          "width": 198,
+          "x": 537,
+          "y": 283
+        },
+        {
+          "height": 112,
+          "label": "Web 완료율",
+          "role": "meter",
+          "tag": "DIV",
+          "width": 198,
+          "x": 537,
+          "y": 305
+        },
+        {
+          "height": 22,
+          "label": "APP",
+          "role": null,
+          "tag": "H2",
+          "width": 198,
+          "x": 785,
+          "y": 283
+        },
+        {
+          "height": 112,
+          "label": "APP 완료율",
+          "role": "meter",
+          "tag": "DIV",
+          "width": 198,
+          "x": 785,
+          "y": 305
+        },
+        {
+          "height": 22,
+          "label": "Server",
+          "role": null,
+          "tag": "H2",
+          "width": 198,
+          "x": 1033,
+          "y": 283
+        },
+        {
+          "height": 112,
+          "label": "Server 완료율",
+          "role": "meter",
+          "tag": "DIV",
+          "width": 198,
+          "x": 1033,
+          "y": 305
+        }
+      ],
+      "layout": {
+        "header": {
+          "height": 56,
+          "width": 1040,
+          "x": 240,
+          "y": 0
+        },
+        "main": {
+          "height": 844,
+          "width": 1040,
+          "x": 240,
+          "y": 56
+        },
+        "scrollHeight": 900,
+        "scrollWidth": 1280,
+        "sidebar": {
+          "height": 900,
+          "width": 240,
+          "x": 0,
+          "y": 0
+        },
+        "viewport": 1280
+      },
+      "regions": [
+        {
+          "height": 28,
+          "label": "QA 탭",
+          "tag": "NAV",
+          "width": 976,
+          "x": 272,
+          "y": 218
+        },
+        {
+          "height": 178,
+          "label": "Design 진행도",
+          "tag": "SECTION",
+          "width": 232,
+          "x": 272,
+          "y": 270
+        },
+        {
+          "height": 178,
+          "label": "Web 진행도",
+          "tag": "SECTION",
+          "width": 232,
+          "x": 520,
+          "y": 270
+        },
+        {
+          "height": 178,
+          "label": "APP 진행도",
+          "tag": "SECTION",
+          "width": 232,
+          "x": 768,
+          "y": 270
+        },
+        {
+          "height": 178,
+          "label": "Server 진행도",
+          "tag": "SECTION",
+          "width": 232,
+          "x": 1016,
+          "y": 270
+        }
+      ],
+      "texts": [
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "color": "rgb(32, 40, 51)",
+          "font": "26px",
+          "lineHeight": "36px",
+          "numerals": "normal",
+          "text": "7th Agile",
+          "weight": "700"
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "color": "rgb(89, 102, 119)",
+          "font": "14px",
+          "lineHeight": "22px",
+          "numerals": "normal",
+          "text": "-",
+          "weight": "400"
+        },
+        {
+          "background": "rgb(173, 53, 67)",
+          "color": "rgb(255, 255, 255)",
+          "font": "14px",
+          "lineHeight": "22px",
+          "numerals": "normal",
+          "text": "QA 종료",
+          "weight": "600"
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "color": "rgb(89, 102, 119)",
+          "font": "14px",
+          "lineHeight": "22px",
+          "numerals": "normal",
+          "text": "",
+          "weight": "400"
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "color": "rgb(32, 40, 51)",
+          "font": "14px",
+          "lineHeight": "22px",
+          "numerals": "normal",
+          "text": "Design",
+          "weight": "500"
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "color": "rgb(89, 102, 119)",
+          "font": "12px",
+          "lineHeight": "18px",
+          "numerals": "tabular-nums",
+          "text": "대상 없음",
+          "weight": "400"
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "color": "rgb(32, 40, 51)",
+          "font": "14px",
+          "lineHeight": "22px",
+          "numerals": "normal",
+          "text": "Web",
+          "weight": "500"
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "color": "rgb(89, 102, 119)",
+          "font": "12px",
+          "lineHeight": "18px",
+          "numerals": "tabular-nums",
+          "text": "대상 없음",
+          "weight": "400"
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "color": "rgb(32, 40, 51)",
+          "font": "14px",
+          "lineHeight": "22px",
+          "numerals": "normal",
+          "text": "APP",
+          "weight": "500"
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "color": "rgb(89, 102, 119)",
+          "font": "12px",
+          "lineHeight": "18px",
+          "numerals": "tabular-nums",
+          "text": "대상 없음",
+          "weight": "400"
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "color": "rgb(32, 40, 51)",
+          "font": "14px",
+          "lineHeight": "22px",
+          "numerals": "normal",
+          "text": "Server",
+          "weight": "500"
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "color": "rgb(89, 102, 119)",
+          "font": "12px",
+          "lineHeight": "18px",
+          "numerals": "tabular-nums",
+          "text": "대상 없음",
+          "weight": "400"
+        },
+        {
+          "background": "rgb(255, 255, 255)",
+          "color": "rgb(32, 40, 51)",
+          "font": "14px",
+          "lineHeight": "22px",
+          "numerals": "normal",
+          "text": "전체 파트",
+          "weight": "400"
+        },
+        {
+          "background": "rgb(255, 255, 255)",
+          "color": "rgb(32, 40, 51)",
+          "font": "14px",
+          "lineHeight": "22px",
+          "numerals": "normal",
+          "text": "다음 미검수",
+          "weight": "600"
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "color": "rgb(89, 102, 119)",
+          "font": "14px",
+          "lineHeight": "22px",
+          "numerals": "normal",
+          "text": "아직 생성된 항목이 없습니다.",
+          "weight": "400"
+        }
+      ],
+      "url": "/qa/sprints/7/checklist/1"
+    }
+  },
+  {
+    "file": "qa-first-running-1280.png",
+    "key": "qa-first-running",
+    "group": "state",
+    "route": "/qa/sprints/3/checklist/1",
+    "viewport": {
+      "width": 1280,
+      "height": 900
+    },
+    "condition": "existing MSW fixture",
+    "full": false,
+    "evidence": {
+      "bodyText": "3th Agile\n\nQA 흐름 예시\n\nQA 종료\n디자인 검수와 1·2차 체크리스트의 모든 미검수를 처리해야 종료할 수 있습니다.\n기능 명세서 로드\n체크리스트 생성\n디자인 검수\n4\n1차 자동화 검수\n5\n2차 수동 검수\n6\n종료\n연결 현황\n디자인 검수\n1차 체크리스트\n2차 체크리스트\n파트별 수정사항\nDesign\n33%\n\n2 / 6\n\nWeb\n67%\n\n8 / 12\n\nAPP\n33%\n\n4 / 12\n\nServer\n50%\n\n4 / 8\n\n준비 작업이 실행 중입니다. 항목 추가·수정·삭제는 작업이 끝난 뒤 가능합니다.\n\n1차 자동화 검수 중입니다.\n\n전체 파트\n다음 미검수\nACC-01\n로그인\n변경\n50% 완료\n항목\tWeb\tAPP\tServer\t\n항목 관리\n\n\n로그인 버튼 동작\nWeb\nAPP\nServer\n\n입력한 계정으로 로그인하면 학습 홈으로 이동합니다.\n\n\t\n\t\n\t\n\t\n수정\n삭제\n\n\n필수 입력 안내\nWeb\nAPP\nServer\n\n필수 값이 비어 있으면 입력란 아래에 안내를 표시합니다.\n\n\t\n\t\n\t\n\t\n수정\n삭제\n\n\n실패 후 재시도\nWeb\nAPP\n\n일시적인 오류가 발생해도 입력을 유지하고 다시 시도할 수 있습니다.\n\n\t\n\t\n\t\n\t\n수정\n삭제\nG-APP\n공통 화면\n50% 완료\n항목\tWeb\tAPP\tServer\t\n항목 관리\n\n\n로그인 버튼 동작\nWeb\nAPP\nServer\n\n입력한 계정으로 로그인하면 학습 홈으로 이동합니다.\n\n\t\n\t\n\t\n\t\n수정\n삭제\n\n\n필수 입력 안내\nWeb\nAPP\nServer\n\n필수 값이 비어 있으면 입력란 아래에 안내를 표시합니다.\n\n\t\n\t\n\t\n\t\n수정\n삭제\n\n\n실패 후 재시도\nWeb\nAPP\n\n일시적인 오류가 발생해도 입력을 유지하고 다시 시도할 수 있습니다.\n\n\t\n\t\n\t\n\t\n수정\n삭제",
+      "controls": [
+        {
+          "disabled": false,
+          "id": "",
+          "label": "로그아웃",
+          "tag": "BUTTON",
+          "type": null
+        },
+        {
+          "disabled": true,
+          "id": "",
+          "label": "QA 종료",
+          "tag": "BUTTON",
+          "type": null
+        },
+        {
+          "disabled": false,
+          "id": "",
+          "label": "상태 아이콘 안내",
+          "tag": "BUTTON",
+          "type": "button"
+        },
+        {
+          "disabled": false,
+          "id": "",
+          "label": "파트 필터",
+          "tag": "BUTTON",
+          "type": "button"
+        },
+        {
+          "disabled": true,
+          "id": "",
+          "label": "다음 미검수",
+          "tag": "BUTTON",
+          "type": null
+        },
+        {
+          "disabled": false,
+          "id": "",
+          "label": "ACC-01로그인변경50% 완료",
+          "tag": "BUTTON",
+          "type": "button"
+        },
+        {
+          "disabled": true,
+          "id": "radix-:re:",
+          "label": "Web Pass — 변경 이력",
+          "tag": "BUTTON",
+          "type": "button"
+        },
+        {
+          "disabled": true,
+          "id": "radix-:rk:",
+          "label": "APP Pass — 변경 이력",
+          "tag": "BUTTON",
+          "type": "button"
+        },
+        {
+          "disabled": true,
+          "id": "radix-:rq:",
+          "label": "Server Pass — 변경 이력",
+          "tag": "BUTTON",
+          "type": "button"
+        },
+        {
+          "disabled": true,
+          "id": "",
+          "label": "수정",
+          "tag": "BUTTON",
+          "type": null
+        },
+        {
+          "disabled": true,
+          "id": "",
+          "label": "삭제",
+          "tag": "BUTTON",
+          "type": null
+        },
+        {
+          "disabled": true,
+          "id": "radix-:r10:",
+          "label": "Web Fail — 변경 이력",
+          "tag": "BUTTON",
+          "type": "button"
+        },
+        {
+          "disabled": true,
+          "id": "radix-:r16:",
+          "label": "APP 미검수 — 변경 이력",
+          "tag": "BUTTON",
+          "type": "button"
+        },
+        {
+          "disabled": true,
+          "id": "radix-:r1c:",
+          "label": "Server 미검수 — 변경 이력",
+          "tag": "BUTTON",
+          "type": "button"
+        },
+        {
+          "disabled": true,
+          "id": "",
+          "label": "수정",
+          "tag": "BUTTON",
+          "type": null
+        },
+        {
+          "disabled": true,
+          "id": "",
+          "label": "삭제",
+          "tag": "BUTTON",
+          "type": null
+        },
+        {
+          "disabled": true,
+          "id": "radix-:r1i:",
+          "label": "Web 미검수 — 변경 이력",
+          "tag": "BUTTON",
+          "type": "button"
+        },
+        {
+          "disabled": true,
+          "id": "radix-:r1o:",
+          "label": "APP 미검수 — 변경 이력",
+          "tag": "BUTTON",
+          "type": "button"
+        },
+        {
+          "disabled": false,
+          "id": "radix-:r1u:",
+          "label": "Server 해당 없음 — 변경 이력",
+          "tag": "BUTTON",
+          "type": "button"
+        },
+        {
+          "disabled": true,
+          "id": "",
+          "label": "수정",
+          "tag": "BUTTON",
+          "type": null
+        },
+        {
+          "disabled": true,
+          "id": "",
+          "label": "삭제",
+          "tag": "BUTTON",
+          "type": null
+        },
+        {
+          "disabled": false,
+          "id": "",
+          "label": "G-APP공통 화면50% 완료",
+          "tag": "BUTTON",
+          "type": "button"
+        },
+        {
+          "disabled": true,
+          "id": "radix-:r24:",
+          "label": "Web Pass — 변경 이력",
+          "tag": "BUTTON",
+          "type": "button"
+        },
+        {
+          "disabled": true,
+          "id": "radix-:r2a:",
+          "label": "APP Pass — 변경 이력",
+          "tag": "BUTTON",
+          "type": "button"
+        },
+        {
+          "disabled": true,
+          "id": "radix-:r2g:",
+          "label": "Server Pass — 변경 이력",
+          "tag": "BUTTON",
+          "type": "button"
+        },
+        {
+          "disabled": true,
+          "id": "",
+          "label": "수정",
+          "tag": "BUTTON",
+          "type": null
+        },
+        {
+          "disabled": true,
+          "id": "",
+          "label": "삭제",
+          "tag": "BUTTON",
+          "type": null
+        },
+        {
+          "disabled": true,
+          "id": "radix-:r2m:",
+          "label": "Web Fail — 변경 이력",
+          "tag": "BUTTON",
+          "type": "button"
+        },
+        {
+          "disabled": true,
+          "id": "radix-:r2s:",
+          "label": "APP 미검수 — 변경 이력",
+          "tag": "BUTTON",
+          "type": "button"
+        },
+        {
+          "disabled": true,
+          "id": "radix-:r32:",
+          "label": "Server 미검수 — 변경 이력",
+          "tag": "BUTTON",
+          "type": "button"
+        },
+        {
+          "disabled": true,
+          "id": "",
+          "label": "수정",
+          "tag": "BUTTON",
+          "type": null
+        },
+        {
+          "disabled": true,
+          "id": "",
+          "label": "삭제",
+          "tag": "BUTTON",
+          "type": null
+        },
+        {
+          "disabled": true,
+          "id": "radix-:r38:",
+          "label": "Web 미검수 — 변경 이력",
+          "tag": "BUTTON",
+          "type": "button"
+        },
+        {
+          "disabled": true,
+          "id": "radix-:r3e:",
+          "label": "APP 미검수 — 변경 이력",
+          "tag": "BUTTON",
+          "type": "button"
+        },
+        {
+          "disabled": false,
+          "id": "radix-:r3k:",
+          "label": "Server 해당 없음 — 변경 이력",
+          "tag": "BUTTON",
+          "type": "button"
+        },
+        {
+          "disabled": true,
+          "id": "",
+          "label": "수정",
+          "tag": "BUTTON",
+          "type": null
+        },
+        {
+          "disabled": true,
+          "id": "",
+          "label": "삭제",
+          "tag": "BUTTON",
+          "type": null
+        }
+      ],
+      "headings": [
+        {
+          "height": 36,
+          "label": "3th Agile",
+          "role": null,
+          "tag": "H1",
+          "width": 110,
+          "x": 272,
+          "y": 80
+        },
+        {
+          "height": 22,
+          "label": "Design",
+          "role": null,
+          "tag": "H2",
+          "width": 198,
+          "x": 289,
+          "y": 283
+        },
+        {
+          "height": 112,
+          "label": "Design 완료율",
+          "role": "meter",
+          "tag": "DIV",
+          "width": 198,
+          "x": 289,
+          "y": 305
+        },
+        {
+          "height": 22,
+          "label": "Web",
+          "role": null,
+          "tag": "H2",
+          "width": 198,
+          "x": 537,
+          "y": 283
+        },
+        {
+          "height": 112,
+          "label": "Web 완료율",
+          "role": "meter",
+          "tag": "DIV",
+          "width": 198,
+          "x": 537,
+          "y": 305
+        },
+        {
+          "height": 22,
+          "label": "APP",
+          "role": null,
+          "tag": "H2",
+          "width": 198,
+          "x": 785,
+          "y": 283
+        },
+        {
+          "height": 112,
+          "label": "APP 완료율",
+          "role": "meter",
+          "tag": "DIV",
+          "width": 198,
+          "x": 785,
+          "y": 305
+        },
+        {
+          "height": 22,
+          "label": "Server",
+          "role": null,
+          "tag": "H2",
+          "width": 198,
+          "x": 1033,
+          "y": 283
+        },
+        {
+          "height": 112,
+          "label": "Server 완료율",
+          "role": "meter",
+          "tag": "DIV",
+          "width": 198,
+          "x": 1033,
+          "y": 305
+        },
+        {
+          "height": 22,
+          "label": "로그인 버튼 동작",
+          "role": null,
+          "tag": "H3",
+          "width": 92,
+          "x": 289,
+          "y": 722
+        },
+        {
+          "height": 22,
+          "label": "필수 입력 안내",
+          "role": null,
+          "tag": "H3",
+          "width": 79,
+          "x": 289,
+          "y": 811
+        },
+        {
+          "height": 22,
+          "label": "실패 후 재시도",
+          "role": null,
+          "tag": "H3",
+          "width": 79,
+          "x": 289,
+          "y": 900
+        },
+        {
+          "height": 22,
+          "label": "로그인 버튼 동작",
+          "role": null,
+          "tag": "H3",
+          "width": 92,
+          "x": 289,
+          "y": 1101
+        },
+        {
+          "height": 22,
+          "label": "필수 입력 안내",
+          "role": null,
+          "tag": "H3",
+          "width": 79,
+          "x": 289,
+          "y": 1190
+        },
+        {
+          "height": 22,
+          "label": "실패 후 재시도",
+          "role": null,
+          "tag": "H3",
+          "width": 79,
+          "x": 289,
+          "y": 1279
+        }
+      ],
+      "layout": {
+        "header": {
+          "height": 56,
+          "width": 1040,
+          "x": 240,
+          "y": 0
+        },
+        "main": {
+          "height": 1348,
+          "width": 1040,
+          "x": 240,
+          "y": 56
+        },
+        "scrollHeight": 1404,
+        "scrollWidth": 1280,
+        "sidebar": {
+          "height": 900,
+          "width": 240,
+          "x": 0,
+          "y": 0
+        },
+        "viewport": 1280
+      },
+      "regions": [
+        {
+          "height": 28,
+          "label": "QA 탭",
+          "tag": "NAV",
+          "width": 976,
+          "x": 272,
+          "y": 218
+        },
+        {
+          "height": 178,
+          "label": "Design 진행도",
+          "tag": "SECTION",
+          "width": 232,
+          "x": 272,
+          "y": 270
+        },
+        {
+          "height": 178,
+          "label": "Web 진행도",
+          "tag": "SECTION",
+          "width": 232,
+          "x": 520,
+          "y": 270
+        },
+        {
+          "height": 178,
+          "label": "APP 진행도",
+          "tag": "SECTION",
+          "width": 232,
+          "x": 768,
+          "y": 270
+        },
+        {
+          "height": 178,
+          "label": "Server 진행도",
+          "tag": "SECTION",
+          "width": 232,
+          "x": 1016,
+          "y": 270
+        },
+        {
+          "height": 364,
+          "label": "ACC-01 로그인",
+          "tag": "SECTION",
+          "width": 976,
+          "x": 272,
+          "y": 613
+        },
+        {
+          "height": 315,
+          "label": "로그인 버튼 동작",
+          "tag": "TABLE",
+          "width": 974,
+          "x": 273,
+          "y": 661
+        },
+        {
+          "height": 364,
+          "label": "G-APP 공통 화면",
+          "tag": "SECTION",
+          "width": 976,
+          "x": 272,
+          "y": 993
+        },
+        {
+          "height": 315,
+          "label": "로그인 버튼 동작",
+          "tag": "TABLE",
+          "width": 974,
+          "x": 273,
+          "y": 1041
+        }
+      ],
+      "texts": [
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "color": "rgb(32, 40, 51)",
+          "font": "26px",
+          "lineHeight": "36px",
+          "numerals": "normal",
+          "text": "3th Agile",
+          "weight": "700"
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "color": "rgb(89, 102, 119)",
+          "font": "14px",
+          "lineHeight": "22px",
+          "numerals": "normal",
+          "text": "QA 흐름 예시",
+          "weight": "400"
+        },
+        {
+          "background": "rgb(173, 53, 67)",
+          "color": "rgb(255, 255, 255)",
+          "font": "14px",
+          "lineHeight": "22px",
+          "numerals": "normal",
+          "text": "QA 종료",
+          "weight": "600"
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "color": "rgb(89, 102, 119)",
+          "font": "14px",
+          "lineHeight": "22px",
+          "numerals": "normal",
+          "text": "",
+          "weight": "400"
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "color": "rgb(32, 40, 51)",
+          "font": "14px",
+          "lineHeight": "22px",
+          "numerals": "normal",
+          "text": "Design",
+          "weight": "500"
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "color": "rgb(89, 102, 119)",
+          "font": "12px",
+          "lineHeight": "18px",
+          "numerals": "tabular-nums",
+          "text": "2 / 6",
+          "weight": "400"
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "color": "rgb(32, 40, 51)",
+          "font": "14px",
+          "lineHeight": "22px",
+          "numerals": "normal",
+          "text": "Web",
+          "weight": "500"
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "color": "rgb(89, 102, 119)",
+          "font": "12px",
+          "lineHeight": "18px",
+          "numerals": "tabular-nums",
+          "text": "8 / 12",
+          "weight": "400"
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "color": "rgb(32, 40, 51)",
+          "font": "14px",
+          "lineHeight": "22px",
+          "numerals": "normal",
+          "text": "APP",
+          "weight": "500"
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "color": "rgb(89, 102, 119)",
+          "font": "12px",
+          "lineHeight": "18px",
+          "numerals": "tabular-nums",
+          "text": "4 / 12",
+          "weight": "400"
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "color": "rgb(32, 40, 51)",
+          "font": "14px",
+          "lineHeight": "22px",
+          "numerals": "normal",
+          "text": "Server",
+          "weight": "500"
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "color": "rgb(89, 102, 119)",
+          "font": "12px",
+          "lineHeight": "18px",
+          "numerals": "tabular-nums",
+          "text": "4 / 8",
+          "weight": "400"
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "color": "rgb(89, 102, 119)",
+          "font": "12px",
+          "lineHeight": "18px",
+          "numerals": "normal",
+          "text": "준비 작업이 실행 중입니다. 항목 추가·수정·삭제는 작업이 끝난 뒤 가능합니다.",
+          "weight": "400"
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "color": "rgb(89, 102, 119)",
+          "font": "12px",
+          "lineHeight": "18px",
+          "numerals": "normal",
+          "text": "1차 자동화 검수 중입니다.",
+          "weight": "400"
+        },
+        {
+          "background": "rgb(255, 255, 255)",
+          "color": "rgb(32, 40, 51)",
+          "font": "14px",
+          "lineHeight": "22px",
+          "numerals": "normal",
+          "text": "전체 파트",
+          "weight": "400"
+        },
+        {
+          "background": "rgb(255, 255, 255)",
+          "color": "rgb(32, 40, 51)",
+          "font": "14px",
+          "lineHeight": "22px",
+          "numerals": "normal",
+          "text": "다음 미검수",
+          "weight": "600"
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "color": "rgb(32, 40, 51)",
+          "font": "14px",
+          "lineHeight": "22px",
+          "numerals": "normal",
+          "text": "ACC-01로그인변경50% 완료",
+          "weight": "400"
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "color": "rgb(89, 102, 119)",
+          "font": "14px",
+          "lineHeight": "22px",
+          "numerals": "tabular-nums",
+          "text": "항목",
+          "weight": "500"
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "color": "rgb(89, 102, 119)",
+          "font": "14px",
+          "lineHeight": "22px",
+          "numerals": "tabular-nums",
+          "text": "Web",
+          "weight": "500"
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "color": "rgb(89, 102, 119)",
+          "font": "14px",
+          "lineHeight": "22px",
+          "numerals": "tabular-nums",
+          "text": "APP",
+          "weight": "500"
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "color": "rgb(89, 102, 119)",
+          "font": "14px",
+          "lineHeight": "22px",
+          "numerals": "tabular-nums",
+          "text": "Server",
+          "weight": "500"
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "color": "rgb(89, 102, 119)",
+          "font": "14px",
+          "lineHeight": "22px",
+          "numerals": "tabular-nums",
+          "text": "항목 관리",
+          "weight": "500"
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "color": "rgb(32, 40, 51)",
+          "font": "14px",
+          "lineHeight": "22px",
+          "numerals": "tabular-nums",
+          "text": "로그인 버튼 동작WebAPPServer입력한 계정으로 로그인하면 학습 홈으로 이동합니다.",
+          "weight": "400"
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "color": "rgb(32, 40, 51)",
+          "font": "14px",
+          "lineHeight": "22px",
+          "numerals": "tabular-nums",
+          "text": "로그인 버튼 동작",
+          "weight": "500"
+        },
+        {
+          "background": "rgb(244, 246, 248)",
+          "color": "rgb(89, 102, 119)",
+          "font": "12px",
+          "lineHeight": "18px",
+          "numerals": "tabular-nums",
+          "text": "입력한 계정으로 로그인하면 학습 홈으로 이동합니다.",
+          "weight": "400"
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "color": "rgb(32, 40, 51)",
+          "font": "14px",
+          "lineHeight": "22px",
+          "numerals": "tabular-nums",
+          "text": "",
+          "weight": "400"
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "color": "rgb(32, 40, 51)",
+          "font": "14px",
+          "lineHeight": "22px",
+          "numerals": "normal",
+          "text": "",
+          "weight": "400"
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "color": "rgb(32, 40, 51)",
+          "font": "14px",
+          "lineHeight": "22px",
+          "numerals": "tabular-nums",
+          "text": "",
+          "weight": "400"
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "color": "rgb(32, 40, 51)",
+          "font": "14px",
+          "lineHeight": "22px",
+          "numerals": "normal",
+          "text": "",
+          "weight": "400"
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "color": "rgb(32, 40, 51)",
+          "font": "14px",
+          "lineHeight": "22px",
+          "numerals": "tabular-nums",
+          "text": "",
+          "weight": "400"
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "color": "rgb(32, 40, 51)",
+          "font": "14px",
+          "lineHeight": "22px",
+          "numerals": "normal",
+          "text": "",
+          "weight": "400"
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "color": "rgb(32, 40, 51)",
+          "font": "14px",
+          "lineHeight": "22px",
+          "numerals": "tabular-nums",
+          "text": "수정삭제",
+          "weight": "400"
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "color": "rgb(32, 40, 51)",
+          "font": "14px",
+          "lineHeight": "22px",
+          "numerals": "normal",
+          "text": "수정",
+          "weight": "600"
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "color": "rgb(173, 53, 67)",
+          "font": "14px",
+          "lineHeight": "22px",
+          "numerals": "normal",
+          "text": "삭제",
+          "weight": "600"
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "color": "rgb(32, 40, 51)",
+          "font": "14px",
+          "lineHeight": "22px",
+          "numerals": "tabular-nums",
+          "text": "필수 입력 안내WebAPPServer필수 값이 비어 있으면 입력란 아래에 안내를 표시합니다.",
+          "weight": "400"
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "color": "rgb(32, 40, 51)",
+          "font": "14px",
+          "lineHeight": "22px",
+          "numerals": "tabular-nums",
+          "text": "필수 입력 안내",
+          "weight": "500"
+        },
+        {
+          "background": "rgb(244, 246, 248)",
+          "color": "rgb(89, 102, 119)",
+          "font": "12px",
+          "lineHeight": "18px",
+          "numerals": "tabular-nums",
+          "text": "필수 값이 비어 있으면 입력란 아래에 안내를 표시합니다.",
+          "weight": "400"
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "color": "rgb(32, 40, 51)",
+          "font": "14px",
+          "lineHeight": "22px",
+          "numerals": "tabular-nums",
+          "text": "",
+          "weight": "400"
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "color": "rgb(32, 40, 51)",
+          "font": "14px",
+          "lineHeight": "22px",
+          "numerals": "normal",
+          "text": "",
+          "weight": "400"
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "color": "rgb(32, 40, 51)",
+          "font": "14px",
+          "lineHeight": "22px",
+          "numerals": "tabular-nums",
+          "text": "",
+          "weight": "400"
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "color": "rgb(32, 40, 51)",
+          "font": "14px",
+          "lineHeight": "22px",
+          "numerals": "normal",
+          "text": "",
+          "weight": "400"
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "color": "rgb(32, 40, 51)",
+          "font": "14px",
+          "lineHeight": "22px",
+          "numerals": "tabular-nums",
+          "text": "",
+          "weight": "400"
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "color": "rgb(32, 40, 51)",
+          "font": "14px",
+          "lineHeight": "22px",
+          "numerals": "normal",
+          "text": "",
+          "weight": "400"
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "color": "rgb(32, 40, 51)",
+          "font": "14px",
+          "lineHeight": "22px",
+          "numerals": "tabular-nums",
+          "text": "수정삭제",
+          "weight": "400"
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "color": "rgb(32, 40, 51)",
+          "font": "14px",
+          "lineHeight": "22px",
+          "numerals": "normal",
+          "text": "수정",
+          "weight": "600"
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "color": "rgb(173, 53, 67)",
+          "font": "14px",
+          "lineHeight": "22px",
+          "numerals": "normal",
+          "text": "삭제",
+          "weight": "600"
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "color": "rgb(32, 40, 51)",
+          "font": "14px",
+          "lineHeight": "22px",
+          "numerals": "tabular-nums",
+          "text": "실패 후 재시도WebAPP일시적인 오류가 발생해도 입력을 유지하고 다시 시도할 수 있습니다.",
+          "weight": "400"
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "color": "rgb(32, 40, 51)",
+          "font": "14px",
+          "lineHeight": "22px",
+          "numerals": "tabular-nums",
+          "text": "실패 후 재시도",
+          "weight": "500"
+        },
+        {
+          "background": "rgb(244, 246, 248)",
+          "color": "rgb(89, 102, 119)",
+          "font": "12px",
+          "lineHeight": "18px",
+          "numerals": "tabular-nums",
+          "text": "일시적인 오류가 발생해도 입력을 유지하고 다시 시도할 수 있습니다.",
+          "weight": "400"
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "color": "rgb(32, 40, 51)",
+          "font": "14px",
+          "lineHeight": "22px",
+          "numerals": "tabular-nums",
+          "text": "",
+          "weight": "400"
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "color": "rgb(32, 40, 51)",
+          "font": "14px",
+          "lineHeight": "22px",
+          "numerals": "normal",
+          "text": "",
+          "weight": "400"
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "color": "rgb(32, 40, 51)",
+          "font": "14px",
+          "lineHeight": "22px",
+          "numerals": "tabular-nums",
+          "text": "",
+          "weight": "400"
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "color": "rgb(32, 40, 51)",
+          "font": "14px",
+          "lineHeight": "22px",
+          "numerals": "normal",
+          "text": "",
+          "weight": "400"
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "color": "rgb(32, 40, 51)",
+          "font": "14px",
+          "lineHeight": "22px",
+          "numerals": "tabular-nums",
+          "text": "",
+          "weight": "400"
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "color": "rgb(32, 40, 51)",
+          "font": "14px",
+          "lineHeight": "22px",
+          "numerals": "normal",
+          "text": "",
+          "weight": "400"
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "color": "rgb(32, 40, 51)",
+          "font": "14px",
+          "lineHeight": "22px",
+          "numerals": "tabular-nums",
+          "text": "수정삭제",
+          "weight": "400"
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "color": "rgb(32, 40, 51)",
+          "font": "14px",
+          "lineHeight": "22px",
+          "numerals": "normal",
+          "text": "수정",
+          "weight": "600"
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "color": "rgb(173, 53, 67)",
+          "font": "14px",
+          "lineHeight": "22px",
+          "numerals": "normal",
+          "text": "삭제",
+          "weight": "600"
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "color": "rgb(32, 40, 51)",
+          "font": "14px",
+          "lineHeight": "22px",
+          "numerals": "normal",
+          "text": "G-APP공통 화면50% 완료",
+          "weight": "400"
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "color": "rgb(89, 102, 119)",
+          "font": "14px",
+          "lineHeight": "22px",
+          "numerals": "tabular-nums",
+          "text": "항목",
+          "weight": "500"
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "color": "rgb(89, 102, 119)",
+          "font": "14px",
+          "lineHeight": "22px",
+          "numerals": "tabular-nums",
+          "text": "Web",
+          "weight": "500"
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "color": "rgb(89, 102, 119)",
+          "font": "14px",
+          "lineHeight": "22px",
+          "numerals": "tabular-nums",
+          "text": "APP",
+          "weight": "500"
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "color": "rgb(89, 102, 119)",
+          "font": "14px",
+          "lineHeight": "22px",
+          "numerals": "tabular-nums",
+          "text": "Server",
+          "weight": "500"
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "color": "rgb(89, 102, 119)",
+          "font": "14px",
+          "lineHeight": "22px",
+          "numerals": "tabular-nums",
+          "text": "항목 관리",
+          "weight": "500"
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "color": "rgb(32, 40, 51)",
+          "font": "14px",
+          "lineHeight": "22px",
+          "numerals": "tabular-nums",
+          "text": "로그인 버튼 동작WebAPPServer입력한 계정으로 로그인하면 학습 홈으로 이동합니다.",
+          "weight": "400"
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "color": "rgb(32, 40, 51)",
+          "font": "14px",
+          "lineHeight": "22px",
+          "numerals": "tabular-nums",
+          "text": "로그인 버튼 동작",
+          "weight": "500"
+        },
+        {
+          "background": "rgb(244, 246, 248)",
+          "color": "rgb(89, 102, 119)",
+          "font": "12px",
+          "lineHeight": "18px",
+          "numerals": "tabular-nums",
+          "text": "입력한 계정으로 로그인하면 학습 홈으로 이동합니다.",
+          "weight": "400"
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "color": "rgb(32, 40, 51)",
+          "font": "14px",
+          "lineHeight": "22px",
+          "numerals": "tabular-nums",
+          "text": "",
+          "weight": "400"
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "color": "rgb(32, 40, 51)",
+          "font": "14px",
+          "lineHeight": "22px",
+          "numerals": "normal",
+          "text": "",
+          "weight": "400"
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "color": "rgb(32, 40, 51)",
+          "font": "14px",
+          "lineHeight": "22px",
+          "numerals": "tabular-nums",
+          "text": "",
+          "weight": "400"
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "color": "rgb(32, 40, 51)",
+          "font": "14px",
+          "lineHeight": "22px",
+          "numerals": "normal",
+          "text": "",
+          "weight": "400"
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "color": "rgb(32, 40, 51)",
+          "font": "14px",
+          "lineHeight": "22px",
+          "numerals": "tabular-nums",
+          "text": "",
+          "weight": "400"
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "color": "rgb(32, 40, 51)",
+          "font": "14px",
+          "lineHeight": "22px",
+          "numerals": "normal",
+          "text": "",
+          "weight": "400"
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "color": "rgb(32, 40, 51)",
+          "font": "14px",
+          "lineHeight": "22px",
+          "numerals": "tabular-nums",
+          "text": "수정삭제",
+          "weight": "400"
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "color": "rgb(32, 40, 51)",
+          "font": "14px",
+          "lineHeight": "22px",
+          "numerals": "normal",
+          "text": "수정",
+          "weight": "600"
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "color": "rgb(173, 53, 67)",
+          "font": "14px",
+          "lineHeight": "22px",
+          "numerals": "normal",
+          "text": "삭제",
+          "weight": "600"
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "color": "rgb(32, 40, 51)",
+          "font": "14px",
+          "lineHeight": "22px",
+          "numerals": "tabular-nums",
+          "text": "필수 입력 안내WebAPPServer필수 값이 비어 있으면 입력란 아래에 안내를 표시합니다.",
+          "weight": "400"
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "color": "rgb(32, 40, 51)",
+          "font": "14px",
+          "lineHeight": "22px",
+          "numerals": "tabular-nums",
+          "text": "필수 입력 안내",
+          "weight": "500"
+        },
+        {
+          "background": "rgb(244, 246, 248)",
+          "color": "rgb(89, 102, 119)",
+          "font": "12px",
+          "lineHeight": "18px",
+          "numerals": "tabular-nums",
+          "text": "필수 값이 비어 있으면 입력란 아래에 안내를 표시합니다.",
+          "weight": "400"
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "color": "rgb(32, 40, 51)",
+          "font": "14px",
+          "lineHeight": "22px",
+          "numerals": "tabular-nums",
+          "text": "",
+          "weight": "400"
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "color": "rgb(32, 40, 51)",
+          "font": "14px",
+          "lineHeight": "22px",
+          "numerals": "normal",
+          "text": "",
+          "weight": "400"
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "color": "rgb(32, 40, 51)",
+          "font": "14px",
+          "lineHeight": "22px",
+          "numerals": "tabular-nums",
+          "text": "",
+          "weight": "400"
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "color": "rgb(32, 40, 51)",
+          "font": "14px",
+          "lineHeight": "22px",
+          "numerals": "normal",
+          "text": "",
+          "weight": "400"
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "color": "rgb(32, 40, 51)",
+          "font": "14px",
+          "lineHeight": "22px",
+          "numerals": "tabular-nums",
+          "text": "",
+          "weight": "400"
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "color": "rgb(32, 40, 51)",
+          "font": "14px",
+          "lineHeight": "22px",
+          "numerals": "normal",
+          "text": "",
+          "weight": "400"
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "color": "rgb(32, 40, 51)",
+          "font": "14px",
+          "lineHeight": "22px",
+          "numerals": "tabular-nums",
+          "text": "수정삭제",
+          "weight": "400"
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "color": "rgb(32, 40, 51)",
+          "font": "14px",
+          "lineHeight": "22px",
+          "numerals": "normal",
+          "text": "수정",
+          "weight": "600"
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "color": "rgb(173, 53, 67)",
+          "font": "14px",
+          "lineHeight": "22px",
+          "numerals": "normal",
+          "text": "삭제",
+          "weight": "600"
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "color": "rgb(32, 40, 51)",
+          "font": "14px",
+          "lineHeight": "22px",
+          "numerals": "tabular-nums",
+          "text": "실패 후 재시도WebAPP일시적인 오류가 발생해도 입력을 유지하고 다시 시도할 수 있습니다.",
+          "weight": "400"
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "color": "rgb(32, 40, 51)",
+          "font": "14px",
+          "lineHeight": "22px",
+          "numerals": "tabular-nums",
+          "text": "실패 후 재시도",
+          "weight": "500"
+        },
+        {
+          "background": "rgb(244, 246, 248)",
+          "color": "rgb(89, 102, 119)",
+          "font": "12px",
+          "lineHeight": "18px",
+          "numerals": "tabular-nums",
+          "text": "일시적인 오류가 발생해도 입력을 유지하고 다시 시도할 수 있습니다.",
+          "weight": "400"
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "color": "rgb(32, 40, 51)",
+          "font": "14px",
+          "lineHeight": "22px",
+          "numerals": "tabular-nums",
+          "text": "",
+          "weight": "400"
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "color": "rgb(32, 40, 51)",
+          "font": "14px",
+          "lineHeight": "22px",
+          "numerals": "normal",
+          "text": "",
+          "weight": "400"
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "color": "rgb(32, 40, 51)",
+          "font": "14px",
+          "lineHeight": "22px",
+          "numerals": "tabular-nums",
+          "text": "",
+          "weight": "400"
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "color": "rgb(32, 40, 51)",
+          "font": "14px",
+          "lineHeight": "22px",
+          "numerals": "normal",
+          "text": "",
+          "weight": "400"
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "color": "rgb(32, 40, 51)",
+          "font": "14px",
+          "lineHeight": "22px",
+          "numerals": "tabular-nums",
+          "text": "",
+          "weight": "400"
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "color": "rgb(32, 40, 51)",
+          "font": "14px",
+          "lineHeight": "22px",
+          "numerals": "normal",
+          "text": "",
+          "weight": "400"
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "color": "rgb(32, 40, 51)",
+          "font": "14px",
+          "lineHeight": "22px",
+          "numerals": "tabular-nums",
+          "text": "수정삭제",
+          "weight": "400"
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "color": "rgb(32, 40, 51)",
+          "font": "14px",
+          "lineHeight": "22px",
+          "numerals": "normal",
+          "text": "수정",
+          "weight": "600"
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "color": "rgb(173, 53, 67)",
+          "font": "14px",
+          "lineHeight": "22px",
+          "numerals": "normal",
+          "text": "삭제",
+          "weight": "600"
+        }
+      ],
+      "url": "/qa/sprints/3/checklist/1"
+    }
+  },
+  {
+    "file": "qa-first-loading-1280.png",
+    "key": "qa-first-loading",
+    "group": "state",
+    "route": "/qa/sprints/2/checklist/1",
+    "viewport": {
+      "width": 1280,
+      "height": 900
+    },
+    "condition": "existing checklist GET held in browser",
+    "full": false,
+    "evidence": {
+      "bodyText": "2th Agile\n\n로그인·공통 화면 수동 검수\n\nQA 종료\n디자인 검수와 1·2차 체크리스트의 모든 미검수를 처리해야 종료할 수 있습니다.\n기능 명세서 로드\n체크리스트 생성\n디자인 검수\n1차 자동화 검수\n5\n2차 수동 검수\n6\n종료\n연결 현황\n디자인 검수\n1차 체크리스트\n2차 체크리스트\n파트별 수정사항",
+      "controls": [
+        {
+          "disabled": false,
+          "id": "",
+          "label": "로그아웃",
+          "tag": "BUTTON",
+          "type": null
+        },
+        {
+          "disabled": true,
+          "id": "",
+          "label": "QA 종료",
+          "tag": "BUTTON",
+          "type": null
+        },
+        {
+          "disabled": false,
+          "id": "",
+          "label": "상태 아이콘 안내",
+          "tag": "BUTTON",
+          "type": "button"
+        }
+      ],
+      "headings": [
+        {
+          "height": 36,
+          "label": "2th Agile",
+          "role": null,
+          "tag": "H1",
+          "width": 147,
+          "x": 272,
+          "y": 80
+        }
+      ],
+      "layout": {
+        "header": {
+          "height": 56,
+          "width": 1040,
+          "x": 240,
+          "y": 0
+        },
+        "main": {
+          "height": 844,
+          "width": 1040,
+          "x": 240,
+          "y": 56
+        },
+        "scrollHeight": 900,
+        "scrollWidth": 1280,
+        "sidebar": {
+          "height": 900,
+          "width": 240,
+          "x": 0,
+          "y": 0
+        },
+        "viewport": 1280
+      },
+      "regions": [
+        {
+          "height": 28,
+          "label": "QA 탭",
+          "tag": "NAV",
+          "width": 976,
+          "x": 272,
+          "y": 218
+        }
+      ],
+      "texts": [
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "color": "rgb(32, 40, 51)",
+          "font": "26px",
+          "lineHeight": "36px",
+          "numerals": "normal",
+          "text": "2th Agile",
+          "weight": "700"
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "color": "rgb(89, 102, 119)",
+          "font": "14px",
+          "lineHeight": "22px",
+          "numerals": "normal",
+          "text": "로그인·공통 화면 수동 검수",
+          "weight": "400"
+        },
+        {
+          "background": "rgb(173, 53, 67)",
+          "color": "rgb(255, 255, 255)",
+          "font": "14px",
+          "lineHeight": "22px",
+          "numerals": "normal",
+          "text": "QA 종료",
+          "weight": "600"
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "color": "rgb(89, 102, 119)",
+          "font": "14px",
+          "lineHeight": "22px",
+          "numerals": "normal",
+          "text": "",
+          "weight": "400"
+        }
+      ],
+      "url": "/qa/sprints/2/checklist/1"
+    }
+  },
+  {
+    "file": "qa-first-error-1280.png",
+    "key": "qa-first-error",
+    "group": "state",
+    "route": "/qa/sprints/2/checklist/1",
+    "viewport": {
+      "width": 1280,
+      "height": 900
+    },
+    "condition": "existing mocked GET /sprints/:id/checklist with absent fixture id999999 -> existing404; header sprint2 unchanged",
+    "full": false,
+    "evidence": {
+      "bodyText": "2th Agile\n\n로그인·공통 화면 수동 검수\n\nQA 종료\n디자인 검수와 1·2차 체크리스트의 모든 미검수를 처리해야 종료할 수 있습니다.\n\n대상을 찾을 수 없습니다.\n\n다시 시도\n기능 명세서 로드\n체크리스트 생성\n디자인 검수\n1차 자동화 검수\n5\n2차 수동 검수\n6\n종료\n연결 현황\n디자인 검수\n1차 체크리스트\n2차 체크리스트\n파트별 수정사항\n\n대상을 찾을 수 없습니다.\n\n다시 시도하기",
+      "controls": [
+        {
+          "disabled": false,
+          "id": "",
+          "label": "로그아웃",
+          "tag": "BUTTON",
+          "type": null
+        },
+        {
+          "disabled": true,
+          "id": "",
+          "label": "QA 종료",
+          "tag": "BUTTON",
+          "type": null
+        },
+        {
+          "disabled": false,
+          "id": "",
+          "label": "다시 시도",
+          "tag": "BUTTON",
+          "type": null
+        },
+        {
+          "disabled": false,
+          "id": "",
+          "label": "상태 아이콘 안내",
+          "tag": "BUTTON",
+          "type": "button"
+        },
+        {
+          "disabled": false,
+          "id": "",
+          "label": "다시 시도하기",
+          "tag": "BUTTON",
+          "type": null
+        }
+      ],
+      "headings": [
+        {
+          "height": 36,
+          "label": "2th Agile",
+          "role": null,
+          "tag": "H1",
+          "width": 147,
+          "x": 272,
+          "y": 80
+        }
+      ],
+      "layout": {
+        "header": {
+          "height": 56,
+          "width": 1040,
+          "x": 240,
+          "y": 0
+        },
+        "main": {
+          "height": 844,
+          "width": 1040,
+          "x": 240,
+          "y": 56
+        },
+        "scrollHeight": 900,
+        "scrollWidth": 1280,
+        "sidebar": {
+          "height": 900,
+          "width": 240,
+          "x": 0,
+          "y": 0
+        },
+        "viewport": 1280
+      },
+      "regions": [
+        {
+          "height": 28,
+          "label": "QA 탭",
+          "tag": "NAV",
+          "width": 976,
+          "x": 272,
+          "y": 254
+        }
+      ],
+      "texts": [
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "color": "rgb(32, 40, 51)",
+          "font": "26px",
+          "lineHeight": "36px",
+          "numerals": "normal",
+          "text": "2th Agile",
+          "weight": "700"
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "color": "rgb(89, 102, 119)",
+          "font": "14px",
+          "lineHeight": "22px",
+          "numerals": "normal",
+          "text": "로그인·공통 화면 수동 검수",
+          "weight": "400"
+        },
+        {
+          "background": "rgb(173, 53, 67)",
+          "color": "rgb(255, 255, 255)",
+          "font": "14px",
+          "lineHeight": "22px",
+          "numerals": "normal",
+          "text": "QA 종료",
+          "weight": "600"
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "color": "rgb(173, 53, 67)",
+          "font": "12px",
+          "lineHeight": "18px",
+          "numerals": "normal",
+          "text": "대상을 찾을 수 없습니다.",
+          "weight": "400"
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "color": "rgb(173, 53, 67)",
+          "font": "14px",
+          "lineHeight": "22px",
+          "numerals": "normal",
+          "text": "다시 시도",
+          "weight": "600"
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "color": "rgb(89, 102, 119)",
+          "font": "14px",
+          "lineHeight": "22px",
+          "numerals": "normal",
+          "text": "",
+          "weight": "400"
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "color": "rgb(89, 102, 119)",
+          "font": "14px",
+          "lineHeight": "22px",
+          "numerals": "normal",
+          "text": "대상을 찾을 수 없습니다.",
+          "weight": "400"
+        },
+        {
+          "background": "rgb(255, 255, 255)",
+          "color": "rgb(32, 40, 51)",
+          "font": "14px",
+          "lineHeight": "22px",
+          "numerals": "normal",
+          "text": "다시 시도하기",
+          "weight": "600"
+        }
+      ],
+      "url": "/qa/sprints/2/checklist/1"
+    }
+  },
+  {
+    "file": "qa-first-empty-1440.png",
+    "key": "qa-first-empty",
+    "group": "state",
+    "route": "/qa/sprints/7/checklist/1",
+    "viewport": {
+      "width": 1440,
+      "height": 900
+    },
+    "condition": "existing MSW fixture",
+    "full": false,
+    "evidence": {
+      "bodyText": "7th Agile\n\n-\n\nQA 종료\n디자인 검수와 1·2차 체크리스트의 모든 미검수를 처리해야 종료할 수 있습니다.\n1\n기능 명세서 로드\n2\n체크리스트 생성\n3\n디자인 검수\n4\n1차 자동화 검수\n5\n2차 수동 검수\n6\n종료\n연결 현황\n디자인 검수\n1차 체크리스트\n2차 체크리스트\n파트별 수정사항\nDesign\n-\n\n대상 없음\n\nWeb\n-\n\n대상 없음\n\nAPP\n-\n\n대상 없음\n\nServer\n-\n\n대상 없음\n\n전체 파트\n다음 미검수\n\n아직 생성된 항목이 없습니다.",
+      "controls": [
+        {
+          "disabled": false,
+          "id": "",
+          "label": "로그아웃",
+          "tag": "BUTTON",
+          "type": null
+        },
+        {
+          "disabled": true,
+          "id": "",
+          "label": "QA 종료",
+          "tag": "BUTTON",
+          "type": null
+        },
+        {
+          "disabled": false,
+          "id": "",
+          "label": "상태 아이콘 안내",
+          "tag": "BUTTON",
+          "type": "button"
+        },
+        {
+          "disabled": false,
+          "id": "",
+          "label": "파트 필터",
+          "tag": "BUTTON",
+          "type": "button"
+        },
+        {
+          "disabled": true,
+          "id": "",
+          "label": "다음 미검수",
+          "tag": "BUTTON",
+          "type": null
+        }
+      ],
+      "headings": [
+        {
+          "height": 36,
+          "label": "7th Agile",
+          "role": null,
+          "tag": "H1",
+          "width": 109,
+          "x": 272,
+          "y": 80
+        },
+        {
+          "height": 22,
+          "label": "Design",
+          "role": null,
+          "tag": "H2",
+          "width": 238,
+          "x": 289,
+          "y": 283
+        },
+        {
+          "height": 112,
+          "label": "Design 완료율",
+          "role": "meter",
+          "tag": "DIV",
+          "width": 238,
+          "x": 289,
+          "y": 305
+        },
+        {
+          "height": 22,
+          "label": "Web",
+          "role": null,
+          "tag": "H2",
+          "width": 238,
+          "x": 577,
+          "y": 283
+        },
+        {
+          "height": 112,
+          "label": "Web 완료율",
+          "role": "meter",
+          "tag": "DIV",
+          "width": 238,
+          "x": 577,
+          "y": 305
+        },
+        {
+          "height": 22,
+          "label": "APP",
+          "role": null,
+          "tag": "H2",
+          "width": 238,
+          "x": 865,
+          "y": 283
+        },
+        {
+          "height": 112,
+          "label": "APP 완료율",
+          "role": "meter",
+          "tag": "DIV",
+          "width": 238,
+          "x": 865,
+          "y": 305
+        },
+        {
+          "height": 22,
+          "label": "Server",
+          "role": null,
+          "tag": "H2",
+          "width": 238,
+          "x": 1153,
+          "y": 283
+        },
+        {
+          "height": 112,
+          "label": "Server 완료율",
+          "role": "meter",
+          "tag": "DIV",
+          "width": 238,
+          "x": 1153,
+          "y": 305
+        }
+      ],
+      "layout": {
+        "header": {
+          "height": 56,
+          "width": 1200,
+          "x": 240,
+          "y": 0
+        },
+        "main": {
+          "height": 844,
+          "width": 1200,
+          "x": 240,
+          "y": 56
+        },
+        "scrollHeight": 900,
+        "scrollWidth": 1440,
+        "sidebar": {
+          "height": 900,
+          "width": 240,
+          "x": 0,
+          "y": 0
+        },
+        "viewport": 1440
+      },
+      "regions": [
+        {
+          "height": 28,
+          "label": "QA 탭",
+          "tag": "NAV",
+          "width": 1136,
+          "x": 272,
+          "y": 218
+        },
+        {
+          "height": 178,
+          "label": "Design 진행도",
+          "tag": "SECTION",
+          "width": 272,
+          "x": 272,
+          "y": 270
+        },
+        {
+          "height": 178,
+          "label": "Web 진행도",
+          "tag": "SECTION",
+          "width": 272,
+          "x": 560,
+          "y": 270
+        },
+        {
+          "height": 178,
+          "label": "APP 진행도",
+          "tag": "SECTION",
+          "width": 272,
+          "x": 848,
+          "y": 270
+        },
+        {
+          "height": 178,
+          "label": "Server 진행도",
+          "tag": "SECTION",
+          "width": 272,
+          "x": 1136,
+          "y": 270
+        }
+      ],
+      "texts": [
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "color": "rgb(32, 40, 51)",
+          "font": "26px",
+          "lineHeight": "36px",
+          "numerals": "normal",
+          "text": "7th Agile",
+          "weight": "700"
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "color": "rgb(89, 102, 119)",
+          "font": "14px",
+          "lineHeight": "22px",
+          "numerals": "normal",
+          "text": "-",
+          "weight": "400"
+        },
+        {
+          "background": "rgb(173, 53, 67)",
+          "color": "rgb(255, 255, 255)",
+          "font": "14px",
+          "lineHeight": "22px",
+          "numerals": "normal",
+          "text": "QA 종료",
+          "weight": "600"
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "color": "rgb(89, 102, 119)",
+          "font": "14px",
+          "lineHeight": "22px",
+          "numerals": "normal",
+          "text": "",
+          "weight": "400"
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "color": "rgb(32, 40, 51)",
+          "font": "14px",
+          "lineHeight": "22px",
+          "numerals": "normal",
+          "text": "Design",
+          "weight": "500"
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "color": "rgb(89, 102, 119)",
+          "font": "12px",
+          "lineHeight": "18px",
+          "numerals": "tabular-nums",
+          "text": "대상 없음",
+          "weight": "400"
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "color": "rgb(32, 40, 51)",
+          "font": "14px",
+          "lineHeight": "22px",
+          "numerals": "normal",
+          "text": "Web",
+          "weight": "500"
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "color": "rgb(89, 102, 119)",
+          "font": "12px",
+          "lineHeight": "18px",
+          "numerals": "tabular-nums",
+          "text": "대상 없음",
+          "weight": "400"
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "color": "rgb(32, 40, 51)",
+          "font": "14px",
+          "lineHeight": "22px",
+          "numerals": "normal",
+          "text": "APP",
+          "weight": "500"
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "color": "rgb(89, 102, 119)",
+          "font": "12px",
+          "lineHeight": "18px",
+          "numerals": "tabular-nums",
+          "text": "대상 없음",
+          "weight": "400"
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "color": "rgb(32, 40, 51)",
+          "font": "14px",
+          "lineHeight": "22px",
+          "numerals": "normal",
+          "text": "Server",
+          "weight": "500"
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "color": "rgb(89, 102, 119)",
+          "font": "12px",
+          "lineHeight": "18px",
+          "numerals": "tabular-nums",
+          "text": "대상 없음",
+          "weight": "400"
+        },
+        {
+          "background": "rgb(255, 255, 255)",
+          "color": "rgb(32, 40, 51)",
+          "font": "14px",
+          "lineHeight": "22px",
+          "numerals": "normal",
+          "text": "전체 파트",
+          "weight": "400"
+        },
+        {
+          "background": "rgb(255, 255, 255)",
+          "color": "rgb(32, 40, 51)",
+          "font": "14px",
+          "lineHeight": "22px",
+          "numerals": "normal",
+          "text": "다음 미검수",
+          "weight": "600"
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "color": "rgb(89, 102, 119)",
+          "font": "14px",
+          "lineHeight": "22px",
+          "numerals": "normal",
+          "text": "아직 생성된 항목이 없습니다.",
+          "weight": "400"
+        }
+      ],
+      "url": "/qa/sprints/7/checklist/1"
+    }
+  },
+  {
+    "file": "qa-first-running-1440.png",
+    "key": "qa-first-running",
+    "group": "state",
+    "route": "/qa/sprints/3/checklist/1",
+    "viewport": {
+      "width": 1440,
+      "height": 900
+    },
+    "condition": "existing MSW fixture",
+    "full": false,
+    "evidence": {
+      "bodyText": "3th Agile\n\nQA 흐름 예시\n\nQA 종료\n디자인 검수와 1·2차 체크리스트의 모든 미검수를 처리해야 종료할 수 있습니다.\n기능 명세서 로드\n체크리스트 생성\n디자인 검수\n4\n1차 자동화 검수\n5\n2차 수동 검수\n6\n종료\n연결 현황\n디자인 검수\n1차 체크리스트\n2차 체크리스트\n파트별 수정사항\nDesign\n33%\n\n2 / 6\n\nWeb\n67%\n\n8 / 12\n\nAPP\n33%\n\n4 / 12\n\nServer\n50%\n\n4 / 8\n\n준비 작업이 실행 중입니다. 항목 추가·수정·삭제는 작업이 끝난 뒤 가능합니다.\n\n1차 자동화 검수 중입니다.\n\n전체 파트\n다음 미검수\nACC-01\n로그인\n변경\n50% 완료\n항목\tWeb\tAPP\tServer\t\n항목 관리\n\n\n로그인 버튼 동작\nWeb\nAPP\nServer\n\n입력한 계정으로 로그인하면 학습 홈으로 이동합니다.\n\n\t\n\t\n\t\n\t\n수정\n삭제\n\n\n필수 입력 안내\nWeb\nAPP\nServer\n\n필수 값이 비어 있으면 입력란 아래에 안내를 표시합니다.\n\n\t\n\t\n\t\n\t\n수정\n삭제\n\n\n실패 후 재시도\nWeb\nAPP\n\n일시적인 오류가 발생해도 입력을 유지하고 다시 시도할 수 있습니다.\n\n\t\n\t\n\t\n\t\n수정\n삭제\nG-APP\n공통 화면\n50% 완료\n항목\tWeb\tAPP\tServer\t\n항목 관리\n\n\n로그인 버튼 동작\nWeb\nAPP\nServer\n\n입력한 계정으로 로그인하면 학습 홈으로 이동합니다.\n\n\t\n\t\n\t\n\t\n수정\n삭제\n\n\n필수 입력 안내\nWeb\nAPP\nServer\n\n필수 값이 비어 있으면 입력란 아래에 안내를 표시합니다.\n\n\t\n\t\n\t\n\t\n수정\n삭제\n\n\n실패 후 재시도\nWeb\nAPP\n\n일시적인 오류가 발생해도 입력을 유지하고 다시 시도할 수 있습니다.\n\n\t\n\t\n\t\n\t\n수정\n삭제",
+      "controls": [
+        {
+          "disabled": false,
+          "id": "",
+          "label": "로그아웃",
+          "tag": "BUTTON",
+          "type": null
+        },
+        {
+          "disabled": true,
+          "id": "",
+          "label": "QA 종료",
+          "tag": "BUTTON",
+          "type": null
+        },
+        {
+          "disabled": false,
+          "id": "",
+          "label": "상태 아이콘 안내",
+          "tag": "BUTTON",
+          "type": "button"
+        },
+        {
+          "disabled": false,
+          "id": "",
+          "label": "파트 필터",
+          "tag": "BUTTON",
+          "type": "button"
+        },
+        {
+          "disabled": true,
+          "id": "",
+          "label": "다음 미검수",
+          "tag": "BUTTON",
+          "type": null
+        },
+        {
+          "disabled": false,
+          "id": "",
+          "label": "ACC-01로그인변경50% 완료",
+          "tag": "BUTTON",
+          "type": "button"
+        },
+        {
+          "disabled": true,
+          "id": "radix-:re:",
+          "label": "Web Pass — 변경 이력",
+          "tag": "BUTTON",
+          "type": "button"
+        },
+        {
+          "disabled": true,
+          "id": "radix-:rk:",
+          "label": "APP Pass — 변경 이력",
+          "tag": "BUTTON",
+          "type": "button"
+        },
+        {
+          "disabled": true,
+          "id": "radix-:rq:",
+          "label": "Server Pass — 변경 이력",
+          "tag": "BUTTON",
+          "type": "button"
+        },
+        {
+          "disabled": true,
+          "id": "",
+          "label": "수정",
+          "tag": "BUTTON",
+          "type": null
+        },
+        {
+          "disabled": true,
+          "id": "",
+          "label": "삭제",
+          "tag": "BUTTON",
+          "type": null
+        },
+        {
+          "disabled": true,
+          "id": "radix-:r10:",
+          "label": "Web Fail — 변경 이력",
+          "tag": "BUTTON",
+          "type": "button"
+        },
+        {
+          "disabled": true,
+          "id": "radix-:r16:",
+          "label": "APP 미검수 — 변경 이력",
+          "tag": "BUTTON",
+          "type": "button"
+        },
+        {
+          "disabled": true,
+          "id": "radix-:r1c:",
+          "label": "Server 미검수 — 변경 이력",
+          "tag": "BUTTON",
+          "type": "button"
+        },
+        {
+          "disabled": true,
+          "id": "",
+          "label": "수정",
+          "tag": "BUTTON",
+          "type": null
+        },
+        {
+          "disabled": true,
+          "id": "",
+          "label": "삭제",
+          "tag": "BUTTON",
+          "type": null
+        },
+        {
+          "disabled": true,
+          "id": "radix-:r1i:",
+          "label": "Web 미검수 — 변경 이력",
+          "tag": "BUTTON",
+          "type": "button"
+        },
+        {
+          "disabled": true,
+          "id": "radix-:r1o:",
+          "label": "APP 미검수 — 변경 이력",
+          "tag": "BUTTON",
+          "type": "button"
+        },
+        {
+          "disabled": false,
+          "id": "radix-:r1u:",
+          "label": "Server 해당 없음 — 변경 이력",
+          "tag": "BUTTON",
+          "type": "button"
+        },
+        {
+          "disabled": true,
+          "id": "",
+          "label": "수정",
+          "tag": "BUTTON",
+          "type": null
+        },
+        {
+          "disabled": true,
+          "id": "",
+          "label": "삭제",
+          "tag": "BUTTON",
+          "type": null
+        },
+        {
+          "disabled": false,
+          "id": "",
+          "label": "G-APP공통 화면50% 완료",
+          "tag": "BUTTON",
+          "type": "button"
+        },
+        {
+          "disabled": true,
+          "id": "radix-:r24:",
+          "label": "Web Pass — 변경 이력",
+          "tag": "BUTTON",
+          "type": "button"
+        },
+        {
+          "disabled": true,
+          "id": "radix-:r2a:",
+          "label": "APP Pass — 변경 이력",
+          "tag": "BUTTON",
+          "type": "button"
+        },
+        {
+          "disabled": true,
+          "id": "radix-:r2g:",
+          "label": "Server Pass — 변경 이력",
+          "tag": "BUTTON",
+          "type": "button"
+        },
+        {
+          "disabled": true,
+          "id": "",
+          "label": "수정",
+          "tag": "BUTTON",
+          "type": null
+        },
+        {
+          "disabled": true,
+          "id": "",
+          "label": "삭제",
+          "tag": "BUTTON",
+          "type": null
+        },
+        {
+          "disabled": true,
+          "id": "radix-:r2m:",
+          "label": "Web Fail — 변경 이력",
+          "tag": "BUTTON",
+          "type": "button"
+        },
+        {
+          "disabled": true,
+          "id": "radix-:r2s:",
+          "label": "APP 미검수 — 변경 이력",
+          "tag": "BUTTON",
+          "type": "button"
+        },
+        {
+          "disabled": true,
+          "id": "radix-:r32:",
+          "label": "Server 미검수 — 변경 이력",
+          "tag": "BUTTON",
+          "type": "button"
+        },
+        {
+          "disabled": true,
+          "id": "",
+          "label": "수정",
+          "tag": "BUTTON",
+          "type": null
+        },
+        {
+          "disabled": true,
+          "id": "",
+          "label": "삭제",
+          "tag": "BUTTON",
+          "type": null
+        },
+        {
+          "disabled": true,
+          "id": "radix-:r38:",
+          "label": "Web 미검수 — 변경 이력",
+          "tag": "BUTTON",
+          "type": "button"
+        },
+        {
+          "disabled": true,
+          "id": "radix-:r3e:",
+          "label": "APP 미검수 — 변경 이력",
+          "tag": "BUTTON",
+          "type": "button"
+        },
+        {
+          "disabled": false,
+          "id": "radix-:r3k:",
+          "label": "Server 해당 없음 — 변경 이력",
+          "tag": "BUTTON",
+          "type": "button"
+        },
+        {
+          "disabled": true,
+          "id": "",
+          "label": "수정",
+          "tag": "BUTTON",
+          "type": null
+        },
+        {
+          "disabled": true,
+          "id": "",
+          "label": "삭제",
+          "tag": "BUTTON",
+          "type": null
+        }
+      ],
+      "headings": [
+        {
+          "height": 36,
+          "label": "3th Agile",
+          "role": null,
+          "tag": "H1",
+          "width": 110,
+          "x": 272,
+          "y": 80
+        },
+        {
+          "height": 22,
+          "label": "Design",
+          "role": null,
+          "tag": "H2",
+          "width": 238,
+          "x": 289,
+          "y": 283
+        },
+        {
+          "height": 112,
+          "label": "Design 완료율",
+          "role": "meter",
+          "tag": "DIV",
+          "width": 238,
+          "x": 289,
+          "y": 305
+        },
+        {
+          "height": 22,
+          "label": "Web",
+          "role": null,
+          "tag": "H2",
+          "width": 238,
+          "x": 577,
+          "y": 283
+        },
+        {
+          "height": 112,
+          "label": "Web 완료율",
+          "role": "meter",
+          "tag": "DIV",
+          "width": 238,
+          "x": 577,
+          "y": 305
+        },
+        {
+          "height": 22,
+          "label": "APP",
+          "role": null,
+          "tag": "H2",
+          "width": 238,
+          "x": 865,
+          "y": 283
+        },
+        {
+          "height": 112,
+          "label": "APP 완료율",
+          "role": "meter",
+          "tag": "DIV",
+          "width": 238,
+          "x": 865,
+          "y": 305
+        },
+        {
+          "height": 22,
+          "label": "Server",
+          "role": null,
+          "tag": "H2",
+          "width": 238,
+          "x": 1153,
+          "y": 283
+        },
+        {
+          "height": 112,
+          "label": "Server 완료율",
+          "role": "meter",
+          "tag": "DIV",
+          "width": 238,
+          "x": 1153,
+          "y": 305
+        },
+        {
+          "height": 22,
+          "label": "로그인 버튼 동작",
+          "role": null,
+          "tag": "H3",
+          "width": 92,
+          "x": 289,
+          "y": 722
+        },
+        {
+          "height": 22,
+          "label": "필수 입력 안내",
+          "role": null,
+          "tag": "H3",
+          "width": 79,
+          "x": 289,
+          "y": 811
+        },
+        {
+          "height": 22,
+          "label": "실패 후 재시도",
+          "role": null,
+          "tag": "H3",
+          "width": 79,
+          "x": 289,
+          "y": 900
+        },
+        {
+          "height": 22,
+          "label": "로그인 버튼 동작",
+          "role": null,
+          "tag": "H3",
+          "width": 92,
+          "x": 289,
+          "y": 1101
+        },
+        {
+          "height": 22,
+          "label": "필수 입력 안내",
+          "role": null,
+          "tag": "H3",
+          "width": 79,
+          "x": 289,
+          "y": 1190
+        },
+        {
+          "height": 22,
+          "label": "실패 후 재시도",
+          "role": null,
+          "tag": "H3",
+          "width": 79,
+          "x": 289,
+          "y": 1279
+        }
+      ],
+      "layout": {
+        "header": {
+          "height": 56,
+          "width": 1200,
+          "x": 240,
+          "y": 0
+        },
+        "main": {
+          "height": 1348,
+          "width": 1200,
+          "x": 240,
+          "y": 56
+        },
+        "scrollHeight": 1404,
+        "scrollWidth": 1440,
+        "sidebar": {
+          "height": 900,
+          "width": 240,
+          "x": 0,
+          "y": 0
+        },
+        "viewport": 1440
+      },
+      "regions": [
+        {
+          "height": 28,
+          "label": "QA 탭",
+          "tag": "NAV",
+          "width": 1136,
+          "x": 272,
+          "y": 218
+        },
+        {
+          "height": 178,
+          "label": "Design 진행도",
+          "tag": "SECTION",
+          "width": 272,
+          "x": 272,
+          "y": 270
+        },
+        {
+          "height": 178,
+          "label": "Web 진행도",
+          "tag": "SECTION",
+          "width": 272,
+          "x": 560,
+          "y": 270
+        },
+        {
+          "height": 178,
+          "label": "APP 진행도",
+          "tag": "SECTION",
+          "width": 272,
+          "x": 848,
+          "y": 270
+        },
+        {
+          "height": 178,
+          "label": "Server 진행도",
+          "tag": "SECTION",
+          "width": 272,
+          "x": 1136,
+          "y": 270
+        },
+        {
+          "height": 364,
+          "label": "ACC-01 로그인",
+          "tag": "SECTION",
+          "width": 1136,
+          "x": 272,
+          "y": 613
+        },
+        {
+          "height": 315,
+          "label": "로그인 버튼 동작",
+          "tag": "TABLE",
+          "width": 1134,
+          "x": 273,
+          "y": 661
+        },
+        {
+          "height": 364,
+          "label": "G-APP 공통 화면",
+          "tag": "SECTION",
+          "width": 1136,
+          "x": 272,
+          "y": 993
+        },
+        {
+          "height": 315,
+          "label": "로그인 버튼 동작",
+          "tag": "TABLE",
+          "width": 1134,
+          "x": 273,
+          "y": 1041
+        }
+      ],
+      "texts": [
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "color": "rgb(32, 40, 51)",
+          "font": "26px",
+          "lineHeight": "36px",
+          "numerals": "normal",
+          "text": "3th Agile",
+          "weight": "700"
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "color": "rgb(89, 102, 119)",
+          "font": "14px",
+          "lineHeight": "22px",
+          "numerals": "normal",
+          "text": "QA 흐름 예시",
+          "weight": "400"
+        },
+        {
+          "background": "rgb(173, 53, 67)",
+          "color": "rgb(255, 255, 255)",
+          "font": "14px",
+          "lineHeight": "22px",
+          "numerals": "normal",
+          "text": "QA 종료",
+          "weight": "600"
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "color": "rgb(89, 102, 119)",
+          "font": "14px",
+          "lineHeight": "22px",
+          "numerals": "normal",
+          "text": "",
+          "weight": "400"
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "color": "rgb(32, 40, 51)",
+          "font": "14px",
+          "lineHeight": "22px",
+          "numerals": "normal",
+          "text": "Design",
+          "weight": "500"
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "color": "rgb(89, 102, 119)",
+          "font": "12px",
+          "lineHeight": "18px",
+          "numerals": "tabular-nums",
+          "text": "2 / 6",
+          "weight": "400"
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "color": "rgb(32, 40, 51)",
+          "font": "14px",
+          "lineHeight": "22px",
+          "numerals": "normal",
+          "text": "Web",
+          "weight": "500"
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "color": "rgb(89, 102, 119)",
+          "font": "12px",
+          "lineHeight": "18px",
+          "numerals": "tabular-nums",
+          "text": "8 / 12",
+          "weight": "400"
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "color": "rgb(32, 40, 51)",
+          "font": "14px",
+          "lineHeight": "22px",
+          "numerals": "normal",
+          "text": "APP",
+          "weight": "500"
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "color": "rgb(89, 102, 119)",
+          "font": "12px",
+          "lineHeight": "18px",
+          "numerals": "tabular-nums",
+          "text": "4 / 12",
+          "weight": "400"
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "color": "rgb(32, 40, 51)",
+          "font": "14px",
+          "lineHeight": "22px",
+          "numerals": "normal",
+          "text": "Server",
+          "weight": "500"
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "color": "rgb(89, 102, 119)",
+          "font": "12px",
+          "lineHeight": "18px",
+          "numerals": "tabular-nums",
+          "text": "4 / 8",
+          "weight": "400"
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "color": "rgb(89, 102, 119)",
+          "font": "12px",
+          "lineHeight": "18px",
+          "numerals": "normal",
+          "text": "준비 작업이 실행 중입니다. 항목 추가·수정·삭제는 작업이 끝난 뒤 가능합니다.",
+          "weight": "400"
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "color": "rgb(89, 102, 119)",
+          "font": "12px",
+          "lineHeight": "18px",
+          "numerals": "normal",
+          "text": "1차 자동화 검수 중입니다.",
+          "weight": "400"
+        },
+        {
+          "background": "rgb(255, 255, 255)",
+          "color": "rgb(32, 40, 51)",
+          "font": "14px",
+          "lineHeight": "22px",
+          "numerals": "normal",
+          "text": "전체 파트",
+          "weight": "400"
+        },
+        {
+          "background": "rgb(255, 255, 255)",
+          "color": "rgb(32, 40, 51)",
+          "font": "14px",
+          "lineHeight": "22px",
+          "numerals": "normal",
+          "text": "다음 미검수",
+          "weight": "600"
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "color": "rgb(32, 40, 51)",
+          "font": "14px",
+          "lineHeight": "22px",
+          "numerals": "normal",
+          "text": "ACC-01로그인변경50% 완료",
+          "weight": "400"
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "color": "rgb(89, 102, 119)",
+          "font": "14px",
+          "lineHeight": "22px",
+          "numerals": "tabular-nums",
+          "text": "항목",
+          "weight": "500"
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "color": "rgb(89, 102, 119)",
+          "font": "14px",
+          "lineHeight": "22px",
+          "numerals": "tabular-nums",
+          "text": "Web",
+          "weight": "500"
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "color": "rgb(89, 102, 119)",
+          "font": "14px",
+          "lineHeight": "22px",
+          "numerals": "tabular-nums",
+          "text": "APP",
+          "weight": "500"
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "color": "rgb(89, 102, 119)",
+          "font": "14px",
+          "lineHeight": "22px",
+          "numerals": "tabular-nums",
+          "text": "Server",
+          "weight": "500"
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "color": "rgb(89, 102, 119)",
+          "font": "14px",
+          "lineHeight": "22px",
+          "numerals": "tabular-nums",
+          "text": "항목 관리",
+          "weight": "500"
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "color": "rgb(32, 40, 51)",
+          "font": "14px",
+          "lineHeight": "22px",
+          "numerals": "tabular-nums",
+          "text": "로그인 버튼 동작WebAPPServer입력한 계정으로 로그인하면 학습 홈으로 이동합니다.",
+          "weight": "400"
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "color": "rgb(32, 40, 51)",
+          "font": "14px",
+          "lineHeight": "22px",
+          "numerals": "tabular-nums",
+          "text": "로그인 버튼 동작",
+          "weight": "500"
+        },
+        {
+          "background": "rgb(244, 246, 248)",
+          "color": "rgb(89, 102, 119)",
+          "font": "12px",
+          "lineHeight": "18px",
+          "numerals": "tabular-nums",
+          "text": "입력한 계정으로 로그인하면 학습 홈으로 이동합니다.",
+          "weight": "400"
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "color": "rgb(32, 40, 51)",
+          "font": "14px",
+          "lineHeight": "22px",
+          "numerals": "tabular-nums",
+          "text": "",
+          "weight": "400"
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "color": "rgb(32, 40, 51)",
+          "font": "14px",
+          "lineHeight": "22px",
+          "numerals": "normal",
+          "text": "",
+          "weight": "400"
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "color": "rgb(32, 40, 51)",
+          "font": "14px",
+          "lineHeight": "22px",
+          "numerals": "tabular-nums",
+          "text": "",
+          "weight": "400"
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "color": "rgb(32, 40, 51)",
+          "font": "14px",
+          "lineHeight": "22px",
+          "numerals": "normal",
+          "text": "",
+          "weight": "400"
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "color": "rgb(32, 40, 51)",
+          "font": "14px",
+          "lineHeight": "22px",
+          "numerals": "tabular-nums",
+          "text": "",
+          "weight": "400"
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "color": "rgb(32, 40, 51)",
+          "font": "14px",
+          "lineHeight": "22px",
+          "numerals": "normal",
+          "text": "",
+          "weight": "400"
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "color": "rgb(32, 40, 51)",
+          "font": "14px",
+          "lineHeight": "22px",
+          "numerals": "tabular-nums",
+          "text": "수정삭제",
+          "weight": "400"
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "color": "rgb(32, 40, 51)",
+          "font": "14px",
+          "lineHeight": "22px",
+          "numerals": "normal",
+          "text": "수정",
+          "weight": "600"
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "color": "rgb(173, 53, 67)",
+          "font": "14px",
+          "lineHeight": "22px",
+          "numerals": "normal",
+          "text": "삭제",
+          "weight": "600"
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "color": "rgb(32, 40, 51)",
+          "font": "14px",
+          "lineHeight": "22px",
+          "numerals": "tabular-nums",
+          "text": "필수 입력 안내WebAPPServer필수 값이 비어 있으면 입력란 아래에 안내를 표시합니다.",
+          "weight": "400"
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "color": "rgb(32, 40, 51)",
+          "font": "14px",
+          "lineHeight": "22px",
+          "numerals": "tabular-nums",
+          "text": "필수 입력 안내",
+          "weight": "500"
+        },
+        {
+          "background": "rgb(244, 246, 248)",
+          "color": "rgb(89, 102, 119)",
+          "font": "12px",
+          "lineHeight": "18px",
+          "numerals": "tabular-nums",
+          "text": "필수 값이 비어 있으면 입력란 아래에 안내를 표시합니다.",
+          "weight": "400"
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "color": "rgb(32, 40, 51)",
+          "font": "14px",
+          "lineHeight": "22px",
+          "numerals": "tabular-nums",
+          "text": "",
+          "weight": "400"
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "color": "rgb(32, 40, 51)",
+          "font": "14px",
+          "lineHeight": "22px",
+          "numerals": "normal",
+          "text": "",
+          "weight": "400"
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "color": "rgb(32, 40, 51)",
+          "font": "14px",
+          "lineHeight": "22px",
+          "numerals": "tabular-nums",
+          "text": "",
+          "weight": "400"
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "color": "rgb(32, 40, 51)",
+          "font": "14px",
+          "lineHeight": "22px",
+          "numerals": "normal",
+          "text": "",
+          "weight": "400"
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "color": "rgb(32, 40, 51)",
+          "font": "14px",
+          "lineHeight": "22px",
+          "numerals": "tabular-nums",
+          "text": "",
+          "weight": "400"
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "color": "rgb(32, 40, 51)",
+          "font": "14px",
+          "lineHeight": "22px",
+          "numerals": "normal",
+          "text": "",
+          "weight": "400"
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "color": "rgb(32, 40, 51)",
+          "font": "14px",
+          "lineHeight": "22px",
+          "numerals": "tabular-nums",
+          "text": "수정삭제",
+          "weight": "400"
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "color": "rgb(32, 40, 51)",
+          "font": "14px",
+          "lineHeight": "22px",
+          "numerals": "normal",
+          "text": "수정",
+          "weight": "600"
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "color": "rgb(173, 53, 67)",
+          "font": "14px",
+          "lineHeight": "22px",
+          "numerals": "normal",
+          "text": "삭제",
+          "weight": "600"
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "color": "rgb(32, 40, 51)",
+          "font": "14px",
+          "lineHeight": "22px",
+          "numerals": "tabular-nums",
+          "text": "실패 후 재시도WebAPP일시적인 오류가 발생해도 입력을 유지하고 다시 시도할 수 있습니다.",
+          "weight": "400"
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "color": "rgb(32, 40, 51)",
+          "font": "14px",
+          "lineHeight": "22px",
+          "numerals": "tabular-nums",
+          "text": "실패 후 재시도",
+          "weight": "500"
+        },
+        {
+          "background": "rgb(244, 246, 248)",
+          "color": "rgb(89, 102, 119)",
+          "font": "12px",
+          "lineHeight": "18px",
+          "numerals": "tabular-nums",
+          "text": "일시적인 오류가 발생해도 입력을 유지하고 다시 시도할 수 있습니다.",
+          "weight": "400"
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "color": "rgb(32, 40, 51)",
+          "font": "14px",
+          "lineHeight": "22px",
+          "numerals": "tabular-nums",
+          "text": "",
+          "weight": "400"
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "color": "rgb(32, 40, 51)",
+          "font": "14px",
+          "lineHeight": "22px",
+          "numerals": "normal",
+          "text": "",
+          "weight": "400"
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "color": "rgb(32, 40, 51)",
+          "font": "14px",
+          "lineHeight": "22px",
+          "numerals": "tabular-nums",
+          "text": "",
+          "weight": "400"
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "color": "rgb(32, 40, 51)",
+          "font": "14px",
+          "lineHeight": "22px",
+          "numerals": "normal",
+          "text": "",
+          "weight": "400"
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "color": "rgb(32, 40, 51)",
+          "font": "14px",
+          "lineHeight": "22px",
+          "numerals": "tabular-nums",
+          "text": "",
+          "weight": "400"
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "color": "rgb(32, 40, 51)",
+          "font": "14px",
+          "lineHeight": "22px",
+          "numerals": "normal",
+          "text": "",
+          "weight": "400"
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "color": "rgb(32, 40, 51)",
+          "font": "14px",
+          "lineHeight": "22px",
+          "numerals": "tabular-nums",
+          "text": "수정삭제",
+          "weight": "400"
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "color": "rgb(32, 40, 51)",
+          "font": "14px",
+          "lineHeight": "22px",
+          "numerals": "normal",
+          "text": "수정",
+          "weight": "600"
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "color": "rgb(173, 53, 67)",
+          "font": "14px",
+          "lineHeight": "22px",
+          "numerals": "normal",
+          "text": "삭제",
+          "weight": "600"
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "color": "rgb(32, 40, 51)",
+          "font": "14px",
+          "lineHeight": "22px",
+          "numerals": "normal",
+          "text": "G-APP공통 화면50% 완료",
+          "weight": "400"
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "color": "rgb(89, 102, 119)",
+          "font": "14px",
+          "lineHeight": "22px",
+          "numerals": "tabular-nums",
+          "text": "항목",
+          "weight": "500"
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "color": "rgb(89, 102, 119)",
+          "font": "14px",
+          "lineHeight": "22px",
+          "numerals": "tabular-nums",
+          "text": "Web",
+          "weight": "500"
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "color": "rgb(89, 102, 119)",
+          "font": "14px",
+          "lineHeight": "22px",
+          "numerals": "tabular-nums",
+          "text": "APP",
+          "weight": "500"
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "color": "rgb(89, 102, 119)",
+          "font": "14px",
+          "lineHeight": "22px",
+          "numerals": "tabular-nums",
+          "text": "Server",
+          "weight": "500"
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "color": "rgb(89, 102, 119)",
+          "font": "14px",
+          "lineHeight": "22px",
+          "numerals": "tabular-nums",
+          "text": "항목 관리",
+          "weight": "500"
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "color": "rgb(32, 40, 51)",
+          "font": "14px",
+          "lineHeight": "22px",
+          "numerals": "tabular-nums",
+          "text": "로그인 버튼 동작WebAPPServer입력한 계정으로 로그인하면 학습 홈으로 이동합니다.",
+          "weight": "400"
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "color": "rgb(32, 40, 51)",
+          "font": "14px",
+          "lineHeight": "22px",
+          "numerals": "tabular-nums",
+          "text": "로그인 버튼 동작",
+          "weight": "500"
+        },
+        {
+          "background": "rgb(244, 246, 248)",
+          "color": "rgb(89, 102, 119)",
+          "font": "12px",
+          "lineHeight": "18px",
+          "numerals": "tabular-nums",
+          "text": "입력한 계정으로 로그인하면 학습 홈으로 이동합니다.",
+          "weight": "400"
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "color": "rgb(32, 40, 51)",
+          "font": "14px",
+          "lineHeight": "22px",
+          "numerals": "tabular-nums",
+          "text": "",
+          "weight": "400"
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "color": "rgb(32, 40, 51)",
+          "font": "14px",
+          "lineHeight": "22px",
+          "numerals": "normal",
+          "text": "",
+          "weight": "400"
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "color": "rgb(32, 40, 51)",
+          "font": "14px",
+          "lineHeight": "22px",
+          "numerals": "tabular-nums",
+          "text": "",
+          "weight": "400"
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "color": "rgb(32, 40, 51)",
+          "font": "14px",
+          "lineHeight": "22px",
+          "numerals": "normal",
+          "text": "",
+          "weight": "400"
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "color": "rgb(32, 40, 51)",
+          "font": "14px",
+          "lineHeight": "22px",
+          "numerals": "tabular-nums",
+          "text": "",
+          "weight": "400"
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "color": "rgb(32, 40, 51)",
+          "font": "14px",
+          "lineHeight": "22px",
+          "numerals": "normal",
+          "text": "",
+          "weight": "400"
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "color": "rgb(32, 40, 51)",
+          "font": "14px",
+          "lineHeight": "22px",
+          "numerals": "tabular-nums",
+          "text": "수정삭제",
+          "weight": "400"
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "color": "rgb(32, 40, 51)",
+          "font": "14px",
+          "lineHeight": "22px",
+          "numerals": "normal",
+          "text": "수정",
+          "weight": "600"
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "color": "rgb(173, 53, 67)",
+          "font": "14px",
+          "lineHeight": "22px",
+          "numerals": "normal",
+          "text": "삭제",
+          "weight": "600"
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "color": "rgb(32, 40, 51)",
+          "font": "14px",
+          "lineHeight": "22px",
+          "numerals": "tabular-nums",
+          "text": "필수 입력 안내WebAPPServer필수 값이 비어 있으면 입력란 아래에 안내를 표시합니다.",
+          "weight": "400"
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "color": "rgb(32, 40, 51)",
+          "font": "14px",
+          "lineHeight": "22px",
+          "numerals": "tabular-nums",
+          "text": "필수 입력 안내",
+          "weight": "500"
+        },
+        {
+          "background": "rgb(244, 246, 248)",
+          "color": "rgb(89, 102, 119)",
+          "font": "12px",
+          "lineHeight": "18px",
+          "numerals": "tabular-nums",
+          "text": "필수 값이 비어 있으면 입력란 아래에 안내를 표시합니다.",
+          "weight": "400"
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "color": "rgb(32, 40, 51)",
+          "font": "14px",
+          "lineHeight": "22px",
+          "numerals": "tabular-nums",
+          "text": "",
+          "weight": "400"
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "color": "rgb(32, 40, 51)",
+          "font": "14px",
+          "lineHeight": "22px",
+          "numerals": "normal",
+          "text": "",
+          "weight": "400"
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "color": "rgb(32, 40, 51)",
+          "font": "14px",
+          "lineHeight": "22px",
+          "numerals": "tabular-nums",
+          "text": "",
+          "weight": "400"
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "color": "rgb(32, 40, 51)",
+          "font": "14px",
+          "lineHeight": "22px",
+          "numerals": "normal",
+          "text": "",
+          "weight": "400"
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "color": "rgb(32, 40, 51)",
+          "font": "14px",
+          "lineHeight": "22px",
+          "numerals": "tabular-nums",
+          "text": "",
+          "weight": "400"
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "color": "rgb(32, 40, 51)",
+          "font": "14px",
+          "lineHeight": "22px",
+          "numerals": "normal",
+          "text": "",
+          "weight": "400"
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "color": "rgb(32, 40, 51)",
+          "font": "14px",
+          "lineHeight": "22px",
+          "numerals": "tabular-nums",
+          "text": "수정삭제",
+          "weight": "400"
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "color": "rgb(32, 40, 51)",
+          "font": "14px",
+          "lineHeight": "22px",
+          "numerals": "normal",
+          "text": "수정",
+          "weight": "600"
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "color": "rgb(173, 53, 67)",
+          "font": "14px",
+          "lineHeight": "22px",
+          "numerals": "normal",
+          "text": "삭제",
+          "weight": "600"
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "color": "rgb(32, 40, 51)",
+          "font": "14px",
+          "lineHeight": "22px",
+          "numerals": "tabular-nums",
+          "text": "실패 후 재시도WebAPP일시적인 오류가 발생해도 입력을 유지하고 다시 시도할 수 있습니다.",
+          "weight": "400"
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "color": "rgb(32, 40, 51)",
+          "font": "14px",
+          "lineHeight": "22px",
+          "numerals": "tabular-nums",
+          "text": "실패 후 재시도",
+          "weight": "500"
+        },
+        {
+          "background": "rgb(244, 246, 248)",
+          "color": "rgb(89, 102, 119)",
+          "font": "12px",
+          "lineHeight": "18px",
+          "numerals": "tabular-nums",
+          "text": "일시적인 오류가 발생해도 입력을 유지하고 다시 시도할 수 있습니다.",
+          "weight": "400"
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "color": "rgb(32, 40, 51)",
+          "font": "14px",
+          "lineHeight": "22px",
+          "numerals": "tabular-nums",
+          "text": "",
+          "weight": "400"
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "color": "rgb(32, 40, 51)",
+          "font": "14px",
+          "lineHeight": "22px",
+          "numerals": "normal",
+          "text": "",
+          "weight": "400"
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "color": "rgb(32, 40, 51)",
+          "font": "14px",
+          "lineHeight": "22px",
+          "numerals": "tabular-nums",
+          "text": "",
+          "weight": "400"
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "color": "rgb(32, 40, 51)",
+          "font": "14px",
+          "lineHeight": "22px",
+          "numerals": "normal",
+          "text": "",
+          "weight": "400"
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "color": "rgb(32, 40, 51)",
+          "font": "14px",
+          "lineHeight": "22px",
+          "numerals": "tabular-nums",
+          "text": "",
+          "weight": "400"
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "color": "rgb(32, 40, 51)",
+          "font": "14px",
+          "lineHeight": "22px",
+          "numerals": "normal",
+          "text": "",
+          "weight": "400"
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "color": "rgb(32, 40, 51)",
+          "font": "14px",
+          "lineHeight": "22px",
+          "numerals": "tabular-nums",
+          "text": "수정삭제",
+          "weight": "400"
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "color": "rgb(32, 40, 51)",
+          "font": "14px",
+          "lineHeight": "22px",
+          "numerals": "normal",
+          "text": "수정",
+          "weight": "600"
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "color": "rgb(173, 53, 67)",
+          "font": "14px",
+          "lineHeight": "22px",
+          "numerals": "normal",
+          "text": "삭제",
+          "weight": "600"
+        }
+      ],
+      "url": "/qa/sprints/3/checklist/1"
+    }
+  },
+  {
+    "file": "qa-first-loading-1440.png",
+    "key": "qa-first-loading",
+    "group": "state",
+    "route": "/qa/sprints/2/checklist/1",
+    "viewport": {
+      "width": 1440,
+      "height": 900
+    },
+    "condition": "existing checklist GET held in browser",
+    "full": false,
+    "evidence": {
+      "bodyText": "2th Agile\n\n로그인·공통 화면 수동 검수\n\nQA 종료\n디자인 검수와 1·2차 체크리스트의 모든 미검수를 처리해야 종료할 수 있습니다.\n기능 명세서 로드\n체크리스트 생성\n디자인 검수\n1차 자동화 검수\n5\n2차 수동 검수\n6\n종료\n연결 현황\n디자인 검수\n1차 체크리스트\n2차 체크리스트\n파트별 수정사항",
+      "controls": [
+        {
+          "disabled": false,
+          "id": "",
+          "label": "로그아웃",
+          "tag": "BUTTON",
+          "type": null
+        },
+        {
+          "disabled": true,
+          "id": "",
+          "label": "QA 종료",
+          "tag": "BUTTON",
+          "type": null
+        },
+        {
+          "disabled": false,
+          "id": "",
+          "label": "상태 아이콘 안내",
+          "tag": "BUTTON",
+          "type": "button"
+        }
+      ],
+      "headings": [
+        {
+          "height": 36,
+          "label": "2th Agile",
+          "role": null,
+          "tag": "H1",
+          "width": 147,
+          "x": 272,
+          "y": 80
+        }
+      ],
+      "layout": {
+        "header": {
+          "height": 56,
+          "width": 1200,
+          "x": 240,
+          "y": 0
+        },
+        "main": {
+          "height": 844,
+          "width": 1200,
+          "x": 240,
+          "y": 56
+        },
+        "scrollHeight": 900,
+        "scrollWidth": 1440,
+        "sidebar": {
+          "height": 900,
+          "width": 240,
+          "x": 0,
+          "y": 0
+        },
+        "viewport": 1440
+      },
+      "regions": [
+        {
+          "height": 28,
+          "label": "QA 탭",
+          "tag": "NAV",
+          "width": 1136,
+          "x": 272,
+          "y": 218
+        }
+      ],
+      "texts": [
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "color": "rgb(32, 40, 51)",
+          "font": "26px",
+          "lineHeight": "36px",
+          "numerals": "normal",
+          "text": "2th Agile",
+          "weight": "700"
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "color": "rgb(89, 102, 119)",
+          "font": "14px",
+          "lineHeight": "22px",
+          "numerals": "normal",
+          "text": "로그인·공통 화면 수동 검수",
+          "weight": "400"
+        },
+        {
+          "background": "rgb(173, 53, 67)",
+          "color": "rgb(255, 255, 255)",
+          "font": "14px",
+          "lineHeight": "22px",
+          "numerals": "normal",
+          "text": "QA 종료",
+          "weight": "600"
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "color": "rgb(89, 102, 119)",
+          "font": "14px",
+          "lineHeight": "22px",
+          "numerals": "normal",
+          "text": "",
+          "weight": "400"
+        }
+      ],
+      "url": "/qa/sprints/2/checklist/1"
+    }
+  },
+  {
+    "file": "qa-first-error-1440.png",
+    "key": "qa-first-error",
+    "group": "state",
+    "route": "/qa/sprints/2/checklist/1",
+    "viewport": {
+      "width": 1440,
+      "height": 900
+    },
+    "condition": "existing mocked GET /sprints/:id/checklist with absent fixture id999999 -> existing404; header sprint2 unchanged",
+    "full": false,
+    "evidence": {
+      "bodyText": "2th Agile\n\n로그인·공통 화면 수동 검수\n\nQA 종료\n디자인 검수와 1·2차 체크리스트의 모든 미검수를 처리해야 종료할 수 있습니다.\n\n대상을 찾을 수 없습니다.\n\n다시 시도\n기능 명세서 로드\n체크리스트 생성\n디자인 검수\n1차 자동화 검수\n5\n2차 수동 검수\n6\n종료\n연결 현황\n디자인 검수\n1차 체크리스트\n2차 체크리스트\n파트별 수정사항\n\n대상을 찾을 수 없습니다.\n\n다시 시도하기",
+      "controls": [
+        {
+          "disabled": false,
+          "id": "",
+          "label": "로그아웃",
+          "tag": "BUTTON",
+          "type": null
+        },
+        {
+          "disabled": true,
+          "id": "",
+          "label": "QA 종료",
+          "tag": "BUTTON",
+          "type": null
+        },
+        {
+          "disabled": false,
+          "id": "",
+          "label": "다시 시도",
+          "tag": "BUTTON",
+          "type": null
+        },
+        {
+          "disabled": false,
+          "id": "",
+          "label": "상태 아이콘 안내",
+          "tag": "BUTTON",
+          "type": "button"
+        },
+        {
+          "disabled": false,
+          "id": "",
+          "label": "다시 시도하기",
+          "tag": "BUTTON",
+          "type": null
+        }
+      ],
+      "headings": [
+        {
+          "height": 36,
+          "label": "2th Agile",
+          "role": null,
+          "tag": "H1",
+          "width": 147,
+          "x": 272,
+          "y": 80
+        }
+      ],
+      "layout": {
+        "header": {
+          "height": 56,
+          "width": 1200,
+          "x": 240,
+          "y": 0
+        },
+        "main": {
+          "height": 844,
+          "width": 1200,
+          "x": 240,
+          "y": 56
+        },
+        "scrollHeight": 900,
+        "scrollWidth": 1440,
+        "sidebar": {
+          "height": 900,
+          "width": 240,
+          "x": 0,
+          "y": 0
+        },
+        "viewport": 1440
+      },
+      "regions": [
+        {
+          "height": 28,
+          "label": "QA 탭",
+          "tag": "NAV",
+          "width": 1136,
+          "x": 272,
+          "y": 254
+        }
+      ],
+      "texts": [
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "color": "rgb(32, 40, 51)",
+          "font": "26px",
+          "lineHeight": "36px",
+          "numerals": "normal",
+          "text": "2th Agile",
+          "weight": "700"
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "color": "rgb(89, 102, 119)",
+          "font": "14px",
+          "lineHeight": "22px",
+          "numerals": "normal",
+          "text": "로그인·공통 화면 수동 검수",
+          "weight": "400"
+        },
+        {
+          "background": "rgb(173, 53, 67)",
+          "color": "rgb(255, 255, 255)",
+          "font": "14px",
+          "lineHeight": "22px",
+          "numerals": "normal",
+          "text": "QA 종료",
+          "weight": "600"
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "color": "rgb(173, 53, 67)",
+          "font": "12px",
+          "lineHeight": "18px",
+          "numerals": "normal",
+          "text": "대상을 찾을 수 없습니다.",
+          "weight": "400"
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "color": "rgb(173, 53, 67)",
+          "font": "14px",
+          "lineHeight": "22px",
+          "numerals": "normal",
+          "text": "다시 시도",
+          "weight": "600"
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "color": "rgb(89, 102, 119)",
+          "font": "14px",
+          "lineHeight": "22px",
+          "numerals": "normal",
+          "text": "",
+          "weight": "400"
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "color": "rgb(89, 102, 119)",
+          "font": "14px",
+          "lineHeight": "22px",
+          "numerals": "normal",
+          "text": "대상을 찾을 수 없습니다.",
+          "weight": "400"
+        },
+        {
+          "background": "rgb(255, 255, 255)",
+          "color": "rgb(32, 40, 51)",
+          "font": "14px",
+          "lineHeight": "22px",
+          "numerals": "normal",
+          "text": "다시 시도하기",
+          "weight": "600"
+        }
+      ],
+      "url": "/qa/sprints/2/checklist/1"
+    }
+  }
+]

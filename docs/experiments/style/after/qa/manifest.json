@@ -1,0 +1,3316 @@
+[
+  {
+    "file": "register-pending-1280.png",
+    "width": 1280,
+    "height": 900,
+    "route": "/qa/sprints",
+    "phase": "after",
+    "evidence": {
+      "body": "QA\nQA 매뉴얼\n스프린트 목록\n스프린트 등록\n스프린트\t약식 설명\t현재 상태\n9th Agile\t모든 검수 완료\t2차 수동 검수\n8th Agile\t저장소 연결 실패\t기능 명세서 로드\n7th Agile\t-\t준비 전\n6th Agile\t기능 명세 변경 반영 승인\t기능 명세서 로드\n5th Agile\tQA 흐름 예시\t체크리스트 생성",
+      "font": "Pretendard, system-ui, -apple-system, sans-serif",
+      "headings": [
+        {
+          "text": "QA",
+          "width": 37.25,
+          "x": 272,
+          "y": 80
+        }
+      ],
+      "overflow": false,
+      "table": {
+        "width": 974,
+        "x": 273,
+        "y": 242
+      }
+    },
+    "motion": {
+      "animations": 1,
+      "duration": "1.2s",
+      "name": "spin",
+      "reduced": false
+    },
+    "actualHeight": 900
+  },
+  {
+    "file": "close-pending-1280.png",
+    "width": 1280,
+    "height": 900,
+    "route": "/qa/sprints/9/checklist/2",
+    "phase": "after",
+    "evidence": {
+      "body": "9th Agile\n\n모든 검수 완료\n\nQA 종료\n기능 명세서 로드\n체크리스트 생성\n디자인 검수\n1차 자동화 검수\n5\n2차 수동 검수\n6\n종료\n연결 현황\n디자인 검수\n1차 체크리스트\n2차 체크리스트\n파트별 수정사항\nDesign\n100%\n\n5 / 5\n\nWeb\n100%\n\n12 / 12\n\nAPP\n100%\n\n12 / 12\n\nSer",
+      "font": "Pretendard, system-ui, -apple-system, sans-serif",
+      "headings": [
+        {
+          "text": "9th Agile",
+          "width": 110.359375,
+          "x": 272,
+          "y": 80
+        },
+        {
+          "text": "로그인 버튼 동작",
+          "width": 91.34375,
+          "x": 289,
+          "y": 663.5
+        },
+        {
+          "text": "필수 입력 안내",
+          "width": 79.25,
+          "x": 289,
+          "y": 736.5
+        },
+        {
+          "text": "실패 후 재시도",
+          "width": 79.25,
+          "x": 289,
+          "y": 809.5
+        },
+        {
+          "text": "로그인 버튼 동작",
+          "width": 91.34375,
+          "x": 289,
+          "y": 1005
+        },
+        {
+          "text": "필수 입력 안내",
+          "width": 79.25,
+          "x": 289,
+          "y": 1078
+        },
+        {
+          "text": "실패 후 재시도",
+          "width": 79.25,
+          "x": 289,
+          "y": 1151
+        }
+      ],
+      "overflow": false,
+      "table": {
+        "width": 974,
+        "x": 273,
+        "y": 603
+      }
+    },
+    "motion": {
+      "animations": 1,
+      "duration": "1.2s",
+      "name": "spin",
+      "reduced": false
+    },
+    "actualHeight": 900
+  },
+  {
+    "file": "register-pending-reduced-1280.png",
+    "width": 1280,
+    "height": 900,
+    "route": "/qa/sprints",
+    "phase": "after",
+    "evidence": {
+      "body": "QA\nQA 매뉴얼\n스프린트 목록\n스프린트 등록\n스프린트\t약식 설명\t현재 상태\n9th Agile\t모든 검수 완료\t2차 수동 검수\n8th Agile\t저장소 연결 실패\t기능 명세서 로드\n7th Agile\t-\t준비 전\n6th Agile\t기능 명세 변경 반영 승인\t기능 명세서 로드\n5th Agile\tQA 흐름 예시\t체크리스트 생성",
+      "font": "Pretendard, system-ui, -apple-system, sans-serif",
+      "headings": [
+        {
+          "text": "QA",
+          "width": 37.25,
+          "x": 272,
+          "y": 80
+        }
+      ],
+      "overflow": false,
+      "table": {
+        "width": 974,
+        "x": 273,
+        "y": 242
+      }
+    },
+    "motion": {
+      "animations": 0,
+      "duration": "1.2s",
+      "name": "none",
+      "reduced": true
+    },
+    "actualHeight": 900
+  },
+  {
+    "file": "close-pending-reduced-1280.png",
+    "width": 1280,
+    "height": 900,
+    "route": "/qa/sprints/9/checklist/2",
+    "phase": "after",
+    "evidence": {
+      "body": "9th Agile\n\n모든 검수 완료\n\nQA 종료\n기능 명세서 로드\n체크리스트 생성\n디자인 검수\n1차 자동화 검수\n5\n2차 수동 검수\n6\n종료\n연결 현황\n디자인 검수\n1차 체크리스트\n2차 체크리스트\n파트별 수정사항\nDesign\n100%\n\n5 / 5\n\nWeb\n100%\n\n12 / 12\n\nAPP\n100%\n\n12 / 12\n\nSer",
+      "font": "Pretendard, system-ui, -apple-system, sans-serif",
+      "headings": [
+        {
+          "text": "9th Agile",
+          "width": 110.359375,
+          "x": 272,
+          "y": 80
+        },
+        {
+          "text": "로그인 버튼 동작",
+          "width": 91.34375,
+          "x": 289,
+          "y": 663.5
+        },
+        {
+          "text": "필수 입력 안내",
+          "width": 79.25,
+          "x": 289,
+          "y": 736.5
+        },
+        {
+          "text": "실패 후 재시도",
+          "width": 79.25,
+          "x": 289,
+          "y": 809.5
+        },
+        {
+          "text": "로그인 버튼 동작",
+          "width": 91.34375,
+          "x": 289,
+          "y": 1005
+        },
+        {
+          "text": "필수 입력 안내",
+          "width": 79.25,
+          "x": 289,
+          "y": 1078
+        },
+        {
+          "text": "실패 후 재시도",
+          "width": 79.25,
+          "x": 289,
+          "y": 1151
+        }
+      ],
+      "overflow": false,
+      "table": {
+        "width": 974,
+        "x": 273,
+        "y": 603
+      }
+    },
+    "motion": {
+      "animations": 0,
+      "duration": "1.2s",
+      "name": "none",
+      "reduced": true
+    },
+    "actualHeight": 900
+  },
+  {
+    "file": "design-running-1280.png",
+    "width": 1280,
+    "height": 900,
+    "route": "/qa/sprints/4/design-review",
+    "phase": "after",
+    "evidence": {
+      "body": "4th Agile\n\nQA 흐름 예시\n\nQA 종료\n디자인 검수와 1·2차 체크리스트의 모든 미검수를 처리하면 종료할 수 있어요.\n기능 명세서 로드\n체크리스트 생성\n3\n디자인 검수\n4\n1차 자동화 검수\n5\n2차 수동 검수\n6\n종료\n연결 현황\n디자인 검수\n1차 체크리스트\n2차 체크리스트\n파트별 수정사항\nDesign\n33%\n\n2",
+      "font": "Pretendard, system-ui, -apple-system, sans-serif",
+      "headings": [
+        {
+          "text": "4th Agile",
+          "width": 110.734375,
+          "x": 272,
+          "y": 80
+        },
+        {
+          "text": "주요 버튼 배치",
+          "width": 590,
+          "x": 289,
+          "y": 678.5
+        },
+        {
+          "text": "입력란과 안내 문구",
+          "width": 590,
+          "x": 289,
+          "y": 751.5
+        },
+        {
+          "text": "오류 화면 구성",
+          "width": 590,
+          "x": 289,
+          "y": 824.5
+        },
+        {
+          "text": "주요 버튼 배치",
+          "width": 590,
+          "x": 289,
+          "y": 1010
+        },
+        {
+          "text": "입력란과 안내 문구",
+          "width": 590,
+          "x": 289,
+          "y": 1083
+        },
+        {
+          "text": "AOS 시안 프레임이 없다",
+          "width": 590,
+          "x": 289,
+          "y": 1156
+        }
+      ],
+      "overflow": false,
+      "table": {
+        "width": 974,
+        "x": 273,
+        "y": 618
+      }
+    },
+    "actualHeight": 900
+  },
+  {
+    "file": "register-pending-1440.png",
+    "width": 1440,
+    "height": 900,
+    "route": "/qa/sprints",
+    "phase": "after",
+    "evidence": {
+      "body": "QA\nQA 매뉴얼\n스프린트 목록\n스프린트 등록\n스프린트\t약식 설명\t현재 상태\n9th Agile\t모든 검수 완료\t2차 수동 검수\n8th Agile\t저장소 연결 실패\t기능 명세서 로드\n7th Agile\t-\t준비 전\n6th Agile\t기능 명세 변경 반영 승인\t기능 명세서 로드\n5th Agile\tQA 흐름 예시\t체크리스트 생성",
+      "font": "Pretendard, system-ui, -apple-system, sans-serif",
+      "headings": [
+        {
+          "text": "QA",
+          "width": 37.25,
+          "x": 272,
+          "y": 80
+        }
+      ],
+      "overflow": false,
+      "table": {
+        "width": 1134,
+        "x": 273,
+        "y": 242
+      }
+    },
+    "motion": {
+      "animations": 1,
+      "duration": "1.2s",
+      "name": "spin",
+      "reduced": false
+    },
+    "actualHeight": 900
+  },
+  {
+    "file": "close-pending-1440.png",
+    "width": 1440,
+    "height": 900,
+    "route": "/qa/sprints/9/checklist/2",
+    "phase": "after",
+    "evidence": {
+      "body": "9th Agile\n\n모든 검수 완료\n\nQA 종료\n기능 명세서 로드\n체크리스트 생성\n디자인 검수\n1차 자동화 검수\n5\n2차 수동 검수\n6\n종료\n연결 현황\n디자인 검수\n1차 체크리스트\n2차 체크리스트\n파트별 수정사항\nDesign\n100%\n\n5 / 5\n\nWeb\n100%\n\n12 / 12\n\nAPP\n100%\n\n12 / 12\n\nSer",
+      "font": "Pretendard, system-ui, -apple-system, sans-serif",
+      "headings": [
+        {
+          "text": "9th Agile",
+          "width": 110.359375,
+          "x": 272,
+          "y": 80
+        },
+        {
+          "text": "로그인 버튼 동작",
+          "width": 91.34375,
+          "x": 289,
+          "y": 663.5
+        },
+        {
+          "text": "필수 입력 안내",
+          "width": 79.25,
+          "x": 289,
+          "y": 736.5
+        },
+        {
+          "text": "실패 후 재시도",
+          "width": 79.25,
+          "x": 289,
+          "y": 809.5
+        },
+        {
+          "text": "로그인 버튼 동작",
+          "width": 91.34375,
+          "x": 289,
+          "y": 1005
+        },
+        {
+          "text": "필수 입력 안내",
+          "width": 79.25,
+          "x": 289,
+          "y": 1078
+        },
+        {
+          "text": "실패 후 재시도",
+          "width": 79.25,
+          "x": 289,
+          "y": 1151
+        }
+      ],
+      "overflow": false,
+      "table": {
+        "width": 1134,
+        "x": 273,
+        "y": 603
+      }
+    },
+    "motion": {
+      "animations": 1,
+      "duration": "1.2s",
+      "name": "spin",
+      "reduced": false
+    },
+    "actualHeight": 900
+  },
+  {
+    "file": "register-pending-reduced-1440.png",
+    "width": 1440,
+    "height": 900,
+    "route": "/qa/sprints",
+    "phase": "after",
+    "evidence": {
+      "body": "QA\nQA 매뉴얼\n스프린트 목록\n스프린트 등록\n스프린트\t약식 설명\t현재 상태\n9th Agile\t모든 검수 완료\t2차 수동 검수\n8th Agile\t저장소 연결 실패\t기능 명세서 로드\n7th Agile\t-\t준비 전\n6th Agile\t기능 명세 변경 반영 승인\t기능 명세서 로드\n5th Agile\tQA 흐름 예시\t체크리스트 생성",
+      "font": "Pretendard, system-ui, -apple-system, sans-serif",
+      "headings": [
+        {
+          "text": "QA",
+          "width": 37.25,
+          "x": 272,
+          "y": 80
+        }
+      ],
+      "overflow": false,
+      "table": {
+        "width": 1134,
+        "x": 273,
+        "y": 242
+      }
+    },
+    "motion": {
+      "animations": 0,
+      "duration": "1.2s",
+      "name": "none",
+      "reduced": true
+    },
+    "actualHeight": 900
+  },
+  {
+    "file": "close-pending-reduced-1440.png",
+    "width": 1440,
+    "height": 900,
+    "route": "/qa/sprints/9/checklist/2",
+    "phase": "after",
+    "evidence": {
+      "body": "9th Agile\n\n모든 검수 완료\n\nQA 종료\n기능 명세서 로드\n체크리스트 생성\n디자인 검수\n1차 자동화 검수\n5\n2차 수동 검수\n6\n종료\n연결 현황\n디자인 검수\n1차 체크리스트\n2차 체크리스트\n파트별 수정사항\nDesign\n100%\n\n5 / 5\n\nWeb\n100%\n\n12 / 12\n\nAPP\n100%\n\n12 / 12\n\nSer",
+      "font": "Pretendard, system-ui, -apple-system, sans-serif",
+      "headings": [
+        {
+          "text": "9th Agile",
+          "width": 110.359375,
+          "x": 272,
+          "y": 80
+        },
+        {
+          "text": "로그인 버튼 동작",
+          "width": 91.34375,
+          "x": 289,
+          "y": 663.5
+        },
+        {
+          "text": "필수 입력 안내",
+          "width": 79.25,
+          "x": 289,
+          "y": 736.5
+        },
+        {
+          "text": "실패 후 재시도",
+          "width": 79.25,
+          "x": 289,
+          "y": 809.5
+        },
+        {
+          "text": "로그인 버튼 동작",
+          "width": 91.34375,
+          "x": 289,
+          "y": 1005
+        },
+        {
+          "text": "필수 입력 안내",
+          "width": 79.25,
+          "x": 289,
+          "y": 1078
+        },
+        {
+          "text": "실패 후 재시도",
+          "width": 79.25,
+          "x": 289,
+          "y": 1151
+        }
+      ],
+      "overflow": false,
+      "table": {
+        "width": 1134,
+        "x": 273,
+        "y": 603
+      }
+    },
+    "motion": {
+      "animations": 0,
+      "duration": "1.2s",
+      "name": "none",
+      "reduced": true
+    },
+    "actualHeight": 900
+  },
+  {
+    "file": "design-running-1440.png",
+    "width": 1440,
+    "height": 900,
+    "route": "/qa/sprints/4/design-review",
+    "phase": "after",
+    "evidence": {
+      "body": "4th Agile\n\nQA 흐름 예시\n\nQA 종료\n디자인 검수와 1·2차 체크리스트의 모든 미검수를 처리하면 종료할 수 있어요.\n기능 명세서 로드\n체크리스트 생성\n3\n디자인 검수\n4\n1차 자동화 검수\n5\n2차 수동 검수\n6\n종료\n연결 현황\n디자인 검수\n1차 체크리스트\n2차 체크리스트\n파트별 수정사항\nDesign\n33%\n\n2",
+      "font": "Pretendard, system-ui, -apple-system, sans-serif",
+      "headings": [
+        {
+          "text": "4th Agile",
+          "width": 110.734375,
+          "x": 272,
+          "y": 80
+        },
+        {
+          "text": "주요 버튼 배치",
+          "width": 750,
+          "x": 289,
+          "y": 678.5
+        },
+        {
+          "text": "입력란과 안내 문구",
+          "width": 750,
+          "x": 289,
+          "y": 751.5
+        },
+        {
+          "text": "오류 화면 구성",
+          "width": 750,
+          "x": 289,
+          "y": 824.5
+        },
+        {
+          "text": "주요 버튼 배치",
+          "width": 750,
+          "x": 289,
+          "y": 1010
+        },
+        {
+          "text": "입력란과 안내 문구",
+          "width": 750,
+          "x": 289,
+          "y": 1083
+        },
+        {
+          "text": "AOS 시안 프레임이 없다",
+          "width": 750,
+          "x": 289,
+          "y": 1156
+        }
+      ],
+      "overflow": false,
+      "table": {
+        "width": 1134,
+        "x": 273,
+        "y": 618
+      }
+    },
+    "actualHeight": 900
+  },
+  {
+    "file": "qa-sprints-empty-1280.png",
+    "width": 1280,
+    "height": 900,
+    "route": "/qa/sprints?qaMock=empty",
+    "phase": "after",
+    "evidence": {
+      "body": "QA\nQA 매뉴얼\n\n등록된 스프린트가 없어요. Notion 스프린트 페이지를 연결해 시작해 주세요.\n\n스프린트 등록",
+      "font": "Pretendard, system-ui, -apple-system, sans-serif",
+      "headings": [
+        {
+          "text": "QA",
+          "width": 37.25,
+          "x": 272,
+          "y": 80
+        }
+      ],
+      "overflow": false,
+      "table": null
+    },
+    "actualHeight": 900
+  },
+  {
+    "file": "qa-sprints-error-1280.png",
+    "width": 1280,
+    "height": 900,
+    "route": "/qa/sprints?qaMock=503",
+    "phase": "after",
+    "evidence": {
+      "body": "QA\nQA 매뉴얼\n\n인증 서버가 응답하지 않아 권한을 확인하지 못했어요. 잠시 뒤 다시 시도해 주세요.\n\n다시 시도하기",
+      "font": "Pretendard, system-ui, -apple-system, sans-serif",
+      "headings": [
+        {
+          "text": "QA",
+          "width": 37.25,
+          "x": 272,
+          "y": 80
+        }
+      ],
+      "overflow": false,
+      "table": null
+    },
+    "actualHeight": 900
+  },
+  {
+    "file": "qa-reflections-1280.png",
+    "width": 1280,
+    "height": 900,
+    "route": "/qa/sprints/6/setup",
+    "phase": "after",
+    "evidence": {
+      "body": "6th Agile\n\n기능 명세 변경 반영 승인\n\nQA 종료\n디자인 검수와 1·2차 체크리스트의 모든 미검수를 처리하면 종료할 수 있어요.\n1\n기능 명세서 로드\n2\n체크리스트 생성\n3\n디자인 검수\n4\n1차 자동화 검수\n5\n2차 수동 검수\n6\n종료\n연결 현황\n디자인 검수\n1차 체크리스트\n2차 체크리스트\n파트별 수정사항\n연결 ",
+      "font": "Pretendard, system-ui, -apple-system, sans-serif",
+      "headings": [
+        {
+          "text": "6th Agile",
+          "width": 135.0625,
+          "x": 272,
+          "y": 80
+        },
+        {
+          "text": "로그인",
+          "width": 36.3125,
+          "x": 365.359375,
+          "y": 1203
+        },
+        {
+          "text": "오류 처리",
+          "width": 406,
+          "x": 330,
+          "y": 1326
+        },
+        {
+          "text": "오류 처리",
+          "width": 406,
+          "x": 784,
+          "y": 1326
+        },
+        {
+          "text": "공통 화면",
+          "width": 51.828125,
+          "x": 358.125,
+          "y": 1502.984375
+        },
+        {
+          "text": "오류 처리",
+          "width": 406,
+          "x": 330,
+          "y": 1625.984375
+        },
+        {
+          "text": "오류 처리",
+          "width": 406,
+          "x": 784,
+          "y": 1625.984375
+        }
+      ],
+      "overflow": false,
+      "table": null
+    },
+    "actualHeight": 900
+  },
+  {
+    "file": "qa-reflections-1280-full.png",
+    "width": 1280,
+    "full": true,
+    "route": "/qa/sprints/6/setup",
+    "actualHeight": 1888
+  },
+  {
+    "file": "qa-design-sample-1280.png",
+    "width": 1280,
+    "height": 900,
+    "route": "/qa/sprints/2/design-review",
+    "phase": "after",
+    "evidence": {
+      "body": "2th Agile\n\n로그인·공통 화면 수동 검수\n\nQA 종료\n디자인 검수와 1·2차 체크리스트의 모든 미검수를 처리하면 종료할 수 있어요.\n기능 명세서 로드\n체크리스트 생성\n디자인 검수\n1차 자동화 검수\n5\n2차 수동 검수\n6\n종료\n연결 현황\n디자인 검수\n1차 체크리스트\n2차 체크리스트\n파트별 수정사항\nDesign\n33%",
+      "font": "Pretendard, system-ui, -apple-system, sans-serif",
+      "headings": [
+        {
+          "text": "2th Agile",
+          "width": 147.203125,
+          "x": 272,
+          "y": 80
+        },
+        {
+          "text": "주요 버튼 배치",
+          "width": 590,
+          "x": 289,
+          "y": 644.5
+        },
+        {
+          "text": "입력란과 안내 문구",
+          "width": 590,
+          "x": 289,
+          "y": 717.5
+        },
+        {
+          "text": "오류 화면 구성",
+          "width": 590,
+          "x": 289,
+          "y": 790.5
+        },
+        {
+          "text": "주요 버튼 배치",
+          "width": 590,
+          "x": 289,
+          "y": 976
+        },
+        {
+          "text": "입력란과 안내 문구",
+          "width": 590,
+          "x": 289,
+          "y": 1049
+        },
+        {
+          "text": "AOS 시안 프레임이 없다",
+          "width": 590,
+          "x": 289,
+          "y": 1122
+        }
+      ],
+      "overflow": false,
+      "table": {
+        "width": 974,
+        "x": 273,
+        "y": 584
+      }
+    },
+    "actualHeight": 900
+  },
+  {
+    "file": "qa-design-sample-1280-full.png",
+    "width": 1280,
+    "full": true,
+    "route": "/qa/sprints/2/design-review",
+    "actualHeight": 1253
+  },
+  {
+    "file": "qa-design-history-1280.png",
+    "width": 1280,
+    "height": 900,
+    "route": "/qa/sprints/9/design-review",
+    "phase": "after",
+    "evidence": {
+      "body": "9th Agile\n\n모든 검수 완료\n\nQA 종료\n기능 명세서 로드\n체크리스트 생성\n디자인 검수\n1차 자동화 검수\n5\n2차 수동 검수\n6\n종료\n연결 현황\n디자인 검수\n1차 체크리스트\n2차 체크리스트\n파트별 수정사항\nDesign\n100%\n\n5 / 5\n\nWeb\n100%\n\n12 / 12\n\nAPP\n100%\n\n12 / 12\n\nSer",
+      "font": "Pretendard, system-ui, -apple-system, sans-serif",
+      "headings": [
+        {
+          "text": "9th Agile",
+          "width": 110.359375,
+          "x": 272,
+          "y": 80
+        },
+        {
+          "text": "주요 버튼 배치",
+          "width": 590,
+          "x": 289,
+          "y": 644.5
+        },
+        {
+          "text": "입력란과 안내 문구",
+          "width": 590,
+          "x": 289,
+          "y": 717.5
+        },
+        {
+          "text": "오류 화면 구성",
+          "width": 590,
+          "x": 289,
+          "y": 790.5
+        },
+        {
+          "text": "주요 버튼 배치",
+          "width": 590,
+          "x": 289,
+          "y": 976
+        },
+        {
+          "text": "입력란과 안내 문구",
+          "width": 590,
+          "x": 289,
+          "y": 1049
+        },
+        {
+          "text": "AOS 시안 프레임이 없다",
+          "width": 590,
+          "x": 289,
+          "y": 1122
+        }
+      ],
+      "overflow": false,
+      "table": {
+        "width": 974,
+        "x": 273,
+        "y": 584
+      }
+    },
+    "actualHeight": 900
+  },
+  {
+    "file": "qa-design-edit-1280.png",
+    "width": 1280,
+    "height": 900,
+    "route": "/qa/sprints/9/design-review",
+    "phase": "after",
+    "evidence": {
+      "body": "9th Agile\n\n모든 검수 완료\n\nQA 종료\n기능 명세서 로드\n체크리스트 생성\n디자인 검수\n1차 자동화 검수\n5\n2차 수동 검수\n6\n종료\n연결 현황\n디자인 검수\n1차 체크리스트\n2차 체크리스트\n파트별 수정사항\nDesign\n100%\n\n5 / 5\n\nWeb\n100%\n\n12 / 12\n\nAPP\n100%\n\n12 / 12\n\nSer",
+      "font": "Pretendard, system-ui, -apple-system, sans-serif",
+      "headings": [
+        {
+          "text": "9th Agile",
+          "width": 110.359375,
+          "x": 272,
+          "y": 80
+        },
+        {
+          "text": "주요 버튼 배치",
+          "width": 590,
+          "x": 289,
+          "y": 644.5
+        },
+        {
+          "text": "입력란과 안내 문구",
+          "width": 590,
+          "x": 289,
+          "y": 717.5
+        },
+        {
+          "text": "오류 화면 구성",
+          "width": 590,
+          "x": 289,
+          "y": 790.5
+        },
+        {
+          "text": "주요 버튼 배치",
+          "width": 590,
+          "x": 289,
+          "y": 976
+        },
+        {
+          "text": "입력란과 안내 문구",
+          "width": 590,
+          "x": 289,
+          "y": 1049
+        },
+        {
+          "text": "AOS 시안 프레임이 없다",
+          "width": 590,
+          "x": 289,
+          "y": 1122
+        }
+      ],
+      "overflow": false,
+      "table": {
+        "width": 974,
+        "x": 273,
+        "y": 584
+      }
+    },
+    "actualHeight": 900
+  },
+  {
+    "file": "qa-item-create-1280.png",
+    "width": 1280,
+    "height": 900,
+    "route": "/qa/sprints/2/checklist/2",
+    "phase": "after",
+    "evidence": {
+      "body": "2th Agile\n\n로그인·공통 화면 수동 검수\n\nQA 종료\n디자인 검수와 1·2차 체크리스트의 모든 미검수를 처리하면 종료할 수 있어요.\n기능 명세서 로드\n체크리스트 생성\n디자인 검수\n1차 자동화 검수\n5\n2차 수동 검수\n6\n종료\n연결 현황\n디자인 검수\n1차 체크리스트\n2차 체크리스트\n파트별 수정사항\nDesign\n33%",
+      "font": "Pretendard, system-ui, -apple-system, sans-serif",
+      "headings": [
+        {
+          "text": "2th Agile",
+          "width": 147.203125,
+          "x": 272,
+          "y": 80
+        },
+        {
+          "text": "로그인 버튼 동작",
+          "width": 91.34375,
+          "x": 289,
+          "y": 663.5
+        },
+        {
+          "text": "필수 입력 안내",
+          "width": 79.25,
+          "x": 289,
+          "y": 736.5
+        },
+        {
+          "text": "실패 후 재시도",
+          "width": 79.25,
+          "x": 289,
+          "y": 809.5
+        },
+        {
+          "text": "로그인 버튼 동작",
+          "width": 91.34375,
+          "x": 289,
+          "y": 1005
+        },
+        {
+          "text": "필수 입력 안내",
+          "width": 79.25,
+          "x": 289,
+          "y": 1078
+        },
+        {
+          "text": "실패 후 재시도",
+          "width": 79.25,
+          "x": 289,
+          "y": 1151
+        }
+      ],
+      "overflow": false,
+      "table": {
+        "width": 974,
+        "x": 273,
+        "y": 603
+      }
+    },
+    "actualHeight": 900
+  },
+  {
+    "file": "qa-close-dialog-1280.png",
+    "width": 1280,
+    "height": 900,
+    "route": "/qa/sprints/9/checklist/2",
+    "phase": "after",
+    "evidence": {
+      "body": "9th Agile\n\n모든 검수 완료\n\nQA 종료\n기능 명세서 로드\n체크리스트 생성\n디자인 검수\n1차 자동화 검수\n5\n2차 수동 검수\n6\n종료\n연결 현황\n디자인 검수\n1차 체크리스트\n2차 체크리스트\n파트별 수정사항\nDesign\n100%\n\n5 / 5\n\nWeb\n100%\n\n12 / 12\n\nAPP\n100%\n\n12 / 12\n\nSer",
+      "font": "Pretendard, system-ui, -apple-system, sans-serif",
+      "headings": [
+        {
+          "text": "9th Agile",
+          "width": 110.359375,
+          "x": 272,
+          "y": 80
+        },
+        {
+          "text": "로그인 버튼 동작",
+          "width": 91.34375,
+          "x": 289,
+          "y": 663.5
+        },
+        {
+          "text": "필수 입력 안내",
+          "width": 79.25,
+          "x": 289,
+          "y": 736.5
+        },
+        {
+          "text": "실패 후 재시도",
+          "width": 79.25,
+          "x": 289,
+          "y": 809.5
+        },
+        {
+          "text": "로그인 버튼 동작",
+          "width": 91.34375,
+          "x": 289,
+          "y": 1005
+        },
+        {
+          "text": "필수 입력 안내",
+          "width": 79.25,
+          "x": 289,
+          "y": 1078
+        },
+        {
+          "text": "실패 후 재시도",
+          "width": 79.25,
+          "x": 289,
+          "y": 1151
+        }
+      ],
+      "overflow": false,
+      "table": {
+        "width": 974,
+        "x": 273,
+        "y": 603
+      }
+    },
+    "actualHeight": 900
+  },
+  {
+    "file": "qa-sprints-empty-1440.png",
+    "width": 1440,
+    "height": 900,
+    "route": "/qa/sprints?qaMock=empty",
+    "phase": "after",
+    "evidence": {
+      "body": "QA\nQA 매뉴얼\n\n등록된 스프린트가 없어요. Notion 스프린트 페이지를 연결해 시작해 주세요.\n\n스프린트 등록",
+      "font": "Pretendard, system-ui, -apple-system, sans-serif",
+      "headings": [
+        {
+          "text": "QA",
+          "width": 37.25,
+          "x": 272,
+          "y": 80
+        }
+      ],
+      "overflow": false,
+      "table": null
+    },
+    "actualHeight": 900
+  },
+  {
+    "file": "qa-sprints-error-1440.png",
+    "width": 1440,
+    "height": 900,
+    "route": "/qa/sprints?qaMock=503",
+    "phase": "after",
+    "evidence": {
+      "body": "QA\nQA 매뉴얼\n\n인증 서버가 응답하지 않아 권한을 확인하지 못했어요. 잠시 뒤 다시 시도해 주세요.\n\n다시 시도하기",
+      "font": "Pretendard, system-ui, -apple-system, sans-serif",
+      "headings": [
+        {
+          "text": "QA",
+          "width": 37.25,
+          "x": 272,
+          "y": 80
+        }
+      ],
+      "overflow": false,
+      "table": null
+    },
+    "actualHeight": 900
+  },
+  {
+    "file": "qa-reflections-1440.png",
+    "width": 1440,
+    "height": 900,
+    "route": "/qa/sprints/6/setup",
+    "phase": "after",
+    "evidence": {
+      "body": "6th Agile\n\n기능 명세 변경 반영 승인\n\nQA 종료\n디자인 검수와 1·2차 체크리스트의 모든 미검수를 처리하면 종료할 수 있어요.\n1\n기능 명세서 로드\n2\n체크리스트 생성\n3\n디자인 검수\n4\n1차 자동화 검수\n5\n2차 수동 검수\n6\n종료\n연결 현황\n디자인 검수\n1차 체크리스트\n2차 체크리스트\n파트별 수정사항\n연결 ",
+      "font": "Pretendard, system-ui, -apple-system, sans-serif",
+      "headings": [
+        {
+          "text": "6th Agile",
+          "width": 135.0625,
+          "x": 272,
+          "y": 80
+        },
+        {
+          "text": "로그인",
+          "width": 36.3125,
+          "x": 365.359375,
+          "y": 1203
+        },
+        {
+          "text": "오류 처리",
+          "width": 486,
+          "x": 330,
+          "y": 1326
+        },
+        {
+          "text": "오류 처리",
+          "width": 486,
+          "x": 864,
+          "y": 1326
+        },
+        {
+          "text": "공통 화면",
+          "width": 51.828125,
+          "x": 358.125,
+          "y": 1502.984375
+        },
+        {
+          "text": "오류 처리",
+          "width": 486,
+          "x": 330,
+          "y": 1625.984375
+        },
+        {
+          "text": "오류 처리",
+          "width": 486,
+          "x": 864,
+          "y": 1625.984375
+        }
+      ],
+      "overflow": false,
+      "table": null
+    },
+    "actualHeight": 900
+  },
+  {
+    "file": "qa-reflections-1440-full.png",
+    "width": 1440,
+    "full": true,
+    "route": "/qa/sprints/6/setup",
+    "actualHeight": 1888
+  },
+  {
+    "file": "qa-design-sample-1440.png",
+    "width": 1440,
+    "height": 900,
+    "route": "/qa/sprints/2/design-review",
+    "phase": "after",
+    "evidence": {
+      "body": "2th Agile\n\n로그인·공통 화면 수동 검수\n\nQA 종료\n디자인 검수와 1·2차 체크리스트의 모든 미검수를 처리하면 종료할 수 있어요.\n기능 명세서 로드\n체크리스트 생성\n디자인 검수\n1차 자동화 검수\n5\n2차 수동 검수\n6\n종료\n연결 현황\n디자인 검수\n1차 체크리스트\n2차 체크리스트\n파트별 수정사항\nDesign\n33%",
+      "font": "Pretendard, system-ui, -apple-system, sans-serif",
+      "headings": [
+        {
+          "text": "2th Agile",
+          "width": 147.203125,
+          "x": 272,
+          "y": 80
+        },
+        {
+          "text": "주요 버튼 배치",
+          "width": 750,
+          "x": 289,
+          "y": 644.5
+        },
+        {
+          "text": "입력란과 안내 문구",
+          "width": 750,
+          "x": 289,
+          "y": 717.5
+        },
+        {
+          "text": "오류 화면 구성",
+          "width": 750,
+          "x": 289,
+          "y": 790.5
+        },
+        {
+          "text": "주요 버튼 배치",
+          "width": 750,
+          "x": 289,
+          "y": 976
+        },
+        {
+          "text": "입력란과 안내 문구",
+          "width": 750,
+          "x": 289,
+          "y": 1049
+        },
+        {
+          "text": "AOS 시안 프레임이 없다",
+          "width": 750,
+          "x": 289,
+          "y": 1122
+        }
+      ],
+      "overflow": false,
+      "table": {
+        "width": 1134,
+        "x": 273,
+        "y": 584
+      }
+    },
+    "actualHeight": 900
+  },
+  {
+    "file": "qa-design-sample-1440-full.png",
+    "width": 1440,
+    "full": true,
+    "route": "/qa/sprints/2/design-review",
+    "actualHeight": 1253
+  },
+  {
+    "file": "qa-design-history-1440.png",
+    "width": 1440,
+    "height": 900,
+    "route": "/qa/sprints/9/design-review",
+    "phase": "after",
+    "evidence": {
+      "body": "9th Agile\n\n모든 검수 완료\n\nQA 종료\n기능 명세서 로드\n체크리스트 생성\n디자인 검수\n1차 자동화 검수\n5\n2차 수동 검수\n6\n종료\n연결 현황\n디자인 검수\n1차 체크리스트\n2차 체크리스트\n파트별 수정사항\nDesign\n100%\n\n5 / 5\n\nWeb\n100%\n\n12 / 12\n\nAPP\n100%\n\n12 / 12\n\nSer",
+      "font": "Pretendard, system-ui, -apple-system, sans-serif",
+      "headings": [
+        {
+          "text": "9th Agile",
+          "width": 110.359375,
+          "x": 272,
+          "y": 80
+        },
+        {
+          "text": "주요 버튼 배치",
+          "width": 750,
+          "x": 289,
+          "y": 644.5
+        },
+        {
+          "text": "입력란과 안내 문구",
+          "width": 750,
+          "x": 289,
+          "y": 717.5
+        },
+        {
+          "text": "오류 화면 구성",
+          "width": 750,
+          "x": 289,
+          "y": 790.5
+        },
+        {
+          "text": "주요 버튼 배치",
+          "width": 750,
+          "x": 289,
+          "y": 976
+        },
+        {
+          "text": "입력란과 안내 문구",
+          "width": 750,
+          "x": 289,
+          "y": 1049
+        },
+        {
+          "text": "AOS 시안 프레임이 없다",
+          "width": 750,
+          "x": 289,
+          "y": 1122
+        }
+      ],
+      "overflow": false,
+      "table": {
+        "width": 1134,
+        "x": 273,
+        "y": 584
+      }
+    },
+    "actualHeight": 900
+  },
+  {
+    "file": "qa-design-edit-1440.png",
+    "width": 1440,
+    "height": 900,
+    "route": "/qa/sprints/9/design-review",
+    "phase": "after",
+    "evidence": {
+      "body": "9th Agile\n\n모든 검수 완료\n\nQA 종료\n기능 명세서 로드\n체크리스트 생성\n디자인 검수\n1차 자동화 검수\n5\n2차 수동 검수\n6\n종료\n연결 현황\n디자인 검수\n1차 체크리스트\n2차 체크리스트\n파트별 수정사항\nDesign\n100%\n\n5 / 5\n\nWeb\n100%\n\n12 / 12\n\nAPP\n100%\n\n12 / 12\n\nSer",
+      "font": "Pretendard, system-ui, -apple-system, sans-serif",
+      "headings": [
+        {
+          "text": "9th Agile",
+          "width": 110.359375,
+          "x": 272,
+          "y": 80
+        },
+        {
+          "text": "주요 버튼 배치",
+          "width": 750,
+          "x": 289,
+          "y": 644.5
+        },
+        {
+          "text": "입력란과 안내 문구",
+          "width": 750,
+          "x": 289,
+          "y": 717.5
+        },
+        {
+          "text": "오류 화면 구성",
+          "width": 750,
+          "x": 289,
+          "y": 790.5
+        },
+        {
+          "text": "주요 버튼 배치",
+          "width": 750,
+          "x": 289,
+          "y": 976
+        },
+        {
+          "text": "입력란과 안내 문구",
+          "width": 750,
+          "x": 289,
+          "y": 1049
+        },
+        {
+          "text": "AOS 시안 프레임이 없다",
+          "width": 750,
+          "x": 289,
+          "y": 1122
+        }
+      ],
+      "overflow": false,
+      "table": {
+        "width": 1134,
+        "x": 273,
+        "y": 584
+      }
+    },
+    "actualHeight": 900
+  },
+  {
+    "file": "qa-item-create-1440.png",
+    "width": 1440,
+    "height": 900,
+    "route": "/qa/sprints/2/checklist/2",
+    "phase": "after",
+    "evidence": {
+      "body": "2th Agile\n\n로그인·공통 화면 수동 검수\n\nQA 종료\n디자인 검수와 1·2차 체크리스트의 모든 미검수를 처리하면 종료할 수 있어요.\n기능 명세서 로드\n체크리스트 생성\n디자인 검수\n1차 자동화 검수\n5\n2차 수동 검수\n6\n종료\n연결 현황\n디자인 검수\n1차 체크리스트\n2차 체크리스트\n파트별 수정사항\nDesign\n33%",
+      "font": "Pretendard, system-ui, -apple-system, sans-serif",
+      "headings": [
+        {
+          "text": "2th Agile",
+          "width": 147.203125,
+          "x": 272,
+          "y": 80
+        },
+        {
+          "text": "로그인 버튼 동작",
+          "width": 91.34375,
+          "x": 289,
+          "y": 663.5
+        },
+        {
+          "text": "필수 입력 안내",
+          "width": 79.25,
+          "x": 289,
+          "y": 736.5
+        },
+        {
+          "text": "실패 후 재시도",
+          "width": 79.25,
+          "x": 289,
+          "y": 809.5
+        },
+        {
+          "text": "로그인 버튼 동작",
+          "width": 91.34375,
+          "x": 289,
+          "y": 1005
+        },
+        {
+          "text": "필수 입력 안내",
+          "width": 79.25,
+          "x": 289,
+          "y": 1078
+        },
+        {
+          "text": "실패 후 재시도",
+          "width": 79.25,
+          "x": 289,
+          "y": 1151
+        }
+      ],
+      "overflow": false,
+      "table": {
+        "width": 1134,
+        "x": 273,
+        "y": 603
+      }
+    },
+    "actualHeight": 900
+  },
+  {
+    "file": "qa-close-dialog-1440.png",
+    "width": 1440,
+    "height": 900,
+    "route": "/qa/sprints/9/checklist/2",
+    "phase": "after",
+    "evidence": {
+      "body": "9th Agile\n\n모든 검수 완료\n\nQA 종료\n기능 명세서 로드\n체크리스트 생성\n디자인 검수\n1차 자동화 검수\n5\n2차 수동 검수\n6\n종료\n연결 현황\n디자인 검수\n1차 체크리스트\n2차 체크리스트\n파트별 수정사항\nDesign\n100%\n\n5 / 5\n\nWeb\n100%\n\n12 / 12\n\nAPP\n100%\n\n12 / 12\n\nSer",
+      "font": "Pretendard, system-ui, -apple-system, sans-serif",
+      "headings": [
+        {
+          "text": "9th Agile",
+          "width": 110.359375,
+          "x": 272,
+          "y": 80
+        },
+        {
+          "text": "로그인 버튼 동작",
+          "width": 91.34375,
+          "x": 289,
+          "y": 663.5
+        },
+        {
+          "text": "필수 입력 안내",
+          "width": 79.25,
+          "x": 289,
+          "y": 736.5
+        },
+        {
+          "text": "실패 후 재시도",
+          "width": 79.25,
+          "x": 289,
+          "y": 809.5
+        },
+        {
+          "text": "로그인 버튼 동작",
+          "width": 91.34375,
+          "x": 289,
+          "y": 1005
+        },
+        {
+          "text": "필수 입력 안내",
+          "width": 79.25,
+          "x": 289,
+          "y": 1078
+        },
+        {
+          "text": "실패 후 재시도",
+          "width": 79.25,
+          "x": 289,
+          "y": 1151
+        }
+      ],
+      "overflow": false,
+      "table": {
+        "width": 1134,
+        "x": 273,
+        "y": 603
+      }
+    },
+    "actualHeight": 900
+  },
+  {
+    "file": "qa-sprints-normal-1280.png",
+    "width": 1280,
+    "height": 900,
+    "route": "/qa/sprints",
+    "phase": "after",
+    "evidence": {
+      "body": "QA\nQA 매뉴얼\n스프린트 목록\n스프린트 등록\n스프린트\t약식 설명\t현재 상태\n9th Agile\t모든 검수 완료\t2차 수동 검수\n8th Agile\t저장소 연결 실패\t기능 명세서 로드\n7th Agile\t-\t준비 전\n6th Agile\t기능 명세 변경 반영 승인\t기능 명세서 로드\n5th Agile\tQA 흐름 예시\t체크리스트 생성",
+      "font": "Pretendard, system-ui, -apple-system, sans-serif",
+      "headings": [
+        {
+          "text": "QA",
+          "width": 37.25,
+          "x": 272,
+          "y": 80
+        }
+      ],
+      "overflow": false,
+      "table": {
+        "width": 974,
+        "x": 273,
+        "y": 242
+      }
+    },
+    "fullEvidence": {
+      "activeAnimations": 0,
+      "headings": [
+        {
+          "height": 36,
+          "label": "QA",
+          "width": 37.25,
+          "x": 272,
+          "y": 80
+        },
+        {
+          "height": 24,
+          "label": "스프린트 목록",
+          "width": 86.765625,
+          "x": 297,
+          "y": 193
+        }
+      ],
+      "layout": {
+        "header": {
+          "height": 56,
+          "width": 1040,
+          "x": 240,
+          "y": 0
+        },
+        "main": {
+          "height": 844,
+          "width": 1040,
+          "x": 240,
+          "y": 56
+        },
+        "scrollWidth": 1280,
+        "sidebar": {
+          "height": 900,
+          "width": 240,
+          "x": 0,
+          "y": 0
+        },
+        "viewport": 1280
+      },
+      "regions": [
+        {
+          "height": 591,
+          "tag": "SECTION",
+          "width": 976,
+          "x": 272,
+          "y": 168
+        },
+        {
+          "height": 516,
+          "tag": "TABLE",
+          "width": 974,
+          "x": 273,
+          "y": 242
+        }
+      ]
+    },
+    "actualHeight": 900
+  },
+  {
+    "file": "qa-setup-normal-1280.png",
+    "width": 1280,
+    "height": 900,
+    "route": "/qa/sprints/9/setup",
+    "phase": "after",
+    "evidence": {
+      "body": "9th Agile\n\n모든 검수 완료\n\nQA 종료\n기능 명세서 로드\n체크리스트 생성\n디자인 검수\n1차 자동화 검수\n5\n2차 수동 검수\n6\n종료\n연결 현황\n디자인 검수\n1차 체크리스트\n2차 체크리스트\n파트별 수정사항\n연결 상태\nNotion\nFigma\nServer\nqa-baseline@abc1234\nWeb\nqa-baseline",
+      "font": "Pretendard, system-ui, -apple-system, sans-serif",
+      "headings": [
+        {
+          "text": "9th Agile",
+          "width": 110.359375,
+          "x": 272,
+          "y": 80
+        }
+      ],
+      "overflow": false,
+      "table": null
+    },
+    "fullEvidence": {
+      "activeAnimations": 0,
+      "headings": [
+        {
+          "height": 36,
+          "label": "9th Agile",
+          "width": 110.359375,
+          "x": 272,
+          "y": 80
+        },
+        {
+          "height": 24,
+          "label": "연결 상태",
+          "width": 926,
+          "x": 297,
+          "y": 295
+        },
+        {
+          "height": 24,
+          "label": "준비 작업",
+          "width": 59.109375,
+          "x": 297,
+          "y": 693
+        },
+        {
+          "height": 24,
+          "label": "반영 승인",
+          "width": 59.109375,
+          "x": 297,
+          "y": 1133
+        }
+      ],
+      "layout": {
+        "header": {
+          "height": 56,
+          "width": 1040,
+          "x": 240,
+          "y": 0
+        },
+        "main": {
+          "height": 1308,
+          "width": 1040,
+          "x": 240,
+          "y": 56
+        },
+        "scrollWidth": 1280,
+        "sidebar": {
+          "height": 900,
+          "width": 240,
+          "x": 0,
+          "y": 0
+        },
+        "viewport": 1280
+      },
+      "regions": [
+        {
+          "height": 374,
+          "tag": "SECTION",
+          "width": 976,
+          "x": 272,
+          "y": 270
+        },
+        {
+          "height": 416,
+          "tag": "SECTION",
+          "width": 976,
+          "x": 272,
+          "y": 668
+        },
+        {
+          "height": 208,
+          "tag": "SECTION",
+          "width": 976,
+          "x": 272,
+          "y": 1108
+        }
+      ]
+    },
+    "actualHeight": 900
+  },
+  {
+    "file": "qa-design-normal-1280.png",
+    "width": 1280,
+    "height": 900,
+    "route": "/qa/sprints/9/design-review",
+    "phase": "after",
+    "evidence": {
+      "body": "9th Agile\n\n모든 검수 완료\n\nQA 종료\n기능 명세서 로드\n체크리스트 생성\n디자인 검수\n1차 자동화 검수\n5\n2차 수동 검수\n6\n종료\n연결 현황\n디자인 검수\n1차 체크리스트\n2차 체크리스트\n파트별 수정사항\nDesign\n100%\n\n5 / 5\n\nWeb\n100%\n\n12 / 12\n\nAPP\n100%\n\n12 / 12\n\nSer",
+      "font": "Pretendard, system-ui, -apple-system, sans-serif",
+      "headings": [
+        {
+          "text": "9th Agile",
+          "width": 110.359375,
+          "x": 272,
+          "y": 80
+        },
+        {
+          "text": "주요 버튼 배치",
+          "width": 590,
+          "x": 289,
+          "y": 644.5
+        },
+        {
+          "text": "입력란과 안내 문구",
+          "width": 590,
+          "x": 289,
+          "y": 717.5
+        },
+        {
+          "text": "오류 화면 구성",
+          "width": 590,
+          "x": 289,
+          "y": 790.5
+        },
+        {
+          "text": "주요 버튼 배치",
+          "width": 590,
+          "x": 289,
+          "y": 976
+        },
+        {
+          "text": "입력란과 안내 문구",
+          "width": 590,
+          "x": 289,
+          "y": 1049
+        },
+        {
+          "text": "AOS 시안 프레임이 없다",
+          "width": 590,
+          "x": 289,
+          "y": 1122
+        }
+      ],
+      "overflow": false,
+      "table": {
+        "width": 974,
+        "x": 273,
+        "y": 584
+      }
+    },
+    "fullEvidence": {
+      "activeAnimations": 0,
+      "headings": [
+        {
+          "height": 36,
+          "label": "9th Agile",
+          "width": 110.359375,
+          "x": 272,
+          "y": 80
+        },
+        {
+          "height": 22,
+          "label": "Design",
+          "width": 198,
+          "x": 289,
+          "y": 283
+        },
+        {
+          "height": 22,
+          "label": "Web",
+          "width": 198,
+          "x": 537,
+          "y": 283
+        },
+        {
+          "height": 22,
+          "label": "APP",
+          "width": 198,
+          "x": 785,
+          "y": 283
+        },
+        {
+          "height": 22,
+          "label": "Server",
+          "width": 198,
+          "x": 1033,
+          "y": 283
+        },
+        {
+          "height": 22,
+          "label": "주요 버튼 배치",
+          "width": 590,
+          "x": 289,
+          "y": 644.5
+        },
+        {
+          "height": 22,
+          "label": "입력란과 안내 문구",
+          "width": 590,
+          "x": 289,
+          "y": 717.5
+        },
+        {
+          "height": 22,
+          "label": "오류 화면 구성",
+          "width": 590,
+          "x": 289,
+          "y": 790.5
+        },
+        {
+          "height": 22,
+          "label": "주요 버튼 배치",
+          "width": 590,
+          "x": 289,
+          "y": 976
+        },
+        {
+          "height": 22,
+          "label": "입력란과 안내 문구",
+          "width": 590,
+          "x": 289,
+          "y": 1049
+        },
+        {
+          "height": 22,
+          "label": "AOS 시안 프레임이 없다",
+          "width": 590,
+          "x": 289,
+          "y": 1122
+        }
+      ],
+      "layout": {
+        "header": {
+          "height": 56,
+          "width": 1040,
+          "x": 240,
+          "y": 0
+        },
+        "main": {
+          "height": 1197,
+          "width": 1040,
+          "x": 240,
+          "y": 56
+        },
+        "scrollWidth": 1280,
+        "sidebar": {
+          "height": 900,
+          "width": 240,
+          "x": 0,
+          "y": 0
+        },
+        "viewport": 1280
+      },
+      "regions": [
+        {
+          "height": 178,
+          "tag": "SECTION",
+          "width": 232,
+          "x": 272,
+          "y": 270
+        },
+        {
+          "height": 178,
+          "tag": "SECTION",
+          "width": 232,
+          "x": 520,
+          "y": 270
+        },
+        {
+          "height": 178,
+          "tag": "SECTION",
+          "width": 232,
+          "x": 768,
+          "y": 270
+        },
+        {
+          "height": 178,
+          "tag": "SECTION",
+          "width": 232,
+          "x": 1016,
+          "y": 270
+        },
+        {
+          "height": 315.5,
+          "tag": "SECTION",
+          "width": 976,
+          "x": 272,
+          "y": 536
+        },
+        {
+          "height": 266.5,
+          "tag": "TABLE",
+          "width": 974,
+          "x": 273,
+          "y": 584
+        },
+        {
+          "height": 337.5,
+          "tag": "SECTION",
+          "width": 976,
+          "x": 272,
+          "y": 867.5
+        },
+        {
+          "height": 288.5,
+          "tag": "TABLE",
+          "width": 974,
+          "x": 273,
+          "y": 915.5
+        }
+      ]
+    },
+    "actualHeight": 900
+  },
+  {
+    "file": "qa-first-normal-1280.png",
+    "width": 1280,
+    "height": 900,
+    "route": "/qa/sprints/2/checklist/1",
+    "phase": "after",
+    "evidence": {
+      "body": "2th Agile\n\n로그인·공통 화면 수동 검수\n\nQA 종료\n디자인 검수와 1·2차 체크리스트의 모든 미검수를 처리하면 종료할 수 있어요.\n기능 명세서 로드\n체크리스트 생성\n디자인 검수\n1차 자동화 검수\n5\n2차 수동 검수\n6\n종료\n연결 현황\n디자인 검수\n1차 체크리스트\n2차 체크리스트\n파트별 수정사항\nDesign\n33%",
+      "font": "Pretendard, system-ui, -apple-system, sans-serif",
+      "headings": [
+        {
+          "text": "2th Agile",
+          "width": 147.203125,
+          "x": 272,
+          "y": 80
+        },
+        {
+          "text": "로그인 버튼 동작",
+          "width": 91.34375,
+          "x": 289,
+          "y": 653.5
+        },
+        {
+          "text": "필수 입력 안내",
+          "width": 79.25,
+          "x": 289,
+          "y": 726.5
+        },
+        {
+          "text": "실패 후 재시도",
+          "width": 79.25,
+          "x": 289,
+          "y": 799.5
+        },
+        {
+          "text": "로그인 버튼 동작",
+          "width": 91.34375,
+          "x": 289,
+          "y": 985
+        },
+        {
+          "text": "필수 입력 안내",
+          "width": 79.25,
+          "x": 289,
+          "y": 1058
+        },
+        {
+          "text": "실패 후 재시도",
+          "width": 79.25,
+          "x": 289,
+          "y": 1131
+        }
+      ],
+      "overflow": false,
+      "table": {
+        "width": 974,
+        "x": 273,
+        "y": 593
+      }
+    },
+    "fullEvidence": {
+      "activeAnimations": 0,
+      "headings": [
+        {
+          "height": 36,
+          "label": "2th Agile",
+          "width": 147.203125,
+          "x": 272,
+          "y": 80
+        },
+        {
+          "height": 22,
+          "label": "Design",
+          "width": 198,
+          "x": 289,
+          "y": 283
+        },
+        {
+          "height": 22,
+          "label": "Web",
+          "width": 198,
+          "x": 537,
+          "y": 283
+        },
+        {
+          "height": 22,
+          "label": "APP",
+          "width": 198,
+          "x": 785,
+          "y": 283
+        },
+        {
+          "height": 22,
+          "label": "Server",
+          "width": 198,
+          "x": 1033,
+          "y": 283
+        },
+        {
+          "height": 22,
+          "label": "로그인 버튼 동작",
+          "width": 91.34375,
+          "x": 289,
+          "y": 653.5
+        },
+        {
+          "height": 22,
+          "label": "필수 입력 안내",
+          "width": 79.25,
+          "x": 289,
+          "y": 726.5
+        },
+        {
+          "height": 22,
+          "label": "실패 후 재시도",
+          "width": 79.25,
+          "x": 289,
+          "y": 799.5
+        },
+        {
+          "height": 22,
+          "label": "로그인 버튼 동작",
+          "width": 91.34375,
+          "x": 289,
+          "y": 985
+        },
+        {
+          "height": 22,
+          "label": "필수 입력 안내",
+          "width": 79.25,
+          "x": 289,
+          "y": 1058
+        },
+        {
+          "height": 22,
+          "label": "실패 후 재시도",
+          "width": 79.25,
+          "x": 289,
+          "y": 1131
+        }
+      ],
+      "layout": {
+        "header": {
+          "height": 56,
+          "width": 1040,
+          "x": 240,
+          "y": 0
+        },
+        "main": {
+          "height": 1184,
+          "width": 1040,
+          "x": 240,
+          "y": 56
+        },
+        "scrollWidth": 1280,
+        "sidebar": {
+          "height": 900,
+          "width": 240,
+          "x": 0,
+          "y": 0
+        },
+        "viewport": 1280
+      },
+      "regions": [
+        {
+          "height": 178,
+          "tag": "SECTION",
+          "width": 232,
+          "x": 272,
+          "y": 270
+        },
+        {
+          "height": 178,
+          "tag": "SECTION",
+          "width": 232,
+          "x": 520,
+          "y": 270
+        },
+        {
+          "height": 178,
+          "tag": "SECTION",
+          "width": 232,
+          "x": 768,
+          "y": 270
+        },
+        {
+          "height": 178,
+          "tag": "SECTION",
+          "width": 232,
+          "x": 1016,
+          "y": 270
+        },
+        {
+          "height": 315.5,
+          "tag": "SECTION",
+          "width": 976,
+          "x": 272,
+          "y": 545
+        },
+        {
+          "height": 266.5,
+          "tag": "TABLE",
+          "width": 974,
+          "x": 273,
+          "y": 593
+        },
+        {
+          "height": 315.5,
+          "tag": "SECTION",
+          "width": 976,
+          "x": 272,
+          "y": 876.5
+        },
+        {
+          "height": 266.5,
+          "tag": "TABLE",
+          "width": 974,
+          "x": 273,
+          "y": 924.5
+        }
+      ]
+    },
+    "actualHeight": 900
+  },
+  {
+    "file": "qa-second-normal-1280.png",
+    "width": 1280,
+    "height": 900,
+    "route": "/qa/sprints/2/checklist/2",
+    "phase": "after",
+    "evidence": {
+      "body": "2th Agile\n\n로그인·공통 화면 수동 검수\n\nQA 종료\n디자인 검수와 1·2차 체크리스트의 모든 미검수를 처리하면 종료할 수 있어요.\n기능 명세서 로드\n체크리스트 생성\n디자인 검수\n1차 자동화 검수\n5\n2차 수동 검수\n6\n종료\n연결 현황\n디자인 검수\n1차 체크리스트\n2차 체크리스트\n파트별 수정사항\nDesign\n33%",
+      "font": "Pretendard, system-ui, -apple-system, sans-serif",
+      "headings": [
+        {
+          "text": "2th Agile",
+          "width": 147.203125,
+          "x": 272,
+          "y": 80
+        },
+        {
+          "text": "로그인 버튼 동작",
+          "width": 91.34375,
+          "x": 289,
+          "y": 663.5
+        },
+        {
+          "text": "필수 입력 안내",
+          "width": 79.25,
+          "x": 289,
+          "y": 736.5
+        },
+        {
+          "text": "실패 후 재시도",
+          "width": 79.25,
+          "x": 289,
+          "y": 809.5
+        },
+        {
+          "text": "로그인 버튼 동작",
+          "width": 91.34375,
+          "x": 289,
+          "y": 1005
+        },
+        {
+          "text": "필수 입력 안내",
+          "width": 79.25,
+          "x": 289,
+          "y": 1078
+        },
+        {
+          "text": "실패 후 재시도",
+          "width": 79.25,
+          "x": 289,
+          "y": 1151
+        }
+      ],
+      "overflow": false,
+      "table": {
+        "width": 974,
+        "x": 273,
+        "y": 603
+      }
+    },
+    "fullEvidence": {
+      "activeAnimations": 0,
+      "headings": [
+        {
+          "height": 36,
+          "label": "2th Agile",
+          "width": 147.203125,
+          "x": 272,
+          "y": 80
+        },
+        {
+          "height": 22,
+          "label": "Design",
+          "width": 198,
+          "x": 289,
+          "y": 283
+        },
+        {
+          "height": 22,
+          "label": "Web",
+          "width": 198,
+          "x": 537,
+          "y": 283
+        },
+        {
+          "height": 22,
+          "label": "APP",
+          "width": 198,
+          "x": 785,
+          "y": 283
+        },
+        {
+          "height": 22,
+          "label": "Server",
+          "width": 198,
+          "x": 1033,
+          "y": 283
+        },
+        {
+          "height": 22,
+          "label": "로그인 버튼 동작",
+          "width": 91.34375,
+          "x": 289,
+          "y": 663.5
+        },
+        {
+          "height": 22,
+          "label": "필수 입력 안내",
+          "width": 79.25,
+          "x": 289,
+          "y": 736.5
+        },
+        {
+          "height": 22,
+          "label": "실패 후 재시도",
+          "width": 79.25,
+          "x": 289,
+          "y": 809.5
+        },
+        {
+          "height": 22,
+          "label": "로그인 버튼 동작",
+          "width": 91.34375,
+          "x": 289,
+          "y": 1005
+        },
+        {
+          "height": 22,
+          "label": "필수 입력 안내",
+          "width": 79.25,
+          "x": 289,
+          "y": 1078
+        },
+        {
+          "height": 22,
+          "label": "실패 후 재시도",
+          "width": 79.25,
+          "x": 289,
+          "y": 1151
+        }
+      ],
+      "layout": {
+        "header": {
+          "height": 56,
+          "width": 1040,
+          "x": 240,
+          "y": 0
+        },
+        "main": {
+          "height": 1204,
+          "width": 1040,
+          "x": 240,
+          "y": 56
+        },
+        "scrollWidth": 1280,
+        "sidebar": {
+          "height": 900,
+          "width": 240,
+          "x": 0,
+          "y": 0
+        },
+        "viewport": 1280
+      },
+      "regions": [
+        {
+          "height": 178,
+          "tag": "SECTION",
+          "width": 232,
+          "x": 272,
+          "y": 270
+        },
+        {
+          "height": 178,
+          "tag": "SECTION",
+          "width": 232,
+          "x": 520,
+          "y": 270
+        },
+        {
+          "height": 178,
+          "tag": "SECTION",
+          "width": 232,
+          "x": 768,
+          "y": 270
+        },
+        {
+          "height": 178,
+          "tag": "SECTION",
+          "width": 232,
+          "x": 1016,
+          "y": 270
+        },
+        {
+          "height": 325.5,
+          "tag": "SECTION",
+          "width": 976,
+          "x": 272,
+          "y": 545
+        },
+        {
+          "height": 266.5,
+          "tag": "TABLE",
+          "width": 974,
+          "x": 273,
+          "y": 603
+        },
+        {
+          "height": 325.5,
+          "tag": "SECTION",
+          "width": 976,
+          "x": 272,
+          "y": 886.5
+        },
+        {
+          "height": 266.5,
+          "tag": "TABLE",
+          "width": 974,
+          "x": 273,
+          "y": 944.5
+        }
+      ]
+    },
+    "actualHeight": 900
+  },
+  {
+    "file": "qa-fixes-normal-1280.png",
+    "width": 1280,
+    "height": 900,
+    "route": "/qa/sprints/9/fix-reports",
+    "phase": "after",
+    "evidence": {
+      "body": "9th Agile\n\n모든 검수 완료\n\nQA 종료\n기능 명세서 로드\n체크리스트 생성\n디자인 검수\n1차 자동화 검수\n5\n2차 수동 검수\n6\n종료\n연결 현황\n디자인 검수\n1차 체크리스트\n2차 체크리스트\n파트별 수정사항\n디자인\n\nFail 0\n\n수정할 항목이 없어요\n\n내려받기\n웹\n\nFail 0\n\n수정할 항목이 없어요\n\n내려받기\n앱",
+      "font": "Pretendard, system-ui, -apple-system, sans-serif",
+      "headings": [
+        {
+          "text": "9th Agile",
+          "width": 110.359375,
+          "x": 272,
+          "y": 80
+        }
+      ],
+      "overflow": false,
+      "table": null
+    },
+    "fullEvidence": {
+      "activeAnimations": 0,
+      "headings": [
+        {
+          "height": 36,
+          "label": "9th Agile",
+          "width": 110.359375,
+          "x": 272,
+          "y": 80
+        },
+        {
+          "height": 24,
+          "label": "디자인",
+          "width": 182,
+          "x": 297,
+          "y": 295
+        },
+        {
+          "height": 24,
+          "label": "웹",
+          "width": 182,
+          "x": 545,
+          "y": 295
+        },
+        {
+          "height": 24,
+          "label": "앱",
+          "width": 182,
+          "x": 793,
+          "y": 295
+        },
+        {
+          "height": 24,
+          "label": "서버",
+          "width": 182,
+          "x": 1041,
+          "y": 295
+        }
+      ],
+      "layout": {
+        "header": {
+          "height": 56,
+          "width": 1040,
+          "x": 240,
+          "y": 0
+        },
+        "main": {
+          "height": 844,
+          "width": 1040,
+          "x": 240,
+          "y": 56
+        },
+        "scrollWidth": 1280,
+        "sidebar": {
+          "height": 900,
+          "width": 240,
+          "x": 0,
+          "y": 0
+        },
+        "viewport": 1280
+      },
+      "regions": [
+        {
+          "height": 204,
+          "tag": "SECTION",
+          "width": 232,
+          "x": 272,
+          "y": 270
+        },
+        {
+          "height": 204,
+          "tag": "SECTION",
+          "width": 232,
+          "x": 520,
+          "y": 270
+        },
+        {
+          "height": 204,
+          "tag": "SECTION",
+          "width": 232,
+          "x": 768,
+          "y": 270
+        },
+        {
+          "height": 204,
+          "tag": "SECTION",
+          "width": 232,
+          "x": 1016,
+          "y": 270
+        }
+      ]
+    },
+    "actualHeight": 900
+  },
+  {
+    "file": "qa-sprints-normal-1440.png",
+    "width": 1440,
+    "height": 900,
+    "route": "/qa/sprints",
+    "phase": "after",
+    "evidence": {
+      "body": "QA\nQA 매뉴얼\n스프린트 목록\n스프린트 등록\n스프린트\t약식 설명\t현재 상태\n9th Agile\t모든 검수 완료\t2차 수동 검수\n8th Agile\t저장소 연결 실패\t기능 명세서 로드\n7th Agile\t-\t준비 전\n6th Agile\t기능 명세 변경 반영 승인\t기능 명세서 로드\n5th Agile\tQA 흐름 예시\t체크리스트 생성",
+      "font": "Pretendard, system-ui, -apple-system, sans-serif",
+      "headings": [
+        {
+          "text": "QA",
+          "width": 37.25,
+          "x": 272,
+          "y": 80
+        }
+      ],
+      "overflow": false,
+      "table": {
+        "width": 1134,
+        "x": 273,
+        "y": 242
+      }
+    },
+    "fullEvidence": {
+      "activeAnimations": 0,
+      "headings": [
+        {
+          "height": 36,
+          "label": "QA",
+          "width": 37.25,
+          "x": 272,
+          "y": 80
+        },
+        {
+          "height": 24,
+          "label": "스프린트 목록",
+          "width": 86.765625,
+          "x": 297,
+          "y": 193
+        }
+      ],
+      "layout": {
+        "header": {
+          "height": 56,
+          "width": 1200,
+          "x": 240,
+          "y": 0
+        },
+        "main": {
+          "height": 844,
+          "width": 1200,
+          "x": 240,
+          "y": 56
+        },
+        "scrollWidth": 1440,
+        "sidebar": {
+          "height": 900,
+          "width": 240,
+          "x": 0,
+          "y": 0
+        },
+        "viewport": 1440
+      },
+      "regions": [
+        {
+          "height": 591,
+          "tag": "SECTION",
+          "width": 1136,
+          "x": 272,
+          "y": 168
+        },
+        {
+          "height": 516,
+          "tag": "TABLE",
+          "width": 1134,
+          "x": 273,
+          "y": 242
+        }
+      ]
+    },
+    "actualHeight": 900
+  },
+  {
+    "file": "qa-setup-normal-1440.png",
+    "width": 1440,
+    "height": 900,
+    "route": "/qa/sprints/9/setup",
+    "phase": "after",
+    "evidence": {
+      "body": "9th Agile\n\n모든 검수 완료\n\nQA 종료\n기능 명세서 로드\n체크리스트 생성\n디자인 검수\n1차 자동화 검수\n5\n2차 수동 검수\n6\n종료\n연결 현황\n디자인 검수\n1차 체크리스트\n2차 체크리스트\n파트별 수정사항\n연결 상태\nNotion\nFigma\nServer\nqa-baseline@abc1234\nWeb\nqa-baseline",
+      "font": "Pretendard, system-ui, -apple-system, sans-serif",
+      "headings": [
+        {
+          "text": "9th Agile",
+          "width": 110.359375,
+          "x": 272,
+          "y": 80
+        }
+      ],
+      "overflow": false,
+      "table": null
+    },
+    "fullEvidence": {
+      "activeAnimations": 0,
+      "headings": [
+        {
+          "height": 36,
+          "label": "9th Agile",
+          "width": 110.359375,
+          "x": 272,
+          "y": 80
+        },
+        {
+          "height": 24,
+          "label": "연결 상태",
+          "width": 1086,
+          "x": 297,
+          "y": 295
+        },
+        {
+          "height": 24,
+          "label": "준비 작업",
+          "width": 59.109375,
+          "x": 297,
+          "y": 693
+        },
+        {
+          "height": 24,
+          "label": "반영 승인",
+          "width": 59.109375,
+          "x": 297,
+          "y": 1133
+        }
+      ],
+      "layout": {
+        "header": {
+          "height": 56,
+          "width": 1200,
+          "x": 240,
+          "y": 0
+        },
+        "main": {
+          "height": 1308,
+          "width": 1200,
+          "x": 240,
+          "y": 56
+        },
+        "scrollWidth": 1440,
+        "sidebar": {
+          "height": 900,
+          "width": 240,
+          "x": 0,
+          "y": 0
+        },
+        "viewport": 1440
+      },
+      "regions": [
+        {
+          "height": 374,
+          "tag": "SECTION",
+          "width": 1136,
+          "x": 272,
+          "y": 270
+        },
+        {
+          "height": 416,
+          "tag": "SECTION",
+          "width": 1136,
+          "x": 272,
+          "y": 668
+        },
+        {
+          "height": 208,
+          "tag": "SECTION",
+          "width": 1136,
+          "x": 272,
+          "y": 1108
+        }
+      ]
+    },
+    "actualHeight": 900
+  },
+  {
+    "file": "qa-design-normal-1440.png",
+    "width": 1440,
+    "height": 900,
+    "route": "/qa/sprints/9/design-review",
+    "phase": "after",
+    "evidence": {
+      "body": "9th Agile\n\n모든 검수 완료\n\nQA 종료\n기능 명세서 로드\n체크리스트 생성\n디자인 검수\n1차 자동화 검수\n5\n2차 수동 검수\n6\n종료\n연결 현황\n디자인 검수\n1차 체크리스트\n2차 체크리스트\n파트별 수정사항\nDesign\n100%\n\n5 / 5\n\nWeb\n100%\n\n12 / 12\n\nAPP\n100%\n\n12 / 12\n\nSer",
+      "font": "Pretendard, system-ui, -apple-system, sans-serif",
+      "headings": [
+        {
+          "text": "9th Agile",
+          "width": 110.359375,
+          "x": 272,
+          "y": 80
+        },
+        {
+          "text": "주요 버튼 배치",
+          "width": 750,
+          "x": 289,
+          "y": 644.5
+        },
+        {
+          "text": "입력란과 안내 문구",
+          "width": 750,
+          "x": 289,
+          "y": 717.5
+        },
+        {
+          "text": "오류 화면 구성",
+          "width": 750,
+          "x": 289,
+          "y": 790.5
+        },
+        {
+          "text": "주요 버튼 배치",
+          "width": 750,
+          "x": 289,
+          "y": 976
+        },
+        {
+          "text": "입력란과 안내 문구",
+          "width": 750,
+          "x": 289,
+          "y": 1049
+        },
+        {
+          "text": "AOS 시안 프레임이 없다",
+          "width": 750,
+          "x": 289,
+          "y": 1122
+        }
+      ],
+      "overflow": false,
+      "table": {
+        "width": 1134,
+        "x": 273,
+        "y": 584
+      }
+    },
+    "fullEvidence": {
+      "activeAnimations": 0,
+      "headings": [
+        {
+          "height": 36,
+          "label": "9th Agile",
+          "width": 110.359375,
+          "x": 272,
+          "y": 80
+        },
+        {
+          "height": 22,
+          "label": "Design",
+          "width": 238,
+          "x": 289,
+          "y": 283
+        },
+        {
+          "height": 22,
+          "label": "Web",
+          "width": 238,
+          "x": 577,
+          "y": 283
+        },
+        {
+          "height": 22,
+          "label": "APP",
+          "width": 238,
+          "x": 865,
+          "y": 283
+        },
+        {
+          "height": 22,
+          "label": "Server",
+          "width": 238,
+          "x": 1153,
+          "y": 283
+        },
+        {
+          "height": 22,
+          "label": "주요 버튼 배치",
+          "width": 750,
+          "x": 289,
+          "y": 644.5
+        },
+        {
+          "height": 22,
+          "label": "입력란과 안내 문구",
+          "width": 750,
+          "x": 289,
+          "y": 717.5
+        },
+        {
+          "height": 22,
+          "label": "오류 화면 구성",
+          "width": 750,
+          "x": 289,
+          "y": 790.5
+        },
+        {
+          "height": 22,
+          "label": "주요 버튼 배치",
+          "width": 750,
+          "x": 289,
+          "y": 976
+        },
+        {
+          "height": 22,
+          "label": "입력란과 안내 문구",
+          "width": 750,
+          "x": 289,
+          "y": 1049
+        },
+        {
+          "height": 22,
+          "label": "AOS 시안 프레임이 없다",
+          "width": 750,
+          "x": 289,
+          "y": 1122
+        }
+      ],
+      "layout": {
+        "header": {
+          "height": 56,
+          "width": 1200,
+          "x": 240,
+          "y": 0
+        },
+        "main": {
+          "height": 1197,
+          "width": 1200,
+          "x": 240,
+          "y": 56
+        },
+        "scrollWidth": 1440,
+        "sidebar": {
+          "height": 900,
+          "width": 240,
+          "x": 0,
+          "y": 0
+        },
+        "viewport": 1440
+      },
+      "regions": [
+        {
+          "height": 178,
+          "tag": "SECTION",
+          "width": 272,
+          "x": 272,
+          "y": 270
+        },
+        {
+          "height": 178,
+          "tag": "SECTION",
+          "width": 272,
+          "x": 560,
+          "y": 270
+        },
+        {
+          "height": 178,
+          "tag": "SECTION",
+          "width": 272,
+          "x": 848,
+          "y": 270
+        },
+        {
+          "height": 178,
+          "tag": "SECTION",
+          "width": 272,
+          "x": 1136,
+          "y": 270
+        },
+        {
+          "height": 315.5,
+          "tag": "SECTION",
+          "width": 1136,
+          "x": 272,
+          "y": 536
+        },
+        {
+          "height": 266.5,
+          "tag": "TABLE",
+          "width": 1134,
+          "x": 273,
+          "y": 584
+        },
+        {
+          "height": 337.5,
+          "tag": "SECTION",
+          "width": 1136,
+          "x": 272,
+          "y": 867.5
+        },
+        {
+          "height": 288.5,
+          "tag": "TABLE",
+          "width": 1134,
+          "x": 273,
+          "y": 915.5
+        }
+      ]
+    },
+    "actualHeight": 900
+  },
+  {
+    "file": "qa-first-normal-1440.png",
+    "width": 1440,
+    "height": 900,
+    "route": "/qa/sprints/2/checklist/1",
+    "phase": "after",
+    "evidence": {
+      "body": "2th Agile\n\n로그인·공통 화면 수동 검수\n\nQA 종료\n디자인 검수와 1·2차 체크리스트의 모든 미검수를 처리하면 종료할 수 있어요.\n기능 명세서 로드\n체크리스트 생성\n디자인 검수\n1차 자동화 검수\n5\n2차 수동 검수\n6\n종료\n연결 현황\n디자인 검수\n1차 체크리스트\n2차 체크리스트\n파트별 수정사항\nDesign\n33%",
+      "font": "Pretendard, system-ui, -apple-system, sans-serif",
+      "headings": [
+        {
+          "text": "2th Agile",
+          "width": 147.203125,
+          "x": 272,
+          "y": 80
+        },
+        {
+          "text": "로그인 버튼 동작",
+          "width": 91.34375,
+          "x": 289,
+          "y": 653.5
+        },
+        {
+          "text": "필수 입력 안내",
+          "width": 79.25,
+          "x": 289,
+          "y": 726.5
+        },
+        {
+          "text": "실패 후 재시도",
+          "width": 79.25,
+          "x": 289,
+          "y": 799.5
+        },
+        {
+          "text": "로그인 버튼 동작",
+          "width": 91.34375,
+          "x": 289,
+          "y": 985
+        },
+        {
+          "text": "필수 입력 안내",
+          "width": 79.25,
+          "x": 289,
+          "y": 1058
+        },
+        {
+          "text": "실패 후 재시도",
+          "width": 79.25,
+          "x": 289,
+          "y": 1131
+        }
+      ],
+      "overflow": false,
+      "table": {
+        "width": 1134,
+        "x": 273,
+        "y": 593
+      }
+    },
+    "fullEvidence": {
+      "activeAnimations": 0,
+      "headings": [
+        {
+          "height": 36,
+          "label": "2th Agile",
+          "width": 147.203125,
+          "x": 272,
+          "y": 80
+        },
+        {
+          "height": 22,
+          "label": "Design",
+          "width": 238,
+          "x": 289,
+          "y": 283
+        },
+        {
+          "height": 22,
+          "label": "Web",
+          "width": 238,
+          "x": 577,
+          "y": 283
+        },
+        {
+          "height": 22,
+          "label": "APP",
+          "width": 238,
+          "x": 865,
+          "y": 283
+        },
+        {
+          "height": 22,
+          "label": "Server",
+          "width": 238,
+          "x": 1153,
+          "y": 283
+        },
+        {
+          "height": 22,
+          "label": "로그인 버튼 동작",
+          "width": 91.34375,
+          "x": 289,
+          "y": 653.5
+        },
+        {
+          "height": 22,
+          "label": "필수 입력 안내",
+          "width": 79.25,
+          "x": 289,
+          "y": 726.5
+        },
+        {
+          "height": 22,
+          "label": "실패 후 재시도",
+          "width": 79.25,
+          "x": 289,
+          "y": 799.5
+        },
+        {
+          "height": 22,
+          "label": "로그인 버튼 동작",
+          "width": 91.34375,
+          "x": 289,
+          "y": 985
+        },
+        {
+          "height": 22,
+          "label": "필수 입력 안내",
+          "width": 79.25,
+          "x": 289,
+          "y": 1058
+        },
+        {
+          "height": 22,
+          "label": "실패 후 재시도",
+          "width": 79.25,
+          "x": 289,
+          "y": 1131
+        }
+      ],
+      "layout": {
+        "header": {
+          "height": 56,
+          "width": 1200,
+          "x": 240,
+          "y": 0
+        },
+        "main": {
+          "height": 1184,
+          "width": 1200,
+          "x": 240,
+          "y": 56
+        },
+        "scrollWidth": 1440,
+        "sidebar": {
+          "height": 900,
+          "width": 240,
+          "x": 0,
+          "y": 0
+        },
+        "viewport": 1440
+      },
+      "regions": [
+        {
+          "height": 178,
+          "tag": "SECTION",
+          "width": 272,
+          "x": 272,
+          "y": 270
+        },
+        {
+          "height": 178,
+          "tag": "SECTION",
+          "width": 272,
+          "x": 560,
+          "y": 270
+        },
+        {
+          "height": 178,
+          "tag": "SECTION",
+          "width": 272,
+          "x": 848,
+          "y": 270
+        },
+        {
+          "height": 178,
+          "tag": "SECTION",
+          "width": 272,
+          "x": 1136,
+          "y": 270
+        },
+        {
+          "height": 315.5,
+          "tag": "SECTION",
+          "width": 1136,
+          "x": 272,
+          "y": 545
+        },
+        {
+          "height": 266.5,
+          "tag": "TABLE",
+          "width": 1134,
+          "x": 273,
+          "y": 593
+        },
+        {
+          "height": 315.5,
+          "tag": "SECTION",
+          "width": 1136,
+          "x": 272,
+          "y": 876.5
+        },
+        {
+          "height": 266.5,
+          "tag": "TABLE",
+          "width": 1134,
+          "x": 273,
+          "y": 924.5
+        }
+      ]
+    },
+    "actualHeight": 900
+  },
+  {
+    "file": "qa-second-normal-1440.png",
+    "width": 1440,
+    "height": 900,
+    "route": "/qa/sprints/2/checklist/2",
+    "phase": "after",
+    "evidence": {
+      "body": "2th Agile\n\n로그인·공통 화면 수동 검수\n\nQA 종료\n디자인 검수와 1·2차 체크리스트의 모든 미검수를 처리하면 종료할 수 있어요.\n기능 명세서 로드\n체크리스트 생성\n디자인 검수\n1차 자동화 검수\n5\n2차 수동 검수\n6\n종료\n연결 현황\n디자인 검수\n1차 체크리스트\n2차 체크리스트\n파트별 수정사항\nDesign\n33%",
+      "font": "Pretendard, system-ui, -apple-system, sans-serif",
+      "headings": [
+        {
+          "text": "2th Agile",
+          "width": 147.203125,
+          "x": 272,
+          "y": 80
+        },
+        {
+          "text": "로그인 버튼 동작",
+          "width": 91.34375,
+          "x": 289,
+          "y": 663.5
+        },
+        {
+          "text": "필수 입력 안내",
+          "width": 79.25,
+          "x": 289,
+          "y": 736.5
+        },
+        {
+          "text": "실패 후 재시도",
+          "width": 79.25,
+          "x": 289,
+          "y": 809.5
+        },
+        {
+          "text": "로그인 버튼 동작",
+          "width": 91.34375,
+          "x": 289,
+          "y": 1005
+        },
+        {
+          "text": "필수 입력 안내",
+          "width": 79.25,
+          "x": 289,
+          "y": 1078
+        },
+        {
+          "text": "실패 후 재시도",
+          "width": 79.25,
+          "x": 289,
+          "y": 1151
+        }
+      ],
+      "overflow": false,
+      "table": {
+        "width": 1134,
+        "x": 273,
+        "y": 603
+      }
+    },
+    "fullEvidence": {
+      "activeAnimations": 0,
+      "headings": [
+        {
+          "height": 36,
+          "label": "2th Agile",
+          "width": 147.203125,
+          "x": 272,
+          "y": 80
+        },
+        {
+          "height": 22,
+          "label": "Design",
+          "width": 238,
+          "x": 289,
+          "y": 283
+        },
+        {
+          "height": 22,
+          "label": "Web",
+          "width": 238,
+          "x": 577,
+          "y": 283
+        },
+        {
+          "height": 22,
+          "label": "APP",
+          "width": 238,
+          "x": 865,
+          "y": 283
+        },
+        {
+          "height": 22,
+          "label": "Server",
+          "width": 238,
+          "x": 1153,
+          "y": 283
+        },
+        {
+          "height": 22,
+          "label": "로그인 버튼 동작",
+          "width": 91.34375,
+          "x": 289,
+          "y": 663.5
+        },
+        {
+          "height": 22,
+          "label": "필수 입력 안내",
+          "width": 79.25,
+          "x": 289,
+          "y": 736.5
+        },
+        {
+          "height": 22,
+          "label": "실패 후 재시도",
+          "width": 79.25,
+          "x": 289,
+          "y": 809.5
+        },
+        {
+          "height": 22,
+          "label": "로그인 버튼 동작",
+          "width": 91.34375,
+          "x": 289,
+          "y": 1005
+        },
+        {
+          "height": 22,
+          "label": "필수 입력 안내",
+          "width": 79.25,
+          "x": 289,
+          "y": 1078
+        },
+        {
+          "height": 22,
+          "label": "실패 후 재시도",
+          "width": 79.25,
+          "x": 289,
+          "y": 1151
+        }
+      ],
+      "layout": {
+        "header": {
+          "height": 56,
+          "width": 1200,
+          "x": 240,
+          "y": 0
+        },
+        "main": {
+          "height": 1204,
+          "width": 1200,
+          "x": 240,
+          "y": 56
+        },
+        "scrollWidth": 1440,
+        "sidebar": {
+          "height": 900,
+          "width": 240,
+          "x": 0,
+          "y": 0
+        },
+        "viewport": 1440
+      },
+      "regions": [
+        {
+          "height": 178,
+          "tag": "SECTION",
+          "width": 272,
+          "x": 272,
+          "y": 270
+        },
+        {
+          "height": 178,
+          "tag": "SECTION",
+          "width": 272,
+          "x": 560,
+          "y": 270
+        },
+        {
+          "height": 178,
+          "tag": "SECTION",
+          "width": 272,
+          "x": 848,
+          "y": 270
+        },
+        {
+          "height": 178,
+          "tag": "SECTION",
+          "width": 272,
+          "x": 1136,
+          "y": 270
+        },
+        {
+          "height": 325.5,
+          "tag": "SECTION",
+          "width": 1136,
+          "x": 272,
+          "y": 545
+        },
+        {
+          "height": 266.5,
+          "tag": "TABLE",
+          "width": 1134,
+          "x": 273,
+          "y": 603
+        },
+        {
+          "height": 325.5,
+          "tag": "SECTION",
+          "width": 1136,
+          "x": 272,
+          "y": 886.5
+        },
+        {
+          "height": 266.5,
+          "tag": "TABLE",
+          "width": 1134,
+          "x": 273,
+          "y": 944.5
+        }
+      ]
+    },
+    "actualHeight": 900
+  },
+  {
+    "file": "qa-fixes-normal-1440.png",
+    "width": 1440,
+    "height": 900,
+    "route": "/qa/sprints/9/fix-reports",
+    "phase": "after",
+    "evidence": {
+      "body": "9th Agile\n\n모든 검수 완료\n\nQA 종료\n기능 명세서 로드\n체크리스트 생성\n디자인 검수\n1차 자동화 검수\n5\n2차 수동 검수\n6\n종료\n연결 현황\n디자인 검수\n1차 체크리스트\n2차 체크리스트\n파트별 수정사항\n디자인\n\nFail 0\n\n수정할 항목이 없어요\n\n내려받기\n웹\n\nFail 0\n\n수정할 항목이 없어요\n\n내려받기\n앱",
+      "font": "Pretendard, system-ui, -apple-system, sans-serif",
+      "headings": [
+        {
+          "text": "9th Agile",
+          "width": 110.359375,
+          "x": 272,
+          "y": 80
+        }
+      ],
+      "overflow": false,
+      "table": null
+    },
+    "fullEvidence": {
+      "activeAnimations": 0,
+      "headings": [
+        {
+          "height": 36,
+          "label": "9th Agile",
+          "width": 110.359375,
+          "x": 272,
+          "y": 80
+        },
+        {
+          "height": 24,
+          "label": "디자인",
+          "width": 222,
+          "x": 297,
+          "y": 295
+        },
+        {
+          "height": 24,
+          "label": "웹",
+          "width": 222,
+          "x": 585,
+          "y": 295
+        },
+        {
+          "height": 24,
+          "label": "앱",
+          "width": 222,
+          "x": 873,
+          "y": 295
+        },
+        {
+          "height": 24,
+          "label": "서버",
+          "width": 222,
+          "x": 1161,
+          "y": 295
+        }
+      ],
+      "layout": {
+        "header": {
+          "height": 56,
+          "width": 1200,
+          "x": 240,
+          "y": 0
+        },
+        "main": {
+          "height": 844,
+          "width": 1200,
+          "x": 240,
+          "y": 56
+        },
+        "scrollWidth": 1440,
+        "sidebar": {
+          "height": 900,
+          "width": 240,
+          "x": 0,
+          "y": 0
+        },
+        "viewport": 1440
+      },
+      "regions": [
+        {
+          "height": 204,
+          "tag": "SECTION",
+          "width": 272,
+          "x": 272,
+          "y": 270
+        },
+        {
+          "height": 204,
+          "tag": "SECTION",
+          "width": 272,
+          "x": 560,
+          "y": 270
+        },
+        {
+          "height": 204,
+          "tag": "SECTION",
+          "width": 272,
+          "x": 848,
+          "y": 270
+        },
+        {
+          "height": 204,
+          "tag": "SECTION",
+          "width": 272,
+          "x": 1136,
+          "y": 270
+        }
+      ]
+    },
+    "actualHeight": 900
+  }
+]

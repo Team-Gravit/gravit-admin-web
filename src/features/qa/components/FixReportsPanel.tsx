@@ -64,7 +64,7 @@ export function FixReportsPanel({ sprint }: { sprint: Sprint }) {
             <h2 className="text-h3 text-foreground">{label}</h2>
             <p className="text-body text-fg-secondary">
               {NOTICE_COPY.FIXES_FAIL_COUNT}{' '}
-              <span className="font-semibold text-foreground">{report.failCount}</span>
+              <span className="font-semibold tabular-nums text-foreground">{report.failCount}</span>
             </p>
             <p className="min-h-5 break-words text-caption text-fg-muted">
               {empty ? NOTICE_COPY.FIXES_EMPTY : report.fileName}

@@ -25,7 +25,9 @@ export function ReflectionPanel({ sprint }: { sprint: Sprint }) {
     >
       <div className="flex items-center gap-3">
         <h2 className="text-h3 text-foreground">반영 승인</h2>
-        <span className="text-body text-fg-muted">승인 대기 {sprint.pendingReflectionCount}건</span>
+        <span className="text-body tabular-nums text-fg-muted">
+          승인 대기 {sprint.pendingReflectionCount}건
+        </span>
       </div>
       {query.isLoading ? (
         <LoadingSkeleton rows={3} />
@@ -130,7 +132,11 @@ function ReflectionCard({
             onClick={() => decide('reject')}
           >
             {decision.isPending && decision.variables.action === 'reject' && (
-              <Loader2 className="size-4 animate-spin" aria-hidden />
+              <Loader2
+                className="size-4 animate-spin motion-reduce:animate-none"
+                style={{ animationDuration: 'var(--motion-loading-cycle)' }}
+                aria-hidden
+              />
             )}
             거절
           </Button>
@@ -141,7 +147,11 @@ function ReflectionCard({
             onClick={() => decide('approve')}
           >
             {decision.isPending && decision.variables.action === 'approve' && (
-              <Loader2 className="size-4 animate-spin" aria-hidden />
+              <Loader2
+                className="size-4 animate-spin motion-reduce:animate-none"
+                style={{ animationDuration: 'var(--motion-loading-cycle)' }}
+                aria-hidden
+              />
             )}
             {item.state === 'FAILED' ? '다시 승인' : '승인'}
           </Button>

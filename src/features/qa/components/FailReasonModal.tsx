@@ -102,10 +102,10 @@ export function FailReasonModal({
               <Button
                 variant="outline"
                 aria-disabled={pending}
-                className="aria-disabled:opacity-50"
+                className="aria-disabled:opacity-disabled"
                 onClick={() => !pending && onClose()}
               >
-                취소
+                닫기
               </Button>
             </TooltipTrigger>
             {pending && <QaTooltipContent>{NOTICE_COPY.FAIL_REASON_PENDING}</QaTooltipContent>}
@@ -117,7 +117,7 @@ export function FailReasonModal({
                 type="submit"
                 aria-disabled={blocked}
                 aria-busy={pending}
-                className="aria-disabled:opacity-50"
+                className="aria-disabled:opacity-disabled"
               >
                 {NOTICE_COPY.FAIL_REASON_CONFIRM}
               </Button>

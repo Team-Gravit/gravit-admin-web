@@ -60,8 +60,16 @@ export function SetupPanel({ sprint }: { sprint: Sprint }) {
                 aria-busy={start.isPending}
                 onClick={() => start.mutate(sprint.version)}
               >
-                {start.isPending && <Loader2 className="size-4 animate-spin" aria-hidden />}
-                {sprint.latestJob?.status === 'FAILED' ? '다시 시도' : '시작'}
+                {start.isPending && (
+                  <Loader2
+                    className="size-4 animate-spin motion-reduce:animate-none"
+                    style={{ animationDuration: 'var(--motion-loading-cycle)' }}
+                    aria-hidden
+                  />
+                )}
+                {sprint.latestJob?.status === 'FAILED'
+                  ? NOTICE_COPY.SETUP_RETRY
+                  : NOTICE_COPY.SETUP_START}
               </Button>
             ) : null}
           </div>
@@ -84,7 +92,7 @@ export function SetupPanel({ sprint }: { sprint: Sprint }) {
         open={confirm === 'cancel'}
         onClose={() => setConfirm(null)}
         title="준비 작업을 취소할까요?"
-        description="진행 중인 단계가 끝나면 작업을 멈춥니다."
+        description={NOTICE_COPY.CANCEL_JOB_DESCRIPTION}
         confirmLabel="작업 취소"
         variant="destructive"
         pending={cancel.isPending}

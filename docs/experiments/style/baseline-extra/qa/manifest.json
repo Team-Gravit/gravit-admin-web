@@ -1,0 +1,320 @@
+[
+  {
+    "file": "register-pending-1280.png",
+    "width": 1280,
+    "height": 900,
+    "route": "/qa/sprints",
+    "phase": "before",
+    "evidence": {
+      "body": "QA\n\n스프린트별 QA 현황을 확인합니다.\n\nQA 매뉴얼\n스프린트 목록\n스프린트 등록\n스프린트\t약식 설명\t현재 상태\n9th Agile\t모든 검수 완료\t2차 수동 검수\n8th Agile\t저장소 연결 실패\t기능 명세서 로드\n7th Agile\t-\t준비 전\n6th Agile\t기능 명세 변경 반영 승인\t기능 명세서 로드\n5th A",
+      "font": "Pretendard, system-ui, -apple-system, sans-serif",
+      "headings": [
+        {
+          "text": "QA",
+          "width": 190.140625,
+          "x": 272,
+          "y": 80
+        }
+      ],
+      "overflow": false,
+      "table": {
+        "width": 974,
+        "x": 273,
+        "y": 240
+      }
+    },
+    "motion": {
+      "animations": 1,
+      "duration": "1s",
+      "name": "spin",
+      "reduced": false
+    }
+  },
+  {
+    "file": "close-pending-1280.png",
+    "width": 1280,
+    "height": 900,
+    "route": "/qa/sprints/9/checklist/2",
+    "phase": "before",
+    "evidence": {
+      "body": "9th Agile\n\n모든 검수 완료\n\nQA 종료\n기능 명세서 로드\n체크리스트 생성\n디자인 검수\n1차 자동화 검수\n5\n2차 수동 검수\n6\n종료\n연결 현황\n디자인 검수\n1차 체크리스트\n2차 체크리스트\n파트별 수정사항\nDesign\n100%\n\n5 / 5\n\nWeb\n100%\n\n12 / 12\n\nAPP\n100%\n\n12 / 12\n\nSer",
+      "font": "Pretendard, system-ui, -apple-system, sans-serif",
+      "headings": [
+        {
+          "text": "9th Agile",
+          "width": 110.359375,
+          "x": 272,
+          "y": 80
+        },
+        {
+          "text": "로그인 버튼 동작",
+          "width": 91.34375,
+          "x": 289,
+          "y": 663.5
+        },
+        {
+          "text": "필수 입력 안내",
+          "width": 79.25,
+          "x": 289,
+          "y": 736.5
+        },
+        {
+          "text": "실패 후 재시도",
+          "width": 79.25,
+          "x": 289,
+          "y": 809.5
+        },
+        {
+          "text": "로그인 버튼 동작",
+          "width": 91.34375,
+          "x": 289,
+          "y": 1005
+        },
+        {
+          "text": "필수 입력 안내",
+          "width": 79.25,
+          "x": 289,
+          "y": 1078
+        },
+        {
+          "text": "실패 후 재시도",
+          "width": 79.25,
+          "x": 289,
+          "y": 1151
+        }
+      ],
+      "overflow": false,
+      "table": {
+        "width": 974,
+        "x": 273,
+        "y": 603
+      }
+    },
+    "motion": {
+      "animations": 1,
+      "duration": "1s",
+      "name": "spin",
+      "reduced": false
+    }
+  },
+  {
+    "file": "design-running-1280.png",
+    "width": 1280,
+    "height": 900,
+    "route": "/qa/sprints/4/design-review",
+    "phase": "before",
+    "evidence": {
+      "body": "4th Agile\n\nQA 흐름 예시\n\nQA 종료\n디자인 검수와 1·2차 체크리스트의 모든 미검수를 처리해야 종료할 수 있습니다.\n기능 명세서 로드\n체크리스트 생성\n3\n디자인 검수\n4\n1차 자동화 검수\n5\n2차 수동 검수\n6\n종료\n연결 현황\n디자인 검수\n1차 체크리스트\n2차 체크리스트\n파트별 수정사항\nDesign\n33%\n\n",
+      "font": "Pretendard, system-ui, -apple-system, sans-serif",
+      "headings": [
+        {
+          "text": "4th Agile",
+          "width": 110.734375,
+          "x": 272,
+          "y": 80
+        },
+        {
+          "text": "주요 버튼 배치",
+          "width": 590,
+          "x": 289,
+          "y": 678.5
+        },
+        {
+          "text": "입력란과 안내 문구",
+          "width": 590,
+          "x": 289,
+          "y": 767.5
+        },
+        {
+          "text": "오류 화면 구성",
+          "width": 590,
+          "x": 289,
+          "y": 856.5
+        },
+        {
+          "text": "주요 버튼 배치",
+          "width": 590,
+          "x": 289,
+          "y": 1058
+        },
+        {
+          "text": "입력란과 안내 문구",
+          "width": 590,
+          "x": 289,
+          "y": 1147
+        },
+        {
+          "text": "AOS 시안 프레임이 없다",
+          "width": 590,
+          "x": 289,
+          "y": 1236
+        }
+      ],
+      "overflow": false,
+      "table": {
+        "width": 974,
+        "x": 273,
+        "y": 618
+      }
+    }
+  },
+  {
+    "file": "register-pending-1440.png",
+    "width": 1440,
+    "height": 900,
+    "route": "/qa/sprints",
+    "phase": "before",
+    "evidence": {
+      "body": "QA\n\n스프린트별 QA 현황을 확인합니다.\n\nQA 매뉴얼\n스프린트 목록\n스프린트 등록\n스프린트\t약식 설명\t현재 상태\n9th Agile\t모든 검수 완료\t2차 수동 검수\n8th Agile\t저장소 연결 실패\t기능 명세서 로드\n7th Agile\t-\t준비 전\n6th Agile\t기능 명세 변경 반영 승인\t기능 명세서 로드\n5th A",
+      "font": "Pretendard, system-ui, -apple-system, sans-serif",
+      "headings": [
+        {
+          "text": "QA",
+          "width": 190.140625,
+          "x": 272,
+          "y": 80
+        }
+      ],
+      "overflow": false,
+      "table": {
+        "width": 1134,
+        "x": 273,
+        "y": 240
+      }
+    },
+    "motion": {
+      "animations": 1,
+      "duration": "1s",
+      "name": "spin",
+      "reduced": false
+    }
+  },
+  {
+    "file": "close-pending-1440.png",
+    "width": 1440,
+    "height": 900,
+    "route": "/qa/sprints/9/checklist/2",
+    "phase": "before",
+    "evidence": {
+      "body": "9th Agile\n\n모든 검수 완료\n\nQA 종료\n기능 명세서 로드\n체크리스트 생성\n디자인 검수\n1차 자동화 검수\n5\n2차 수동 검수\n6\n종료\n연결 현황\n디자인 검수\n1차 체크리스트\n2차 체크리스트\n파트별 수정사항\nDesign\n100%\n\n5 / 5\n\nWeb\n100%\n\n12 / 12\n\nAPP\n100%\n\n12 / 12\n\nSer",
+      "font": "Pretendard, system-ui, -apple-system, sans-serif",
+      "headings": [
+        {
+          "text": "9th Agile",
+          "width": 110.359375,
+          "x": 272,
+          "y": 80
+        },
+        {
+          "text": "로그인 버튼 동작",
+          "width": 91.34375,
+          "x": 289,
+          "y": 663.5
+        },
+        {
+          "text": "필수 입력 안내",
+          "width": 79.25,
+          "x": 289,
+          "y": 736.5
+        },
+        {
+          "text": "실패 후 재시도",
+          "width": 79.25,
+          "x": 289,
+          "y": 809.5
+        },
+        {
+          "text": "로그인 버튼 동작",
+          "width": 91.34375,
+          "x": 289,
+          "y": 1005
+        },
+        {
+          "text": "필수 입력 안내",
+          "width": 79.25,
+          "x": 289,
+          "y": 1078
+        },
+        {
+          "text": "실패 후 재시도",
+          "width": 79.25,
+          "x": 289,
+          "y": 1151
+        }
+      ],
+      "overflow": false,
+      "table": {
+        "width": 1134,
+        "x": 273,
+        "y": 603
+      }
+    },
+    "motion": {
+      "animations": 1,
+      "duration": "1s",
+      "name": "spin",
+      "reduced": false
+    }
+  },
+  {
+    "file": "design-running-1440.png",
+    "width": 1440,
+    "height": 900,
+    "route": "/qa/sprints/4/design-review",
+    "phase": "before",
+    "evidence": {
+      "body": "4th Agile\n\nQA 흐름 예시\n\nQA 종료\n디자인 검수와 1·2차 체크리스트의 모든 미검수를 처리해야 종료할 수 있습니다.\n기능 명세서 로드\n체크리스트 생성\n3\n디자인 검수\n4\n1차 자동화 검수\n5\n2차 수동 검수\n6\n종료\n연결 현황\n디자인 검수\n1차 체크리스트\n2차 체크리스트\n파트별 수정사항\nDesign\n33%\n\n",
+      "font": "Pretendard, system-ui, -apple-system, sans-serif",
+      "headings": [
+        {
+          "text": "4th Agile",
+          "width": 110.734375,
+          "x": 272,
+          "y": 80
+        },
+        {
+          "text": "주요 버튼 배치",
+          "width": 750,
+          "x": 289,
+          "y": 678.5
+        },
+        {
+          "text": "입력란과 안내 문구",
+          "width": 750,
+          "x": 289,
+          "y": 767.5
+        },
+        {
+          "text": "오류 화면 구성",
+          "width": 750,
+          "x": 289,
+          "y": 856.5
+        },
+        {
+          "text": "주요 버튼 배치",
+          "width": 750,
+          "x": 289,
+          "y": 1058
+        },
+        {
+          "text": "입력란과 안내 문구",
+          "width": 750,
+          "x": 289,
+          "y": 1147
+        },
+        {
+          "text": "AOS 시안 프레임이 없다",
+          "width": 750,
+          "x": 289,
+          "y": 1236
+        }
+      ],
+      "overflow": false,
+      "table": {
+        "width": 1134,
+        "x": 273,
+        "y": 618
+      }
+    }
+  }
+]

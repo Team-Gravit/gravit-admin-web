@@ -39,13 +39,13 @@ export function DesignHistoryModal({ item, onClose }: { item: DesignItem; onClos
           <ol className="divide-y divide-border">
             {query.data.map((h, i) => (
               <li key={`${h.updatedAt}-${i}`} className="flex flex-col gap-2 py-3">
-                <p className="text-body text-foreground">
+                <p className="text-body tabular-nums text-foreground">
                   <span className="font-medium">{CELL_STATE_LABELS[h.state]}</span> ·{' '}
                   {formatDateTime(h.updatedAt)} · {CELL_SOURCE_LABELS[h.source]}
                   {h.updatedBy !== null && ` (운영자 #${h.updatedBy})`}
                 </p>
                 {h.reason && (
-                  <p className="whitespace-pre-wrap rounded-md bg-page p-3 text-caption text-fg-secondary">
+                  <p className="whitespace-pre-wrap rounded-md bg-page p-3 text-body text-fg-secondary">
                     {h.reason}
                   </p>
                 )}

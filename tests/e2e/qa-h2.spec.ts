@@ -82,7 +82,7 @@ for (const id of [7, 6, 5, 4, 3]) {
       .getByRole('row', { name: '로그인 버튼 동작', exact: true })
       .getByRole('button', { name: 'Web Pass — 변경 이력', exact: true });
     await cell.hover();
-    await expect(page.getByRole('tooltip')).toHaveText('1차 검수가 끝난 뒤 변경할 수 있습니다.');
+    await expect(page.getByRole('tooltip')).toHaveText('1차 검수가 끝나면 변경할 수 있어요.');
     // aria-disabled communicates the lock while allowing the hover explanation.
     await cell.click({ force: true });
     await expect(page.getByRole('menu')).toHaveCount(0);

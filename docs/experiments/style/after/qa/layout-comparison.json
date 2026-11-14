@@ -1,0 +1,278 @@
+[
+  {
+    "key": "qa-sprints",
+    "width": 1280,
+    "shellSame": true,
+    "headingOrderSame": true,
+    "headingDeltaY": [
+      0,
+      2
+    ],
+    "overflow": false,
+    "activeAnimations": 0,
+    "normalization": "old meter-role entries compared separately from actual headings"
+  },
+  {
+    "key": "qa-setup",
+    "width": 1280,
+    "shellSame": true,
+    "headingOrderSame": true,
+    "headingDeltaY": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "overflow": false,
+    "activeAnimations": 0,
+    "normalization": "old meter-role entries compared separately from actual headings"
+  },
+  {
+    "key": "qa-design",
+    "width": 1280,
+    "shellSame": true,
+    "headingOrderSame": true,
+    "headingDeltaY": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      -0.5,
+      -16.5,
+      -32.5,
+      -48,
+      -64,
+      -80
+    ],
+    "overflow": false,
+    "activeAnimations": 0,
+    "normalization": "old meter-role entries compared separately from actual headings"
+  },
+  {
+    "key": "qa-first",
+    "width": 1280,
+    "shellSame": true,
+    "headingOrderSame": true,
+    "headingDeltaY": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      -0.5,
+      -16.5,
+      -32.5,
+      -48,
+      -64,
+      -80
+    ],
+    "overflow": false,
+    "activeAnimations": 0,
+    "normalization": "old meter-role entries compared separately from actual headings",
+    "sampleHeadingOrderSame": true,
+    "sampleHeadingDeltaY": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      -0.5,
+      -0.5,
+      -0.5,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "key": "qa-second",
+    "width": 1280,
+    "shellSame": true,
+    "headingOrderSame": true,
+    "headingDeltaY": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      -0.5,
+      -16.5,
+      -32.5,
+      -48,
+      -64,
+      -80
+    ],
+    "overflow": false,
+    "activeAnimations": 0,
+    "normalization": "old meter-role entries compared separately from actual headings",
+    "sampleHeadingOrderSame": true,
+    "sampleHeadingDeltaY": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      -0.5,
+      -0.5,
+      -0.5,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "key": "qa-fixes",
+    "width": 1280,
+    "shellSame": true,
+    "headingOrderSame": true,
+    "headingDeltaY": [
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "overflow": false,
+    "activeAnimations": 0,
+    "normalization": "old meter-role entries compared separately from actual headings"
+  },
+  {
+    "key": "qa-sprints",
+    "width": 1440,
+    "shellSame": true,
+    "headingOrderSame": true,
+    "headingDeltaY": [
+      0,
+      2
+    ],
+    "overflow": false,
+    "activeAnimations": 0,
+    "normalization": "old meter-role entries compared separately from actual headings"
+  },
+  {
+    "key": "qa-setup",
+    "width": 1440,
+    "shellSame": true,
+    "headingOrderSame": true,
+    "headingDeltaY": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "overflow": false,
+    "activeAnimations": 0,
+    "normalization": "old meter-role entries compared separately from actual headings"
+  },
+  {
+    "key": "qa-design",
+    "width": 1440,
+    "shellSame": true,
+    "headingOrderSame": true,
+    "headingDeltaY": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      -0.5,
+      -16.5,
+      -32.5,
+      -48,
+      -64,
+      -80
+    ],
+    "overflow": false,
+    "activeAnimations": 0,
+    "normalization": "old meter-role entries compared separately from actual headings"
+  },
+  {
+    "key": "qa-first",
+    "width": 1440,
+    "shellSame": true,
+    "headingOrderSame": true,
+    "headingDeltaY": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      -0.5,
+      -16.5,
+      -32.5,
+      -48,
+      -64,
+      -80
+    ],
+    "overflow": false,
+    "activeAnimations": 0,
+    "normalization": "old meter-role entries compared separately from actual headings",
+    "sampleHeadingOrderSame": true,
+    "sampleHeadingDeltaY": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      -0.5,
+      -0.5,
+      -0.5,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "key": "qa-second",
+    "width": 1440,
+    "shellSame": true,
+    "headingOrderSame": true,
+    "headingDeltaY": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      -0.5,
+      -16.5,
+      -32.5,
+      -48,
+      -64,
+      -80
+    ],
+    "overflow": false,
+    "activeAnimations": 0,
+    "normalization": "old meter-role entries compared separately from actual headings",
+    "sampleHeadingOrderSame": true,
+    "sampleHeadingDeltaY": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      -0.5,
+      -0.5,
+      -0.5,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "key": "qa-fixes",
+    "width": 1440,
+    "shellSame": true,
+    "headingOrderSame": true,
+    "headingDeltaY": [
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "overflow": false,
+    "activeAnimations": 0,
+    "normalization": "old meter-role entries compared separately from actual headings"
+  }
+]

@@ -27,9 +27,9 @@ export function FeatureGroupHeader({
           <ChevronDown className="size-4 text-fg-muted" aria-hidden />
         )}
         <code className="font-mono text-caption text-fg-secondary">{feature.screenId}</code>
-        <span className="text-body font-medium text-foreground">{feature.screenName}</span>
+        <span className="text-body font-semibold text-foreground">{feature.screenName}</span>
         {feature.changed && <QaChip>변경</QaChip>}
-        <span className="ml-auto shrink-0 text-caption text-fg-muted">
+        <span className="ml-auto shrink-0 text-caption tabular-nums text-fg-secondary">
           {feature.completionRate}% 완료
         </span>
       </button>

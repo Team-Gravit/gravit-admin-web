@@ -25,7 +25,7 @@ export function QaStatusIcon({
       aria-label={label}
       tabIndex={showTooltip ? 0 : undefined}
       className={cn(
-        'inline-flex size-8 shrink-0 items-center justify-center rounded-full transition-opacity focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring',
+        'inline-flex size-8 shrink-0 items-center justify-center rounded-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring',
         color,
         pending && 'opacity-40',
       )}
@@ -35,6 +35,9 @@ export function QaStatusIcon({
           'size-4',
           category === 'running' && 'animate-spin motion-reduce:animate-none',
         )}
+        style={
+          category === 'running' ? { animationDuration: 'var(--motion-loading-cycle)' } : undefined
+        }
         aria-hidden
       />
     </span>

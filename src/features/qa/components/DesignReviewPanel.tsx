@@ -30,7 +30,7 @@ export function DesignReviewPanel({ sprint }: { sprint: Sprint }) {
   );
   if (query.isLoading)
     return tabRunning ? (
-      <QaStageActivity>디자인 검수 중입니다.</QaStageActivity>
+      <QaStageActivity>{NOTICE_COPY.DESIGN_REVIEW_RUNNING}</QaStageActivity>
     ) : (
       <LoadingSkeleton />
     );
@@ -47,10 +47,10 @@ export function DesignReviewPanel({ sprint }: { sprint: Sprint }) {
     <div className="flex flex-col gap-4">
       <ProgressGauges progress={sprint.progress} />
       {closed && <QaNotice>{NOTICE_COPY.CLOSED}</QaNotice>}
-      {tabRunning && <QaStageActivity>디자인 검수 중입니다.</QaStageActivity>}
+      {tabRunning && <QaStageActivity>{NOTICE_COPY.DESIGN_REVIEW_RUNNING}</QaStageActivity>}
       <div className="sticky top-header z-10 flex justify-end bg-page py-3">
-        <Button size="sm" variant="outline" disabled={!next.hasTarget} onClick={next.next}>
-          다음 미검수
+        <Button size="sm" disabled={!next.hasTarget} onClick={next.next}>
+          {NOTICE_COPY.NEXT_UNCHECKED}
         </Button>
       </div>
       {features.length === 0 ? (

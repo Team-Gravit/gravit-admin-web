@@ -4,7 +4,11 @@ export function QaStageActivity({ children }: { children: string }) {
   return (
     <QaNotice>
       <span role="status" className="flex items-center gap-2">
-        <LoaderCircle className="size-4 animate-spin motion-reduce:animate-none" aria-hidden />
+        <LoaderCircle
+          className="size-4 animate-spin motion-reduce:animate-none"
+          style={{ animationDuration: 'var(--motion-loading-cycle)' }}
+          aria-hidden
+        />
         {children}
       </span>
     </QaNotice>

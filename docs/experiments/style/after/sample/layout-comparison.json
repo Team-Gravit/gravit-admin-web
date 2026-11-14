@@ -1,0 +1,30 @@
+[
+  {
+    "width": 1280,
+    "anchor": "제목",
+    "beforeY": 80,
+    "sharedY": 80,
+    "sampleY": 80
+  },
+  {
+    "width": 1280,
+    "anchor": "첫 게이지",
+    "beforeY": 275,
+    "sharedY": 283,
+    "sampleY": 283
+  },
+  {
+    "width": 1440,
+    "anchor": "제목",
+    "beforeY": 80,
+    "sharedY": 80,
+    "sampleY": 80
+  },
+  {
+    "width": 1440,
+    "anchor": "첫 게이지",
+    "beforeY": 275,
+    "sharedY": 283,
+    "sampleY": 283
+  }
+]

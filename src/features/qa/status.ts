@@ -24,7 +24,7 @@ export const QA_STATUS_CATEGORIES = {
     icon: LoaderCircle,
     label: '진행 중',
     description: '실행 중 · 실행 예약 · 반영 중',
-    color: 'bg-primary-badge text-primary',
+    color: 'bg-muted-ds-bg text-muted-ds-text',
   },
   pending: {
     icon: Minus,

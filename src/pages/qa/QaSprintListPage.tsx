@@ -41,10 +41,9 @@ export function QaSprintListPage() {
   };
   return (
     <div className="flex flex-col gap-6">
-      <header className="flex items-start justify-between">
+      <header className="flex min-h-16 items-start justify-between">
         <div className="flex flex-col gap-1">
           <h1 className="text-h1 text-foreground">QA</h1>
-          <p className="text-body text-fg-muted">{NOTICE_COPY.SPRINT_LIST_SUBTITLE}</p>
         </div>
         <Button asChild variant="outline">
           <a href={QA_MANUAL_URL} target="_blank" rel="noopener noreferrer">

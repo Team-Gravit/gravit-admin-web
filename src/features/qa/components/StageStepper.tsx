@@ -20,7 +20,7 @@ export function StageStepper({ sprint }: { sprint: Sprint }) {
           >
             {i > 0 && <ChevronRight className="size-3.5 text-fg-disabled" aria-hidden />}
             <span
-              className={`flex size-6 shrink-0 items-center justify-center rounded-full text-caption ${done ? 'bg-success-bg text-success-text' : failure ? 'bg-danger-bg text-danger-text' : current ? 'bg-primary text-primary-foreground' : 'border border-dashed border-border bg-hover text-fg-muted'}`}
+              className={`flex size-6 shrink-0 items-center justify-center rounded-full text-caption tabular-nums ${done ? 'bg-success-bg text-success-text' : failure ? 'bg-danger-bg text-danger-text' : current ? 'bg-primary text-primary-foreground' : 'border border-dashed border-border bg-hover text-fg-muted'}`}
             >
               {done ? (
                 <Check className="size-3.5" aria-hidden />

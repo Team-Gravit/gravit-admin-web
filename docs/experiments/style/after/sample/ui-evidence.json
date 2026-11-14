@@ -1,0 +1,122 @@
+{
+  "normal": {
+    "activeAnimations": 0,
+    "expectedText": {
+      "background": "rgba(0, 0, 0, 0)",
+      "color": "rgb(89, 102, 119)",
+      "font": "14px",
+      "line": "22px"
+    },
+    "gaugeFills": [
+      "rgb(89, 102, 119)",
+      "rgb(244, 246, 248)",
+      "rgb(89, 102, 119)",
+      "rgb(244, 246, 248)",
+      "rgb(89, 102, 119)",
+      "rgb(244, 246, 248)",
+      "rgb(89, 102, 119)",
+      "rgb(244, 246, 248)"
+    ],
+    "header": 56,
+    "meters": [
+      {
+        "detail": "2 / 6, 33%",
+        "name": "Design 완료율",
+        "text": "33%",
+        "value": "33"
+      },
+      {
+        "detail": "8 / 12, 67%",
+        "name": "Web 완료율",
+        "text": "67%",
+        "value": "67"
+      },
+      {
+        "detail": "4 / 12, 33%",
+        "name": "APP 완료율",
+        "text": "33%",
+        "value": "33"
+      },
+      {
+        "detail": "4 / 8, 50%",
+        "name": "Server 완료율",
+        "text": "50%",
+        "value": "50"
+      }
+    ],
+    "reduced": false,
+    "rows": [
+      "로그인 버튼 동작",
+      "필수 입력 안내",
+      "실패 후 재시도",
+      "로그인 버튼 동작",
+      "필수 입력 안내",
+      "실패 후 재시도"
+    ],
+    "scrollWidth": 1440,
+    "sidebar": 240
+  },
+  "reduced": {
+    "activeAnimations": 0,
+    "expectedText": {
+      "background": "rgba(0, 0, 0, 0)",
+      "color": "rgb(89, 102, 119)",
+      "font": "14px",
+      "line": "22px"
+    },
+    "gaugeFills": [
+      "rgb(89, 102, 119)",
+      "rgb(244, 246, 248)",
+      "rgb(89, 102, 119)",
+      "rgb(244, 246, 248)",
+      "rgb(89, 102, 119)",
+      "rgb(244, 246, 248)",
+      "rgb(89, 102, 119)",
+      "rgb(244, 246, 248)"
+    ],
+    "header": 56,
+    "meters": [
+      {
+        "detail": "2 / 6, 33%",
+        "name": "Design 완료율",
+        "text": "33%",
+        "value": "33"
+      },
+      {
+        "detail": "8 / 12, 67%",
+        "name": "Web 완료율",
+        "text": "67%",
+        "value": "67"
+      },
+      {
+        "detail": "4 / 12, 33%",
+        "name": "APP 완료율",
+        "text": "33%",
+        "value": "33"
+      },
+      {
+        "detail": "4 / 8, 50%",
+        "name": "Server 완료율",
+        "text": "50%",
+        "value": "50"
+      }
+    ],
+    "reduced": true,
+    "rows": [
+      "로그인 버튼 동작",
+      "필수 입력 안내",
+      "실패 후 재시도",
+      "로그인 버튼 동작",
+      "필수 입력 안내",
+      "실패 후 재시도"
+    ],
+    "scrollWidth": 1440,
+    "sidebar": 240
+  },
+  "nextFocus": {
+    "bottom": 469.5,
+    "header": 56,
+    "label": "APP 미검수 — 변경",
+    "top": 429.5
+  }
+}

@@ -62,14 +62,14 @@ test('실패 사유는 실패 단계 아래 한 번만 보이고 종료 시 6단
 });
 
 for (const [url, message] of [
-  ['/qa/sprints/4/design-review', '디자인 검수 중입니다.'],
-  ['/qa/sprints/3/checklist/1', '1차 자동화 검수 중입니다.'],
-  ['/qa/sprints/5/checklist/2', '체크리스트를 생성 중입니다.'],
+  ['/qa/sprints/4/design-review', '디자인 검수를 진행하고 있어요…'],
+  ['/qa/sprints/3/checklist/1', '1차 자동화 검수를 진행하고 있어요…'],
+  ['/qa/sprints/5/checklist/2', '체크리스트를 만들고 있어요…'],
 ] as const) {
   test(`실행 중 탭 안내: ${message}`, async ({ page }) => {
     await page.goto(url);
     await expect(page.getByRole('status').filter({ hasText: message })).toBeVisible();
-    await expect(page.getByText('아직 생성된 항목이 없습니다.')).toHaveCount(0);
+    await expect(page.getByText('아직 생성된 항목이 없어요.')).toHaveCount(0);
   });
 }
 
@@ -135,7 +135,7 @@ test('추가는 2차에서만 MANUAL로 보내며 AUTO 항목만 2차로 옮길 
   await expect(
     page.getByRole('checkbox', { name: '수동(2차)으로 옮기기', exact: true }),
   ).toHaveCount(0);
-  await page.getByRole('dialog').getByRole('button', { name: '취소', exact: true }).click();
+  await page.getByRole('dialog').getByRole('button', { name: '닫기', exact: true }).first().click();
   expect(
     (
       await api(page, `/checklist-items/${manual.id}`, 'PATCH', {
@@ -202,7 +202,7 @@ test('디자인 내용 수정은 판정을 초기화하고 버전을 올리며 �
     .getByRole('button', { name: '저장', exact: true })
     .click();
   const confirm = page.getByRole('dialog', { name: '디자인 항목을 수정할까요?' });
-  await expect(confirm).toContainText('판정 결과가 미검수로 초기화됩니다.');
+  await expect(confirm).toContainText('판정 결과를 미검수로 초기화해요.');
   await confirm.getByRole('button', { name: '수정', exact: true }).click();
   await expect(designRow(page)).toContainText('수정한 디자인 설명');
   await expect(
@@ -263,7 +263,7 @@ for (const operation of ['수정', '삭제'] as const) {
       .click();
     await expect(page.getByRole('dialog')).toHaveCount(0);
     await expect(
-      page.getByText('다른 운영자가 먼저 변경했습니다. 최신 내용을 다시 불러왔습니다.', {
+      page.getByText('다른 운영자가 먼저 변경했어요. 최신 내용을 다시 불러왔어요.', {
         exact: true,
       }),
     ).toBeVisible();

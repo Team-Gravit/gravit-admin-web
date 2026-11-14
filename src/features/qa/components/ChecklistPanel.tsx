@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Pencil, Trash2 } from 'lucide-react';
 import { QaApiError } from '@/shared/api/qaClient';
 import { Button } from '@/shared/components/ui/button';
 import {
@@ -59,8 +60,8 @@ export function ChecklistPanel({ sprint, round }: { sprint: Sprint; round: Round
   const activity = (
     <QaStageActivity>
       {round === 1 && isStageRunning(sprint, ['AUTO_REVIEW'])
-        ? '1차 자동화 검수 중입니다.'
-        : '체크리스트를 생성 중입니다.'}
+        ? NOTICE_COPY.AUTO_REVIEW_RUNNING
+        : NOTICE_COPY.CHECKLIST_GENERATING}
     </QaStageActivity>
   );
   const locked = closed || running;
@@ -120,8 +121,8 @@ export function ChecklistPanel({ sprint, round }: { sprint: Sprint; round: Round
             ))}
           </SelectContent>
         </Select>
-        <Button size="sm" variant="outline" disabled={!next.hasTarget} onClick={next.next}>
-          다음 미검수
+        <Button size="sm" disabled={!next.hasTarget} onClick={next.next}>
+          {NOTICE_COPY.NEXT_UNCHECKED}
         </Button>
       </div>
       {features.length === 0 ? (
@@ -183,12 +184,14 @@ export function ChecklistPanel({ sprint, round }: { sprint: Sprint; round: Round
                       aria-label={item.title}
                     >
                       <TableCell className="break-words">
-                        <div className="flex flex-col gap-2">
+                        <div className="flex flex-col gap-1">
                           <div className="flex flex-wrap items-center gap-2">
-                            <h3 className="text-body font-medium text-foreground">{item.title}</h3>
+                            <h3 className="text-body font-semibold text-foreground">
+                              {item.title}
+                            </h3>
                             <PartChips parts={item.parts} />
                           </div>
-                          <p className="whitespace-pre-wrap rounded-md bg-page px-3 py-2 text-caption text-fg-secondary">
+                          <p className="whitespace-pre-wrap text-body text-fg-secondary">
                             {item.expected}
                           </p>
                         </div>
@@ -221,21 +224,26 @@ export function ChecklistPanel({ sprint, round }: { sprint: Sprint; round: Round
                             size="sm"
                             variant="ghost"
                             disabled={locked}
+                            aria-label="수정"
+                            title="항목 수정"
+                            className="px-2"
                             onClick={() => setForm({ feature, item })}
                           >
-                            수정
+                            <Pencil aria-hidden />
                           </Button>
                           <Button
                             size="sm"
                             variant="ghost"
-                            className="text-danger-text"
+                            className="px-2 text-danger-text"
+                            aria-label="삭제"
+                            title="항목 삭제"
                             disabled={locked}
                             onClick={() => {
                               remove.reset();
                               setDeleting(item);
                             }}
                           >
-                            삭제
+                            <Trash2 aria-hidden />
                           </Button>
                         </div>
                       </TableCell>
@@ -263,7 +271,7 @@ export function ChecklistPanel({ sprint, round }: { sprint: Sprint; round: Round
           <>
             {deleting?.title}
             <br />
-            삭제한 항목은 되돌릴 수 없습니다.
+            {NOTICE_COPY.ITEM_DELETE_IRREVERSIBLE}
           </>
         }
         confirmLabel="삭제"

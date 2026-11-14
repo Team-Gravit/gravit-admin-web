@@ -105,7 +105,7 @@ export function ChecklistItemFormModal({
         setConfirmation(values);
       } else save(values);
     },
-    () => toast.error('필수 항목을 확인해주세요.'),
+    () => toast.error(NOTICE_COPY.FORM_VALIDATION),
   );
   return (
     <>
@@ -195,7 +195,7 @@ export function ChecklistItemFormModal({
           </form>
           <DialogFooter>
             <Button variant="outline" disabled={pending} onClick={requestClose}>
-              취소
+              닫기
             </Button>
             <Button
               form="qa-item-form"
@@ -203,7 +203,13 @@ export function ChecklistItemFormModal({
               disabled={disabled || (item !== undefined && !form.formState.isDirty)}
               aria-busy={pending}
             >
-              {pending && <Loader2 className="size-4 animate-spin" aria-hidden />}
+              {pending && (
+                <Loader2
+                  className="size-4 animate-spin motion-reduce:animate-none"
+                  style={{ animationDuration: 'var(--motion-loading-cycle)' }}
+                  aria-hidden
+                />
+              )}
               {item ? '저장' : '추가'}
             </Button>
           </DialogFooter>

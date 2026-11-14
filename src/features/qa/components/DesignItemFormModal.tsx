@@ -113,7 +113,7 @@ export function DesignItemFormModal({
           </form>
           <DialogFooter>
             <Button variant="outline" disabled={update.isPending} onClick={requestClose}>
-              취소
+              닫기
             </Button>
             <Button
               type="submit"

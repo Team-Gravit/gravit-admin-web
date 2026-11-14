@@ -48,7 +48,7 @@ export function QaConfirmModal({
         )}
         <DialogFooter>
           <Button variant="outline" disabled={pending} onClick={onClose}>
-            취소
+            닫기
           </Button>
           <Button
             variant={variant}
@@ -56,7 +56,13 @@ export function QaConfirmModal({
             aria-busy={pending}
             onClick={onConfirm}
           >
-            {pending && <Loader2 className="size-4 animate-spin" aria-hidden />}
+            {pending && (
+              <Loader2
+                className="size-4 animate-spin motion-reduce:animate-none"
+                style={{ animationDuration: 'var(--motion-loading-cycle)' }}
+                aria-hidden
+              />
+            )}
             {confirmLabel}
           </Button>
         </DialogFooter>

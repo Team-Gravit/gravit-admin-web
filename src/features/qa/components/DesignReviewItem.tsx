@@ -1,7 +1,7 @@
 import { QaTooltipContent } from '@/features/qa/components/QaTooltipContent';
 import { CELL_CATEGORIES } from '@/features/qa/status';
 import { useRef, useState } from 'react';
-import { ChevronDown } from 'lucide-react';
+import { ChevronDown, Pencil, Trash2 } from 'lucide-react';
 import { Button } from '@/shared/components/ui/button';
 import { TableCell, TableRow } from '@/shared/components/ui/table';
 import {
@@ -53,10 +53,8 @@ export function DesignReviewItem({
     <>
       <TableRow aria-label={`${item.platform} ${item.title}`} className="hover:bg-transparent">
         <TableCell className="break-words">
-          <h3 className="mb-2 text-body font-medium text-foreground">{item.title}</h3>
-          <p className="whitespace-pre-wrap rounded-md bg-page px-3 py-2 text-caption text-fg-secondary">
-            {item.expected}
-          </p>
+          <h3 className="mb-1 text-body font-semibold text-foreground">{item.title}</h3>
+          <p className="whitespace-pre-wrap text-body text-fg-secondary">{item.expected}</p>
         </TableCell>
         {(['WEB', 'APP'] as const).map((platform) => (
           <TableCell key={platform} className="text-center">
@@ -168,21 +166,26 @@ export function DesignReviewItem({
               size="sm"
               variant="ghost"
               disabled={managementLocked}
+              aria-label="수정"
+              title="항목 수정"
+              className="px-2"
               onClick={() => setEditing(true)}
             >
-              수정
+              <Pencil aria-hidden />
             </Button>
             <Button
               size="sm"
               variant="ghost"
-              className="text-danger-text"
+              className="px-2 text-danger-text"
+              aria-label="삭제"
+              title="항목 삭제"
               disabled={managementLocked}
               onClick={() => {
                 remove.reset();
                 setDeleting(true);
               }}
             >
-              삭제
+              <Trash2 aria-hidden />
             </Button>
           </div>
         </TableCell>
@@ -227,7 +230,7 @@ export function DesignReviewItem({
           <>
             {item.title}
             <br />
-            삭제한 항목은 되돌릴 수 없습니다.
+            {NOTICE_COPY.ITEM_DELETE_IRREVERSIBLE}
           </>
         }
         confirmLabel="삭제"

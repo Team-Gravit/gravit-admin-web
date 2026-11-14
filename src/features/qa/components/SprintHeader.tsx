@@ -25,7 +25,7 @@ export function SprintHeader({ sprint }: { sprint: Sprint }) {
             key={screen.key}
             to={{ pathname: screen.to(sprint.id), search }}
             className={({ isActive }) =>
-              `-mb-px border-b-2 px-1 pb-1 text-body transition-colors ${isActive ? 'border-primary font-medium text-primary' : 'border-transparent text-fg-secondary hover:text-foreground'}`
+              `-mb-px border-b-2 px-1 pb-1 text-body ${isActive ? 'border-primary font-medium text-primary' : 'border-transparent text-fg-secondary hover:text-foreground'}`
             }
           >
             {screen.label}

@@ -1,0 +1,18 @@
+[
+  {
+    "command": "npm run check:full",
+    "exitCode": 0
+  },
+  {
+    "command": "npm run test",
+    "exitCode": 0
+  },
+  {
+    "command": "node --test scripts/checks/token-lint.test.mjs",
+    "exitCode": 0
+  },
+  {
+    "command": "npm run test:e2e",
+    "exitCode": 0
+  }
+]

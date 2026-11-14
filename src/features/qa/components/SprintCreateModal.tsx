@@ -70,7 +70,7 @@ export function SprintCreateModal({ open, onOpenChange, onCreated }: SprintCreat
         },
       });
     },
-    () => toast.error('필수 항목을 확인해주세요.'),
+    () => toast.error(NOTICE_COPY.FORM_VALIDATION),
   );
 
   const isPending = createSprint.isPending;
@@ -105,11 +105,17 @@ export function SprintCreateModal({ open, onOpenChange, onCreated }: SprintCreat
 
         <DialogFooter>
           <Button variant="outline" onClick={() => onOpenChange(false)} disabled={isPending}>
-            취소
+            닫기
           </Button>
           <Button type="submit" form="qa-sprint-create" disabled={isPending}>
-            {isPending && <Loader2 className="animate-spin" />}
-            등록
+            {isPending && (
+              <Loader2
+                className="animate-spin motion-reduce:animate-none"
+                style={{ animationDuration: 'var(--motion-loading-cycle)' }}
+                aria-hidden
+              />
+            )}
+            {NOTICE_COPY.REGISTER_CONFIRM}
           </Button>
         </DialogFooter>
       </DialogContent>

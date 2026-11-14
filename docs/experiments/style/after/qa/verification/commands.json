@@ -1,0 +1,29 @@
+[
+  {
+    "command": "npm run check:full",
+    "exitCode": 0
+  },
+  {
+    "command": "npm run test",
+    "exitCode": 0,
+    "files": 18,
+    "passed": 65
+  },
+  {
+    "command": "npm run test:e2e",
+    "exitCode": 0,
+    "passed": 120
+  },
+  {
+    "command": "new unit before implementation",
+    "exitCode": 1,
+    "failed": 2,
+    "passed": 1
+  },
+  {
+    "command": "first e2e",
+    "exitCode": 1,
+    "failed": 4,
+    "passed": 116
+  }
+]
