@@ -1,0 +1,250 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <meta name="theme-color" content="#F4F6F8">
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+  <title>Gravit Admin · 스타일 기초 견본</title>
+  <style>
+    :root {
+      --neutral-0: #FFFFFF;
+      --neutral-50: #F4F6F8;
+      --neutral-400: #7C8999;
+      --neutral-600: #596677;
+      --neutral-950: #202833;
+      --primary: #245FCC;
+      --primary-hover: #1B4DAA;
+      --success: #257050;
+      --warning: #8B541D;
+      --danger: #AD3543;
+      --selected: #EDF2FB;
+      --faint: #F6F9FD;
+      --success-bg: #EEF4F1;
+      --warning-bg: #F6F1ED;
+      --danger-bg: #F8EFF0;
+      --backdrop: #C1C3C6;
+      --text-display-size: 32px;
+      --text-display-line: 40px;
+      --text-display-weight: 700;
+      --text-h1-size: 26px;
+      --text-h1-line: 36px;
+      --text-h1-weight: 700;
+      --text-h2-size: 20px;
+      --text-h2-line: 28px;
+      --text-h2-weight: 600;
+      --text-h3-size: 16px;
+      --text-h3-line: 24px;
+      --text-h3-weight: 600;
+      --text-body-size: 14px;
+      --text-body-line: 22px;
+      --text-body-weight: 400;
+      --text-caption-size: 12px;
+      --text-caption-line: 18px;
+      --text-caption-weight: 400;
+      --space-micro: 2px;
+      --space-1: 4px;
+      --space-2: 8px;
+      --space-3: 12px;
+      --space-4: 16px;
+      --space-6: 24px;
+      --space-8: 32px;
+      --space-12: 48px;
+      --radius-control: 8px;
+      --radius-card: 12px;
+      --radius-overlay: 16px;
+      --control-height: 40px;
+      --control-compact: 32px;
+      --icon-inline: 16px;
+      --icon-status: 20px;
+      --row-height: 52px;
+      --row-header-height: 48px;
+      --stroke: 1px;
+      --focus-width: 2px;
+      --focus-offset: 2px;
+      --shadow-floating: 0 12px 32px rgb(32 40 51 / 0.12), 0 2px 6px rgb(32 40 51 / 0.08);
+      --motion-instant: 0ms;
+      --motion-feedback: 80ms;
+      --motion-menu-enter: 120ms;
+      --motion-menu-exit: 90ms;
+      --motion-overlay-enter: 160ms;
+      --motion-overlay-exit: 120ms;
+      --motion-reduced: 100ms;
+      --motion-loading-cycle: 1200ms;
+      --motion-ease: cubic-bezier(0.2, 0.75, 0.25, 1);
+      --motion-scale-start: 0.98;
+      --disabled-opacity: 0.48;
+    }
+
+    * { box-sizing: border-box; }
+    html { color-scheme: light; }
+    body { margin: 0; width: 1440px; background: var(--neutral-50); color: var(--neutral-950); font-family: Pretendard, system-ui, sans-serif; font-size: var(--text-body-size); line-height: var(--text-body-line); }
+    main { padding: var(--space-12); }
+    h1,h2,h3,p,figure { margin: 0; }
+    h1 { font-size: var(--text-display-size); line-height: var(--text-display-line); font-weight: var(--text-display-weight); letter-spacing: -0.025em; }
+    h2 { font-size: var(--text-h3-size); line-height: var(--text-h3-line); font-weight: var(--text-h3-weight); }
+    h3 { font-size: var(--text-body-size); line-height: var(--text-body-line); font-weight: 600; }
+    small,code,.caption { font-size: var(--text-caption-size); line-height: var(--text-caption-line); }
+    code { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-variant-numeric: tabular-nums; }
+    .muted { color: var(--neutral-600); }
+    .tabular { font-variant-numeric: tabular-nums; }
+    .topline { display: flex; justify-content: space-between; align-items: center; margin-bottom: var(--space-6); color: var(--neutral-600); }
+    .topline strong { color: var(--neutral-950); font-size: var(--text-body-size); font-weight: 600; }
+    .proposal { padding: var(--space-1) var(--space-3); border: var(--stroke) solid var(--neutral-400); border-radius: var(--radius-control); }
+    .intro { display:flex; justify-content:space-between; align-items:flex-end; margin-bottom:var(--space-8); }
+    .intro p { margin-top:var(--space-2); color:var(--neutral-600); font-size:var(--text-h3-size); line-height:var(--text-h3-line); }
+    .principle { color:var(--neutral-600); font-size:var(--text-caption-size); line-height:var(--text-caption-line); }
+    .section-head { display:flex; justify-content:space-between; align-items:baseline; gap:var(--space-4); margin-bottom:var(--space-6); }
+    .eyebrow { font-size:var(--text-caption-size); line-height:var(--text-caption-line); color:var(--neutral-600); font-weight:600; margin-right:var(--space-2); }
+    .row { display:grid; gap:var(--space-6); margin-bottom:var(--space-6); }
+    .foundations-row { grid-template-columns: 780px 540px; }
+    .components-row { grid-template-columns: 860px 460px; }
+    .panel { min-width:0; border-radius:var(--radius-card); background:var(--neutral-0); padding:var(--space-6); }
+    .swatches { display:grid; grid-template-columns:repeat(5,1fr); gap:var(--space-3); }
+    .swatch { display:flex; flex-direction:column; gap:var(--space-1); min-width:0; }
+    .paint { height:64px; border-radius:var(--radius-control); border:var(--stroke) solid var(--neutral-400); margin-bottom:var(--space-1); }
+    .swatch strong { font-size:var(--text-body-size); line-height:var(--text-body-line); font-weight:600; }
+    .swatch code,.swatch>span { color:var(--neutral-600); font-size:var(--text-caption-size); line-height:var(--text-caption-line); }
+    .color-roles { display:grid; grid-template-columns: 1fr 1fr; gap:var(--space-6); margin-top:var(--space-6); padding-top:var(--space-6); border-top:var(--stroke) solid var(--neutral-50); }
+    .accent-role { display:flex; align-items:center; gap:var(--space-3); }
+    .accent-paint { flex-shrink:0; width:48px; height:48px; border-radius:var(--radius-control); background:var(--primary); }
+    .accent-role strong { display:block; font-weight:600; }
+    .status-line { display:flex; align-items:center; gap:var(--space-3); flex-wrap:wrap; }
+    .status { display:inline-flex; align-items:center; gap:var(--space-1); padding:var(--space-micro) var(--space-2); border-radius:var(--radius-control); background:var(--neutral-50); color:var(--neutral-600); font-size:var(--text-caption-size); line-height:var(--text-caption-line); font-weight:500; white-space:nowrap; }
+    svg { fill:none; stroke:currentColor; stroke-width:1.5; stroke-linecap:round; stroke-linejoin:round; vertical-align:middle; flex-shrink:0; }
+    .status.success { background:var(--success-bg); color:var(--success); }
+    .status.warning { background:var(--warning-bg); color:var(--warning); }
+    .status.danger { background:var(--danger-bg); color:var(--danger); }
+    .role-note { display:block; margin-top:var(--space-2); color:var(--neutral-600); font-size:var(--text-caption-size); line-height:var(--text-caption-line); }
+    .type-samples { display:flex; flex-direction:column; gap:var(--space-4); }
+    .type-line { display:grid; grid-template-columns: 1fr 122px; align-items:baseline; gap:var(--space-3); }
+    .type-line code { text-align:right; color:var(--neutral-600); }
+    .display-type { font-size:var(--text-display-size); line-height:var(--text-display-line); font-weight:700; font-variant-numeric:tabular-nums; }
+    .h1-type { font-size:var(--text-h1-size); line-height:var(--text-h1-line); font-weight:700; letter-spacing:-0.02em; }
+    .body-type { font-size:var(--text-body-size); line-height:var(--text-body-line); font-weight:400; }
+    .type-foot { margin-top:var(--space-6); padding-top:var(--space-4); border-top:var(--stroke) solid var(--neutral-50); color:var(--neutral-600); font-size:var(--text-caption-size); line-height:var(--text-caption-line); }
+    .component-head { display:flex; align-items:center; justify-content:space-between; gap:var(--space-4); margin-bottom:var(--space-6); }
+    .component-head p { color:var(--neutral-600); font-size:var(--text-caption-size); line-height:var(--text-caption-line); margin-top:var(--space-1); }
+    .button { display:inline-flex; justify-content:center; align-items:center; gap:var(--space-2); height:var(--control-height); padding:0 var(--space-4); border:var(--stroke) solid var(--neutral-400); border-radius:var(--radius-control); font-size:var(--text-body-size); line-height:var(--text-body-line); font-weight:600; color:var(--neutral-950); background:var(--neutral-0); white-space:nowrap; }
+    .button.primary { color:var(--neutral-0); background:var(--primary); border-color:var(--primary); }
+    .button.destructive { color:var(--danger); border-color:var(--danger); background:var(--neutral-0); }
+    .button.small { height:var(--control-compact); padding:0 var(--space-3); }
+    .metrics { display:grid; grid-template-columns:repeat(4,1fr); gap:var(--space-4); margin-bottom:var(--space-6); }
+    .metric { background:var(--neutral-50); border-radius:var(--radius-control); padding:var(--space-3); }
+    .metric>span { color:var(--neutral-600); font-size:var(--text-caption-size); line-height:var(--text-caption-line); }
+    .metric strong { display:block; margin:var(--space-1) 0 var(--space-2); font-size:var(--text-h2-size); line-height:var(--text-h2-line); font-weight:600; font-variant-numeric:tabular-nums; }
+    .metric small { margin-left:var(--space-micro); color:var(--neutral-600); font-weight:400; }
+    .track { height:4px; background:var(--neutral-0); overflow:hidden; border-radius:var(--radius-control); }
+    .track i { display:block; height:100%; background:var(--neutral-600); }
+    table { width:100%; table-layout:fixed; border-collapse:collapse; }
+    th { height:var(--row-header-height); text-align:left; padding:0 var(--space-3); color:var(--neutral-600); background:var(--neutral-50); font-size:var(--text-caption-size); line-height:var(--text-caption-line); font-weight:600; }
+    th:first-child { width:46%; }
+    th:not(:first-child),td:not(:first-child) { text-align:center; }
+    td { height:var(--row-height); padding:var(--space-3); border-bottom:var(--stroke) solid var(--neutral-50); vertical-align:middle; }
+    td strong { font-weight:500; }
+    td small { display:block; color:var(--neutral-600); margin-top:var(--space-micro); }
+    .component-controls { display:grid; grid-template-columns:1fr auto; gap:var(--space-4); align-items:end; margin-top:var(--space-6); }
+    .field { display:flex; flex-direction:column; gap:var(--space-2); }
+    .field label { font-size:var(--text-caption-size); line-height:var(--text-caption-line); font-weight:500; }
+    input { width:100%; height:var(--control-height); border:var(--stroke) solid var(--neutral-400); border-radius:var(--radius-control); color:var(--neutral-950); background:var(--neutral-0); padding:var(--space-2) var(--space-3); font-family:ui-monospace, SFMono-Regular, Menlo, monospace; font-size:var(--text-body-size); line-height:var(--text-body-line); }
+    input:focus-visible { outline:var(--focus-width) solid var(--primary); outline-offset:var(--focus-offset); }
+    .secondary-actions { display:flex; gap:var(--space-2); }
+    .construction { display:flex; flex-direction:column; gap:var(--space-6); }
+    .spacing-list { display:flex; flex-direction:column; gap:var(--space-2); margin-top:var(--space-3); }
+    .space-item { display:flex; align-items:center; gap:var(--space-3); height:18px; }
+    .space-item span { width:22px; color:var(--neutral-600); font-size:var(--text-caption-size); line-height:var(--text-caption-line); font-variant-numeric:tabular-nums; }
+    .space-item i { display:block; height:4px; border-radius:var(--radius-control); background:var(--neutral-400); }
+    .radius-list { display:flex; align-items:center; gap:var(--space-3); margin-top:var(--space-3); }
+    .radius-sample { display:flex; align-items:center; justify-content:center; width:64px; height:40px; background:var(--neutral-50); border:var(--stroke) solid var(--neutral-400); color:var(--neutral-600); font-size:var(--text-caption-size); line-height:var(--text-caption-line); }
+    .floating { display:flex; align-items:center; gap:var(--space-3); margin-top:var(--space-3); padding:var(--space-4); border-radius:var(--radius-overlay); background:var(--neutral-0); box-shadow:var(--shadow-floating); }
+    .floating svg { color:var(--success); }
+    .floating .muted { display:block; font-size:var(--text-caption-size); line-height:var(--text-caption-line); margin-top:var(--space-micro); }
+    .states-panel { margin-bottom:var(--space-6); }
+    .states { display:grid; grid-template-columns:repeat(4,1fr); gap:var(--space-6); }
+    .state { min-width:0; padding-right:var(--space-4); border-right:var(--stroke) solid var(--neutral-50); }
+    .state:last-child { border-right:0; padding-right:0; }
+    .state-label { margin-bottom:var(--space-3); font-size:var(--text-caption-size); line-height:var(--text-caption-line); font-weight:600; color:var(--neutral-600); }
+    .state p { margin-top:var(--space-2); color:var(--neutral-600); font-size:var(--text-caption-size); line-height:var(--text-caption-line); }
+    .state-head { display:flex; align-items:center; gap:var(--space-2); font-size:var(--text-body-size); line-height:var(--text-body-line); font-weight:500; }
+    .state-head svg { color:var(--neutral-600); }
+    .state-head.error svg { color:var(--danger); }
+    .skeleton { height:8px; width:84%; background:var(--neutral-50); border-radius:var(--radius-control); margin-bottom:var(--space-2); }
+    .skeleton.short { width:56%; }
+    .motion-panel { display:grid; grid-template-columns:1.25fr repeat(4,1fr); gap:var(--space-6); align-items:start; padding:var(--space-6); border-radius:var(--radius-card); background:var(--neutral-0); }
+    .motion-step { border-left:var(--stroke) solid var(--neutral-50); padding-left:var(--space-6); }
+    .motion-step strong { display:block; font-size:var(--text-h2-size); line-height:var(--text-h2-line); font-weight:600; font-variant-numeric:tabular-nums; margin:var(--space-1) 0; }
+    .motion-step strong small { margin-left:var(--space-1); font-weight:400; color:var(--neutral-600); }
+    .footer { display:flex; justify-content:space-between; gap:var(--space-6); align-items:center; padding-top:var(--space-6); color:var(--neutral-600); font-size:var(--text-caption-size); line-height:var(--text-caption-line); }
+  </style>
+</head>
+<body>
+  <main aria-label="새 디자인 시스템의 정적 토큰 견본">
+    <div class="topline"><strong>Gravit Admin <span class="muted">/ 스타일 실험 02</span></strong><span class="proposal caption">제안 · 앱 미적용</span></div>
+    <header class="intro">
+      <div><h1>작업이 먼저 보이는 화면</h1><p>읽는 정보는 회색으로, 선택과 실행은 파랑으로 구분해요.</p></div>
+      <div class="principle">P4 · V1 · V2 · V4<br>기존 페이지 골격을 유지하는 스타일 기초</div>
+    </header>
+    <div class="row foundations-row">
+      <section class="panel" aria-labelledby="colors-title">
+        <div class="section-head"><h2 id="colors-title"><span class="eyebrow">01</span>색의 역할</h2><span class="principle">V2 · V3 · V4 · V10</span></div>
+        <div class="swatches"><div class="swatch"><div class="paint" style="background:var(--neutral-0)"></div><strong>N0</strong><code>#FFFFFF</code><span>기본 면</span></div><div class="swatch"><div class="paint" style="background:var(--neutral-50)"></div><strong>N50</strong><code>#F4F6F8</code><span>바탕·구분</span></div><div class="swatch"><div class="paint" style="background:var(--neutral-400)"></div><strong>N400</strong><code>#7C8999</code><span>입력 경계</span></div><div class="swatch"><div class="paint" style="background:var(--neutral-600)"></div><strong>N600</strong><code>#596677</code><span>보조·데이터</span></div><div class="swatch"><div class="paint" style="background:var(--neutral-950)"></div><strong>N950</strong><code>#202833</code><span>본문·숫자</span></div></div>
+        <div class="color-roles">
+          <div><div class="accent-role"><span class="accent-paint"></span><div><strong>실행과 선택</strong><code>#245FCC</code><span class="role-note">흰 글자 대비 5.86:1</span></div></div></div>
+          <div><div class="status-line"><span class="status success"><svg viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="m4 8 2.5 2.5L12 5"/></svg><span>Pass</span></span><span class="status warning"><svg viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="M4.5 8h7"/></svg><span>검수 대기</span></span><span class="status danger"><svg viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="m5 5 6 6M11 5l-6 6"/></svg><span>Fail</span></span></div><span class="role-note">상태에만 작은 의미 색을 써요.<br>글자 대비 5.37 / 5.53 / 5.52:1</span></div>
+        </div>
+      </section>
+      <section class="panel" aria-labelledby="type-title">
+        <div class="section-head"><h2 id="type-title"><span class="eyebrow">02</span>글자가 만드는 위계</h2><span class="principle">V4 · V9</span></div>
+        <div class="type-samples">
+          <div class="type-line"><span class="display-type">1,248</span><code>32 / 40 · 700</code></div>
+          <div class="type-line"><span class="h1-type">1차 체크리스트</span><code>26 / 36 · 700</code></div>
+          <div class="type-line"><span style="font-size:var(--text-h3-size);line-height:var(--text-h3-line);font-weight:600">현재 항목을 확인해요</span><code>16 / 24 · 600</code></div>
+          <div class="type-line"><span class="body-type">입력과 결과를 또렷하게 읽어요.</span><code>14 / 22 · 400</code></div>
+          <div class="type-line"><span class="caption muted">부가 정보도 대비를 낮추지 않아요.</span><code>12 / 18 · 400</code></div>
+        </div>
+        <div class="type-foot">Pretendard · 수치는 tabular-nums<br>보조 글자와 페이지 바탕의 대비 5.40:1</div>
+      </section>
+    </div>
+    <div class="row components-row">
+      <section class="panel" aria-labelledby="components-title">
+        <div class="section-head"><h2 id="components-title"><span class="eyebrow">03</span>컴포넌트 견본</h2><span class="principle">P4 · P8 · V1 · V2 · V8</span></div>
+        <div class="component-head"><div><h3>1차 체크리스트</h3><p>진행도는 중립색으로, 다음 행동은 파랑으로 보여줘요.</p></div><span class="button primary">다음 미검수<svg viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="M3 8h9M9 4.5 12.5 8 9 11.5"/></svg></span></div>
+        <div class="metrics"><div class="metric"><span>Design</span><strong>33<small>%</small></strong><div class="track"><i style="width:33%"></i></div></div><div class="metric"><span>Web</span><strong>67<small>%</small></strong><div class="track"><i style="width:67%"></i></div></div><div class="metric"><span>APP</span><strong>33<small>%</small></strong><div class="track"><i style="width:33%"></i></div></div><div class="metric"><span>Server</span><strong>50<small>%</small></strong><div class="track"><i style="width:50%"></i></div></div></div>
+        <table aria-label="판정 상태 정적 예시"><thead><tr><th scope="col">검수 항목</th><th scope="col">Web</th><th scope="col">APP</th><th scope="col">Server</th></tr></thead><tbody>
+          <tr><td><strong>로그인 버튼 동작</strong><small>입력한 계정으로 학습 홈에 들어가요.</small></td><td><span class="status success"><svg viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="m4 8 2.5 2.5L12 5"/></svg><span>Pass</span></span></td><td><span class="status success"><svg viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="m4 8 2.5 2.5L12 5"/></svg><span>Pass</span></span></td><td><span class="status "><svg viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="M4.5 8h7"/></svg><span>미검수</span></span></td></tr>
+          <tr><td><strong>필수 입력 안내</strong><small>입력란 아래에 필요한 내용을 알려줘요.</small></td><td><span class="status danger"><svg viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="m5 5 6 6M11 5l-6 6"/></svg><span>Fail</span></span></td><td><span class="status "><svg viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="M4.5 8h7"/></svg><span>미검수</span></span></td><td><span class="status "><svg viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="M4.5 8h7"/></svg><span>미검수</span></span></td></tr>
+        </tbody></table>
+        <div class="component-controls"><div class="field"><label for="label-example">입력 경계 3.56:1 · 정적 예시</label><input id="label-example" type="text" name="label-example" value="2026-04-25-a3f9" readonly autocomplete="off" spellcheck="false" translate="no"></div><div class="secondary-actions"><span class="button">닫기</span></div></div>
+      </section>
+      <section class="panel" aria-labelledby="construction-title">
+        <div class="section-head"><h2 id="construction-title"><span class="eyebrow">04</span>간격과 표면</h2><span class="principle">V1 · V5 · V6</span></div>
+        <div class="construction">
+          <div><h3>간격은 같은 규칙으로</h3><div class="spacing-list"><div class="space-item"><span>4</span><i style="width:calc(var(--space-1) * 3)"></i></div><div class="space-item"><span>8</span><i style="width:calc(var(--space-2) * 3)"></i></div><div class="space-item"><span>12</span><i style="width:calc(var(--space-3) * 3)"></i></div><div class="space-item"><span>16</span><i style="width:calc(var(--space-4) * 3)"></i></div><div class="space-item"><span>24</span><i style="width:calc(var(--space-6) * 3)"></i></div><div class="space-item"><span>32</span><i style="width:calc(var(--space-8) * 3)"></i></div></div></div>
+          <div><h3>모서리는 세 단계로</h3><div class="radius-list"><span class="radius-sample" style="border-radius:var(--radius-control)">8px</span><span class="radius-sample" style="border-radius:var(--radius-card)">12px</span><span class="radius-sample" style="border-radius:var(--radius-overlay)">16px</span></div></div>
+          <div><h3>그림자는 떠 있는 요소에만</h3><div class="floating"><svg viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="m4 8 2.5 2.5L12 5"/></svg><div><strong style="font-weight:500">변경을 저장했어요.</strong><span class="muted">토스트 표면의 정적 예시</span></div></div></div>
+        </div>
+      </section>
+    </div>
+    <section class="panel states-panel" aria-labelledby="states-title">
+      <div class="section-head"><h2 id="states-title"><span class="eyebrow">05</span>상태를 정확하게 알려줘요</h2><span class="principle">V8 · W1 · W5 · W12</span></div>
+      <div class="states">
+        <div class="state"><div class="state-label">정상</div><div class="state-head"><span class="status success"><svg viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="m4 8 2.5 2.5L12 5"/></svg><span>저장했어요</span></span></div><p>결과는 짧게 알려줘요.</p></div>
+        <div class="state"><div class="state-label">로딩 모양 예시</div><div class="skeleton"></div><div class="skeleton short"></div><p>실제 대기할 때만 표시해요.<br>reduced-motion에서는 정적으로 보여줘요.</p></div>
+        <div class="state"><div class="state-label">빈 상태</div><div class="state-head"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M4 9.5 7 5h10l3 4.5V19H4zM4 11h5l1.5 3h3l1.5-3h5"/></svg><span>등록한 항목이 없어요.</span></div><p>가능한 다음 행동을 안내해요.</p><span class="role-note">항목 등록하기 →</span></div>
+        <div class="state"><div class="state-label">오류 문구 예시</div><div class="state-head error"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M12 4 22 20H2zM12 9v5m0 3v.1"/></svg><span>권한을 확인하지 못했어요.</span></div><p>인증 서버가 응답하지 않아요.<br>잠시 뒤 다시 시도해 주세요.</p></div>
+      </div>
+    </section>
+    <section class="motion-panel" aria-labelledby="motion-title">
+      <div><h2 id="motion-title"><span class="eyebrow">06</span>필요한 변화만 짧게</h2><p class="caption muted" style="margin-top:var(--space-2)">M1 · M2 · M3 · M4 · M5 · M6</p></div>
+      <div class="motion-step"><span class="caption muted">눌림 피드백</span><strong>80<small>ms</small></strong><span class="caption muted">즉시 반응 · 투명도</span></div>
+      <div class="motion-step"><span class="caption muted">메뉴 열림</span><strong>120<small>ms</small></strong><span class="caption muted">트리거에서 시작</span></div>
+      <div class="motion-step"><span class="caption muted">모달 열림</span><strong>160<small>ms</small></strong><span class="caption muted">중앙에서 시작</span></div>
+      <div class="motion-step"><span class="caption muted">본문·수치 진입</span><strong>0<small>ms</small></strong><span class="caption muted">즉시 읽기</span></div>
+    </section>
+    <footer class="footer"><span>모든 예시는 정적이에요. reduced-motion: 이동·확대 없이 투명도만 100ms</span><span>토큰 이름 유지 제안 · 새 의존성 0개 · 사람 확인 1</span></footer>
+  </main>
+  <script id="token-data" type="application/json">{"status":"proposal; awaiting human checkpoint 1; no application changes","date":"2026-11-13","palette":{"neutral-0":"#FFFFFF","neutral-50":"#F4F6F8","neutral-400":"#7C8999","neutral-600":"#596677","neutral-950":"#202833","primary":"#245FCC","primary-hover":"#1B4DAA","success":"#257050","warning":"#8B541D","danger":"#AD3543"},"derived":{"selected":"#EDF2FB","faint":"#F6F9FD","success-bg":"#EEF4F1","warning-bg":"#F6F1ED","danger-bg":"#F8EFF0","backdrop":"#C1C3C6"},"dimensions":{"text-display-size":"32px","text-display-line":"40px","text-display-weight":"700","text-h1-size":"26px","text-h1-line":"36px","text-h1-weight":"700","text-h2-size":"20px","text-h2-line":"28px","text-h2-weight":"600","text-h3-size":"16px","text-h3-line":"24px","text-h3-weight":"600","text-body-size":"14px","text-body-line":"22px","text-body-weight":"400","text-caption-size":"12px","text-caption-line":"18px","text-caption-weight":"400","space-micro":"2px","space-1":"4px","space-2":"8px","space-3":"12px","space-4":"16px","space-6":"24px","space-8":"32px","space-12":"48px","radius-control":"8px","radius-card":"12px","radius-overlay":"16px","control-height":"40px","control-compact":"32px","icon-inline":"16px","icon-status":"20px","row-height":"52px","row-header-height":"48px","stroke":"1px","focus-width":"2px","focus-offset":"2px","shadow-floating":"0 12px 32px rgb(32 40 51 / 0.12), 0 2px 6px rgb(32 40 51 / 0.08)","motion-instant":"0ms","motion-feedback":"80ms","motion-menu-enter":"120ms","motion-menu-exit":"90ms","motion-overlay-enter":"160ms","motion-overlay-exit":"120ms","motion-reduced":"100ms","motion-loading-cycle":"1200ms","motion-ease":"cubic-bezier(0.2, 0.75, 0.25, 1)","motion-scale-start":"0.98","disabled-opacity":"0.48"},"contrasts":[{"name":"본문 / 흰 면","foreground":"#202833","background":"#FFFFFF","ratio":14.864781,"minimum":4.5,"principle":"V4·V10"},{"name":"본문 / 페이지","foreground":"#202833","background":"#F4F6F8","ratio":13.721176,"minimum":4.5,"principle":"V4·V10"},{"name":"보조·메타·중립 배지 / 흰 면","foreground":"#596677","background":"#FFFFFF","ratio":5.846814,"minimum":4.5,"principle":"V4·V10"},{"name":"보조·메타·중립 배지 / 페이지","foreground":"#596677","background":"#F4F6F8","ratio":5.396996,"minimum":4.5,"principle":"V4·V10"},{"name":"일반 링크 / 흰 면","foreground":"#245FCC","background":"#FFFFFF","ratio":5.859663,"minimum":4.5,"principle":"V4·V10"},{"name":"일반 링크 / 페이지","foreground":"#245FCC","background":"#F4F6F8","ratio":5.408856,"minimum":4.5,"principle":"V4·V10"},{"name":"흰 버튼 글자 / primary","foreground":"#FFFFFF","background":"#245FCC","ratio":5.859663,"minimum":4.5,"principle":"P4·V3·V10"},{"name":"흰 버튼 글자 / primary-hover","foreground":"#FFFFFF","background":"#1B4DAA","ratio":7.81073,"minimum":4.5,"principle":"P4·V3·V10"},{"name":"흰 버튼 글자 / danger","foreground":"#FFFFFF","background":"#AD3543","ratio":6.23675,"minimum":4.5,"principle":"P4·V3·V10"},{"name":"선택 글자 / 흰 면의 8% 파랑","foreground":"#245FCC","background":"#EDF2FB","ratio":5.216429,"minimum":4.5,"principle":"V2·V10"},{"name":"선택 글자 / 페이지의 8% 파랑","foreground":"#245FCC","background":"#E3EAF4","ratio":4.838864,"minimum":4.5,"principle":"V2·V10"},{"name":"호버 링크 / 4% 파랑","foreground":"#245FCC","background":"#F6F9FD","ratio":5.549159,"minimum":4.5,"principle":"V2·V10"},{"name":"success 글자 / 흰 면","foreground":"#257050","background":"#FFFFFF","ratio":5.979212,"minimum":4.5,"principle":"V3·V10"},{"name":"success 글자 / 8% 상태 면","foreground":"#257050","background":"#EEF4F1","ratio":5.365881,"minimum":4.5,"principle":"V3·V10"},{"name":"success 글자 / 페이지의 8% 상태 면","foreground":"#257050","background":"#E3EBEB","ratio":4.939724,"minimum":4.5,"principle":"V3·V10"},{"name":"warning 글자 / 흰 면","foreground":"#8B541D","background":"#FFFFFF","ratio":6.206289,"minimum":4.5,"principle":"V3·V10"},{"name":"warning 글자 / 8% 상태 면","foreground":"#8B541D","background":"#F6F1ED","ratio":5.533518,"minimum":4.5,"principle":"V3·V10"},{"name":"warning 글자 / 페이지의 8% 상태 면","foreground":"#8B541D","background":"#ECE9E6","ratio":5.131943,"minimum":4.5,"principle":"V3·V10"},{"name":"danger 글자 / 흰 면","foreground":"#AD3543","background":"#FFFFFF","ratio":6.23675,"minimum":4.5,"principle":"V3·V10"},{"name":"danger 글자 / 8% 상태 면","foreground":"#AD3543","background":"#F8EFF0","ratio":5.522835,"minimum":4.5,"principle":"V3·V10"},{"name":"danger 글자 / 페이지의 8% 상태 면","foreground":"#AD3543","background":"#EEE7EA","ratio":5.124202,"minimum":4.5,"principle":"V3·V10"},{"name":"입력 경계·미검수 아이콘 / 흰 면","foreground":"#7C8999","background":"#FFFFFF","ratio":3.562182,"minimum":3,"principle":"V8·V10"},{"name":"포커스 파랑 / 흰 면","foreground":"#245FCC","background":"#FFFFFF","ratio":5.859663,"minimum":3,"principle":"P5·V10"},{"name":"입력 경계·미검수 아이콘 / 페이지","foreground":"#7C8999","background":"#F4F6F8","ratio":3.28813,"minimum":3,"principle":"V8·V10"},{"name":"포커스 파랑 / 페이지","foreground":"#245FCC","background":"#F4F6F8","ratio":5.408856,"minimum":3,"principle":"P5·V10"},{"name":"일반 보조 글자 / 선택 면","foreground":"#596677","background":"#EDF2FB","ratio":5.204991,"minimum":4.5,"principle":"V4·V10"},{"name":"일반 보조 글자 / 성공 면","foreground":"#596677","background":"#EEF4F1","ratio":5.247064,"minimum":4.5,"principle":"V4·V10"},{"name":"일반 보조 글자 / 주의 면","foreground":"#596677","background":"#F6F1ED","ratio":5.213011,"minimum":4.5,"principle":"V4·V10"},{"name":"일반 보조 글자 / 오류 면","foreground":"#596677","background":"#F8EFF0","ratio":5.177534,"minimum":4.5,"principle":"V4·V10"}],"dependenciesAdded":0,"font":"Pretendard 1.3.9 (existing source)"}</script>
+</body>
+</html>

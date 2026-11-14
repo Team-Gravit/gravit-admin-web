@@ -1191,6 +1191,8 @@ export const stagingStatusLabels: Record<StagingStatus, string> = {
 ```
  
 ### 9-8. Status Badge variant 매핑
+
+> T1 실험 브랜치에서는 D15·DS-STYLE-02에 따라 역할/유형의 시각 매핑만 중립 variant로 연결해요. 아래 enum·상태 의미·전이 규칙은 유지하며 원문 코드/라벨을 바꾸지 않아요.
  
 ```typescript
 // shared/constants/badgeVariants.ts

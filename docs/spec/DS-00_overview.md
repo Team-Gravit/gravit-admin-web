@@ -1,4 +1,6 @@
 # Gravit 백오피스 — 프로젝트 개요 (Claude Design 입력용)
+
+> **T1 실험 안내** — experiment/style-refresh에서는 시각 값·공용 UI 규칙을 [DS-STYLE-01](DS-STYLE-01_foundations.md)·[DS-STYLE-02](DS-STYLE-02_components.md)·[D15](../conventions/decisions.md#d15--t1-스타일-개편-실험-2026-11-14-사용자-승인)이 대체해요. 이 문서의 골격·동작·계약은 유지해요.
  
 > **이 문서의 역할**: Claude Design과의 첫 대화에서 프로젝트 컨텍스트를 설정하기 위한 문서입니다. 함께 첨부할 문서: `DS-01_design_system.md` (디자인 시스템).
  

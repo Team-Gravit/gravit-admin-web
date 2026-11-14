@@ -1,4 +1,6 @@
 # Gravit 백오피스 — 화면 명세 (Claude Design 입력용)
+
+> **T1 실험 안내** — experiment/style-refresh에서는 시각 값·공용 UI 규칙을 [DS-STYLE-01](DS-STYLE-01_foundations.md)·[DS-STYLE-02](DS-STYLE-02_components.md)·[D15](../conventions/decisions.md#d15--t1-스타일-개편-실험-2026-11-14-사용자-승인)이 대체해요. 이 문서의 골격·동작·계약은 유지해요.
  
 > **이 문서의 역할**: 16개 화면의 **시각적 구성**(레이아웃, 컴포넌트 배치, 데이터 표시 방식)만 다룹니다. 모달·토스트·검증 등의 상호작용은 `DS-03_interactions.md`를 참조하세요.
 >

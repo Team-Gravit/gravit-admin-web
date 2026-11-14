@@ -1,6 +1,8 @@
 # 규칙 — UI·디자인 토큰 컨벤션
 
-> 근거: **`DS-01`(컬러/타이포/간격/보더 토큰·컴포넌트 §1~7)** = 토큰 권위, **`DS-02`(16화면 시각 명세)**, `DS-03`(상호작용), `DS-00`(개요). 특정 시각 디테일이 명세에 없거나 모순일 때만 멈춰 질문(🙋🏻).
+> **T1 실험 범위**: experiment/style-refresh의 시각 값·문구 톤·모션은 [DS-STYLE-01](../spec/DS-STYLE-01_foundations.md)·[DS-STYLE-02](../spec/DS-STYLE-02_components.md)·[D15](decisions.md#d15--t1-스타일-개편-실험-2026-11-14-사용자-승인)이 권위예요. 골격·동작·계약은 기존 규칙을 유지해요.
+
+> 기존 근거: **`DS-01`(컬러/타이포/간격/보더 토큰·컴포넌트 §1~7)** = 토큰 권위, **`DS-02`(16화면 시각 명세)**, `DS-03`(상호작용), `DS-00`(개요). 특정 시각 디테일이 명세에 없거나 모순일 때만 멈춰 질문(🙋🏻).
 
 ## 불변 (token-lint 가 강제 → `npm run check:tokens`, `scripts/checks/token-lint.mjs`)
 - **데스크탑 1280px+ 단일 폭.** 반응형/모바일/태블릿 코드 금지. break point 없음.
@@ -10,9 +12,9 @@
 
 ## DS-01 ↔ Tailwind 클래스 명명 매핑 (명명 SoT)
 
-> **값의 SoT** = `DS-01 §1~4`(디자인 값) + `src/shared/styles/globals.css`(CSS 변수 = 기술 베이스). **이 표는 명명 매핑만** 담는다(값 복붙 금지 — hex/HSL 은 위 두 곳에서만 본다). 표 ↔ 명세 충돌 시 **DS-01/globals.css 가 override**.
+> **실험 값의 SoT** = `DS-STYLE-01`(디자인 값) + `src/shared/styles/globals.css`(CSS 변수 = 기술 베이스). **이 표는 명명 매핑만** 담는다(값 복붙 금지 — hex/HSL 은 위 두 곳에서만 본다). 표 ↔ 명세 충돌 시 **DS-STYLE-01/globals.css 가 override**.
 >
-> ⚠️ **shadcn 충돌 주의 (가장 흔한 실수)**: Tailwind 클래스 `text-primary` 는 shadcn 브랜드 컬러 `primary`(#7738EE 보라)를 가리킨다 — DS-01 토큰 `text-primary`(본문 #171717)가 **아니다**. 본문 텍스트는 반드시 **`text-foreground`** 를 쓴다.
+> ⚠️ **shadcn 충돌 주의 (가장 흔한 실수)**: Tailwind 클래스 `text-primary` 는 shadcn 강조색 `primary`를 가리킨다 — 본문 역할 `text-primary`가 **아니다**. 본문 텍스트는 반드시 **`text-foreground`** 를 쓴다.
 
 **브랜드 (DS-01 §1-1)** — Primary 는 포인트(액션·강조)만, 큰 면적 금지.
 
@@ -21,7 +23,7 @@
 | `primary` | `bg-primary` · `text-primary-foreground` · `ring-ring` | `--primary` | 액션·활성·강조 |
 | `primary-hover` | `hover:bg-primary-hover` | `--primary-hover` | Primary hover |
 | `primary-bg-subtle` | `bg-primary-subtle` | `--primary` /0.08 | 활성 메뉴 배경·포커스 영역 |
-| `primary-bg-badge` | `bg-primary-badge` | `--primary` /0.12 | ADMIN 뱃지 배경 |
+| `primary-bg-badge` | `bg-primary-badge` | `--primary` /0.08 | 선택 칩 배경(역할 배지는 중립) |
 | `primary-bg-faint` | `bg-primary-faint` | `--primary` /0.04 | 행·메뉴 호버 — 테이블/사이드바/스테이징 리스트 (DS-01 외 — 사용자 결정 2026-09-06) |
 
 **중립 텍스트 (DS-01 §1-2)** — DS 토큰명과 Tailwind 클래스가 어긋나는 영역(충돌 회피 `fg` 네임스페이스).
@@ -48,7 +50,7 @@
 |---|---|---|---|
 | `success-text` / `success-bg` | `text-success-text` / `bg-success-bg` | `--success-text` / `--success-bg` | 활성·해결됨·게시중·반영완료 |
 | `warning-text` / `warning-bg` | `text-warning-text` / `bg-warning-bg` | `--warning-text` / `--warning-bg` | 정지·검수 대기 |
-| `danger-text` / `danger-bg` | `text-danger-text` / `bg-danger-bg` (≡ `bg-destructive`) | `--danger-text` / `--danger-bg` | 미해결·destructive·검증 에러 |
+| `danger-text` / `danger-bg` | `text-danger-text` / `bg-danger-bg` | `--danger-text` / `--danger-bg` | 미해결·검증 에러; destructive는 danger 단색+흰 글자 |
 | `info-text` / `info-bg` | `text-info-text` / `bg-info-bg` | `--info-text` / `--info-bg` | 객관식 |
 | `accent-text` / `accent-bg` (주관식) | `text-accent-ds-text` / `bg-accent-ds-bg` | `--accent-ds-text` / `--accent-ds-bg` | 주관식 |
 | `muted-text` / `muted-bg` (DRAFT 등) | `text-muted-ds-text` / `bg-muted-ds-bg` | `--muted-ds-text` / `--muted-ds-bg` | DRAFT·DELETED·ARCHIVED |
@@ -65,8 +67,8 @@
 | `modal-width-default` / `-wide` | `max-w-modal` / `max-w-modal-wide` | — | confirm(400) / promote(480) |
 | `border-active-menu` | `border-l-3` | — | 활성 메뉴 좌측(3px) |
 | `border-changed-input` | `border-l-4` | — | 변경 입력 좌측(4px, Tailwind 기본) |
-| `radius-card` | `rounded-lg` | `--radius`(8px) | 카드 모서리 |
-| `radius-button` / `radius-input` | `rounded-md` | `--radius` − 2px(6px) | 버튼·입력 모서리 |
+| `radius-card` | `rounded-lg` | `--radius`(12px) | 카드 모서리 |
+| `radius-button` / `radius-input` | `rounded-md` | control 8px | 버튼·입력 모서리 |
 | `display`·`h1`·`h2`·`h3`·`body`·`caption` | `text-display`·`text-h1`·`text-h2`·`text-h3`·`text-body`·`text-caption` | — | 타이포 스케일(DS-01 §2) |
 | 폰트 | `font-sans`(Pretendard) / `font-mono` | — | 한글 본문 / 라벨명(YYYY-MM-DD-update) |
 
@@ -86,12 +88,12 @@
 - 명세·DS·Figma 어디에도 시각 근거가 전혀 없고 추정이 과할 때(레이아웃 자체 불명확)만 보완하지 말고 멈춰 질문(🙋🏻).
 
 ## 컴포넌트 원칙
-- **shadcn/ui 우선**. 커스텀은 shadcn/ui 확장 + 디자인 토큰 경유로만. shadcn 기본값(예 radius 6px) 따른다.
+- **shadcn/ui 우선**. 커스텀은 shadcn/ui 확장 + 디자인 토큰 경유로만. 실험에서는 승인한 control8·card12·overlay16을 따른다.
 - 아이콘 `lucide-react`. 한글 폰트 Pretendard.
-- Primary `#7738EE` 는 **액션·강조에만**(큰 면적 금지). 위험 액션은 destructive(빨강).
+- Primary는 **액션·선택에만**(큰 면적 금지). 위험 액션은 destructive(빨강).
 
 ## 글로벌 레이아웃 (DS-00 §7)
-- Sidebar 240px(우측 1px border, 활성 메뉴 좌측 3px Primary) · Header 56px(하단 1px) · Content max 1200px(좌우 32/상단 24 padding) · 페이지 배경 `#FAFAFA`. `/login` 은 사이드바 없는 독립 레이아웃.
+- Sidebar 240px(우측 1px border, 활성 메뉴 좌측 3px Primary) · Header 56px(하단 1px) · Content max 1200px(좌우 32/상단 24 padding) · 페이지 배경은 새 page 토큰. `/login` 은 사이드바 없는 독립 레이아웃.
 
 ## 공통 패턴 (01 §5, DS-03)
 - 목록: 테이블 + (해당 화면만)검색/필터 + 페이지네이션. 4상태 = Empty/Loading(skeleton)/Error/Data 모두 구현.
@@ -101,3 +103,18 @@
 - Badge variant(DS-03 §1-2): **destructive** = 공지 DELETE · role→ADMIN · status→DELETED. 그 외 Primary.
 
 관련: [good-patterns](good-patterns.md) · [antipatterns](antipatterns.md) · [decisions](decisions.md)
+
+## T1 추가 매핑·검사 범위
+
+| 역할 | 클래스/구현 | 근거 |
+|---|---|---|
+| 컨트롤 경계 | border-input, 포커스ring2/offset2 | 비텍스트3:1·본문4.5:1(V10) |
+| 떠 있는 면 | rounded-xl·shadow-md/lg(같은 값) | overlay16·그림자는 떠 있는 요소만(V5·V6) |
+| 조용한 분류 | 기존 muted/info/accent 계열의 중립 쌍 | 역할/유형은 의미 색 상태가 아님(V2·V3) |
+| Geometry | min-h-textarea80·min-w-menu128·h-table-row52 | 기존 최소 치수 또는 승인 공용 UI 규칙(P2·V4) |
+| 비활성·가림 | opacity-disabled·bg-foreground/backdrop | 승인한0.48/0.28 합성 역할(V8·V10) |
+| 모션 | useOverlayMotion·--motion-* | 현재 프레임에서 opacity/scale만 반전, reduced는opacity100ms(M3~M5) |
+
+token-lint는 src의 JS/TS와 공용 components/ui도 검사해요. raw hex와 literal px/rem/em arbitrary를 차단하며 allow는 globals.css·tailwind.config.ts의 정확한 상대경로만이에요. Radix 동적 var·data-state·구조 선택자는 값 하드코딩이 아니므로 허용해요. 표준 Tailwind scale을 전역으로 덮어쓰지 않아요.
+
+D5의 로그인 자산 예외와 기존 role→ADMIN 파랑 규칙은 T1에서 D15로 대체해요. 위험 액션 변형과 strict-match·disabled·이탈·3초 toast의 동작은 유지해요.

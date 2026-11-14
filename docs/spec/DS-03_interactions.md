@@ -1,4 +1,6 @@
 # Gravit 백오피스 — 상호작용 명세 (Claude Design 입력용)
+
+> **T1 실험 안내** — experiment/style-refresh에서는 시각 값·공용 UI 규칙을 [DS-STYLE-01](DS-STYLE-01_foundations.md)·[DS-STYLE-02](DS-STYLE-02_components.md)·[D15](../conventions/decisions.md#d15--t1-스타일-개편-실험-2026-11-14-사용자-승인)이 대체해요. 이 문서의 골격·동작·계약은 유지해요.
  
 > **이 문서의 역할**: 시각 디자인 1차 완료 후, 모달·토스트·검증·상태 전이 같은 **상호작용**을 추가하기 위한 문서입니다. 인터랙티브 프로토타입 단계에서 사용하세요.
 >
