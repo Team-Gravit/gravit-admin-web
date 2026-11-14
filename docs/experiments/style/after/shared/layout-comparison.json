@@ -1,0 +1,302 @@
+[
+  [
+    "login-normal",
+    1280,
+    "영역 순서·셸 x/폭 같음",
+    2
+  ],
+  [
+    "login-normal",
+    1440,
+    "영역 순서·셸 x/폭 같음",
+    2
+  ],
+  [
+    "dashboard-normal",
+    1280,
+    "영역 순서·셸 x/폭 같음",
+    0
+  ],
+  [
+    "dashboard-normal",
+    1440,
+    "영역 순서·셸 x/폭 같음",
+    0
+  ],
+  [
+    "notices-normal",
+    1280,
+    "영역 순서·셸 x/폭 같음",
+    0
+  ],
+  [
+    "notices-normal",
+    1440,
+    "영역 순서·셸 x/폭 같음",
+    0
+  ],
+  [
+    "notice-new-normal",
+    1280,
+    "영역 순서·셸 x/폭 같음",
+    0
+  ],
+  [
+    "notice-new-normal",
+    1440,
+    "영역 순서·셸 x/폭 같음",
+    0
+  ],
+  [
+    "notice-detail-normal",
+    1280,
+    "영역 순서·셸 x/폭 같음",
+    0
+  ],
+  [
+    "notice-detail-normal",
+    1440,
+    "영역 순서·셸 x/폭 같음",
+    0
+  ],
+  [
+    "users-normal",
+    1280,
+    "영역 순서·셸 x/폭 같음",
+    0
+  ],
+  [
+    "users-normal",
+    1440,
+    "영역 순서·셸 x/폭 같음",
+    0
+  ],
+  [
+    "user-detail-normal",
+    1280,
+    "영역 순서·셸 x/폭 같음",
+    0
+  ],
+  [
+    "user-detail-normal",
+    1440,
+    "영역 순서·셸 x/폭 같음",
+    0
+  ],
+  [
+    "reports-normal",
+    1280,
+    "영역 순서·셸 x/폭 같음",
+    0
+  ],
+  [
+    "reports-normal",
+    1440,
+    "영역 순서·셸 x/폭 같음",
+    0
+  ],
+  [
+    "report-detail-normal",
+    1280,
+    "영역 순서·셸 x/폭 같음",
+    0
+  ],
+  [
+    "report-detail-normal",
+    1440,
+    "영역 순서·셸 x/폭 같음",
+    0
+  ],
+  [
+    "chapters-normal",
+    1280,
+    "영역 순서·셸 x/폭 같음",
+    0
+  ],
+  [
+    "chapters-normal",
+    1440,
+    "영역 순서·셸 x/폭 같음",
+    0
+  ],
+  [
+    "chapter-detail-normal",
+    1280,
+    "영역 순서·셸 x/폭 같음",
+    0
+  ],
+  [
+    "chapter-detail-normal",
+    1440,
+    "영역 순서·셸 x/폭 같음",
+    0
+  ],
+  [
+    "unit-detail-normal",
+    1280,
+    "영역 순서·셸 x/폭 같음",
+    0
+  ],
+  [
+    "unit-detail-normal",
+    1440,
+    "영역 순서·셸 x/폭 같음",
+    0
+  ],
+  [
+    "lesson-detail-normal",
+    1280,
+    "영역 순서·셸 x/폭 같음",
+    0
+  ],
+  [
+    "lesson-detail-normal",
+    1440,
+    "영역 순서·셸 x/폭 같음",
+    0
+  ],
+  [
+    "problem-objective-normal",
+    1280,
+    "영역 순서·셸 x/폭 같음",
+    0
+  ],
+  [
+    "problem-objective-normal",
+    1440,
+    "영역 순서·셸 x/폭 같음",
+    0
+  ],
+  [
+    "staging-normal",
+    1280,
+    "영역 순서·셸 x/폭 같음",
+    0
+  ],
+  [
+    "staging-normal",
+    1440,
+    "영역 순서·셸 x/폭 같음",
+    0
+  ],
+  [
+    "staging-detail-normal",
+    1280,
+    "영역 순서·셸 x/폭 같음",
+    0
+  ],
+  [
+    "staging-detail-normal",
+    1440,
+    "영역 순서·셸 x/폭 같음",
+    0
+  ],
+  [
+    "inquiries-normal",
+    1280,
+    "영역 순서·셸 x/폭 같음",
+    0
+  ],
+  [
+    "inquiries-normal",
+    1440,
+    "영역 순서·셸 x/폭 같음",
+    0
+  ],
+  [
+    "inquiry-detail-normal",
+    1280,
+    "영역 순서·셸 x/폭 같음",
+    0
+  ],
+  [
+    "inquiry-detail-normal",
+    1440,
+    "영역 순서·셸 x/폭 같음",
+    0
+  ],
+  [
+    "ravvit-normal",
+    1280,
+    "영역 순서·셸 x/폭 같음",
+    0
+  ],
+  [
+    "ravvit-normal",
+    1440,
+    "영역 순서·셸 x/폭 같음",
+    0
+  ],
+  [
+    "qa-sprints-normal",
+    1280,
+    "영역 순서·셸 x/폭 같음",
+    0
+  ],
+  [
+    "qa-sprints-normal",
+    1440,
+    "영역 순서·셸 x/폭 같음",
+    0
+  ],
+  [
+    "qa-setup-normal",
+    1280,
+    "영역 순서·셸 x/폭 같음",
+    0
+  ],
+  [
+    "qa-setup-normal",
+    1440,
+    "영역 순서·셸 x/폭 같음",
+    0
+  ],
+  [
+    "qa-design-normal",
+    1280,
+    "영역 순서·셸 x/폭 같음",
+    0
+  ],
+  [
+    "qa-design-normal",
+    1440,
+    "영역 순서·셸 x/폭 같음",
+    0
+  ],
+  [
+    "qa-first-normal",
+    1280,
+    "영역 순서·셸 x/폭 같음",
+    0
+  ],
+  [
+    "qa-first-normal",
+    1440,
+    "영역 순서·셸 x/폭 같음",
+    0
+  ],
+  [
+    "qa-second-normal",
+    1280,
+    "영역 순서·셸 x/폭 같음",
+    0
+  ],
+  [
+    "qa-second-normal",
+    1440,
+    "영역 순서·셸 x/폭 같음",
+    0
+  ],
+  [
+    "qa-fixes-normal",
+    1280,
+    "영역 순서·셸 x/폭 같음",
+    0
+  ],
+  [
+    "qa-fixes-normal",
+    1440,
+    "영역 순서·셸 x/폭 같음",
+    0
+  ]
+]

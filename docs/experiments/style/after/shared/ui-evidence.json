@@ -1,0 +1,86 @@
+{
+  "toast-success-1280": {
+    "bg": "rgb(255, 255, 255)",
+    "color": "rgb(32, 40, 51)",
+    "font": "Pretendard, system-ui, -apple-system, sans-serif",
+    "fontSize": "14px",
+    "icon": "rgb(37, 112, 80)",
+    "iconFill": "rgb(37, 112, 80)",
+    "lineHeight": "22px",
+    "radius": "16px",
+    "scale": "1",
+    "shadow": "rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(32, 40, 51, 0.12) 0px 12px 32px 0px, rgba(32, 40, 51, 0.08) 0px 2px 6px 0px",
+    "transform": "matrix(1, 0, 0, 1, 0, 0)",
+    "transition": "opacity 0.16s cubic-bezier(0.2, 0.75, 0.25, 1), scale 0.16s cubic-bezier(0.2, 0.75, 0.25, 1)"
+  },
+  "toast-error-1280": {
+    "bg": "rgb(255, 255, 255)",
+    "color": "rgb(32, 40, 51)",
+    "font": "Pretendard, system-ui, -apple-system, sans-serif",
+    "fontSize": "14px",
+    "icon": "rgb(173, 53, 67)",
+    "iconFill": "rgb(173, 53, 67)",
+    "lineHeight": "22px",
+    "radius": "16px",
+    "scale": "1",
+    "shadow": "rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(32, 40, 51, 0.12) 0px 12px 32px 0px, rgba(32, 40, 51, 0.08) 0px 2px 6px 0px",
+    "transform": "matrix(1, 0, 0, 1, 0, 0)",
+    "transition": "opacity 0.16s cubic-bezier(0.2, 0.75, 0.25, 1), scale 0.16s cubic-bezier(0.2, 0.75, 0.25, 1)"
+  },
+  "toast-success-1440": {
+    "bg": "rgb(255, 255, 255)",
+    "color": "rgb(32, 40, 51)",
+    "font": "Pretendard, system-ui, -apple-system, sans-serif",
+    "fontSize": "14px",
+    "icon": "rgb(37, 112, 80)",
+    "iconFill": "rgb(37, 112, 80)",
+    "lineHeight": "22px",
+    "radius": "16px",
+    "scale": "1",
+    "shadow": "rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(32, 40, 51, 0.12) 0px 12px 32px 0px, rgba(32, 40, 51, 0.08) 0px 2px 6px 0px",
+    "transform": "matrix(1, 0, 0, 1, 0, 0)",
+    "transition": "opacity 0.16s cubic-bezier(0.2, 0.75, 0.25, 1), scale 0.16s cubic-bezier(0.2, 0.75, 0.25, 1)"
+  },
+  "toast-error-1440": {
+    "bg": "rgb(255, 255, 255)",
+    "color": "rgb(32, 40, 51)",
+    "font": "Pretendard, system-ui, -apple-system, sans-serif",
+    "fontSize": "14px",
+    "icon": "rgb(173, 53, 67)",
+    "iconFill": "rgb(173, 53, 67)",
+    "lineHeight": "22px",
+    "radius": "16px",
+    "scale": "1",
+    "shadow": "rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(32, 40, 51, 0.12) 0px 12px 32px 0px, rgba(32, 40, 51, 0.08) 0px 2px 6px 0px",
+    "transform": "matrix(1, 0, 0, 1, 0, 0)",
+    "transition": "opacity 0.16s cubic-bezier(0.2, 0.75, 0.25, 1), scale 0.16s cubic-bezier(0.2, 0.75, 0.25, 1)"
+  },
+  "reduced": {
+    "animations": [
+      {
+        "duration": 100,
+        "keyframes": [
+          {
+            "composite": "auto",
+            "computedOffset": 0,
+            "easing": "linear",
+            "offset": null,
+            "opacity": "0",
+            "scale": "1"
+          },
+          {
+            "composite": "auto",
+            "computedOffset": 1,
+            "easing": "linear",
+            "offset": null,
+            "opacity": "1",
+            "scale": "1"
+          }
+        ]
+      }
+    ],
+    "backdrop": "rgba(32, 40, 51, 0.28)",
+    "preference": true,
+    "scale": "1"
+  }
+}

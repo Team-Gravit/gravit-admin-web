@@ -27,7 +27,7 @@ export function ConfirmModal({
   title,
   description,
   confirmLabel = '확인',
-  cancelLabel = '취소',
+  cancelLabel = '닫기',
   variant = 'default',
   onConfirm,
   loading = false,

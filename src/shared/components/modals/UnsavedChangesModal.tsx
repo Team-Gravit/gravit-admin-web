@@ -16,7 +16,7 @@ interface UnsavedChangesModalProps {
 
 export function UnsavedChangesModal({
   open,
-  message = '변경 사항이 있습니다. 페이지를 나가시겠습니까?',
+  message = '저장하지 않은 변경 사항이 있어요. 페이지를 나갈까요?',
   onConfirm,
   onCancel,
 }: UnsavedChangesModalProps) {
@@ -28,7 +28,7 @@ export function UnsavedChangesModal({
         </DialogHeader>
         <DialogFooter>
           <Button variant="outline" onClick={onCancel}>
-            취소
+            닫기
           </Button>
           <Button variant="destructive" onClick={onConfirm}>
             나가기

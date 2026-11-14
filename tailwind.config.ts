@@ -3,11 +3,11 @@ import animate from 'tailwindcss-animate';
 import typography from '@tailwindcss/typography';
 
 /**
- * DS-01 디자인 토큰 정의 (값 권위: spec/DS-01 §1~4).
+ * DS-STYLE-01 토큰 정의 (실험 범위·근거: decisions D15).
  * - 색 값(HSL 트리플)은 globals.css 의 CSS 변수에 정의되고, 여기서 hsl(var(--x)) 로 참조한다.
  * - 이 파일은 token-lint allow 대상이므로 토큰 정의가 허용된다.
  * - DS-01 토큰명 ↔ Tailwind 클래스 **명명 매핑의 권위 = docs/conventions/ui-conventions.md**
- *   ('text-primary' 가 shadcn primary(브랜드 보라)와 충돌하는 등 매핑·주의는 거기서 확인. 여기 중복 금지.)
+ *   ('text-primary' 가 shadcn primary(강조색)와 충돌하는 등 매핑·주의는 거기서 확인. 여기 중복 금지.)
  */
 const config: Config = {
   content: ['./index.html', './src/**/*.{ts,tsx}'],
@@ -24,9 +24,9 @@ const config: Config = {
           DEFAULT: 'hsl(var(--primary))',
           foreground: 'hsl(var(--primary-foreground))',
           hover: 'hsl(var(--primary-hover))',
-          // 포인트 배경 (DS-01 1-1: 8% / 12% opacity)
+          // 포인트 배경 (DS-01 1-1: 8% / 8% opacity)
           subtle: 'hsl(var(--primary) / 0.08)',
-          badge: 'hsl(var(--primary) / 0.12)',
+          badge: 'hsl(var(--primary) / 0.08)',
           // 행·메뉴 호버 (subtle 보다 옅게, 사용자 결정 2026-09-06)
           faint: 'hsl(var(--primary) / 0.04)',
         },
@@ -93,10 +93,11 @@ const config: Config = {
         },
       },
       borderRadius: {
-        // shadcn 표준: --radius(8px)=card, -2px(6px)=button/input
+        // control 8 / card 12 / overlay 16 — DS-STYLE-01 §5
         lg: 'var(--radius)',
-        md: 'calc(var(--radius) - 2px)',
-        sm: 'calc(var(--radius) - 4px)',
+        md: '8px',
+        sm: '8px',
+        xl: '16px',
       },
       borderWidth: {
         // DS-01 4: 활성 메뉴 좌측 3px (변경 입력 좌측 4px 는 기본 border-4)
@@ -110,8 +111,12 @@ const config: Config = {
       width: {
         sidebar: '240px',
       },
+      aspectRatio: {
+        'login-panel': 'var(--login-panel-ratio)',
+      },
       height: {
         header: '56px',
+        'table-row': '52px',
       },
       maxWidth: {
         content: '1200px',
@@ -125,6 +130,7 @@ const config: Config = {
       },
       minWidth: {
         viewport: '1280px',
+        menu: '128px',
       },
       fontFamily: {
         sans: ['Pretendard', 'system-ui', '-apple-system', 'sans-serif'],
@@ -133,11 +139,44 @@ const config: Config = {
       fontSize: {
         // DS-01 2: 타이포 토큰
         display: ['32px', { lineHeight: '40px', fontWeight: '700' }],
-        h1: ['24px', { lineHeight: '32px', fontWeight: '700' }],
+        h1: ['26px', { lineHeight: '36px', fontWeight: '700' }],
         h2: ['20px', { lineHeight: '28px', fontWeight: '600' }],
         h3: ['16px', { lineHeight: '24px', fontWeight: '600' }],
-        body: ['14px', { lineHeight: '20px', fontWeight: '400' }],
-        caption: ['12px', { lineHeight: '16px', fontWeight: '400' }],
+        body: ['14px', { lineHeight: '22px', fontWeight: '400' }],
+        caption: ['12px', { lineHeight: '18px', fontWeight: '400' }],
+      },
+      minHeight: { textarea: '80px', 'table-row': '52px' },
+      opacity: { disabled: '0.48', backdrop: '0.28' },
+      boxShadow: {
+        md: '0 12px 32px rgb(32 40 51 / 0.12), 0 2px 6px rgb(32 40 51 / 0.08)',
+        lg: '0 12px 32px rgb(32 40 51 / 0.12), 0 2px 6px rgb(32 40 51 / 0.08)',
+      },
+      transitionDuration: { feedback: 'var(--motion-feedback)' },
+      transitionTimingFunction: { ui: 'var(--motion-ease)' },
+      typography: {
+        DEFAULT: {
+          css: {
+            '--tw-prose-body': 'hsl(var(--foreground))',
+            '--tw-prose-headings': 'hsl(var(--foreground))',
+            '--tw-prose-lead': 'hsl(var(--fg-secondary))',
+            '--tw-prose-links': 'hsl(var(--primary))',
+            '--tw-prose-bold': 'hsl(var(--foreground))',
+            '--tw-prose-counters': 'hsl(var(--fg-secondary))',
+            '--tw-prose-bullets': 'hsl(var(--fg-secondary))',
+            '--tw-prose-hr': 'hsl(var(--border))',
+            '--tw-prose-quotes': 'hsl(var(--foreground))',
+            '--tw-prose-quote-borders': 'hsl(var(--input))',
+            '--tw-prose-captions': 'hsl(var(--fg-secondary))',
+            '--tw-prose-code': 'hsl(var(--foreground))',
+            '--tw-prose-pre-code': 'hsl(var(--foreground))',
+            '--tw-prose-pre-bg': 'hsl(var(--hover))',
+            '--tw-prose-th-borders': 'hsl(var(--input))',
+            '--tw-prose-td-borders': 'hsl(var(--border))',
+            fontSize: '14px',
+            lineHeight: '22px',
+          },
+        },
+        sm: { css: { fontSize: '14px', lineHeight: '22px' } },
       },
       keyframes: {
         'accordion-down': {

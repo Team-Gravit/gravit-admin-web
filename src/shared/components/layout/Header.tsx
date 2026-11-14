@@ -25,7 +25,7 @@ export function Header({ onLogout }: HeaderProps) {
       <ConfirmModal
         open={confirmOpen}
         onOpenChange={setConfirmOpen}
-        title="로그아웃하시겠습니까?"
+        title="로그아웃할까요?"
         confirmLabel="로그아웃"
         onConfirm={() => {
           setConfirmOpen(false);

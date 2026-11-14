@@ -41,7 +41,7 @@ const ChartContainer = React.forwardRef<
         data-chart={chartId}
         ref={ref}
         className={cn(
-          "flex aspect-video justify-center text-caption [&_.recharts-cartesian-axis-tick_text]:fill-muted-foreground [&_.recharts-cartesian-grid_line[stroke='#ccc']]:stroke-border/50 [&_.recharts-curve.recharts-tooltip-cursor]:stroke-border [&_.recharts-dot[stroke='#fff']]:stroke-transparent [&_.recharts-layer]:outline-none [&_.recharts-rectangle.recharts-tooltip-cursor]:fill-hover [&_.recharts-reference-line_[stroke='#ccc']]:stroke-border [&_.recharts-sector[stroke='#fff']]:stroke-transparent [&_.recharts-sector]:outline-none [&_.recharts-surface]:outline-none",
+          'flex aspect-video justify-center text-caption [&_.recharts-cartesian-axis-tick_text]:fill-muted-foreground [&_.recharts-cartesian-grid_line]:stroke-border/50 [&_.recharts-curve.recharts-tooltip-cursor]:stroke-border [&_.recharts-dot]:stroke-transparent [&_.recharts-layer]:outline-none [&_.recharts-rectangle.recharts-tooltip-cursor]:fill-hover [&_.recharts-reference-line_]:stroke-border [&_.recharts-sector]:stroke-transparent [&_.recharts-sector]:outline-none [&_.recharts-surface]:outline-none',
           className,
         )}
         {...props}
@@ -124,9 +124,7 @@ const ChartTooltipContent = React.forwardRef<
                       style={{ backgroundColor: indicatorColor }}
                     />
                   )}
-                  <span className="text-caption text-fg-secondary">
-                    {itemConfig?.label ?? key}
-                  </span>
+                  <span className="text-caption text-fg-secondary">{itemConfig?.label ?? key}</span>
                 </div>
                 <span className="text-caption font-medium tabular-nums text-foreground">
                   {typeof item.value === 'number'

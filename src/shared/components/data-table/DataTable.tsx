@@ -46,7 +46,7 @@ export function DataTable<T>({
   isError = false,
   onRetry,
   errorMessage,
-  emptyMessage = '데이터가 없습니다.',
+  emptyMessage = '표시할 데이터가 없어요.',
   emptyIcon,
   emptyAction,
   header,
@@ -76,7 +76,7 @@ export function DataTable<T>({
           {data.map((row) => (
             <TableRow
               key={rowKey(row)}
-              className={cn(onRowClick && 'cursor-pointer')}
+              className={cn(onRowClick && 'cursor-pointer hover:bg-primary-faint')}
               onClick={onRowClick ? () => onRowClick(row) : undefined}
             >
               {columns.map((col) => (

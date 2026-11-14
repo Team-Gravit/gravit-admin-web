@@ -1,0 +1,129 @@
+{
+  "calls": [
+    {
+      "className": "ui-backdrop fixed inset-0 z-50 bg-foreground/backdrop",
+      "keyframes": [
+        {
+          "opacity": "0",
+          "scale": "1"
+        },
+        {
+          "opacity": "1",
+          "scale": "1"
+        }
+      ],
+      "options": {
+        "duration": 160,
+        "easing": "cubic-bezier(0.2, 0.75, 0.25, 1)",
+        "fill": "both"
+      },
+      "state": "open"
+    },
+    {
+      "className": "ui-overlay dialog-position fixed z-50 grid max-h-dialog w-full max-w-modal gap-4 overflow-y-auto rounded-xl border bg-background p-6 shadow-lg",
+      "keyframes": [
+        {
+          "opacity": "0",
+          "scale": "0.98"
+        },
+        {
+          "opacity": "1",
+          "scale": "1"
+        }
+      ],
+      "options": {
+        "duration": 160,
+        "easing": "cubic-bezier(0.2, 0.75, 0.25, 1)",
+        "fill": "both"
+      },
+      "state": "open"
+    },
+    {
+      "className": "ui-backdrop fixed inset-0 z-50 bg-foreground/backdrop",
+      "keyframes": [
+        {
+          "opacity": "1",
+          "scale": "1"
+        },
+        {
+          "opacity": "0",
+          "scale": "1"
+        }
+      ],
+      "options": {
+        "duration": 120,
+        "easing": "cubic-bezier(0.2, 0.75, 0.25, 1)",
+        "fill": "both"
+      },
+      "state": "closed"
+    },
+    {
+      "className": "ui-overlay dialog-position fixed z-50 grid max-h-dialog w-full max-w-modal gap-4 overflow-y-auto rounded-xl border bg-background p-6 shadow-lg",
+      "keyframes": [
+        {
+          "opacity": "1",
+          "scale": "0.98"
+        },
+        {
+          "opacity": "0",
+          "scale": "0.98"
+        }
+      ],
+      "options": {
+        "duration": 120,
+        "easing": "cubic-bezier(0.2, 0.75, 0.25, 1)",
+        "fill": "both"
+      },
+      "state": "closed"
+    },
+    {
+      "className": "ui-backdrop fixed inset-0 z-50 bg-foreground/backdrop",
+      "keyframes": [
+        {
+          "opacity": "0.239025",
+          "scale": "1"
+        },
+        {
+          "opacity": "1",
+          "scale": "1"
+        }
+      ],
+      "options": {
+        "duration": 160,
+        "easing": "cubic-bezier(0.2, 0.75, 0.25, 1)",
+        "fill": "both"
+      },
+      "state": "open"
+    },
+    {
+      "className": "ui-overlay dialog-position fixed z-50 grid max-h-dialog w-full max-w-modal gap-4 overflow-y-auto rounded-xl border bg-background p-6 shadow-lg",
+      "keyframes": [
+        {
+          "opacity": "0.239025",
+          "scale": "0.98"
+        },
+        {
+          "opacity": "1",
+          "scale": "1"
+        }
+      ],
+      "options": {
+        "duration": 160,
+        "easing": "cubic-bezier(0.2, 0.75, 0.25, 1)",
+        "fill": "both"
+      },
+      "state": "open"
+    }
+  ],
+  "closingOpacity": "0.239025",
+  "reduced": false,
+  "reopenedOpacity": "1",
+  "sameNode": true,
+  "keyboardMenu": {
+    "durations": [
+      0
+    ],
+    "instant": "true",
+    "origin": "0px 0px"
+  }
+}

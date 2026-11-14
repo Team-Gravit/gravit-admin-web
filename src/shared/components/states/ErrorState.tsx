@@ -9,22 +9,19 @@ interface ErrorStateProps {
 }
 
 export function ErrorState({
-  message = '데이터를 불러올 수 없습니다. 잠시 후 다시 시도해주세요.',
+  message = '데이터를 불러오지 못했어요. 잠시 뒤 다시 시도해 주세요.',
   onRetry,
   className,
 }: ErrorStateProps) {
   return (
     <div
-      className={cn(
-        'flex flex-col items-center justify-center gap-4 py-16 text-center',
-        className,
-      )}
+      className={cn('flex flex-col items-center justify-center gap-3 py-12 text-center', className)}
     >
-      <AlertTriangle className="h-12 w-12 text-fg-muted" />
-      <p className="text-h3 text-fg-secondary">{message}</p>
+      <AlertTriangle className="size-5 text-danger-text" />
+      <p className="text-body text-fg-secondary">{message}</p>
       {onRetry && (
         <Button variant="outline" onClick={onRetry}>
-          다시 시도
+          다시 시도하기
         </Button>
       )}
     </div>

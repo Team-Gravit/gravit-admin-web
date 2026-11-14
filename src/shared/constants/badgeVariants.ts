@@ -25,7 +25,7 @@ export const userStatusBadgeVariant: Record<UserStatus, BadgeVariant> = {
 };
 
 export const userRoleBadgeVariant: Record<UserRole, BadgeVariant> = {
-  ADMIN: 'primary',
+  ADMIN: 'muted',
   USER: 'muted',
 };
 
@@ -35,9 +35,9 @@ export const reportResolvedBadgeVariant = {
 } satisfies Record<'unresolved' | 'resolved', BadgeVariant>;
 
 export const reportTypeBadgeVariant: Record<ReportType, BadgeVariant> = {
-  TYPO_ERROR: 'info',
-  CONTENT_ERROR: 'warning',
-  ANSWER_ERROR: 'accent',
+  TYPO_ERROR: 'muted',
+  CONTENT_ERROR: 'muted',
+  ANSWER_ERROR: 'muted',
   OTHER_ERROR: 'muted',
 };
 
@@ -53,8 +53,8 @@ export const stagingStatusBadgeVariant: Record<StagingStatus, BadgeVariant> = {
 };
 
 export const problemTypeBadgeVariant: Record<ProblemType, BadgeVariant> = {
-  OBJECTIVE: 'info',
-  SUBJECTIVE: 'accent',
+  OBJECTIVE: 'muted',
+  SUBJECTIVE: 'muted',
 };
 
 export const inquiryStatusBadgeVariant: Record<InquiryStatus, BadgeVariant> = {
@@ -63,8 +63,8 @@ export const inquiryStatusBadgeVariant: Record<InquiryStatus, BadgeVariant> = {
 };
 
 export const inquiryTypeBadgeVariant: Record<InquiryType, BadgeVariant> = {
-  BUG_REPORT: 'danger',
-  CONTENT_ERROR: 'info',
-  FEATURE_SUGGESTION: 'accent',
+  BUG_REPORT: 'muted',
+  CONTENT_ERROR: 'muted',
+  FEATURE_SUGGESTION: 'muted',
   OTHER: 'muted',
 };

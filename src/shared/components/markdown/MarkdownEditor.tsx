@@ -13,7 +13,8 @@ interface MarkdownEditorProps {
   placeholder?: string;
 }
 
-const TAB_BASE = 'inline-flex h-8 w-20 items-center justify-center transition-colors';
+const TAB_BASE =
+  'inline-flex h-8 w-20 items-center justify-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-ring';
 const TAB_ACTIVE = 'bg-primary-subtle text-primary';
 const TAB_INACTIVE = 'text-fg-secondary hover:text-foreground';
 
@@ -30,7 +31,7 @@ export function MarkdownEditor({
 
   return (
     <div className="flex flex-col gap-2">
-      <div className="inline-flex w-fit items-stretch overflow-hidden rounded-md border border-border bg-surface text-caption font-medium">
+      <div className="inline-flex w-fit items-stretch overflow-hidden rounded-md border border-input bg-surface text-caption font-medium">
         <button
           type="button"
           aria-pressed={mode === 'write'}
@@ -43,7 +44,11 @@ export function MarkdownEditor({
           type="button"
           aria-pressed={mode === 'preview'}
           onClick={() => setMode('preview')}
-          className={cn(TAB_BASE, 'border-l border-border', mode === 'preview' ? TAB_ACTIVE : TAB_INACTIVE)}
+          className={cn(
+            TAB_BASE,
+            'border-l border-border',
+            mode === 'preview' ? TAB_ACTIVE : TAB_INACTIVE,
+          )}
         >
           미리보기
         </button>
@@ -73,7 +78,7 @@ export function MarkdownEditor({
               className,
             )}
           >
-            표시할 내용이 없습니다.
+            표시할 내용이 없어요.
           </div>
         ))}
     </div>

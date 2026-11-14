@@ -20,7 +20,7 @@ export function FormField({
   className,
 }: FormFieldProps) {
   return (
-    <div className={cn('space-y-1.5', className)}>
+    <div className={cn('flex flex-col gap-2', className)}>
       {label && (
         <label htmlFor={htmlFor} className="text-body font-medium text-foreground">
           {label}
