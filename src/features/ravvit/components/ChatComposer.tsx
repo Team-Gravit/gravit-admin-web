@@ -65,7 +65,7 @@ export function ChatComposer({
         rows={1}
         value={value}
         disabled={disabled}
-        placeholder="무엇이든 물어보세요."
+        placeholder="무엇이든 물어보세요…"
         onChange={(event) => onChange(event.target.value)}
         onKeyDown={handleKeyDown}
         className="max-h-40 flex-1 resize-none overflow-y-auto bg-transparent px-2 py-1.5 text-body text-foreground outline-none placeholder:text-fg-secondary disabled:text-fg-disabled disabled:placeholder:text-fg-disabled"

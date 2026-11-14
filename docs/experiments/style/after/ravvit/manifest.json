@@ -1,0 +1,942 @@
+[
+  {
+    "file": "ravvit-empty-1280.png",
+    "route": "/ravvit",
+    "width": 1280,
+    "mode": "empty",
+    "evidence": {
+      "activeAnimations": 0,
+      "body": "무엇을 도와드릴까요?\n\n이번 스프린트 진행 중인 작업 알려줘\n마감이 다가오는 작업 알려줘\n저번 주 회의록 요약해줘",
+      "columns": [
+        {
+          "height": 0,
+          "width": 768,
+          "x": 376,
+          "y": 124
+        },
+        {
+          "height": 688,
+          "width": 768,
+          "x": 376,
+          "y": 124
+        },
+        {
+          "height": 64,
+          "width": 768,
+          "x": 376,
+          "y": 812
+        }
+      ],
+      "composer": {
+        "height": 34,
+        "width": 714,
+        "x": 383,
+        "y": 835
+      },
+      "layout": {
+        "header": {
+          "height": 56,
+          "width": 1040,
+          "x": 240,
+          "y": 0
+        },
+        "main": {
+          "height": 844,
+          "width": 1040,
+          "x": 240,
+          "y": 56
+        },
+        "scrollWidth": 1280,
+        "sidebar": {
+          "height": 900,
+          "width": 240,
+          "x": 0,
+          "y": 0
+        }
+      },
+      "overflow": false
+    }
+  },
+  {
+    "file": "ravvit-pending-1280.png",
+    "route": "/ravvit",
+    "width": 1280,
+    "mode": "pending",
+    "evidence": {
+      "activeAnimations": 0,
+      "body": "새 채팅\n\n[목] 대기\n\n도구 1회 호출\n\nsearch_mock({\"query\":\"원문_CODE\"})\n\n답변을 만들고 있어요…",
+      "columns": [
+        {
+          "height": 0,
+          "width": 768,
+          "x": 376,
+          "y": 124
+        },
+        {
+          "height": 688,
+          "width": 768,
+          "x": 376,
+          "y": 124
+        },
+        {
+          "height": 64,
+          "width": 768,
+          "x": 376,
+          "y": 812
+        }
+      ],
+      "composer": {
+        "height": 34,
+        "width": 714,
+        "x": 383,
+        "y": 835
+      },
+      "layout": {
+        "header": {
+          "height": 56,
+          "width": 1040,
+          "x": 240,
+          "y": 0
+        },
+        "main": {
+          "height": 844,
+          "width": 1040,
+          "x": 240,
+          "y": 56
+        },
+        "scrollWidth": 1280,
+        "sidebar": {
+          "height": 900,
+          "width": 240,
+          "x": 0,
+          "y": 0
+        }
+      },
+      "overflow": false
+    }
+  },
+  {
+    "file": "ravvit-answer-1280.png",
+    "route": "/ravvit",
+    "width": 1280,
+    "mode": "answer",
+    "evidence": {
+      "activeAnimations": 0,
+      "body": "새 채팅\n\n목 문서를 알려줘\n\n도구 1회 호출\n목 답변\n\n요청한 문서의 확인 결과예요.\n\n항목\t값\n원문_CODE\t12,345\nconst raw = \"원문_CODE\";\n\n\n확인 문서\n\n마지막 문장: ANSWER_COMPLETE",
+      "columns": [
+        {
+          "height": 0,
+          "width": 768,
+          "x": 376,
+          "y": 124
+        },
+        {
+          "height": 688,
+          "width": 768,
+          "x": 376,
+          "y": 124
+        },
+        {
+          "height": 64,
+          "width": 768,
+          "x": 376,
+          "y": 812
+        }
+      ],
+      "composer": {
+        "height": 34,
+        "width": 714,
+        "x": 383,
+        "y": 835
+      },
+      "layout": {
+        "header": {
+          "height": 56,
+          "width": 1040,
+          "x": 240,
+          "y": 0
+        },
+        "main": {
+          "height": 844,
+          "width": 1040,
+          "x": 240,
+          "y": 56
+        },
+        "scrollWidth": 1280,
+        "sidebar": {
+          "height": 900,
+          "width": 240,
+          "x": 0,
+          "y": 0
+        }
+      },
+      "overflow": false
+    }
+  },
+  {
+    "file": "ravvit-long-1280.png",
+    "route": "/ravvit",
+    "width": 1280,
+    "mode": "long",
+    "evidence": {
+      "activeAnimations": 0,
+      "body": "새 채팅\n\n[목] 긴 답변\n\n도구 1회 호출\n목 답변\n\n요청한 문서의 확인 결과예요.\n\n항목\t값\n원문_CODE\t12,345\nconst raw = \"원문_CODE\";\n\n\n확인 문서\n\n마지막 문장: ANSWER_COMPLETE\n\n문단 1: 스크롤 확인을 위한 목 문서 원문이에요. 내용을 읽는 동안 자동으로 이동하지 않아요.\n\n문단 2: 스크롤 확인을 위한 목 문서 원문이에요. 내용을 읽는 동안 자동으로 이동하지 않아요.\n\n문단 3",
+      "columns": [
+        {
+          "height": 0,
+          "width": 768,
+          "x": 376,
+          "y": 124
+        },
+        {
+          "height": 2253.234375,
+          "width": 768,
+          "x": 376,
+          "y": -1441
+        },
+        {
+          "height": 64,
+          "width": 768,
+          "x": 376,
+          "y": 812
+        }
+      ],
+      "composer": {
+        "height": 34,
+        "width": 714,
+        "x": 383,
+        "y": 835
+      },
+      "layout": {
+        "header": {
+          "height": 56,
+          "width": 1040,
+          "x": 240,
+          "y": 0
+        },
+        "main": {
+          "height": 844,
+          "width": 1040,
+          "x": 240,
+          "y": 56
+        },
+        "scrollWidth": 1280,
+        "sidebar": {
+          "height": 900,
+          "width": 240,
+          "x": 0,
+          "y": 0
+        }
+      },
+      "overflow": false
+    }
+  },
+  {
+    "file": "ravvit-long-full-1280.png",
+    "width": 1280,
+    "route": "/ravvit",
+    "full": true
+  },
+  {
+    "file": "ravvit-error-1280.png",
+    "route": "/ravvit",
+    "width": 1280,
+    "mode": "error",
+    "evidence": {
+      "activeAnimations": 0,
+      "body": "새 채팅\n\n[목] 오류\n\n도구 1회 호출\n\nRAW_ERROR_CODE: 원문 오류예요.\n\n다시 시도하기",
+      "columns": [
+        {
+          "height": 0,
+          "width": 768,
+          "x": 376,
+          "y": 124
+        },
+        {
+          "height": 688,
+          "width": 768,
+          "x": 376,
+          "y": 124
+        },
+        {
+          "height": 64,
+          "width": 768,
+          "x": 376,
+          "y": 812
+        }
+      ],
+      "composer": {
+        "height": 34,
+        "width": 714,
+        "x": 383,
+        "y": 835
+      },
+      "layout": {
+        "header": {
+          "height": 56,
+          "width": 1040,
+          "x": 240,
+          "y": 0
+        },
+        "main": {
+          "height": 844,
+          "width": 1040,
+          "x": 240,
+          "y": 56
+        },
+        "scrollWidth": 1280,
+        "sidebar": {
+          "height": 900,
+          "width": 240,
+          "x": 0,
+          "y": 0
+        }
+      },
+      "overflow": false
+    }
+  },
+  {
+    "file": "ravvit-reset-1280.png",
+    "route": "/ravvit",
+    "width": 1280,
+    "mode": "reset",
+    "evidence": {
+      "activeAnimations": 0,
+      "body": "새 채팅\n\n목 문서를 알려줘\n\n도구 1회 호출\n목 답변\n\n요청한 문서의 확인 결과예요.\n\n항목\t값\n원문_CODE\t12,345\nconst raw = \"원문_CODE\";\n\n\n확인 문서\n\n마지막 문장: ANSWER_COMPLETE",
+      "columns": [
+        {
+          "height": 0,
+          "width": 768,
+          "x": 376,
+          "y": 124
+        },
+        {
+          "height": 688,
+          "width": 768,
+          "x": 376,
+          "y": 124
+        },
+        {
+          "height": 64,
+          "width": 768,
+          "x": 376,
+          "y": 812
+        }
+      ],
+      "composer": {
+        "height": 34,
+        "width": 714,
+        "x": 383,
+        "y": 835
+      },
+      "layout": {
+        "header": {
+          "height": 56,
+          "width": 1040,
+          "x": 240,
+          "y": 0
+        },
+        "main": {
+          "height": 844,
+          "width": 1040,
+          "x": 240,
+          "y": 56
+        },
+        "scrollWidth": 1280,
+        "sidebar": {
+          "height": 900,
+          "width": 240,
+          "x": 0,
+          "y": 0
+        }
+      },
+      "overflow": false
+    }
+  },
+  {
+    "file": "ravvit-service-error-1280.png",
+    "route": "/ravvit",
+    "width": 1280,
+    "mode": "service-error",
+    "evidence": {
+      "activeAnimations": 0,
+      "body": "Ravvit 서버에 연결할 수 없어요. 잠시 후 다시 시도해 주세요.\n다시 확인\n\nRavvit에게 물어보세요.\n\n이번 스프린트 진행 중인 작업 알려줘\n마감이 다가오는 작업 알려줘\n저번 주 회의록 요약해줘",
+      "columns": [
+        {
+          "height": 74,
+          "width": 768,
+          "x": 376,
+          "y": 124
+        },
+        {
+          "height": 614,
+          "width": 768,
+          "x": 376,
+          "y": 198
+        },
+        {
+          "height": 64,
+          "width": 768,
+          "x": 376,
+          "y": 812
+        }
+      ],
+      "composer": {
+        "height": 34,
+        "width": 714,
+        "x": 383,
+        "y": 835
+      },
+      "layout": {
+        "header": {
+          "height": 56,
+          "width": 1040,
+          "x": 240,
+          "y": 0
+        },
+        "main": {
+          "height": 844,
+          "width": 1040,
+          "x": 240,
+          "y": 56
+        },
+        "scrollWidth": 1280,
+        "sidebar": {
+          "height": 900,
+          "width": 240,
+          "x": 0,
+          "y": 0
+        }
+      },
+      "overflow": false
+    }
+  },
+  {
+    "file": "ravvit-reduced-1280.png",
+    "route": "/ravvit",
+    "width": 1280,
+    "mode": "reduced",
+    "evidence": {
+      "activeAnimations": 0,
+      "body": "새 채팅\n\n목 문서를 알려줘\n\n도구 1회 호출\n목 답변\n\n요청한 문서의 확인 결과예요.\n\n항목\t값\n원문_CODE\t12,345\nconst raw = \"원문_CODE\";\n\n\n확인 문서\n\n마지막 문장: ANSWER_COMPLETE",
+      "columns": [
+        {
+          "height": 0,
+          "width": 768,
+          "x": 376,
+          "y": 124
+        },
+        {
+          "height": 688,
+          "width": 768,
+          "x": 376,
+          "y": 124
+        },
+        {
+          "height": 64,
+          "width": 768,
+          "x": 376,
+          "y": 812
+        }
+      ],
+      "composer": {
+        "height": 34,
+        "width": 714,
+        "x": 383,
+        "y": 835
+      },
+      "layout": {
+        "header": {
+          "height": 56,
+          "width": 1040,
+          "x": 240,
+          "y": 0
+        },
+        "main": {
+          "height": 844,
+          "width": 1040,
+          "x": 240,
+          "y": 56
+        },
+        "scrollWidth": 1280,
+        "sidebar": {
+          "height": 900,
+          "width": 240,
+          "x": 0,
+          "y": 0
+        }
+      },
+      "overflow": false
+    }
+  },
+  {
+    "file": "ravvit-empty-1440.png",
+    "route": "/ravvit",
+    "width": 1440,
+    "mode": "empty",
+    "evidence": {
+      "activeAnimations": 0,
+      "body": "어떤 게 궁금하신가요?\n\n이번 스프린트 진행 중인 작업 알려줘\n마감이 다가오는 작업 알려줘\n저번 주 회의록 요약해줘",
+      "columns": [
+        {
+          "height": 0,
+          "width": 768,
+          "x": 456,
+          "y": 124
+        },
+        {
+          "height": 688,
+          "width": 768,
+          "x": 456,
+          "y": 124
+        },
+        {
+          "height": 64,
+          "width": 768,
+          "x": 456,
+          "y": 812
+        }
+      ],
+      "composer": {
+        "height": 34,
+        "width": 714,
+        "x": 463,
+        "y": 835
+      },
+      "layout": {
+        "header": {
+          "height": 56,
+          "width": 1200,
+          "x": 240,
+          "y": 0
+        },
+        "main": {
+          "height": 844,
+          "width": 1200,
+          "x": 240,
+          "y": 56
+        },
+        "scrollWidth": 1440,
+        "sidebar": {
+          "height": 900,
+          "width": 240,
+          "x": 0,
+          "y": 0
+        }
+      },
+      "overflow": false
+    }
+  },
+  {
+    "file": "ravvit-pending-1440.png",
+    "route": "/ravvit",
+    "width": 1440,
+    "mode": "pending",
+    "evidence": {
+      "activeAnimations": 0,
+      "body": "새 채팅\n\n[목] 대기\n\n도구 1회 호출\n\nsearch_mock({\"query\":\"원문_CODE\"})\n\n답변을 만들고 있어요…",
+      "columns": [
+        {
+          "height": 0,
+          "width": 768,
+          "x": 456,
+          "y": 124
+        },
+        {
+          "height": 688,
+          "width": 768,
+          "x": 456,
+          "y": 124
+        },
+        {
+          "height": 64,
+          "width": 768,
+          "x": 456,
+          "y": 812
+        }
+      ],
+      "composer": {
+        "height": 34,
+        "width": 714,
+        "x": 463,
+        "y": 835
+      },
+      "layout": {
+        "header": {
+          "height": 56,
+          "width": 1200,
+          "x": 240,
+          "y": 0
+        },
+        "main": {
+          "height": 844,
+          "width": 1200,
+          "x": 240,
+          "y": 56
+        },
+        "scrollWidth": 1440,
+        "sidebar": {
+          "height": 900,
+          "width": 240,
+          "x": 0,
+          "y": 0
+        }
+      },
+      "overflow": false
+    }
+  },
+  {
+    "file": "ravvit-answer-1440.png",
+    "route": "/ravvit",
+    "width": 1440,
+    "mode": "answer",
+    "evidence": {
+      "activeAnimations": 0,
+      "body": "새 채팅\n\n목 문서를 알려줘\n\n도구 1회 호출\n목 답변\n\n요청한 문서의 확인 결과예요.\n\n항목\t값\n원문_CODE\t12,345\nconst raw = \"원문_CODE\";\n\n\n확인 문서\n\n마지막 문장: ANSWER_COMPLETE",
+      "columns": [
+        {
+          "height": 0,
+          "width": 768,
+          "x": 456,
+          "y": 124
+        },
+        {
+          "height": 688,
+          "width": 768,
+          "x": 456,
+          "y": 124
+        },
+        {
+          "height": 64,
+          "width": 768,
+          "x": 456,
+          "y": 812
+        }
+      ],
+      "composer": {
+        "height": 34,
+        "width": 714,
+        "x": 463,
+        "y": 835
+      },
+      "layout": {
+        "header": {
+          "height": 56,
+          "width": 1200,
+          "x": 240,
+          "y": 0
+        },
+        "main": {
+          "height": 844,
+          "width": 1200,
+          "x": 240,
+          "y": 56
+        },
+        "scrollWidth": 1440,
+        "sidebar": {
+          "height": 900,
+          "width": 240,
+          "x": 0,
+          "y": 0
+        }
+      },
+      "overflow": false
+    }
+  },
+  {
+    "file": "ravvit-long-1440.png",
+    "route": "/ravvit",
+    "width": 1440,
+    "mode": "long",
+    "evidence": {
+      "activeAnimations": 0,
+      "body": "새 채팅\n\n[목] 긴 답변\n\n도구 1회 호출\n목 답변\n\n요청한 문서의 확인 결과예요.\n\n항목\t값\n원문_CODE\t12,345\nconst raw = \"원문_CODE\";\n\n\n확인 문서\n\n마지막 문장: ANSWER_COMPLETE\n\n문단 1: 스크롤 확인을 위한 목 문서 원문이에요. 내용을 읽는 동안 자동으로 이동하지 않아요.\n\n문단 2: 스크롤 확인을 위한 목 문서 원문이에요. 내용을 읽는 동안 자동으로 이동하지 않아요.\n\n문단 3",
+      "columns": [
+        {
+          "height": 0,
+          "width": 768,
+          "x": 456,
+          "y": 124
+        },
+        {
+          "height": 2253.234375,
+          "width": 768,
+          "x": 456,
+          "y": -1441
+        },
+        {
+          "height": 64,
+          "width": 768,
+          "x": 456,
+          "y": 812
+        }
+      ],
+      "composer": {
+        "height": 34,
+        "width": 714,
+        "x": 463,
+        "y": 835
+      },
+      "layout": {
+        "header": {
+          "height": 56,
+          "width": 1200,
+          "x": 240,
+          "y": 0
+        },
+        "main": {
+          "height": 844,
+          "width": 1200,
+          "x": 240,
+          "y": 56
+        },
+        "scrollWidth": 1440,
+        "sidebar": {
+          "height": 900,
+          "width": 240,
+          "x": 0,
+          "y": 0
+        }
+      },
+      "overflow": false
+    }
+  },
+  {
+    "file": "ravvit-long-full-1440.png",
+    "width": 1440,
+    "route": "/ravvit",
+    "full": true
+  },
+  {
+    "file": "ravvit-error-1440.png",
+    "route": "/ravvit",
+    "width": 1440,
+    "mode": "error",
+    "evidence": {
+      "activeAnimations": 0,
+      "body": "새 채팅\n\n[목] 오류\n\n도구 1회 호출\n\nRAW_ERROR_CODE: 원문 오류예요.\n\n다시 시도하기",
+      "columns": [
+        {
+          "height": 0,
+          "width": 768,
+          "x": 456,
+          "y": 124
+        },
+        {
+          "height": 688,
+          "width": 768,
+          "x": 456,
+          "y": 124
+        },
+        {
+          "height": 64,
+          "width": 768,
+          "x": 456,
+          "y": 812
+        }
+      ],
+      "composer": {
+        "height": 34,
+        "width": 714,
+        "x": 463,
+        "y": 835
+      },
+      "layout": {
+        "header": {
+          "height": 56,
+          "width": 1200,
+          "x": 240,
+          "y": 0
+        },
+        "main": {
+          "height": 844,
+          "width": 1200,
+          "x": 240,
+          "y": 56
+        },
+        "scrollWidth": 1440,
+        "sidebar": {
+          "height": 900,
+          "width": 240,
+          "x": 0,
+          "y": 0
+        }
+      },
+      "overflow": false
+    }
+  },
+  {
+    "file": "ravvit-reset-1440.png",
+    "route": "/ravvit",
+    "width": 1440,
+    "mode": "reset",
+    "evidence": {
+      "activeAnimations": 0,
+      "body": "새 채팅\n\n목 문서를 알려줘\n\n도구 1회 호출\n목 답변\n\n요청한 문서의 확인 결과예요.\n\n항목\t값\n원문_CODE\t12,345\nconst raw = \"원문_CODE\";\n\n\n확인 문서\n\n마지막 문장: ANSWER_COMPLETE",
+      "columns": [
+        {
+          "height": 0,
+          "width": 768,
+          "x": 456,
+          "y": 124
+        },
+        {
+          "height": 688,
+          "width": 768,
+          "x": 456,
+          "y": 124
+        },
+        {
+          "height": 64,
+          "width": 768,
+          "x": 456,
+          "y": 812
+        }
+      ],
+      "composer": {
+        "height": 34,
+        "width": 714,
+        "x": 463,
+        "y": 835
+      },
+      "layout": {
+        "header": {
+          "height": 56,
+          "width": 1200,
+          "x": 240,
+          "y": 0
+        },
+        "main": {
+          "height": 844,
+          "width": 1200,
+          "x": 240,
+          "y": 56
+        },
+        "scrollWidth": 1440,
+        "sidebar": {
+          "height": 900,
+          "width": 240,
+          "x": 0,
+          "y": 0
+        }
+      },
+      "overflow": false
+    }
+  },
+  {
+    "file": "ravvit-service-error-1440.png",
+    "route": "/ravvit",
+    "width": 1440,
+    "mode": "service-error",
+    "evidence": {
+      "activeAnimations": 0,
+      "body": "Ravvit 서버에 연결할 수 없어요. 잠시 후 다시 시도해 주세요.\n다시 확인\n\nRavvit에게 물어보세요.\n\n이번 스프린트 진행 중인 작업 알려줘\n마감이 다가오는 작업 알려줘\n저번 주 회의록 요약해줘",
+      "columns": [
+        {
+          "height": 74,
+          "width": 768,
+          "x": 456,
+          "y": 124
+        },
+        {
+          "height": 614,
+          "width": 768,
+          "x": 456,
+          "y": 198
+        },
+        {
+          "height": 64,
+          "width": 768,
+          "x": 456,
+          "y": 812
+        }
+      ],
+      "composer": {
+        "height": 34,
+        "width": 714,
+        "x": 463,
+        "y": 835
+      },
+      "layout": {
+        "header": {
+          "height": 56,
+          "width": 1200,
+          "x": 240,
+          "y": 0
+        },
+        "main": {
+          "height": 844,
+          "width": 1200,
+          "x": 240,
+          "y": 56
+        },
+        "scrollWidth": 1440,
+        "sidebar": {
+          "height": 900,
+          "width": 240,
+          "x": 0,
+          "y": 0
+        }
+      },
+      "overflow": false
+    }
+  },
+  {
+    "file": "ravvit-reduced-1440.png",
+    "route": "/ravvit",
+    "width": 1440,
+    "mode": "reduced",
+    "evidence": {
+      "activeAnimations": 0,
+      "body": "새 채팅\n\n목 문서를 알려줘\n\n도구 1회 호출\n목 답변\n\n요청한 문서의 확인 결과예요.\n\n항목\t값\n원문_CODE\t12,345\nconst raw = \"원문_CODE\";\n\n\n확인 문서\n\n마지막 문장: ANSWER_COMPLETE",
+      "columns": [
+        {
+          "height": 0,
+          "width": 768,
+          "x": 456,
+          "y": 124
+        },
+        {
+          "height": 688,
+          "width": 768,
+          "x": 456,
+          "y": 124
+        },
+        {
+          "height": 64,
+          "width": 768,
+          "x": 456,
+          "y": 812
+        }
+      ],
+      "composer": {
+        "height": 34,
+        "width": 714,
+        "x": 463,
+        "y": 835
+      },
+      "layout": {
+        "header": {
+          "height": 56,
+          "width": 1200,
+          "x": 240,
+          "y": 0
+        },
+        "main": {
+          "height": 844,
+          "width": 1200,
+          "x": 240,
+          "y": 56
+        },
+        "scrollWidth": 1440,
+        "sidebar": {
+          "height": 900,
+          "width": 240,
+          "x": 0,
+          "y": 0
+        }
+      },
+      "overflow": false
+    }
+  }
+]

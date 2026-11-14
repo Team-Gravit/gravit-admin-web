@@ -34,7 +34,7 @@ export function RavvitConversation({ nickname }: { nickname: string | null }) {
   const [focusTick, setFocusTick] = useState(0);
   const [stickToBottom, setStickToBottom] = useState(true);
   const scrollRef = useRef<HTMLDivElement>(null);
-  // 타이핑 연출은 매 프레임 호출되므로 최신 stick 값을 ref 로 읽는다(콜백 재생성 회피)
+  // 답변 표시 알림은 최신 stick 값을 ref 로 읽는다(콜백 재생성 회피)
   const stickRef = useRef(true);
 
   useEffect(() => {
@@ -55,7 +55,7 @@ export function RavvitConversation({ nickname }: { nickname: string | null }) {
     if (stickToBottom) scrollToBottom();
   }, [messages, stickToBottom, scrollToBottom]);
 
-  /** 답변이 타이핑되며 길어질 때도 하단을 따라간다(메시지 배열은 그대로라 위 effect 가 안 돈다). */
+  /** 답변 표시 완료 때 기존 하단 추종 조건을 유지한다. */
   const handleReveal = useCallback(() => {
     if (stickRef.current) scrollToBottom();
   }, [scrollToBottom]);
@@ -163,9 +163,9 @@ export function RavvitConversation({ nickname }: { nickname: string | null }) {
       <ConfirmModal
         open={confirmOpen}
         onOpenChange={setConfirmOpen}
-        title="새 채팅을 시작하시겠습니까?"
-        description="현재 대화 내용이 모두 삭제됩니다."
-        confirmLabel="새 채팅"
+        title="새 채팅을 시작할까요?"
+        description="현재 대화 내용이 모두 삭제돼요."
+        confirmLabel="새 채팅 시작하기"
         onConfirm={() => {
           setConfirmOpen(false);
           reset();

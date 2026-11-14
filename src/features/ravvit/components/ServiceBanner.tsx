@@ -13,17 +13,17 @@ const BANNERS: Record<
   { message: string; tone: 'warning' | 'danger'; recheckable: boolean }
 > = {
   unreachable: {
-    message: 'Ravvit 서버에 연결할 수 없습니다. 잠시 후 다시 시도해 주세요.',
+    message: 'Ravvit 서버에 연결할 수 없어요. 잠시 후 다시 시도해 주세요.',
     tone: 'warning',
     recheckable: true,
   },
   forbidden: {
-    message: 'Ravvit 사용 권한이 없습니다. 관리자에게 문의해 주세요.',
+    message: 'Ravvit 사용 권한이 없어요. 관리자에게 문의해 주세요.',
     tone: 'danger',
     recheckable: false,
   },
   'auth-unavailable': {
-    message: '인증 서버에 연결할 수 없습니다. 잠시 후 다시 시도해 주세요.',
+    message: '인증 서버에 연결할 수 없어요. 잠시 후 다시 시도해 주세요.',
     tone: 'warning',
     recheckable: true,
   },

@@ -35,7 +35,7 @@ export function EmptyPrompt({ nickname, seed, disabled, onPick }: EmptyPromptPro
             disabled={disabled}
             // 자동 전송하지 않는다 — 사용자가 문장을 고쳐 보낼 수 있어야 한다
             onClick={() => onPick(suggestion)}
-            className="rounded-md border border-border px-3 py-2 text-body text-fg-secondary transition-colors hover:bg-hover disabled:text-fg-disabled disabled:hover:bg-transparent"
+            className="rounded-md border border-border px-3 py-2 text-body text-fg-secondary hover:bg-hover disabled:text-fg-disabled disabled:hover:bg-transparent"
           >
             {suggestion}
           </button>

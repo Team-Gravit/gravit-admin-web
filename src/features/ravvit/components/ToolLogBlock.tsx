@@ -24,7 +24,7 @@ export function ToolLogBlock({ logs, pending }: ToolLogBlockProps) {
       <button
         type="button"
         onClick={() => setManualOpen(!open)}
-        className="flex w-full items-center gap-1 text-caption text-muted-foreground"
+        className="flex w-full items-center gap-1 text-caption tabular-nums text-muted-foreground"
       >
         <Icon className="h-3.5 w-3.5 shrink-0" />
         도구 {logs.length}회 호출

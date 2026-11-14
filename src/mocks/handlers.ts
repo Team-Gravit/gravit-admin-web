@@ -1,8 +1,10 @@
 import { http, HttpResponse } from 'msw';
 import { format, subDays, subMonths } from 'date-fns';
 import { qaHandlers } from '@/mocks/qaHandlers';
+import { ravvitHandlers } from '@/mocks/ravvitHandlers';
 
 export const handlers = [
+  ...ravvitHandlers,
   http.get('*/api/v1/oauth/login-url/:provider', ({ params }) =>
     HttpResponse.json({
       loginUrl: `${window.location.origin}/login/oauth2/code/${params.provider}?code=mock-code&state=mock-state`,

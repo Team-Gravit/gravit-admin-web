@@ -10,7 +10,7 @@ import type { BotMessage, ChatHistory, ChatMessage, ServiceStatus } from '@/feat
  */
 
 /** SSE error 의 message 를 얻지 못한 실패에 쓰는 기본 문구 (§A-2 Error). */
-export const DEFAULT_ERROR_MESSAGE = '응답을 받지 못했습니다. 잠시 후 다시 시도해 주세요.';
+export const DEFAULT_ERROR_MESSAGE = '응답을 받지 못했어요. 잠시 후 다시 시도해 주세요.';
 
 let seq = 0;
 const nextId = (): string => `m${(seq += 1)}`;

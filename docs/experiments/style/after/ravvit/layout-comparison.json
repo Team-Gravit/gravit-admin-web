@@ -1,0 +1,130 @@
+[
+  {
+    "file": "ravvit-empty-1280.png",
+    "shellSame": true,
+    "columnWidthsSame": true,
+    "composerSame": true,
+    "overflow": false,
+    "activeAnimations": 0
+  },
+  {
+    "file": "ravvit-pending-1280.png",
+    "shellSame": true,
+    "columnWidthsSame": true,
+    "composerSame": true,
+    "overflow": false,
+    "activeAnimations": 0
+  },
+  {
+    "file": "ravvit-answer-1280.png",
+    "shellSame": true,
+    "columnWidthsSame": true,
+    "composerSame": true,
+    "overflow": false,
+    "activeAnimations": 0
+  },
+  {
+    "file": "ravvit-long-1280.png",
+    "shellSame": true,
+    "columnWidthsSame": true,
+    "composerSame": true,
+    "overflow": false,
+    "activeAnimations": 0
+  },
+  {
+    "file": "ravvit-error-1280.png",
+    "shellSame": true,
+    "columnWidthsSame": true,
+    "composerSame": true,
+    "overflow": false,
+    "activeAnimations": 0
+  },
+  {
+    "file": "ravvit-reset-1280.png",
+    "shellSame": true,
+    "columnWidthsSame": true,
+    "composerSame": true,
+    "overflow": false,
+    "activeAnimations": 0
+  },
+  {
+    "file": "ravvit-service-error-1280.png",
+    "shellSame": true,
+    "columnWidthsSame": true,
+    "composerSame": true,
+    "overflow": false,
+    "activeAnimations": 0
+  },
+  {
+    "file": "ravvit-reduced-1280.png",
+    "shellSame": true,
+    "columnWidthsSame": true,
+    "composerSame": true,
+    "overflow": false,
+    "activeAnimations": 0
+  },
+  {
+    "file": "ravvit-empty-1440.png",
+    "shellSame": true,
+    "columnWidthsSame": true,
+    "composerSame": true,
+    "overflow": false,
+    "activeAnimations": 0
+  },
+  {
+    "file": "ravvit-pending-1440.png",
+    "shellSame": true,
+    "columnWidthsSame": true,
+    "composerSame": true,
+    "overflow": false,
+    "activeAnimations": 0
+  },
+  {
+    "file": "ravvit-answer-1440.png",
+    "shellSame": true,
+    "columnWidthsSame": true,
+    "composerSame": true,
+    "overflow": false,
+    "activeAnimations": 0
+  },
+  {
+    "file": "ravvit-long-1440.png",
+    "shellSame": true,
+    "columnWidthsSame": true,
+    "composerSame": true,
+    "overflow": false,
+    "activeAnimations": 0
+  },
+  {
+    "file": "ravvit-error-1440.png",
+    "shellSame": true,
+    "columnWidthsSame": true,
+    "composerSame": true,
+    "overflow": false,
+    "activeAnimations": 0
+  },
+  {
+    "file": "ravvit-reset-1440.png",
+    "shellSame": true,
+    "columnWidthsSame": true,
+    "composerSame": true,
+    "overflow": false,
+    "activeAnimations": 0
+  },
+  {
+    "file": "ravvit-service-error-1440.png",
+    "shellSame": true,
+    "columnWidthsSame": true,
+    "composerSame": true,
+    "overflow": false,
+    "activeAnimations": 0
+  },
+  {
+    "file": "ravvit-reduced-1440.png",
+    "shellSame": true,
+    "columnWidthsSame": true,
+    "composerSame": true,
+    "overflow": false,
+    "activeAnimations": 0
+  }
+]

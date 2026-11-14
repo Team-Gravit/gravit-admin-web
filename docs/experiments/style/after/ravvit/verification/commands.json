@@ -1,0 +1,17 @@
+[
+  {
+    "command": "npm run check:full",
+    "exitCode": 0,
+    "result": "type/lint/token/build"
+  },
+  {
+    "command": "npm run test",
+    "exitCode": 0,
+    "result": "22files78pass"
+  },
+  {
+    "command": "npm run test:e2e",
+    "exitCode": 0,
+    "result": "133pass"
+  }
+]
