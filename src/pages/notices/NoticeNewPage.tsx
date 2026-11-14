@@ -41,14 +41,14 @@ export function NoticeNewPage() {
           {
             onSuccess: () => {
               toast.success(
-                status === 'PUBLISHED' ? '공지가 게시되었습니다.' : '임시 저장되었습니다.',
+                status === 'PUBLISHED' ? '공지를 게시했어요.' : '임시 저장했어요.',
               );
               navigate(ROUTES.NOTICES);
             },
           },
         );
       },
-      () => toast.error('필수 항목을 확인해주세요.'),
+      () => toast.error('필수 항목을 확인해 주세요.'),
     );
 
   return (
@@ -90,13 +90,13 @@ export function NoticeNewPage() {
           onClick={() => navigate(ROUTES.NOTICES)}
           disabled={createNotice.isPending}
         >
-          취소
+          목록으로
         </Button>
         <Button variant="outline" onClick={submit('DRAFT')} disabled={createNotice.isPending}>
-          임시저장
+          임시 저장하기
         </Button>
         <Button onClick={submit('PUBLISHED')} disabled={createNotice.isPending}>
-          게시
+          공지 게시하기
         </Button>
       </div>
 

@@ -57,14 +57,14 @@ export function InquiryAnswerSection({ inquiryId, answer }: InquiryAnswerSection
     if (hasAnswer) {
       updateAnswer.mutate(values.content, {
         onSuccess: (detail) => {
-          toast.success('답변이 수정되었습니다.');
+          toast.success('답변을 수정했어요.');
           reset({ content: detail.answer?.content ?? '' });
         },
       });
     } else {
       createAnswer.mutate(values.content, {
         onSuccess: (detail) => {
-          toast.success('답변이 등록되었습니다.');
+          toast.success('답변을 등록했어요.');
           reset({ content: detail.answer?.content ?? '' });
         },
       });
@@ -74,7 +74,7 @@ export function InquiryAnswerSection({ inquiryId, answer }: InquiryAnswerSection
   const onDelete = () => {
     deleteAnswer.mutate(undefined, {
       onSuccess: () => {
-        toast.success('답변이 삭제되었습니다.');
+        toast.success('답변을 삭제했어요.');
         setDeleteOpen(false);
         reset({ content: '' });
       },
@@ -86,7 +86,7 @@ export function InquiryAnswerSection({ inquiryId, answer }: InquiryAnswerSection
       <div className="flex items-center justify-between">
         <h3 className="text-h3 text-foreground">답변</h3>
         {answer && (
-          <span className="text-caption text-fg-muted">
+          <span className="text-caption tabular-nums text-fg-muted">
             작성 {formatDateTime(answer.answeredAt)}
             {answer.updatedAt !== answer.answeredAt &&
               ` · 수정 ${formatDateTime(answer.updatedAt)}`}
@@ -98,7 +98,7 @@ export function InquiryAnswerSection({ inquiryId, answer }: InquiryAnswerSection
         <FormField error={errors.content?.message}>
           <Textarea
             rows={6}
-            placeholder="답변 내용을 입력하세요."
+            placeholder="답변 내용을 입력해 주세요."
             disabled={isBusy}
             {...register('content')}
           />
@@ -113,11 +113,11 @@ export function InquiryAnswerSection({ inquiryId, answer }: InquiryAnswerSection
               disabled={isBusy}
               onClick={() => setDeleteOpen(true)}
             >
-              삭제
+              답변 삭제하기
             </Button>
           )}
           <Button type="submit" disabled={isBusy || !isDirty}>
-            {hasAnswer ? '수정' : '등록'}
+            {hasAnswer ? '답변 수정하기' : '답변 등록하기'}
           </Button>
         </div>
       </form>
@@ -125,9 +125,9 @@ export function InquiryAnswerSection({ inquiryId, answer }: InquiryAnswerSection
       <ConfirmModal
         open={deleteOpen}
         onOpenChange={setDeleteOpen}
-        title="답변을 삭제하시겠습니까?"
-        description="답변을 삭제하면 문의 상태가 '대기'로 돌아갑니다."
-        confirmLabel="삭제"
+        title="답변을 삭제할까요?"
+        description="답변을 삭제하면 문의 상태가 '대기'로 돌아가요."
+        confirmLabel="답변 삭제하기"
         variant="destructive"
         loading={deleteAnswer.isPending}
         onConfirm={onDelete}
@@ -136,7 +136,7 @@ export function InquiryAnswerSection({ inquiryId, answer }: InquiryAnswerSection
       {blocker.state === 'blocked' && (
         <UnsavedChangesModal
           open
-          message="저장하지 않은 답변이 있습니다. 페이지를 나가시겠습니까?"
+          message="저장하지 않은 답변이 있어요. 페이지를 나갈까요?"
           onConfirm={() => blocker.proceed()}
           onCancel={() => blocker.reset()}
         />

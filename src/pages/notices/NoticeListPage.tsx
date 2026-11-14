@@ -21,7 +21,7 @@ export function NoticeListPage() {
       header: <Pin className="size-4 text-fg-muted" />,
       headerClassName: 'w-12',
       className: 'w-12',
-      cell: (notice) => (notice.pinned ? <Pin className="size-4 text-primary" /> : null),
+      cell: (notice) => (notice.pinned ? <Pin className="size-4 text-fg-secondary" /> : null),
     },
     {
       key: 'title',
@@ -65,10 +65,9 @@ export function NoticeListPage() {
 
   return (
     <div className="flex flex-col gap-6">
-      <div className="flex items-start justify-between">
+      <div className="flex min-h-16 items-start justify-between">
         <div className="flex flex-col gap-1">
           <h1 className="text-h1 text-foreground">공지 관리</h1>
-          <p className="text-body text-fg-muted">공지를 등록하고 관리합니다.</p>
         </div>
         <Button onClick={() => navigate(ROUTES.NOTICE_NEW)}>
           <Plus />
@@ -83,7 +82,7 @@ export function NoticeListPage() {
         isLoading={isLoading}
         isError={isError}
         onRetry={() => refetch()}
-        emptyMessage="공지가 없습니다."
+        emptyMessage="공지가 없어요."
         onRowClick={(notice) => navigate(ROUTES.NOTICE_DETAIL(notice.noticeId))}
       />
 

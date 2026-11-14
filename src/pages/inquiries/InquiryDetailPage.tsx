@@ -43,13 +43,13 @@ export function InquiryDetailPage() {
         </div>
         <div className="flex items-center gap-4">
           <span className="w-20 text-body text-fg-secondary">작성일</span>
-          <span className="text-body text-foreground">{formatDateTime(data.createdAt)}</span>
+          <span className="text-body tabular-nums text-foreground">{formatDateTime(data.createdAt)}</span>
         </div>
       </div>
 
       <div className="flex flex-col gap-4 rounded-lg border border-border bg-surface p-6">
         <h3 className="text-h3 text-foreground">문의 내용</h3>
-        <blockquote className="whitespace-pre-wrap border-l-4 border-border pl-4 text-body text-fg-secondary">
+        <blockquote className="whitespace-pre-wrap border-l-2 border-border pl-4 text-body text-fg-secondary">
           {data.content}
         </blockquote>
       </div>

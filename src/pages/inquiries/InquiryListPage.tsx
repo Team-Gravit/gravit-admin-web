@@ -82,9 +82,8 @@ export function InquiryListPage() {
 
   return (
     <div className="flex flex-col gap-6">
-      <div className="flex flex-col gap-1">
+      <div className="flex min-h-16 flex-col gap-1">
         <h1 className="text-h1 text-foreground">문의 관리</h1>
-        <p className="text-body text-fg-muted">유저가 제출한 문의에 답변합니다.</p>
       </div>
 
       <div className="flex items-center gap-3">
@@ -107,7 +106,7 @@ export function InquiryListPage() {
         isLoading={isLoading}
         isError={isError}
         onRetry={() => refetch()}
-        emptyMessage={isFiltered ? '조건에 맞는 문의가 없습니다.' : '문의가 없습니다.'}
+        emptyMessage={isFiltered ? '조건에 맞는 문의가 없어요.' : '문의가 없어요.'}
         onRowClick={(inquiry) => navigate(ROUTES.INQUIRY_DETAIL(inquiry.inquiryId))}
       />
 

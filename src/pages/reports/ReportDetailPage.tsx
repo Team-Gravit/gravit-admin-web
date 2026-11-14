@@ -43,7 +43,7 @@ export function ReportDetailPage() {
     const next = pending;
     updateStatus.mutate(next, {
       onSuccess: () => {
-        toast.success('신고가 처리되었습니다.');
+        toast.success('신고 처리 상태를 바꿨어요.');
         setPending(null);
         if (!data.isResolved && next) navigate(ROUTES.REPORTS);
       },
@@ -78,13 +78,13 @@ export function ReportDetailPage() {
         </div>
         <div className="flex items-center gap-4">
           <span className="w-20 text-body text-fg-secondary">제출일</span>
-          <span className="text-body text-foreground">{formatDateTime(data.submittedAt)}</span>
+          <span className="text-body tabular-nums text-foreground">{formatDateTime(data.submittedAt)}</span>
         </div>
       </div>
 
       <div className="flex flex-col gap-4 rounded-lg border border-border bg-surface p-6">
         <h3 className="text-h3 text-foreground">신고 내용</h3>
-        <blockquote className="whitespace-pre-wrap border-l-4 border-border pl-4 text-body text-fg-secondary">
+        <blockquote className="whitespace-pre-wrap border-l-2 border-border pl-4 text-body text-fg-secondary">
           {data.content}
         </blockquote>
       </div>
@@ -114,9 +114,9 @@ export function ReportDetailPage() {
         onOpenChange={(open) => {
           if (!open) setPending(null);
         }}
-        title="처리하시겠습니까?"
-        description={pending ? '해결됨 상태로 변경합니다.' : '미해결 상태로 변경합니다.'}
-        confirmLabel="확인"
+        title="신고 처리 상태를 바꿀까요?"
+        description={pending ? '해결됨 상태로 바꿔요.' : '미해결 상태로 바꿔요.'}
+        confirmLabel="처리 상태 변경하기"
         loading={updateStatus.isPending}
         onConfirm={onConfirm}
       />

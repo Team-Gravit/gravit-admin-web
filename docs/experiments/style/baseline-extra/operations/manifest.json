@@ -1,0 +1,740 @@
+[
+  {
+    "file": "notices-loading-1280.png",
+    "width": 1280,
+    "height": 900,
+    "route": "/notices",
+    "phase": "before",
+    "evidence": {
+      "body": "공지 관리\n\n공지를 등록하고 관리합니다.\n\n공지 작성",
+      "font": "Pretendard, system-ui, -apple-system, sans-serif",
+      "headings": [
+        {
+          "text": "공지 관리",
+          "width": 155.78125,
+          "x": 272,
+          "y": 80
+        }
+      ],
+      "overflow": false,
+      "table": null
+    }
+  },
+  {
+    "file": "notices-empty-1280.png",
+    "width": 1280,
+    "height": 900,
+    "route": "/notices",
+    "phase": "before",
+    "evidence": {
+      "body": "공지 관리\n\n공지를 등록하고 관리합니다.\n\n공지 작성\n\n공지가 없습니다.",
+      "font": "Pretendard, system-ui, -apple-system, sans-serif",
+      "headings": [
+        {
+          "text": "공지 관리",
+          "width": 155.78125,
+          "x": 272,
+          "y": 80
+        }
+      ],
+      "overflow": false,
+      "table": null
+    }
+  },
+  {
+    "file": "notices-error-1280.png",
+    "width": 1280,
+    "height": 900,
+    "route": "/notices",
+    "phase": "before",
+    "evidence": {
+      "body": "공지 관리\n\n공지를 등록하고 관리합니다.\n\n공지 작성\n\n데이터를 불러오지 못했어요. 잠시 뒤 다시 시도해 주세요.\n\n다시 시도하기",
+      "font": "Pretendard, system-ui, -apple-system, sans-serif",
+      "headings": [
+        {
+          "text": "공지 관리",
+          "width": 155.78125,
+          "x": 272,
+          "y": 80
+        }
+      ],
+      "overflow": false,
+      "table": null
+    }
+  },
+  {
+    "file": "users-loading-1280.png",
+    "width": 1280,
+    "height": 900,
+    "route": "/users",
+    "phase": "before",
+    "evidence": {
+      "body": "유저 관리\n\n유저의 상태와 권한을 관리합니다.\n\n검색\n상태 전체\n역할 전체",
+      "font": "Pretendard, system-ui, -apple-system, sans-serif",
+      "headings": [
+        {
+          "text": "유저 관리",
+          "width": 976,
+          "x": 272,
+          "y": 80
+        }
+      ],
+      "overflow": false,
+      "table": null
+    }
+  },
+  {
+    "file": "users-empty-1280.png",
+    "width": 1280,
+    "height": 900,
+    "route": "/users",
+    "phase": "before",
+    "evidence": {
+      "body": "유저 관리\n\n유저의 상태와 권한을 관리합니다.\n\n검색\n상태 전체\n역할 전체\n\n유저가 없습니다.",
+      "font": "Pretendard, system-ui, -apple-system, sans-serif",
+      "headings": [
+        {
+          "text": "유저 관리",
+          "width": 976,
+          "x": 272,
+          "y": 80
+        }
+      ],
+      "overflow": false,
+      "table": null
+    }
+  },
+  {
+    "file": "users-error-1280.png",
+    "width": 1280,
+    "height": 900,
+    "route": "/users",
+    "phase": "before",
+    "evidence": {
+      "body": "유저 관리\n\n유저의 상태와 권한을 관리합니다.\n\n검색\n상태 전체\n역할 전체\n\n데이터를 불러오지 못했어요. 잠시 뒤 다시 시도해 주세요.\n\n다시 시도하기",
+      "font": "Pretendard, system-ui, -apple-system, sans-serif",
+      "headings": [
+        {
+          "text": "유저 관리",
+          "width": 976,
+          "x": 272,
+          "y": 80
+        }
+      ],
+      "overflow": false,
+      "table": null
+    }
+  },
+  {
+    "file": "reports-loading-1280.png",
+    "width": 1280,
+    "height": 900,
+    "route": "/reports",
+    "phase": "before",
+    "evidence": {
+      "body": "신고 관리\n\n유저가 제출한 문제 신고를 처리합니다.\n\n유형 전체\n미해결",
+      "font": "Pretendard, system-ui, -apple-system, sans-serif",
+      "headings": [
+        {
+          "text": "신고 관리",
+          "width": 976,
+          "x": 272,
+          "y": 80
+        }
+      ],
+      "overflow": false,
+      "table": null
+    }
+  },
+  {
+    "file": "reports-empty-1280.png",
+    "width": 1280,
+    "height": 900,
+    "route": "/reports",
+    "phase": "before",
+    "evidence": {
+      "body": "신고 관리\n\n유저가 제출한 문제 신고를 처리합니다.\n\n유형 전체\n미해결\n\n조건에 맞는 신고가 없습니다.",
+      "font": "Pretendard, system-ui, -apple-system, sans-serif",
+      "headings": [
+        {
+          "text": "신고 관리",
+          "width": 976,
+          "x": 272,
+          "y": 80
+        }
+      ],
+      "overflow": false,
+      "table": null
+    }
+  },
+  {
+    "file": "reports-error-1280.png",
+    "width": 1280,
+    "height": 900,
+    "route": "/reports",
+    "phase": "before",
+    "evidence": {
+      "body": "신고 관리\n\n유저가 제출한 문제 신고를 처리합니다.\n\n유형 전체\n미해결\n\n데이터를 불러오지 못했어요. 잠시 뒤 다시 시도해 주세요.\n\n다시 시도하기",
+      "font": "Pretendard, system-ui, -apple-system, sans-serif",
+      "headings": [
+        {
+          "text": "신고 관리",
+          "width": 976,
+          "x": 272,
+          "y": 80
+        }
+      ],
+      "overflow": false,
+      "table": null
+    }
+  },
+  {
+    "file": "inquiries-loading-1280.png",
+    "width": 1280,
+    "height": 900,
+    "route": "/inquiries",
+    "phase": "before",
+    "evidence": {
+      "body": "문의 관리\n\n유저가 제출한 문의에 답변합니다.\n\n대기",
+      "font": "Pretendard, system-ui, -apple-system, sans-serif",
+      "headings": [
+        {
+          "text": "문의 관리",
+          "width": 976,
+          "x": 272,
+          "y": 80
+        }
+      ],
+      "overflow": false,
+      "table": null
+    }
+  },
+  {
+    "file": "inquiries-empty-1280.png",
+    "width": 1280,
+    "height": 900,
+    "route": "/inquiries",
+    "phase": "before",
+    "evidence": {
+      "body": "문의 관리\n\n유저가 제출한 문의에 답변합니다.\n\n대기\n\n조건에 맞는 문의가 없습니다.",
+      "font": "Pretendard, system-ui, -apple-system, sans-serif",
+      "headings": [
+        {
+          "text": "문의 관리",
+          "width": 976,
+          "x": 272,
+          "y": 80
+        }
+      ],
+      "overflow": false,
+      "table": null
+    }
+  },
+  {
+    "file": "inquiries-error-1280.png",
+    "width": 1280,
+    "height": 900,
+    "route": "/inquiries",
+    "phase": "before",
+    "evidence": {
+      "body": "문의 관리\n\n유저가 제출한 문의에 답변합니다.\n\n대기\n\n데이터를 불러오지 못했어요. 잠시 뒤 다시 시도해 주세요.\n\n다시 시도하기",
+      "font": "Pretendard, system-ui, -apple-system, sans-serif",
+      "headings": [
+        {
+          "text": "문의 관리",
+          "width": 976,
+          "x": 272,
+          "y": 80
+        }
+      ],
+      "overflow": false,
+      "table": null
+    }
+  },
+  {
+    "file": "inquiry-answered-1280.png",
+    "width": 1280,
+    "height": 900,
+    "route": "/inquiries/5002",
+    "phase": "before",
+    "evidence": {
+      "body": "콘텐츠 오류\n3번 문제 정답이 이상합니다\n답변완료\n문의 정보\n작성자\n홍길동\n이메일\ngildong@example.com\n작성일\n2026-06-15 09:12\n문의 내용\n안녕하세요. 어제 10,000원 결제를 완료했는데 코인이 충전되지 않았습니다.\n주문번호는 ORD-20260615-0012 입니다. 확인 부탁드립니다.\n답변\n",
+      "font": "Pretendard, system-ui, -apple-system, sans-serif",
+      "headings": [
+        {
+          "text": "3번 문제 정답이 이상합니다",
+          "width": 281.765625,
+          "x": 363.921875,
+          "y": 80
+        },
+        {
+          "text": "문의 정보",
+          "width": 926,
+          "x": 297,
+          "y": 165
+        },
+        {
+          "text": "문의 내용",
+          "width": 926,
+          "x": 297,
+          "y": 377
+        },
+        {
+          "text": "답변",
+          "width": 27.65625,
+          "x": 297,
+          "y": 535
+        }
+      ],
+      "overflow": false,
+      "table": null
+    }
+  },
+  {
+    "file": "inquiry-delete-1280.png",
+    "width": 1280,
+    "height": 900,
+    "route": "/inquiries/5002",
+    "phase": "before",
+    "evidence": {
+      "body": "콘텐츠 오류\n3번 문제 정답이 이상합니다\n답변완료\n문의 정보\n작성자\n홍길동\n이메일\ngildong@example.com\n작성일\n2026-06-15 09:12\n문의 내용\n안녕하세요. 어제 10,000원 결제를 완료했는데 코인이 충전되지 않았습니다.\n주문번호는 ORD-20260615-0012 입니다. 확인 부탁드립니다.\n답변\n",
+      "font": "Pretendard, system-ui, -apple-system, sans-serif",
+      "headings": [
+        {
+          "text": "3번 문제 정답이 이상합니다",
+          "width": 281.765625,
+          "x": 363.921875,
+          "y": 80
+        },
+        {
+          "text": "문의 정보",
+          "width": 926,
+          "x": 297,
+          "y": 165
+        },
+        {
+          "text": "문의 내용",
+          "width": 926,
+          "x": 297,
+          "y": 377
+        },
+        {
+          "text": "답변",
+          "width": 27.65625,
+          "x": 297,
+          "y": 535
+        }
+      ],
+      "overflow": false,
+      "table": null
+    }
+  },
+  {
+    "file": "report-confirm-1280.png",
+    "width": 1280,
+    "height": 900,
+    "route": "/reports/1024",
+    "phase": "before",
+    "evidence": {
+      "body": "신고 #1024\n미해결\n신고 정보\n유형\n오타 (TYPO_ERROR)\n문제 ID\nP-512\n문제 보기 →\n제출일\n2026-04-23 23:32\n신고 내용\n두 번째 줄에서 '알고리듬'이 '알고리즘'으로 표기되어 있습니다. 오타로 보입니다.\n처리 상태\n현재 상태\n미해결",
+      "font": "Pretendard, system-ui, -apple-system, sans-serif",
+      "headings": [
+        {
+          "text": "신고 #1024",
+          "width": 129.09375,
+          "x": 272,
+          "y": 80
+        },
+        {
+          "text": "신고 정보",
+          "width": 926,
+          "x": 297,
+          "y": 165
+        },
+        {
+          "text": "신고 내용",
+          "width": 926,
+          "x": 297,
+          "y": 387
+        },
+        {
+          "text": "처리 상태",
+          "width": 926,
+          "x": 297,
+          "y": 523
+        }
+      ],
+      "overflow": false,
+      "table": null
+    }
+  },
+  {
+    "file": "notices-loading-1440.png",
+    "width": 1440,
+    "height": 900,
+    "route": "/notices",
+    "phase": "before",
+    "evidence": {
+      "body": "공지 관리\n\n공지를 등록하고 관리합니다.\n\n공지 작성",
+      "font": "Pretendard, system-ui, -apple-system, sans-serif",
+      "headings": [
+        {
+          "text": "공지 관리",
+          "width": 155.78125,
+          "x": 272,
+          "y": 80
+        }
+      ],
+      "overflow": false,
+      "table": null
+    }
+  },
+  {
+    "file": "notices-empty-1440.png",
+    "width": 1440,
+    "height": 900,
+    "route": "/notices",
+    "phase": "before",
+    "evidence": {
+      "body": "공지 관리\n\n공지를 등록하고 관리합니다.\n\n공지 작성\n\n공지가 없습니다.",
+      "font": "Pretendard, system-ui, -apple-system, sans-serif",
+      "headings": [
+        {
+          "text": "공지 관리",
+          "width": 155.78125,
+          "x": 272,
+          "y": 80
+        }
+      ],
+      "overflow": false,
+      "table": null
+    }
+  },
+  {
+    "file": "notices-error-1440.png",
+    "width": 1440,
+    "height": 900,
+    "route": "/notices",
+    "phase": "before",
+    "evidence": {
+      "body": "공지 관리\n\n공지를 등록하고 관리합니다.\n\n공지 작성\n\n데이터를 불러오지 못했어요. 잠시 뒤 다시 시도해 주세요.\n\n다시 시도하기",
+      "font": "Pretendard, system-ui, -apple-system, sans-serif",
+      "headings": [
+        {
+          "text": "공지 관리",
+          "width": 155.78125,
+          "x": 272,
+          "y": 80
+        }
+      ],
+      "overflow": false,
+      "table": null
+    }
+  },
+  {
+    "file": "users-loading-1440.png",
+    "width": 1440,
+    "height": 900,
+    "route": "/users",
+    "phase": "before",
+    "evidence": {
+      "body": "유저 관리\n\n유저의 상태와 권한을 관리합니다.\n\n검색\n상태 전체\n역할 전체",
+      "font": "Pretendard, system-ui, -apple-system, sans-serif",
+      "headings": [
+        {
+          "text": "유저 관리",
+          "width": 1136,
+          "x": 272,
+          "y": 80
+        }
+      ],
+      "overflow": false,
+      "table": null
+    }
+  },
+  {
+    "file": "users-empty-1440.png",
+    "width": 1440,
+    "height": 900,
+    "route": "/users",
+    "phase": "before",
+    "evidence": {
+      "body": "유저 관리\n\n유저의 상태와 권한을 관리합니다.\n\n검색\n상태 전체\n역할 전체\n\n유저가 없습니다.",
+      "font": "Pretendard, system-ui, -apple-system, sans-serif",
+      "headings": [
+        {
+          "text": "유저 관리",
+          "width": 1136,
+          "x": 272,
+          "y": 80
+        }
+      ],
+      "overflow": false,
+      "table": null
+    }
+  },
+  {
+    "file": "users-error-1440.png",
+    "width": 1440,
+    "height": 900,
+    "route": "/users",
+    "phase": "before",
+    "evidence": {
+      "body": "유저 관리\n\n유저의 상태와 권한을 관리합니다.\n\n검색\n상태 전체\n역할 전체\n\n데이터를 불러오지 못했어요. 잠시 뒤 다시 시도해 주세요.\n\n다시 시도하기",
+      "font": "Pretendard, system-ui, -apple-system, sans-serif",
+      "headings": [
+        {
+          "text": "유저 관리",
+          "width": 1136,
+          "x": 272,
+          "y": 80
+        }
+      ],
+      "overflow": false,
+      "table": null
+    }
+  },
+  {
+    "file": "reports-loading-1440.png",
+    "width": 1440,
+    "height": 900,
+    "route": "/reports",
+    "phase": "before",
+    "evidence": {
+      "body": "신고 관리\n\n유저가 제출한 문제 신고를 처리합니다.\n\n유형 전체\n미해결",
+      "font": "Pretendard, system-ui, -apple-system, sans-serif",
+      "headings": [
+        {
+          "text": "신고 관리",
+          "width": 1136,
+          "x": 272,
+          "y": 80
+        }
+      ],
+      "overflow": false,
+      "table": null
+    }
+  },
+  {
+    "file": "reports-empty-1440.png",
+    "width": 1440,
+    "height": 900,
+    "route": "/reports",
+    "phase": "before",
+    "evidence": {
+      "body": "신고 관리\n\n유저가 제출한 문제 신고를 처리합니다.\n\n유형 전체\n미해결\n\n조건에 맞는 신고가 없습니다.",
+      "font": "Pretendard, system-ui, -apple-system, sans-serif",
+      "headings": [
+        {
+          "text": "신고 관리",
+          "width": 1136,
+          "x": 272,
+          "y": 80
+        }
+      ],
+      "overflow": false,
+      "table": null
+    }
+  },
+  {
+    "file": "reports-error-1440.png",
+    "width": 1440,
+    "height": 900,
+    "route": "/reports",
+    "phase": "before",
+    "evidence": {
+      "body": "신고 관리\n\n유저가 제출한 문제 신고를 처리합니다.\n\n유형 전체\n미해결\n\n데이터를 불러오지 못했어요. 잠시 뒤 다시 시도해 주세요.\n\n다시 시도하기",
+      "font": "Pretendard, system-ui, -apple-system, sans-serif",
+      "headings": [
+        {
+          "text": "신고 관리",
+          "width": 1136,
+          "x": 272,
+          "y": 80
+        }
+      ],
+      "overflow": false,
+      "table": null
+    }
+  },
+  {
+    "file": "inquiries-loading-1440.png",
+    "width": 1440,
+    "height": 900,
+    "route": "/inquiries",
+    "phase": "before",
+    "evidence": {
+      "body": "문의 관리\n\n유저가 제출한 문의에 답변합니다.\n\n대기",
+      "font": "Pretendard, system-ui, -apple-system, sans-serif",
+      "headings": [
+        {
+          "text": "문의 관리",
+          "width": 1136,
+          "x": 272,
+          "y": 80
+        }
+      ],
+      "overflow": false,
+      "table": null
+    }
+  },
+  {
+    "file": "inquiries-empty-1440.png",
+    "width": 1440,
+    "height": 900,
+    "route": "/inquiries",
+    "phase": "before",
+    "evidence": {
+      "body": "문의 관리\n\n유저가 제출한 문의에 답변합니다.\n\n대기\n\n조건에 맞는 문의가 없습니다.",
+      "font": "Pretendard, system-ui, -apple-system, sans-serif",
+      "headings": [
+        {
+          "text": "문의 관리",
+          "width": 1136,
+          "x": 272,
+          "y": 80
+        }
+      ],
+      "overflow": false,
+      "table": null
+    }
+  },
+  {
+    "file": "inquiries-error-1440.png",
+    "width": 1440,
+    "height": 900,
+    "route": "/inquiries",
+    "phase": "before",
+    "evidence": {
+      "body": "문의 관리\n\n유저가 제출한 문의에 답변합니다.\n\n대기\n\n데이터를 불러오지 못했어요. 잠시 뒤 다시 시도해 주세요.\n\n다시 시도하기",
+      "font": "Pretendard, system-ui, -apple-system, sans-serif",
+      "headings": [
+        {
+          "text": "문의 관리",
+          "width": 1136,
+          "x": 272,
+          "y": 80
+        }
+      ],
+      "overflow": false,
+      "table": null
+    }
+  },
+  {
+    "file": "inquiry-answered-1440.png",
+    "width": 1440,
+    "height": 900,
+    "route": "/inquiries/5002",
+    "phase": "before",
+    "evidence": {
+      "body": "콘텐츠 오류\n3번 문제 정답이 이상합니다\n답변완료\n문의 정보\n작성자\n홍길동\n이메일\ngildong@example.com\n작성일\n2026-06-15 09:12\n문의 내용\n안녕하세요. 어제 10,000원 결제를 완료했는데 코인이 충전되지 않았습니다.\n주문번호는 ORD-20260615-0012 입니다. 확인 부탁드립니다.\n답변\n",
+      "font": "Pretendard, system-ui, -apple-system, sans-serif",
+      "headings": [
+        {
+          "text": "3번 문제 정답이 이상합니다",
+          "width": 281.765625,
+          "x": 363.921875,
+          "y": 80
+        },
+        {
+          "text": "문의 정보",
+          "width": 1086,
+          "x": 297,
+          "y": 165
+        },
+        {
+          "text": "문의 내용",
+          "width": 1086,
+          "x": 297,
+          "y": 377
+        },
+        {
+          "text": "답변",
+          "width": 27.65625,
+          "x": 297,
+          "y": 535
+        }
+      ],
+      "overflow": false,
+      "table": null
+    }
+  },
+  {
+    "file": "inquiry-delete-1440.png",
+    "width": 1440,
+    "height": 900,
+    "route": "/inquiries/5002",
+    "phase": "before",
+    "evidence": {
+      "body": "콘텐츠 오류\n3번 문제 정답이 이상합니다\n답변완료\n문의 정보\n작성자\n홍길동\n이메일\ngildong@example.com\n작성일\n2026-06-15 09:12\n문의 내용\n안녕하세요. 어제 10,000원 결제를 완료했는데 코인이 충전되지 않았습니다.\n주문번호는 ORD-20260615-0012 입니다. 확인 부탁드립니다.\n답변\n",
+      "font": "Pretendard, system-ui, -apple-system, sans-serif",
+      "headings": [
+        {
+          "text": "3번 문제 정답이 이상합니다",
+          "width": 281.765625,
+          "x": 363.921875,
+          "y": 80
+        },
+        {
+          "text": "문의 정보",
+          "width": 1086,
+          "x": 297,
+          "y": 165
+        },
+        {
+          "text": "문의 내용",
+          "width": 1086,
+          "x": 297,
+          "y": 377
+        },
+        {
+          "text": "답변",
+          "width": 27.65625,
+          "x": 297,
+          "y": 535
+        }
+      ],
+      "overflow": false,
+      "table": null
+    }
+  },
+  {
+    "file": "report-confirm-1440.png",
+    "width": 1440,
+    "height": 900,
+    "route": "/reports/1024",
+    "phase": "before",
+    "evidence": {
+      "body": "신고 #1024\n미해결\n신고 정보\n유형\n오타 (TYPO_ERROR)\n문제 ID\nP-512\n문제 보기 →\n제출일\n2026-04-23 23:32\n신고 내용\n두 번째 줄에서 '알고리듬'이 '알고리즘'으로 표기되어 있습니다. 오타로 보입니다.\n처리 상태\n현재 상태\n미해결",
+      "font": "Pretendard, system-ui, -apple-system, sans-serif",
+      "headings": [
+        {
+          "text": "신고 #1024",
+          "width": 129.09375,
+          "x": 272,
+          "y": 80
+        },
+        {
+          "text": "신고 정보",
+          "width": 1086,
+          "x": 297,
+          "y": 165
+        },
+        {
+          "text": "신고 내용",
+          "width": 1086,
+          "x": 297,
+          "y": 387
+        },
+        {
+          "text": "처리 상태",
+          "width": 1086,
+          "x": 297,
+          "y": 523
+        }
+      ],
+      "overflow": false,
+      "table": null
+    }
+  }
+]

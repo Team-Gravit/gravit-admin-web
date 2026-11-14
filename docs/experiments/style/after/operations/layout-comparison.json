@@ -1,0 +1,236 @@
+[
+  {
+    "key": "notices",
+    "width": 1280,
+    "shellSame": true,
+    "headingOrderSame": true,
+    "headingDeltaY": [
+      0
+    ],
+    "overflow": false,
+    "activeAnimations": 0,
+    "tableDeltaY": 2,
+    "tableXWidthSame": true
+  },
+  {
+    "key": "notice-new",
+    "width": 1280,
+    "shellSame": true,
+    "headingOrderSame": true,
+    "headingDeltaY": [
+      0
+    ],
+    "overflow": false,
+    "activeAnimations": 0
+  },
+  {
+    "key": "notice-detail",
+    "width": 1280,
+    "shellSame": true,
+    "headingOrderSame": true,
+    "headingDeltaY": [
+      0,
+      0,
+      0
+    ],
+    "overflow": false,
+    "activeAnimations": 0
+  },
+  {
+    "key": "users",
+    "width": 1280,
+    "shellSame": true,
+    "headingOrderSame": true,
+    "headingDeltaY": [
+      0
+    ],
+    "overflow": false,
+    "activeAnimations": 0,
+    "tableDeltaY": 2,
+    "tableXWidthSame": true
+  },
+  {
+    "key": "user-detail",
+    "width": 1280,
+    "shellSame": true,
+    "headingOrderSame": true,
+    "headingDeltaY": [
+      0,
+      0,
+      0
+    ],
+    "overflow": false,
+    "activeAnimations": 0
+  },
+  {
+    "key": "reports",
+    "width": 1280,
+    "shellSame": true,
+    "headingOrderSame": true,
+    "headingDeltaY": [
+      0
+    ],
+    "overflow": false,
+    "activeAnimations": 0,
+    "tableDeltaY": 2,
+    "tableXWidthSame": true
+  },
+  {
+    "key": "report-detail",
+    "width": 1280,
+    "shellSame": true,
+    "headingOrderSame": true,
+    "headingDeltaY": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "overflow": false,
+    "activeAnimations": 0
+  },
+  {
+    "key": "inquiries",
+    "width": 1280,
+    "shellSame": true,
+    "headingOrderSame": true,
+    "headingDeltaY": [
+      0
+    ],
+    "overflow": false,
+    "activeAnimations": 0,
+    "tableDeltaY": 2,
+    "tableXWidthSame": true
+  },
+  {
+    "key": "inquiry-detail",
+    "width": 1280,
+    "shellSame": true,
+    "headingOrderSame": true,
+    "headingDeltaY": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "overflow": false,
+    "activeAnimations": 0
+  },
+  {
+    "key": "notices",
+    "width": 1440,
+    "shellSame": true,
+    "headingOrderSame": true,
+    "headingDeltaY": [
+      0
+    ],
+    "overflow": false,
+    "activeAnimations": 0,
+    "tableDeltaY": 2,
+    "tableXWidthSame": true
+  },
+  {
+    "key": "notice-new",
+    "width": 1440,
+    "shellSame": true,
+    "headingOrderSame": true,
+    "headingDeltaY": [
+      0
+    ],
+    "overflow": false,
+    "activeAnimations": 0
+  },
+  {
+    "key": "notice-detail",
+    "width": 1440,
+    "shellSame": true,
+    "headingOrderSame": true,
+    "headingDeltaY": [
+      0,
+      0,
+      0
+    ],
+    "overflow": false,
+    "activeAnimations": 0
+  },
+  {
+    "key": "users",
+    "width": 1440,
+    "shellSame": true,
+    "headingOrderSame": true,
+    "headingDeltaY": [
+      0
+    ],
+    "overflow": false,
+    "activeAnimations": 0,
+    "tableDeltaY": 2,
+    "tableXWidthSame": true
+  },
+  {
+    "key": "user-detail",
+    "width": 1440,
+    "shellSame": true,
+    "headingOrderSame": true,
+    "headingDeltaY": [
+      0,
+      0,
+      0
+    ],
+    "overflow": false,
+    "activeAnimations": 0
+  },
+  {
+    "key": "reports",
+    "width": 1440,
+    "shellSame": true,
+    "headingOrderSame": true,
+    "headingDeltaY": [
+      0
+    ],
+    "overflow": false,
+    "activeAnimations": 0,
+    "tableDeltaY": 2,
+    "tableXWidthSame": true
+  },
+  {
+    "key": "report-detail",
+    "width": 1440,
+    "shellSame": true,
+    "headingOrderSame": true,
+    "headingDeltaY": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "overflow": false,
+    "activeAnimations": 0
+  },
+  {
+    "key": "inquiries",
+    "width": 1440,
+    "shellSame": true,
+    "headingOrderSame": true,
+    "headingDeltaY": [
+      0
+    ],
+    "overflow": false,
+    "activeAnimations": 0,
+    "tableDeltaY": 2,
+    "tableXWidthSame": true
+  },
+  {
+    "key": "inquiry-detail",
+    "width": 1440,
+    "shellSame": true,
+    "headingOrderSame": true,
+    "headingDeltaY": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "overflow": false,
+    "activeAnimations": 0
+  }
+]

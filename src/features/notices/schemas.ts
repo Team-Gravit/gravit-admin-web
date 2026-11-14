@@ -25,16 +25,16 @@ export type NoticeListResponse = z.infer<typeof noticeListResponseSchema>;
 export const noticeFormSchema = z.object({
   title: z
     .string()
-    .min(1, '제목은 필수 항목입니다.')
-    .max(FIELD_LIMITS.notice.title, `${FIELD_LIMITS.notice.title}자 이내로 입력해주세요.`),
+    .min(1, '제목을 입력해 주세요.')
+    .max(FIELD_LIMITS.notice.title, `${FIELD_LIMITS.notice.title}자 이내로 입력해 주세요.`),
   summary: z
     .string()
-    .min(1, '요약은 필수 항목입니다.')
-    .max(FIELD_LIMITS.notice.summary, `${FIELD_LIMITS.notice.summary}자 이내로 입력해주세요.`),
+    .min(1, '요약을 입력해 주세요.')
+    .max(FIELD_LIMITS.notice.summary, `${FIELD_LIMITS.notice.summary}자 이내로 입력해 주세요.`),
   content: z
     .string()
-    .min(1, '본문은 필수 항목입니다.')
-    .max(FIELD_LIMITS.notice.content, `${FIELD_LIMITS.notice.content}자 이내로 입력해주세요.`),
+    .min(1, '본문을 입력해 주세요.')
+    .max(FIELD_LIMITS.notice.content, `${FIELD_LIMITS.notice.content}자 이내로 입력해 주세요.`),
   pinned: z.boolean(),
 });
 

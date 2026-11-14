@@ -105,9 +105,8 @@ export function UserListPage() {
 
   return (
     <div className="flex flex-col gap-6">
-      <div className="flex flex-col gap-1">
+      <div className="flex min-h-16 flex-col gap-1">
         <h1 className="text-h1 text-foreground">유저 관리</h1>
-        <p className="text-body text-fg-muted">유저의 상태와 권한을 관리합니다.</p>
       </div>
 
       <div className="flex items-center gap-3">
@@ -157,7 +156,7 @@ export function UserListPage() {
         isLoading={isLoading}
         isError={isError}
         onRetry={() => refetch()}
-        emptyMessage={isFiltered ? '조건에 맞는 유저가 없습니다.' : '유저가 없습니다.'}
+        emptyMessage={isFiltered ? '조건에 맞는 유저가 없어요.' : '유저가 없어요.'}
         onRowClick={(user) => navigate(ROUTES.USER_DETAIL(user.userId))}
       />
 

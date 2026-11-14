@@ -30,28 +30,28 @@ export function UserStatusChangeModal({
       ? change.value === 'DELETED'
         ? {
             variant: 'destructive' as const,
-            title: '유저를 삭제 처리하시겠습니까?',
-            description: `${who}을(를) DELETED 상태로 변경합니다. 이 작업은 되돌리기 어렵습니다.`,
-            confirmLabel: '삭제',
+            title: '유저를 삭제 처리할까요?',
+            description: `${who} 계정 상태를 바꿔요: DELETED. 이 작업은 되돌리기 어려워요.`,
+            confirmLabel: '삭제 처리하기',
           }
         : {
             variant: 'default' as const,
-            title: '유저 상태를 변경하시겠습니까?',
-            description: `${who}을(를) ${change.value} 상태로 변경합니다.`,
-            confirmLabel: '확인',
+            title: '유저 상태를 바꿀까요?',
+            description: `${who} 계정 상태를 바꿔요: ${change.value}.`,
+            confirmLabel: '상태 변경하기',
           }
       : change.value === 'ADMIN'
         ? {
             variant: 'destructive' as const,
-            title: '관리자 권한을 부여하시겠습니까?',
-            description: `${who}에게 관리자 권한을 부여합니다. 백오피스 접근 등 모든 운영 권한이 부여됩니다.`,
-            confirmLabel: '부여',
+            title: '관리자 권한을 부여할까요?',
+            description: `${who}에게 관리자 권한을 부여해요. 백오피스 접근 등 모든 운영 권한을 사용할 수 있어요.`,
+            confirmLabel: '권한 부여하기',
           }
         : {
             variant: 'default' as const,
-            title: '관리자 권한을 회수하시겠습니까?',
-            description: `${who}의 관리자 권한을 회수합니다.`,
-            confirmLabel: '확인',
+            title: '관리자 권한을 회수할까요?',
+            description: `${who}의 관리자 권한을 회수해요.`,
+            confirmLabel: '권한 회수하기',
           };
 
   return (

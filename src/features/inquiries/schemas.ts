@@ -50,7 +50,7 @@ export const inquiryDetailSchema = z.object({
 });
 
 export const inquiryAnswerFormSchema = z.object({
-  content: z.string().trim().min(1, '답변 내용을 입력해주세요.'),
+  content: z.string().trim().min(1, '답변 내용을 입력해 주세요.'),
 });
 
 export type InquiryListItem = z.infer<typeof inquiryListItemSchema>;

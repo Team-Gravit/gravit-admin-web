@@ -95,9 +95,8 @@ export function ReportListPage() {
 
   return (
     <div className="flex flex-col gap-6">
-      <div className="flex flex-col gap-1">
+      <div className="flex min-h-16 flex-col gap-1">
         <h1 className="text-h1 text-foreground">신고 관리</h1>
-        <p className="text-body text-fg-muted">유저가 제출한 문제 신고를 처리합니다.</p>
       </div>
 
       <div className="flex items-center gap-3">
@@ -133,7 +132,7 @@ export function ReportListPage() {
         isLoading={isLoading}
         isError={isError}
         onRetry={() => refetch()}
-        emptyMessage={isFiltered ? '조건에 맞는 신고가 없습니다.' : '신고가 없습니다.'}
+        emptyMessage={isFiltered ? '조건에 맞는 신고가 없어요.' : '신고가 없어요.'}
         onRowClick={(report) => navigate(ROUTES.REPORT_DETAIL(report.reportId))}
       />
 

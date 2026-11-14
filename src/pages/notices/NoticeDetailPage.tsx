@@ -41,7 +41,7 @@ export function NoticeDetailPage() {
   const handleDelete = () => {
     deleteNotice.mutate(id, {
       onSuccess: () => {
-        toast.success('공지가 삭제되었습니다.');
+        toast.success('공지를 삭제했어요.');
         navigate(ROUTES.NOTICES);
       },
     });
@@ -55,11 +55,11 @@ export function NoticeDetailPage() {
       <div className="flex items-start justify-between">
         <div className="flex flex-col gap-2">
           <div className="flex items-center gap-3">
-            {data.pinned && <Pin className="size-5 text-primary" />}
+            {data.pinned && <Pin className="size-5 text-fg-secondary" />}
             <NoticeStatusBadge status={data.status} />
             <h1 className="text-h1 text-foreground">{data.title}</h1>
           </div>
-          <p className="text-caption text-fg-muted">
+          <p className="text-caption tabular-nums text-fg-muted">
             게시일: {publishedLabel} · 작성일: {formatDate(data.createdAt)}
           </p>
         </div>
@@ -91,10 +91,10 @@ export function NoticeDetailPage() {
       <ConfirmModal
         open={confirmDelete}
         onOpenChange={setConfirmDelete}
-        title="공지를 삭제하시겠습니까?"
-        description={`"${data.title}" 공지를 삭제합니다. 삭제된 공지는 목록에서 사라집니다.`}
+        title="공지를 삭제할까요?"
+        description={`"${data.title}" 공지를 삭제해요. 삭제한 공지는 목록에서 사라져요.`}
         variant="destructive"
-        confirmLabel="삭제"
+        confirmLabel="공지 삭제하기"
         loading={deleteNotice.isPending}
         onConfirm={handleDelete}
       />

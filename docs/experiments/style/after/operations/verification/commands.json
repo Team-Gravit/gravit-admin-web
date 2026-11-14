@@ -1,0 +1,34 @@
+[
+  {
+    "command": "npm run check:full",
+    "exitCode": 0
+  },
+  {
+    "command": "npm run test",
+    "exitCode": 0,
+    "files": 15,
+    "passed": 54
+  },
+  {
+    "command": "npm run test:e2e",
+    "exitCode": 0,
+    "passed": 110
+  },
+  {
+    "command": "node --test scripts/checks/token-lint.test.mjs",
+    "exitCode": 0,
+    "passed": 4
+  },
+  {
+    "command": "first e2e run",
+    "exitCode": 1,
+    "passed": 105,
+    "failed": 5
+  },
+  {
+    "command": "unit before implementation",
+    "exitCode": 1,
+    "passed": 3,
+    "failed": 11
+  }
+]
