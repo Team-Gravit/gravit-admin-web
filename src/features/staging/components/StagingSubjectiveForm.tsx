@@ -111,14 +111,14 @@ export function StagingSubjectiveForm({
       }
 
       if (failed === 0) {
-        toast.success('저장되었습니다.');
+        toast.success('저장했어요.');
       } else if (failed < results.length) {
-        toast.error(`일부 항목만 저장되었습니다. (${results.length - failed}/${results.length} 성공)`);
+        toast.error(`일부 항목만 저장했어요. (${results.length - failed}/${results.length} 성공)`);
       } else {
-        toast.error('저장에 실패했습니다.');
+        toast.error('저장하지 못했어요. 다시 시도해 주세요.');
       }
     },
-    () => toast.error('필수 항목을 확인해주세요.'),
+    () => toast.error('필수 항목을 확인해 주세요.'),
   );
 
   const ids = {
@@ -135,10 +135,15 @@ export function StagingSubjectiveForm({
           <h3 className="text-h3 text-foreground">문제 {problemNumber}</h3>
           <ProblemTypeBadge problemType={problem.problemType} />
         </div>
-        <p className="text-caption text-fg-muted">ID: {problem.problemId}</p>
+        <p className="text-caption tabular-nums text-fg-muted">ID: {problem.problemId}</p>
       </div>
 
-      <FormField label="지시문" htmlFor={ids.instruction} required error={errors.instruction?.message}>
+      <FormField
+        label="지시문"
+        htmlFor={ids.instruction}
+        required
+        error={errors.instruction?.message}
+      >
         <Input
           id={ids.instruction}
           className={cn(dirtyBorder(dirtyFields.instruction), roClass)}
@@ -170,7 +175,12 @@ export function StagingSubjectiveForm({
           {...register('answerContent')}
         />
       </FormField>
-      <FormField label="해설" htmlFor={ids.explanation} required error={errors.answerExplanation?.message}>
+      <FormField
+        label="해설"
+        htmlFor={ids.explanation}
+        required
+        error={errors.answerExplanation?.message}
+      >
         <Textarea
           id={ids.explanation}
           className={cn('min-h-24', dirtyBorder(dirtyFields.answerExplanation), roClass)}
@@ -182,8 +192,14 @@ export function StagingSubjectiveForm({
       {!readOnly && (
         <div className="flex justify-end">
           <Button onClick={onSubmit} disabled={!isDirty || isSaving}>
-            {isSaving && <Loader2 className="animate-spin" />}
-            저장
+            {isSaving && (
+              <Loader2
+                className="animate-spin motion-reduce:animate-none"
+                style={{ animationDuration: 'var(--motion-loading-cycle)' }}
+                aria-hidden
+              />
+            )}
+            {isSaving ? '저장하고 있어요…' : '저장하기'}
           </Button>
         </div>
       )}

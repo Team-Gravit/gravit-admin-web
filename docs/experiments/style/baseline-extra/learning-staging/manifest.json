@@ -1,0 +1,494 @@
+[
+  {
+    "file": "stats-loading-1280.png",
+    "width": 1280,
+    "height": 900,
+    "route": "/chapters/1",
+    "phase": "before",
+    "evidence": {
+      "body": "자료구조 기초\n\n배열, 리스트, 스택, 큐, 트리, 그래프 등 기본 자료구조\n\n편집\n풀이 현황\n유닛 (총 4개)\n제목\t설명\n\n배열\n\t\n배열의 개념과 활용\n\n\n연결 리스트\n\t\n노드 기반 선형 자료구조\n\n\n스택과 큐\n\t\nLIFO/FIFO 자료구조\n\n\n트리\n\t\n계층적 자료구조",
+      "font": "Pretendard, system-ui, -apple-system, sans-serif",
+      "headings": [
+        {
+          "text": "자료구조 기초",
+          "width": 288.046875,
+          "x": 272,
+          "y": 80
+        },
+        {
+          "text": "풀이 현황",
+          "width": 976,
+          "x": 272,
+          "y": 166
+        },
+        {
+          "text": "유닛 (총 4개)",
+          "width": 976,
+          "x": 272,
+          "y": 732
+        }
+      ],
+      "overflow": false,
+      "table": {
+        "width": 974,
+        "x": 273,
+        "y": 773
+      }
+    }
+  },
+  {
+    "file": "stats-empty-1280.png",
+    "width": 1280,
+    "height": 900,
+    "route": "/chapters/1",
+    "phase": "before",
+    "evidence": {
+      "body": "자료구조 기초\n\n배열, 리스트, 스택, 큐, 트리, 그래프 등 기본 자료구조\n\n편집\n풀이 현황\n\n아직 풀이 데이터가 없습니다.\n\n유닛 (총 4개)\n제목\t설명\n\n배열\n\t\n배열의 개념과 활용\n\n\n연결 리스트\n\t\n노드 기반 선형 자료구조\n\n\n스택과 큐\n\t\nLIFO/FIFO 자료구조\n\n\n트리\n\t\n계층적 자료구조",
+      "font": "Pretendard, system-ui, -apple-system, sans-serif",
+      "headings": [
+        {
+          "text": "자료구조 기초",
+          "width": 288.046875,
+          "x": 272,
+          "y": 80
+        },
+        {
+          "text": "풀이 현황",
+          "width": 976,
+          "x": 272,
+          "y": 166
+        },
+        {
+          "text": "유닛 (총 4개)",
+          "width": 976,
+          "x": 272,
+          "y": 382
+        }
+      ],
+      "overflow": false,
+      "table": {
+        "width": 974,
+        "x": 273,
+        "y": 423
+      }
+    }
+  },
+  {
+    "file": "stats-error-1280.png",
+    "width": 1280,
+    "height": 900,
+    "route": "/chapters/1",
+    "phase": "before",
+    "evidence": {
+      "body": "자료구조 기초\n\n배열, 리스트, 스택, 큐, 트리, 그래프 등 기본 자료구조\n\n편집\n풀이 현황\n\n데이터를 불러오지 못했어요. 잠시 뒤 다시 시도해 주세요.\n\n다시 시도하기\n유닛 (총 4개)\n제목\t설명\n\n배열\n\t\n배열의 개념과 활용\n\n\n연결 리스트\n\t\n노드 기반 선형 자료구조\n\n\n스택과 큐\n\t\nLIFO/FIFO 자료구조\n\n",
+      "font": "Pretendard, system-ui, -apple-system, sans-serif",
+      "headings": [
+        {
+          "text": "자료구조 기초",
+          "width": 288.046875,
+          "x": 272,
+          "y": 80
+        },
+        {
+          "text": "풀이 현황",
+          "width": 976,
+          "x": 272,
+          "y": 166
+        },
+        {
+          "text": "유닛 (총 4개)",
+          "width": 976,
+          "x": 272,
+          "y": 434
+        }
+      ],
+      "overflow": false,
+      "table": {
+        "width": 974,
+        "x": 273,
+        "y": 475
+      }
+    }
+  },
+  {
+    "file": "staging-loading-1280.png",
+    "width": 1280,
+    "height": 900,
+    "route": "/staging/labels",
+    "phase": "before",
+    "evidence": {
+      "body": "스테이징\n\n자동 생성된 컨텐츠를 검수하고 운영에 반영합니다.\n\n상태\n검수 대기",
+      "font": "Pretendard, system-ui, -apple-system, sans-serif",
+      "headings": [
+        {
+          "text": "스테이징",
+          "width": 976,
+          "x": 272,
+          "y": 80
+        }
+      ],
+      "overflow": false,
+      "table": null
+    }
+  },
+  {
+    "file": "staging-empty-1280.png",
+    "width": 1280,
+    "height": 900,
+    "route": "/staging/labels",
+    "phase": "before",
+    "evidence": {
+      "body": "스테이징\n\n자동 생성된 컨텐츠를 검수하고 운영에 반영합니다.\n\n상태\n검수 대기\n\n조건에 맞는 라벨이 없습니다.",
+      "font": "Pretendard, system-ui, -apple-system, sans-serif",
+      "headings": [
+        {
+          "text": "스테이징",
+          "width": 976,
+          "x": 272,
+          "y": 80
+        }
+      ],
+      "overflow": false,
+      "table": null
+    }
+  },
+  {
+    "file": "staging-error-1280.png",
+    "width": 1280,
+    "height": 900,
+    "route": "/staging/labels",
+    "phase": "before",
+    "evidence": {
+      "body": "스테이징\n\n자동 생성된 컨텐츠를 검수하고 운영에 반영합니다.\n\n상태\n검수 대기\n\n데이터를 불러오지 못했어요. 잠시 뒤 다시 시도해 주세요.\n\n다시 시도하기",
+      "font": "Pretendard, system-ui, -apple-system, sans-serif",
+      "headings": [
+        {
+          "text": "스테이징",
+          "width": 976,
+          "x": 272,
+          "y": 80
+        }
+      ],
+      "overflow": false,
+      "table": null
+    }
+  },
+  {
+    "file": "staging-pending-1280.png",
+    "width": 1280,
+    "height": 900,
+    "route": "/staging/labels/2026-04-25-update",
+    "phase": "before",
+    "evidence": {
+      "body": "검수 대기\n2026-04-25-update\n반영 완료 처리\n\nU-12 · 배열 챕터 5번째 사이클 · 생성일 2026-04-25\n\n레슨\n문제 1\n객관식\n문제 2\n객관식\n문제 3\n주관식\n문제 4\n객관식\n문제 5\n주관식\n문제 6\n객관식\n레슨\n\nID: 901\n\n제목 *\n저장",
+      "font": "Pretendard, system-ui, -apple-system, sans-serif",
+      "headings": [
+        {
+          "text": "2026-04-25-update",
+          "width": 266.109375,
+          "x": 351.828125,
+          "y": 80
+        },
+        {
+          "text": "레슨",
+          "width": 638,
+          "x": 585,
+          "y": 195
+        },
+        {
+          "text": "문제 1",
+          "width": 0,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "text": "문제 2",
+          "width": 0,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "text": "문제 3",
+          "width": 0,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "text": "문제 4",
+          "width": 0,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "text": "문제 5",
+          "width": 0,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "text": "문제 6",
+          "width": 0,
+          "x": 0,
+          "y": 0
+        }
+      ],
+      "overflow": false,
+      "table": null
+    },
+    "motion": {
+      "animations": 1,
+      "duration": "1s",
+      "iterations": "infinite",
+      "label": "저장",
+      "name": "spin",
+      "navWidth": 288,
+      "reduced": false
+    }
+  },
+  {
+    "file": "stats-loading-1440.png",
+    "width": 1440,
+    "height": 900,
+    "route": "/chapters/1",
+    "phase": "before",
+    "evidence": {
+      "body": "자료구조 기초\n\n배열, 리스트, 스택, 큐, 트리, 그래프 등 기본 자료구조\n\n편집\n풀이 현황\n유닛 (총 4개)\n제목\t설명\n\n배열\n\t\n배열의 개념과 활용\n\n\n연결 리스트\n\t\n노드 기반 선형 자료구조\n\n\n스택과 큐\n\t\nLIFO/FIFO 자료구조\n\n\n트리\n\t\n계층적 자료구조",
+      "font": "Pretendard, system-ui, -apple-system, sans-serif",
+      "headings": [
+        {
+          "text": "자료구조 기초",
+          "width": 288.046875,
+          "x": 272,
+          "y": 80
+        },
+        {
+          "text": "풀이 현황",
+          "width": 1136,
+          "x": 272,
+          "y": 166
+        },
+        {
+          "text": "유닛 (총 4개)",
+          "width": 1136,
+          "x": 272,
+          "y": 732
+        }
+      ],
+      "overflow": false,
+      "table": {
+        "width": 1134,
+        "x": 273,
+        "y": 773
+      }
+    }
+  },
+  {
+    "file": "stats-empty-1440.png",
+    "width": 1440,
+    "height": 900,
+    "route": "/chapters/1",
+    "phase": "before",
+    "evidence": {
+      "body": "자료구조 기초\n\n배열, 리스트, 스택, 큐, 트리, 그래프 등 기본 자료구조\n\n편집\n풀이 현황\n\n아직 풀이 데이터가 없습니다.\n\n유닛 (총 4개)\n제목\t설명\n\n배열\n\t\n배열의 개념과 활용\n\n\n연결 리스트\n\t\n노드 기반 선형 자료구조\n\n\n스택과 큐\n\t\nLIFO/FIFO 자료구조\n\n\n트리\n\t\n계층적 자료구조",
+      "font": "Pretendard, system-ui, -apple-system, sans-serif",
+      "headings": [
+        {
+          "text": "자료구조 기초",
+          "width": 288.046875,
+          "x": 272,
+          "y": 80
+        },
+        {
+          "text": "풀이 현황",
+          "width": 1136,
+          "x": 272,
+          "y": 166
+        },
+        {
+          "text": "유닛 (총 4개)",
+          "width": 1136,
+          "x": 272,
+          "y": 382
+        }
+      ],
+      "overflow": false,
+      "table": {
+        "width": 1134,
+        "x": 273,
+        "y": 423
+      }
+    }
+  },
+  {
+    "file": "stats-error-1440.png",
+    "width": 1440,
+    "height": 900,
+    "route": "/chapters/1",
+    "phase": "before",
+    "evidence": {
+      "body": "자료구조 기초\n\n배열, 리스트, 스택, 큐, 트리, 그래프 등 기본 자료구조\n\n편집\n풀이 현황\n\n데이터를 불러오지 못했어요. 잠시 뒤 다시 시도해 주세요.\n\n다시 시도하기\n유닛 (총 4개)\n제목\t설명\n\n배열\n\t\n배열의 개념과 활용\n\n\n연결 리스트\n\t\n노드 기반 선형 자료구조\n\n\n스택과 큐\n\t\nLIFO/FIFO 자료구조\n\n",
+      "font": "Pretendard, system-ui, -apple-system, sans-serif",
+      "headings": [
+        {
+          "text": "자료구조 기초",
+          "width": 288.046875,
+          "x": 272,
+          "y": 80
+        },
+        {
+          "text": "풀이 현황",
+          "width": 1136,
+          "x": 272,
+          "y": 166
+        },
+        {
+          "text": "유닛 (총 4개)",
+          "width": 1136,
+          "x": 272,
+          "y": 434
+        }
+      ],
+      "overflow": false,
+      "table": {
+        "width": 1134,
+        "x": 273,
+        "y": 475
+      }
+    }
+  },
+  {
+    "file": "staging-loading-1440.png",
+    "width": 1440,
+    "height": 900,
+    "route": "/staging/labels",
+    "phase": "before",
+    "evidence": {
+      "body": "스테이징\n\n자동 생성된 컨텐츠를 검수하고 운영에 반영합니다.\n\n상태\n검수 대기",
+      "font": "Pretendard, system-ui, -apple-system, sans-serif",
+      "headings": [
+        {
+          "text": "스테이징",
+          "width": 1136,
+          "x": 272,
+          "y": 80
+        }
+      ],
+      "overflow": false,
+      "table": null
+    }
+  },
+  {
+    "file": "staging-empty-1440.png",
+    "width": 1440,
+    "height": 900,
+    "route": "/staging/labels",
+    "phase": "before",
+    "evidence": {
+      "body": "스테이징\n\n자동 생성된 컨텐츠를 검수하고 운영에 반영합니다.\n\n상태\n검수 대기\n\n조건에 맞는 라벨이 없습니다.",
+      "font": "Pretendard, system-ui, -apple-system, sans-serif",
+      "headings": [
+        {
+          "text": "스테이징",
+          "width": 1136,
+          "x": 272,
+          "y": 80
+        }
+      ],
+      "overflow": false,
+      "table": null
+    }
+  },
+  {
+    "file": "staging-error-1440.png",
+    "width": 1440,
+    "height": 900,
+    "route": "/staging/labels",
+    "phase": "before",
+    "evidence": {
+      "body": "스테이징\n\n자동 생성된 컨텐츠를 검수하고 운영에 반영합니다.\n\n상태\n검수 대기\n\n데이터를 불러오지 못했어요. 잠시 뒤 다시 시도해 주세요.\n\n다시 시도하기",
+      "font": "Pretendard, system-ui, -apple-system, sans-serif",
+      "headings": [
+        {
+          "text": "스테이징",
+          "width": 1136,
+          "x": 272,
+          "y": 80
+        }
+      ],
+      "overflow": false,
+      "table": null
+    }
+  },
+  {
+    "file": "staging-pending-1440.png",
+    "width": 1440,
+    "height": 900,
+    "route": "/staging/labels/2026-04-25-update",
+    "phase": "before",
+    "evidence": {
+      "body": "검수 대기\n2026-04-25-update\n반영 완료 처리\n\nU-12 · 배열 챕터 5번째 사이클 · 생성일 2026-04-25\n\n레슨\n문제 1\n객관식\n문제 2\n객관식\n문제 3\n주관식\n문제 4\n객관식\n문제 5\n주관식\n문제 6\n객관식\n레슨\n\nID: 901\n\n제목 *\n저장",
+      "font": "Pretendard, system-ui, -apple-system, sans-serif",
+      "headings": [
+        {
+          "text": "2026-04-25-update",
+          "width": 266.109375,
+          "x": 351.828125,
+          "y": 80
+        },
+        {
+          "text": "레슨",
+          "width": 798,
+          "x": 585,
+          "y": 195
+        },
+        {
+          "text": "문제 1",
+          "width": 0,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "text": "문제 2",
+          "width": 0,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "text": "문제 3",
+          "width": 0,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "text": "문제 4",
+          "width": 0,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "text": "문제 5",
+          "width": 0,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "text": "문제 6",
+          "width": 0,
+          "x": 0,
+          "y": 0
+        }
+      ],
+      "overflow": false,
+      "table": null
+    },
+    "motion": {
+      "animations": 1,
+      "duration": "1s",
+      "iterations": "infinite",
+      "label": "저장",
+      "name": "spin",
+      "navWidth": 288,
+      "reduced": false
+    }
+  }
+]

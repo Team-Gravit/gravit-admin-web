@@ -73,34 +73,34 @@ export const stagingLabelDetailSchema = z.object({
 export const stagingLessonFormSchema = z.object({
   title: z
     .string()
-    .min(1, '제목은 필수 항목입니다.')
-    .max(FIELD_LIMITS.lesson.title, `${FIELD_LIMITS.lesson.title}자 이내로 입력해주세요.`),
+    .min(1, '제목을 입력해 주세요.')
+    .max(FIELD_LIMITS.lesson.title, `${FIELD_LIMITS.lesson.title}자 이내로 입력해 주세요.`),
 });
 export type StagingLessonFormValues = z.infer<typeof stagingLessonFormSchema>;
 
 export const stagingObjectiveFormSchema = z.object({
   instruction: z
     .string()
-    .min(1, '지시문은 필수 항목입니다.')
-    .max(FIELD_LIMITS.problem.instruction, `${FIELD_LIMITS.problem.instruction}자 이내로 입력해주세요.`),
+    .min(1, '지시문을 입력해 주세요.')
+    .max(FIELD_LIMITS.problem.instruction, `${FIELD_LIMITS.problem.instruction}자 이내로 입력해 주세요.`),
   content: z
     .string()
-    .min(1, '본문은 필수 항목입니다.')
-    .max(FIELD_LIMITS.problem.content, `${FIELD_LIMITS.problem.content}자 이내로 입력해주세요.`),
+    .min(1, '본문을 입력해 주세요.')
+    .max(FIELD_LIMITS.problem.content, `${FIELD_LIMITS.problem.content}자 이내로 입력해 주세요.`),
   answerOptionId: z.number(),
   options: z.array(
     z.object({
       optionId: z.number(),
       content: z
         .string()
-        .min(1, '보기 내용을 입력해주세요.')
-        .max(FIELD_LIMITS.option.content, `${FIELD_LIMITS.option.content}자 이내로 입력해주세요.`),
+        .min(1, '보기 내용을 입력해 주세요.')
+        .max(FIELD_LIMITS.option.content, `${FIELD_LIMITS.option.content}자 이내로 입력해 주세요.`),
       explanation: z
         .string()
-        .min(1, '해설을 입력해주세요.')
+        .min(1, '해설을 입력해 주세요.')
         .max(
           FIELD_LIMITS.option.explanation,
-          `${FIELD_LIMITS.option.explanation}자 이내로 입력해주세요.`,
+          `${FIELD_LIMITS.option.explanation}자 이내로 입력해 주세요.`,
         ),
     }),
   ),
@@ -110,20 +110,20 @@ export type StagingObjectiveFormValues = z.infer<typeof stagingObjectiveFormSche
 export const stagingSubjectiveFormSchema = z.object({
   instruction: z
     .string()
-    .min(1, '지시문은 필수 항목입니다.')
-    .max(FIELD_LIMITS.problem.instruction, `${FIELD_LIMITS.problem.instruction}자 이내로 입력해주세요.`),
+    .min(1, '지시문을 입력해 주세요.')
+    .max(FIELD_LIMITS.problem.instruction, `${FIELD_LIMITS.problem.instruction}자 이내로 입력해 주세요.`),
   content: z
     .string()
-    .min(1, '본문은 필수 항목입니다.')
-    .max(FIELD_LIMITS.problem.content, `${FIELD_LIMITS.problem.content}자 이내로 입력해주세요.`),
+    .min(1, '본문을 입력해 주세요.')
+    .max(FIELD_LIMITS.problem.content, `${FIELD_LIMITS.problem.content}자 이내로 입력해 주세요.`),
   answerContent: z
     .string()
-    .min(1, '정답을 입력해주세요.')
-    .max(FIELD_LIMITS.answer.content, `${FIELD_LIMITS.answer.content}자 이내로 입력해주세요.`),
+    .min(1, '정답을 입력해 주세요.')
+    .max(FIELD_LIMITS.answer.content, `${FIELD_LIMITS.answer.content}자 이내로 입력해 주세요.`),
   answerExplanation: z
     .string()
-    .min(1, '해설을 입력해주세요.')
-    .max(FIELD_LIMITS.answer.explanation, `${FIELD_LIMITS.answer.explanation}자 이내로 입력해주세요.`),
+    .min(1, '해설을 입력해 주세요.')
+    .max(FIELD_LIMITS.answer.explanation, `${FIELD_LIMITS.answer.explanation}자 이내로 입력해 주세요.`),
 });
 export type StagingSubjectiveFormValues = z.infer<typeof stagingSubjectiveFormSchema>;
 

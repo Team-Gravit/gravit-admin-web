@@ -59,11 +59,11 @@ export type ChapterUnitListResponse = z.infer<typeof chapterUnitListResponseSche
 export const chapterEditFormSchema = z.object({
   title: z
     .string()
-    .min(1, '제목은 필수 항목입니다.')
-    .max(FIELD_LIMITS.chapter.title, `${FIELD_LIMITS.chapter.title}자 이내로 입력해주세요.`),
+    .min(1, '제목을 입력해 주세요.')
+    .max(FIELD_LIMITS.chapter.title, `${FIELD_LIMITS.chapter.title}자 이내로 입력해 주세요.`),
   description: z
     .string()
-    .max(FIELD_LIMITS.chapter.description, `${FIELD_LIMITS.chapter.description}자 이내로 입력해주세요.`),
+    .max(FIELD_LIMITS.chapter.description, `${FIELD_LIMITS.chapter.description}자 이내로 입력해 주세요.`),
 });
 
 export type ChapterEditFormValues = z.infer<typeof chapterEditFormSchema>;

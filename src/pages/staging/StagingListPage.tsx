@@ -70,7 +70,7 @@ export function StagingListPage() {
     <div className="flex flex-col gap-6">
       <div className="flex flex-col gap-1">
         <h1 className="text-h1 text-foreground">스테이징</h1>
-        <p className="text-body text-fg-muted">자동 생성된 컨텐츠를 검수하고 운영에 반영합니다.</p>
+        <p className="text-body text-fg-muted">자동 생성한 컨텐츠를 검수하고 운영에 반영해요.</p>
       </div>
 
       <div className="flex items-center gap-2">
@@ -94,7 +94,7 @@ export function StagingListPage() {
         isLoading={isLoading}
         isError={isError}
         onRetry={() => refetch()}
-        emptyMessage={statusFilter === 'ALL' ? '라벨이 없습니다.' : '조건에 맞는 라벨이 없습니다.'}
+        emptyMessage={statusFilter === 'ALL' ? '라벨이 없어요.' : '조건에 맞는 라벨이 없어요.'}
         onRowClick={(item) => navigate(ROUTES.STAGING_LABEL_DETAIL(item.label))}
       />
 

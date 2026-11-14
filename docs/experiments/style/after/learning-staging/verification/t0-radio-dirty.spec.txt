@@ -1,0 +1,11 @@
+import {test,expect} from '@playwright/test';
+test('T0 원본에서도 정답 변경 저장 성공 뒤 저장 버튼이 활성 상태로 남는다',async({page})=>{
+ await page.addInitScript(()=>localStorage.setItem('gravit_admin_session','true'));
+ await page.goto('/staging/labels/2026-04-25-update');
+ await page.getByRole('navigation',{name:'스테이징 항목'}).getByRole('button',{name:/문제 1/}).click();
+ await page.getByRole('radio').nth(1).check();
+ await page.getByRole('button',{name:'저장',exact:true}).click();
+ await expect(page.getByText('저장되었습니다.',{exact:true})).toBeVisible();
+ await expect(page.getByRole('button',{name:'저장',exact:true})).toBeEnabled();
+ await expect(page.getByRole('button',{name:'반영 완료 처리'})).toBeDisabled();
+});

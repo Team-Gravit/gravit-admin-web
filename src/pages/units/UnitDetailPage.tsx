@@ -66,7 +66,7 @@ export function UnitDetailPage() {
           isLoading={lessons.isLoading}
           isError={lessons.isError}
           onRetry={() => lessons.refetch()}
-          emptyMessage="레슨이 없습니다."
+          emptyMessage="레슨이 없어요."
           onRowClick={(lesson) => navigate(ROUTES.LESSON_DETAIL(lesson.lessonId))}
         />
         {lessons.data && lessons.data.totalPages > 1 && (

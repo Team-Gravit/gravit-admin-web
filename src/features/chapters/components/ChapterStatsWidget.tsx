@@ -16,8 +16,8 @@ function ProgressBar({ value }: { value: number }) {
   const pct = Math.max(0, Math.min(100, value));
   return (
     <div className="flex items-center gap-3">
-      <div className="h-2 flex-1 overflow-hidden rounded-full bg-primary-subtle">
-        <div className="h-full rounded-full bg-primary" style={{ width: `${pct}%` }} />
+      <div className="h-2 flex-1 overflow-hidden rounded-full bg-muted">
+        <div className="h-full rounded-full bg-fg-secondary" style={{ width: `${pct}%` }} />
       </div>
       <span className="w-10 shrink-0 text-right text-body tabular-nums text-foreground">{pct}%</span>
     </div>
@@ -36,7 +36,7 @@ export function ChapterStatsWidget({ stats, isLoading, isError, onRetry }: Chapt
     if (isLoading) return <LoadingSkeleton />;
     if (isError) return <ErrorState onRetry={onRetry} />;
     if (!stats || stats.units.length === 0) {
-      return <EmptyState message="아직 풀이 데이터가 없습니다." />;
+      return <EmptyState message="아직 풀이 데이터가 없어요." />;
     }
     return (
       <Table>

@@ -38,12 +38,12 @@ export function UnitEditForm({ unit, onCancel, onSaved }: UnitEditFormProps) {
     (values) => {
       updateUnit.mutate(values, {
         onSuccess: () => {
-          toast.success('저장되었습니다.');
+          toast.success('저장했어요.');
           onSaved();
         },
       });
     },
-    () => toast.error('필수 항목을 확인해주세요.'),
+    () => toast.error('필수 항목을 확인해 주세요.'),
   );
 
   return (
@@ -57,10 +57,10 @@ export function UnitEditForm({ unit, onCancel, onSaved }: UnitEditFormProps) {
 
       <div className="flex justify-end gap-2">
         <Button variant="outline" onClick={onCancel} disabled={updateUnit.isPending}>
-          취소
+          편집 취소
         </Button>
         <Button onClick={onSubmit} disabled={updateUnit.isPending}>
-          저장
+          저장하기
         </Button>
       </div>
 

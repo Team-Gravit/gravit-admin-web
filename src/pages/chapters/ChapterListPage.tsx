@@ -28,9 +28,8 @@ export function ChapterListPage() {
 
   return (
     <div className="flex flex-col gap-6">
-      <div className="flex flex-col gap-1">
+      <div className="flex min-h-16 flex-col gap-1">
         <h1 className="text-h1 text-foreground">컨텐츠 관리</h1>
-        <p className="text-body text-fg-muted">운영 중인 챕터/유닛/레슨/문제를 관리합니다.</p>
       </div>
 
       <DataTable
@@ -40,7 +39,7 @@ export function ChapterListPage() {
         isLoading={isLoading}
         isError={isError}
         onRetry={() => refetch()}
-        emptyMessage="챕터가 없습니다."
+        emptyMessage="챕터가 없어요."
         onRowClick={(chapter) => navigate(ROUTES.CHAPTER_DETAIL(chapter.chapterId))}
       />
 

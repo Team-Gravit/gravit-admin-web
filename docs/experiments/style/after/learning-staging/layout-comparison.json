@@ -1,0 +1,170 @@
+[
+  {
+    "key": "chapters",
+    "width": 1280,
+    "shellSame": true,
+    "headingOrderSame": true,
+    "headingDeltaY": [
+      0
+    ],
+    "overflow": false,
+    "activeAnimations": 0
+  },
+  {
+    "key": "chapter-detail",
+    "width": 1280,
+    "shellSame": true,
+    "headingOrderSame": true,
+    "headingDeltaY": [
+      0,
+      0,
+      0
+    ],
+    "overflow": false,
+    "activeAnimations": 0
+  },
+  {
+    "key": "unit-detail",
+    "width": 1280,
+    "shellSame": true,
+    "headingOrderSame": true,
+    "headingDeltaY": [
+      0,
+      0
+    ],
+    "overflow": false,
+    "activeAnimations": 0
+  },
+  {
+    "key": "lesson-detail",
+    "width": 1280,
+    "shellSame": true,
+    "headingOrderSame": true,
+    "headingDeltaY": [
+      0,
+      0
+    ],
+    "overflow": false,
+    "activeAnimations": 0
+  },
+  {
+    "key": "problem-objective",
+    "width": 1280,
+    "shellSame": true,
+    "headingOrderSame": true,
+    "headingDeltaY": [
+      0,
+      0,
+      0
+    ],
+    "overflow": false,
+    "activeAnimations": 0
+  },
+  {
+    "key": "staging",
+    "width": 1280,
+    "shellSame": true,
+    "headingOrderSame": true,
+    "headingDeltaY": [
+      0
+    ],
+    "overflow": false,
+    "activeAnimations": 0
+  },
+  {
+    "key": "staging-detail",
+    "width": 1280,
+    "shellSame": true,
+    "headingOrderSame": true,
+    "headingDeltaY": [
+      0,
+      0
+    ],
+    "overflow": false,
+    "activeAnimations": 0
+  },
+  {
+    "key": "chapters",
+    "width": 1440,
+    "shellSame": true,
+    "headingOrderSame": true,
+    "headingDeltaY": [
+      0
+    ],
+    "overflow": false,
+    "activeAnimations": 0
+  },
+  {
+    "key": "chapter-detail",
+    "width": 1440,
+    "shellSame": true,
+    "headingOrderSame": true,
+    "headingDeltaY": [
+      0,
+      0,
+      0
+    ],
+    "overflow": false,
+    "activeAnimations": 0
+  },
+  {
+    "key": "unit-detail",
+    "width": 1440,
+    "shellSame": true,
+    "headingOrderSame": true,
+    "headingDeltaY": [
+      0,
+      0
+    ],
+    "overflow": false,
+    "activeAnimations": 0
+  },
+  {
+    "key": "lesson-detail",
+    "width": 1440,
+    "shellSame": true,
+    "headingOrderSame": true,
+    "headingDeltaY": [
+      0,
+      0
+    ],
+    "overflow": false,
+    "activeAnimations": 0
+  },
+  {
+    "key": "problem-objective",
+    "width": 1440,
+    "shellSame": true,
+    "headingOrderSame": true,
+    "headingDeltaY": [
+      0,
+      0,
+      0
+    ],
+    "overflow": false,
+    "activeAnimations": 0
+  },
+  {
+    "key": "staging",
+    "width": 1440,
+    "shellSame": true,
+    "headingOrderSame": true,
+    "headingDeltaY": [
+      0
+    ],
+    "overflow": false,
+    "activeAnimations": 0
+  },
+  {
+    "key": "staging-detail",
+    "width": 1440,
+    "shellSame": true,
+    "headingOrderSame": true,
+    "headingDeltaY": [
+      0,
+      0
+    ],
+    "overflow": false,
+    "activeAnimations": 0
+  }
+]

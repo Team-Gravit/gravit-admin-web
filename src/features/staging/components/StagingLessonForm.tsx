@@ -49,19 +49,19 @@ export function StagingLessonForm({
     (values) => {
       updateLesson.mutate(values, {
         onSuccess: () => {
-          toast.success('저장되었습니다.');
+          toast.success('저장했어요.');
           reset(values);
         },
       });
     },
-    () => toast.error('필수 항목을 확인해주세요.'),
+    () => toast.error('필수 항목을 확인해 주세요.'),
   );
 
   return (
     <div className={cn('flex flex-col gap-5', hidden && 'hidden')}>
       <div className="flex flex-col gap-1">
         <h3 className="text-h3 text-foreground">레슨</h3>
-        <p className="text-caption text-fg-muted">ID: {lesson.lessonId}</p>
+        <p className="text-caption tabular-nums text-fg-muted">ID: {lesson.lessonId}</p>
       </div>
 
       <FormField label="제목" htmlFor="lesson-title" required error={errors.title?.message}>
@@ -79,8 +79,14 @@ export function StagingLessonForm({
       {!readOnly && (
         <div className="flex justify-end">
           <Button onClick={onSubmit} disabled={!isDirty || updateLesson.isPending}>
-            {updateLesson.isPending && <Loader2 className="animate-spin" />}
-            저장
+            {updateLesson.isPending && (
+              <Loader2
+                className="animate-spin motion-reduce:animate-none"
+                style={{ animationDuration: 'var(--motion-loading-cycle)' }}
+                aria-hidden
+              />
+            )}
+            {updateLesson.isPending ? '저장하고 있어요…' : '저장하기'}
           </Button>
         </div>
       )}

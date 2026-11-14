@@ -83,7 +83,7 @@ export function ChapterDetailPage() {
           isLoading={units.isLoading}
           isError={units.isError}
           onRetry={() => units.refetch()}
-          emptyMessage="유닛이 없습니다."
+          emptyMessage="유닛이 없어요."
           onRowClick={(unit) => navigate(ROUTES.UNIT_DETAIL(unit.unitId))}
         />
         {units.data && units.data.totalPages > 1 && (

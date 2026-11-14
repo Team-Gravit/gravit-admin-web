@@ -68,13 +68,13 @@ export function ObjectiveProblemEditForm({
         { instruction: values.instruction, content: values.content, options },
         {
           onSuccess: () => {
-            toast.success('저장되었습니다.');
+            toast.success('저장했어요.');
             onSaved();
           },
         },
       );
     },
-    () => toast.error('필수 항목을 확인해주세요.'),
+    () => toast.error('필수 항목을 확인해 주세요.'),
   );
 
   return (
@@ -128,10 +128,10 @@ export function ObjectiveProblemEditForm({
 
       <div className="flex justify-end gap-2">
         <Button variant="outline" onClick={onCancel} disabled={updateObjective.isPending}>
-          취소
+          편집 취소
         </Button>
         <Button onClick={onSubmit} disabled={updateObjective.isPending}>
-          저장
+          저장하기
         </Button>
       </div>
 

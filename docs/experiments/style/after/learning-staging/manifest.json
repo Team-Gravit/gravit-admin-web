@@ -1,0 +1,3122 @@
+[
+  {
+    "file": "stats-loading-1280.png",
+    "width": 1280,
+    "height": 900,
+    "route": "/chapters/1",
+    "phase": "after",
+    "evidence": {
+      "body": "자료구조 기초\n\n배열, 리스트, 스택, 큐, 트리, 그래프 등 기본 자료구조\n\n편집\n풀이 현황\n유닛 (총 4개)\n제목\t설명\n\n배열\n\t\n배열의 개념과 활용\n\n\n연결 리스트\n\t\n노드 기반 선형 자료구조\n\n\n스택과 큐\n\t\nLIFO/FIFO 자료구조\n\n\n트리\n\t\n계층적 자료구조",
+      "font": "Pretendard, system-ui, -apple-system, sans-serif",
+      "headings": [
+        {
+          "text": "자료구조 기초",
+          "width": 288.046875,
+          "x": 272,
+          "y": 80
+        },
+        {
+          "text": "풀이 현황",
+          "width": 976,
+          "x": 272,
+          "y": 166
+        },
+        {
+          "text": "유닛 (총 4개)",
+          "width": 976,
+          "x": 272,
+          "y": 732
+        }
+      ],
+      "overflow": false,
+      "table": {
+        "width": 974,
+        "x": 273,
+        "y": 773
+      }
+    },
+    "actualHeight": 900
+  },
+  {
+    "file": "stats-empty-1280.png",
+    "width": 1280,
+    "height": 900,
+    "route": "/chapters/1",
+    "phase": "after",
+    "evidence": {
+      "body": "자료구조 기초\n\n배열, 리스트, 스택, 큐, 트리, 그래프 등 기본 자료구조\n\n편집\n풀이 현황\n\n아직 풀이 데이터가 없어요.\n\n유닛 (총 4개)\n제목\t설명\n\n배열\n\t\n배열의 개념과 활용\n\n\n연결 리스트\n\t\n노드 기반 선형 자료구조\n\n\n스택과 큐\n\t\nLIFO/FIFO 자료구조\n\n\n트리\n\t\n계층적 자료구조",
+      "font": "Pretendard, system-ui, -apple-system, sans-serif",
+      "headings": [
+        {
+          "text": "자료구조 기초",
+          "width": 288.046875,
+          "x": 272,
+          "y": 80
+        },
+        {
+          "text": "풀이 현황",
+          "width": 976,
+          "x": 272,
+          "y": 166
+        },
+        {
+          "text": "유닛 (총 4개)",
+          "width": 976,
+          "x": 272,
+          "y": 382
+        }
+      ],
+      "overflow": false,
+      "table": {
+        "width": 974,
+        "x": 273,
+        "y": 423
+      }
+    },
+    "actualHeight": 900
+  },
+  {
+    "file": "stats-error-1280.png",
+    "width": 1280,
+    "height": 900,
+    "route": "/chapters/1",
+    "phase": "after",
+    "evidence": {
+      "body": "자료구조 기초\n\n배열, 리스트, 스택, 큐, 트리, 그래프 등 기본 자료구조\n\n편집\n풀이 현황\n\n데이터를 불러오지 못했어요. 잠시 뒤 다시 시도해 주세요.\n\n다시 시도하기\n유닛 (총 4개)\n제목\t설명\n\n배열\n\t\n배열의 개념과 활용\n\n\n연결 리스트\n\t\n노드 기반 선형 자료구조\n\n\n스택과 큐\n\t\nLIFO/FIFO 자료구조\n\n",
+      "font": "Pretendard, system-ui, -apple-system, sans-serif",
+      "headings": [
+        {
+          "text": "자료구조 기초",
+          "width": 288.046875,
+          "x": 272,
+          "y": 80
+        },
+        {
+          "text": "풀이 현황",
+          "width": 976,
+          "x": 272,
+          "y": 166
+        },
+        {
+          "text": "유닛 (총 4개)",
+          "width": 976,
+          "x": 272,
+          "y": 434
+        }
+      ],
+      "overflow": false,
+      "table": {
+        "width": 974,
+        "x": 273,
+        "y": 475
+      }
+    },
+    "actualHeight": 900
+  },
+  {
+    "file": "staging-loading-1280.png",
+    "width": 1280,
+    "height": 900,
+    "route": "/staging/labels",
+    "phase": "after",
+    "evidence": {
+      "body": "스테이징\n\n자동 생성한 컨텐츠를 검수하고 운영에 반영해요.\n\n상태\n검수 대기",
+      "font": "Pretendard, system-ui, -apple-system, sans-serif",
+      "headings": [
+        {
+          "text": "스테이징",
+          "width": 976,
+          "x": 272,
+          "y": 80
+        }
+      ],
+      "overflow": false,
+      "table": null
+    },
+    "actualHeight": 900
+  },
+  {
+    "file": "staging-empty-1280.png",
+    "width": 1280,
+    "height": 900,
+    "route": "/staging/labels",
+    "phase": "after",
+    "evidence": {
+      "body": "스테이징\n\n자동 생성한 컨텐츠를 검수하고 운영에 반영해요.\n\n상태\n검수 대기\n\n조건에 맞는 라벨이 없어요.",
+      "font": "Pretendard, system-ui, -apple-system, sans-serif",
+      "headings": [
+        {
+          "text": "스테이징",
+          "width": 976,
+          "x": 272,
+          "y": 80
+        }
+      ],
+      "overflow": false,
+      "table": null
+    },
+    "actualHeight": 900
+  },
+  {
+    "file": "staging-error-1280.png",
+    "width": 1280,
+    "height": 900,
+    "route": "/staging/labels",
+    "phase": "after",
+    "evidence": {
+      "body": "스테이징\n\n자동 생성한 컨텐츠를 검수하고 운영에 반영해요.\n\n상태\n검수 대기\n\n데이터를 불러오지 못했어요. 잠시 뒤 다시 시도해 주세요.\n\n다시 시도하기",
+      "font": "Pretendard, system-ui, -apple-system, sans-serif",
+      "headings": [
+        {
+          "text": "스테이징",
+          "width": 976,
+          "x": 272,
+          "y": 80
+        }
+      ],
+      "overflow": false,
+      "table": null
+    },
+    "actualHeight": 900
+  },
+  {
+    "file": "staging-pending-1280.png",
+    "width": 1280,
+    "height": 900,
+    "route": "/staging/labels/2026-04-25-update",
+    "phase": "after",
+    "evidence": {
+      "body": "검수 대기\n2026-04-25-update\n반영 완료 처리\n\nU-12 · 배열 챕터 5번째 사이클 · 생성일 2026-04-25\n\n레슨\n문제 1\n객관식\n문제 2\n객관식\n문제 3\n주관식\n문제 4\n객관식\n문제 5\n주관식\n문제 6\n객관식\n레슨\n\nID: 901\n\n제목 *\n저장하고 있어요…",
+      "font": "Pretendard, system-ui, -apple-system, sans-serif",
+      "headings": [
+        {
+          "text": "2026-04-25-update",
+          "width": 266.109375,
+          "x": 351.828125,
+          "y": 80
+        },
+        {
+          "text": "레슨",
+          "width": 638,
+          "x": 585,
+          "y": 195
+        },
+        {
+          "text": "문제 1",
+          "width": 0,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "text": "문제 2",
+          "width": 0,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "text": "문제 3",
+          "width": 0,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "text": "문제 4",
+          "width": 0,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "text": "문제 5",
+          "width": 0,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "text": "문제 6",
+          "width": 0,
+          "x": 0,
+          "y": 0
+        }
+      ],
+      "overflow": false,
+      "table": null
+    },
+    "motion": {
+      "animations": 1,
+      "duration": "1.2s",
+      "iterations": "infinite",
+      "label": "저장하고 있어요…",
+      "name": "spin",
+      "navWidth": 288,
+      "reduced": false
+    },
+    "actualHeight": 900
+  },
+  {
+    "file": "staging-pending-reduced-1280.png",
+    "width": 1280,
+    "height": 900,
+    "route": "/staging/labels/2026-04-25-update",
+    "phase": "after",
+    "evidence": {
+      "body": "검수 대기\n2026-04-25-update\n반영 완료 처리\n\nU-12 · 배열 챕터 5번째 사이클 · 생성일 2026-04-25\n\n레슨\n문제 1\n객관식\n문제 2\n객관식\n문제 3\n주관식\n문제 4\n객관식\n문제 5\n주관식\n문제 6\n객관식\n레슨\n\nID: 901\n\n제목 *\n저장하고 있어요…",
+      "font": "Pretendard, system-ui, -apple-system, sans-serif",
+      "headings": [
+        {
+          "text": "2026-04-25-update",
+          "width": 266.109375,
+          "x": 351.828125,
+          "y": 80
+        },
+        {
+          "text": "레슨",
+          "width": 638,
+          "x": 585,
+          "y": 195
+        },
+        {
+          "text": "문제 1",
+          "width": 0,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "text": "문제 2",
+          "width": 0,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "text": "문제 3",
+          "width": 0,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "text": "문제 4",
+          "width": 0,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "text": "문제 5",
+          "width": 0,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "text": "문제 6",
+          "width": 0,
+          "x": 0,
+          "y": 0
+        }
+      ],
+      "overflow": false,
+      "table": null
+    },
+    "motion": {
+      "animations": 0,
+      "duration": "1.2s",
+      "iterations": "1",
+      "label": "저장하고 있어요…",
+      "name": "none",
+      "navWidth": 288,
+      "reduced": true
+    },
+    "actualHeight": 900
+  },
+  {
+    "file": "stats-loading-1440.png",
+    "width": 1440,
+    "height": 900,
+    "route": "/chapters/1",
+    "phase": "after",
+    "evidence": {
+      "body": "자료구조 기초\n\n배열, 리스트, 스택, 큐, 트리, 그래프 등 기본 자료구조\n\n편집\n풀이 현황\n유닛 (총 4개)\n제목\t설명\n\n배열\n\t\n배열의 개념과 활용\n\n\n연결 리스트\n\t\n노드 기반 선형 자료구조\n\n\n스택과 큐\n\t\nLIFO/FIFO 자료구조\n\n\n트리\n\t\n계층적 자료구조",
+      "font": "Pretendard, system-ui, -apple-system, sans-serif",
+      "headings": [
+        {
+          "text": "자료구조 기초",
+          "width": 288.046875,
+          "x": 272,
+          "y": 80
+        },
+        {
+          "text": "풀이 현황",
+          "width": 1136,
+          "x": 272,
+          "y": 166
+        },
+        {
+          "text": "유닛 (총 4개)",
+          "width": 1136,
+          "x": 272,
+          "y": 732
+        }
+      ],
+      "overflow": false,
+      "table": {
+        "width": 1134,
+        "x": 273,
+        "y": 773
+      }
+    },
+    "actualHeight": 900
+  },
+  {
+    "file": "stats-empty-1440.png",
+    "width": 1440,
+    "height": 900,
+    "route": "/chapters/1",
+    "phase": "after",
+    "evidence": {
+      "body": "자료구조 기초\n\n배열, 리스트, 스택, 큐, 트리, 그래프 등 기본 자료구조\n\n편집\n풀이 현황\n\n아직 풀이 데이터가 없어요.\n\n유닛 (총 4개)\n제목\t설명\n\n배열\n\t\n배열의 개념과 활용\n\n\n연결 리스트\n\t\n노드 기반 선형 자료구조\n\n\n스택과 큐\n\t\nLIFO/FIFO 자료구조\n\n\n트리\n\t\n계층적 자료구조",
+      "font": "Pretendard, system-ui, -apple-system, sans-serif",
+      "headings": [
+        {
+          "text": "자료구조 기초",
+          "width": 288.046875,
+          "x": 272,
+          "y": 80
+        },
+        {
+          "text": "풀이 현황",
+          "width": 1136,
+          "x": 272,
+          "y": 166
+        },
+        {
+          "text": "유닛 (총 4개)",
+          "width": 1136,
+          "x": 272,
+          "y": 382
+        }
+      ],
+      "overflow": false,
+      "table": {
+        "width": 1134,
+        "x": 273,
+        "y": 423
+      }
+    },
+    "actualHeight": 900
+  },
+  {
+    "file": "stats-error-1440.png",
+    "width": 1440,
+    "height": 900,
+    "route": "/chapters/1",
+    "phase": "after",
+    "evidence": {
+      "body": "자료구조 기초\n\n배열, 리스트, 스택, 큐, 트리, 그래프 등 기본 자료구조\n\n편집\n풀이 현황\n\n데이터를 불러오지 못했어요. 잠시 뒤 다시 시도해 주세요.\n\n다시 시도하기\n유닛 (총 4개)\n제목\t설명\n\n배열\n\t\n배열의 개념과 활용\n\n\n연결 리스트\n\t\n노드 기반 선형 자료구조\n\n\n스택과 큐\n\t\nLIFO/FIFO 자료구조\n\n",
+      "font": "Pretendard, system-ui, -apple-system, sans-serif",
+      "headings": [
+        {
+          "text": "자료구조 기초",
+          "width": 288.046875,
+          "x": 272,
+          "y": 80
+        },
+        {
+          "text": "풀이 현황",
+          "width": 1136,
+          "x": 272,
+          "y": 166
+        },
+        {
+          "text": "유닛 (총 4개)",
+          "width": 1136,
+          "x": 272,
+          "y": 434
+        }
+      ],
+      "overflow": false,
+      "table": {
+        "width": 1134,
+        "x": 273,
+        "y": 475
+      }
+    },
+    "actualHeight": 900
+  },
+  {
+    "file": "staging-loading-1440.png",
+    "width": 1440,
+    "height": 900,
+    "route": "/staging/labels",
+    "phase": "after",
+    "evidence": {
+      "body": "스테이징\n\n자동 생성한 컨텐츠를 검수하고 운영에 반영해요.\n\n상태\n검수 대기",
+      "font": "Pretendard, system-ui, -apple-system, sans-serif",
+      "headings": [
+        {
+          "text": "스테이징",
+          "width": 1136,
+          "x": 272,
+          "y": 80
+        }
+      ],
+      "overflow": false,
+      "table": null
+    },
+    "actualHeight": 900
+  },
+  {
+    "file": "staging-empty-1440.png",
+    "width": 1440,
+    "height": 900,
+    "route": "/staging/labels",
+    "phase": "after",
+    "evidence": {
+      "body": "스테이징\n\n자동 생성한 컨텐츠를 검수하고 운영에 반영해요.\n\n상태\n검수 대기\n\n조건에 맞는 라벨이 없어요.",
+      "font": "Pretendard, system-ui, -apple-system, sans-serif",
+      "headings": [
+        {
+          "text": "스테이징",
+          "width": 1136,
+          "x": 272,
+          "y": 80
+        }
+      ],
+      "overflow": false,
+      "table": null
+    },
+    "actualHeight": 900
+  },
+  {
+    "file": "staging-error-1440.png",
+    "width": 1440,
+    "height": 900,
+    "route": "/staging/labels",
+    "phase": "after",
+    "evidence": {
+      "body": "스테이징\n\n자동 생성한 컨텐츠를 검수하고 운영에 반영해요.\n\n상태\n검수 대기\n\n데이터를 불러오지 못했어요. 잠시 뒤 다시 시도해 주세요.\n\n다시 시도하기",
+      "font": "Pretendard, system-ui, -apple-system, sans-serif",
+      "headings": [
+        {
+          "text": "스테이징",
+          "width": 1136,
+          "x": 272,
+          "y": 80
+        }
+      ],
+      "overflow": false,
+      "table": null
+    },
+    "actualHeight": 900
+  },
+  {
+    "file": "staging-pending-1440.png",
+    "width": 1440,
+    "height": 900,
+    "route": "/staging/labels/2026-04-25-update",
+    "phase": "after",
+    "evidence": {
+      "body": "검수 대기\n2026-04-25-update\n반영 완료 처리\n\nU-12 · 배열 챕터 5번째 사이클 · 생성일 2026-04-25\n\n레슨\n문제 1\n객관식\n문제 2\n객관식\n문제 3\n주관식\n문제 4\n객관식\n문제 5\n주관식\n문제 6\n객관식\n레슨\n\nID: 901\n\n제목 *\n저장하고 있어요…",
+      "font": "Pretendard, system-ui, -apple-system, sans-serif",
+      "headings": [
+        {
+          "text": "2026-04-25-update",
+          "width": 266.109375,
+          "x": 351.828125,
+          "y": 80
+        },
+        {
+          "text": "레슨",
+          "width": 798,
+          "x": 585,
+          "y": 195
+        },
+        {
+          "text": "문제 1",
+          "width": 0,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "text": "문제 2",
+          "width": 0,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "text": "문제 3",
+          "width": 0,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "text": "문제 4",
+          "width": 0,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "text": "문제 5",
+          "width": 0,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "text": "문제 6",
+          "width": 0,
+          "x": 0,
+          "y": 0
+        }
+      ],
+      "overflow": false,
+      "table": null
+    },
+    "motion": {
+      "animations": 1,
+      "duration": "1.2s",
+      "iterations": "infinite",
+      "label": "저장하고 있어요…",
+      "name": "spin",
+      "navWidth": 288,
+      "reduced": false
+    },
+    "actualHeight": 900
+  },
+  {
+    "file": "staging-pending-reduced-1440.png",
+    "width": 1440,
+    "height": 900,
+    "route": "/staging/labels/2026-04-25-update",
+    "phase": "after",
+    "evidence": {
+      "body": "검수 대기\n2026-04-25-update\n반영 완료 처리\n\nU-12 · 배열 챕터 5번째 사이클 · 생성일 2026-04-25\n\n레슨\n문제 1\n객관식\n문제 2\n객관식\n문제 3\n주관식\n문제 4\n객관식\n문제 5\n주관식\n문제 6\n객관식\n레슨\n\nID: 901\n\n제목 *\n저장하고 있어요…",
+      "font": "Pretendard, system-ui, -apple-system, sans-serif",
+      "headings": [
+        {
+          "text": "2026-04-25-update",
+          "width": 266.109375,
+          "x": 351.828125,
+          "y": 80
+        },
+        {
+          "text": "레슨",
+          "width": 798,
+          "x": 585,
+          "y": 195
+        },
+        {
+          "text": "문제 1",
+          "width": 0,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "text": "문제 2",
+          "width": 0,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "text": "문제 3",
+          "width": 0,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "text": "문제 4",
+          "width": 0,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "text": "문제 5",
+          "width": 0,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "text": "문제 6",
+          "width": 0,
+          "x": 0,
+          "y": 0
+        }
+      ],
+      "overflow": false,
+      "table": null
+    },
+    "motion": {
+      "animations": 0,
+      "duration": "1.2s",
+      "iterations": "1",
+      "label": "저장하고 있어요…",
+      "name": "none",
+      "navWidth": 288,
+      "reduced": true
+    },
+    "actualHeight": 900
+  },
+  {
+    "file": "chapters-normal-1280.png",
+    "width": 1280,
+    "height": 900,
+    "route": "/chapters",
+    "phase": "after",
+    "evidence": {
+      "body": "컨텐츠 관리\n제목\t설명\n\n자료구조 기초\n\t\n배열, 리스트, 스택, 큐, 트리, 그래프 등 기본 자료구조\n\n\n알고리즘 입문\n\t\n정렬, 탐색, 재귀, 분할정복 등 기본 알고리즘\n\n\n운영체제\n\t\n프로세스, 스레드, 스케줄링, 메모리 관리",
+      "font": "Pretendard, system-ui, -apple-system, sans-serif",
+      "headings": [
+        {
+          "text": "컨텐츠 관리",
+          "width": 976,
+          "x": 272,
+          "y": 80
+        }
+      ],
+      "overflow": false,
+      "table": {
+        "width": 974,
+        "x": 273,
+        "y": 169
+      }
+    },
+    "fullEvidence": {
+      "activeAnimations": 0,
+      "headings": [
+        {
+          "height": 36,
+          "label": "컨텐츠 관리",
+          "width": 976,
+          "x": 272,
+          "y": 80
+        }
+      ],
+      "layout": {
+        "header": {
+          "height": 56,
+          "width": 1040,
+          "x": 240,
+          "y": 0
+        },
+        "main": {
+          "height": 844,
+          "width": 1040,
+          "x": 240,
+          "y": 56
+        },
+        "scrollWidth": 1280,
+        "sidebar": {
+          "height": 900,
+          "width": 240,
+          "x": 0,
+          "y": 0
+        },
+        "viewport": 1280
+      },
+      "regions": [
+        {
+          "height": 204,
+          "tag": "TABLE",
+          "width": 974,
+          "x": 273,
+          "y": 169
+        }
+      ]
+    },
+    "actualHeight": 900
+  },
+  {
+    "file": "chapter-detail-normal-1280.png",
+    "width": 1280,
+    "height": 900,
+    "route": "/chapters/1",
+    "phase": "after",
+    "evidence": {
+      "body": "자료구조 기초\n\n배열, 리스트, 스택, 큐, 트리, 그래프 등 기본 자료구조\n\n편집\n풀이 현황\n유닛명\t참여 인원\t진행률\n\n배열 (Array)\n\t2,300\t\n79%\n\n\n연결 리스트\n\t1,820\t\n64%\n\n\n스택과 큐\n\t1,540\t\n58%\n유닛 (총 4개)\n제목\t설명\n\n배열\n\t\n배열의 개념과 활용\n\n\n연결 리스트\n\t\n노드 기",
+      "font": "Pretendard, system-ui, -apple-system, sans-serif",
+      "headings": [
+        {
+          "text": "자료구조 기초",
+          "width": 288.046875,
+          "x": 272,
+          "y": 80
+        },
+        {
+          "text": "풀이 현황",
+          "width": 976,
+          "x": 272,
+          "y": 166
+        },
+        {
+          "text": "유닛 (총 4개)",
+          "width": 976,
+          "x": 272,
+          "y": 436
+        }
+      ],
+      "overflow": false,
+      "table": {
+        "width": 974,
+        "x": 273,
+        "y": 207
+      }
+    },
+    "fullEvidence": {
+      "activeAnimations": 0,
+      "headings": [
+        {
+          "height": 36,
+          "label": "자료구조 기초",
+          "width": 288.046875,
+          "x": 272,
+          "y": 80
+        },
+        {
+          "height": 24,
+          "label": "풀이 현황",
+          "width": 976,
+          "x": 272,
+          "y": 166
+        },
+        {
+          "height": 24,
+          "label": "유닛 (총 4개)",
+          "width": 976,
+          "x": 272,
+          "y": 436
+        }
+      ],
+      "layout": {
+        "header": {
+          "height": 56,
+          "width": 1040,
+          "x": 240,
+          "y": 0
+        },
+        "main": {
+          "height": 844,
+          "width": 1040,
+          "x": 240,
+          "y": 56
+        },
+        "scrollWidth": 1280,
+        "sidebar": {
+          "height": 900,
+          "width": 240,
+          "x": 0,
+          "y": 0
+        },
+        "viewport": 1280
+      },
+      "regions": [
+        {
+          "height": 246,
+          "tag": "SECTION",
+          "width": 976,
+          "x": 272,
+          "y": 166
+        },
+        {
+          "height": 204,
+          "tag": "TABLE",
+          "width": 974,
+          "x": 273,
+          "y": 207
+        },
+        {
+          "height": 298,
+          "tag": "SECTION",
+          "width": 976,
+          "x": 272,
+          "y": 436
+        },
+        {
+          "height": 256,
+          "tag": "TABLE",
+          "width": 974,
+          "x": 273,
+          "y": 477
+        }
+      ]
+    },
+    "actualHeight": 900
+  },
+  {
+    "file": "unit-detail-normal-1280.png",
+    "width": 1280,
+    "height": 900,
+    "route": "/units/12",
+    "phase": "after",
+    "evidence": {
+      "body": "배열 (Array)\n\n배열의 기본 개념과 시간 복잡도\n\n편집\n레슨 (총 2개)\n제목\n배열이란 무엇인가\n배열의 시간 복잡도",
+      "font": "Pretendard, system-ui, -apple-system, sans-serif",
+      "headings": [
+        {
+          "text": "배열 (Array)",
+          "width": 171.359375,
+          "x": 272,
+          "y": 80
+        },
+        {
+          "text": "레슨 (총 2개)",
+          "width": 976,
+          "x": 272,
+          "y": 166
+        }
+      ],
+      "overflow": false,
+      "table": {
+        "width": 974,
+        "x": 273,
+        "y": 207
+      }
+    },
+    "fullEvidence": {
+      "activeAnimations": 0,
+      "headings": [
+        {
+          "height": 36,
+          "label": "배열 (Array)",
+          "width": 171.359375,
+          "x": 272,
+          "y": 80
+        },
+        {
+          "height": 24,
+          "label": "레슨 (총 2개)",
+          "width": 976,
+          "x": 272,
+          "y": 166
+        }
+      ],
+      "layout": {
+        "header": {
+          "height": 56,
+          "width": 1040,
+          "x": 240,
+          "y": 0
+        },
+        "main": {
+          "height": 844,
+          "width": 1040,
+          "x": 240,
+          "y": 56
+        },
+        "scrollWidth": 1280,
+        "sidebar": {
+          "height": 900,
+          "width": 240,
+          "x": 0,
+          "y": 0
+        },
+        "viewport": 1280
+      },
+      "regions": [
+        {
+          "height": 194,
+          "tag": "SECTION",
+          "width": 976,
+          "x": 272,
+          "y": 166
+        },
+        {
+          "height": 152,
+          "tag": "TABLE",
+          "width": 974,
+          "x": 273,
+          "y": 207
+        }
+      ]
+    },
+    "actualHeight": 900
+  },
+  {
+    "file": "lesson-detail-normal-1280.png",
+    "width": 1280,
+    "height": 900,
+    "route": "/lessons/901",
+    "phase": "after",
+    "evidence": {
+      "body": "배열의 시간 복잡도\n편집\n문제 (총 3개)\nID\t유형\t지시문\nP-1001\t객관식\t\n다음 중 배열의 임의 접근(random access) 시간 복잡도는?\n\nP-1002\t객관식\t\n정렬된 배열에서 특정 값을 탐색할 때 가장 효율적인 알고리즘의 시간 복잡도는?\n\nP-1003\t주관식\t\n배열에서 임의 위치에 요소를 삽입할 때의 시간",
+      "font": "Pretendard, system-ui, -apple-system, sans-serif",
+      "headings": [
+        {
+          "text": "배열의 시간 복잡도",
+          "width": 191.75,
+          "x": 272,
+          "y": 80
+        },
+        {
+          "text": "문제 (총 3개)",
+          "width": 976,
+          "x": 272,
+          "y": 144
+        }
+      ],
+      "overflow": false,
+      "table": {
+        "width": 974,
+        "x": 273,
+        "y": 185
+      }
+    },
+    "fullEvidence": {
+      "activeAnimations": 0,
+      "headings": [
+        {
+          "height": 36,
+          "label": "배열의 시간 복잡도",
+          "width": 191.75,
+          "x": 272,
+          "y": 80
+        },
+        {
+          "height": 24,
+          "label": "문제 (총 3개)",
+          "width": 976,
+          "x": 272,
+          "y": 144
+        }
+      ],
+      "layout": {
+        "header": {
+          "height": 56,
+          "width": 1040,
+          "x": 240,
+          "y": 0
+        },
+        "main": {
+          "height": 844,
+          "width": 1040,
+          "x": 240,
+          "y": 56
+        },
+        "scrollWidth": 1280,
+        "sidebar": {
+          "height": 900,
+          "width": 240,
+          "x": 0,
+          "y": 0
+        },
+        "viewport": 1280
+      },
+      "regions": [
+        {
+          "height": 246,
+          "tag": "SECTION",
+          "width": 976,
+          "x": 272,
+          "y": 144
+        },
+        {
+          "height": 204,
+          "tag": "TABLE",
+          "width": 974,
+          "x": 273,
+          "y": 185
+        }
+      ]
+    },
+    "actualHeight": 900
+  },
+  {
+    "file": "problem-objective-normal-1280.png",
+    "width": 1280,
+    "height": 900,
+    "route": "/problems/1001",
+    "phase": "after",
+    "evidence": {
+      "body": "객관식\nP-1001\n편집\n문제\n지시문\n다음 중 배열의 임의 접근(random access) 시간 복잡도는?\n본문\n\n배열은 인덱스를 통해 임의의 원소에 직접 접근할 수 있다.\n\n보기 (4개 고정)\n① O(1)\n정답\n\n해설: 인덱스 계산으로 바로 접근 가능\n\n② O(log n)\n\n해설: 이진 탐색의 복잡도\n\n③ O(n)\n\n해",
+      "font": "Pretendard, system-ui, -apple-system, sans-serif",
+      "headings": [
+        {
+          "text": "P-1001",
+          "width": 86.109375,
+          "x": 336.3125,
+          "y": 80
+        },
+        {
+          "text": "문제",
+          "width": 926,
+          "x": 297,
+          "y": 169
+        },
+        {
+          "text": "보기 (4개 고정)",
+          "width": 926,
+          "x": 297,
+          "y": 343
+        }
+      ],
+      "overflow": false,
+      "table": null
+    },
+    "fullEvidence": {
+      "activeAnimations": 0,
+      "headings": [
+        {
+          "height": 36,
+          "label": "P-1001",
+          "width": 86.109375,
+          "x": 336.3125,
+          "y": 80
+        },
+        {
+          "height": 24,
+          "label": "문제",
+          "width": 926,
+          "x": 297,
+          "y": 169
+        },
+        {
+          "height": 24,
+          "label": "보기 (4개 고정)",
+          "width": 926,
+          "x": 297,
+          "y": 343
+        }
+      ],
+      "layout": {
+        "header": {
+          "height": 56,
+          "width": 1040,
+          "x": 240,
+          "y": 0
+        },
+        "main": {
+          "height": 844,
+          "width": 1040,
+          "x": 240,
+          "y": 56
+        },
+        "scrollWidth": 1280,
+        "sidebar": {
+          "height": 900,
+          "width": 240,
+          "x": 0,
+          "y": 0
+        },
+        "viewport": 1280
+      },
+      "regions": [
+        {
+          "height": 150,
+          "tag": "SECTION",
+          "width": 976,
+          "x": 272,
+          "y": 144
+        },
+        {
+          "height": 330,
+          "tag": "SECTION",
+          "width": 976,
+          "x": 272,
+          "y": 318
+        }
+      ]
+    },
+    "actualHeight": 900
+  },
+  {
+    "file": "staging-normal-1280.png",
+    "width": 1280,
+    "height": 900,
+    "route": "/staging/labels",
+    "phase": "after",
+    "evidence": {
+      "body": "스테이징\n\n자동 생성한 컨텐츠를 검수하고 운영에 반영해요.\n\n상태\n검수 대기\n라벨\t유닛\t설명\t상태\t생성일\n2026-04-25-a3f9\tU-12\t\n배열 챕터 5번째 사이클\n\t검수 대기\t2026-04-25\n2026-04-24-b7c2\tU-13\t\n연결리스트 사이클\n\t검수 대기\t2026-04-24",
+      "font": "Pretendard, system-ui, -apple-system, sans-serif",
+      "headings": [
+        {
+          "text": "스테이징",
+          "width": 976,
+          "x": 272,
+          "y": 80
+        }
+      ],
+      "overflow": false,
+      "table": {
+        "width": 974,
+        "x": 273,
+        "y": 231
+      }
+    },
+    "fullEvidence": {
+      "activeAnimations": 0,
+      "headings": [
+        {
+          "height": 36,
+          "label": "스테이징",
+          "width": 976,
+          "x": 272,
+          "y": 80
+        }
+      ],
+      "layout": {
+        "header": {
+          "height": 56,
+          "width": 1040,
+          "x": 240,
+          "y": 0
+        },
+        "main": {
+          "height": 844,
+          "width": 1040,
+          "x": 240,
+          "y": 56
+        },
+        "scrollWidth": 1280,
+        "sidebar": {
+          "height": 900,
+          "width": 240,
+          "x": 0,
+          "y": 0
+        },
+        "viewport": 1280
+      },
+      "regions": [
+        {
+          "height": 152,
+          "tag": "TABLE",
+          "width": 974,
+          "x": 273,
+          "y": 231
+        }
+      ]
+    },
+    "actualHeight": 900
+  },
+  {
+    "file": "staging-detail-normal-1280.png",
+    "width": 1280,
+    "height": 900,
+    "route": "/staging/labels/2026-04-25-a3f9",
+    "phase": "after",
+    "evidence": {
+      "body": "검수 대기\n2026-04-25-a3f9\n반영 완료 처리\n\nU-12 · 배열 챕터 5번째 사이클 · 생성일 2026-04-25\n\n레슨\n문제 1\n객관식\n문제 2\n객관식\n문제 3\n주관식\n문제 4\n객관식\n문제 5\n주관식\n문제 6\n객관식\n레슨\n\nID: 901\n\n제목 *\n저장하기",
+      "font": "Pretendard, system-ui, -apple-system, sans-serif",
+      "headings": [
+        {
+          "text": "2026-04-25-a3f9",
+          "width": 234.8125,
+          "x": 351.828125,
+          "y": 80
+        },
+        {
+          "text": "레슨",
+          "width": 638,
+          "x": 585,
+          "y": 195
+        },
+        {
+          "text": "문제 1",
+          "width": 0,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "text": "문제 2",
+          "width": 0,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "text": "문제 3",
+          "width": 0,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "text": "문제 4",
+          "width": 0,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "text": "문제 5",
+          "width": 0,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "text": "문제 6",
+          "width": 0,
+          "x": 0,
+          "y": 0
+        }
+      ],
+      "overflow": false,
+      "table": null
+    },
+    "fullEvidence": {
+      "activeAnimations": 0,
+      "headings": [
+        {
+          "height": 36,
+          "label": "2026-04-25-a3f9",
+          "width": 234.8125,
+          "x": 351.828125,
+          "y": 80
+        },
+        {
+          "height": 24,
+          "label": "레슨",
+          "width": 638,
+          "x": 585,
+          "y": 195
+        }
+      ],
+      "layout": {
+        "header": {
+          "height": 56,
+          "width": 1040,
+          "x": 240,
+          "y": 0
+        },
+        "main": {
+          "height": 844,
+          "width": 1040,
+          "x": 240,
+          "y": 56
+        },
+        "scrollWidth": 1280,
+        "sidebar": {
+          "height": 900,
+          "width": 240,
+          "x": 0,
+          "y": 0
+        },
+        "viewport": 1280
+      },
+      "regions": []
+    },
+    "actualHeight": 900
+  },
+  {
+    "file": "chapters-normal-1440.png",
+    "width": 1440,
+    "height": 900,
+    "route": "/chapters",
+    "phase": "after",
+    "evidence": {
+      "body": "컨텐츠 관리\n제목\t설명\n\n자료구조 기초\n\t\n배열, 리스트, 스택, 큐, 트리, 그래프 등 기본 자료구조\n\n\n알고리즘 입문\n\t\n정렬, 탐색, 재귀, 분할정복 등 기본 알고리즘\n\n\n운영체제\n\t\n프로세스, 스레드, 스케줄링, 메모리 관리",
+      "font": "Pretendard, system-ui, -apple-system, sans-serif",
+      "headings": [
+        {
+          "text": "컨텐츠 관리",
+          "width": 1136,
+          "x": 272,
+          "y": 80
+        }
+      ],
+      "overflow": false,
+      "table": {
+        "width": 1134,
+        "x": 273,
+        "y": 169
+      }
+    },
+    "fullEvidence": {
+      "activeAnimations": 0,
+      "headings": [
+        {
+          "height": 36,
+          "label": "컨텐츠 관리",
+          "width": 1136,
+          "x": 272,
+          "y": 80
+        }
+      ],
+      "layout": {
+        "header": {
+          "height": 56,
+          "width": 1200,
+          "x": 240,
+          "y": 0
+        },
+        "main": {
+          "height": 844,
+          "width": 1200,
+          "x": 240,
+          "y": 56
+        },
+        "scrollWidth": 1440,
+        "sidebar": {
+          "height": 900,
+          "width": 240,
+          "x": 0,
+          "y": 0
+        },
+        "viewport": 1440
+      },
+      "regions": [
+        {
+          "height": 204,
+          "tag": "TABLE",
+          "width": 1134,
+          "x": 273,
+          "y": 169
+        }
+      ]
+    },
+    "actualHeight": 900
+  },
+  {
+    "file": "chapter-detail-normal-1440.png",
+    "width": 1440,
+    "height": 900,
+    "route": "/chapters/1",
+    "phase": "after",
+    "evidence": {
+      "body": "자료구조 기초\n\n배열, 리스트, 스택, 큐, 트리, 그래프 등 기본 자료구조\n\n편집\n풀이 현황\n유닛명\t참여 인원\t진행률\n\n배열 (Array)\n\t2,300\t\n79%\n\n\n연결 리스트\n\t1,820\t\n64%\n\n\n스택과 큐\n\t1,540\t\n58%\n유닛 (총 4개)\n제목\t설명\n\n배열\n\t\n배열의 개념과 활용\n\n\n연결 리스트\n\t\n노드 기",
+      "font": "Pretendard, system-ui, -apple-system, sans-serif",
+      "headings": [
+        {
+          "text": "자료구조 기초",
+          "width": 288.046875,
+          "x": 272,
+          "y": 80
+        },
+        {
+          "text": "풀이 현황",
+          "width": 1136,
+          "x": 272,
+          "y": 166
+        },
+        {
+          "text": "유닛 (총 4개)",
+          "width": 1136,
+          "x": 272,
+          "y": 436
+        }
+      ],
+      "overflow": false,
+      "table": {
+        "width": 1134,
+        "x": 273,
+        "y": 207
+      }
+    },
+    "fullEvidence": {
+      "activeAnimations": 0,
+      "headings": [
+        {
+          "height": 36,
+          "label": "자료구조 기초",
+          "width": 288.046875,
+          "x": 272,
+          "y": 80
+        },
+        {
+          "height": 24,
+          "label": "풀이 현황",
+          "width": 1136,
+          "x": 272,
+          "y": 166
+        },
+        {
+          "height": 24,
+          "label": "유닛 (총 4개)",
+          "width": 1136,
+          "x": 272,
+          "y": 436
+        }
+      ],
+      "layout": {
+        "header": {
+          "height": 56,
+          "width": 1200,
+          "x": 240,
+          "y": 0
+        },
+        "main": {
+          "height": 844,
+          "width": 1200,
+          "x": 240,
+          "y": 56
+        },
+        "scrollWidth": 1440,
+        "sidebar": {
+          "height": 900,
+          "width": 240,
+          "x": 0,
+          "y": 0
+        },
+        "viewport": 1440
+      },
+      "regions": [
+        {
+          "height": 246,
+          "tag": "SECTION",
+          "width": 1136,
+          "x": 272,
+          "y": 166
+        },
+        {
+          "height": 204,
+          "tag": "TABLE",
+          "width": 1134,
+          "x": 273,
+          "y": 207
+        },
+        {
+          "height": 298,
+          "tag": "SECTION",
+          "width": 1136,
+          "x": 272,
+          "y": 436
+        },
+        {
+          "height": 256,
+          "tag": "TABLE",
+          "width": 1134,
+          "x": 273,
+          "y": 477
+        }
+      ]
+    },
+    "actualHeight": 900
+  },
+  {
+    "file": "unit-detail-normal-1440.png",
+    "width": 1440,
+    "height": 900,
+    "route": "/units/12",
+    "phase": "after",
+    "evidence": {
+      "body": "배열 (Array)\n\n배열의 기본 개념과 시간 복잡도\n\n편집\n레슨 (총 2개)\n제목\n배열이란 무엇인가\n배열의 시간 복잡도",
+      "font": "Pretendard, system-ui, -apple-system, sans-serif",
+      "headings": [
+        {
+          "text": "배열 (Array)",
+          "width": 171.359375,
+          "x": 272,
+          "y": 80
+        },
+        {
+          "text": "레슨 (총 2개)",
+          "width": 1136,
+          "x": 272,
+          "y": 166
+        }
+      ],
+      "overflow": false,
+      "table": {
+        "width": 1134,
+        "x": 273,
+        "y": 207
+      }
+    },
+    "fullEvidence": {
+      "activeAnimations": 0,
+      "headings": [
+        {
+          "height": 36,
+          "label": "배열 (Array)",
+          "width": 171.359375,
+          "x": 272,
+          "y": 80
+        },
+        {
+          "height": 24,
+          "label": "레슨 (총 2개)",
+          "width": 1136,
+          "x": 272,
+          "y": 166
+        }
+      ],
+      "layout": {
+        "header": {
+          "height": 56,
+          "width": 1200,
+          "x": 240,
+          "y": 0
+        },
+        "main": {
+          "height": 844,
+          "width": 1200,
+          "x": 240,
+          "y": 56
+        },
+        "scrollWidth": 1440,
+        "sidebar": {
+          "height": 900,
+          "width": 240,
+          "x": 0,
+          "y": 0
+        },
+        "viewport": 1440
+      },
+      "regions": [
+        {
+          "height": 194,
+          "tag": "SECTION",
+          "width": 1136,
+          "x": 272,
+          "y": 166
+        },
+        {
+          "height": 152,
+          "tag": "TABLE",
+          "width": 1134,
+          "x": 273,
+          "y": 207
+        }
+      ]
+    },
+    "actualHeight": 900
+  },
+  {
+    "file": "lesson-detail-normal-1440.png",
+    "width": 1440,
+    "height": 900,
+    "route": "/lessons/901",
+    "phase": "after",
+    "evidence": {
+      "body": "배열의 시간 복잡도\n편집\n문제 (총 3개)\nID\t유형\t지시문\nP-1001\t객관식\t\n다음 중 배열의 임의 접근(random access) 시간 복잡도는?\n\nP-1002\t객관식\t\n정렬된 배열에서 특정 값을 탐색할 때 가장 효율적인 알고리즘의 시간 복잡도는?\n\nP-1003\t주관식\t\n배열에서 임의 위치에 요소를 삽입할 때의 시간",
+      "font": "Pretendard, system-ui, -apple-system, sans-serif",
+      "headings": [
+        {
+          "text": "배열의 시간 복잡도",
+          "width": 191.75,
+          "x": 272,
+          "y": 80
+        },
+        {
+          "text": "문제 (총 3개)",
+          "width": 1136,
+          "x": 272,
+          "y": 144
+        }
+      ],
+      "overflow": false,
+      "table": {
+        "width": 1134,
+        "x": 273,
+        "y": 185
+      }
+    },
+    "fullEvidence": {
+      "activeAnimations": 0,
+      "headings": [
+        {
+          "height": 36,
+          "label": "배열의 시간 복잡도",
+          "width": 191.75,
+          "x": 272,
+          "y": 80
+        },
+        {
+          "height": 24,
+          "label": "문제 (총 3개)",
+          "width": 1136,
+          "x": 272,
+          "y": 144
+        }
+      ],
+      "layout": {
+        "header": {
+          "height": 56,
+          "width": 1200,
+          "x": 240,
+          "y": 0
+        },
+        "main": {
+          "height": 844,
+          "width": 1200,
+          "x": 240,
+          "y": 56
+        },
+        "scrollWidth": 1440,
+        "sidebar": {
+          "height": 900,
+          "width": 240,
+          "x": 0,
+          "y": 0
+        },
+        "viewport": 1440
+      },
+      "regions": [
+        {
+          "height": 246,
+          "tag": "SECTION",
+          "width": 1136,
+          "x": 272,
+          "y": 144
+        },
+        {
+          "height": 204,
+          "tag": "TABLE",
+          "width": 1134,
+          "x": 273,
+          "y": 185
+        }
+      ]
+    },
+    "actualHeight": 900
+  },
+  {
+    "file": "problem-objective-normal-1440.png",
+    "width": 1440,
+    "height": 900,
+    "route": "/problems/1001",
+    "phase": "after",
+    "evidence": {
+      "body": "객관식\nP-1001\n편집\n문제\n지시문\n다음 중 배열의 임의 접근(random access) 시간 복잡도는?\n본문\n\n배열은 인덱스를 통해 임의의 원소에 직접 접근할 수 있다.\n\n보기 (4개 고정)\n① O(1)\n정답\n\n해설: 인덱스 계산으로 바로 접근 가능\n\n② O(log n)\n\n해설: 이진 탐색의 복잡도\n\n③ O(n)\n\n해",
+      "font": "Pretendard, system-ui, -apple-system, sans-serif",
+      "headings": [
+        {
+          "text": "P-1001",
+          "width": 86.109375,
+          "x": 336.3125,
+          "y": 80
+        },
+        {
+          "text": "문제",
+          "width": 1086,
+          "x": 297,
+          "y": 169
+        },
+        {
+          "text": "보기 (4개 고정)",
+          "width": 1086,
+          "x": 297,
+          "y": 343
+        }
+      ],
+      "overflow": false,
+      "table": null
+    },
+    "fullEvidence": {
+      "activeAnimations": 0,
+      "headings": [
+        {
+          "height": 36,
+          "label": "P-1001",
+          "width": 86.109375,
+          "x": 336.3125,
+          "y": 80
+        },
+        {
+          "height": 24,
+          "label": "문제",
+          "width": 1086,
+          "x": 297,
+          "y": 169
+        },
+        {
+          "height": 24,
+          "label": "보기 (4개 고정)",
+          "width": 1086,
+          "x": 297,
+          "y": 343
+        }
+      ],
+      "layout": {
+        "header": {
+          "height": 56,
+          "width": 1200,
+          "x": 240,
+          "y": 0
+        },
+        "main": {
+          "height": 844,
+          "width": 1200,
+          "x": 240,
+          "y": 56
+        },
+        "scrollWidth": 1440,
+        "sidebar": {
+          "height": 900,
+          "width": 240,
+          "x": 0,
+          "y": 0
+        },
+        "viewport": 1440
+      },
+      "regions": [
+        {
+          "height": 150,
+          "tag": "SECTION",
+          "width": 1136,
+          "x": 272,
+          "y": 144
+        },
+        {
+          "height": 330,
+          "tag": "SECTION",
+          "width": 1136,
+          "x": 272,
+          "y": 318
+        }
+      ]
+    },
+    "actualHeight": 900
+  },
+  {
+    "file": "staging-normal-1440.png",
+    "width": 1440,
+    "height": 900,
+    "route": "/staging/labels",
+    "phase": "after",
+    "evidence": {
+      "body": "스테이징\n\n자동 생성한 컨텐츠를 검수하고 운영에 반영해요.\n\n상태\n검수 대기\n라벨\t유닛\t설명\t상태\t생성일\n2026-04-25-a3f9\tU-12\t\n배열 챕터 5번째 사이클\n\t검수 대기\t2026-04-25\n2026-04-24-b7c2\tU-13\t\n연결리스트 사이클\n\t검수 대기\t2026-04-24",
+      "font": "Pretendard, system-ui, -apple-system, sans-serif",
+      "headings": [
+        {
+          "text": "스테이징",
+          "width": 1136,
+          "x": 272,
+          "y": 80
+        }
+      ],
+      "overflow": false,
+      "table": {
+        "width": 1134,
+        "x": 273,
+        "y": 231
+      }
+    },
+    "fullEvidence": {
+      "activeAnimations": 0,
+      "headings": [
+        {
+          "height": 36,
+          "label": "스테이징",
+          "width": 1136,
+          "x": 272,
+          "y": 80
+        }
+      ],
+      "layout": {
+        "header": {
+          "height": 56,
+          "width": 1200,
+          "x": 240,
+          "y": 0
+        },
+        "main": {
+          "height": 844,
+          "width": 1200,
+          "x": 240,
+          "y": 56
+        },
+        "scrollWidth": 1440,
+        "sidebar": {
+          "height": 900,
+          "width": 240,
+          "x": 0,
+          "y": 0
+        },
+        "viewport": 1440
+      },
+      "regions": [
+        {
+          "height": 152,
+          "tag": "TABLE",
+          "width": 1134,
+          "x": 273,
+          "y": 231
+        }
+      ]
+    },
+    "actualHeight": 900
+  },
+  {
+    "file": "staging-detail-normal-1440.png",
+    "width": 1440,
+    "height": 900,
+    "route": "/staging/labels/2026-04-25-a3f9",
+    "phase": "after",
+    "evidence": {
+      "body": "검수 대기\n2026-04-25-a3f9\n반영 완료 처리\n\nU-12 · 배열 챕터 5번째 사이클 · 생성일 2026-04-25\n\n레슨\n문제 1\n객관식\n문제 2\n객관식\n문제 3\n주관식\n문제 4\n객관식\n문제 5\n주관식\n문제 6\n객관식\n레슨\n\nID: 901\n\n제목 *\n저장하기",
+      "font": "Pretendard, system-ui, -apple-system, sans-serif",
+      "headings": [
+        {
+          "text": "2026-04-25-a3f9",
+          "width": 234.8125,
+          "x": 351.828125,
+          "y": 80
+        },
+        {
+          "text": "레슨",
+          "width": 798,
+          "x": 585,
+          "y": 195
+        },
+        {
+          "text": "문제 1",
+          "width": 0,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "text": "문제 2",
+          "width": 0,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "text": "문제 3",
+          "width": 0,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "text": "문제 4",
+          "width": 0,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "text": "문제 5",
+          "width": 0,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "text": "문제 6",
+          "width": 0,
+          "x": 0,
+          "y": 0
+        }
+      ],
+      "overflow": false,
+      "table": null
+    },
+    "fullEvidence": {
+      "activeAnimations": 0,
+      "headings": [
+        {
+          "height": 36,
+          "label": "2026-04-25-a3f9",
+          "width": 234.8125,
+          "x": 351.828125,
+          "y": 80
+        },
+        {
+          "height": 24,
+          "label": "레슨",
+          "width": 798,
+          "x": 585,
+          "y": 195
+        }
+      ],
+      "layout": {
+        "header": {
+          "height": 56,
+          "width": 1200,
+          "x": 240,
+          "y": 0
+        },
+        "main": {
+          "height": 844,
+          "width": 1200,
+          "x": 240,
+          "y": 56
+        },
+        "scrollWidth": 1440,
+        "sidebar": {
+          "height": 900,
+          "width": 240,
+          "x": 0,
+          "y": 0
+        },
+        "viewport": 1440
+      },
+      "regions": []
+    },
+    "actualHeight": 900
+  },
+  {
+    "file": "chapter-edit-1280.png",
+    "width": 1280,
+    "height": 900,
+    "route": "/chapters/1",
+    "phase": "after",
+    "evidence": {
+      "body": "제목 *\n설명\n편집 취소\n저장하기\n풀이 현황\n유닛명\t참여 인원\t진행률\n\n배열 (Array)\n\t2,300\t\n79%\n\n\n연결 리스트\n\t1,820\t\n64%\n\n\n스택과 큐\n\t1,540\t\n58%\n유닛 (총 4개)\n제목\t설명\n\n배열\n\t\n배열의 개념과 활용\n\n\n연결 리스트\n\t\n노드 기반 선형 자료구조\n\n\n스택과 큐\n\t\nLIFO/FIF",
+      "font": "Pretendard, system-ui, -apple-system, sans-serif",
+      "headings": [
+        {
+          "text": "풀이 현황",
+          "width": 976,
+          "x": 272,
+          "y": 414
+        },
+        {
+          "text": "유닛 (총 4개)",
+          "width": 976,
+          "x": 272,
+          "y": 684
+        }
+      ],
+      "overflow": false,
+      "table": {
+        "width": 974,
+        "x": 273,
+        "y": 455
+      }
+    },
+    "actualHeight": 900
+  },
+  {
+    "file": "unit-edit-1280.png",
+    "width": 1280,
+    "height": 900,
+    "route": "/units/12",
+    "phase": "after",
+    "evidence": {
+      "body": "제목 *\n설명\n편집 취소\n저장하기\n레슨 (총 2개)\n제목\n배열이란 무엇인가\n배열의 시간 복잡도",
+      "font": "Pretendard, system-ui, -apple-system, sans-serif",
+      "headings": [
+        {
+          "text": "레슨 (총 2개)",
+          "width": 976,
+          "x": 272,
+          "y": 414
+        }
+      ],
+      "overflow": false,
+      "table": {
+        "width": 974,
+        "x": 273,
+        "y": 455
+      }
+    },
+    "actualHeight": 900
+  },
+  {
+    "file": "lesson-edit-1280.png",
+    "width": 1280,
+    "height": 900,
+    "route": "/lessons/901",
+    "phase": "after",
+    "evidence": {
+      "body": "제목 *\n편집 취소\n저장하기\n문제 (총 3개)\nID\t유형\t지시문\nP-1001\t객관식\t\n다음 중 배열의 임의 접근(random access) 시간 복잡도는?\n\nP-1002\t객관식\t\n정렬된 배열에서 특정 값을 탐색할 때 가장 효율적인 알고리즘의 시간 복잡도는?\n\nP-1003\t주관식\t\n배열에서 임의 위치에 요소를 삽입할 때의 ",
+      "font": "Pretendard, system-ui, -apple-system, sans-serif",
+      "headings": [
+        {
+          "text": "문제 (총 3개)",
+          "width": 976,
+          "x": 272,
+          "y": 284
+        }
+      ],
+      "overflow": false,
+      "table": {
+        "width": 974,
+        "x": 273,
+        "y": 325
+      }
+    },
+    "actualHeight": 900
+  },
+  {
+    "file": "problem-objective-edit-1280.png",
+    "width": 1280,
+    "height": 900,
+    "route": "/problems/1001",
+    "phase": "after",
+    "evidence": {
+      "body": "객관식\nP-1001\n문제\n지시문 *\n본문 *\n작성\n미리보기\n보기 (4개 고정)\n①\n정답\n해설\n②\n정답\n해설\n③\n정답\n해설\n④\n정답\n해설\n편집 취소\n저장하기",
+      "font": "Pretendard, system-ui, -apple-system, sans-serif",
+      "headings": [
+        {
+          "text": "P-1001",
+          "width": 86.109375,
+          "x": 336.3125,
+          "y": 80
+        },
+        {
+          "text": "문제",
+          "width": 926,
+          "x": 297,
+          "y": 165
+        },
+        {
+          "text": "보기 (4개 고정)",
+          "width": 926,
+          "x": 297,
+          "y": 525
+        }
+      ],
+      "overflow": false,
+      "table": null
+    },
+    "actualHeight": 900
+  },
+  {
+    "file": "problem-objective-edit-1280-full.png",
+    "width": 1280,
+    "route": "/problems/1001",
+    "full": true,
+    "actualHeight": 1238
+  },
+  {
+    "file": "problem-subjective-normal-1280.png",
+    "width": 1280,
+    "height": 900,
+    "route": "/problems/1003",
+    "phase": "after",
+    "evidence": {
+      "body": "주관식\nP-1003\n편집\n문제\n지시문\n배열에서 임의 위치에 요소를 삽입할 때의 시간 복잡도를 빅오 표기법으로 쓰시오.\n본문\n\n배열은 연속된 메모리에 저장되므로 중간 삽입 시 원소 이동이 발생한다.\n\n정답\n\nO(n),O(N),빅오 n\n\n해설: 평균적으로 n개 원소를 이동해야 합니다.",
+      "font": "Pretendard, system-ui, -apple-system, sans-serif",
+      "headings": [
+        {
+          "text": "P-1003",
+          "width": 90.53125,
+          "x": 336.3125,
+          "y": 80
+        },
+        {
+          "text": "문제",
+          "width": 926,
+          "x": 297,
+          "y": 169
+        },
+        {
+          "text": "정답",
+          "width": 926,
+          "x": 297,
+          "y": 343
+        }
+      ],
+      "overflow": false,
+      "table": null
+    },
+    "actualHeight": 900
+  },
+  {
+    "file": "problem-subjective-edit-1280.png",
+    "width": 1280,
+    "height": 900,
+    "route": "/problems/1003",
+    "phase": "after",
+    "evidence": {
+      "body": "주관식\nP-1003\n문제\n지시문 *\n본문 *\n작성\n미리보기\n정답\n정답 (인정 표기는 콤마로 구분) *\n해설 *\n편집 취소\n저장하기",
+      "font": "Pretendard, system-ui, -apple-system, sans-serif",
+      "headings": [
+        {
+          "text": "P-1003",
+          "width": 90.53125,
+          "x": 336.3125,
+          "y": 80
+        },
+        {
+          "text": "문제",
+          "width": 926,
+          "x": 297,
+          "y": 165
+        },
+        {
+          "text": "정답",
+          "width": 926,
+          "x": 297,
+          "y": 525
+        }
+      ],
+      "overflow": false,
+      "table": null
+    },
+    "actualHeight": 900
+  },
+  {
+    "file": "problem-subjective-edit-1280-full.png",
+    "width": 1280,
+    "route": "/problems/1003",
+    "full": true,
+    "actualHeight": 906
+  },
+  {
+    "file": "staging-objective-1280.png",
+    "width": 1280,
+    "height": 900,
+    "route": "/staging/labels/2026-04-25-a3f9",
+    "phase": "after",
+    "evidence": {
+      "body": "검수 대기\n2026-04-25-a3f9\n반영 완료 처리\n\nU-12 · 배열 챕터 5번째 사이클 · 생성일 2026-04-25\n\n레슨\n문제 1\n객관식\n문제 2\n객관식\n문제 3\n주관식\n문제 4\n객관식\n문제 5\n주관식\n문제 6\n객관식\n문제 1\n객관식\n\nID: 1001\n\n지시문 *\n본문 *\n작성\n미리보기\n보기 (4개 고정)\n①\n",
+      "font": "Pretendard, system-ui, -apple-system, sans-serif",
+      "headings": [
+        {
+          "text": "2026-04-25-a3f9",
+          "width": 234.8125,
+          "x": 351.828125,
+          "y": 80
+        },
+        {
+          "text": "레슨",
+          "width": 0,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "text": "문제 1",
+          "width": 38.796875,
+          "x": 585,
+          "y": 196
+        },
+        {
+          "text": "문제 2",
+          "width": 0,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "text": "문제 3",
+          "width": 0,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "text": "문제 4",
+          "width": 0,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "text": "문제 5",
+          "width": 0,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "text": "문제 6",
+          "width": 0,
+          "x": 0,
+          "y": 0
+        }
+      ],
+      "overflow": false,
+      "table": null
+    },
+    "actualHeight": 900
+  },
+  {
+    "file": "staging-objective-1280-full.png",
+    "width": 1280,
+    "route": "/staging/labels/2026-04-25-a3f9",
+    "full": true,
+    "actualHeight": 1476
+  },
+  {
+    "file": "staging-subjective-1280.png",
+    "width": 1280,
+    "height": 900,
+    "route": "/staging/labels/2026-04-25-a3f9",
+    "phase": "after",
+    "evidence": {
+      "body": "검수 대기\n2026-04-25-a3f9\n반영 완료 처리\n\nU-12 · 배열 챕터 5번째 사이클 · 생성일 2026-04-25\n\n레슨\n문제 1\n객관식\n문제 2\n객관식\n문제 3\n주관식\n문제 4\n객관식\n문제 5\n주관식\n문제 6\n객관식\n문제 3\n주관식\n\nID: 1003\n\n지시문 *\n본문 *\n작성\n미리보기\n정답 (인정 표기는 콤마",
+      "font": "Pretendard, system-ui, -apple-system, sans-serif",
+      "headings": [
+        {
+          "text": "2026-04-25-a3f9",
+          "width": 234.8125,
+          "x": 351.828125,
+          "y": 80
+        },
+        {
+          "text": "레슨",
+          "width": 0,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "text": "문제 1",
+          "width": 0,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "text": "문제 2",
+          "width": 0,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "text": "문제 3",
+          "width": 41.5625,
+          "x": 585,
+          "y": 196
+        },
+        {
+          "text": "문제 4",
+          "width": 0,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "text": "문제 5",
+          "width": 0,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "text": "문제 6",
+          "width": 0,
+          "x": 0,
+          "y": 0
+        }
+      ],
+      "overflow": false,
+      "table": null
+    },
+    "actualHeight": 900
+  },
+  {
+    "file": "staging-subjective-1280-full.png",
+    "width": 1280,
+    "route": "/staging/labels/2026-04-25-a3f9",
+    "full": true,
+    "actualHeight": 900
+  },
+  {
+    "file": "staging-completed-1280.png",
+    "width": 1280,
+    "height": 900,
+    "route": "/staging/labels/2026-04-23-d4e1",
+    "phase": "after",
+    "evidence": {
+      "body": "반영 완료\n2026-04-23-d4e1\n\nU-12 · 배열 챕터 5번째 사이클 · 생성일 2026-04-25\n\n이 라벨을 prod에 반영했어요. 반영한 라벨은 수정할 수 없어요.\n레슨\n문제 1\n객관식\n문제 2\n객관식\n문제 3\n주관식\n문제 4\n객관식\n문제 5\n주관식\n문제 6\n객관식\n레슨\n\nID: 901\n\n제목 *",
+      "font": "Pretendard, system-ui, -apple-system, sans-serif",
+      "headings": [
+        {
+          "text": "2026-04-23-d4e1",
+          "width": 234.8125,
+          "x": 351.828125,
+          "y": 80
+        },
+        {
+          "text": "레슨",
+          "width": 638,
+          "x": 585,
+          "y": 261
+        },
+        {
+          "text": "문제 1",
+          "width": 0,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "text": "문제 2",
+          "width": 0,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "text": "문제 3",
+          "width": 0,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "text": "문제 4",
+          "width": 0,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "text": "문제 5",
+          "width": 0,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "text": "문제 6",
+          "width": 0,
+          "x": 0,
+          "y": 0
+        }
+      ],
+      "overflow": false,
+      "table": null
+    },
+    "actualHeight": 900
+  },
+  {
+    "file": "staging-promote-dialog-1280.png",
+    "width": 1280,
+    "height": 900,
+    "route": "/staging/labels/2026-04-25-a3f9",
+    "phase": "after",
+    "evidence": {
+      "body": "검수 대기\n2026-04-25-a3f9\n반영 완료 처리\n\nU-12 · 배열 챕터 5번째 사이클 · 생성일 2026-04-25\n\n레슨\n문제 1\n객관식\n문제 2\n객관식\n문제 3\n주관식\n문제 4\n객관식\n문제 5\n주관식\n문제 6\n객관식\n레슨\n\nID: 901\n\n제목 *\n저장하기",
+      "font": "Pretendard, system-ui, -apple-system, sans-serif",
+      "headings": [
+        {
+          "text": "2026-04-25-a3f9",
+          "width": 234.8125,
+          "x": 351.828125,
+          "y": 80
+        },
+        {
+          "text": "레슨",
+          "width": 638,
+          "x": 585,
+          "y": 195
+        },
+        {
+          "text": "문제 1",
+          "width": 0,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "text": "문제 2",
+          "width": 0,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "text": "문제 3",
+          "width": 0,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "text": "문제 4",
+          "width": 0,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "text": "문제 5",
+          "width": 0,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "text": "문제 6",
+          "width": 0,
+          "x": 0,
+          "y": 0
+        }
+      ],
+      "overflow": false,
+      "table": null
+    },
+    "actualHeight": 900
+  },
+  {
+    "file": "staging-unsaved-1280.png",
+    "width": 1280,
+    "height": 900,
+    "route": "/staging/labels/2026-04-25-a3f9",
+    "phase": "after",
+    "evidence": {
+      "body": "검수 대기\n2026-04-25-a3f9\n반영 완료 처리\n\nU-12 · 배열 챕터 5번째 사이클 · 생성일 2026-04-25\n\n레슨\n문제 1\n객관식\n문제 2\n객관식\n문제 3\n주관식\n문제 4\n객관식\n문제 5\n주관식\n문제 6\n객관식\n레슨\n\nID: 901\n\n제목 *\n저장하기",
+      "font": "Pretendard, system-ui, -apple-system, sans-serif",
+      "headings": [
+        {
+          "text": "2026-04-25-a3f9",
+          "width": 234.8125,
+          "x": 351.828125,
+          "y": 80
+        },
+        {
+          "text": "레슨",
+          "width": 638,
+          "x": 585,
+          "y": 195
+        },
+        {
+          "text": "문제 1",
+          "width": 0,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "text": "문제 2",
+          "width": 0,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "text": "문제 3",
+          "width": 0,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "text": "문제 4",
+          "width": 0,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "text": "문제 5",
+          "width": 0,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "text": "문제 6",
+          "width": 0,
+          "x": 0,
+          "y": 0
+        }
+      ],
+      "overflow": false,
+      "table": null
+    },
+    "actualHeight": 900
+  },
+  {
+    "file": "staging-unsaved-guard-1280.png",
+    "width": 1280,
+    "height": 900,
+    "route": "/staging/labels/2026-04-25-a3f9",
+    "phase": "after",
+    "evidence": {
+      "body": "검수 대기\n2026-04-25-a3f9\n반영 완료 처리\n\nU-12 · 배열 챕터 5번째 사이클 · 생성일 2026-04-25\n\n레슨\n문제 1\n객관식\n문제 2\n객관식\n문제 3\n주관식\n문제 4\n객관식\n문제 5\n주관식\n문제 6\n객관식\n레슨\n\nID: 901\n\n제목 *\n저장하기",
+      "font": "Pretendard, system-ui, -apple-system, sans-serif",
+      "headings": [
+        {
+          "text": "2026-04-25-a3f9",
+          "width": 234.8125,
+          "x": 351.828125,
+          "y": 80
+        },
+        {
+          "text": "레슨",
+          "width": 638,
+          "x": 585,
+          "y": 195
+        },
+        {
+          "text": "문제 1",
+          "width": 0,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "text": "문제 2",
+          "width": 0,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "text": "문제 3",
+          "width": 0,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "text": "문제 4",
+          "width": 0,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "text": "문제 5",
+          "width": 0,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "text": "문제 6",
+          "width": 0,
+          "x": 0,
+          "y": 0
+        }
+      ],
+      "overflow": false,
+      "table": null
+    },
+    "actualHeight": 900
+  },
+  {
+    "file": "chapter-edit-1440.png",
+    "width": 1440,
+    "height": 900,
+    "route": "/chapters/1",
+    "phase": "after",
+    "evidence": {
+      "body": "제목 *\n설명\n편집 취소\n저장하기\n풀이 현황\n유닛명\t참여 인원\t진행률\n\n배열 (Array)\n\t2,300\t\n79%\n\n\n연결 리스트\n\t1,820\t\n64%\n\n\n스택과 큐\n\t1,540\t\n58%\n유닛 (총 4개)\n제목\t설명\n\n배열\n\t\n배열의 개념과 활용\n\n\n연결 리스트\n\t\n노드 기반 선형 자료구조\n\n\n스택과 큐\n\t\nLIFO/FIF",
+      "font": "Pretendard, system-ui, -apple-system, sans-serif",
+      "headings": [
+        {
+          "text": "풀이 현황",
+          "width": 1136,
+          "x": 272,
+          "y": 414
+        },
+        {
+          "text": "유닛 (총 4개)",
+          "width": 1136,
+          "x": 272,
+          "y": 684
+        }
+      ],
+      "overflow": false,
+      "table": {
+        "width": 1134,
+        "x": 273,
+        "y": 455
+      }
+    },
+    "actualHeight": 900
+  },
+  {
+    "file": "unit-edit-1440.png",
+    "width": 1440,
+    "height": 900,
+    "route": "/units/12",
+    "phase": "after",
+    "evidence": {
+      "body": "제목 *\n설명\n편집 취소\n저장하기\n레슨 (총 2개)\n제목\n배열이란 무엇인가\n배열의 시간 복잡도",
+      "font": "Pretendard, system-ui, -apple-system, sans-serif",
+      "headings": [
+        {
+          "text": "레슨 (총 2개)",
+          "width": 1136,
+          "x": 272,
+          "y": 414
+        }
+      ],
+      "overflow": false,
+      "table": {
+        "width": 1134,
+        "x": 273,
+        "y": 455
+      }
+    },
+    "actualHeight": 900
+  },
+  {
+    "file": "lesson-edit-1440.png",
+    "width": 1440,
+    "height": 900,
+    "route": "/lessons/901",
+    "phase": "after",
+    "evidence": {
+      "body": "제목 *\n편집 취소\n저장하기\n문제 (총 3개)\nID\t유형\t지시문\nP-1001\t객관식\t\n다음 중 배열의 임의 접근(random access) 시간 복잡도는?\n\nP-1002\t객관식\t\n정렬된 배열에서 특정 값을 탐색할 때 가장 효율적인 알고리즘의 시간 복잡도는?\n\nP-1003\t주관식\t\n배열에서 임의 위치에 요소를 삽입할 때의 ",
+      "font": "Pretendard, system-ui, -apple-system, sans-serif",
+      "headings": [
+        {
+          "text": "문제 (총 3개)",
+          "width": 1136,
+          "x": 272,
+          "y": 284
+        }
+      ],
+      "overflow": false,
+      "table": {
+        "width": 1134,
+        "x": 273,
+        "y": 325
+      }
+    },
+    "actualHeight": 900
+  },
+  {
+    "file": "problem-objective-edit-1440.png",
+    "width": 1440,
+    "height": 900,
+    "route": "/problems/1001",
+    "phase": "after",
+    "evidence": {
+      "body": "객관식\nP-1001\n문제\n지시문 *\n본문 *\n작성\n미리보기\n보기 (4개 고정)\n①\n정답\n해설\n②\n정답\n해설\n③\n정답\n해설\n④\n정답\n해설\n편집 취소\n저장하기",
+      "font": "Pretendard, system-ui, -apple-system, sans-serif",
+      "headings": [
+        {
+          "text": "P-1001",
+          "width": 86.109375,
+          "x": 336.3125,
+          "y": 80
+        },
+        {
+          "text": "문제",
+          "width": 1086,
+          "x": 297,
+          "y": 165
+        },
+        {
+          "text": "보기 (4개 고정)",
+          "width": 1086,
+          "x": 297,
+          "y": 525
+        }
+      ],
+      "overflow": false,
+      "table": null
+    },
+    "actualHeight": 900
+  },
+  {
+    "file": "problem-objective-edit-1440-full.png",
+    "width": 1440,
+    "route": "/problems/1001",
+    "full": true,
+    "actualHeight": 1238
+  },
+  {
+    "file": "problem-subjective-normal-1440.png",
+    "width": 1440,
+    "height": 900,
+    "route": "/problems/1003",
+    "phase": "after",
+    "evidence": {
+      "body": "주관식\nP-1003\n편집\n문제\n지시문\n배열에서 임의 위치에 요소를 삽입할 때의 시간 복잡도를 빅오 표기법으로 쓰시오.\n본문\n\n배열은 연속된 메모리에 저장되므로 중간 삽입 시 원소 이동이 발생한다.\n\n정답\n\nO(n),O(N),빅오 n\n\n해설: 평균적으로 n개 원소를 이동해야 합니다.",
+      "font": "Pretendard, system-ui, -apple-system, sans-serif",
+      "headings": [
+        {
+          "text": "P-1003",
+          "width": 90.53125,
+          "x": 336.3125,
+          "y": 80
+        },
+        {
+          "text": "문제",
+          "width": 1086,
+          "x": 297,
+          "y": 169
+        },
+        {
+          "text": "정답",
+          "width": 1086,
+          "x": 297,
+          "y": 343
+        }
+      ],
+      "overflow": false,
+      "table": null
+    },
+    "actualHeight": 900
+  },
+  {
+    "file": "problem-subjective-edit-1440.png",
+    "width": 1440,
+    "height": 900,
+    "route": "/problems/1003",
+    "phase": "after",
+    "evidence": {
+      "body": "주관식\nP-1003\n문제\n지시문 *\n본문 *\n작성\n미리보기\n정답\n정답 (인정 표기는 콤마로 구분) *\n해설 *\n편집 취소\n저장하기",
+      "font": "Pretendard, system-ui, -apple-system, sans-serif",
+      "headings": [
+        {
+          "text": "P-1003",
+          "width": 90.53125,
+          "x": 336.3125,
+          "y": 80
+        },
+        {
+          "text": "문제",
+          "width": 1086,
+          "x": 297,
+          "y": 165
+        },
+        {
+          "text": "정답",
+          "width": 1086,
+          "x": 297,
+          "y": 525
+        }
+      ],
+      "overflow": false,
+      "table": null
+    },
+    "actualHeight": 900
+  },
+  {
+    "file": "problem-subjective-edit-1440-full.png",
+    "width": 1440,
+    "route": "/problems/1003",
+    "full": true,
+    "actualHeight": 906
+  },
+  {
+    "file": "staging-objective-1440.png",
+    "width": 1440,
+    "height": 900,
+    "route": "/staging/labels/2026-04-25-a3f9",
+    "phase": "after",
+    "evidence": {
+      "body": "검수 대기\n2026-04-25-a3f9\n반영 완료 처리\n\nU-12 · 배열 챕터 5번째 사이클 · 생성일 2026-04-25\n\n레슨\n문제 1\n객관식\n문제 2\n객관식\n문제 3\n주관식\n문제 4\n객관식\n문제 5\n주관식\n문제 6\n객관식\n문제 1\n객관식\n\nID: 1001\n\n지시문 *\n본문 *\n작성\n미리보기\n보기 (4개 고정)\n①\n",
+      "font": "Pretendard, system-ui, -apple-system, sans-serif",
+      "headings": [
+        {
+          "text": "2026-04-25-a3f9",
+          "width": 234.8125,
+          "x": 351.828125,
+          "y": 80
+        },
+        {
+          "text": "레슨",
+          "width": 0,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "text": "문제 1",
+          "width": 38.796875,
+          "x": 585,
+          "y": 196
+        },
+        {
+          "text": "문제 2",
+          "width": 0,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "text": "문제 3",
+          "width": 0,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "text": "문제 4",
+          "width": 0,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "text": "문제 5",
+          "width": 0,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "text": "문제 6",
+          "width": 0,
+          "x": 0,
+          "y": 0
+        }
+      ],
+      "overflow": false,
+      "table": null
+    },
+    "actualHeight": 900
+  },
+  {
+    "file": "staging-objective-1440-full.png",
+    "width": 1440,
+    "route": "/staging/labels/2026-04-25-a3f9",
+    "full": true,
+    "actualHeight": 1476
+  },
+  {
+    "file": "staging-subjective-1440.png",
+    "width": 1440,
+    "height": 900,
+    "route": "/staging/labels/2026-04-25-a3f9",
+    "phase": "after",
+    "evidence": {
+      "body": "검수 대기\n2026-04-25-a3f9\n반영 완료 처리\n\nU-12 · 배열 챕터 5번째 사이클 · 생성일 2026-04-25\n\n레슨\n문제 1\n객관식\n문제 2\n객관식\n문제 3\n주관식\n문제 4\n객관식\n문제 5\n주관식\n문제 6\n객관식\n문제 3\n주관식\n\nID: 1003\n\n지시문 *\n본문 *\n작성\n미리보기\n정답 (인정 표기는 콤마",
+      "font": "Pretendard, system-ui, -apple-system, sans-serif",
+      "headings": [
+        {
+          "text": "2026-04-25-a3f9",
+          "width": 234.8125,
+          "x": 351.828125,
+          "y": 80
+        },
+        {
+          "text": "레슨",
+          "width": 0,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "text": "문제 1",
+          "width": 0,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "text": "문제 2",
+          "width": 0,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "text": "문제 3",
+          "width": 41.5625,
+          "x": 585,
+          "y": 196
+        },
+        {
+          "text": "문제 4",
+          "width": 0,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "text": "문제 5",
+          "width": 0,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "text": "문제 6",
+          "width": 0,
+          "x": 0,
+          "y": 0
+        }
+      ],
+      "overflow": false,
+      "table": null
+    },
+    "actualHeight": 900
+  },
+  {
+    "file": "staging-subjective-1440-full.png",
+    "width": 1440,
+    "route": "/staging/labels/2026-04-25-a3f9",
+    "full": true,
+    "actualHeight": 900
+  },
+  {
+    "file": "staging-completed-1440.png",
+    "width": 1440,
+    "height": 900,
+    "route": "/staging/labels/2026-04-23-d4e1",
+    "phase": "after",
+    "evidence": {
+      "body": "반영 완료\n2026-04-23-d4e1\n\nU-12 · 배열 챕터 5번째 사이클 · 생성일 2026-04-25\n\n이 라벨을 prod에 반영했어요. 반영한 라벨은 수정할 수 없어요.\n레슨\n문제 1\n객관식\n문제 2\n객관식\n문제 3\n주관식\n문제 4\n객관식\n문제 5\n주관식\n문제 6\n객관식\n레슨\n\nID: 901\n\n제목 *",
+      "font": "Pretendard, system-ui, -apple-system, sans-serif",
+      "headings": [
+        {
+          "text": "2026-04-23-d4e1",
+          "width": 234.8125,
+          "x": 351.828125,
+          "y": 80
+        },
+        {
+          "text": "레슨",
+          "width": 798,
+          "x": 585,
+          "y": 261
+        },
+        {
+          "text": "문제 1",
+          "width": 0,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "text": "문제 2",
+          "width": 0,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "text": "문제 3",
+          "width": 0,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "text": "문제 4",
+          "width": 0,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "text": "문제 5",
+          "width": 0,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "text": "문제 6",
+          "width": 0,
+          "x": 0,
+          "y": 0
+        }
+      ],
+      "overflow": false,
+      "table": null
+    },
+    "actualHeight": 900
+  },
+  {
+    "file": "staging-promote-dialog-1440.png",
+    "width": 1440,
+    "height": 900,
+    "route": "/staging/labels/2026-04-25-a3f9",
+    "phase": "after",
+    "evidence": {
+      "body": "검수 대기\n2026-04-25-a3f9\n반영 완료 처리\n\nU-12 · 배열 챕터 5번째 사이클 · 생성일 2026-04-25\n\n레슨\n문제 1\n객관식\n문제 2\n객관식\n문제 3\n주관식\n문제 4\n객관식\n문제 5\n주관식\n문제 6\n객관식\n레슨\n\nID: 901\n\n제목 *\n저장하기",
+      "font": "Pretendard, system-ui, -apple-system, sans-serif",
+      "headings": [
+        {
+          "text": "2026-04-25-a3f9",
+          "width": 234.8125,
+          "x": 351.828125,
+          "y": 80
+        },
+        {
+          "text": "레슨",
+          "width": 798,
+          "x": 585,
+          "y": 195
+        },
+        {
+          "text": "문제 1",
+          "width": 0,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "text": "문제 2",
+          "width": 0,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "text": "문제 3",
+          "width": 0,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "text": "문제 4",
+          "width": 0,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "text": "문제 5",
+          "width": 0,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "text": "문제 6",
+          "width": 0,
+          "x": 0,
+          "y": 0
+        }
+      ],
+      "overflow": false,
+      "table": null
+    },
+    "actualHeight": 900
+  },
+  {
+    "file": "staging-unsaved-1440.png",
+    "width": 1440,
+    "height": 900,
+    "route": "/staging/labels/2026-04-25-a3f9",
+    "phase": "after",
+    "evidence": {
+      "body": "검수 대기\n2026-04-25-a3f9\n반영 완료 처리\n\nU-12 · 배열 챕터 5번째 사이클 · 생성일 2026-04-25\n\n레슨\n문제 1\n객관식\n문제 2\n객관식\n문제 3\n주관식\n문제 4\n객관식\n문제 5\n주관식\n문제 6\n객관식\n레슨\n\nID: 901\n\n제목 *\n저장하기",
+      "font": "Pretendard, system-ui, -apple-system, sans-serif",
+      "headings": [
+        {
+          "text": "2026-04-25-a3f9",
+          "width": 234.8125,
+          "x": 351.828125,
+          "y": 80
+        },
+        {
+          "text": "레슨",
+          "width": 798,
+          "x": 585,
+          "y": 195
+        },
+        {
+          "text": "문제 1",
+          "width": 0,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "text": "문제 2",
+          "width": 0,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "text": "문제 3",
+          "width": 0,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "text": "문제 4",
+          "width": 0,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "text": "문제 5",
+          "width": 0,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "text": "문제 6",
+          "width": 0,
+          "x": 0,
+          "y": 0
+        }
+      ],
+      "overflow": false,
+      "table": null
+    },
+    "actualHeight": 900
+  },
+  {
+    "file": "staging-unsaved-guard-1440.png",
+    "width": 1440,
+    "height": 900,
+    "route": "/staging/labels/2026-04-25-a3f9",
+    "phase": "after",
+    "evidence": {
+      "body": "검수 대기\n2026-04-25-a3f9\n반영 완료 처리\n\nU-12 · 배열 챕터 5번째 사이클 · 생성일 2026-04-25\n\n레슨\n문제 1\n객관식\n문제 2\n객관식\n문제 3\n주관식\n문제 4\n객관식\n문제 5\n주관식\n문제 6\n객관식\n레슨\n\nID: 901\n\n제목 *\n저장하기",
+      "font": "Pretendard, system-ui, -apple-system, sans-serif",
+      "headings": [
+        {
+          "text": "2026-04-25-a3f9",
+          "width": 234.8125,
+          "x": 351.828125,
+          "y": 80
+        },
+        {
+          "text": "레슨",
+          "width": 798,
+          "x": 585,
+          "y": 195
+        },
+        {
+          "text": "문제 1",
+          "width": 0,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "text": "문제 2",
+          "width": 0,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "text": "문제 3",
+          "width": 0,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "text": "문제 4",
+          "width": 0,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "text": "문제 5",
+          "width": 0,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "text": "문제 6",
+          "width": 0,
+          "x": 0,
+          "y": 0
+        }
+      ],
+      "overflow": false,
+      "table": null
+    },
+    "actualHeight": 900
+  }
+]

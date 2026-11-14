@@ -87,7 +87,7 @@ export function LessonDetailPage() {
           isLoading={problems.isLoading}
           isError={problems.isError}
           onRetry={() => problems.refetch()}
-          emptyMessage="문제가 없습니다."
+          emptyMessage="문제가 없어요."
           onRowClick={(problem) => navigate(ROUTES.PROBLEM_DETAIL(problem.problemId))}
         />
         {problems.data && problems.data.totalPages > 1 && (

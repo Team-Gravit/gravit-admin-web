@@ -49,7 +49,7 @@ export function ProblemView({ problem }: { problem: ProblemDetail }) {
                   )}
                 </div>
                 {option.explanation && (
-                  <p className="pl-6 text-caption text-fg-secondary">해설: {option.explanation}</p>
+                  <p className="pl-6 text-body text-fg-secondary">해설: {option.explanation}</p>
                 )}
               </li>
             ))}
@@ -63,7 +63,7 @@ export function ProblemView({ problem }: { problem: ProblemDetail }) {
               {problem.answer.content || '-'}
             </p>
             {problem.answer.explanation && (
-              <p className="text-caption text-fg-secondary">해설: {problem.answer.explanation}</p>
+              <p className="text-body text-fg-secondary">해설: {problem.answer.explanation}</p>
             )}
           </div>
         </section>

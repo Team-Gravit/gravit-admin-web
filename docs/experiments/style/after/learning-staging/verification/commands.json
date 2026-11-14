@@ -1,0 +1,34 @@
+[
+  {
+    "command": "npm run check:full",
+    "exitCode": 0
+  },
+  {
+    "command": "npm run test",
+    "exitCode": 0,
+    "files": 17,
+    "passed": 62
+  },
+  {
+    "command": "npm run test:e2e",
+    "exitCode": 0,
+    "passed": 117
+  },
+  {
+    "command": "new unit before implementation",
+    "exitCode": 1,
+    "failed": 2,
+    "passed": 6
+  },
+  {
+    "command": "target e2e first",
+    "exitCode": 1,
+    "failed": 1,
+    "passed": 6
+  },
+  {
+    "command": "T0 isolated radio dirty reproduction",
+    "exitCode": 0,
+    "passed": 1
+  }
+]

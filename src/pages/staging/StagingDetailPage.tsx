@@ -33,7 +33,7 @@ function CompletedBanner() {
     <div className="flex items-center gap-2 rounded-lg bg-success-bg px-4 py-3 text-success-text">
       <CheckCircle2 className="size-4 shrink-0" />
       <span className="text-body">
-        이 라벨은 prod에 반영 완료되었습니다. 더 이상 수정할 수 없습니다.
+        이 라벨을 prod에 반영했어요. 반영한 라벨은 수정할 수 없어요.
       </span>
     </div>
   );
@@ -73,19 +73,19 @@ export function StagingDetailPage() {
     promote.mutate(undefined, {
       onSuccess: () => {
         void queryClient.invalidateQueries({ queryKey: dashboardKeys.summary() });
-        toast.success('라벨이 반영되었습니다.');
+        toast.success('라벨을 반영했어요.');
         navigate(ROUTES.STAGING_LABELS);
       },
       onError: () => {
         setPromoteOpen(false);
-        toast.error('반영에 실패했습니다. 잠시 후 다시 시도해주세요.');
+        toast.error('반영하지 못했어요. 잠시 뒤 다시 시도해 주세요.');
       },
     });
   };
 
   const itemClass = (isActive: boolean) =>
     cn(
-      'flex w-full items-center justify-between gap-2 border-b border-l-3 border-border px-5 py-4 text-left text-body transition-colors',
+      'flex w-full items-center justify-between gap-2 border-b border-l-3 border-border px-5 py-4 text-left text-body',
       isActive
         ? 'border-l-primary bg-primary-subtle font-medium text-primary'
         : 'border-l-transparent text-foreground hover:bg-primary-faint',
@@ -100,7 +100,7 @@ export function StagingDetailPage() {
             <h1 className="font-mono text-h1 text-foreground">{data.label}</h1>
           </div>
           {data.status === 'PENDING' && (
-            <span title={hasUnsaved ? `저장하지 않은 항목이 있습니다 (${unsavedCount}건)` : undefined}>
+            <span title={hasUnsaved ? `저장하지 않은 항목이 있어요 (${unsavedCount}건)` : undefined}>
               <Button
                 variant="destructive"
                 disabled={hasUnsaved}
@@ -111,7 +111,7 @@ export function StagingDetailPage() {
             </span>
           )}
         </div>
-        <p className="text-caption text-fg-muted">
+        <p className="text-caption tabular-nums text-fg-muted">
           U-{data.unitId} · {data.description} · 생성일 {formatDate(data.createdAt)}
         </p>
       </div>
@@ -186,7 +186,7 @@ export function StagingDetailPage() {
         open={promoteOpen}
         onOpenChange={setPromoteOpen}
         label={data.label}
-        description="이 작업은 되돌릴 수 없습니다. 라벨의 레슨·문제가 운영(prod)에 반영됩니다."
+        description="이 작업은 되돌릴 수 없어요. 라벨의 레슨·문제를 운영(prod)에 반영해요."
         loading={promote.isPending}
         onConfirm={handlePromote}
       />
@@ -194,7 +194,7 @@ export function StagingDetailPage() {
       {blocker.state === 'blocked' && (
         <UnsavedChangesModal
           open
-          message={`저장하지 않은 항목이 ${unsavedCount}건 있습니다. 페이지를 나가시겠습니까?`}
+          message={`저장하지 않은 항목이 ${unsavedCount}건 있어요. 페이지를 나갈까요?`}
           onConfirm={() => blocker.proceed()}
           onCancel={() => blocker.reset()}
         />

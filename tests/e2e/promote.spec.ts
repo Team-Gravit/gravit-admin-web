@@ -28,6 +28,6 @@ test('promote StrictMatch: 오타 시 [반영] 비활성, 정확 입력 시 반�
   await expect(confirm).toBeEnabled();
 
   await confirm.click();
-  await expect(page.getByText('라벨이 반영되었습니다.')).toBeVisible();
+  await expect(page.getByText('라벨을 반영했어요.')).toBeVisible();
   await expect(page).toHaveURL(/\/staging\/labels$/);
 });

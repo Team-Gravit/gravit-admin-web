@@ -104,7 +104,9 @@ export function StagingObjectiveForm({
               if (optionBody.content !== undefined)
                 form.resetField(`options.${index}.content`, { defaultValue: option.content });
               if (optionBody.explanation !== undefined)
-                form.resetField(`options.${index}.explanation`, { defaultValue: option.explanation });
+                form.resetField(`options.${index}.explanation`, {
+                  defaultValue: option.explanation,
+                });
             },
           });
         }
@@ -135,14 +137,14 @@ export function StagingObjectiveForm({
       }
 
       if (failed === 0) {
-        toast.success('저장되었습니다.');
+        toast.success('저장했어요.');
       } else if (failed < results.length) {
-        toast.error(`일부 항목만 저장되었습니다. (${results.length - failed}/${results.length} 성공)`);
+        toast.error(`일부 항목만 저장했어요. (${results.length - failed}/${results.length} 성공)`);
       } else {
-        toast.error('저장에 실패했습니다.');
+        toast.error('저장하지 못했어요. 다시 시도해 주세요.');
       }
     },
-    () => toast.error('필수 항목을 확인해주세요.'),
+    () => toast.error('필수 항목을 확인해 주세요.'),
   );
 
   return (
@@ -152,10 +154,15 @@ export function StagingObjectiveForm({
           <h3 className="text-h3 text-foreground">문제 {problemNumber}</h3>
           <ProblemTypeBadge problemType={problem.problemType} />
         </div>
-        <p className="text-caption text-fg-muted">ID: {problem.problemId}</p>
+        <p className="text-caption tabular-nums text-fg-muted">ID: {problem.problemId}</p>
       </div>
 
-      <FormField label="지시문" htmlFor={`obj-instruction-${problem.problemId}`} required error={errors.instruction?.message}>
+      <FormField
+        label="지시문"
+        htmlFor={`obj-instruction-${problem.problemId}`}
+        required
+        error={errors.instruction?.message}
+      >
         <Input
           id={`obj-instruction-${problem.problemId}`}
           className={cn(dirtyBorder(dirtyFields.instruction), roClass)}
@@ -163,7 +170,12 @@ export function StagingObjectiveForm({
           {...register('instruction')}
         />
       </FormField>
-      <FormField label="본문" htmlFor={`obj-content-${problem.problemId}`} required error={errors.content?.message}>
+      <FormField
+        label="본문"
+        htmlFor={`obj-content-${problem.problemId}`}
+        required
+        error={errors.content?.message}
+      >
         <MarkdownEditor
           id={`obj-content-${problem.problemId}`}
           className={cn('min-h-24', dirtyBorder(dirtyFields.content), roClass)}
@@ -177,13 +189,20 @@ export function StagingObjectiveForm({
         <h4 className="text-body font-medium text-foreground">보기 (4개 고정)</h4>
         <RadioGroup
           value={String(answerOptionId)}
-          onValueChange={(value) => setValue('answerOptionId', Number(value), { shouldDirty: true })}
+          onValueChange={(value) =>
+            setValue('answerOptionId', Number(value), { shouldDirty: true })
+          }
           disabled={readOnly || isSaving}
           className="gap-4"
         >
           {fields.map((field, index) => (
-            <div key={field.id} className="flex items-start gap-3 rounded-md border border-border p-4">
-              <span className="w-5 shrink-0 pt-2 text-body text-foreground">{OPTION_MARKERS[index]}</span>
+            <div
+              key={field.id}
+              className="flex items-start gap-3 rounded-md border border-border p-4"
+            >
+              <span className="w-5 shrink-0 pt-2 text-body text-foreground">
+                {OPTION_MARKERS[index]}
+              </span>
               <label className="flex shrink-0 items-center gap-2 pt-2 text-caption text-fg-secondary">
                 <RadioGroupItem value={String(field.optionId)} />
                 정답
@@ -200,7 +219,11 @@ export function StagingObjectiveForm({
                 <div className="flex flex-col gap-1">
                   <span className="text-caption text-fg-muted">해설</span>
                   <Textarea
-                    className={cn('min-h-16', dirtyBorder(dirtyFields.options?.[index]?.explanation), roClass)}
+                    className={cn(
+                      'min-h-16',
+                      dirtyBorder(dirtyFields.options?.[index]?.explanation),
+                      roClass,
+                    )}
                     disabled={readOnly || isSaving}
                     {...register(`options.${index}.explanation`)}
                   />
@@ -215,8 +238,14 @@ export function StagingObjectiveForm({
       {!readOnly && (
         <div className="flex justify-end">
           <Button onClick={onSubmit} disabled={!isDirty || isSaving}>
-            {isSaving && <Loader2 className="animate-spin" />}
-            저장
+            {isSaving && (
+              <Loader2
+                className="animate-spin motion-reduce:animate-none"
+                style={{ animationDuration: 'var(--motion-loading-cycle)' }}
+                aria-hidden
+              />
+            )}
+            {isSaving ? '저장하고 있어요…' : '저장하기'}
           </Button>
         </div>
       )}
