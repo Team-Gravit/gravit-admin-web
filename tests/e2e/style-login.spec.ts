@@ -1,15 +1,16 @@
 import { expect, test } from '@playwright/test';
 
 for (const width of [1280, 1440]) {
-  test(`중립 제공자도 같은 두 열과 56px 버튼을 유지해요: ${width}`, async ({ page }) => {
+  test(`개편 전 로그인 이미지와 브랜드 버튼을 복원하고 두 열과 56px 높이를 유지해요: ${width}`, async ({ page }) => {
     await page.setViewportSize({ width, height: 900 });
     await page.goto('/login');
     const buttons = page.getByRole('button');
     await expect(buttons).toHaveText(['Google로 시작하기', '카카오로 시작하기', '네이버로 시작하기']);
     for (const button of await buttons.all()) {
       expect((await button.boundingBox())?.height).toBe(56);
-      await expect(button.locator('img')).toHaveCount(0);
+      await expect(button.locator('img')).toHaveCount(1);
     }
+    await expect(page.locator('.max-w-5xl > div').first().locator('img')).toHaveAttribute('src', /login-illustration/);
     const columns = await page.locator('.max-w-5xl > div').evaluateAll((elements) => elements.map((element) => ({ width: element.getBoundingClientRect().width, y: element.getBoundingClientRect().y })));
     expect(columns).toHaveLength(2);
     expect(columns[0]?.width).toBe(511);
@@ -17,9 +18,9 @@ for (const width of [1280, 1440]) {
     await page.keyboard.press('Tab');
     await expect(buttons.first()).toBeFocused();
     await page.goto('/login?error=forbidden');
-    await expect(page.getByText('백오피스 접근 권한이 없어요.')).toBeVisible();
+    await expect(page.getByText('백오피스 접근 권한이 없습니다.')).toBeVisible();
     await page.goto('/login?error=failed');
-    await expect(page.getByText('로그인하지 못했어요. 다시 시도해 주세요.')).toBeVisible();
+    await expect(page.getByText('로그인에 실패했습니다. 다시 시도해주세요.')).toBeVisible();
   });
 }
 

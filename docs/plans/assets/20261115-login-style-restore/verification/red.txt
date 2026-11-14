@@ -1,0 +1,78 @@
+
+> gravit-admin-web@0.1.0 test:e2e
+> playwright test --config /tmp/gravit-login-restore-e2e.config.ts tests/e2e/style-login.spec.ts --grep 개편 전 로그인
+
+[2m[WebServer] [22m(node:19776) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[2m[WebServer] [22m(Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 2 tests using 2 workers
+
+(node:19786) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:19787) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:19786) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:19787) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  1 [chromium] › tests/e2e/style-login.spec.ts:4:3 › 개편 전 로그인 이미지와 브랜드 버튼을 복원하고 두 열과 56px 높이를 유지해요: 1440 (6.7s)
+  ✘  2 [chromium] › tests/e2e/style-login.spec.ts:4:3 › 개편 전 로그인 이미지와 브랜드 버튼을 복원하고 두 열과 56px 높이를 유지해요: 1280 (6.7s)
+
+
+  1) [chromium] › tests/e2e/style-login.spec.ts:4:3 › 개편 전 로그인 이미지와 브랜드 버튼을 복원하고 두 열과 56px 높이를 유지해요: 1280
+
+    Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoHaveCount[2m([22m[32mexpected[39m[2m)[22m failed
+
+    Locator:  getByRole('button').first().locator('img')
+    Expected: [32m1[39m
+    Received: [31m0[39m
+    Timeout:  5000ms
+
+    Call log:
+    [2m  - Expect "toHaveCount" with timeout 5000ms[22m
+    [2m  - waiting for getByRole('button').first().locator('img')[22m
+    [2m    14 × locator resolved to 0 elements[22m
+    [2m       - unexpected value "0"[22m
+
+
+       9 |     for (const button of await buttons.all()) {
+      10 |       expect((await button.boundingBox())?.height).toBe(56);
+    > 11 |       await expect(button.locator('img')).toHaveCount(1);
+         |                                           ^
+      12 |     }
+      13 |     await expect(page.locator('.max-w-5xl > div').first().locator('img')).toHaveAttribute('src', /login-illustration/);
+      14 |     const columns = await page.locator('.max-w-5xl > div').evaluateAll((elements) => elements.map((element) => ({ width: element.getBoundingClientRect().width, y: element.getBoundingClientRect().y })));
+        at /Users/xunsseoie/Desktop/melong/INU/appcenter/gravit-admin-web/tests/e2e/style-login.spec.ts:11:43
+
+    Error Context: ../../../../../../../tmp/gravit-login-restore-test-results/style-login-개편-전-로그인-이미지와--f8055-원하고-두-열과-56px-높이를-유지해요-1280-chromium/error-context.md
+
+  2) [chromium] › tests/e2e/style-login.spec.ts:4:3 › 개편 전 로그인 이미지와 브랜드 버튼을 복원하고 두 열과 56px 높이를 유지해요: 1440
+
+    Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoHaveCount[2m([22m[32mexpected[39m[2m)[22m failed
+
+    Locator:  getByRole('button').first().locator('img')
+    Expected: [32m1[39m
+    Received: [31m0[39m
+    Timeout:  5000ms
+
+    Call log:
+    [2m  - Expect "toHaveCount" with timeout 5000ms[22m
+    [2m  - waiting for getByRole('button').first().locator('img')[22m
+    [2m    14 × locator resolved to 0 elements[22m
+    [2m       - unexpected value "0"[22m
+
+
+       9 |     for (const button of await buttons.all()) {
+      10 |       expect((await button.boundingBox())?.height).toBe(56);
+    > 11 |       await expect(button.locator('img')).toHaveCount(1);
+         |                                           ^
+      12 |     }
+      13 |     await expect(page.locator('.max-w-5xl > div').first().locator('img')).toHaveAttribute('src', /login-illustration/);
+      14 |     const columns = await page.locator('.max-w-5xl > div').evaluateAll((elements) => elements.map((element) => ({ width: element.getBoundingClientRect().width, y: element.getBoundingClientRect().y })));
+        at /Users/xunsseoie/Desktop/melong/INU/appcenter/gravit-admin-web/tests/e2e/style-login.spec.ts:11:43
+
+    Error Context: ../../../../../../../tmp/gravit-login-restore-test-results/style-login-개편-전-로그인-이미지와--0d0ba-원하고-두-열과-56px-높이를-유지해요-1440-chromium/error-context.md
+
+  2 failed
+    [chromium] › tests/e2e/style-login.spec.ts:4:3 › 개편 전 로그인 이미지와 브랜드 버튼을 복원하고 두 열과 56px 높이를 유지해요: 1280
+    [chromium] › tests/e2e/style-login.spec.ts:4:3 › 개편 전 로그인 이미지와 브랜드 버튼을 복원하고 두 열과 56px 높이를 유지해요: 1440

@@ -169,7 +169,7 @@ test('일반 계정은 로그인 응답을 받아도 관리자 페이지에 진�
   await page.goto('/login');
   await page.getByRole('button', { name: '카카오로 시작하기' }).click();
   await expect(page).toHaveURL(`${APP_ORIGIN}/login?error=forbidden`);
-  await expect(page.getByText('백오피스 접근 권한이 없어요.')).toBeVisible();
+  await expect(page.getByText('백오피스 접근 권한이 없습니다.')).toBeVisible();
   expect(await page.evaluate((key) => localStorage.getItem(key), SESSION_KEY)).toBeNull();
 });
 

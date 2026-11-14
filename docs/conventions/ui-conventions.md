@@ -118,4 +118,18 @@
 
 token-lint는 src의 JS/TS와 공용 components/ui도 검사해요. raw hex와 literal px/rem/em arbitrary를 차단하며 allow는 globals.css·tailwind.config.ts의 정확한 상대경로만이에요. Radix 동적 var·data-state·구조 선택자는 값 하드코딩이 아니므로 허용해요. 표준 Tailwind scale을 전역으로 덮어쓰지 않아요.
 
-D5의 로그인 자산 예외와 기존 role→ADMIN 파랑 규칙은 T1에서 D15로 대체해요. 위험 액션 변형과 strict-match·disabled·이탈·3초 toast의 동작은 유지해요.
+D5의 로그인 자산 예외는 D15 H2로 대체했다가 D18(2026-11-15)에 따라 로그인 한정으로 재적용해요. 기존 role→ADMIN 파랑 규칙은 계속 D15로 대체해요. 위험 액션 변형과 strict-match·disabled·이탈·3초 toast의 동작은 유지해요.
+
+## 로그인 복원 예외·명명 (D18)
+
+LoginLayout의 `.login-theme`에서만 개편 전 의미 변수 값을 사용해요. 값의 권위는 DS-STYLE-01의 로그인 복원 절·globals.css이며, 전역 의미 변수 값과 흰 table-header는 유지해요. 브랜드 색·일러스트·shadow-sm은 로그인 전용이에요. 원본 네이버 대비 약2.8:1의 한계를 명시하며 일반 화면의4.5:1 기준을 완화하지 않아요.
+
+| 원본 역할 | 클래스 | 정의 위치·사용 |
+|---|---|---|
+| 로그인 카드8 | rounded-lg | login-theme의 기존 --radius, 일반 카드값에 영향 없음 |
+| 제공자 버튼12 | rounded-login-provider | tailwind.config.ts, OAuthButtons 전용 |
+| Admin Page 24/32 | text-login-h1 | tailwind.config.ts, 기존 font-medium 조합 |
+| 오류 12/16 | text-login-caption | tailwind.config.ts, LoginPage 전용 |
+| 제공자 배경/전경 | 기존 bg-brand-*·text-brand-* | login-theme에서만 기존 브랜드 값으로 연결 |
+
+원래 로고·이미지와 native button 구조 복원은 이번 사용자 승인 범위예요. 공용 Button 및 다른 UI의 색/글자/변형은 바꾸지 않아요.

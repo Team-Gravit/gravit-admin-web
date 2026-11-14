@@ -99,6 +99,7 @@ const config: Config = {
         md: '8px',
         sm: '8px',
         xl: '16px',
+        'login-provider': '12px',
       },
       borderWidth: {
         // DS-01 4: 활성 메뉴 좌측 3px (변경 입력 좌측 4px 는 기본 border-4)
@@ -145,6 +146,8 @@ const config: Config = {
         h3: ['16px', { lineHeight: '24px', fontWeight: '600' }],
         body: ['14px', { lineHeight: '22px', fontWeight: '400' }],
         caption: ['12px', { lineHeight: '18px', fontWeight: '400' }],
+        'login-h1': ['24px', { lineHeight: '32px', fontWeight: '700' }],
+        'login-caption': ['12px', { lineHeight: '16px', fontWeight: '400' }],
       },
       minHeight: { textarea: '80px', 'table-row': '52px' },
       opacity: { disabled: '0.48', backdrop: '0.28' },

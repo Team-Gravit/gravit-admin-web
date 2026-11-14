@@ -1,0 +1,63 @@
+
+> gravit-admin-web@0.1.0 test
+> vitest run
+
+
+ RUN  v3.2.7 /Users/xunsseoie/Desktop/melong/INU/appcenter/gravit-admin-web
+
+stderr | src/shared/components/modals/ConfirmModal.test.tsx > ConfirmModal > 기본 닫기 버튼을 누르면 확인 없이 창을 닫아요
+Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+
+stderr | src/shared/components/modals/StrictMatchModal.test.tsx > StrictMatchModal > 새 기본 제목을 보여주고 완전 일치할 때만 반영을 허용해요
+Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+
+stderr | src/shared/components/modals/ConfirmModal.test.tsx > ConfirmModal > 전달한 행동 이름으로 확인하면 기존 콜백을 불러요
+Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+
+stderr | src/shared/components/modals/ConfirmModal.test.tsx > ConfirmModal > 처리 중이면 기존 확인과 하단 닫기를 비활성화해요
+Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+
+ ✓ src/shared/components/modals/ConfirmModal.test.tsx (3 tests) 285ms
+ ✓ src/features/qa/components/QaConfirmModal.test.tsx (3 tests) 353ms
+ ✓ src/shared/components/markdown/MarkdownEditor.test.tsx (1 test) 278ms
+ ✓ src/features/qa/components/FailReasonModal.test.tsx (4 tests) 365ms
+ ✓ src/features/users/components/UserStatusChangeModal.test.tsx (7 tests) 445ms
+stderr | src/shared/components/modals/StrictMatchModal.test.tsx > StrictMatchModal > 닫고 다시 열면 입력값이 초기화돼요
+Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+
+stderr | src/shared/components/modals/StrictMatchModal.test.tsx > StrictMatchModal > 닫고 다시 열면 입력값이 초기화돼요
+Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+
+stderr | src/shared/components/modals/StrictMatchModal.test.tsx > StrictMatchModal > 일치하더라도 처리 중이면 반영을 허용하지 않아요
+Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+
+ ✓ src/shared/components/modals/StrictMatchModal.test.tsx (3 tests) 1089ms
+   ✓ StrictMatchModal > 새 기본 제목을 보여주고 완전 일치할 때만 반영을 허용해요  793ms
+ ✓ src/features/qa/components/ChecklistPanel.test.tsx (4 tests) 367ms
+   ✓ ChecklistPanel > 정상 항목의 원문과 새 이동 행동을 보여줘요  325ms
+stderr | src/shared/components/modals/UnsavedChangesModal.test.tsx > UnsavedChangesModal > 기본 안내에서 닫기는 편집으로 돌아가고 나가기는 이탈 콜백을 불러요
+Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+
+ ✓ src/features/auth/components/OAuthButtons.test.tsx (2 tests) 252ms
+stderr | src/shared/components/modals/UnsavedChangesModal.test.tsx > UnsavedChangesModal > 전달한 안내 문구를 보존해요
+Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+
+ ✓ src/shared/components/modals/UnsavedChangesModal.test.tsx (2 tests) 225ms
+ ✓ src/shared/components/data-table/DataTable.test.tsx (5 tests) 219ms
+ ✓ src/features/chapters/components/ChapterStatsWidget.test.tsx (4 tests) 324ms
+ ✓ src/features/dashboard/components/StatCard.test.tsx (2 tests) 259ms
+ ✓ src/features/qa/components/CheckCellButton.test.tsx (3 tests) 395ms
+ ✓ src/shared/components/states/ErrorState.test.tsx (2 tests) 204ms
+ ✓ src/features/ravvit/api.test.ts (5 tests) 10ms
+ ✓ src/features/qa/components/ProgressGauges.test.tsx (2 tests) 147ms
+ ✓ src/features/qa/schemas.test.ts (6 tests) 6ms
+ ✓ src/features/ravvit/components/BotMessageItem.test.tsx (4 tests) 213ms
+ ✓ src/features/staging/schemas.test.ts (4 tests) 3ms
+ ✓ src/features/notices/schemas.test.ts (5 tests) 6ms
+ ✓ src/features/inquiries/schemas.test.ts (2 tests) 7ms
+ ✓ src/shared/lib/formatDate.test.ts (5 tests) 2ms
+
+ Test Files  22 passed (22)
+      Tests  78 passed (78)
+   Start at  00:34:49
+   Duration  5.80s (transform 883ms, setup 3.34s, collect 6.43s, tests 5.46s, environment 16.22s, prepare 1.36s)

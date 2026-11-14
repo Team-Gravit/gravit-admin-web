@@ -1,0 +1,107 @@
+{
+  "conditions": 16,
+  "screenshotsPerPhase": 14,
+  "comparisons": [
+    {
+      "key": "normal",
+      "width": 1280,
+      "shellSame": true
+    },
+    {
+      "key": "focus",
+      "width": 1280,
+      "shellSame": true
+    },
+    {
+      "key": "reduced",
+      "width": 1280,
+      "shellSame": true
+    },
+    {
+      "key": "forbidden",
+      "width": 1280,
+      "shellSame": true
+    },
+    {
+      "key": "failed",
+      "width": 1280,
+      "shellSame": true
+    },
+    {
+      "key": "loading",
+      "width": 1280,
+      "shellSame": true
+    },
+    {
+      "key": "error",
+      "width": 1280,
+      "shellSame": true
+    },
+    {
+      "key": "users",
+      "width": 1280,
+      "unchanged": true
+    },
+    {
+      "key": "normal",
+      "width": 1440,
+      "shellSame": true
+    },
+    {
+      "key": "focus",
+      "width": 1440,
+      "shellSame": true
+    },
+    {
+      "key": "reduced",
+      "width": 1440,
+      "shellSame": true
+    },
+    {
+      "key": "forbidden",
+      "width": 1440,
+      "shellSame": true
+    },
+    {
+      "key": "failed",
+      "width": 1440,
+      "shellSame": true
+    },
+    {
+      "key": "loading",
+      "width": 1440,
+      "shellSame": true
+    },
+    {
+      "key": "error",
+      "width": 1440,
+      "shellSame": true
+    },
+    {
+      "key": "users",
+      "width": 1440,
+      "unchanged": true
+    }
+  ],
+  "originalPixels": [
+    {
+      "differentPixels": 0,
+      "dimensionsSame": true,
+      "height": 900,
+      "maxChannelDelta": 0,
+      "totalPixels": 1152000,
+      "width": 1280
+    },
+    {
+      "differentPixels": 0,
+      "dimensionsSame": true,
+      "height": 900,
+      "maxChannelDelta": 0,
+      "totalPixels": 1296000,
+      "width": 1440
+    }
+  ],
+  "scopeLeak": false,
+  "motion": "instant / no active animations",
+  "knownContrastLimitation": "원본 네이버 흰 글자/초록 약2.8:1, AA 통과로 주장하지 않음"
+}

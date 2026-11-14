@@ -66,6 +66,23 @@
     --motion-ease: cubic-bezier(0.2, 0.75, 0.25, 1);
     --motion-scale-start: 0.98;
   }
+  /* D18 — 로그인 레이아웃에만 T1 개편 전 값을 적용해요. */
+  .login-theme {
+    --foreground: 0 0% 9%;
+    --page: 0 0% 98%;
+    --fg-secondary: 0 0% 32%;
+    --muted-foreground: 0 0% 45%;
+    --border: 220 13% 91%;
+    --ring: 261 84% 58%;
+    --destructive: 0 74% 42%;
+    --brand-google: 240 8% 97%;
+    --brand-kakao: 51 100% 63%;
+    --brand-naver: 127 100% 35%;
+    --brand-naver-fg: 0 0% 100%;
+    --brand-fg: 0 0% 30%;
+    --radius: 0.5rem;
+    @apply text-base text-foreground;
+  }
   * {
     @apply border-border;
   }

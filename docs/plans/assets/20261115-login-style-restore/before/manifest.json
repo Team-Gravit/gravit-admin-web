@@ -1,0 +1,3230 @@
+[
+  {
+    "key": "normal",
+    "width": 1280,
+    "route": "/login",
+    "evidence": {
+      "activeAnimations": 0,
+      "adminStyle": {
+        "background": "rgba(0, 0, 0, 0)",
+        "borderColor": "rgb(244, 246, 248)",
+        "borderWidth": "0px",
+        "color": "rgb(89, 102, 119)",
+        "fontSize": "26px",
+        "fontWeight": "500",
+        "lineHeight": "36px",
+        "opacity": "1",
+        "radius": "0px",
+        "shadow": "none",
+        "transition": "0s"
+      },
+      "buttons": [
+        {
+          "disabled": false,
+          "icons": 0,
+          "rect": {
+            "height": 56,
+            "width": 415,
+            "x": 688,
+            "y": 431.984375
+          },
+          "style": {
+            "background": "rgb(255, 255, 255)",
+            "borderColor": "rgb(124, 137, 153)",
+            "borderWidth": "1px",
+            "color": "rgb(32, 40, 51)",
+            "fontSize": "14px",
+            "fontWeight": "600",
+            "lineHeight": "22px",
+            "opacity": "1",
+            "radius": "8px",
+            "shadow": "none",
+            "transition": "0.08s"
+          },
+          "text": "Google로 시작하기"
+        },
+        {
+          "disabled": false,
+          "icons": 0,
+          "rect": {
+            "height": 56,
+            "width": 415,
+            "x": 688,
+            "y": 499.984375
+          },
+          "style": {
+            "background": "rgb(255, 255, 255)",
+            "borderColor": "rgb(124, 137, 153)",
+            "borderWidth": "1px",
+            "color": "rgb(32, 40, 51)",
+            "fontSize": "14px",
+            "fontWeight": "600",
+            "lineHeight": "22px",
+            "opacity": "1",
+            "radius": "8px",
+            "shadow": "none",
+            "transition": "0.08s"
+          },
+          "text": "카카오로 시작하기"
+        },
+        {
+          "disabled": false,
+          "icons": 0,
+          "rect": {
+            "height": 56,
+            "width": 415,
+            "x": 688,
+            "y": 567.984375
+          },
+          "style": {
+            "background": "rgb(255, 255, 255)",
+            "borderColor": "rgb(124, 137, 153)",
+            "borderWidth": "1px",
+            "color": "rgb(32, 40, 51)",
+            "fontSize": "14px",
+            "fontWeight": "600",
+            "lineHeight": "22px",
+            "opacity": "1",
+            "radius": "8px",
+            "shadow": "none",
+            "transition": "0.08s"
+          },
+          "text": "네이버로 시작하기"
+        }
+      ],
+      "card": {
+        "height": 660.171875,
+        "width": 1024,
+        "x": 128,
+        "y": 119.90625
+      },
+      "cardStyle": {
+        "background": "rgb(255, 255, 255)",
+        "borderColor": "rgb(244, 246, 248)",
+        "borderWidth": "1px",
+        "color": "rgb(32, 40, 51)",
+        "fontSize": "14px",
+        "fontWeight": "400",
+        "lineHeight": "22px",
+        "opacity": "1",
+        "radius": "12px",
+        "shadow": "none",
+        "transition": "0s"
+      },
+      "columns": [
+        {
+          "height": 658.171875,
+          "width": 511,
+          "x": 129,
+          "y": 120.90625
+        },
+        {
+          "height": 658.171875,
+          "width": 511,
+          "x": 640,
+          "y": 120.90625
+        }
+      ],
+      "descriptionStyle": {
+        "background": "rgba(0, 0, 0, 0)",
+        "borderColor": "rgb(244, 246, 248)",
+        "borderWidth": "0px",
+        "color": "rgb(89, 102, 119)",
+        "fontSize": "20px",
+        "fontWeight": "500",
+        "lineHeight": "28px",
+        "opacity": "1",
+        "radius": "0px",
+        "shadow": "none",
+        "transition": "0s"
+      },
+      "error": "",
+      "errorStyle": {
+        "background": "rgba(0, 0, 0, 0)",
+        "borderColor": "rgb(244, 246, 248)",
+        "borderWidth": "0px",
+        "color": "rgb(173, 53, 67)",
+        "fontSize": "12px",
+        "fontWeight": "400",
+        "lineHeight": "18px",
+        "opacity": "1",
+        "radius": "0px",
+        "shadow": "none",
+        "transition": "0s"
+      },
+      "heading": {
+        "height": 40,
+        "width": 415,
+        "x": 688,
+        "y": 291.984375
+      },
+      "headingStyle": {
+        "background": "rgba(0, 0, 0, 0)",
+        "borderColor": "rgb(244, 246, 248)",
+        "borderWidth": "0px",
+        "color": "rgb(32, 40, 51)",
+        "fontSize": "32px",
+        "fontWeight": "700",
+        "lineHeight": "40px",
+        "opacity": "1",
+        "radius": "0px",
+        "shadow": "none",
+        "transition": "0s"
+      },
+      "images": [
+        {
+          "alt": "",
+          "loaded": true,
+          "naturalHeight": 150,
+          "naturalWidth": 300,
+          "rect": {
+            "height": 32,
+            "width": 128,
+            "x": 320.5,
+            "y": 433.984375
+          },
+          "src": "/src/features/auth/assets/gravit-logo.svg"
+        },
+        {
+          "alt": "Gravit",
+          "loaded": true,
+          "naturalHeight": 150,
+          "naturalWidth": 300,
+          "rect": {
+            "height": 24,
+            "width": 96,
+            "x": 688,
+            "y": 253.984375
+          },
+          "src": "/src/features/auth/assets/gravit-logo.svg"
+        }
+      ],
+      "overflow": false,
+      "page": {
+        "background": "rgb(244, 246, 248)",
+        "borderColor": "rgb(244, 246, 248)",
+        "borderWidth": "0px",
+        "color": "rgb(32, 40, 51)",
+        "fontSize": "14px",
+        "fontWeight": "400",
+        "lineHeight": "22px",
+        "opacity": "1",
+        "radius": "0px",
+        "shadow": "none",
+        "transition": "0s"
+      },
+      "url": "/login"
+    },
+    "file": "normal-1280.png"
+  },
+  {
+    "key": "focus",
+    "width": 1280,
+    "route": "/login",
+    "evidence": {
+      "activeAnimations": 0,
+      "adminStyle": {
+        "background": "rgba(0, 0, 0, 0)",
+        "borderColor": "rgb(244, 246, 248)",
+        "borderWidth": "0px",
+        "color": "rgb(89, 102, 119)",
+        "fontSize": "26px",
+        "fontWeight": "500",
+        "lineHeight": "36px",
+        "opacity": "1",
+        "radius": "0px",
+        "shadow": "none",
+        "transition": "0s"
+      },
+      "buttons": [
+        {
+          "disabled": false,
+          "icons": 0,
+          "rect": {
+            "height": 56,
+            "width": 415,
+            "x": 688,
+            "y": 431.984375
+          },
+          "style": {
+            "background": "rgb(244, 246, 248)",
+            "borderColor": "rgb(124, 137, 153)",
+            "borderWidth": "1px",
+            "color": "rgb(32, 40, 51)",
+            "fontSize": "14px",
+            "fontWeight": "600",
+            "lineHeight": "22px",
+            "opacity": "1",
+            "radius": "8px",
+            "shadow": "rgb(255, 255, 255) 0px 0px 0px 2px, rgb(36, 95, 204) 0px 0px 0px 4px, rgba(0, 0, 0, 0) 0px 0px 0px 0px",
+            "transition": "0.08s"
+          },
+          "text": "Google로 시작하기"
+        },
+        {
+          "disabled": false,
+          "icons": 0,
+          "rect": {
+            "height": 56,
+            "width": 415,
+            "x": 688,
+            "y": 499.984375
+          },
+          "style": {
+            "background": "rgb(255, 255, 255)",
+            "borderColor": "rgb(124, 137, 153)",
+            "borderWidth": "1px",
+            "color": "rgb(32, 40, 51)",
+            "fontSize": "14px",
+            "fontWeight": "600",
+            "lineHeight": "22px",
+            "opacity": "1",
+            "radius": "8px",
+            "shadow": "none",
+            "transition": "0.08s"
+          },
+          "text": "카카오로 시작하기"
+        },
+        {
+          "disabled": false,
+          "icons": 0,
+          "rect": {
+            "height": 56,
+            "width": 415,
+            "x": 688,
+            "y": 567.984375
+          },
+          "style": {
+            "background": "rgb(255, 255, 255)",
+            "borderColor": "rgb(124, 137, 153)",
+            "borderWidth": "1px",
+            "color": "rgb(32, 40, 51)",
+            "fontSize": "14px",
+            "fontWeight": "600",
+            "lineHeight": "22px",
+            "opacity": "1",
+            "radius": "8px",
+            "shadow": "none",
+            "transition": "0.08s"
+          },
+          "text": "네이버로 시작하기"
+        }
+      ],
+      "card": {
+        "height": 660.171875,
+        "width": 1024,
+        "x": 128,
+        "y": 119.90625
+      },
+      "cardStyle": {
+        "background": "rgb(255, 255, 255)",
+        "borderColor": "rgb(244, 246, 248)",
+        "borderWidth": "1px",
+        "color": "rgb(32, 40, 51)",
+        "fontSize": "14px",
+        "fontWeight": "400",
+        "lineHeight": "22px",
+        "opacity": "1",
+        "radius": "12px",
+        "shadow": "none",
+        "transition": "0s"
+      },
+      "columns": [
+        {
+          "height": 658.171875,
+          "width": 511,
+          "x": 129,
+          "y": 120.90625
+        },
+        {
+          "height": 658.171875,
+          "width": 511,
+          "x": 640,
+          "y": 120.90625
+        }
+      ],
+      "descriptionStyle": {
+        "background": "rgba(0, 0, 0, 0)",
+        "borderColor": "rgb(244, 246, 248)",
+        "borderWidth": "0px",
+        "color": "rgb(89, 102, 119)",
+        "fontSize": "20px",
+        "fontWeight": "500",
+        "lineHeight": "28px",
+        "opacity": "1",
+        "radius": "0px",
+        "shadow": "none",
+        "transition": "0s"
+      },
+      "error": "",
+      "errorStyle": {
+        "background": "rgba(0, 0, 0, 0)",
+        "borderColor": "rgb(244, 246, 248)",
+        "borderWidth": "0px",
+        "color": "rgb(173, 53, 67)",
+        "fontSize": "12px",
+        "fontWeight": "400",
+        "lineHeight": "18px",
+        "opacity": "1",
+        "radius": "0px",
+        "shadow": "none",
+        "transition": "0s"
+      },
+      "heading": {
+        "height": 40,
+        "width": 415,
+        "x": 688,
+        "y": 291.984375
+      },
+      "headingStyle": {
+        "background": "rgba(0, 0, 0, 0)",
+        "borderColor": "rgb(244, 246, 248)",
+        "borderWidth": "0px",
+        "color": "rgb(32, 40, 51)",
+        "fontSize": "32px",
+        "fontWeight": "700",
+        "lineHeight": "40px",
+        "opacity": "1",
+        "radius": "0px",
+        "shadow": "none",
+        "transition": "0s"
+      },
+      "images": [
+        {
+          "alt": "",
+          "loaded": true,
+          "naturalHeight": 150,
+          "naturalWidth": 300,
+          "rect": {
+            "height": 32,
+            "width": 128,
+            "x": 320.5,
+            "y": 433.984375
+          },
+          "src": "/src/features/auth/assets/gravit-logo.svg"
+        },
+        {
+          "alt": "Gravit",
+          "loaded": true,
+          "naturalHeight": 150,
+          "naturalWidth": 300,
+          "rect": {
+            "height": 24,
+            "width": 96,
+            "x": 688,
+            "y": 253.984375
+          },
+          "src": "/src/features/auth/assets/gravit-logo.svg"
+        }
+      ],
+      "overflow": false,
+      "page": {
+        "background": "rgb(244, 246, 248)",
+        "borderColor": "rgb(244, 246, 248)",
+        "borderWidth": "0px",
+        "color": "rgb(32, 40, 51)",
+        "fontSize": "14px",
+        "fontWeight": "400",
+        "lineHeight": "22px",
+        "opacity": "1",
+        "radius": "0px",
+        "shadow": "none",
+        "transition": "0s"
+      },
+      "url": "/login"
+    },
+    "file": "focus-1280.png",
+    "focus": {
+      "label": "Google로 시작하기",
+      "outline": "rgba(0, 0, 0, 0) solid 2px",
+      "ring": "rgb(255, 255, 255) 0px 0px 0px 2px, rgb(36, 95, 204) 0px 0px 0px 4px, rgba(0, 0, 0, 0) 0px 0px 0px 0px",
+      "visible": true
+    },
+    "hover": {
+      "opacity": "1",
+      "transition": "0.08s"
+    }
+  },
+  {
+    "key": "reduced",
+    "width": 1280,
+    "route": "/login",
+    "evidence": {
+      "activeAnimations": 0,
+      "adminStyle": {
+        "background": "rgba(0, 0, 0, 0)",
+        "borderColor": "rgb(244, 246, 248)",
+        "borderWidth": "0px",
+        "color": "rgb(89, 102, 119)",
+        "fontSize": "26px",
+        "fontWeight": "500",
+        "lineHeight": "36px",
+        "opacity": "1",
+        "radius": "0px",
+        "shadow": "none",
+        "transition": "0s"
+      },
+      "buttons": [
+        {
+          "disabled": false,
+          "icons": 0,
+          "rect": {
+            "height": 56,
+            "width": 415,
+            "x": 688,
+            "y": 431.984375
+          },
+          "style": {
+            "background": "rgb(244, 246, 248)",
+            "borderColor": "rgb(124, 137, 153)",
+            "borderWidth": "1px",
+            "color": "rgb(32, 40, 51)",
+            "fontSize": "14px",
+            "fontWeight": "600",
+            "lineHeight": "22px",
+            "opacity": "1",
+            "radius": "8px",
+            "shadow": "rgb(255, 255, 255) 0px 0px 0px 2px, rgb(36, 95, 204) 0px 0px 0px 4px, rgba(0, 0, 0, 0) 0px 0px 0px 0px",
+            "transition": "0.08s"
+          },
+          "text": "Google로 시작하기"
+        },
+        {
+          "disabled": false,
+          "icons": 0,
+          "rect": {
+            "height": 56,
+            "width": 415,
+            "x": 688,
+            "y": 499.984375
+          },
+          "style": {
+            "background": "rgb(255, 255, 255)",
+            "borderColor": "rgb(124, 137, 153)",
+            "borderWidth": "1px",
+            "color": "rgb(32, 40, 51)",
+            "fontSize": "14px",
+            "fontWeight": "600",
+            "lineHeight": "22px",
+            "opacity": "1",
+            "radius": "8px",
+            "shadow": "none",
+            "transition": "0.08s"
+          },
+          "text": "카카오로 시작하기"
+        },
+        {
+          "disabled": false,
+          "icons": 0,
+          "rect": {
+            "height": 56,
+            "width": 415,
+            "x": 688,
+            "y": 567.984375
+          },
+          "style": {
+            "background": "rgb(255, 255, 255)",
+            "borderColor": "rgb(124, 137, 153)",
+            "borderWidth": "1px",
+            "color": "rgb(32, 40, 51)",
+            "fontSize": "14px",
+            "fontWeight": "600",
+            "lineHeight": "22px",
+            "opacity": "1",
+            "radius": "8px",
+            "shadow": "none",
+            "transition": "0.08s"
+          },
+          "text": "네이버로 시작하기"
+        }
+      ],
+      "card": {
+        "height": 660.171875,
+        "width": 1024,
+        "x": 128,
+        "y": 119.90625
+      },
+      "cardStyle": {
+        "background": "rgb(255, 255, 255)",
+        "borderColor": "rgb(244, 246, 248)",
+        "borderWidth": "1px",
+        "color": "rgb(32, 40, 51)",
+        "fontSize": "14px",
+        "fontWeight": "400",
+        "lineHeight": "22px",
+        "opacity": "1",
+        "radius": "12px",
+        "shadow": "none",
+        "transition": "0s"
+      },
+      "columns": [
+        {
+          "height": 658.171875,
+          "width": 511,
+          "x": 129,
+          "y": 120.90625
+        },
+        {
+          "height": 658.171875,
+          "width": 511,
+          "x": 640,
+          "y": 120.90625
+        }
+      ],
+      "descriptionStyle": {
+        "background": "rgba(0, 0, 0, 0)",
+        "borderColor": "rgb(244, 246, 248)",
+        "borderWidth": "0px",
+        "color": "rgb(89, 102, 119)",
+        "fontSize": "20px",
+        "fontWeight": "500",
+        "lineHeight": "28px",
+        "opacity": "1",
+        "radius": "0px",
+        "shadow": "none",
+        "transition": "0s"
+      },
+      "error": "",
+      "errorStyle": {
+        "background": "rgba(0, 0, 0, 0)",
+        "borderColor": "rgb(244, 246, 248)",
+        "borderWidth": "0px",
+        "color": "rgb(173, 53, 67)",
+        "fontSize": "12px",
+        "fontWeight": "400",
+        "lineHeight": "18px",
+        "opacity": "1",
+        "radius": "0px",
+        "shadow": "none",
+        "transition": "0s"
+      },
+      "heading": {
+        "height": 40,
+        "width": 415,
+        "x": 688,
+        "y": 291.984375
+      },
+      "headingStyle": {
+        "background": "rgba(0, 0, 0, 0)",
+        "borderColor": "rgb(244, 246, 248)",
+        "borderWidth": "0px",
+        "color": "rgb(32, 40, 51)",
+        "fontSize": "32px",
+        "fontWeight": "700",
+        "lineHeight": "40px",
+        "opacity": "1",
+        "radius": "0px",
+        "shadow": "none",
+        "transition": "0s"
+      },
+      "images": [
+        {
+          "alt": "",
+          "loaded": true,
+          "naturalHeight": 150,
+          "naturalWidth": 300,
+          "rect": {
+            "height": 32,
+            "width": 128,
+            "x": 320.5,
+            "y": 433.984375
+          },
+          "src": "/src/features/auth/assets/gravit-logo.svg"
+        },
+        {
+          "alt": "Gravit",
+          "loaded": true,
+          "naturalHeight": 150,
+          "naturalWidth": 300,
+          "rect": {
+            "height": 24,
+            "width": 96,
+            "x": 688,
+            "y": 253.984375
+          },
+          "src": "/src/features/auth/assets/gravit-logo.svg"
+        }
+      ],
+      "overflow": false,
+      "page": {
+        "background": "rgb(244, 246, 248)",
+        "borderColor": "rgb(244, 246, 248)",
+        "borderWidth": "0px",
+        "color": "rgb(32, 40, 51)",
+        "fontSize": "14px",
+        "fontWeight": "400",
+        "lineHeight": "22px",
+        "opacity": "1",
+        "radius": "0px",
+        "shadow": "none",
+        "transition": "0s"
+      },
+      "url": "/login"
+    },
+    "file": "reduced-1280.png"
+  },
+  {
+    "key": "forbidden",
+    "width": 1280,
+    "route": "/login?error=forbidden",
+    "evidence": {
+      "activeAnimations": 0,
+      "adminStyle": {
+        "background": "rgba(0, 0, 0, 0)",
+        "borderColor": "rgb(244, 246, 248)",
+        "borderWidth": "0px",
+        "color": "rgb(89, 102, 119)",
+        "fontSize": "26px",
+        "fontWeight": "500",
+        "lineHeight": "36px",
+        "opacity": "1",
+        "radius": "0px",
+        "shadow": "none",
+        "transition": "0s"
+      },
+      "buttons": [
+        {
+          "disabled": false,
+          "icons": 0,
+          "rect": {
+            "height": 56,
+            "width": 415,
+            "x": 688,
+            "y": 431.984375
+          },
+          "style": {
+            "background": "rgb(255, 255, 255)",
+            "borderColor": "rgb(124, 137, 153)",
+            "borderWidth": "1px",
+            "color": "rgb(32, 40, 51)",
+            "fontSize": "14px",
+            "fontWeight": "600",
+            "lineHeight": "22px",
+            "opacity": "1",
+            "radius": "8px",
+            "shadow": "none",
+            "transition": "0.08s"
+          },
+          "text": "Google로 시작하기"
+        },
+        {
+          "disabled": false,
+          "icons": 0,
+          "rect": {
+            "height": 56,
+            "width": 415,
+            "x": 688,
+            "y": 499.984375
+          },
+          "style": {
+            "background": "rgb(255, 255, 255)",
+            "borderColor": "rgb(124, 137, 153)",
+            "borderWidth": "1px",
+            "color": "rgb(32, 40, 51)",
+            "fontSize": "14px",
+            "fontWeight": "600",
+            "lineHeight": "22px",
+            "opacity": "1",
+            "radius": "8px",
+            "shadow": "none",
+            "transition": "0.08s"
+          },
+          "text": "카카오로 시작하기"
+        },
+        {
+          "disabled": false,
+          "icons": 0,
+          "rect": {
+            "height": 56,
+            "width": 415,
+            "x": 688,
+            "y": 567.984375
+          },
+          "style": {
+            "background": "rgb(255, 255, 255)",
+            "borderColor": "rgb(124, 137, 153)",
+            "borderWidth": "1px",
+            "color": "rgb(32, 40, 51)",
+            "fontSize": "14px",
+            "fontWeight": "600",
+            "lineHeight": "22px",
+            "opacity": "1",
+            "radius": "8px",
+            "shadow": "none",
+            "transition": "0.08s"
+          },
+          "text": "네이버로 시작하기"
+        }
+      ],
+      "card": {
+        "height": 660.171875,
+        "width": 1024,
+        "x": 128,
+        "y": 119.90625
+      },
+      "cardStyle": {
+        "background": "rgb(255, 255, 255)",
+        "borderColor": "rgb(244, 246, 248)",
+        "borderWidth": "1px",
+        "color": "rgb(32, 40, 51)",
+        "fontSize": "14px",
+        "fontWeight": "400",
+        "lineHeight": "22px",
+        "opacity": "1",
+        "radius": "12px",
+        "shadow": "none",
+        "transition": "0s"
+      },
+      "columns": [
+        {
+          "height": 658.171875,
+          "width": 511,
+          "x": 129,
+          "y": 120.90625
+        },
+        {
+          "height": 658.171875,
+          "width": 511,
+          "x": 640,
+          "y": 120.90625
+        }
+      ],
+      "descriptionStyle": {
+        "background": "rgba(0, 0, 0, 0)",
+        "borderColor": "rgb(244, 246, 248)",
+        "borderWidth": "0px",
+        "color": "rgb(89, 102, 119)",
+        "fontSize": "20px",
+        "fontWeight": "500",
+        "lineHeight": "28px",
+        "opacity": "1",
+        "radius": "0px",
+        "shadow": "none",
+        "transition": "0s"
+      },
+      "error": "백오피스 접근 권한이 없어요.",
+      "errorStyle": {
+        "background": "rgba(0, 0, 0, 0)",
+        "borderColor": "rgb(244, 246, 248)",
+        "borderWidth": "0px",
+        "color": "rgb(173, 53, 67)",
+        "fontSize": "12px",
+        "fontWeight": "400",
+        "lineHeight": "18px",
+        "opacity": "1",
+        "radius": "0px",
+        "shadow": "none",
+        "transition": "0s"
+      },
+      "heading": {
+        "height": 40,
+        "width": 415,
+        "x": 688,
+        "y": 291.984375
+      },
+      "headingStyle": {
+        "background": "rgba(0, 0, 0, 0)",
+        "borderColor": "rgb(244, 246, 248)",
+        "borderWidth": "0px",
+        "color": "rgb(32, 40, 51)",
+        "fontSize": "32px",
+        "fontWeight": "700",
+        "lineHeight": "40px",
+        "opacity": "1",
+        "radius": "0px",
+        "shadow": "none",
+        "transition": "0s"
+      },
+      "images": [
+        {
+          "alt": "",
+          "loaded": true,
+          "naturalHeight": 150,
+          "naturalWidth": 300,
+          "rect": {
+            "height": 32,
+            "width": 128,
+            "x": 320.5,
+            "y": 433.984375
+          },
+          "src": "/src/features/auth/assets/gravit-logo.svg"
+        },
+        {
+          "alt": "Gravit",
+          "loaded": true,
+          "naturalHeight": 150,
+          "naturalWidth": 300,
+          "rect": {
+            "height": 24,
+            "width": 96,
+            "x": 688,
+            "y": 253.984375
+          },
+          "src": "/src/features/auth/assets/gravit-logo.svg"
+        }
+      ],
+      "overflow": false,
+      "page": {
+        "background": "rgb(244, 246, 248)",
+        "borderColor": "rgb(244, 246, 248)",
+        "borderWidth": "0px",
+        "color": "rgb(32, 40, 51)",
+        "fontSize": "14px",
+        "fontWeight": "400",
+        "lineHeight": "22px",
+        "opacity": "1",
+        "radius": "0px",
+        "shadow": "none",
+        "transition": "0s"
+      },
+      "url": "/login?error=forbidden"
+    },
+    "file": "forbidden-1280.png"
+  },
+  {
+    "key": "failed",
+    "width": 1280,
+    "route": "/login?error=failed",
+    "evidence": {
+      "activeAnimations": 0,
+      "adminStyle": {
+        "background": "rgba(0, 0, 0, 0)",
+        "borderColor": "rgb(244, 246, 248)",
+        "borderWidth": "0px",
+        "color": "rgb(89, 102, 119)",
+        "fontSize": "26px",
+        "fontWeight": "500",
+        "lineHeight": "36px",
+        "opacity": "1",
+        "radius": "0px",
+        "shadow": "none",
+        "transition": "0s"
+      },
+      "buttons": [
+        {
+          "disabled": false,
+          "icons": 0,
+          "rect": {
+            "height": 56,
+            "width": 415,
+            "x": 688,
+            "y": 431.984375
+          },
+          "style": {
+            "background": "rgb(255, 255, 255)",
+            "borderColor": "rgb(124, 137, 153)",
+            "borderWidth": "1px",
+            "color": "rgb(32, 40, 51)",
+            "fontSize": "14px",
+            "fontWeight": "600",
+            "lineHeight": "22px",
+            "opacity": "1",
+            "radius": "8px",
+            "shadow": "none",
+            "transition": "0.08s"
+          },
+          "text": "Google로 시작하기"
+        },
+        {
+          "disabled": false,
+          "icons": 0,
+          "rect": {
+            "height": 56,
+            "width": 415,
+            "x": 688,
+            "y": 499.984375
+          },
+          "style": {
+            "background": "rgb(255, 255, 255)",
+            "borderColor": "rgb(124, 137, 153)",
+            "borderWidth": "1px",
+            "color": "rgb(32, 40, 51)",
+            "fontSize": "14px",
+            "fontWeight": "600",
+            "lineHeight": "22px",
+            "opacity": "1",
+            "radius": "8px",
+            "shadow": "none",
+            "transition": "0.08s"
+          },
+          "text": "카카오로 시작하기"
+        },
+        {
+          "disabled": false,
+          "icons": 0,
+          "rect": {
+            "height": 56,
+            "width": 415,
+            "x": 688,
+            "y": 567.984375
+          },
+          "style": {
+            "background": "rgb(255, 255, 255)",
+            "borderColor": "rgb(124, 137, 153)",
+            "borderWidth": "1px",
+            "color": "rgb(32, 40, 51)",
+            "fontSize": "14px",
+            "fontWeight": "600",
+            "lineHeight": "22px",
+            "opacity": "1",
+            "radius": "8px",
+            "shadow": "none",
+            "transition": "0.08s"
+          },
+          "text": "네이버로 시작하기"
+        }
+      ],
+      "card": {
+        "height": 660.171875,
+        "width": 1024,
+        "x": 128,
+        "y": 119.90625
+      },
+      "cardStyle": {
+        "background": "rgb(255, 255, 255)",
+        "borderColor": "rgb(244, 246, 248)",
+        "borderWidth": "1px",
+        "color": "rgb(32, 40, 51)",
+        "fontSize": "14px",
+        "fontWeight": "400",
+        "lineHeight": "22px",
+        "opacity": "1",
+        "radius": "12px",
+        "shadow": "none",
+        "transition": "0s"
+      },
+      "columns": [
+        {
+          "height": 658.171875,
+          "width": 511,
+          "x": 129,
+          "y": 120.90625
+        },
+        {
+          "height": 658.171875,
+          "width": 511,
+          "x": 640,
+          "y": 120.90625
+        }
+      ],
+      "descriptionStyle": {
+        "background": "rgba(0, 0, 0, 0)",
+        "borderColor": "rgb(244, 246, 248)",
+        "borderWidth": "0px",
+        "color": "rgb(89, 102, 119)",
+        "fontSize": "20px",
+        "fontWeight": "500",
+        "lineHeight": "28px",
+        "opacity": "1",
+        "radius": "0px",
+        "shadow": "none",
+        "transition": "0s"
+      },
+      "error": "로그인하지 못했어요. 다시 시도해 주세요.",
+      "errorStyle": {
+        "background": "rgba(0, 0, 0, 0)",
+        "borderColor": "rgb(244, 246, 248)",
+        "borderWidth": "0px",
+        "color": "rgb(173, 53, 67)",
+        "fontSize": "12px",
+        "fontWeight": "400",
+        "lineHeight": "18px",
+        "opacity": "1",
+        "radius": "0px",
+        "shadow": "none",
+        "transition": "0s"
+      },
+      "heading": {
+        "height": 40,
+        "width": 415,
+        "x": 688,
+        "y": 291.984375
+      },
+      "headingStyle": {
+        "background": "rgba(0, 0, 0, 0)",
+        "borderColor": "rgb(244, 246, 248)",
+        "borderWidth": "0px",
+        "color": "rgb(32, 40, 51)",
+        "fontSize": "32px",
+        "fontWeight": "700",
+        "lineHeight": "40px",
+        "opacity": "1",
+        "radius": "0px",
+        "shadow": "none",
+        "transition": "0s"
+      },
+      "images": [
+        {
+          "alt": "",
+          "loaded": true,
+          "naturalHeight": 150,
+          "naturalWidth": 300,
+          "rect": {
+            "height": 32,
+            "width": 128,
+            "x": 320.5,
+            "y": 433.984375
+          },
+          "src": "/src/features/auth/assets/gravit-logo.svg"
+        },
+        {
+          "alt": "Gravit",
+          "loaded": true,
+          "naturalHeight": 150,
+          "naturalWidth": 300,
+          "rect": {
+            "height": 24,
+            "width": 96,
+            "x": 688,
+            "y": 253.984375
+          },
+          "src": "/src/features/auth/assets/gravit-logo.svg"
+        }
+      ],
+      "overflow": false,
+      "page": {
+        "background": "rgb(244, 246, 248)",
+        "borderColor": "rgb(244, 246, 248)",
+        "borderWidth": "0px",
+        "color": "rgb(32, 40, 51)",
+        "fontSize": "14px",
+        "fontWeight": "400",
+        "lineHeight": "22px",
+        "opacity": "1",
+        "radius": "0px",
+        "shadow": "none",
+        "transition": "0s"
+      },
+      "url": "/login?error=failed"
+    },
+    "file": "failed-1280.png"
+  },
+  {
+    "key": "loading",
+    "width": 1280,
+    "route": "/login",
+    "evidence": {
+      "activeAnimations": 3,
+      "adminStyle": {
+        "background": "rgba(0, 0, 0, 0)",
+        "borderColor": "rgb(244, 246, 248)",
+        "borderWidth": "0px",
+        "color": "rgb(89, 102, 119)",
+        "fontSize": "26px",
+        "fontWeight": "500",
+        "lineHeight": "36px",
+        "opacity": "1",
+        "radius": "0px",
+        "shadow": "none",
+        "transition": "0s"
+      },
+      "buttons": [
+        {
+          "disabled": true,
+          "icons": 0,
+          "rect": {
+            "height": 56,
+            "width": 415,
+            "x": 688,
+            "y": 431.984375
+          },
+          "style": {
+            "background": "rgb(244, 246, 248)",
+            "borderColor": "rgb(124, 137, 153)",
+            "borderWidth": "1px",
+            "color": "rgb(32, 40, 51)",
+            "fontSize": "14px",
+            "fontWeight": "600",
+            "lineHeight": "22px",
+            "opacity": "1",
+            "radius": "8px",
+            "shadow": "none",
+            "transition": "0.08s"
+          },
+          "text": "Google로 시작하기"
+        },
+        {
+          "disabled": true,
+          "icons": 0,
+          "rect": {
+            "height": 56,
+            "width": 415,
+            "x": 688,
+            "y": 499.984375
+          },
+          "style": {
+            "background": "rgb(255, 255, 255)",
+            "borderColor": "rgb(124, 137, 153)",
+            "borderWidth": "1px",
+            "color": "rgb(32, 40, 51)",
+            "fontSize": "14px",
+            "fontWeight": "600",
+            "lineHeight": "22px",
+            "opacity": "1",
+            "radius": "8px",
+            "shadow": "none",
+            "transition": "0.08s"
+          },
+          "text": "카카오로 시작하기"
+        },
+        {
+          "disabled": true,
+          "icons": 0,
+          "rect": {
+            "height": 56,
+            "width": 415,
+            "x": 688,
+            "y": 567.984375
+          },
+          "style": {
+            "background": "rgb(255, 255, 255)",
+            "borderColor": "rgb(124, 137, 153)",
+            "borderWidth": "1px",
+            "color": "rgb(32, 40, 51)",
+            "fontSize": "14px",
+            "fontWeight": "600",
+            "lineHeight": "22px",
+            "opacity": "1",
+            "radius": "8px",
+            "shadow": "none",
+            "transition": "0.08s"
+          },
+          "text": "네이버로 시작하기"
+        }
+      ],
+      "card": {
+        "height": 660.171875,
+        "width": 1024,
+        "x": 128,
+        "y": 119.90625
+      },
+      "cardStyle": {
+        "background": "rgb(255, 255, 255)",
+        "borderColor": "rgb(244, 246, 248)",
+        "borderWidth": "1px",
+        "color": "rgb(32, 40, 51)",
+        "fontSize": "14px",
+        "fontWeight": "400",
+        "lineHeight": "22px",
+        "opacity": "1",
+        "radius": "12px",
+        "shadow": "none",
+        "transition": "0s"
+      },
+      "columns": [
+        {
+          "height": 658.171875,
+          "width": 511,
+          "x": 129,
+          "y": 120.90625
+        },
+        {
+          "height": 658.171875,
+          "width": 511,
+          "x": 640,
+          "y": 120.90625
+        }
+      ],
+      "descriptionStyle": {
+        "background": "rgba(0, 0, 0, 0)",
+        "borderColor": "rgb(244, 246, 248)",
+        "borderWidth": "0px",
+        "color": "rgb(89, 102, 119)",
+        "fontSize": "20px",
+        "fontWeight": "500",
+        "lineHeight": "28px",
+        "opacity": "1",
+        "radius": "0px",
+        "shadow": "none",
+        "transition": "0s"
+      },
+      "error": "",
+      "errorStyle": {
+        "background": "rgba(0, 0, 0, 0)",
+        "borderColor": "rgb(244, 246, 248)",
+        "borderWidth": "0px",
+        "color": "rgb(173, 53, 67)",
+        "fontSize": "12px",
+        "fontWeight": "400",
+        "lineHeight": "18px",
+        "opacity": "1",
+        "radius": "0px",
+        "shadow": "none",
+        "transition": "0s"
+      },
+      "heading": {
+        "height": 40,
+        "width": 415,
+        "x": 688,
+        "y": 291.984375
+      },
+      "headingStyle": {
+        "background": "rgba(0, 0, 0, 0)",
+        "borderColor": "rgb(244, 246, 248)",
+        "borderWidth": "0px",
+        "color": "rgb(32, 40, 51)",
+        "fontSize": "32px",
+        "fontWeight": "700",
+        "lineHeight": "40px",
+        "opacity": "1",
+        "radius": "0px",
+        "shadow": "none",
+        "transition": "0s"
+      },
+      "images": [
+        {
+          "alt": "",
+          "loaded": true,
+          "naturalHeight": 150,
+          "naturalWidth": 300,
+          "rect": {
+            "height": 32,
+            "width": 128,
+            "x": 320.5,
+            "y": 433.984375
+          },
+          "src": "/src/features/auth/assets/gravit-logo.svg"
+        },
+        {
+          "alt": "Gravit",
+          "loaded": true,
+          "naturalHeight": 150,
+          "naturalWidth": 300,
+          "rect": {
+            "height": 24,
+            "width": 96,
+            "x": 688,
+            "y": 253.984375
+          },
+          "src": "/src/features/auth/assets/gravit-logo.svg"
+        }
+      ],
+      "overflow": false,
+      "page": {
+        "background": "rgb(244, 246, 248)",
+        "borderColor": "rgb(244, 246, 248)",
+        "borderWidth": "0px",
+        "color": "rgb(32, 40, 51)",
+        "fontSize": "14px",
+        "fontWeight": "400",
+        "lineHeight": "22px",
+        "opacity": "1",
+        "radius": "0px",
+        "shadow": "none",
+        "transition": "0s"
+      },
+      "url": "/login"
+    },
+    "file": "loading-1280.png"
+  },
+  {
+    "key": "error",
+    "width": 1280,
+    "route": "/login",
+    "evidence": {
+      "activeAnimations": 0,
+      "adminStyle": {
+        "background": "rgba(0, 0, 0, 0)",
+        "borderColor": "rgb(244, 246, 248)",
+        "borderWidth": "0px",
+        "color": "rgb(89, 102, 119)",
+        "fontSize": "26px",
+        "fontWeight": "500",
+        "lineHeight": "36px",
+        "opacity": "1",
+        "radius": "0px",
+        "shadow": "none",
+        "transition": "0s"
+      },
+      "buttons": [
+        {
+          "disabled": false,
+          "icons": 0,
+          "rect": {
+            "height": 56,
+            "width": 415,
+            "x": 688,
+            "y": 431.984375
+          },
+          "style": {
+            "background": "rgb(244, 246, 248)",
+            "borderColor": "rgb(124, 137, 153)",
+            "borderWidth": "1px",
+            "color": "rgb(32, 40, 51)",
+            "fontSize": "14px",
+            "fontWeight": "600",
+            "lineHeight": "22px",
+            "opacity": "1",
+            "radius": "8px",
+            "shadow": "none",
+            "transition": "0.08s"
+          },
+          "text": "Google로 시작하기"
+        },
+        {
+          "disabled": false,
+          "icons": 0,
+          "rect": {
+            "height": 56,
+            "width": 415,
+            "x": 688,
+            "y": 499.984375
+          },
+          "style": {
+            "background": "rgb(255, 255, 255)",
+            "borderColor": "rgb(124, 137, 153)",
+            "borderWidth": "1px",
+            "color": "rgb(32, 40, 51)",
+            "fontSize": "14px",
+            "fontWeight": "600",
+            "lineHeight": "22px",
+            "opacity": "1",
+            "radius": "8px",
+            "shadow": "none",
+            "transition": "0.08s"
+          },
+          "text": "카카오로 시작하기"
+        },
+        {
+          "disabled": false,
+          "icons": 0,
+          "rect": {
+            "height": 56,
+            "width": 415,
+            "x": 688,
+            "y": 567.984375
+          },
+          "style": {
+            "background": "rgb(255, 255, 255)",
+            "borderColor": "rgb(124, 137, 153)",
+            "borderWidth": "1px",
+            "color": "rgb(32, 40, 51)",
+            "fontSize": "14px",
+            "fontWeight": "600",
+            "lineHeight": "22px",
+            "opacity": "1",
+            "radius": "8px",
+            "shadow": "none",
+            "transition": "0.08s"
+          },
+          "text": "네이버로 시작하기"
+        }
+      ],
+      "card": {
+        "height": 660.171875,
+        "width": 1024,
+        "x": 128,
+        "y": 119.90625
+      },
+      "cardStyle": {
+        "background": "rgb(255, 255, 255)",
+        "borderColor": "rgb(244, 246, 248)",
+        "borderWidth": "1px",
+        "color": "rgb(32, 40, 51)",
+        "fontSize": "14px",
+        "fontWeight": "400",
+        "lineHeight": "22px",
+        "opacity": "1",
+        "radius": "12px",
+        "shadow": "none",
+        "transition": "0s"
+      },
+      "columns": [
+        {
+          "height": 658.171875,
+          "width": 511,
+          "x": 129,
+          "y": 120.90625
+        },
+        {
+          "height": 658.171875,
+          "width": 511,
+          "x": 640,
+          "y": 120.90625
+        }
+      ],
+      "descriptionStyle": {
+        "background": "rgba(0, 0, 0, 0)",
+        "borderColor": "rgb(244, 246, 248)",
+        "borderWidth": "0px",
+        "color": "rgb(89, 102, 119)",
+        "fontSize": "20px",
+        "fontWeight": "500",
+        "lineHeight": "28px",
+        "opacity": "1",
+        "radius": "0px",
+        "shadow": "none",
+        "transition": "0s"
+      },
+      "error": "로그인하지 못했어요. 다시 시도해 주세요.",
+      "errorStyle": {
+        "background": "rgba(0, 0, 0, 0)",
+        "borderColor": "rgb(244, 246, 248)",
+        "borderWidth": "0px",
+        "color": "rgb(173, 53, 67)",
+        "fontSize": "12px",
+        "fontWeight": "400",
+        "lineHeight": "18px",
+        "opacity": "1",
+        "radius": "0px",
+        "shadow": "none",
+        "transition": "0s"
+      },
+      "heading": {
+        "height": 40,
+        "width": 415,
+        "x": 688,
+        "y": 291.984375
+      },
+      "headingStyle": {
+        "background": "rgba(0, 0, 0, 0)",
+        "borderColor": "rgb(244, 246, 248)",
+        "borderWidth": "0px",
+        "color": "rgb(32, 40, 51)",
+        "fontSize": "32px",
+        "fontWeight": "700",
+        "lineHeight": "40px",
+        "opacity": "1",
+        "radius": "0px",
+        "shadow": "none",
+        "transition": "0s"
+      },
+      "images": [
+        {
+          "alt": "",
+          "loaded": true,
+          "naturalHeight": 150,
+          "naturalWidth": 300,
+          "rect": {
+            "height": 32,
+            "width": 128,
+            "x": 320.5,
+            "y": 433.984375
+          },
+          "src": "/src/features/auth/assets/gravit-logo.svg"
+        },
+        {
+          "alt": "Gravit",
+          "loaded": true,
+          "naturalHeight": 150,
+          "naturalWidth": 300,
+          "rect": {
+            "height": 24,
+            "width": 96,
+            "x": 688,
+            "y": 253.984375
+          },
+          "src": "/src/features/auth/assets/gravit-logo.svg"
+        }
+      ],
+      "overflow": false,
+      "page": {
+        "background": "rgb(244, 246, 248)",
+        "borderColor": "rgb(244, 246, 248)",
+        "borderWidth": "0px",
+        "color": "rgb(32, 40, 51)",
+        "fontSize": "14px",
+        "fontWeight": "400",
+        "lineHeight": "22px",
+        "opacity": "1",
+        "radius": "0px",
+        "shadow": "none",
+        "transition": "0s"
+      },
+      "url": "/login"
+    },
+    "file": "error-1280.png"
+  },
+  {
+    "key": "users",
+    "width": 1280,
+    "route": "/users",
+    "evidence": {
+      "columns": [
+        {
+          "color": "rgb(32, 40, 51)",
+          "fontSize": "14px",
+          "height": 48,
+          "text": "이메일",
+          "width": 366,
+          "x": 273,
+          "y": 233
+        },
+        {
+          "color": "rgb(32, 40, 51)",
+          "fontSize": "14px",
+          "height": 48,
+          "text": "닉네임",
+          "width": 128,
+          "x": 639,
+          "y": 233
+        },
+        {
+          "color": "rgb(32, 40, 51)",
+          "fontSize": "14px",
+          "height": 48,
+          "text": "handle",
+          "width": 144,
+          "x": 767,
+          "y": 233
+        },
+        {
+          "color": "rgb(32, 40, 51)",
+          "fontSize": "14px",
+          "height": 48,
+          "text": "역할",
+          "width": 96,
+          "x": 911,
+          "y": 233
+        },
+        {
+          "color": "rgb(32, 40, 51)",
+          "fontSize": "14px",
+          "height": 48,
+          "text": "상태",
+          "width": 112,
+          "x": 1007,
+          "y": 233
+        },
+        {
+          "color": "rgb(32, 40, 51)",
+          "fontSize": "14px",
+          "height": 48,
+          "text": "가입일",
+          "width": 128,
+          "x": 1119,
+          "y": 233
+        }
+      ],
+      "head": {
+        "height": 48,
+        "width": 974,
+        "x": 273,
+        "y": 233
+      },
+      "headerBackground": "rgb(255, 255, 255)",
+      "loginThemePresent": false,
+      "page": "rgb(244, 246, 248)",
+      "table": {
+        "height": 256,
+        "width": 974,
+        "x": 273,
+        "y": 233
+      }
+    }
+  },
+  {
+    "key": "normal",
+    "width": 1440,
+    "route": "/login",
+    "evidence": {
+      "activeAnimations": 0,
+      "adminStyle": {
+        "background": "rgba(0, 0, 0, 0)",
+        "borderColor": "rgb(244, 246, 248)",
+        "borderWidth": "0px",
+        "color": "rgb(89, 102, 119)",
+        "fontSize": "26px",
+        "fontWeight": "500",
+        "lineHeight": "36px",
+        "opacity": "1",
+        "radius": "0px",
+        "shadow": "none",
+        "transition": "0s"
+      },
+      "buttons": [
+        {
+          "disabled": false,
+          "icons": 0,
+          "rect": {
+            "height": 56,
+            "width": 415,
+            "x": 768,
+            "y": 431.984375
+          },
+          "style": {
+            "background": "rgb(255, 255, 255)",
+            "borderColor": "rgb(124, 137, 153)",
+            "borderWidth": "1px",
+            "color": "rgb(32, 40, 51)",
+            "fontSize": "14px",
+            "fontWeight": "600",
+            "lineHeight": "22px",
+            "opacity": "1",
+            "radius": "8px",
+            "shadow": "none",
+            "transition": "0.08s"
+          },
+          "text": "Google로 시작하기"
+        },
+        {
+          "disabled": false,
+          "icons": 0,
+          "rect": {
+            "height": 56,
+            "width": 415,
+            "x": 768,
+            "y": 499.984375
+          },
+          "style": {
+            "background": "rgb(255, 255, 255)",
+            "borderColor": "rgb(124, 137, 153)",
+            "borderWidth": "1px",
+            "color": "rgb(32, 40, 51)",
+            "fontSize": "14px",
+            "fontWeight": "600",
+            "lineHeight": "22px",
+            "opacity": "1",
+            "radius": "8px",
+            "shadow": "none",
+            "transition": "0.08s"
+          },
+          "text": "카카오로 시작하기"
+        },
+        {
+          "disabled": false,
+          "icons": 0,
+          "rect": {
+            "height": 56,
+            "width": 415,
+            "x": 768,
+            "y": 567.984375
+          },
+          "style": {
+            "background": "rgb(255, 255, 255)",
+            "borderColor": "rgb(124, 137, 153)",
+            "borderWidth": "1px",
+            "color": "rgb(32, 40, 51)",
+            "fontSize": "14px",
+            "fontWeight": "600",
+            "lineHeight": "22px",
+            "opacity": "1",
+            "radius": "8px",
+            "shadow": "none",
+            "transition": "0.08s"
+          },
+          "text": "네이버로 시작하기"
+        }
+      ],
+      "card": {
+        "height": 660.171875,
+        "width": 1024,
+        "x": 208,
+        "y": 119.90625
+      },
+      "cardStyle": {
+        "background": "rgb(255, 255, 255)",
+        "borderColor": "rgb(244, 246, 248)",
+        "borderWidth": "1px",
+        "color": "rgb(32, 40, 51)",
+        "fontSize": "14px",
+        "fontWeight": "400",
+        "lineHeight": "22px",
+        "opacity": "1",
+        "radius": "12px",
+        "shadow": "none",
+        "transition": "0s"
+      },
+      "columns": [
+        {
+          "height": 658.171875,
+          "width": 511,
+          "x": 209,
+          "y": 120.90625
+        },
+        {
+          "height": 658.171875,
+          "width": 511,
+          "x": 720,
+          "y": 120.90625
+        }
+      ],
+      "descriptionStyle": {
+        "background": "rgba(0, 0, 0, 0)",
+        "borderColor": "rgb(244, 246, 248)",
+        "borderWidth": "0px",
+        "color": "rgb(89, 102, 119)",
+        "fontSize": "20px",
+        "fontWeight": "500",
+        "lineHeight": "28px",
+        "opacity": "1",
+        "radius": "0px",
+        "shadow": "none",
+        "transition": "0s"
+      },
+      "error": "",
+      "errorStyle": {
+        "background": "rgba(0, 0, 0, 0)",
+        "borderColor": "rgb(244, 246, 248)",
+        "borderWidth": "0px",
+        "color": "rgb(173, 53, 67)",
+        "fontSize": "12px",
+        "fontWeight": "400",
+        "lineHeight": "18px",
+        "opacity": "1",
+        "radius": "0px",
+        "shadow": "none",
+        "transition": "0s"
+      },
+      "heading": {
+        "height": 40,
+        "width": 415,
+        "x": 768,
+        "y": 291.984375
+      },
+      "headingStyle": {
+        "background": "rgba(0, 0, 0, 0)",
+        "borderColor": "rgb(244, 246, 248)",
+        "borderWidth": "0px",
+        "color": "rgb(32, 40, 51)",
+        "fontSize": "32px",
+        "fontWeight": "700",
+        "lineHeight": "40px",
+        "opacity": "1",
+        "radius": "0px",
+        "shadow": "none",
+        "transition": "0s"
+      },
+      "images": [
+        {
+          "alt": "",
+          "loaded": true,
+          "naturalHeight": 150,
+          "naturalWidth": 300,
+          "rect": {
+            "height": 32,
+            "width": 128,
+            "x": 400.5,
+            "y": 433.984375
+          },
+          "src": "/src/features/auth/assets/gravit-logo.svg"
+        },
+        {
+          "alt": "Gravit",
+          "loaded": true,
+          "naturalHeight": 150,
+          "naturalWidth": 300,
+          "rect": {
+            "height": 24,
+            "width": 96,
+            "x": 768,
+            "y": 253.984375
+          },
+          "src": "/src/features/auth/assets/gravit-logo.svg"
+        }
+      ],
+      "overflow": false,
+      "page": {
+        "background": "rgb(244, 246, 248)",
+        "borderColor": "rgb(244, 246, 248)",
+        "borderWidth": "0px",
+        "color": "rgb(32, 40, 51)",
+        "fontSize": "14px",
+        "fontWeight": "400",
+        "lineHeight": "22px",
+        "opacity": "1",
+        "radius": "0px",
+        "shadow": "none",
+        "transition": "0s"
+      },
+      "url": "/login"
+    },
+    "file": "normal-1440.png"
+  },
+  {
+    "key": "focus",
+    "width": 1440,
+    "route": "/login",
+    "evidence": {
+      "activeAnimations": 0,
+      "adminStyle": {
+        "background": "rgba(0, 0, 0, 0)",
+        "borderColor": "rgb(244, 246, 248)",
+        "borderWidth": "0px",
+        "color": "rgb(89, 102, 119)",
+        "fontSize": "26px",
+        "fontWeight": "500",
+        "lineHeight": "36px",
+        "opacity": "1",
+        "radius": "0px",
+        "shadow": "none",
+        "transition": "0s"
+      },
+      "buttons": [
+        {
+          "disabled": false,
+          "icons": 0,
+          "rect": {
+            "height": 56,
+            "width": 415,
+            "x": 768,
+            "y": 431.984375
+          },
+          "style": {
+            "background": "rgb(244, 246, 248)",
+            "borderColor": "rgb(124, 137, 153)",
+            "borderWidth": "1px",
+            "color": "rgb(32, 40, 51)",
+            "fontSize": "14px",
+            "fontWeight": "600",
+            "lineHeight": "22px",
+            "opacity": "1",
+            "radius": "8px",
+            "shadow": "rgb(255, 255, 255) 0px 0px 0px 2px, rgb(36, 95, 204) 0px 0px 0px 4px, rgba(0, 0, 0, 0) 0px 0px 0px 0px",
+            "transition": "0.08s"
+          },
+          "text": "Google로 시작하기"
+        },
+        {
+          "disabled": false,
+          "icons": 0,
+          "rect": {
+            "height": 56,
+            "width": 415,
+            "x": 768,
+            "y": 499.984375
+          },
+          "style": {
+            "background": "rgb(255, 255, 255)",
+            "borderColor": "rgb(124, 137, 153)",
+            "borderWidth": "1px",
+            "color": "rgb(32, 40, 51)",
+            "fontSize": "14px",
+            "fontWeight": "600",
+            "lineHeight": "22px",
+            "opacity": "1",
+            "radius": "8px",
+            "shadow": "none",
+            "transition": "0.08s"
+          },
+          "text": "카카오로 시작하기"
+        },
+        {
+          "disabled": false,
+          "icons": 0,
+          "rect": {
+            "height": 56,
+            "width": 415,
+            "x": 768,
+            "y": 567.984375
+          },
+          "style": {
+            "background": "rgb(255, 255, 255)",
+            "borderColor": "rgb(124, 137, 153)",
+            "borderWidth": "1px",
+            "color": "rgb(32, 40, 51)",
+            "fontSize": "14px",
+            "fontWeight": "600",
+            "lineHeight": "22px",
+            "opacity": "1",
+            "radius": "8px",
+            "shadow": "none",
+            "transition": "0.08s"
+          },
+          "text": "네이버로 시작하기"
+        }
+      ],
+      "card": {
+        "height": 660.171875,
+        "width": 1024,
+        "x": 208,
+        "y": 119.90625
+      },
+      "cardStyle": {
+        "background": "rgb(255, 255, 255)",
+        "borderColor": "rgb(244, 246, 248)",
+        "borderWidth": "1px",
+        "color": "rgb(32, 40, 51)",
+        "fontSize": "14px",
+        "fontWeight": "400",
+        "lineHeight": "22px",
+        "opacity": "1",
+        "radius": "12px",
+        "shadow": "none",
+        "transition": "0s"
+      },
+      "columns": [
+        {
+          "height": 658.171875,
+          "width": 511,
+          "x": 209,
+          "y": 120.90625
+        },
+        {
+          "height": 658.171875,
+          "width": 511,
+          "x": 720,
+          "y": 120.90625
+        }
+      ],
+      "descriptionStyle": {
+        "background": "rgba(0, 0, 0, 0)",
+        "borderColor": "rgb(244, 246, 248)",
+        "borderWidth": "0px",
+        "color": "rgb(89, 102, 119)",
+        "fontSize": "20px",
+        "fontWeight": "500",
+        "lineHeight": "28px",
+        "opacity": "1",
+        "radius": "0px",
+        "shadow": "none",
+        "transition": "0s"
+      },
+      "error": "",
+      "errorStyle": {
+        "background": "rgba(0, 0, 0, 0)",
+        "borderColor": "rgb(244, 246, 248)",
+        "borderWidth": "0px",
+        "color": "rgb(173, 53, 67)",
+        "fontSize": "12px",
+        "fontWeight": "400",
+        "lineHeight": "18px",
+        "opacity": "1",
+        "radius": "0px",
+        "shadow": "none",
+        "transition": "0s"
+      },
+      "heading": {
+        "height": 40,
+        "width": 415,
+        "x": 768,
+        "y": 291.984375
+      },
+      "headingStyle": {
+        "background": "rgba(0, 0, 0, 0)",
+        "borderColor": "rgb(244, 246, 248)",
+        "borderWidth": "0px",
+        "color": "rgb(32, 40, 51)",
+        "fontSize": "32px",
+        "fontWeight": "700",
+        "lineHeight": "40px",
+        "opacity": "1",
+        "radius": "0px",
+        "shadow": "none",
+        "transition": "0s"
+      },
+      "images": [
+        {
+          "alt": "",
+          "loaded": true,
+          "naturalHeight": 150,
+          "naturalWidth": 300,
+          "rect": {
+            "height": 32,
+            "width": 128,
+            "x": 400.5,
+            "y": 433.984375
+          },
+          "src": "/src/features/auth/assets/gravit-logo.svg"
+        },
+        {
+          "alt": "Gravit",
+          "loaded": true,
+          "naturalHeight": 150,
+          "naturalWidth": 300,
+          "rect": {
+            "height": 24,
+            "width": 96,
+            "x": 768,
+            "y": 253.984375
+          },
+          "src": "/src/features/auth/assets/gravit-logo.svg"
+        }
+      ],
+      "overflow": false,
+      "page": {
+        "background": "rgb(244, 246, 248)",
+        "borderColor": "rgb(244, 246, 248)",
+        "borderWidth": "0px",
+        "color": "rgb(32, 40, 51)",
+        "fontSize": "14px",
+        "fontWeight": "400",
+        "lineHeight": "22px",
+        "opacity": "1",
+        "radius": "0px",
+        "shadow": "none",
+        "transition": "0s"
+      },
+      "url": "/login"
+    },
+    "file": "focus-1440.png",
+    "focus": {
+      "label": "Google로 시작하기",
+      "outline": "rgba(0, 0, 0, 0) solid 2px",
+      "ring": "rgb(255, 255, 255) 0px 0px 0px 2px, rgb(36, 95, 204) 0px 0px 0px 4px, rgba(0, 0, 0, 0) 0px 0px 0px 0px",
+      "visible": true
+    },
+    "hover": {
+      "opacity": "1",
+      "transition": "0.08s"
+    }
+  },
+  {
+    "key": "reduced",
+    "width": 1440,
+    "route": "/login",
+    "evidence": {
+      "activeAnimations": 0,
+      "adminStyle": {
+        "background": "rgba(0, 0, 0, 0)",
+        "borderColor": "rgb(244, 246, 248)",
+        "borderWidth": "0px",
+        "color": "rgb(89, 102, 119)",
+        "fontSize": "26px",
+        "fontWeight": "500",
+        "lineHeight": "36px",
+        "opacity": "1",
+        "radius": "0px",
+        "shadow": "none",
+        "transition": "0s"
+      },
+      "buttons": [
+        {
+          "disabled": false,
+          "icons": 0,
+          "rect": {
+            "height": 56,
+            "width": 415,
+            "x": 768,
+            "y": 431.984375
+          },
+          "style": {
+            "background": "rgb(244, 246, 248)",
+            "borderColor": "rgb(124, 137, 153)",
+            "borderWidth": "1px",
+            "color": "rgb(32, 40, 51)",
+            "fontSize": "14px",
+            "fontWeight": "600",
+            "lineHeight": "22px",
+            "opacity": "1",
+            "radius": "8px",
+            "shadow": "rgb(255, 255, 255) 0px 0px 0px 2px, rgb(36, 95, 204) 0px 0px 0px 4px, rgba(0, 0, 0, 0) 0px 0px 0px 0px",
+            "transition": "0.08s"
+          },
+          "text": "Google로 시작하기"
+        },
+        {
+          "disabled": false,
+          "icons": 0,
+          "rect": {
+            "height": 56,
+            "width": 415,
+            "x": 768,
+            "y": 499.984375
+          },
+          "style": {
+            "background": "rgb(255, 255, 255)",
+            "borderColor": "rgb(124, 137, 153)",
+            "borderWidth": "1px",
+            "color": "rgb(32, 40, 51)",
+            "fontSize": "14px",
+            "fontWeight": "600",
+            "lineHeight": "22px",
+            "opacity": "1",
+            "radius": "8px",
+            "shadow": "none",
+            "transition": "0.08s"
+          },
+          "text": "카카오로 시작하기"
+        },
+        {
+          "disabled": false,
+          "icons": 0,
+          "rect": {
+            "height": 56,
+            "width": 415,
+            "x": 768,
+            "y": 567.984375
+          },
+          "style": {
+            "background": "rgb(255, 255, 255)",
+            "borderColor": "rgb(124, 137, 153)",
+            "borderWidth": "1px",
+            "color": "rgb(32, 40, 51)",
+            "fontSize": "14px",
+            "fontWeight": "600",
+            "lineHeight": "22px",
+            "opacity": "1",
+            "radius": "8px",
+            "shadow": "none",
+            "transition": "0.08s"
+          },
+          "text": "네이버로 시작하기"
+        }
+      ],
+      "card": {
+        "height": 660.171875,
+        "width": 1024,
+        "x": 208,
+        "y": 119.90625
+      },
+      "cardStyle": {
+        "background": "rgb(255, 255, 255)",
+        "borderColor": "rgb(244, 246, 248)",
+        "borderWidth": "1px",
+        "color": "rgb(32, 40, 51)",
+        "fontSize": "14px",
+        "fontWeight": "400",
+        "lineHeight": "22px",
+        "opacity": "1",
+        "radius": "12px",
+        "shadow": "none",
+        "transition": "0s"
+      },
+      "columns": [
+        {
+          "height": 658.171875,
+          "width": 511,
+          "x": 209,
+          "y": 120.90625
+        },
+        {
+          "height": 658.171875,
+          "width": 511,
+          "x": 720,
+          "y": 120.90625
+        }
+      ],
+      "descriptionStyle": {
+        "background": "rgba(0, 0, 0, 0)",
+        "borderColor": "rgb(244, 246, 248)",
+        "borderWidth": "0px",
+        "color": "rgb(89, 102, 119)",
+        "fontSize": "20px",
+        "fontWeight": "500",
+        "lineHeight": "28px",
+        "opacity": "1",
+        "radius": "0px",
+        "shadow": "none",
+        "transition": "0s"
+      },
+      "error": "",
+      "errorStyle": {
+        "background": "rgba(0, 0, 0, 0)",
+        "borderColor": "rgb(244, 246, 248)",
+        "borderWidth": "0px",
+        "color": "rgb(173, 53, 67)",
+        "fontSize": "12px",
+        "fontWeight": "400",
+        "lineHeight": "18px",
+        "opacity": "1",
+        "radius": "0px",
+        "shadow": "none",
+        "transition": "0s"
+      },
+      "heading": {
+        "height": 40,
+        "width": 415,
+        "x": 768,
+        "y": 291.984375
+      },
+      "headingStyle": {
+        "background": "rgba(0, 0, 0, 0)",
+        "borderColor": "rgb(244, 246, 248)",
+        "borderWidth": "0px",
+        "color": "rgb(32, 40, 51)",
+        "fontSize": "32px",
+        "fontWeight": "700",
+        "lineHeight": "40px",
+        "opacity": "1",
+        "radius": "0px",
+        "shadow": "none",
+        "transition": "0s"
+      },
+      "images": [
+        {
+          "alt": "",
+          "loaded": true,
+          "naturalHeight": 150,
+          "naturalWidth": 300,
+          "rect": {
+            "height": 32,
+            "width": 128,
+            "x": 400.5,
+            "y": 433.984375
+          },
+          "src": "/src/features/auth/assets/gravit-logo.svg"
+        },
+        {
+          "alt": "Gravit",
+          "loaded": true,
+          "naturalHeight": 150,
+          "naturalWidth": 300,
+          "rect": {
+            "height": 24,
+            "width": 96,
+            "x": 768,
+            "y": 253.984375
+          },
+          "src": "/src/features/auth/assets/gravit-logo.svg"
+        }
+      ],
+      "overflow": false,
+      "page": {
+        "background": "rgb(244, 246, 248)",
+        "borderColor": "rgb(244, 246, 248)",
+        "borderWidth": "0px",
+        "color": "rgb(32, 40, 51)",
+        "fontSize": "14px",
+        "fontWeight": "400",
+        "lineHeight": "22px",
+        "opacity": "1",
+        "radius": "0px",
+        "shadow": "none",
+        "transition": "0s"
+      },
+      "url": "/login"
+    },
+    "file": "reduced-1440.png"
+  },
+  {
+    "key": "forbidden",
+    "width": 1440,
+    "route": "/login?error=forbidden",
+    "evidence": {
+      "activeAnimations": 0,
+      "adminStyle": {
+        "background": "rgba(0, 0, 0, 0)",
+        "borderColor": "rgb(244, 246, 248)",
+        "borderWidth": "0px",
+        "color": "rgb(89, 102, 119)",
+        "fontSize": "26px",
+        "fontWeight": "500",
+        "lineHeight": "36px",
+        "opacity": "1",
+        "radius": "0px",
+        "shadow": "none",
+        "transition": "0s"
+      },
+      "buttons": [
+        {
+          "disabled": false,
+          "icons": 0,
+          "rect": {
+            "height": 56,
+            "width": 415,
+            "x": 768,
+            "y": 431.984375
+          },
+          "style": {
+            "background": "rgb(255, 255, 255)",
+            "borderColor": "rgb(124, 137, 153)",
+            "borderWidth": "1px",
+            "color": "rgb(32, 40, 51)",
+            "fontSize": "14px",
+            "fontWeight": "600",
+            "lineHeight": "22px",
+            "opacity": "1",
+            "radius": "8px",
+            "shadow": "none",
+            "transition": "0.08s"
+          },
+          "text": "Google로 시작하기"
+        },
+        {
+          "disabled": false,
+          "icons": 0,
+          "rect": {
+            "height": 56,
+            "width": 415,
+            "x": 768,
+            "y": 499.984375
+          },
+          "style": {
+            "background": "rgb(255, 255, 255)",
+            "borderColor": "rgb(124, 137, 153)",
+            "borderWidth": "1px",
+            "color": "rgb(32, 40, 51)",
+            "fontSize": "14px",
+            "fontWeight": "600",
+            "lineHeight": "22px",
+            "opacity": "1",
+            "radius": "8px",
+            "shadow": "none",
+            "transition": "0.08s"
+          },
+          "text": "카카오로 시작하기"
+        },
+        {
+          "disabled": false,
+          "icons": 0,
+          "rect": {
+            "height": 56,
+            "width": 415,
+            "x": 768,
+            "y": 567.984375
+          },
+          "style": {
+            "background": "rgb(255, 255, 255)",
+            "borderColor": "rgb(124, 137, 153)",
+            "borderWidth": "1px",
+            "color": "rgb(32, 40, 51)",
+            "fontSize": "14px",
+            "fontWeight": "600",
+            "lineHeight": "22px",
+            "opacity": "1",
+            "radius": "8px",
+            "shadow": "none",
+            "transition": "0.08s"
+          },
+          "text": "네이버로 시작하기"
+        }
+      ],
+      "card": {
+        "height": 660.171875,
+        "width": 1024,
+        "x": 208,
+        "y": 119.90625
+      },
+      "cardStyle": {
+        "background": "rgb(255, 255, 255)",
+        "borderColor": "rgb(244, 246, 248)",
+        "borderWidth": "1px",
+        "color": "rgb(32, 40, 51)",
+        "fontSize": "14px",
+        "fontWeight": "400",
+        "lineHeight": "22px",
+        "opacity": "1",
+        "radius": "12px",
+        "shadow": "none",
+        "transition": "0s"
+      },
+      "columns": [
+        {
+          "height": 658.171875,
+          "width": 511,
+          "x": 209,
+          "y": 120.90625
+        },
+        {
+          "height": 658.171875,
+          "width": 511,
+          "x": 720,
+          "y": 120.90625
+        }
+      ],
+      "descriptionStyle": {
+        "background": "rgba(0, 0, 0, 0)",
+        "borderColor": "rgb(244, 246, 248)",
+        "borderWidth": "0px",
+        "color": "rgb(89, 102, 119)",
+        "fontSize": "20px",
+        "fontWeight": "500",
+        "lineHeight": "28px",
+        "opacity": "1",
+        "radius": "0px",
+        "shadow": "none",
+        "transition": "0s"
+      },
+      "error": "백오피스 접근 권한이 없어요.",
+      "errorStyle": {
+        "background": "rgba(0, 0, 0, 0)",
+        "borderColor": "rgb(244, 246, 248)",
+        "borderWidth": "0px",
+        "color": "rgb(173, 53, 67)",
+        "fontSize": "12px",
+        "fontWeight": "400",
+        "lineHeight": "18px",
+        "opacity": "1",
+        "radius": "0px",
+        "shadow": "none",
+        "transition": "0s"
+      },
+      "heading": {
+        "height": 40,
+        "width": 415,
+        "x": 768,
+        "y": 291.984375
+      },
+      "headingStyle": {
+        "background": "rgba(0, 0, 0, 0)",
+        "borderColor": "rgb(244, 246, 248)",
+        "borderWidth": "0px",
+        "color": "rgb(32, 40, 51)",
+        "fontSize": "32px",
+        "fontWeight": "700",
+        "lineHeight": "40px",
+        "opacity": "1",
+        "radius": "0px",
+        "shadow": "none",
+        "transition": "0s"
+      },
+      "images": [
+        {
+          "alt": "",
+          "loaded": true,
+          "naturalHeight": 150,
+          "naturalWidth": 300,
+          "rect": {
+            "height": 32,
+            "width": 128,
+            "x": 400.5,
+            "y": 433.984375
+          },
+          "src": "/src/features/auth/assets/gravit-logo.svg"
+        },
+        {
+          "alt": "Gravit",
+          "loaded": true,
+          "naturalHeight": 150,
+          "naturalWidth": 300,
+          "rect": {
+            "height": 24,
+            "width": 96,
+            "x": 768,
+            "y": 253.984375
+          },
+          "src": "/src/features/auth/assets/gravit-logo.svg"
+        }
+      ],
+      "overflow": false,
+      "page": {
+        "background": "rgb(244, 246, 248)",
+        "borderColor": "rgb(244, 246, 248)",
+        "borderWidth": "0px",
+        "color": "rgb(32, 40, 51)",
+        "fontSize": "14px",
+        "fontWeight": "400",
+        "lineHeight": "22px",
+        "opacity": "1",
+        "radius": "0px",
+        "shadow": "none",
+        "transition": "0s"
+      },
+      "url": "/login?error=forbidden"
+    },
+    "file": "forbidden-1440.png"
+  },
+  {
+    "key": "failed",
+    "width": 1440,
+    "route": "/login?error=failed",
+    "evidence": {
+      "activeAnimations": 0,
+      "adminStyle": {
+        "background": "rgba(0, 0, 0, 0)",
+        "borderColor": "rgb(244, 246, 248)",
+        "borderWidth": "0px",
+        "color": "rgb(89, 102, 119)",
+        "fontSize": "26px",
+        "fontWeight": "500",
+        "lineHeight": "36px",
+        "opacity": "1",
+        "radius": "0px",
+        "shadow": "none",
+        "transition": "0s"
+      },
+      "buttons": [
+        {
+          "disabled": false,
+          "icons": 0,
+          "rect": {
+            "height": 56,
+            "width": 415,
+            "x": 768,
+            "y": 431.984375
+          },
+          "style": {
+            "background": "rgb(255, 255, 255)",
+            "borderColor": "rgb(124, 137, 153)",
+            "borderWidth": "1px",
+            "color": "rgb(32, 40, 51)",
+            "fontSize": "14px",
+            "fontWeight": "600",
+            "lineHeight": "22px",
+            "opacity": "1",
+            "radius": "8px",
+            "shadow": "none",
+            "transition": "0.08s"
+          },
+          "text": "Google로 시작하기"
+        },
+        {
+          "disabled": false,
+          "icons": 0,
+          "rect": {
+            "height": 56,
+            "width": 415,
+            "x": 768,
+            "y": 499.984375
+          },
+          "style": {
+            "background": "rgb(255, 255, 255)",
+            "borderColor": "rgb(124, 137, 153)",
+            "borderWidth": "1px",
+            "color": "rgb(32, 40, 51)",
+            "fontSize": "14px",
+            "fontWeight": "600",
+            "lineHeight": "22px",
+            "opacity": "1",
+            "radius": "8px",
+            "shadow": "none",
+            "transition": "0.08s"
+          },
+          "text": "카카오로 시작하기"
+        },
+        {
+          "disabled": false,
+          "icons": 0,
+          "rect": {
+            "height": 56,
+            "width": 415,
+            "x": 768,
+            "y": 567.984375
+          },
+          "style": {
+            "background": "rgb(255, 255, 255)",
+            "borderColor": "rgb(124, 137, 153)",
+            "borderWidth": "1px",
+            "color": "rgb(32, 40, 51)",
+            "fontSize": "14px",
+            "fontWeight": "600",
+            "lineHeight": "22px",
+            "opacity": "1",
+            "radius": "8px",
+            "shadow": "none",
+            "transition": "0.08s"
+          },
+          "text": "네이버로 시작하기"
+        }
+      ],
+      "card": {
+        "height": 660.171875,
+        "width": 1024,
+        "x": 208,
+        "y": 119.90625
+      },
+      "cardStyle": {
+        "background": "rgb(255, 255, 255)",
+        "borderColor": "rgb(244, 246, 248)",
+        "borderWidth": "1px",
+        "color": "rgb(32, 40, 51)",
+        "fontSize": "14px",
+        "fontWeight": "400",
+        "lineHeight": "22px",
+        "opacity": "1",
+        "radius": "12px",
+        "shadow": "none",
+        "transition": "0s"
+      },
+      "columns": [
+        {
+          "height": 658.171875,
+          "width": 511,
+          "x": 209,
+          "y": 120.90625
+        },
+        {
+          "height": 658.171875,
+          "width": 511,
+          "x": 720,
+          "y": 120.90625
+        }
+      ],
+      "descriptionStyle": {
+        "background": "rgba(0, 0, 0, 0)",
+        "borderColor": "rgb(244, 246, 248)",
+        "borderWidth": "0px",
+        "color": "rgb(89, 102, 119)",
+        "fontSize": "20px",
+        "fontWeight": "500",
+        "lineHeight": "28px",
+        "opacity": "1",
+        "radius": "0px",
+        "shadow": "none",
+        "transition": "0s"
+      },
+      "error": "로그인하지 못했어요. 다시 시도해 주세요.",
+      "errorStyle": {
+        "background": "rgba(0, 0, 0, 0)",
+        "borderColor": "rgb(244, 246, 248)",
+        "borderWidth": "0px",
+        "color": "rgb(173, 53, 67)",
+        "fontSize": "12px",
+        "fontWeight": "400",
+        "lineHeight": "18px",
+        "opacity": "1",
+        "radius": "0px",
+        "shadow": "none",
+        "transition": "0s"
+      },
+      "heading": {
+        "height": 40,
+        "width": 415,
+        "x": 768,
+        "y": 291.984375
+      },
+      "headingStyle": {
+        "background": "rgba(0, 0, 0, 0)",
+        "borderColor": "rgb(244, 246, 248)",
+        "borderWidth": "0px",
+        "color": "rgb(32, 40, 51)",
+        "fontSize": "32px",
+        "fontWeight": "700",
+        "lineHeight": "40px",
+        "opacity": "1",
+        "radius": "0px",
+        "shadow": "none",
+        "transition": "0s"
+      },
+      "images": [
+        {
+          "alt": "",
+          "loaded": true,
+          "naturalHeight": 150,
+          "naturalWidth": 300,
+          "rect": {
+            "height": 32,
+            "width": 128,
+            "x": 400.5,
+            "y": 433.984375
+          },
+          "src": "/src/features/auth/assets/gravit-logo.svg"
+        },
+        {
+          "alt": "Gravit",
+          "loaded": true,
+          "naturalHeight": 150,
+          "naturalWidth": 300,
+          "rect": {
+            "height": 24,
+            "width": 96,
+            "x": 768,
+            "y": 253.984375
+          },
+          "src": "/src/features/auth/assets/gravit-logo.svg"
+        }
+      ],
+      "overflow": false,
+      "page": {
+        "background": "rgb(244, 246, 248)",
+        "borderColor": "rgb(244, 246, 248)",
+        "borderWidth": "0px",
+        "color": "rgb(32, 40, 51)",
+        "fontSize": "14px",
+        "fontWeight": "400",
+        "lineHeight": "22px",
+        "opacity": "1",
+        "radius": "0px",
+        "shadow": "none",
+        "transition": "0s"
+      },
+      "url": "/login?error=failed"
+    },
+    "file": "failed-1440.png"
+  },
+  {
+    "key": "loading",
+    "width": 1440,
+    "route": "/login",
+    "evidence": {
+      "activeAnimations": 0,
+      "adminStyle": {
+        "background": "rgba(0, 0, 0, 0)",
+        "borderColor": "rgb(244, 246, 248)",
+        "borderWidth": "0px",
+        "color": "rgb(89, 102, 119)",
+        "fontSize": "26px",
+        "fontWeight": "500",
+        "lineHeight": "36px",
+        "opacity": "1",
+        "radius": "0px",
+        "shadow": "none",
+        "transition": "0s"
+      },
+      "buttons": [
+        {
+          "disabled": true,
+          "icons": 0,
+          "rect": {
+            "height": 56,
+            "width": 415,
+            "x": 768,
+            "y": 431.984375
+          },
+          "style": {
+            "background": "rgb(255, 255, 255)",
+            "borderColor": "rgb(124, 137, 153)",
+            "borderWidth": "1px",
+            "color": "rgb(32, 40, 51)",
+            "fontSize": "14px",
+            "fontWeight": "600",
+            "lineHeight": "22px",
+            "opacity": "0.48",
+            "radius": "8px",
+            "shadow": "none",
+            "transition": "0.08s"
+          },
+          "text": "Google로 시작하기"
+        },
+        {
+          "disabled": true,
+          "icons": 0,
+          "rect": {
+            "height": 56,
+            "width": 415,
+            "x": 768,
+            "y": 499.984375
+          },
+          "style": {
+            "background": "rgb(255, 255, 255)",
+            "borderColor": "rgb(124, 137, 153)",
+            "borderWidth": "1px",
+            "color": "rgb(32, 40, 51)",
+            "fontSize": "14px",
+            "fontWeight": "600",
+            "lineHeight": "22px",
+            "opacity": "0.48",
+            "radius": "8px",
+            "shadow": "none",
+            "transition": "0.08s"
+          },
+          "text": "카카오로 시작하기"
+        },
+        {
+          "disabled": true,
+          "icons": 0,
+          "rect": {
+            "height": 56,
+            "width": 415,
+            "x": 768,
+            "y": 567.984375
+          },
+          "style": {
+            "background": "rgb(255, 255, 255)",
+            "borderColor": "rgb(124, 137, 153)",
+            "borderWidth": "1px",
+            "color": "rgb(32, 40, 51)",
+            "fontSize": "14px",
+            "fontWeight": "600",
+            "lineHeight": "22px",
+            "opacity": "0.48",
+            "radius": "8px",
+            "shadow": "none",
+            "transition": "0.08s"
+          },
+          "text": "네이버로 시작하기"
+        }
+      ],
+      "card": {
+        "height": 660.171875,
+        "width": 1024,
+        "x": 208,
+        "y": 119.90625
+      },
+      "cardStyle": {
+        "background": "rgb(255, 255, 255)",
+        "borderColor": "rgb(244, 246, 248)",
+        "borderWidth": "1px",
+        "color": "rgb(32, 40, 51)",
+        "fontSize": "14px",
+        "fontWeight": "400",
+        "lineHeight": "22px",
+        "opacity": "1",
+        "radius": "12px",
+        "shadow": "none",
+        "transition": "0s"
+      },
+      "columns": [
+        {
+          "height": 658.171875,
+          "width": 511,
+          "x": 209,
+          "y": 120.90625
+        },
+        {
+          "height": 658.171875,
+          "width": 511,
+          "x": 720,
+          "y": 120.90625
+        }
+      ],
+      "descriptionStyle": {
+        "background": "rgba(0, 0, 0, 0)",
+        "borderColor": "rgb(244, 246, 248)",
+        "borderWidth": "0px",
+        "color": "rgb(89, 102, 119)",
+        "fontSize": "20px",
+        "fontWeight": "500",
+        "lineHeight": "28px",
+        "opacity": "1",
+        "radius": "0px",
+        "shadow": "none",
+        "transition": "0s"
+      },
+      "error": "",
+      "errorStyle": {
+        "background": "rgba(0, 0, 0, 0)",
+        "borderColor": "rgb(244, 246, 248)",
+        "borderWidth": "0px",
+        "color": "rgb(173, 53, 67)",
+        "fontSize": "12px",
+        "fontWeight": "400",
+        "lineHeight": "18px",
+        "opacity": "1",
+        "radius": "0px",
+        "shadow": "none",
+        "transition": "0s"
+      },
+      "heading": {
+        "height": 40,
+        "width": 415,
+        "x": 768,
+        "y": 291.984375
+      },
+      "headingStyle": {
+        "background": "rgba(0, 0, 0, 0)",
+        "borderColor": "rgb(244, 246, 248)",
+        "borderWidth": "0px",
+        "color": "rgb(32, 40, 51)",
+        "fontSize": "32px",
+        "fontWeight": "700",
+        "lineHeight": "40px",
+        "opacity": "1",
+        "radius": "0px",
+        "shadow": "none",
+        "transition": "0s"
+      },
+      "images": [
+        {
+          "alt": "",
+          "loaded": true,
+          "naturalHeight": 150,
+          "naturalWidth": 300,
+          "rect": {
+            "height": 32,
+            "width": 128,
+            "x": 400.5,
+            "y": 433.984375
+          },
+          "src": "/src/features/auth/assets/gravit-logo.svg"
+        },
+        {
+          "alt": "Gravit",
+          "loaded": true,
+          "naturalHeight": 150,
+          "naturalWidth": 300,
+          "rect": {
+            "height": 24,
+            "width": 96,
+            "x": 768,
+            "y": 253.984375
+          },
+          "src": "/src/features/auth/assets/gravit-logo.svg"
+        }
+      ],
+      "overflow": false,
+      "page": {
+        "background": "rgb(244, 246, 248)",
+        "borderColor": "rgb(244, 246, 248)",
+        "borderWidth": "0px",
+        "color": "rgb(32, 40, 51)",
+        "fontSize": "14px",
+        "fontWeight": "400",
+        "lineHeight": "22px",
+        "opacity": "1",
+        "radius": "0px",
+        "shadow": "none",
+        "transition": "0s"
+      },
+      "url": "/login"
+    },
+    "file": "loading-1440.png"
+  },
+  {
+    "key": "error",
+    "width": 1440,
+    "route": "/login",
+    "evidence": {
+      "activeAnimations": 0,
+      "adminStyle": {
+        "background": "rgba(0, 0, 0, 0)",
+        "borderColor": "rgb(244, 246, 248)",
+        "borderWidth": "0px",
+        "color": "rgb(89, 102, 119)",
+        "fontSize": "26px",
+        "fontWeight": "500",
+        "lineHeight": "36px",
+        "opacity": "1",
+        "radius": "0px",
+        "shadow": "none",
+        "transition": "0s"
+      },
+      "buttons": [
+        {
+          "disabled": false,
+          "icons": 0,
+          "rect": {
+            "height": 56,
+            "width": 415,
+            "x": 768,
+            "y": 431.984375
+          },
+          "style": {
+            "background": "rgb(244, 246, 248)",
+            "borderColor": "rgb(124, 137, 153)",
+            "borderWidth": "1px",
+            "color": "rgb(32, 40, 51)",
+            "fontSize": "14px",
+            "fontWeight": "600",
+            "lineHeight": "22px",
+            "opacity": "1",
+            "radius": "8px",
+            "shadow": "none",
+            "transition": "0.08s"
+          },
+          "text": "Google로 시작하기"
+        },
+        {
+          "disabled": false,
+          "icons": 0,
+          "rect": {
+            "height": 56,
+            "width": 415,
+            "x": 768,
+            "y": 499.984375
+          },
+          "style": {
+            "background": "rgb(255, 255, 255)",
+            "borderColor": "rgb(124, 137, 153)",
+            "borderWidth": "1px",
+            "color": "rgb(32, 40, 51)",
+            "fontSize": "14px",
+            "fontWeight": "600",
+            "lineHeight": "22px",
+            "opacity": "1",
+            "radius": "8px",
+            "shadow": "none",
+            "transition": "0.08s"
+          },
+          "text": "카카오로 시작하기"
+        },
+        {
+          "disabled": false,
+          "icons": 0,
+          "rect": {
+            "height": 56,
+            "width": 415,
+            "x": 768,
+            "y": 567.984375
+          },
+          "style": {
+            "background": "rgb(255, 255, 255)",
+            "borderColor": "rgb(124, 137, 153)",
+            "borderWidth": "1px",
+            "color": "rgb(32, 40, 51)",
+            "fontSize": "14px",
+            "fontWeight": "600",
+            "lineHeight": "22px",
+            "opacity": "1",
+            "radius": "8px",
+            "shadow": "none",
+            "transition": "0.08s"
+          },
+          "text": "네이버로 시작하기"
+        }
+      ],
+      "card": {
+        "height": 660.171875,
+        "width": 1024,
+        "x": 208,
+        "y": 119.90625
+      },
+      "cardStyle": {
+        "background": "rgb(255, 255, 255)",
+        "borderColor": "rgb(244, 246, 248)",
+        "borderWidth": "1px",
+        "color": "rgb(32, 40, 51)",
+        "fontSize": "14px",
+        "fontWeight": "400",
+        "lineHeight": "22px",
+        "opacity": "1",
+        "radius": "12px",
+        "shadow": "none",
+        "transition": "0s"
+      },
+      "columns": [
+        {
+          "height": 658.171875,
+          "width": 511,
+          "x": 209,
+          "y": 120.90625
+        },
+        {
+          "height": 658.171875,
+          "width": 511,
+          "x": 720,
+          "y": 120.90625
+        }
+      ],
+      "descriptionStyle": {
+        "background": "rgba(0, 0, 0, 0)",
+        "borderColor": "rgb(244, 246, 248)",
+        "borderWidth": "0px",
+        "color": "rgb(89, 102, 119)",
+        "fontSize": "20px",
+        "fontWeight": "500",
+        "lineHeight": "28px",
+        "opacity": "1",
+        "radius": "0px",
+        "shadow": "none",
+        "transition": "0s"
+      },
+      "error": "로그인하지 못했어요. 다시 시도해 주세요.",
+      "errorStyle": {
+        "background": "rgba(0, 0, 0, 0)",
+        "borderColor": "rgb(244, 246, 248)",
+        "borderWidth": "0px",
+        "color": "rgb(173, 53, 67)",
+        "fontSize": "12px",
+        "fontWeight": "400",
+        "lineHeight": "18px",
+        "opacity": "1",
+        "radius": "0px",
+        "shadow": "none",
+        "transition": "0s"
+      },
+      "heading": {
+        "height": 40,
+        "width": 415,
+        "x": 768,
+        "y": 291.984375
+      },
+      "headingStyle": {
+        "background": "rgba(0, 0, 0, 0)",
+        "borderColor": "rgb(244, 246, 248)",
+        "borderWidth": "0px",
+        "color": "rgb(32, 40, 51)",
+        "fontSize": "32px",
+        "fontWeight": "700",
+        "lineHeight": "40px",
+        "opacity": "1",
+        "radius": "0px",
+        "shadow": "none",
+        "transition": "0s"
+      },
+      "images": [
+        {
+          "alt": "",
+          "loaded": true,
+          "naturalHeight": 150,
+          "naturalWidth": 300,
+          "rect": {
+            "height": 32,
+            "width": 128,
+            "x": 400.5,
+            "y": 433.984375
+          },
+          "src": "/src/features/auth/assets/gravit-logo.svg"
+        },
+        {
+          "alt": "Gravit",
+          "loaded": true,
+          "naturalHeight": 150,
+          "naturalWidth": 300,
+          "rect": {
+            "height": 24,
+            "width": 96,
+            "x": 768,
+            "y": 253.984375
+          },
+          "src": "/src/features/auth/assets/gravit-logo.svg"
+        }
+      ],
+      "overflow": false,
+      "page": {
+        "background": "rgb(244, 246, 248)",
+        "borderColor": "rgb(244, 246, 248)",
+        "borderWidth": "0px",
+        "color": "rgb(32, 40, 51)",
+        "fontSize": "14px",
+        "fontWeight": "400",
+        "lineHeight": "22px",
+        "opacity": "1",
+        "radius": "0px",
+        "shadow": "none",
+        "transition": "0s"
+      },
+      "url": "/login"
+    },
+    "file": "error-1440.png"
+  },
+  {
+    "key": "users",
+    "width": 1440,
+    "route": "/users",
+    "evidence": {
+      "columns": [
+        {
+          "color": "rgb(32, 40, 51)",
+          "fontSize": "14px",
+          "height": 48,
+          "text": "이메일",
+          "width": 526,
+          "x": 273,
+          "y": 233
+        },
+        {
+          "color": "rgb(32, 40, 51)",
+          "fontSize": "14px",
+          "height": 48,
+          "text": "닉네임",
+          "width": 128,
+          "x": 799,
+          "y": 233
+        },
+        {
+          "color": "rgb(32, 40, 51)",
+          "fontSize": "14px",
+          "height": 48,
+          "text": "handle",
+          "width": 144,
+          "x": 927,
+          "y": 233
+        },
+        {
+          "color": "rgb(32, 40, 51)",
+          "fontSize": "14px",
+          "height": 48,
+          "text": "역할",
+          "width": 96,
+          "x": 1071,
+          "y": 233
+        },
+        {
+          "color": "rgb(32, 40, 51)",
+          "fontSize": "14px",
+          "height": 48,
+          "text": "상태",
+          "width": 112,
+          "x": 1167,
+          "y": 233
+        },
+        {
+          "color": "rgb(32, 40, 51)",
+          "fontSize": "14px",
+          "height": 48,
+          "text": "가입일",
+          "width": 128,
+          "x": 1279,
+          "y": 233
+        }
+      ],
+      "head": {
+        "height": 48,
+        "width": 1134,
+        "x": 273,
+        "y": 233
+      },
+      "headerBackground": "rgb(255, 255, 255)",
+      "loginThemePresent": false,
+      "page": "rgb(244, 246, 248)",
+      "table": {
+        "height": 256,
+        "width": 1134,
+        "x": 273,
+        "y": 233
+      }
+    }
+  }
+]

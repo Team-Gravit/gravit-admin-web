@@ -1,15 +1,20 @@
-import { Button } from '@/shared/components/ui/button';
+import { cn } from '@/shared/lib/cn';
 import type { ProviderId } from '@/features/auth/types';
+import googleIcon from '@/features/auth/assets/google.svg';
+import kakaoIcon from '@/features/auth/assets/kakao.svg';
+import naverIcon from '@/features/auth/assets/naver.svg';
 
 interface Provider {
   id: ProviderId;
   label: string;
+  icon: string;
+  className: string;
 }
 
 const PROVIDERS: Provider[] = [
-  { id: 'GOOGLE', label: 'Google로 시작하기' },
-  { id: 'KAKAO', label: '카카오로 시작하기' },
-  { id: 'NAVER', label: '네이버로 시작하기' },
+  { id: 'GOOGLE', label: 'Google로 시작하기', icon: googleIcon, className: 'bg-brand-google text-brand-fg' },
+  { id: 'KAKAO', label: '카카오로 시작하기', icon: kakaoIcon, className: 'bg-brand-kakao text-brand-fg' },
+  { id: 'NAVER', label: '네이버로 시작하기', icon: naverIcon, className: 'bg-brand-naver text-brand-naver-fg' },
 ];
 
 interface OAuthButtonsProps {
@@ -21,16 +26,19 @@ export function OAuthButtons({ onLogin, disabled = false }: OAuthButtonsProps) {
   return (
     <div className="flex w-full flex-col gap-3">
       {PROVIDERS.map((provider) => (
-        <Button
+        <button
           key={provider.id}
           type="button"
           disabled={disabled}
           onClick={() => onLogin(provider.id)}
-          variant="outline"
-          className="h-14 w-full"
+          className={cn(
+            'relative flex h-14 w-full items-center justify-center rounded-login-provider text-lg font-medium hover:opacity-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50',
+            provider.className,
+          )}
         >
+          <img src={provider.icon} alt="" width={24} height={24} className="absolute left-4 size-6" />
           {provider.label}
-        </Button>
+        </button>
       ))}
     </div>
   );
