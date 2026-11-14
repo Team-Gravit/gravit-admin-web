@@ -1,6 +1,5 @@
 import { Area, AreaChart, CartesianGrid, XAxis, YAxis } from 'recharts';
 import { format, parseISO } from 'date-fns';
-import { cn } from '@/shared/lib/cn';
 import { formatNumber } from '@/shared/lib/formatNumber';
 import { useDailyActiveUsers } from '@/features/dashboard/queries';
 import { ErrorState } from '@/shared/components/states/ErrorState';
@@ -37,23 +36,20 @@ export function DauChartCard() {
       {isError && <ErrorState className="py-8" onRetry={() => refetch()} />}
 
       {data && points.length === 0 && (
-        <EmptyState className="py-8" message="아직 집계된 데이터가 없습니다." />
+        <EmptyState className="py-8" message="아직 집계된 데이터가 없어요." />
       )}
 
       {data && today && (
         <>
           <div className="flex items-baseline gap-3">
-            <span className="text-display text-foreground">{formatNumber(today.dau)}</span>
+            <span className="text-display tabular-nums text-foreground">{formatNumber(today.dau)}</span>
             <span className="text-caption text-fg-muted">오늘</span>
             {delta !== null &&
               (delta === 0 ? (
                 <span className="text-caption text-fg-muted">전일과 동일</span>
               ) : (
                 <span
-                  className={cn(
-                    'text-caption',
-                    delta > 0 ? 'text-success-text' : 'text-danger-text',
-                  )}
+                  className="text-caption tabular-nums text-fg-secondary"
                 >
                   {delta > 0 ? '▲' : '▼'} {formatNumber(Math.abs(delta))} 전일 대비
                 </span>
@@ -79,6 +75,7 @@ export function DauChartCard() {
                 tickFormatter={(value: number) => formatNumber(value)}
               />
               <ChartTooltip
+                isAnimationActive={false}
                 content={
                   <ChartTooltipContent
                     valueFormatter={formatNumber}
@@ -87,6 +84,7 @@ export function DauChartCard() {
                 }
               />
               <Area
+                isAnimationActive={false}
                 dataKey="dau"
                 type="monotone"
                 stroke="var(--color-dau)"

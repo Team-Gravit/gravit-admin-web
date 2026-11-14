@@ -1,0 +1,1550 @@
+[
+  {
+    "file": "dashboard-normal-1280.png",
+    "width": 1280,
+    "height": 900,
+    "route": "/",
+    "phase": "after",
+    "evidence": {
+      "body": "대시보드\n총 유저 수\n12,345\n유저 관리 →\nPENDING 라벨\n8\n스테이징 →\n미해결 신고\n24\n신고 관리 →\nDAU\n\n최근 30일 일별 활성 유저\n\n49\n오늘\n▼ 14 전일 대비\n10.17\n10.22\n10.27\n11.1\n11.5\n11.9\n11.14\n0\n20\n40\n60\n80\nMAU\n\n최근 12개월 월별 활성 유저\n\n",
+      "font": "Pretendard, system-ui, -apple-system, sans-serif",
+      "headings": [
+        {
+          "text": "대시보드",
+          "width": 976,
+          "x": 272,
+          "y": 80
+        }
+      ],
+      "overflow": false,
+      "table": null
+    },
+    "fullEvidence": {
+      "activeAnimations": 0,
+      "barFills": [
+        {
+          "fill": "rgb(89, 102, 119)",
+          "opacity": null
+        },
+        {
+          "fill": "rgb(89, 102, 119)",
+          "opacity": null
+        },
+        {
+          "fill": "rgb(89, 102, 119)",
+          "opacity": null
+        },
+        {
+          "fill": "rgb(89, 102, 119)",
+          "opacity": null
+        },
+        {
+          "fill": "rgb(89, 102, 119)",
+          "opacity": null
+        },
+        {
+          "fill": "rgb(89, 102, 119)",
+          "opacity": null
+        },
+        {
+          "fill": "rgb(89, 102, 119)",
+          "opacity": null
+        },
+        {
+          "fill": "rgb(89, 102, 119)",
+          "opacity": null
+        },
+        {
+          "fill": "rgb(89, 102, 119)",
+          "opacity": null
+        },
+        {
+          "fill": "rgb(89, 102, 119)",
+          "opacity": null
+        },
+        {
+          "fill": "rgb(89, 102, 119)",
+          "opacity": null
+        },
+        {
+          "fill": "rgb(124, 137, 153)",
+          "opacity": null
+        }
+      ],
+      "headings": [
+        {
+          "height": 36,
+          "label": "대시보드",
+          "width": 976,
+          "x": 272,
+          "y": 80
+        },
+        {
+          "height": 24,
+          "label": "DAU",
+          "width": 430,
+          "x": 297,
+          "y": 371
+        },
+        {
+          "height": 24,
+          "label": "MAU",
+          "width": 430,
+          "x": 793,
+          "y": 371
+        }
+      ],
+      "layout": {
+        "header": {
+          "height": 56,
+          "width": 1040,
+          "x": 240,
+          "y": 0
+        },
+        "main": {
+          "height": 844,
+          "width": 1040,
+          "x": 240,
+          "y": 56
+        },
+        "scrollWidth": 1280,
+        "sidebar": {
+          "height": 900,
+          "width": 240,
+          "x": 0,
+          "y": 0
+        },
+        "viewport": 1280
+      },
+      "regions": [
+        {
+          "height": 154,
+          "tag": "A",
+          "width": 314.65625,
+          "x": 272,
+          "y": 168
+        },
+        {
+          "height": 154,
+          "tag": "A",
+          "width": 314.671875,
+          "x": 602.65625,
+          "y": 168
+        },
+        {
+          "height": 154,
+          "tag": "A",
+          "width": 314.65625,
+          "x": 933.328125,
+          "y": 168
+        },
+        {
+          "height": 426,
+          "tag": "SECTION",
+          "width": 480,
+          "x": 272,
+          "y": 346
+        },
+        {
+          "height": 426,
+          "tag": "SECTION",
+          "width": 480,
+          "x": 768,
+          "y": 346
+        }
+      ]
+    }
+  },
+  {
+    "file": "dashboard-full-1280.png",
+    "width": 1280,
+    "route": "/",
+    "full": true
+  },
+  {
+    "file": "dashboard-loading-1280.png",
+    "width": 1280,
+    "height": 900,
+    "route": "/",
+    "phase": "after",
+    "evidence": {
+      "body": "대시보드\n총 유저 수\n12,345\n유저 관리 →\nPENDING 라벨\n8\n스테이징 →\n미해결 신고\n24\n신고 관리 →\nDAU\n\n최근 30일 일별 활성 유저\n\nMAU\n\n최근 12개월 월별 활성 유저",
+      "font": "Pretendard, system-ui, -apple-system, sans-serif",
+      "headings": [
+        {
+          "text": "대시보드",
+          "width": 976,
+          "x": 272,
+          "y": 80
+        }
+      ],
+      "overflow": false,
+      "table": null
+    },
+    "fullEvidence": {
+      "activeAnimations": 0,
+      "barFills": [],
+      "headings": [
+        {
+          "height": 36,
+          "label": "대시보드",
+          "width": 976,
+          "x": 272,
+          "y": 80
+        },
+        {
+          "height": 24,
+          "label": "DAU",
+          "width": 430,
+          "x": 297,
+          "y": 371
+        },
+        {
+          "height": 24,
+          "label": "MAU",
+          "width": 430,
+          "x": 793,
+          "y": 371
+        }
+      ],
+      "layout": {
+        "header": {
+          "height": 56,
+          "width": 1040,
+          "x": 240,
+          "y": 0
+        },
+        "main": {
+          "height": 844,
+          "width": 1040,
+          "x": 240,
+          "y": 56
+        },
+        "scrollWidth": 1280,
+        "sidebar": {
+          "height": 900,
+          "width": 240,
+          "x": 0,
+          "y": 0
+        },
+        "viewport": 1280
+      },
+      "regions": [
+        {
+          "height": 154,
+          "tag": "A",
+          "width": 314.65625,
+          "x": 272,
+          "y": 168
+        },
+        {
+          "height": 154,
+          "tag": "A",
+          "width": 314.671875,
+          "x": 602.65625,
+          "y": 168
+        },
+        {
+          "height": 154,
+          "tag": "A",
+          "width": 314.65625,
+          "x": 933.328125,
+          "y": 168
+        },
+        {
+          "height": 368,
+          "tag": "SECTION",
+          "width": 480,
+          "x": 272,
+          "y": 346
+        },
+        {
+          "height": 368,
+          "tag": "SECTION",
+          "width": 480,
+          "x": 768,
+          "y": 346
+        }
+      ]
+    }
+  },
+  {
+    "file": "dashboard-empty-1280.png",
+    "width": 1280,
+    "height": 900,
+    "route": "/",
+    "phase": "after",
+    "evidence": {
+      "body": "대시보드\n총 유저 수\n12,345\n유저 관리 →\nPENDING 라벨\n8\n스테이징 →\n미해결 신고\n24\n신고 관리 →\nDAU\n\n최근 30일 일별 활성 유저\n\n아직 집계된 데이터가 없어요.\n\nMAU\n\n최근 12개월 월별 활성 유저\n\n아직 집계된 데이터가 없어요.",
+      "font": "Pretendard, system-ui, -apple-system, sans-serif",
+      "headings": [
+        {
+          "text": "대시보드",
+          "width": 976,
+          "x": 272,
+          "y": 80
+        }
+      ],
+      "overflow": false,
+      "table": null
+    },
+    "fullEvidence": {
+      "activeAnimations": 0,
+      "barFills": [],
+      "headings": [
+        {
+          "height": 36,
+          "label": "대시보드",
+          "width": 976,
+          "x": 272,
+          "y": 80
+        },
+        {
+          "height": 24,
+          "label": "DAU",
+          "width": 430,
+          "x": 297,
+          "y": 371
+        },
+        {
+          "height": 24,
+          "label": "MAU",
+          "width": 430,
+          "x": 793,
+          "y": 371
+        }
+      ],
+      "layout": {
+        "header": {
+          "height": 56,
+          "width": 1040,
+          "x": 240,
+          "y": 0
+        },
+        "main": {
+          "height": 844,
+          "width": 1040,
+          "x": 240,
+          "y": 56
+        },
+        "scrollWidth": 1280,
+        "sidebar": {
+          "height": 900,
+          "width": 240,
+          "x": 0,
+          "y": 0
+        },
+        "viewport": 1280
+      },
+      "regions": [
+        {
+          "height": 154,
+          "tag": "A",
+          "width": 314.65625,
+          "x": 272,
+          "y": 168
+        },
+        {
+          "height": 154,
+          "tag": "A",
+          "width": 314.671875,
+          "x": 602.65625,
+          "y": 168
+        },
+        {
+          "height": 154,
+          "tag": "A",
+          "width": 314.65625,
+          "x": 933.328125,
+          "y": 168
+        },
+        {
+          "height": 230,
+          "tag": "SECTION",
+          "width": 480,
+          "x": 272,
+          "y": 346
+        },
+        {
+          "height": 230,
+          "tag": "SECTION",
+          "width": 480,
+          "x": 768,
+          "y": 346
+        }
+      ]
+    }
+  },
+  {
+    "file": "dashboard-error-1280.png",
+    "width": 1280,
+    "height": 900,
+    "route": "/",
+    "phase": "after",
+    "evidence": {
+      "body": "대시보드\n총 유저 수\n12,345\n유저 관리 →\nPENDING 라벨\n8\n스테이징 →\n미해결 신고\n24\n신고 관리 →\nDAU\n\n최근 30일 일별 활성 유저\n\n데이터를 불러오지 못했어요. 잠시 뒤 다시 시도해 주세요.\n\n다시 시도하기\nMAU\n\n최근 12개월 월별 활성 유저\n\n데이터를 불러오지 못했어요. 잠시 뒤 다시 시도해 ",
+      "font": "Pretendard, system-ui, -apple-system, sans-serif",
+      "headings": [
+        {
+          "text": "대시보드",
+          "width": 976,
+          "x": 272,
+          "y": 80
+        }
+      ],
+      "overflow": false,
+      "table": null
+    },
+    "fullEvidence": {
+      "activeAnimations": 0,
+      "barFills": [],
+      "headings": [
+        {
+          "height": 36,
+          "label": "대시보드",
+          "width": 976,
+          "x": 272,
+          "y": 80
+        },
+        {
+          "height": 24,
+          "label": "DAU",
+          "width": 430,
+          "x": 297,
+          "y": 371
+        },
+        {
+          "height": 24,
+          "label": "MAU",
+          "width": 430,
+          "x": 793,
+          "y": 371
+        }
+      ],
+      "layout": {
+        "header": {
+          "height": 56,
+          "width": 1040,
+          "x": 240,
+          "y": 0
+        },
+        "main": {
+          "height": 844,
+          "width": 1040,
+          "x": 240,
+          "y": 56
+        },
+        "scrollWidth": 1280,
+        "sidebar": {
+          "height": 900,
+          "width": 240,
+          "x": 0,
+          "y": 0
+        },
+        "viewport": 1280
+      },
+      "regions": [
+        {
+          "height": 154,
+          "tag": "A",
+          "width": 314.65625,
+          "x": 272,
+          "y": 168
+        },
+        {
+          "height": 154,
+          "tag": "A",
+          "width": 314.671875,
+          "x": 602.65625,
+          "y": 168
+        },
+        {
+          "height": 154,
+          "tag": "A",
+          "width": 314.65625,
+          "x": 933.328125,
+          "y": 168
+        },
+        {
+          "height": 282,
+          "tag": "SECTION",
+          "width": 480,
+          "x": 272,
+          "y": 346
+        },
+        {
+          "height": 282,
+          "tag": "SECTION",
+          "width": 480,
+          "x": 768,
+          "y": 346
+        }
+      ]
+    }
+  },
+  {
+    "file": "dashboard-summary-loading-1280.png",
+    "width": 1280,
+    "height": 900,
+    "route": "/",
+    "phase": "after",
+    "evidence": {
+      "body": "대시보드\nDAU\n\n최근 30일 일별 활성 유저\n\n49\n오늘\n▼ 14 전일 대비\n10.17\n10.22\n10.27\n11.1\n11.5\n11.9\n11.14\n0\n20\n40\n60\n80\nMAU\n\n최근 12개월 월별 활성 유저\n\n121\n이번 달 (집계 중)\n지난달 291\n26.01\n26.03\n26.05\n26.07\n26.09\n26.11\n",
+      "font": "Pretendard, system-ui, -apple-system, sans-serif",
+      "headings": [
+        {
+          "text": "대시보드",
+          "width": 976,
+          "x": 272,
+          "y": 80
+        }
+      ],
+      "overflow": false,
+      "table": null
+    },
+    "fullEvidence": {
+      "activeAnimations": 0,
+      "barFills": [
+        {
+          "fill": "rgb(89, 102, 119)",
+          "opacity": null
+        },
+        {
+          "fill": "rgb(89, 102, 119)",
+          "opacity": null
+        },
+        {
+          "fill": "rgb(89, 102, 119)",
+          "opacity": null
+        },
+        {
+          "fill": "rgb(89, 102, 119)",
+          "opacity": null
+        },
+        {
+          "fill": "rgb(89, 102, 119)",
+          "opacity": null
+        },
+        {
+          "fill": "rgb(89, 102, 119)",
+          "opacity": null
+        },
+        {
+          "fill": "rgb(89, 102, 119)",
+          "opacity": null
+        },
+        {
+          "fill": "rgb(89, 102, 119)",
+          "opacity": null
+        },
+        {
+          "fill": "rgb(89, 102, 119)",
+          "opacity": null
+        },
+        {
+          "fill": "rgb(89, 102, 119)",
+          "opacity": null
+        },
+        {
+          "fill": "rgb(89, 102, 119)",
+          "opacity": null
+        },
+        {
+          "fill": "rgb(124, 137, 153)",
+          "opacity": null
+        }
+      ],
+      "headings": [
+        {
+          "height": 36,
+          "label": "대시보드",
+          "width": 976,
+          "x": 272,
+          "y": 80
+        },
+        {
+          "height": 24,
+          "label": "DAU",
+          "width": 430,
+          "x": 297,
+          "y": 377
+        },
+        {
+          "height": 24,
+          "label": "MAU",
+          "width": 430,
+          "x": 793,
+          "y": 377
+        }
+      ],
+      "layout": {
+        "header": {
+          "height": 56,
+          "width": 1040,
+          "x": 240,
+          "y": 0
+        },
+        "main": {
+          "height": 844,
+          "width": 1040,
+          "x": 240,
+          "y": 56
+        },
+        "scrollWidth": 1280,
+        "sidebar": {
+          "height": 900,
+          "width": 240,
+          "x": 0,
+          "y": 0
+        },
+        "viewport": 1280
+      },
+      "regions": [
+        {
+          "height": 426,
+          "tag": "SECTION",
+          "width": 480,
+          "x": 272,
+          "y": 352
+        },
+        {
+          "height": 426,
+          "tag": "SECTION",
+          "width": 480,
+          "x": 768,
+          "y": 352
+        }
+      ]
+    }
+  },
+  {
+    "file": "dashboard-reduced-1280.png",
+    "width": 1280,
+    "height": 900,
+    "route": "/",
+    "phase": "after",
+    "evidence": {
+      "body": "대시보드\n총 유저 수\n12,345\n유저 관리 →\nPENDING 라벨\n8\n스테이징 →\n미해결 신고\n24\n신고 관리 →\nDAU\n\n최근 30일 일별 활성 유저\n\n49\n오늘\n▼ 14 전일 대비\n10.17\n10.22\n10.27\n11.1\n11.5\n11.9\n11.14\n0\n20\n40\n60\n80\nMAU\n\n최근 12개월 월별 활성 유저\n\n",
+      "font": "Pretendard, system-ui, -apple-system, sans-serif",
+      "headings": [
+        {
+          "text": "대시보드",
+          "width": 976,
+          "x": 272,
+          "y": 80
+        }
+      ],
+      "overflow": false,
+      "table": null
+    },
+    "fullEvidence": {
+      "activeAnimations": 0,
+      "barFills": [
+        {
+          "fill": "rgb(89, 102, 119)",
+          "opacity": null
+        },
+        {
+          "fill": "rgb(89, 102, 119)",
+          "opacity": null
+        },
+        {
+          "fill": "rgb(89, 102, 119)",
+          "opacity": null
+        },
+        {
+          "fill": "rgb(89, 102, 119)",
+          "opacity": null
+        },
+        {
+          "fill": "rgb(89, 102, 119)",
+          "opacity": null
+        },
+        {
+          "fill": "rgb(89, 102, 119)",
+          "opacity": null
+        },
+        {
+          "fill": "rgb(89, 102, 119)",
+          "opacity": null
+        },
+        {
+          "fill": "rgb(89, 102, 119)",
+          "opacity": null
+        },
+        {
+          "fill": "rgb(89, 102, 119)",
+          "opacity": null
+        },
+        {
+          "fill": "rgb(89, 102, 119)",
+          "opacity": null
+        },
+        {
+          "fill": "rgb(89, 102, 119)",
+          "opacity": null
+        },
+        {
+          "fill": "rgb(124, 137, 153)",
+          "opacity": null
+        }
+      ],
+      "headings": [
+        {
+          "height": 36,
+          "label": "대시보드",
+          "width": 976,
+          "x": 272,
+          "y": 80
+        },
+        {
+          "height": 24,
+          "label": "DAU",
+          "width": 430,
+          "x": 297,
+          "y": 371
+        },
+        {
+          "height": 24,
+          "label": "MAU",
+          "width": 430,
+          "x": 793,
+          "y": 371
+        }
+      ],
+      "layout": {
+        "header": {
+          "height": 56,
+          "width": 1040,
+          "x": 240,
+          "y": 0
+        },
+        "main": {
+          "height": 844,
+          "width": 1040,
+          "x": 240,
+          "y": 56
+        },
+        "scrollWidth": 1280,
+        "sidebar": {
+          "height": 900,
+          "width": 240,
+          "x": 0,
+          "y": 0
+        },
+        "viewport": 1280
+      },
+      "regions": [
+        {
+          "height": 154,
+          "tag": "A",
+          "width": 314.65625,
+          "x": 272,
+          "y": 168
+        },
+        {
+          "height": 154,
+          "tag": "A",
+          "width": 314.671875,
+          "x": 602.65625,
+          "y": 168
+        },
+        {
+          "height": 154,
+          "tag": "A",
+          "width": 314.65625,
+          "x": 933.328125,
+          "y": 168
+        },
+        {
+          "height": 426,
+          "tag": "SECTION",
+          "width": 480,
+          "x": 272,
+          "y": 346
+        },
+        {
+          "height": 426,
+          "tag": "SECTION",
+          "width": 480,
+          "x": 768,
+          "y": 346
+        }
+      ]
+    }
+  },
+  {
+    "file": "dashboard-normal-1440.png",
+    "width": 1440,
+    "height": 900,
+    "route": "/",
+    "phase": "after",
+    "evidence": {
+      "body": "대시보드\n총 유저 수\n12,345\n유저 관리 →\nPENDING 라벨\n8\n스테이징 →\n미해결 신고\n24\n신고 관리 →\nDAU\n\n최근 30일 일별 활성 유저\n\n49\n오늘\n▼ 14 전일 대비\n10.17\n10.21\n10.25\n10.29\n11.2\n11.6\n11.10\n11.14\n0\n20\n40\n60\n80\nMAU\n\n최근 12개월 월별 ",
+      "font": "Pretendard, system-ui, -apple-system, sans-serif",
+      "headings": [
+        {
+          "text": "대시보드",
+          "width": 1136,
+          "x": 272,
+          "y": 80
+        }
+      ],
+      "overflow": false,
+      "table": null
+    },
+    "fullEvidence": {
+      "activeAnimations": 0,
+      "barFills": [
+        {
+          "fill": "rgb(89, 102, 119)",
+          "opacity": null
+        },
+        {
+          "fill": "rgb(89, 102, 119)",
+          "opacity": null
+        },
+        {
+          "fill": "rgb(89, 102, 119)",
+          "opacity": null
+        },
+        {
+          "fill": "rgb(89, 102, 119)",
+          "opacity": null
+        },
+        {
+          "fill": "rgb(89, 102, 119)",
+          "opacity": null
+        },
+        {
+          "fill": "rgb(89, 102, 119)",
+          "opacity": null
+        },
+        {
+          "fill": "rgb(89, 102, 119)",
+          "opacity": null
+        },
+        {
+          "fill": "rgb(89, 102, 119)",
+          "opacity": null
+        },
+        {
+          "fill": "rgb(89, 102, 119)",
+          "opacity": null
+        },
+        {
+          "fill": "rgb(89, 102, 119)",
+          "opacity": null
+        },
+        {
+          "fill": "rgb(89, 102, 119)",
+          "opacity": null
+        },
+        {
+          "fill": "rgb(124, 137, 153)",
+          "opacity": null
+        }
+      ],
+      "headings": [
+        {
+          "height": 36,
+          "label": "대시보드",
+          "width": 1136,
+          "x": 272,
+          "y": 80
+        },
+        {
+          "height": 24,
+          "label": "DAU",
+          "width": 510,
+          "x": 297,
+          "y": 371
+        },
+        {
+          "height": 24,
+          "label": "MAU",
+          "width": 510,
+          "x": 873,
+          "y": 371
+        }
+      ],
+      "layout": {
+        "header": {
+          "height": 56,
+          "width": 1200,
+          "x": 240,
+          "y": 0
+        },
+        "main": {
+          "height": 844,
+          "width": 1200,
+          "x": 240,
+          "y": 56
+        },
+        "scrollWidth": 1440,
+        "sidebar": {
+          "height": 900,
+          "width": 240,
+          "x": 0,
+          "y": 0
+        },
+        "viewport": 1440
+      },
+      "regions": [
+        {
+          "height": 154,
+          "tag": "A",
+          "width": 368,
+          "x": 272,
+          "y": 168
+        },
+        {
+          "height": 154,
+          "tag": "A",
+          "width": 368,
+          "x": 656,
+          "y": 168
+        },
+        {
+          "height": 154,
+          "tag": "A",
+          "width": 368,
+          "x": 1040,
+          "y": 168
+        },
+        {
+          "height": 426,
+          "tag": "SECTION",
+          "width": 560,
+          "x": 272,
+          "y": 346
+        },
+        {
+          "height": 426,
+          "tag": "SECTION",
+          "width": 560,
+          "x": 848,
+          "y": 346
+        }
+      ]
+    }
+  },
+  {
+    "file": "dashboard-full-1440.png",
+    "width": 1440,
+    "route": "/",
+    "full": true
+  },
+  {
+    "file": "dashboard-loading-1440.png",
+    "width": 1440,
+    "height": 900,
+    "route": "/",
+    "phase": "after",
+    "evidence": {
+      "body": "대시보드\n총 유저 수\n12,345\n유저 관리 →\nPENDING 라벨\n8\n스테이징 →\n미해결 신고\n24\n신고 관리 →\nDAU\n\n최근 30일 일별 활성 유저\n\nMAU\n\n최근 12개월 월별 활성 유저",
+      "font": "Pretendard, system-ui, -apple-system, sans-serif",
+      "headings": [
+        {
+          "text": "대시보드",
+          "width": 1136,
+          "x": 272,
+          "y": 80
+        }
+      ],
+      "overflow": false,
+      "table": null
+    },
+    "fullEvidence": {
+      "activeAnimations": 0,
+      "barFills": [],
+      "headings": [
+        {
+          "height": 36,
+          "label": "대시보드",
+          "width": 1136,
+          "x": 272,
+          "y": 80
+        },
+        {
+          "height": 24,
+          "label": "DAU",
+          "width": 510,
+          "x": 297,
+          "y": 371
+        },
+        {
+          "height": 24,
+          "label": "MAU",
+          "width": 510,
+          "x": 873,
+          "y": 371
+        }
+      ],
+      "layout": {
+        "header": {
+          "height": 56,
+          "width": 1200,
+          "x": 240,
+          "y": 0
+        },
+        "main": {
+          "height": 844,
+          "width": 1200,
+          "x": 240,
+          "y": 56
+        },
+        "scrollWidth": 1440,
+        "sidebar": {
+          "height": 900,
+          "width": 240,
+          "x": 0,
+          "y": 0
+        },
+        "viewport": 1440
+      },
+      "regions": [
+        {
+          "height": 154,
+          "tag": "A",
+          "width": 368,
+          "x": 272,
+          "y": 168
+        },
+        {
+          "height": 154,
+          "tag": "A",
+          "width": 368,
+          "x": 656,
+          "y": 168
+        },
+        {
+          "height": 154,
+          "tag": "A",
+          "width": 368,
+          "x": 1040,
+          "y": 168
+        },
+        {
+          "height": 368,
+          "tag": "SECTION",
+          "width": 560,
+          "x": 272,
+          "y": 346
+        },
+        {
+          "height": 368,
+          "tag": "SECTION",
+          "width": 560,
+          "x": 848,
+          "y": 346
+        }
+      ]
+    }
+  },
+  {
+    "file": "dashboard-empty-1440.png",
+    "width": 1440,
+    "height": 900,
+    "route": "/",
+    "phase": "after",
+    "evidence": {
+      "body": "대시보드\n총 유저 수\n12,345\n유저 관리 →\nPENDING 라벨\n8\n스테이징 →\n미해결 신고\n24\n신고 관리 →\nDAU\n\n최근 30일 일별 활성 유저\n\n아직 집계된 데이터가 없어요.\n\nMAU\n\n최근 12개월 월별 활성 유저\n\n아직 집계된 데이터가 없어요.",
+      "font": "Pretendard, system-ui, -apple-system, sans-serif",
+      "headings": [
+        {
+          "text": "대시보드",
+          "width": 1136,
+          "x": 272,
+          "y": 80
+        }
+      ],
+      "overflow": false,
+      "table": null
+    },
+    "fullEvidence": {
+      "activeAnimations": 0,
+      "barFills": [],
+      "headings": [
+        {
+          "height": 36,
+          "label": "대시보드",
+          "width": 1136,
+          "x": 272,
+          "y": 80
+        },
+        {
+          "height": 24,
+          "label": "DAU",
+          "width": 510,
+          "x": 297,
+          "y": 371
+        },
+        {
+          "height": 24,
+          "label": "MAU",
+          "width": 510,
+          "x": 873,
+          "y": 371
+        }
+      ],
+      "layout": {
+        "header": {
+          "height": 56,
+          "width": 1200,
+          "x": 240,
+          "y": 0
+        },
+        "main": {
+          "height": 844,
+          "width": 1200,
+          "x": 240,
+          "y": 56
+        },
+        "scrollWidth": 1440,
+        "sidebar": {
+          "height": 900,
+          "width": 240,
+          "x": 0,
+          "y": 0
+        },
+        "viewport": 1440
+      },
+      "regions": [
+        {
+          "height": 154,
+          "tag": "A",
+          "width": 368,
+          "x": 272,
+          "y": 168
+        },
+        {
+          "height": 154,
+          "tag": "A",
+          "width": 368,
+          "x": 656,
+          "y": 168
+        },
+        {
+          "height": 154,
+          "tag": "A",
+          "width": 368,
+          "x": 1040,
+          "y": 168
+        },
+        {
+          "height": 230,
+          "tag": "SECTION",
+          "width": 560,
+          "x": 272,
+          "y": 346
+        },
+        {
+          "height": 230,
+          "tag": "SECTION",
+          "width": 560,
+          "x": 848,
+          "y": 346
+        }
+      ]
+    }
+  },
+  {
+    "file": "dashboard-error-1440.png",
+    "width": 1440,
+    "height": 900,
+    "route": "/",
+    "phase": "after",
+    "evidence": {
+      "body": "대시보드\n총 유저 수\n12,345\n유저 관리 →\nPENDING 라벨\n8\n스테이징 →\n미해결 신고\n24\n신고 관리 →\nDAU\n\n최근 30일 일별 활성 유저\n\n데이터를 불러오지 못했어요. 잠시 뒤 다시 시도해 주세요.\n\n다시 시도하기\nMAU\n\n최근 12개월 월별 활성 유저\n\n데이터를 불러오지 못했어요. 잠시 뒤 다시 시도해 ",
+      "font": "Pretendard, system-ui, -apple-system, sans-serif",
+      "headings": [
+        {
+          "text": "대시보드",
+          "width": 1136,
+          "x": 272,
+          "y": 80
+        }
+      ],
+      "overflow": false,
+      "table": null
+    },
+    "fullEvidence": {
+      "activeAnimations": 0,
+      "barFills": [],
+      "headings": [
+        {
+          "height": 36,
+          "label": "대시보드",
+          "width": 1136,
+          "x": 272,
+          "y": 80
+        },
+        {
+          "height": 24,
+          "label": "DAU",
+          "width": 510,
+          "x": 297,
+          "y": 371
+        },
+        {
+          "height": 24,
+          "label": "MAU",
+          "width": 510,
+          "x": 873,
+          "y": 371
+        }
+      ],
+      "layout": {
+        "header": {
+          "height": 56,
+          "width": 1200,
+          "x": 240,
+          "y": 0
+        },
+        "main": {
+          "height": 844,
+          "width": 1200,
+          "x": 240,
+          "y": 56
+        },
+        "scrollWidth": 1440,
+        "sidebar": {
+          "height": 900,
+          "width": 240,
+          "x": 0,
+          "y": 0
+        },
+        "viewport": 1440
+      },
+      "regions": [
+        {
+          "height": 154,
+          "tag": "A",
+          "width": 368,
+          "x": 272,
+          "y": 168
+        },
+        {
+          "height": 154,
+          "tag": "A",
+          "width": 368,
+          "x": 656,
+          "y": 168
+        },
+        {
+          "height": 154,
+          "tag": "A",
+          "width": 368,
+          "x": 1040,
+          "y": 168
+        },
+        {
+          "height": 282,
+          "tag": "SECTION",
+          "width": 560,
+          "x": 272,
+          "y": 346
+        },
+        {
+          "height": 282,
+          "tag": "SECTION",
+          "width": 560,
+          "x": 848,
+          "y": 346
+        }
+      ]
+    }
+  },
+  {
+    "file": "dashboard-summary-loading-1440.png",
+    "width": 1440,
+    "height": 900,
+    "route": "/",
+    "phase": "after",
+    "evidence": {
+      "body": "대시보드\nDAU\n\n최근 30일 일별 활성 유저\n\n49\n오늘\n▼ 14 전일 대비\n10.17\n10.21\n10.25\n10.29\n11.2\n11.6\n11.10\n11.14\n0\n20\n40\n60\n80\nMAU\n\n최근 12개월 월별 활성 유저\n\n121\n이번 달 (집계 중)\n지난달 291\n25.12\n26.01\n26.02\n26.03\n26.04",
+      "font": "Pretendard, system-ui, -apple-system, sans-serif",
+      "headings": [
+        {
+          "text": "대시보드",
+          "width": 1136,
+          "x": 272,
+          "y": 80
+        }
+      ],
+      "overflow": false,
+      "table": null
+    },
+    "fullEvidence": {
+      "activeAnimations": 0,
+      "barFills": [
+        {
+          "fill": "rgb(89, 102, 119)",
+          "opacity": null
+        },
+        {
+          "fill": "rgb(89, 102, 119)",
+          "opacity": null
+        },
+        {
+          "fill": "rgb(89, 102, 119)",
+          "opacity": null
+        },
+        {
+          "fill": "rgb(89, 102, 119)",
+          "opacity": null
+        },
+        {
+          "fill": "rgb(89, 102, 119)",
+          "opacity": null
+        },
+        {
+          "fill": "rgb(89, 102, 119)",
+          "opacity": null
+        },
+        {
+          "fill": "rgb(89, 102, 119)",
+          "opacity": null
+        },
+        {
+          "fill": "rgb(89, 102, 119)",
+          "opacity": null
+        },
+        {
+          "fill": "rgb(89, 102, 119)",
+          "opacity": null
+        },
+        {
+          "fill": "rgb(89, 102, 119)",
+          "opacity": null
+        },
+        {
+          "fill": "rgb(89, 102, 119)",
+          "opacity": null
+        },
+        {
+          "fill": "rgb(124, 137, 153)",
+          "opacity": null
+        }
+      ],
+      "headings": [
+        {
+          "height": 36,
+          "label": "대시보드",
+          "width": 1136,
+          "x": 272,
+          "y": 80
+        },
+        {
+          "height": 24,
+          "label": "DAU",
+          "width": 510,
+          "x": 297,
+          "y": 377
+        },
+        {
+          "height": 24,
+          "label": "MAU",
+          "width": 510,
+          "x": 873,
+          "y": 377
+        }
+      ],
+      "layout": {
+        "header": {
+          "height": 56,
+          "width": 1200,
+          "x": 240,
+          "y": 0
+        },
+        "main": {
+          "height": 844,
+          "width": 1200,
+          "x": 240,
+          "y": 56
+        },
+        "scrollWidth": 1440,
+        "sidebar": {
+          "height": 900,
+          "width": 240,
+          "x": 0,
+          "y": 0
+        },
+        "viewport": 1440
+      },
+      "regions": [
+        {
+          "height": 426,
+          "tag": "SECTION",
+          "width": 560,
+          "x": 272,
+          "y": 352
+        },
+        {
+          "height": 426,
+          "tag": "SECTION",
+          "width": 560,
+          "x": 848,
+          "y": 352
+        }
+      ]
+    }
+  },
+  {
+    "file": "dashboard-reduced-1440.png",
+    "width": 1440,
+    "height": 900,
+    "route": "/",
+    "phase": "after",
+    "evidence": {
+      "body": "대시보드\n총 유저 수\n12,345\n유저 관리 →\nPENDING 라벨\n8\n스테이징 →\n미해결 신고\n24\n신고 관리 →\nDAU\n\n최근 30일 일별 활성 유저\n\n49\n오늘\n▼ 14 전일 대비\n10.17\n10.21\n10.25\n10.29\n11.2\n11.6\n11.10\n11.14\n0\n20\n40\n60\n80\nMAU\n\n최근 12개월 월별 ",
+      "font": "Pretendard, system-ui, -apple-system, sans-serif",
+      "headings": [
+        {
+          "text": "대시보드",
+          "width": 1136,
+          "x": 272,
+          "y": 80
+        }
+      ],
+      "overflow": false,
+      "table": null
+    },
+    "fullEvidence": {
+      "activeAnimations": 0,
+      "barFills": [
+        {
+          "fill": "rgb(89, 102, 119)",
+          "opacity": null
+        },
+        {
+          "fill": "rgb(89, 102, 119)",
+          "opacity": null
+        },
+        {
+          "fill": "rgb(89, 102, 119)",
+          "opacity": null
+        },
+        {
+          "fill": "rgb(89, 102, 119)",
+          "opacity": null
+        },
+        {
+          "fill": "rgb(89, 102, 119)",
+          "opacity": null
+        },
+        {
+          "fill": "rgb(89, 102, 119)",
+          "opacity": null
+        },
+        {
+          "fill": "rgb(89, 102, 119)",
+          "opacity": null
+        },
+        {
+          "fill": "rgb(89, 102, 119)",
+          "opacity": null
+        },
+        {
+          "fill": "rgb(89, 102, 119)",
+          "opacity": null
+        },
+        {
+          "fill": "rgb(89, 102, 119)",
+          "opacity": null
+        },
+        {
+          "fill": "rgb(89, 102, 119)",
+          "opacity": null
+        },
+        {
+          "fill": "rgb(124, 137, 153)",
+          "opacity": null
+        }
+      ],
+      "headings": [
+        {
+          "height": 36,
+          "label": "대시보드",
+          "width": 1136,
+          "x": 272,
+          "y": 80
+        },
+        {
+          "height": 24,
+          "label": "DAU",
+          "width": 510,
+          "x": 297,
+          "y": 371
+        },
+        {
+          "height": 24,
+          "label": "MAU",
+          "width": 510,
+          "x": 873,
+          "y": 371
+        }
+      ],
+      "layout": {
+        "header": {
+          "height": 56,
+          "width": 1200,
+          "x": 240,
+          "y": 0
+        },
+        "main": {
+          "height": 844,
+          "width": 1200,
+          "x": 240,
+          "y": 56
+        },
+        "scrollWidth": 1440,
+        "sidebar": {
+          "height": 900,
+          "width": 240,
+          "x": 0,
+          "y": 0
+        },
+        "viewport": 1440
+      },
+      "regions": [
+        {
+          "height": 154,
+          "tag": "A",
+          "width": 368,
+          "x": 272,
+          "y": 168
+        },
+        {
+          "height": 154,
+          "tag": "A",
+          "width": 368,
+          "x": 656,
+          "y": 168
+        },
+        {
+          "height": 154,
+          "tag": "A",
+          "width": 368,
+          "x": 1040,
+          "y": 168
+        },
+        {
+          "height": 426,
+          "tag": "SECTION",
+          "width": 560,
+          "x": 272,
+          "y": 346
+        },
+        {
+          "height": 426,
+          "tag": "SECTION",
+          "width": 560,
+          "x": 848,
+          "y": 346
+        }
+      ]
+    }
+  }
+]

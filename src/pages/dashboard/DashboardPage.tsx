@@ -12,15 +12,18 @@ export function DashboardPage() {
 
   return (
     <div className="flex flex-col gap-6">
-      <div className="flex flex-col gap-1">
+      <div className="flex min-h-16 flex-col gap-1">
         <h1 className="text-h1 text-foreground">대시보드</h1>
-        <p className="text-body text-fg-muted">운영 현황을 한눈에 확인합니다.</p>
       </div>
 
       {isLoading && (
         <div className="grid grid-cols-3 gap-4">
           {[0, 1, 2].map((i) => (
-            <Skeleton key={i} className="h-40 w-full" />
+            <div key={i} className="flex h-40 flex-col gap-3 rounded-lg border border-border bg-surface p-6">
+              <Skeleton className="h-5 w-24" />
+              <Skeleton className="h-9 w-32" />
+              <Skeleton className="h-4 w-20" />
+            </div>
           ))}
         </div>
       )}

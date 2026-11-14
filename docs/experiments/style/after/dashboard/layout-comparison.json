@@ -1,0 +1,146 @@
+[
+  {
+    "file": "dashboard-normal-1280.png",
+    "shellSame": true,
+    "headingOrderSame": true,
+    "headingDeltaY": [
+      0,
+      2,
+      2
+    ],
+    "overflow": false,
+    "activeAnimations": 0
+  },
+  {
+    "file": "dashboard-loading-1280.png",
+    "shellSame": true,
+    "headingOrderSame": true,
+    "headingDeltaY": [
+      0,
+      2,
+      2
+    ],
+    "overflow": false,
+    "activeAnimations": 0
+  },
+  {
+    "file": "dashboard-empty-1280.png",
+    "shellSame": true,
+    "headingOrderSame": true,
+    "headingDeltaY": [
+      0,
+      2,
+      2
+    ],
+    "overflow": false,
+    "activeAnimations": 0
+  },
+  {
+    "file": "dashboard-error-1280.png",
+    "shellSame": true,
+    "headingOrderSame": true,
+    "headingDeltaY": [
+      0,
+      2,
+      2
+    ],
+    "overflow": false,
+    "activeAnimations": 0
+  },
+  {
+    "file": "dashboard-summary-loading-1280.png",
+    "shellSame": true,
+    "headingOrderSame": true,
+    "headingDeltaY": [
+      0,
+      2,
+      2
+    ],
+    "overflow": false,
+    "activeAnimations": 0
+  },
+  {
+    "file": "dashboard-reduced-1280.png",
+    "shellSame": true,
+    "headingOrderSame": true,
+    "headingDeltaY": [
+      0,
+      2,
+      2
+    ],
+    "overflow": false,
+    "activeAnimations": 0
+  },
+  {
+    "file": "dashboard-normal-1440.png",
+    "shellSame": true,
+    "headingOrderSame": true,
+    "headingDeltaY": [
+      0,
+      2,
+      2
+    ],
+    "overflow": false,
+    "activeAnimations": 0
+  },
+  {
+    "file": "dashboard-loading-1440.png",
+    "shellSame": true,
+    "headingOrderSame": true,
+    "headingDeltaY": [
+      0,
+      2,
+      2
+    ],
+    "overflow": false,
+    "activeAnimations": 0
+  },
+  {
+    "file": "dashboard-empty-1440.png",
+    "shellSame": true,
+    "headingOrderSame": true,
+    "headingDeltaY": [
+      0,
+      2,
+      2
+    ],
+    "overflow": false,
+    "activeAnimations": 0
+  },
+  {
+    "file": "dashboard-error-1440.png",
+    "shellSame": true,
+    "headingOrderSame": true,
+    "headingDeltaY": [
+      0,
+      2,
+      2
+    ],
+    "overflow": false,
+    "activeAnimations": 0
+  },
+  {
+    "file": "dashboard-summary-loading-1440.png",
+    "shellSame": true,
+    "headingOrderSame": true,
+    "headingDeltaY": [
+      0,
+      2,
+      2
+    ],
+    "overflow": false,
+    "activeAnimations": 0
+  },
+  {
+    "file": "dashboard-reduced-1440.png",
+    "shellSame": true,
+    "headingOrderSame": true,
+    "headingDeltaY": [
+      0,
+      2,
+      2
+    ],
+    "overflow": false,
+    "activeAnimations": 0
+  }
+]

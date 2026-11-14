@@ -38,19 +38,19 @@ export function MauChartCard() {
       {isError && <ErrorState className="py-8" onRetry={() => refetch()} />}
 
       {data && points.length === 0 && (
-        <EmptyState className="py-8" message="아직 집계된 데이터가 없습니다." />
+        <EmptyState className="py-8" message="아직 집계된 데이터가 없어요." />
       )}
 
       {data && current && (
         <>
           <div className="flex items-baseline gap-3">
-            <span className="text-display text-foreground">{formatNumber(current.mau)}</span>
+            <span className="text-display tabular-nums text-foreground">{formatNumber(current.mau)}</span>
             <span className="text-caption text-fg-muted">
               이번 달{current.inProgress && ' (집계 중)'}
             </span>
             {/* 이번 달은 부분 집계라 전월 대비 delta 미표시(D7) — 지난달 값만 참고 제공 */}
             {previous && (
-              <span className="text-caption text-fg-secondary">
+              <span className="text-caption tabular-nums text-fg-secondary">
                 지난달 {formatNumber(previous.mau)}
               </span>
             )}
@@ -75,6 +75,7 @@ export function MauChartCard() {
               />
               {/* cursor=false: 바 호버 시 카테고리 밴드 배경 사각형 미표시 (사용자 결정 2026-09-06) */}
               <ChartTooltip
+                isAnimationActive={false}
                 cursor={false}
                 content={
                   <ChartTooltipContent
@@ -86,9 +87,12 @@ export function MauChartCard() {
                   />
                 }
               />
-              <Bar dataKey="mau" fill="var(--color-mau)" radius={[4, 4, 0, 0]}>
+              <Bar isAnimationActive={false} dataKey="mau" fill="var(--color-mau)" radius={[4, 4, 0, 0]}>
                 {points.map((point) => (
-                  <Cell key={point.month} fillOpacity={point.inProgress ? 0.4 : 1} />
+                  <Cell
+                    key={point.month}
+                    fill={point.inProgress ? 'hsl(var(--chart-mau-partial))' : 'var(--color-mau)'}
+                  />
                 ))}
               </Bar>
             </BarChart>
@@ -96,7 +100,7 @@ export function MauChartCard() {
 
           {current.inProgress && (
             <p className="text-caption text-fg-muted">
-              마지막 막대는 이번 달 진행 중 집계로, 지난 달과 직접 비교할 수 없습니다.
+              마지막 막대는 이번 달 집계 중이에요. 지난달과 직접 비교할 수 없어요.
             </p>
           )}
         </>
