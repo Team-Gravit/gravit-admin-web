@@ -1,0 +1,128 @@
+[
+  {
+    "file": "login-normal-1280.png",
+    "cardSame": true,
+    "columnsSame": true,
+    "buttonsSame": true,
+    "headingDeltaY": 0.0,
+    "overflow": false,
+    "activeAnimations": 0
+  },
+  {
+    "file": "login-forbidden-1280.png",
+    "cardSame": true,
+    "columnsSame": true,
+    "buttonsSame": true,
+    "headingDeltaY": 0.0,
+    "overflow": false,
+    "activeAnimations": 0
+  },
+  {
+    "file": "login-failed-1280.png",
+    "cardSame": true,
+    "columnsSame": true,
+    "buttonsSame": true,
+    "headingDeltaY": 0.0,
+    "overflow": false,
+    "activeAnimations": 0
+  },
+  {
+    "file": "login-loading-1280.png",
+    "cardSame": true,
+    "columnsSame": true,
+    "buttonsSame": true,
+    "headingDeltaY": 0.0,
+    "overflow": false,
+    "activeAnimations": 0
+  },
+  {
+    "file": "login-error-1280.png",
+    "cardSame": true,
+    "columnsSame": true,
+    "buttonsSame": true,
+    "headingDeltaY": 0.0,
+    "overflow": false,
+    "activeAnimations": 0
+  },
+  {
+    "file": "login-focus-1280.png",
+    "cardSame": true,
+    "columnsSame": true,
+    "buttonsSame": true,
+    "headingDeltaY": 0.0,
+    "overflow": false,
+    "activeAnimations": 0
+  },
+  {
+    "file": "login-reduced-1280.png",
+    "cardSame": true,
+    "columnsSame": true,
+    "buttonsSame": true,
+    "headingDeltaY": 0.0,
+    "overflow": false,
+    "activeAnimations": 0
+  },
+  {
+    "file": "login-normal-1440.png",
+    "cardSame": true,
+    "columnsSame": true,
+    "buttonsSame": true,
+    "headingDeltaY": 0.0,
+    "overflow": false,
+    "activeAnimations": 0
+  },
+  {
+    "file": "login-forbidden-1440.png",
+    "cardSame": true,
+    "columnsSame": true,
+    "buttonsSame": true,
+    "headingDeltaY": 0.0,
+    "overflow": false,
+    "activeAnimations": 0
+  },
+  {
+    "file": "login-failed-1440.png",
+    "cardSame": true,
+    "columnsSame": true,
+    "buttonsSame": true,
+    "headingDeltaY": 0.0,
+    "overflow": false,
+    "activeAnimations": 0
+  },
+  {
+    "file": "login-loading-1440.png",
+    "cardSame": true,
+    "columnsSame": true,
+    "buttonsSame": true,
+    "headingDeltaY": 0.0,
+    "overflow": false,
+    "activeAnimations": 0
+  },
+  {
+    "file": "login-error-1440.png",
+    "cardSame": true,
+    "columnsSame": true,
+    "buttonsSame": true,
+    "headingDeltaY": 0.0,
+    "overflow": false,
+    "activeAnimations": 0
+  },
+  {
+    "file": "login-focus-1440.png",
+    "cardSame": true,
+    "columnsSame": true,
+    "buttonsSame": true,
+    "headingDeltaY": 0.0,
+    "overflow": false,
+    "activeAnimations": 0
+  },
+  {
+    "file": "login-reduced-1440.png",
+    "cardSame": true,
+    "columnsSame": true,
+    "buttonsSame": true,
+    "headingDeltaY": 0.0,
+    "overflow": false,
+    "activeAnimations": 0
+  }
+]

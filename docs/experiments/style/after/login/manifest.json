@@ -1,0 +1,870 @@
+[
+  {
+    "file": "login-normal-1280.png",
+    "route": "/login",
+    "width": 1280,
+    "mode": "normal",
+    "evidence": {
+      "activeAnimations": 0,
+      "buttons": [
+        {
+          "disabled": false,
+          "height": 56,
+          "label": "Google로 시작하기",
+          "width": 415,
+          "x": 688,
+          "y": 431.984375
+        },
+        {
+          "disabled": false,
+          "height": 56,
+          "label": "카카오로 시작하기",
+          "width": 415,
+          "x": 688,
+          "y": 499.984375
+        },
+        {
+          "disabled": false,
+          "height": 56,
+          "label": "네이버로 시작하기",
+          "width": 415,
+          "x": 688,
+          "y": 567.984375
+        }
+      ],
+      "card": {
+        "height": 660.171875,
+        "width": 1024,
+        "x": 128,
+        "y": 119.90625
+      },
+      "columns": [
+        {
+          "height": 658.171875,
+          "width": 511,
+          "x": 129,
+          "y": 120.90625
+        },
+        {
+          "height": 658.171875,
+          "width": 511,
+          "x": 640,
+          "y": 120.90625
+        }
+      ],
+      "heading": {
+        "height": 40,
+        "width": 415,
+        "x": 688,
+        "y": 291.984375
+      },
+      "overflow": false
+    }
+  },
+  {
+    "file": "login-forbidden-1280.png",
+    "route": "/login?error=forbidden",
+    "width": 1280,
+    "mode": "forbidden",
+    "evidence": {
+      "activeAnimations": 0,
+      "buttons": [
+        {
+          "disabled": false,
+          "height": 56,
+          "label": "Google로 시작하기",
+          "width": 415,
+          "x": 688,
+          "y": 431.984375
+        },
+        {
+          "disabled": false,
+          "height": 56,
+          "label": "카카오로 시작하기",
+          "width": 415,
+          "x": 688,
+          "y": 499.984375
+        },
+        {
+          "disabled": false,
+          "height": 56,
+          "label": "네이버로 시작하기",
+          "width": 415,
+          "x": 688,
+          "y": 567.984375
+        }
+      ],
+      "card": {
+        "height": 660.171875,
+        "width": 1024,
+        "x": 128,
+        "y": 119.90625
+      },
+      "columns": [
+        {
+          "height": 658.171875,
+          "width": 511,
+          "x": 129,
+          "y": 120.90625
+        },
+        {
+          "height": 658.171875,
+          "width": 511,
+          "x": 640,
+          "y": 120.90625
+        }
+      ],
+      "heading": {
+        "height": 40,
+        "width": 415,
+        "x": 688,
+        "y": 291.984375
+      },
+      "overflow": false
+    }
+  },
+  {
+    "file": "login-failed-1280.png",
+    "route": "/login?error=failed",
+    "width": 1280,
+    "mode": "failed",
+    "evidence": {
+      "activeAnimations": 0,
+      "buttons": [
+        {
+          "disabled": false,
+          "height": 56,
+          "label": "Google로 시작하기",
+          "width": 415,
+          "x": 688,
+          "y": 431.984375
+        },
+        {
+          "disabled": false,
+          "height": 56,
+          "label": "카카오로 시작하기",
+          "width": 415,
+          "x": 688,
+          "y": 499.984375
+        },
+        {
+          "disabled": false,
+          "height": 56,
+          "label": "네이버로 시작하기",
+          "width": 415,
+          "x": 688,
+          "y": 567.984375
+        }
+      ],
+      "card": {
+        "height": 660.171875,
+        "width": 1024,
+        "x": 128,
+        "y": 119.90625
+      },
+      "columns": [
+        {
+          "height": 658.171875,
+          "width": 511,
+          "x": 129,
+          "y": 120.90625
+        },
+        {
+          "height": 658.171875,
+          "width": 511,
+          "x": 640,
+          "y": 120.90625
+        }
+      ],
+      "heading": {
+        "height": 40,
+        "width": 415,
+        "x": 688,
+        "y": 291.984375
+      },
+      "overflow": false
+    }
+  },
+  {
+    "file": "login-loading-1280.png",
+    "route": "/login",
+    "width": 1280,
+    "mode": "loading",
+    "evidence": {
+      "activeAnimations": 0,
+      "buttons": [
+        {
+          "disabled": true,
+          "height": 56,
+          "label": "Google로 시작하기",
+          "width": 415,
+          "x": 688,
+          "y": 431.984375
+        },
+        {
+          "disabled": true,
+          "height": 56,
+          "label": "카카오로 시작하기",
+          "width": 415,
+          "x": 688,
+          "y": 499.984375
+        },
+        {
+          "disabled": true,
+          "height": 56,
+          "label": "네이버로 시작하기",
+          "width": 415,
+          "x": 688,
+          "y": 567.984375
+        }
+      ],
+      "card": {
+        "height": 660.171875,
+        "width": 1024,
+        "x": 128,
+        "y": 119.90625
+      },
+      "columns": [
+        {
+          "height": 658.171875,
+          "width": 511,
+          "x": 129,
+          "y": 120.90625
+        },
+        {
+          "height": 658.171875,
+          "width": 511,
+          "x": 640,
+          "y": 120.90625
+        }
+      ],
+      "heading": {
+        "height": 40,
+        "width": 415,
+        "x": 688,
+        "y": 291.984375
+      },
+      "overflow": false
+    }
+  },
+  {
+    "file": "login-error-1280.png",
+    "route": "/login",
+    "width": 1280,
+    "mode": "error",
+    "evidence": {
+      "activeAnimations": 0,
+      "buttons": [
+        {
+          "disabled": false,
+          "height": 56,
+          "label": "Google로 시작하기",
+          "width": 415,
+          "x": 688,
+          "y": 431.984375
+        },
+        {
+          "disabled": false,
+          "height": 56,
+          "label": "카카오로 시작하기",
+          "width": 415,
+          "x": 688,
+          "y": 499.984375
+        },
+        {
+          "disabled": false,
+          "height": 56,
+          "label": "네이버로 시작하기",
+          "width": 415,
+          "x": 688,
+          "y": 567.984375
+        }
+      ],
+      "card": {
+        "height": 660.171875,
+        "width": 1024,
+        "x": 128,
+        "y": 119.90625
+      },
+      "columns": [
+        {
+          "height": 658.171875,
+          "width": 511,
+          "x": 129,
+          "y": 120.90625
+        },
+        {
+          "height": 658.171875,
+          "width": 511,
+          "x": 640,
+          "y": 120.90625
+        }
+      ],
+      "heading": {
+        "height": 40,
+        "width": 415,
+        "x": 688,
+        "y": 291.984375
+      },
+      "overflow": false
+    }
+  },
+  {
+    "file": "login-focus-1280.png",
+    "route": "/login",
+    "width": 1280,
+    "mode": "focus",
+    "evidence": {
+      "activeAnimations": 0,
+      "buttons": [
+        {
+          "disabled": false,
+          "height": 56,
+          "label": "Google로 시작하기",
+          "width": 415,
+          "x": 688,
+          "y": 431.984375
+        },
+        {
+          "disabled": false,
+          "height": 56,
+          "label": "카카오로 시작하기",
+          "width": 415,
+          "x": 688,
+          "y": 499.984375
+        },
+        {
+          "disabled": false,
+          "height": 56,
+          "label": "네이버로 시작하기",
+          "width": 415,
+          "x": 688,
+          "y": 567.984375
+        }
+      ],
+      "card": {
+        "height": 660.171875,
+        "width": 1024,
+        "x": 128,
+        "y": 119.90625
+      },
+      "columns": [
+        {
+          "height": 658.171875,
+          "width": 511,
+          "x": 129,
+          "y": 120.90625
+        },
+        {
+          "height": 658.171875,
+          "width": 511,
+          "x": 640,
+          "y": 120.90625
+        }
+      ],
+      "heading": {
+        "height": 40,
+        "width": 415,
+        "x": 688,
+        "y": 291.984375
+      },
+      "overflow": false
+    }
+  },
+  {
+    "file": "login-reduced-1280.png",
+    "route": "/login",
+    "width": 1280,
+    "mode": "reduced",
+    "evidence": {
+      "activeAnimations": 0,
+      "buttons": [
+        {
+          "disabled": false,
+          "height": 56,
+          "label": "Google로 시작하기",
+          "width": 415,
+          "x": 688,
+          "y": 431.984375
+        },
+        {
+          "disabled": false,
+          "height": 56,
+          "label": "카카오로 시작하기",
+          "width": 415,
+          "x": 688,
+          "y": 499.984375
+        },
+        {
+          "disabled": false,
+          "height": 56,
+          "label": "네이버로 시작하기",
+          "width": 415,
+          "x": 688,
+          "y": 567.984375
+        }
+      ],
+      "card": {
+        "height": 660.171875,
+        "width": 1024,
+        "x": 128,
+        "y": 119.90625
+      },
+      "columns": [
+        {
+          "height": 658.171875,
+          "width": 511,
+          "x": 129,
+          "y": 120.90625
+        },
+        {
+          "height": 658.171875,
+          "width": 511,
+          "x": 640,
+          "y": 120.90625
+        }
+      ],
+      "heading": {
+        "height": 40,
+        "width": 415,
+        "x": 688,
+        "y": 291.984375
+      },
+      "overflow": false
+    }
+  },
+  {
+    "file": "login-normal-1440.png",
+    "route": "/login",
+    "width": 1440,
+    "mode": "normal",
+    "evidence": {
+      "activeAnimations": 0,
+      "buttons": [
+        {
+          "disabled": false,
+          "height": 56,
+          "label": "Google로 시작하기",
+          "width": 415,
+          "x": 768,
+          "y": 431.984375
+        },
+        {
+          "disabled": false,
+          "height": 56,
+          "label": "카카오로 시작하기",
+          "width": 415,
+          "x": 768,
+          "y": 499.984375
+        },
+        {
+          "disabled": false,
+          "height": 56,
+          "label": "네이버로 시작하기",
+          "width": 415,
+          "x": 768,
+          "y": 567.984375
+        }
+      ],
+      "card": {
+        "height": 660.171875,
+        "width": 1024,
+        "x": 208,
+        "y": 119.90625
+      },
+      "columns": [
+        {
+          "height": 658.171875,
+          "width": 511,
+          "x": 209,
+          "y": 120.90625
+        },
+        {
+          "height": 658.171875,
+          "width": 511,
+          "x": 720,
+          "y": 120.90625
+        }
+      ],
+      "heading": {
+        "height": 40,
+        "width": 415,
+        "x": 768,
+        "y": 291.984375
+      },
+      "overflow": false
+    }
+  },
+  {
+    "file": "login-forbidden-1440.png",
+    "route": "/login?error=forbidden",
+    "width": 1440,
+    "mode": "forbidden",
+    "evidence": {
+      "activeAnimations": 0,
+      "buttons": [
+        {
+          "disabled": false,
+          "height": 56,
+          "label": "Google로 시작하기",
+          "width": 415,
+          "x": 768,
+          "y": 431.984375
+        },
+        {
+          "disabled": false,
+          "height": 56,
+          "label": "카카오로 시작하기",
+          "width": 415,
+          "x": 768,
+          "y": 499.984375
+        },
+        {
+          "disabled": false,
+          "height": 56,
+          "label": "네이버로 시작하기",
+          "width": 415,
+          "x": 768,
+          "y": 567.984375
+        }
+      ],
+      "card": {
+        "height": 660.171875,
+        "width": 1024,
+        "x": 208,
+        "y": 119.90625
+      },
+      "columns": [
+        {
+          "height": 658.171875,
+          "width": 511,
+          "x": 209,
+          "y": 120.90625
+        },
+        {
+          "height": 658.171875,
+          "width": 511,
+          "x": 720,
+          "y": 120.90625
+        }
+      ],
+      "heading": {
+        "height": 40,
+        "width": 415,
+        "x": 768,
+        "y": 291.984375
+      },
+      "overflow": false
+    }
+  },
+  {
+    "file": "login-failed-1440.png",
+    "route": "/login?error=failed",
+    "width": 1440,
+    "mode": "failed",
+    "evidence": {
+      "activeAnimations": 0,
+      "buttons": [
+        {
+          "disabled": false,
+          "height": 56,
+          "label": "Google로 시작하기",
+          "width": 415,
+          "x": 768,
+          "y": 431.984375
+        },
+        {
+          "disabled": false,
+          "height": 56,
+          "label": "카카오로 시작하기",
+          "width": 415,
+          "x": 768,
+          "y": 499.984375
+        },
+        {
+          "disabled": false,
+          "height": 56,
+          "label": "네이버로 시작하기",
+          "width": 415,
+          "x": 768,
+          "y": 567.984375
+        }
+      ],
+      "card": {
+        "height": 660.171875,
+        "width": 1024,
+        "x": 208,
+        "y": 119.90625
+      },
+      "columns": [
+        {
+          "height": 658.171875,
+          "width": 511,
+          "x": 209,
+          "y": 120.90625
+        },
+        {
+          "height": 658.171875,
+          "width": 511,
+          "x": 720,
+          "y": 120.90625
+        }
+      ],
+      "heading": {
+        "height": 40,
+        "width": 415,
+        "x": 768,
+        "y": 291.984375
+      },
+      "overflow": false
+    }
+  },
+  {
+    "file": "login-loading-1440.png",
+    "route": "/login",
+    "width": 1440,
+    "mode": "loading",
+    "evidence": {
+      "activeAnimations": 0,
+      "buttons": [
+        {
+          "disabled": true,
+          "height": 56,
+          "label": "Google로 시작하기",
+          "width": 415,
+          "x": 768,
+          "y": 431.984375
+        },
+        {
+          "disabled": true,
+          "height": 56,
+          "label": "카카오로 시작하기",
+          "width": 415,
+          "x": 768,
+          "y": 499.984375
+        },
+        {
+          "disabled": true,
+          "height": 56,
+          "label": "네이버로 시작하기",
+          "width": 415,
+          "x": 768,
+          "y": 567.984375
+        }
+      ],
+      "card": {
+        "height": 660.171875,
+        "width": 1024,
+        "x": 208,
+        "y": 119.90625
+      },
+      "columns": [
+        {
+          "height": 658.171875,
+          "width": 511,
+          "x": 209,
+          "y": 120.90625
+        },
+        {
+          "height": 658.171875,
+          "width": 511,
+          "x": 720,
+          "y": 120.90625
+        }
+      ],
+      "heading": {
+        "height": 40,
+        "width": 415,
+        "x": 768,
+        "y": 291.984375
+      },
+      "overflow": false
+    }
+  },
+  {
+    "file": "login-error-1440.png",
+    "route": "/login",
+    "width": 1440,
+    "mode": "error",
+    "evidence": {
+      "activeAnimations": 0,
+      "buttons": [
+        {
+          "disabled": false,
+          "height": 56,
+          "label": "Google로 시작하기",
+          "width": 415,
+          "x": 768,
+          "y": 431.984375
+        },
+        {
+          "disabled": false,
+          "height": 56,
+          "label": "카카오로 시작하기",
+          "width": 415,
+          "x": 768,
+          "y": 499.984375
+        },
+        {
+          "disabled": false,
+          "height": 56,
+          "label": "네이버로 시작하기",
+          "width": 415,
+          "x": 768,
+          "y": 567.984375
+        }
+      ],
+      "card": {
+        "height": 660.171875,
+        "width": 1024,
+        "x": 208,
+        "y": 119.90625
+      },
+      "columns": [
+        {
+          "height": 658.171875,
+          "width": 511,
+          "x": 209,
+          "y": 120.90625
+        },
+        {
+          "height": 658.171875,
+          "width": 511,
+          "x": 720,
+          "y": 120.90625
+        }
+      ],
+      "heading": {
+        "height": 40,
+        "width": 415,
+        "x": 768,
+        "y": 291.984375
+      },
+      "overflow": false
+    }
+  },
+  {
+    "file": "login-focus-1440.png",
+    "route": "/login",
+    "width": 1440,
+    "mode": "focus",
+    "evidence": {
+      "activeAnimations": 0,
+      "buttons": [
+        {
+          "disabled": false,
+          "height": 56,
+          "label": "Google로 시작하기",
+          "width": 415,
+          "x": 768,
+          "y": 431.984375
+        },
+        {
+          "disabled": false,
+          "height": 56,
+          "label": "카카오로 시작하기",
+          "width": 415,
+          "x": 768,
+          "y": 499.984375
+        },
+        {
+          "disabled": false,
+          "height": 56,
+          "label": "네이버로 시작하기",
+          "width": 415,
+          "x": 768,
+          "y": 567.984375
+        }
+      ],
+      "card": {
+        "height": 660.171875,
+        "width": 1024,
+        "x": 208,
+        "y": 119.90625
+      },
+      "columns": [
+        {
+          "height": 658.171875,
+          "width": 511,
+          "x": 209,
+          "y": 120.90625
+        },
+        {
+          "height": 658.171875,
+          "width": 511,
+          "x": 720,
+          "y": 120.90625
+        }
+      ],
+      "heading": {
+        "height": 40,
+        "width": 415,
+        "x": 768,
+        "y": 291.984375
+      },
+      "overflow": false
+    }
+  },
+  {
+    "file": "login-reduced-1440.png",
+    "route": "/login",
+    "width": 1440,
+    "mode": "reduced",
+    "evidence": {
+      "activeAnimations": 0,
+      "buttons": [
+        {
+          "disabled": false,
+          "height": 56,
+          "label": "Google로 시작하기",
+          "width": 415,
+          "x": 768,
+          "y": 431.984375
+        },
+        {
+          "disabled": false,
+          "height": 56,
+          "label": "카카오로 시작하기",
+          "width": 415,
+          "x": 768,
+          "y": 499.984375
+        },
+        {
+          "disabled": false,
+          "height": 56,
+          "label": "네이버로 시작하기",
+          "width": 415,
+          "x": 768,
+          "y": 567.984375
+        }
+      ],
+      "card": {
+        "height": 660.171875,
+        "width": 1024,
+        "x": 208,
+        "y": 119.90625
+      },
+      "columns": [
+        {
+          "height": 658.171875,
+          "width": 511,
+          "x": 209,
+          "y": 120.90625
+        },
+        {
+          "height": 658.171875,
+          "width": 511,
+          "x": 720,
+          "y": 120.90625
+        }
+      ],
+      "heading": {
+        "height": 40,
+        "width": 415,
+        "x": 768,
+        "y": 291.984375
+      },
+      "overflow": false
+    }
+  }
+]
